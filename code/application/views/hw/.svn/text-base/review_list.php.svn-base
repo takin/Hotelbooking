@@ -1,0 +1,38 @@
+<div class="comment-list clearfix">
+    <?php if(!empty($review_rating)){?>
+		<div class="rating-user">
+			<?php echo $review_rating;?>%
+		</div>   
+		<?php }?>
+		             
+    <div<?php if (!empty($review_translated)){?> class="original" style="display:none;"<?php }?>>
+		<?php echo nl2p(var_check($review,""),false,true);?>
+		</div>
+		
+		<?php if (!empty($review_translated)){?>
+		<div class="translated">
+		<?php echo nl2p(var_check($review_translated,""),false,true);?>
+		</div>
+		<?php /*?><div class="clear"></div>
+		<div class="version-switch">
+		<a href="#"><?php echo _("Voir la version traduite"); ?></a>
+		<a href="#"><?php echo _("Voir l'original"); ?></a>		
+		</div><?php */?>
+		<?php }?>
+		
+		<p class="auteur">
+		<?php if ($review_source == 'HW'){
+			echo '* ';
+		}?>
+		<?php if ($author_name == 'Anonymous'){?>
+    	<?php printf(gettext("Le %s"), date_conv($review_date, $this->wordpress->get_option('aj_date_format'))); ?>	
+		<?php }else{?>
+			<?php printf(gettext("Par %s | Le %s"), $author_name,date_conv($review_date, $this->wordpress->get_option('aj_date_format'))); ?>			
+    <?php }?>
+		</p>
+		
+    <?php /*?><div class="actual-star star-<?php echo $review_rating;?>">
+      <span></span>
+    </div><?php */?>
+
+</div>

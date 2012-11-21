@@ -1,0 +1,1 @@
+<?php echo $this->config->item('site_name'); ?> HW-<?php echo $booking->CustomerReference->value;?>, <?php echo $booking->PropertyDetails->propertyName;?>, <?php echo $booking->PropertyDetails->phone;?>, <?php echo $booking->PropertyDetails->email;?>

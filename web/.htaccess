@@ -1,0 +1,540 @@
+#AuthType Basic
+#AuthName "Restricted Files"
+#AuthUserFile /srv/d_mcweb1/apachePasswd/passwords
+#Require user graphems
+
+AddDefaultCharset UTF-8
+
+RewriteEngine on
+RewriteBase /
+
+#RewriteRule maintenance.html  -  [L]
+#RewriteCond %{REMOTE_ADDR} !^(67\.68\.71\.139|174\.1\.201\.130)
+#RewriteRule (.*) ./maintenance.html [L]
+
+#Ensure www is used
+RewriteCond %{HTTP_HOST}   ^(alberguesjuveniles\.com|youth-hostel\.com|hostales\.com|auberges\.com|aubergesdejeunesse\.com|alberguesdajuventude\.com|ostellidellagioventu\.com|youth-hostels\.jp|jugendherbergen\.eu|youth-hostels\.kr|pousadasdejuventude\.com|alberguesjuveniles\.es|albergues-pensiones\.com|hostels\.in|youth-hostels\.co\.uk|youth-hostels\.ca|aubergesdejeunesse\.ca|hostelek\.com|hostels\.ru\.com|youth-hostels\.hk|hostele\.com|youth-hostels\.ru|schroniskamlodziezowe\.com|retkeilymajoja\.com|hostely\.com|herbergen\.com|ifjusagiszallasok\.com|mladeznickeubytovny\.com|hostelleja\.com|xn--e1amhmfp1c\.xn--p1ai|hosteis\.com|hostelli\.com|youth-hostels\.ie|youth-hostels\.co\.nz|youth-hostels\.co\.nz|youth-hostels\.eu|youth-hostels\.asia|youth-hostels\.cn|hostels\.jp|hostels\.mobi|nofeeshostels\.com|xn--xn2by4qtje86kn5ezmb\.kr) [NC]
+RewriteRule ^/?(.*)         http://www.%{HTTP_HOST}/$1 [L,R,NE]
+
+#-------------------- Redirection ------------------
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.hk$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.hk%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.hk$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.hk%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.co\.uk$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.co.uk%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.co\.uk$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.co.uk%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.ie$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ie%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.ie$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ie%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.ca$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ca%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.ca$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ca%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.ru\.com$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ru%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.ru\.com$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.ru%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.co\.nz$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.co.nz%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.co\.nz$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.co.nz%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.jp$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.jp%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.jp$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.jp%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.kr$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.kr%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youth-hostel\.kr$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.kr%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.youthhostels\.eu$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.eu%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^youthhostels\.eu$ [NC]
+RewriteRule ^.*$ http://www.youth-hostels.eu%{REQUEST_URI} [R=301,L]
+
+#-------------------  www.auberges.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.auberges\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.auberges\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.aubergesdejeunesse.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations|aide|charte-de-confidentialite|termes-et-conditions)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.com [NC]
+RedirectMatch 301 /auberges/recherche/(.*) http://www.aubergesdejeunesse.com/$1
+#RedirectMatch 301 /auberges/ http://www.aubergesdejeunesse.com/auberges-de-jeunesse/
+RedirectMatch 301 /auberges/info/(.*) http://www.aubergesdejeunesse.com/auberge-de-jeunesse/$1
+RedirectMatch 301 /auberges/monde/(.*) http://www.aubergesdejeunesse.com/$1
+RedirectMatch 301 /destinations/(.*) http://www.aubergesdejeunesse.com/info/auberge-destinations/$1
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostel.com -------------------
+#Wordpress English direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostel\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress English direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostel\.com [NC]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostales.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostales\.com [NC]
+RewriteCond   $1 ^($|eventos|destinos)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostales\.com [NC]
+RewriteRule   ^infohostal/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostales/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.alberguesjuveniles.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesjuveniles\.com [NC]
+RewriteCond   $1 ^($|eventos|destinos)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesjuveniles\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^albergues-juveniles/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.alberguesdajuventude.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesdajuventude\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesdajuventude\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.ostellidellagioventu.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.ostellidellagioventu\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.ostellidellagioventu\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.jp -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.jp [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.jp [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.kr -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.kr [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.kr [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.jugendherbergen.eu -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.jugendherbergen\.eu [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.jugendherbergen\.eu [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.pousadasdejuventude.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.pousadasdejuventude\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.pousadasdejuventude\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.alberguesjuveniles.es -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesjuveniles\.es [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.alberguesjuveniles\.es [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.albergues-pensiones.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.albergues-pensiones\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.albergues-pensiones\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.hostels.in -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.in [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.in [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.co.uk -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.co\.uk [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.co\.uk [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.hk -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.hk [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.hk [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.hostele.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostele\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostele\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.ru -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ru [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ru [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.schroniskamlodziezowe.com -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.schroniskamlodziezowe\.com [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.schroniskamlodziezowe\.com [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.ca -------------------
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ca [NC]
+RewriteCond   $1 ^($|events|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress Spanish direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ca [NC]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
+
+#-------------------  www.aubergesdejeunesse.ca -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.ca [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.ca [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+
+#-------------------  www.hostelek.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelek\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelek\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.ifjusagiszallasok.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.ifjusagiszallasok\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.ifjusagiszallasok\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+
+#-------------------  www.hostels.ru.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.ru\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.ru\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.retkeilymajoja.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.retkeilymajoja\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.retkeilymajoja\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostelleja.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelleja\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelleja\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostely.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostely\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostely\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.mladeznickeubytovny.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.mladeznickeubytovny\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.mladeznickeubytovny\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.herbergen.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.herbergen\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.herbergen\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.xn--e1amhmfp1c.xn--p1ai -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.xn--e1amhmfp1c\.xn--p1ai [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.xn--e1amhmfp1c\.xn--p1ai [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hosteis.com  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hosteis\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hosteis\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostelli.com  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelli\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostelli\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.ie  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ie [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.ie [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.co.nz  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.co\.nz [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.co\.nz [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.eu  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.eu [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.eu [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.asia  -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.asia [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.asia [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.youth-hostels.cn -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.cn [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.youth-hostels\.cn [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostels.jp -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.jp [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.jp [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.hostels.mobi -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.mobi [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hostels\.mobi [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+#-------------------  www.nofeehostels.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.nofeeshostels\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.nofeeshostels\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+
+#-------------------  www.xn--xn2by4qtje86kn5ezmb.kr -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.xn--xn2by4qtje86kn5ezmb\.kr [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.xn--xn2by4qtje86kn5ezmb\.kr [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+
+#-------------------  ALL SITES -------------------
+#Everything else is directed to CI folder, if it is not a real folder name or robot
+RewriteCond $1 !^(test\.php|robots\.txt)
+RewriteRule ^(.*)$ ci/$1 [QSA,L]

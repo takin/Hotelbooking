@@ -1,0 +1,755 @@
+		<div id="main" class="hostel-view-page">
+            <div class="col1">
+            
+              <?php
+				//error handling standard
+				if($api_error==false)
+				{
+				  //$hostel is set
+				}
+				elseif($api_error_msg==false)
+				{
+				  //serveur inaccessible en ce moment (HW only)
+				}
+				else
+				{
+				  //error message = $api_error_msg->UserMessage->message
+				  //error details (en anglais) = $api_error_msg->UserMessage->detail
+				  ?>
+				  <h1 class="green-bar"><?php echo _("Erreur de requête");?></h1>
+          <div class="dispo-error">
+            <p><strong><?php echo _("Erreur:");?></strong>
+            <?php 
+              if(!empty($api_error_msg->messageTranslated))
+              {
+                echo $api_error_msg->messageTranslated;
+              }
+              else
+              {
+                echo $api_error_msg->message;
+              }
+            ?>
+            <br>
+            </p>
+            <p><strong><?php echo _("Détails:");?></strong>
+            <?php 
+              if(!empty($api_error_msg->detailTranslated))
+              {
+                echo $api_error_msg->detailTranslated;
+              }
+              else
+              {
+                echo $api_error_msg->detail;
+              }
+            ?>
+            <br>
+            </p>
+          </div>
+          <?php
+				}
+				
+				?>
+              
+			  <?php if($api_error==false):?>
+              
+              <h1 class="green-bar-view"><?php echo _("Auberge");?> <?php echo var_check($hostel["NAME"],""); ?><?php echo ' - '.var_check($hostel["ADDRESS"]["CITY"],"");?></h1>
+              
+              
+              <ul class="view-menu tabing">                
+                <li><a href="#tab1"><?php echo _("Info & Prix");?></a></li>
+                <li><a href="#tab2" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
+                <li><a href="#tab3"><?php echo _("Commentaires");?><?php // if ($hostel_comments->num_rows()>0){ echo '('.$hostel_comments->num_rows().')';}?></a></li>
+                
+              </ul>
+              
+              <?php 
+                //echo "HW rating: ". $this->Db_hw_rating->get_hw_rating($hostel["ID"]);
+                if(!empty($hostel_db_data->rating_overall))
+                {
+                  ?>
+                  <ul class="eval-view">
+                      <li class="moyenne"><?php echo _("évaluation moyenne");?></li>
+                      <li><span><?php echo floatval($hostel_db_data->rating_overall);?> %</span></li>
+              	  </ul>
+              	  <?php
+                }
+              	elseif(!empty($hostel["RATING"]))
+              	{
+              	  ?>
+                  <ul class="eval-view">
+                      <li class="moyenne"><?php echo _("évaluation moyenne");?></li>
+                      <li><span><?php echo floatval($hostel["RATING"]);?> %</span></li>
+              	  </ul>
+              	  <?php
+								}
+								
+								/*if(is_null($hostel_rating)||($hostel_rating->rating_count<1))
+              	{
+              	  
+              	}
+              	else
+              	{
+              	  ?><ul class="eval-view">
+                        <li class="moyenne"><?php echo _("évaluation moyenne");?></li>
+                        <li><span><?php echo $hostel_rating->average_rating;?> %</span></li>
+              	  	</ul><?php
+								}*/
+              	
+               ?>
+              
+              <div id="tab1" class="hostel-view tabdiv">
+              	             	
+                <div id="loading_dispo">
+								<p><?php echo _('Recherche de disponibilités...'); ?></p>
+								</div>
+								<div id="booking-table"></div>
+                
+               <?php if (!empty($hostel["IMAGES"])){?>
+              	<div class="slideshow">
+                	
+                    <div class="slides">
+                      <div class="main-pic">
+                      	
+												<?php foreach ($hostel["BIGIMAGES"] as $image) :?>    
+                                                
+                        <a rel="prettyPhoto[<?php echo var_check($hostel["NAME"],""); ?>]" href="<?php echo var_check($image,"/test.jpg"); ?>" alt="<?php echo $hostel["NAME"]; ?>">
+												<img class="slide-zoom" title="<?php echo _("Click to enlarge"); ?>" width="200" height="144" src="<?php echo base_url();?>images/slide-zoom.png" alt="" />
+												<img class="main" width="200" height="144" src="<?php echo var_check($image,"/test.jpg"); ?>" alt="<?php echo $hostel["NAME"]; ?>" /></a>    
+                        <?php endforeach;?>
+                      </div>
+                      <div class="control">
+                      	<a class="control-left" href="#">Previous</a>
+                        <a class="control-right" href="#">Next</a>                        
+                      </div>
+                     
+					  
+                	</div>
+                </div>
+                <?php }
+                
+                $prop_type = $hostel["TYPE"];
+                if(!empty($hostel["TYPE_translated"]))
+                {
+                  $prop_type = $hostel["TYPE_translated"];
+                }
+                ?> 
+                	
+								<p class="last-comment-title"><strong><?php echo var_check($hostel["NAME"],"");?></strong> - <?php echo strip_tags($prop_type);?></p>
+								
+								<?php $countrating = 0; foreach($property_ratings as $rating_category => $rating_value):if($rating_category =="overall") continue;?>
+								<?php if ($countrating == 0) {?>
+								<div class="bar-rating" style="margin-right:15px;">
+								<?php }?>
+								<?php if ($countrating == 4) {?>
+								</div><div class="bar-rating">
+								<?php }?>
+									<div class="bar-back clearfix">
+										<div class="bar-top<?php echo getColorRating($rating_value);?>"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
+										<img alt="" src="<?php echo base_url();?>images/rating-<?php echo $rating_category;?>.png"/>
+										<span class="rating-cat">
+										<?php 
+										switch ($rating_category){
+											case 'atmosphere':
+												echo _("Atmosphere");
+												break;
+											case 'staff':
+												echo _("Staff");
+												break;
+											case 'location':
+												echo _("Location");
+												break;
+											case 'cleanliness':
+												echo _("Cleanliness");
+												break;
+											case 'facilities':
+												echo _("Facilities");
+												break;
+											case 'safety':
+												echo _("Safety");
+												break;
+											case 'fun':
+												echo _("Fun");
+												break;
+											case 'value':
+												echo _("Value");
+												break;
+										}
+										?>
+										</span>	
+										<span class="rating-value">
+										<?php
+											if(!empty($rating_value))
+								        echo $rating_value."%";
+								      else 
+								        echo _("N/A"); 
+											?>	
+										</span>								
+									</div>
+								<?php if ($countrating == 7) {?>
+								</div>
+								<?php }?>
+								<?php $countrating++;endforeach;?>								             
+                
+                <div class="clear"></div>
+                
+								<div class="content-block">
+                	<h2><?php echo _("À propos de"); ?> <?php echo var_check($hostel["NAME"],"");?></h2>
+                  
+                  <?php if (!empty($hostel["LONGDESCRIPTION_translated"])){?>
+                  <select class="select-translate">
+                    <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+                    <option value="original"><?php echo _("Voir l'original"); ?></option>
+                  </select>
+                  <?php }?>  
+                  <div class="about fix-width">
+                      
+                      <?php //TODO this function nl2br return weird stuff sometime, need to have something more robust?>
+                      <?php 
+  
+                      if(!empty($hostel["LONGDESCRIPTION_translated"]))
+                      {
+                        echo '<div class="translated">'.$hostel["LONGDESCRIPTION_translated"].'</div>';
+                        echo '<div class="original" style="display:none;">'.nl2p(var_check($hostel["LONGDESCRIPTION"],""),false,true).'</div>';
+                      }
+                      else
+                      {
+                        echo nl2p(var_check($hostel["LONGDESCRIPTION"],""),false,true);
+                      }
+                      ?>
+                      
+                  </div>
+                </div>
+                
+                
+                <?php if (!empty($hostel['FEATURES'])){?>
+                <div class="content-block">
+                  <h2><?php echo _("Commodité");?></h2>
+                  <?php if (!empty($hostel['FEATURES_translated'])){?>
+                  <select class="select-translate">
+                    <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+                    <option value="original"><?php echo _("Voir l'original"); ?></option>
+                  </select>
+                  <?php }?>  
+                  <div class="round-block clearfix">
+									<ul class="float-list green-li increase1 <?php if(!empty($hostel['FEATURES_translated'])){?>translated<?php } ?>">
+                    <?php 
+                    $numloop = count($hostel['FEATURES']) - 1; 
+                    $breakloop = round($numloop/2);
+                    $loopcount = 0;
+                    
+                    $facilities = $hostel['FEATURES'];
+                    
+                    if(!empty($hostel['FEATURES_translated']))
+                    {
+                      $facilities = $hostel['FEATURES_translated'];                      
+                    }
+                    
+                    foreach ($facilities as $facility)
+                    {                 	
+                      if(!empty($facility))
+                      {
+                      
+                        $loopcount++;
+                        ?>
+                        <li><?php echo stripslashes(var_check($facility,""));?></li>
+                        
+                        <?php 
+                        if ($loopcount == $breakloop)
+                        {
+                          ?>
+                          </ul><ul class="float-list green-li increase1 <?php if(!empty($hostel['FEATURES_translated'])){?>translated<?php } ?>">
+                          <?php 
+                        }
+                      }
+                    }
+                    ?>
+                   
+                  </ul>
+									<?php if(!empty($hostel['FEATURES_translated'])){?>
+                  <ul class="float-list green-li increase1 original" style="display:none;">
+                    <?php 
+                    $numloop = count($hostel['FEATURES']) - 1; 
+                    $breakloop = round($numloop/2);
+                    $loopcount = 0;
+                    
+                    $facilities = $hostel['FEATURES'];
+                                    
+                    foreach ($facilities as $facility)
+                    {                 	
+                      if(!empty($facility))
+                      {
+                      
+                        $loopcount++;
+                        ?>
+                        <li><?php echo stripslashes(var_check($facility,""));?></li>
+                        
+                        <?php 
+                        if ($loopcount == $breakloop)
+                        {
+                          ?>
+                          </ul><ul class="float-list green-li increase1 original" style="display:none;">
+                          <?php 
+                        }
+                      }
+                    }
+                    ?>
+                   
+                  </ul>
+                
+									<?php } ?>
+                	</div>
+                </div>
+                <div class="clear"></div>
+								<?php }?>
+								<?php //foreach ($propertyextra as $indice => $valeur)?>
+								<?php if (!empty($hostel['PROPERTYEXTRAS_included']) || !empty($hostel['PROPERTYEXTRAS_purchasable']) ){?>
+								<div class="col2-b first-col">
+									<?php if (!empty($hostel['PROPERTYEXTRAS_included'])){?>
+									<div class="content-block">
+										<h2 class="smaller"><?php echo _("What's Included");?></h2>
+										<?php if (!empty($hostel['PROPERTYEXTRAS_included_translated'])){?>									
+										<select class="select-translate smaller">
+											<option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+											<option value="original"><?php echo _("Voir l'original"); ?></option>
+										</select>									
+										<?php }?>
+										<div class="round-block clearfix">
+											<?php if (!empty($hostel['PROPERTYEXTRAS_included_translated'])){?>	
+												<ul class="float-list green-li increase1 original" style="display:none;">
+												<?php foreach ($hostel['PROPERTYEXTRAS_included'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'._("Free").'</strong>';?></li>
+												<?php }?>
+												</ul>
+												<ul class="float-list green-li increase1 translated">
+												<?php foreach ($hostel['PROPERTYEXTRAS_included_translated'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'._("Free").'</strong>';?></li>
+												<?php }?>
+												</ul>
+											<?php }else{?>
+												<ul class="float-list green-li increase1 original">
+												<?php foreach ($hostel['PROPERTYEXTRAS_included'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'._("Free").'</strong>';?></li>
+												<?php }?>
+												</ul>
+											<?php }?>
+										</div>
+									</div>								
+								<?php }?>
+								
+								<?php if (!empty($hostel['PROPERTYEXTRAS_purchasable'])){?>
+									<div class="content-block">
+										<h2 class="smaller"><?php echo _("Purchasable Extras");?></h2>
+										<?php if (!empty($hostel['PROPERTYEXTRAS_purchasable_translated'])){?>									
+										<select class="select-translate smaller">
+											<option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+											<option value="original"><?php echo _("Voir l'original"); ?></option>
+										</select>									
+										<?php }?>
+										<div class="round-block clearfix">
+											<?php if (!empty($hostel['PROPERTYEXTRAS_purchasable_translated'])){?>	
+												<ul class="float-list green-li increase1 original" style="display:none;">
+												<?php foreach ($hostel['PROPERTYEXTRAS_purchasable'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'.$value.'</strong>';?></li>
+												<?php }?>
+												</ul>
+												<ul class="float-list green-li increase1 translated">
+												<?php foreach ($hostel['PROPERTYEXTRAS_purchasable_translated'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'.$value.'</strong>';?></li>
+												<?php }?>
+												</ul>
+											<?php }else{?>
+												<ul class="float-list green-li increase1 original">
+												<?php foreach ($hostel['PROPERTYEXTRAS_purchasable'] as $id => $value){?>												
+														<li><?php echo $id.': <strong>'.$value.'</strong>';?></li>
+												<?php }?>
+												</ul>
+											<?php }?>
+										</div>
+									</div>								
+								<?php }?>
+								
+								</div>
+								<?php }?>
+								<div class="col2-b">
+								<?php if (!empty($hostel['CHECKINTIMES']['CHECKOUT']) || !empty($hostel['CHECKINTIMES']['CHECKIN'])){?>
+									<div class="content-block">
+										<h2 class="smaller"><?php echo _("Check-In/Out Details");?></h2>
+										<div class="round-block">
+										<?php foreach ($hostel['CHECKINTIMES'] as $indice => $valeur){
+											if ($indice == 'CHECKIN'){
+												echo '<p>'._("Check-in:").' <strong>'.$valeur.'</strong></p>';
+											}
+											
+											if ($indice == 'CHECKOUT'){
+												echo '<p>'._("Check-out:").' <strong>'.$valeur.'</strong></p>';
+											}
+										?>
+										
+										<?php }?>
+										</div>
+									</div>
+								<?php }?>
+								
+								<?php if (!empty($hostel['CANCELLATIONINFORMATION'])){?>
+							
+								<div class="content-block">
+									<h2 class="smaller"><?php echo _("Cancellation Policy");?></h2>
+									<?php if (!empty($hostel['CANCELLATIONPOLICY_translated'])){?>									
+									<select class="select-translate smaller">
+										<option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+										<option value="original"><?php echo _("Voir l'original"); ?></option>
+									</select>									
+									<?php }?>
+									
+									<div class="round-block">
+										
+										<?php if (!empty($hostel['CANCELLATIONPOLICY_translated'])){?>					
+										<p class="original" style="display:none;"><?php echo $hostel['CANCELLATIONINFORMATION']['CANCELLATIONPOLICY'];?></p>		
+										<p class="translated"><?php echo strip_tags($hostel['CANCELLATIONPOLICY_translated']);?></p>
+										<?php }else{?>
+										<p><?php echo $hostel['CANCELLATIONINFORMATION']['CANCELLATIONPOLICY'];?></p>
+										<?php }?>									
+									</div>
+								</div>
+								<?php }?>								
+								
+								
+								</div>
+                <div class="clear"></div>
+                               
+                <?php if (!empty($hostel['IMPORTANTINFORMATION'])){?>
+                <div class="content-block">
+                  <h2 class="dotted-line"><?php echo _("Informations Importantes");?></h2>
+                  <?php if (!empty($hostel['IMPORTANTINFORMATION_translated'])){?>
+                  <select class="select-translate">
+                    <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+                    <option value="original"><?php echo _("Voir l'original"); ?></option>
+                  </select>
+                  <?php }?>  
+                  <div class="margbot20 fix-width">         
+										<?php
+                    if(!empty($hostel['IMPORTANTINFORMATION_translated']))
+                    {
+                      echo '<div class="translated">'.$hostel['IMPORTANTINFORMATION_translated'].'</div>';
+                      echo '<div class="original" style="display:none;">'.nl2p(var_check($hostel['IMPORTANTINFORMATION'],""),false,true).'</div>';
+                    }
+                    else
+                    {
+                      echo nl2p(var_check($hostel['IMPORTANTINFORMATION'],""),false,true);
+                    }
+                    ?>
+                  </div>
+                </div>
+								<?php }?>
+               
+              </div>
+                
+              <div id="tab2" class="map-view tabdiv ui-tabs-hide">
+                                
+                <?php if (!empty($hostel['ADDRESS'])){?>
+								<div class="margbot20">
+                    <h2 class="dotted-line"><?php echo _("Adresse");?></h2>
+                    <p class="pad-left">
+										<?php if (!empty($hostel["ADDRESS"]["STREET1"]))echo var_check($hostel["ADDRESS"]["STREET1"],""); 
+										if (!empty($hostel["ADDRESS"]["STREET3"]))echo ' '.var_check($hostel["ADDRESS"]["STREET2"],"");
+										if (!empty($hostel["ADDRESS"]["STREET3"]))echo ' '.var_check($hostel["ADDRESS"]["STREET3"],"");
+										if (!empty($hostel["ADDRESS"]["CITY"]))echo ', '.var_check($hostel["ADDRESS"]["CITY"],"");
+										if (!empty($hostel["ADDRESS"]["STATE"]))echo ', '.var_check($hostel["ADDRESS"]["STATE"],"");
+										if (!empty($hostel["ADDRESS"]["COUNTRY"]))echo ', '.var_check($hostel["ADDRESS"]["COUNTRY"],"") ;
+										if (!empty($hostel["ADDRESS"]["ZIP"]))echo ', '.var_check($hostel["ADDRESS"]["ZIP"],"") ;?>
+										</p>
+                </div>
+                <?php }?>
+                <h2 class="dotted-line"><?php echo _("Cartes");?></h2>
+<!--                <img src="<?php echo base_url();?>/images/maptest.jpg" alt="map for hostel name" width="590" />-->
+                    <div id="map-wrap" class="margbot20">
+                    	<div id="map_canvas"></div>
+                    </div>
+                <h2 id="street_panel_title" class="dotted-line" style="display:none;"><?php echo _("Street View");?></h2>
+                <div id="street_panel-wrap" class="margbot20" style="display:none;">                
+                  <div id="street_panel" style="display:none width: 600px; height: 450px;"></div>
+                </div>
+                
+                <div class="content-block">
+                  <h2 class="dotted-line"><?php echo _("Directions");?></h2>
+                  <?php if (!empty($hostel['DIRECTIONS_translated'])){?>
+                  <select class="select-translate">
+                    <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+                    <option value="original"><?php echo _("Voir l'original"); ?></option>
+                  </select>
+                  <?php }?>  
+                
+                  <div class="margbot20 fix-width">   
+                    
+                    <?php
+                    if(!empty($hostel['DIRECTIONS_translated']))
+                    {
+                      echo '<div class="translated">'.$hostel['DIRECTIONS_translated'].'</div>';
+											echo '<div class="original" style="display:none;">'.nl2p(var_check($hostel['DIRECTIONS'],""),false,true).'</div>';
+                    }
+                    else
+                    {
+                      echo nl2p(var_check($hostel['DIRECTIONS'],""),false,true);
+                    }
+                    ?>
+                    
+                  </div>
+                </div>
+              
+              </div>
+              
+              <div id="tab3" class="comment-view tabdiv ui-tabs-hide">
+              	
+                <?php if ($this->input->get('comment', TRUE) == "insert"){?>
+                
+                <div class="enter-comment">
+                
+                	<h2 class="dotted-line margbot15"><?php  printf(gettext("Laissez vos impressions sur %s"),var_check($hostel["NAME"],""));?></h2>
+                    <form action="" method="POST" id="comment-insert">
+                      <input type="hidden" name="property_number" value="<?php echo $hostel["ID"]?>">
+                      <input type="hidden" name="property_name" value="<?php echo $hostel["NAME"]?>">
+                      <input type="hidden" name="property_city" value="<?php echo $hostel["ADDRESS"]["CITY"]?>">
+                      <input type="hidden" name="property_country" value="<?php echo $hostel["ADDRESS"]["COUNTRY"]?>">
+                      <input type="hidden" name="property_type" value="<?php echo $hostel["TYPE"]?>">
+                      <table>
+                        <tr>
+                      	  <td><label for="firstname"><?php echo _("Votre Prénom:"); ?></label>
+                          <input type="text" id="comment_firstname" name="firstname" class="large-text" value="<?php echo set_value('firstname', ''); ?>"/></td>
+                          <td><?php echo form_error('firstname'); ?></td>
+                          <script type="text/javascript">
+														var comment_firstname = new LiveValidation('comment_firstname', { validMessage: ' ', wait: 500});
+														comment_firstname.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
+														
+														comment_firstname.add( Validate.Length, { minimum: 2 } );
+            						  </script>
+                        </tr> 
+                        <tr>
+                      	  <td><label for="lastname"><?php echo _("Votre Nom (ne sera pas publié):");?></label>
+                          <input type="text" id="comment_name" name="lastname" class="large-text" value="<?php echo set_value('lastname', ''); ?>"/></td>
+                          <td><?php echo form_error('lastname'); ?></td>
+                          <script type="text/javascript">
+														var comment_name = new LiveValidation('comment_name', { validMessage: ' ', wait: 500});
+														comment_name.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
+														
+														comment_name.add( Validate.Length, { minimum: 2 } );
+													</script>
+                        </tr> 
+                        <tr>
+                          <td>
+                          <label for="email"><?php echo _("Votre Email (ne sera pas publié):");?></label>
+                          <input type="text" id="comment_email" name="email" class="large-text" value="<?php echo set_value('email', ''); ?>"/><?php echo form_error('email'); ?>
+                          </td>
+                          <td><?php echo form_error('email'); ?></td>
+                          <script type="text/javascript">
+														var comment_email = new LiveValidation('comment_email', { validMessage: ' ', wait: 500});
+														comment_email.add(Validate.Email, {failureMessage: "<?php echo _('Insérer un courriel valide'); ?>"});
+														comment_email.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
+													</script>
+                        </tr>
+                        
+                        <tr>
+                          <td> 
+                          <label for="nationality"><?php echo _("Nationalité :");?></label>
+                          <?php $this->Db_country->select_country("Nationality","nationality",set_value('nationality', ''),"style=\"width: auto;\"","en",$this->site_lang,_('Choisir le pays'));  ?>
+                          </td>
+                          <td><?php echo form_error('nationality'); ?></td>
+                          <script type="text/javascript">
+														var Nationality = new LiveValidation('Nationality', { validMessage: ' ', wait: 500});
+														Nationality.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
+													</script>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                           <label for=""><?php echo _("Veuillez évaluer votre expérience:");?></label>
+                              <div class="stars clearfix">
+                              <input id="star_radio" type="radio" class="star {split:2}" name="star-rating" value="1" <?php echo set_radio('star-rating', '1'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="2" <?php echo set_radio('star-rating', '2'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="3" <?php echo set_radio('star-rating', '3'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="4" <?php echo set_radio('star-rating', '4'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="5" <?php echo set_radio('star-rating', '5'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="6" <?php echo set_radio('star-rating', '6'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="7" <?php echo set_radio('star-rating', '7'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="8" <?php echo set_radio('star-rating', '8'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="9" <?php echo set_radio('star-rating', '9'); ?>/>
+                              <input type="radio" class="star {split:2}" name="star-rating" value="10" <?php echo set_radio('star-rating', '10'); ?>/>
+                              
+                              </div>
+                           </td>
+                           <td><?php echo form_error('star-rating'); ?></td>
+                        </tr>
+                        <tr>
+                           <td> 
+                           <label for="comment"><?php printf(gettext("Vos commentaires sur %s :"),var_check($hostel["NAME"],""));?></label>
+                           <textarea id="text_comment" name="comment" cols="50" rows="10"><?php echo set_value('comment', ''); ?></textarea>
+                           </td>
+                           <td><?php echo form_error('comment'); ?></td>
+                           <script type="text/javascript">
+														var text_comment = new LiveValidation('text_comment', { validMessage: ' ', wait: 500});
+														text_comment.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
+                            </script>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                           <label style="padding-top:10px; padding-bottom:5px;" for=""><?php echo _("La date de votre dernier séjour à cet endroit :");?></label>
+                           
+                           <?php select_month("month","month_comment","small-select",set_value("month_comment",NULL)); ?>
+                              
+                           <?php select_year("year-comment","year_comment","small-select",0,-11,set_value("year_comment",NULL)); ?>
+                           </td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                          <td>   
+                              <input type="submit" name="comment-submit" id="comment-submit" value="<?php echo _("Soumettre");?>" />
+                          </td>
+                          <td></td>
+                        </tr>
+
+                      </table>
+                    </form>                    
+                </div>
+                <?php  }?>
+              	
+								<script type="text/javascript">
+								function update_review_list()
+								{
+									$.ajax(
+													{
+															type:"POST",
+															url:"<?php echo site_url();?>chostelbk/reviews/<?php echo $hostel["ID"];?>",
+															success:function(data)
+															{
+																//var title = "<h2 class=\"dotted-line margbot15\"><?php echo _("Commentaires et évaluations de voyageurs");?></h2>";
+																$("#comment-list-part").html(data);
+															}
+													});
+								}
+								$(document).ready(function(){update_review_list();});
+								</script>
+								
+								<div id="comment-list-part">
+									<p class="pad-left"><img src="<?php echo base_url();?>images/loading_dispo.gif" alt="" /></p>
+								</div>
+                
+              </div>
+              
+<?php /* ?><br>
+ <textarea cols="50" rows="25">
+ <?php 
+ print_r($hostel);
+ ?>
+ </textarea><?php  */ ?>
+              
+              
+             <?php endif; //endif api error?>
+             
+             </div> 
+          
+          </div> 
+
+<?php //This is the sidebar ?>
+
+		<?php if($api_error==false):?>
+
+		 <div id="sidebar">
+            <div class="widget">
+            <?php if(is_null($hostel_min_price)):?>
+              <h2 class="blue-bar-300"><strong><?php echo _('Disponibilités');?>:</strong></h2>              
+            <?php else:?>
+             <h2 class="blue-bar-300"><strong><?php echo _('Disponibilités');?> - <span class="small-white"><?php echo _('à partir de');?></span> <span class="dispo-price"><?php echo $hostel_min_price; ?></span></strong></h2>
+            <?php endif;?>
+              
+               <?php //TODO Support this form to check availability ?>
+                <form style="clear:both;" id="dispo-form" action="" method="">
+                  <input type="hidden" id="book-property-number" name="book-property-number" value="<?php echo $hostel["ID"];?>" />
+                  <input type="hidden" id="book-property-name" name="book-property-name" value="<?php echo $hostel["NAME"];?>" />
+                  <input type="hidden" id="book-property-cards" name="book-property-cards" value="<?php echo $hostel["CARDTYPES"];?>" />
+                  
+                  <ul>
+                     <li>
+                     <?php 
+                      if(!isset($date_selected))
+                      {
+                        $date_selected = get_date_default(3);
+                      }
+                      //select_date(_('Arrivée le:'),"book-date-day","book-date-day","book-date-month","book-date-month",$date_selected);
+                      ?>
+                       <label for="book-pick"><?php echo _('Arrivée le:');?></label>
+                       <input type="text" id="book-pick" name="book-pick" value="<?php echo $date_selected;?>" /> 
+                    </li>      
+                    <li>
+                    <?php 
+                    if(!isset($numnights_selected))
+                    {
+                      $numnights_selected = 2;
+                    }
+                    select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected); ?>
+                    </li>    
+                    <div style="clear:both;"></div>
+                    <li>
+                    <label style="width:100%" for="book-property-currency"><?php echo _("Devise:");?></label>
+                    <?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$currency,"",$this->site_lang); ?>
+                    <li class="book-submit">
+                      <input onfocus="this.blur()" type="button" name="book-submit" id="book-submit" value="<?php echo _("Rechercher");?>" OnClick=" $('ul.tabing').tabs('select', 0);checkAvailability('<?php echo site_url($this->hostel_controller); ?>','book-property-number','book-pick','book-night','book-property-name','book-property-currency','<?php echo _('Date invalide'); ?>');" />
+                    </li>
+                  </ul>
+                </form>
+               
+            </div>
+            
+            
+            <?php /* if (isset($hostel->facilities)){?>
+            <div class="widget">
+              <h2 class="green-bar-300"><?php echo _("Commodités");?></h2>
+              <ul class="green-li increase1">
+              <?php foreach ($hostel->facilities as $facility) :   
+                    if(!empty($facility)){?>
+                       <li><?php echo stripslashes(var_check($facility,""));?></li>
+              <?php } endforeach;?>
+              </ul>
+            </div>
+            <?php }*/?>
+            
+            <?php // $this->load->view('includes/share'); ?>
+            <?php $this->load->view('includes/fblike'); ?>
+						<?php $this->load->view('includes/currency'); ?>
+						<?php $this->load->view('includes/testimonials'); ?>            
+            <?php $this->load->view('includes/siteinfo'); ?>
+            
+            <?php /*
+						$link = $this->config->item('wp_base_url').'/ville/'.$hostel["ADDRESS"]["CITY"].'/feed';
+						$feed = new SimplePie();
+						$feed->set_feed_url($link);
+						$feed->enable_cache(false);
+						$feed->init();
+						$feed->handle_content_type();
+						$rss_items = $feed->get_items();
+									
+						if(!empty($rss_items)){?>
+						
+									<div class="widget">
+										<h2 class="dark-bar-300">Tout sur <?php echo $hostel["ADDRESS"]["CITY"];?></h2>
+										<div class="widget-content">
+											<ul>             	
+							
+								<?php foreach($rss_items as $item) {
+								echo "<li>";
+								echo "<a href='" .$item->get_link() . "'>";
+								echo $item->get_title();
+								echo "</a>";
+								echo "</li>";
+							}?>
+											</ul>
+										</div>
+									</div>
+									
+									<?php } */?>
+          
+         
+            
+          </div>
+          
+         <?php endif; //endif api error?>
+          

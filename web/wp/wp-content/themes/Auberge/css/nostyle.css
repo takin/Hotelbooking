@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height:1.6em;
+}
+
+#sendEmail ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+#sendEmail ul li{
+	margin-bottom:20px;
+	padding:0;
+	list-style:none;
+}
+
+#sendEmail label{
+	display:block;
+	font-weight:bold;
+	
+}
+
+#sendEmail input.small-text{
+	width:200px;
+}
+
+#sendEmail textarea {
+	width:300px;
+}
+
+#sendEmail input.red-error{
+	border:1px solid red;
+}
+
+.success-sent{
+	border-top:1px dashed #333333;
+	padding-top:5px;
+	font-size:1.3em;
+	color:#060;
+}
+

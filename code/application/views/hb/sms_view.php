@@ -1,0 +1,1 @@
+<?php echo $this->config->item('site_name'); ?> HB-<?php echo $booking->bookingRef;?>, <?php echo $booking->property->name;?>, <?php echo $booking->property->address->tel;?>, <?php echo $booking->property->address->email;?>

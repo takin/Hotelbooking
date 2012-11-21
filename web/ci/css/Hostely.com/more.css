@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+form#search-form {
+	background:url(../../images/Hostely.com/search-top-back.png) no-repeat scroll right top transparent;
+	padding-bottom:12px;
+	position:relative;
+}
+
+#header h1 {
+		display:block;
+		position:absolute;
+		top:-7px;
+		left:5px;
+		height:121px;
+		width:450px;
+		overflow:hidden;
+		padding:0;
+		text-decoration:none;
+		text-indent:-9999px;
+		background: url(../../images/Hostely.com/h1-logo-hb.png) no-repeat top left;
+	}
+
+
+form#dispo-form{		
+		background:url(../../images/Hostely.com/book-back.gif) no-repeat top left;		
+}	
+
+form#search-form input#search-submit{		
+		background:url(../../images/Hostely.com/search-button-hb.png) no-repeat top left;
+		
+}
+
+table.payment input#submit-payment{
+		background:url(../../images/Hostely.com/submit-payment.png) no-repeat top left;
+}

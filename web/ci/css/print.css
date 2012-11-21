@@ -1,0 +1,283 @@
+/*
+
+Title: Main Stylesheet
+Author: Guillaume Bourdages - www.graphem.ca
+
+*/
+
+/* Base element */
+
+html, body {	
+	min-height:101%;
+}
+
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align:left;
+	font-size:75%;
+	color:#333333;	
+	background:#f9f9f9;
+}
+
+hr {
+	display: block;
+	height:1px;	
+	border:0;	
+}
+
+/*Images*/	
+
+img {
+	margin:0;
+	padding:0;
+	border: none;
+}
+
+a img{
+	border:none;
+}
+
+/*End Images*/
+
+/* Typo */		
+
+p {
+	font-size: 1em;
+	margin: 0 0 0.5em 0;
+	padding: 0;
+	line-height:1.3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue",Arial,sans-serif;
+}
+
+h1 {
+	font-size: 1.5em;
+	line-height: 1.2em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 1.3em;
+	line-height: 1.3em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-weight:normal;
+	line-height: 1.5em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+h4 {
+	font-size: 1.1em;
+	font-weight:normal;
+	line-height: 1.5em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+h5 {
+	font-size: 1.0em;
+	line-height: 1.5em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+
+/* End Typography */	
+
+/* Tables */
+
+table {
+	border-collapse:collapse;
+	width:100%;
+	margin:0px 0;	
+}
+
+td {
+	padding:4px 6px;	
+}
+
+tr {
+	
+}
+	
+table caption {
+	background:#FFF;
+	padding:2px 0;
+}	
+	
+table p{
+	margin-bottom:0;
+}
+
+/* End Tables */
+
+/* Links */
+
+a,	a:link,	a:active {
+	color:#227BBD;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover {		
+	text-decoration: underline;
+}
+
+
+/* End Links */
+
+/* Column Struture */
+
+
+header.header_v2{
+	background:none;
+}
+
+a.logo{display:none;}
+
+.bubble_blue_position{display:none;}
+.bubble_blue_right_position{display:none;}
+.bubble_green_position{display:none;}
+.user_meta_top{display:none;}
+
+
+/* End Page Struture */
+
+/* Header */
+
+ul.site-meta{
+	disply:none;
+}
+
+/* End Header */
+
+/* Naviguation */
+
+nav.main{
+	display:none;
+}
+
+ul#bread-crumb{display:none; }
+
+/* End Naviguation */
+
+
+/* Content */
+
+h1.content_title{
+	font-size:1.8em;
+	margin-bottom:5px;
+	line-height:1.5em;	
+}
+
+.booking-view h1.content_title{margin-bottom:10px;}
+
+h1.single_title{
+	font-size:1.8em;
+	margin-bottom:5px;
+	line-height:1.5em;	
+}
+/* End Content */
+
+
+
+/* Sidebar */
+#sidebar{display:none;}
+
+/* End Sidebar */
+
+/* Maps setting and views */
+
+.map-view { clear:both; padding:20px 10px 10px 15px;}
+.map-view img { padding:4px; border:1px solid #C7C7C7; margin-left:-0px;}
+.map-view .directions{ margin-top:15px;}
+#map_canvas, #street_panel{ width:100%; height:375px;}
+#map_canvas_large{ width:610px; height:375px;} 
+#street_panel_title img{ border: none;margin-left: 5px; margin-right:10px;padding: 0px; float:left; margin-top:-2px;}
+#map_wrap, #street_panel_wrap{ }
+
+/* Main Home view */
+
+
+/* Booking page */
+
+.booking_view h1{color:#ffffff; float:left; margin-top:20px; margin-left:35px; font-size:1.5em; padding:10px 15px; background:#1B83C4; border:1px solid #2291D6;}
+.booking_view h2{font-size:1.3em;}
+.booking_view h3{border-bottom:1px dotted #cccccc;}
+.booking_view ul.site-meta{margin-top:13px;}
+ul.site-meta li a{padding:5px 0px; display:block;}
+ul.site-meta li a.icon-chathelp{}
+ul.site-meta li a.icon_login{background:url(../images/V2/icon_connect.png) no-repeat 3px 0px; padding-left:35px; margin-bottom:5px;}
+ul.booking_progress_list{ padding-top:10px; border-top:1px solid #cccccc;}
+ul.booking_progress_list li{margin-bottom:10px; font-size:1.1em; padding:5px 5px; margin-left:5px; color:#999999;}
+ul.booking_progress_list li.current{font-weight:bold; padding-left:25px; background:url(../images/V2/icon_progress.png) no-repeat top left; color:#333333;}
+
+.current .booking_section_content{display:block;}
+p.arrival-dep{font-size:1.1em;}
+p.message-booking{padding:10px 10px 10px 40px; border:1px dashed #F9B507; margin-bottom:15px; background:#FBFFED url(../images/V2/icon_booking_warning.png) no-repeat 10px 8px;}
+table.review{}
+table.review td{padding:3px; border-bottom:1px solid #cccccc; text-align:center;}
+table.review th{padding:3px; vertical-align: middle; text-align:center;
+background-color: #eeeeee;
+border-top:1px solid #cccccc;
+border-left:1px solid #cccccc;
+border-bottom:1px solid #cccccc;}
+table.review th.first-cell, table.review td.first-cell{text-align:left;}
+table.review td.first-cell{}
+table.review th.last-cell, table.review td.last-cell, table.review td.value{text-align:right;}
+table.review th.last-cell{border-right:1px solid #cccccc;}
+table.review td.first-cell{font-weight:bold;}
+table.review td.border_top{border-top:1px dotted #cccccc;}
+table.review-end{}
+table.review-end td{text-align:right; border:0px; padding:3px;}
+table.review-end td.first{width:100%;}
+table.review-end tr.end-total td{border-top:1px dashed #cccccc; padding-top:12px;}
+.booking_currency_choice{float:right; margin-left:5px;}
+.booking_currency_choice a{margin-left:10px; display:block; float:left; background:#227BBD; color:#ffffff;border-radius:12px;-moz-border-radius:12px;-webkit-border-radius:12px; font-weight:bold; width:22px; height:22px; line-height:20px; text-align:center;}
+.booking_currency_choice a:hover, .booking_currency_choice a.cur-selected{background:#71AB09; text-decoration:none;}
+.cur-title{display:block;float:right; margin-top:4px;}
+.loading_cur{clear:both;float:right; margin-top:10px; background:url(../images/input-loading.gif) no-repeat top left; font-weight:bold; padding:2px 0px 2px 25px;}
+.process_next_button{margin-top:10px;}
+a.continue_button{float:right; display:block; font-weight:bold;}
+a.modify_booking{float:left; padding:5px 7px; display:block; font-weight:bold;}
+.payment_info_block{float:left; width:40%; margin-bottom:15px; margin-right:3%; position:relative;}
+.payment_info_block label{display:block; margin-bottom:5px; font-weight:bold;}
+.payment_info_block input{border:1px solid #bbbbbb; padding:3px; height:20px; width:98%}
+.payment_info_block input.small_text{width:auto; float:left;}
+.payment_info_block select{border:1px solid #bbbbbb; padding:3px;width:100%}
+.payment_info_block select.standard{width:auto; float:left; margin-right:10px;}
+.payment_info_block small{display:block; font-size:0.9em; font-style:italic; margin-top:5px;}
+.payment_info_block input.checkbox{float:left; width:auto; margin-top:0px; margin-right:7px;}
+.payment_info_block label.checkbox{float:left; margin-top:3px;}
+.payment_info_block .separate{display:block; margin-top:5px; clear:both;}
+.payment_info_block .screenshot{ margin:7px 0px 0px 10px; float:left;}
+
+
+
+/* Invalid field and errors */
+span.mandatory{color:red; font-size:0.9em;}
+input.LV_invalid_field, select.LV_invalid_field{border:1px dashed red; background:#FFF4F4;}
+span.LV_validation_message{display:block;margin-top:5px; color:red; font-size:0.9em;}
+.terms_conditions span.LV_invalid{border:1px dashed red; background:#FFF4F4; height:30px; position:absolute; top:-7px; left:0px; width:100%; z-index:1; text-indent:-9999px; margin-top:0px;}
+.dontshowerror span.LV_validation_message{display:none;}
+
+.transaction_error{border:1px dashed red; background:#FFF4F4; padding:10px; margin-bottom:0px; margin-top:15px;}
+.transaction_error p{margin-bottom:15px;}
+span.error_title{font-weight:bold; font-size:1.1em; display:block; margin-bottom:10px;}
+.transaction_error ul li{list-style:outside disc; margin:0px 7px 0px 20px; line-height:1.3em;}
+
+/* Booking End View */
+
+#booking_end_step1{display:none;}
+
+h2.booking_section_title{ border-bottom:1px solid #333333; margin-top:10px;}
+
+
+/* End Footer */

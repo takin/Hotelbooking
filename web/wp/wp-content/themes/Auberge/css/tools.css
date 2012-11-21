@@ -1,0 +1,109 @@
+#pagination {
+		
+	}
+	
+.wp-pagenavi{
+	float:left;
+	margin-left:10px;
+	font-size:1.4em;
+	font-weight:bold;
+}
+
+.wp-pagenavi a, .wp-pagenavi span{
+	padding:3px;
+}
+
+.wp-pagenavi .extend{
+	color:#aaaaaa;
+	letter-spacing:1px;
+}
+
+
+.bottom-dotted-line{
+	background:url(../images/dist-h2.gif) repeat-x bottom left;
+}
+
+
+.hidden {
+	display:none;
+}
+
+.center {
+	margin:0 auto;
+}
+
+.last {
+	margin:0px;
+	padding:0px;
+}
+
+.imagelast {
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.elementclear {
+	clear:both;
+}
+
+.clear, .clearline {
+	clear:both; 
+	height:1px; 
+	margin:0; 
+	padding:0; 
+	font-size: 15px;
+	line-height: 1px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+.margin-bottom {
+	margin-bottom:20px;
+}
+
+.left {
+	float:left;
+	display:inline;
+}
+
+.right {
+	float:right;
+	display:inline;
+}
+
+.alignleft {
+	float:left;
+}
+
+.alignright {
+	float:right;
+}
+
+img.alignleft {
+	margin-right:10px;
+
+}
+
+img.alignright {
+	margin-left:10px;
+}
+
+/*.linebelow{
+	border-bottom:1px dotted #cccccc;
+	height:5px;
+	clear:both;
+	margin:20px 10px;
+}*/

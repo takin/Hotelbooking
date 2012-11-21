@@ -1,0 +1,566 @@
+<script type="text/javascript" src="<?php echo base_url();?>js/calcprice.js"></script>
+<script type="text/javascript">
+		
+    $("#booking-table form").submit(function() {
+			var noerror = false;
+			$("#formerror").hide();
+      $("#booking-table select").each(function () {
+				if ($(this).val() != 0){
+					noerror = true;
+				}
+			});
+			
+			if (noerror == true){
+				noerror = true;
+				return true;
+			}else{
+				$("#formerror").show();
+				return false;
+			}
+			
+    });
+		
+</script>
+
+<h2 class="dotted-line margbot15"><?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h2>
+<?php
+if($api_error==false)
+{
+  $maxPersons = 10;
+  if($booking_info->maxPax < $maxPersons)
+  {
+    $maxPersons = $booking_info->maxPax;
+  }
+  
+  //**** Merge section ******
+  //Merge all same room types and the available dates
+  $distinctRoomTypes = array(); 
+  $rti = 0;
+
+  $roomsData = xmlobj2arr($booking_info->Rooms);
+  
+	if ($roomsData["@attributes"]["size"] < 2)
+	{
+		$roomsData["RoomType"] = array( 0 => $roomsData["RoomType"]);	
+	}
+  
+  foreach ($roomsData["RoomType"] as $hostel_room_type)
+  {
+		
+    $isRoomDistinct = true;
+    
+    if($rti!=0)
+    {
+      foreach($distinctRoomTypes as &$distinctRoom)
+      {
+        //If roomType is already in array
+        if(strcmp($hostel_room_type["roomTypeCode"],$distinctRoom["roomTypeCode"])==0)
+        {
+          $isRoomDistinct = false;
+          
+          //if more than one availableDate
+          if(intval($hostel_room_type["AvailableDates"]["@attributes"]["size"]) == 1)
+          {
+            $newdate = true;
+            foreach($distinctRoom["AvailableDates"]["AvailableDate"] as $oldDate)
+            {
+              if(strcmp($hostel_room_type["AvailableDates"]['AvailableDate']['date'],$oldDate['date'])==0)
+              {
+                $newdate = false;
+              }
+            }
+            
+            if($newdate)
+            {
+              array_push($distinctRoom["AvailableDates"]["AvailableDate"],$hostel_room_type["AvailableDates"]['AvailableDate']);
+            }
+          }
+          //If AvailableDate is an array
+          else
+          {
+            //Add new distinct date only
+            foreach($hostel_room_type["AvailableDates"]['AvailableDate'] as $maybeNewDate)
+            {
+              $newdate = true;
+              //check all added date up to now
+              foreach($distinctRoom["AvailableDates"]["AvailableDate"] as $oldDate)
+              {
+                if(strcmp($maybeNewDate['date'],$oldDate['date'])==0)
+                {
+                  $newdate = false;
+                }
+              }
+              
+              if($newdate)
+              {
+                array_push($distinctRoom["AvailableDates"]["AvailableDate"],$maybeNewDate);
+              }
+              
+            }
+          }
+        }
+      }
+    }
+    
+    if($isRoomDistinct==true)
+    {
+			
+      $distinctRoomTypes[$rti] = $hostel_room_type;
+      if($distinctRoomTypes[$rti]["AvailableDates"]["@attributes"]["size"] < 2)
+      {
+         $distinctRoomTypes[$rti]["AvailableDates"]["AvailableDate"] = array(0 => $distinctRoomTypes[$rti]["AvailableDates"]["AvailableDate"]);
+      }
+      $rti++;
+    }
+  }
+
+  $date = clone $dateStart;
+  
+  $nbRoomType = 0;
+  $sharedRoomsTable = "";
+  $sharedRoomsTableSelect = "";
+  //Show shared rooms first
+  foreach ($distinctRoomTypes as $hostel_room_type)
+  {
+    $availableBeds = $maxPersons;
+    //Check for dorms only
+    if(substr_count($hostel_room_type['roomType'],"Private")==0)
+    {
+      
+      $date->modify("-$numNights day");
+      $nbRoomType++;
+      if($nbRoomType % 2 != 0)
+      {
+        $sharedRoomsTable.= "<tr>";
+		$sharedRoomsTableSelect.= "<tr class=\"roomnb\" id=\"sroomnb_".$nbRoomType."\">";
+      }
+      else
+      {
+        $sharedRoomsTable.= "<tr class=\"odd\">";
+		$sharedRoomsTableSelect.= "<tr id=\"sroomnb_".$nbRoomType."\" class=\"roomnb\">";
+      }
+      
+      $sharedRoomsTable.= '<td class="first">';
+	  $sharedRoomsTableSelect.= '<td class="first">';
+      if(!empty($hostel_room_type['roomTypeDescriptionTranslated']))
+      {
+        $sharedRoomsTable.= '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hostel_room_type['roomTypeDescription'].'">'.$hostel_room_type['roomTypeDescriptionTranslated'].'</span>';		
+		$sharedRoomsTableSelect.= '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hostel_room_type['roomTypeDescription'].'">'.$hostel_room_type['roomTypeDescriptionTranslated'].'</span>';	
+				
+      }
+      else
+      {
+        $sharedRoomsTable.= $hostel_room_type['roomTypeDescription'];
+		$sharedRoomsTableSelect.= $hostel_room_type['roomTypeDescription'];
+      }
+//      if((($maxPersons < $hostel_room_type["bedsIncrement"])&&(strcmp($hostel_room_type['roomType'],"Private")==0)))
+//      {
+//       echo "!!!!!!"; 
+//      }
+//      print "<br>maxpax: ".$maxPersons." bedI: ".$hostel_room_type["bedsIncrement"]." ".$hostel_room_type['roomType']." <br>";
+      $sharedRoomsTable.= "</td>";
+	  $sharedRoomsTableSelect.= "</td>";			
+      $date = clone $dateStart;
+      $subtotal = 0;
+      for($i=0;$i<$numNights;$i++)
+      {
+          $date_available = false;
+          $date_msg = '<span class="na-book price">0</span>';
+          
+          foreach($hostel_room_type['AvailableDates']['AvailableDate'] as $date_ok)
+          {
+            if($date_ok['date'] == $date->format("Y-m-d"))
+            {
+							$price_array = explode(' ',$date_ok['price']);
+							if($price_array[0]=='From'){
+								$price = $price_array[1];
+							}else{
+								$price = $price_array[0];
+							}
+							$subtotal = $subtotal+$price;
+							if ($numNights > 5){						
+								$date_msg = '<span class="price">'.number_format(round((float)$price),0).'</span>';									
+								break;							
+							}else{
+								$date_msg = '<span class="price">'.number_format($price,2,'.','').'</span> '.currency_symbol($date_ok['currency']);								
+								break;
+							}			
+            }			
+          }
+          
+          $sharedRoomsTable.= '<td align="center">'.$date_msg.'</td>';
+          
+          $date->modify("+1 day");
+          
+      }
+      $display_currency = currency_symbol($date_ok['currency']);
+      $sharedRoomsTableSelect.= '<td id="snbguest_'.$nbRoomType.'" class="snbguest">'._('Personnes').': <strong></strong></td>';
+	    $sharedRoomsTableSelect.= '<td align="center" id="ssubtotal_'.$nbRoomType.'" class="ssubtotal"><span class="calc_init" id="ssubtotal_init_'.$nbRoomType.'">'.number_format($subtotal,2,'.','').'</span>'.$display_currency.'  <span class="calc_sum" id="ssubtotal_calc_'.$nbRoomType.'"></span></td>';
+			
+      foreach($hostel_room_type['AvailableDates']['AvailableDate'] as $avail_date)
+      {
+        if((int)$avail_date['availableBeds'] < $availableBeds)
+        {
+          $availableBeds = (int)$avail_date['availableBeds'];
+        }
+      }
+      
+      //TODO javascript to prevent more than maxPax booking by adding select box value
+      
+      $sharedRoomsTable.= "<td>";
+      $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"".$hostel_room_type['roomTypeCode']."\" />";
+      $sharedRoomsTable.= "<select id=\"sharedsel_".$nbRoomType."\" class=\"sharedsel\" name=\"book-nbPersons[]\">";
+      
+      $sharedRoomsTable.= "<option value=\"0\" >-</option>\n";
+      for($p=1;$p<=$availableBeds;$p++)
+      {
+        $sharedRoomsTable.= "<option value=\"$p\" >$p</option>\n";
+      }
+      $sharedRoomsTable.= "</select>";
+      $sharedRoomsTable.= "</td>";
+      
+      $sharedRoomsTable.= "</tr>\n";
+	  $sharedRoomsTableSelect.= "</tr>\n";
+    }
+
+  }
+	$colspan = $numNights+2;
+	
+	//Count shared room that are displayed
+	$sharedRoomCount = $nbRoomType;
+	
+  //Show private rooms
+  $nbRoomType = 0;
+  $privateRoomsTable = "";
+  $privateRoomsTableSelect = "";
+  
+  foreach ($distinctRoomTypes as $hostel_room_type)
+  {
+    $availableBeds = $maxPersons;
+    $availableRooms = $maxPersons;
+    
+    //Show private rooms with beds increment lower than maxpax because if it is higher it will be a group booking and will cause problem on booking
+    if(($maxPersons > $hostel_room_type["bedsIncrement"])&&(substr_count($hostel_room_type['roomType'],"Private")>0))
+    {
+      
+      $date->modify("-$numNights day");
+      $nbRoomType++;
+      if($nbRoomType % 2 == 0)
+      {
+        $privateRoomsTable.=  "<tr>";
+		$privateRoomsTableSelect.= "<tr class=\"roomnb\" id=\"proomnb_".$nbRoomType."\">";
+      }
+      else
+      {
+        $privateRoomsTable.= "<tr class=\"odd\">";
+		$privateRoomsTableSelect.= "<tr id=\"proomnb_".$nbRoomType."\" class=\"roomnb\">";
+      }
+      
+      $privateRoomsTable.= '<td class="first">';
+	  $privateRoomsTableSelect.= '<td class="first">';
+      if(!empty($hostel_room_type['roomTypeDescriptionTranslated']))
+      {
+        $privateRoomsTable.= '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hostel_room_type['roomTypeDescription'].'">'.$hostel_room_type['roomTypeDescriptionTranslated'].'</span>';	
+		$privateRoomsTableSelect.= '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hostel_room_type['roomTypeDescription'].'">'.$hostel_room_type['roomTypeDescriptionTranslated'].'</span>';	
+      }
+      else
+      {
+        $privateRoomsTable.= $hostel_room_type['roomTypeDescription'];
+		$privateRoomsTableSelect.= $hostel_room_type['roomTypeDescription'];
+      }
+//      if((($maxPersons < $hostel_room_type["bedsIncrement"])&&(strcmp($hostel_room_type['roomType'],"Private")==0)))
+//      {
+//       echo "!!!!!!"; 
+//      }
+//      print "<br>maxpax: ".$maxPersons." bedI: ".$hostel_room_type["bedsIncrement"]." ".$hostel_room_type['roomType']." <br>";
+      $privateRoomsTable.= "</td>";
+	  $privateRoomsTableSelect.= "</td>";
+      $date = clone $dateStart;
+      $subtotal = 0;
+      for($i=0;$i<$numNights;$i++)
+      {
+          $date_available = false;
+          $date_msg = '<span class="na-book price">0</span>';
+          
+          foreach($hostel_room_type['AvailableDates']['AvailableDate'] as $date_ok)
+          {
+            if($date_ok['date'] == $date->format("Y-m-d"))
+            {
+            	$price_array = explode(' ',$date_ok['price']);
+							if($price_array[0]=='From'){
+								$price = $price_array[1];
+							}else{
+								$price = $price_array[0];
+							}
+							$subtotal = $subtotal+($price*(int)$hostel_room_type['bedsIncrement']);  
+							if ($numNights > 5){
+								$date_msg = '<span class="price">'.number_format(round((float)$price),0)*(int)$hostel_room_type['bedsIncrement'].'</span>';
+								break;
+							}else{								
+								$date_msg = '<span class="price">'.number_format($price*(int)$hostel_room_type['bedsIncrement'],2,'.','').'</span> '.currency_symbol($date_ok['currency']);
+								 break;
+							}
+        
+            }
+          }
+          
+          $privateRoomsTable.= '<td align="center">'.$date_msg.'</td>';
+          
+          $date->modify("+1 day");
+          
+          
+      }
+		$display_currency = currency_symbol($date_ok['currency']);
+		$privateRoomsTableSelect.= '<td id="pnbguest_'.$nbRoomType.'" class="pnbguest">'._('Rooms').': <strong></strong></td>';
+		$privateRoomsTableSelect.= '<td align="center" id="psubtotal_'.$nbRoomType.'" class="psubtotal"><span class="calc_init" id="psubtotal_init_'.$nbRoomType.'">'.number_format($subtotal,2,'.','').'</span>'.$display_currency.'  <span class="calc_sum" id="psubtotal_calc_'.$nbRoomType.'"></span></td>';
+      
+      
+      foreach($hostel_room_type['AvailableDates']['AvailableDate'] as $avail_date)
+      {
+        if((int)$avail_date['availableBeds'] < $availableBeds)
+        {
+          $availableBeds = (int)$avail_date['availableBeds'];
+        }
+        
+        if((int)$avail_date['availableRooms'] < $availableRooms)
+        {
+          $availableRooms = (int)$avail_date['availableRooms'];
+        }
+      }
+      
+      //TODO javascript to prevent more than maxPax booking by adding select box value
+      
+      $privateRoomsTable.= "<td>";
+      $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"".$hostel_room_type['roomTypeCode']."\" />";
+      $privateRoomsTable.= "<select id=\"privatesel_".$nbRoomType."\" class=\"privatesel\" name=\"book-nbPersons[]\">";
+      
+      $privateRoomsTable.= "<option value=\"0\" >-</option>\n";
+      for($p=1;$p<=$availableRooms;$p++)
+      {
+        if($p*$hostel_room_type['bedsIncrement'] <= $maxPersons)
+        {
+          $privateRoomsTable.= "<option value=\"".$p*$hostel_room_type['bedsIncrement']."\" >$p</option>\n";
+        }
+      }
+      $privateRoomsTable.= "</select>";
+//      $privateRoomsTable.= "N/A";
+      $privateRoomsTable.= "</td>";
+      
+      $privateRoomsTable.= "</tr>\n";
+	  $privateRoomsTableSelect.= "</tr>\n";
+    }
+
+  }
+	
+	$colspan = $numNights+2;
+  $privateRoomCount = $nbRoomType;
+  
+  
+  if( ($sharedRoomCount === 0) && ($privateRoomCount === 0 ))
+  {
+    $errortext  = "No Beds Found";
+    $detailtext = "No Beds could be found for your search criteria. Please change your dates and try again.";
+    
+    //Google translate the error text and detail
+    $this->load->model('google/Gtranslateapi');
+    $this->Gtranslateapi->StartBatch($this->site_lang,"en");
+    $this->Gtranslateapi->addTextForBatch($errortext);
+    $this->Gtranslateapi->addTextForBatch($detailtext);
+    $gtrans = $this->Gtranslateapi->end_batch();
+    
+//    if($_SERVER['REMOTE_ADDR'] == "206.126.80.242")
+//    {
+//      debug_dump($gtrans);
+//    }
+    if($gtrans["responseData"][0]["responseStatus"] == 200)
+    {
+      if(!empty($gtrans["responseData"][0]["responseData"]["translatedText"]) )
+      {
+        $errortext = $gtrans["responseData"][0]["responseData"]["translatedText"];
+      } 
+    }
+    
+    if($gtrans["responseData"][1]["responseStatus"] == 200)
+    {
+      if(!empty($gtrans["responseData"][1]["responseData"]["translatedText"]) )
+      {
+        $detailtext = $gtrans["responseData"][1]["responseData"]["translatedText"];
+      } 
+    }
+    ?>
+    <div class="dispo-error">
+    <p>
+      <strong><?php echo _("Erreur:");?> </strong> 
+      <?php 
+      echo $errortext;
+      ?>
+    </p>
+    <p>
+      <strong><?php echo _("Détails:");?> </strong>
+      <?php 
+      echo $detailtext;
+      ?>
+    </p>
+    </div>
+    <?php
+  }
+  else
+  {
+    ?>
+    <form class="clearfix" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
+    
+    <table border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <?php
+    if ($sharedRoomCount > 0)
+  	{
+  	  ?>
+  		<tr>
+        <th class="title"><?php echo _('Chambres partagées - Dortoirs'); ?></th>
+      
+        <?php 
+        $date = clone $dateStart;
+        
+        for($i=0;$i<$numNights;$i++)
+        {
+          echo "<th>";
+          echo  my_mb_ucfirst(mb_substr(strftime("%a",$date->format('U')),0,2));
+          echo strftime("<br />%e",$date->format('U'));
+          $date->modify("+1 day");
+          echo "</th>";
+        }
+        ?>
+        <th class="last"><?php echo _('Personnes'); ?></th>
+      </tr>
+    
+    <?php
+      echo $sharedRoomsTable;
+  	}
+    
+    if ($privateRoomCount > 0)
+  	{
+  	  ?>
+      <tr>
+        <th class="title">
+          <?php echo _('Chambres privées'); ?></th>
+      
+        <?php 
+        $date = clone $dateStart;
+        
+        for($i=0;$i<$numNights;$i++)
+        {
+          echo "<th>";
+          echo my_mb_ucfirst(mb_substr(strftime("%a",$date->format('U')),0,2));
+        echo strftime("<br />%e",$date->format('U'));
+          $date->modify("+1 day");
+          echo "</th>";
+        }
+        ?>
+        <th class="last"><?php echo _('Rooms'); ?></th>
+      </tr>
+      <?php
+       
+  		echo $privateRoomsTable;
+  	}
+    ?>
+    </tbody>
+    </table>
+		
+		
+	<table id="selection" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <th colspan="3" class="title"><?php echo _('Your Selection'); ?></th>
+		</tr>
+		<?php
+    if ($sharedRoomCount > 0)
+  	{
+      echo $sharedRoomsTableSelect;
+  	}
+    
+    if ($privateRoomCount > 0)
+  	{
+  		echo $privateRoomsTableSelect;
+  	}
+    ?>
+		<tr>
+        <td class="first" align="right" colspan="2"><strong><?php echo _('Total'); ?></strong></td>
+				<td align="center"><?php echo $display_currency;?> <strong id="bigTotal">0.00</strong></td>
+		</tr>
+		<tr>
+        <td class="first" align="right" colspan="2"><strong><?php echo _('10% Arrhes / Dépôt sera facturé en');?></strong></td>
+				<td align="center"><?php echo $display_currency;?> <strong id="depositTotal">0.00</strong></td>
+		</tr>
+    </tbody>
+    </table>
+		
+    <input type="hidden" name="book-propertyName" value="<?php echo $propertyName; ?>" />
+    <input type="hidden" name="book-propertyNumber" value="<?php echo $propertyNumber; ?>" />
+    <input type="hidden" name="book-dateStart" value="<?php echo $dateStart->format('Y-m-d'); ?>" />
+    <input type="hidden" name="book-numNights" value="<?php echo $numNights; ?>" />
+    <input type="hidden" name="book-currency" value="<?php echo $currency; ?>" />
+    <div class="bottom-table clearfix" id="book-now">
+      <img class="ccard" src="<?php echo site_url();?>images/ccard.gif" alt="<?php echo _("carte de crédit");?>" />
+      
+      <input type="submit" onfocus="this.blur()" name="booking-form" id="booking-form-submit" value="<?php echo _("Réserver Maintenant"); ?>" />
+      <img src="<?php echo site_url();?>images/padlock.png" alt="<?php echo _("sécurisé");?>" />
+      <span style=""><?php echo _("Payer seulement 10% maintenant")?> </span>
+    </div>
+    
+    </form>
+		
+	<p class="red-error" id="formerror"><?php echo _('Please enter at least one choice in the above table to book a room.');?></p>
+    <?php
+  }
+  
+}
+elseif($api_error_msg==false)
+{
+  //No response from server
+  echo _('Serveur inaccessible en ce moment.');
+}
+else
+{
+  //error message = $api_error_msg->UserMessage->message
+  //error details (en anglais) = $api_error_msg->UserMessage->detail
+  ?>
+  <div class="dispo-error">
+  <p>
+    <strong><?php echo _("Erreur:");?> </strong> 
+    <?php 
+      if(!empty($api_error_msg->messageTranslated))
+      {
+        echo $api_error_msg->messageTranslated;
+      }
+      else
+      {
+        echo $api_error_msg->message;
+      }
+    ?>
+  </p>
+  <p>
+    <strong><?php echo _("Détails:");?> </strong>
+    <?php 
+      if(!empty($api_error_msg->detailTranslated))
+      {
+        echo $api_error_msg->detailTranslated;
+      }
+      else
+      {
+        echo $api_error_msg->detail;
+      }
+    ?>
+  </p>
+  </div>
+  <?php
+  //echo $api[1][0]->UserMessage->message.'<br>';
+  //echo $api[1][0]->UserMessage->detail.'<br>';
+  //erreur de l'api traduite
+  //echo $this->lang->line(get_error_key($api[1]->UserMessage->message));
+//  echo "<textarea cols=\"80\" rows=\"30\">";
+//  print_r($api[1][0]);
+//  echo "</textarea>";
+}
+
+?>
+<script type="text/javascript" src="<?php echo base_url();?>js/tooltip.js"></script>

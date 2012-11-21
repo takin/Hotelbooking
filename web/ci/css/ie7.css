@@ -1,0 +1,253 @@
+#top-pic {
+bottom:-18px;
+position:absolute;
+}
+
+input#submit-payment{
+		color:#ffffff;
+		height:30px;
+		width:146px;
+		text-indent:0px;		
+		cursor:pointer;
+}
+
+form#search-form{
+	margin-top:0px;
+	padding-top:0px;
+}
+form#search-form ul li.search-submit{
+	 float: none;
+   right: 20px;
+    margin-right: 0;
+    position: absolute;
+    top: 20px;
+		z-index:200;
+}
+	
+form#search-form input#search-submit{
+	  text-indent:0px;
+}
+
+form#search-form #datepick{		
+		border:none;
+		
+	}
+form#search-form input.textinput{
+	border:none;
+}
+
+form#search-form h1 {
+	top:50px;
+}
+/*.user-auth #login-connect-page, #password-submit, .user-auth #register-page, form#comment-insert input#comment-submit, #top-login-form form input#login-connect{
+
+text-indent:0px;
+padding:60px;
+overflow:hidden;
+
+}*/
+
+#profile-submit {
+
+margin-top:10px;
+text-indent:0px;
+padding:60px;
+overflow:hidden;
+
+}
+
+/*ul.continent li{
+	padding-left:10px;
+}*/
+
+.block-620 ul {
+	margin-right:30px;
+	margin-left:0px;
+	width:110px;
+	
+}
+
+.block-620 ul li {
+	margin-left:10px;
+}
+
+form#sort-result {
+
+	margin-top:0px;
+}
+
+
+ul#bread-crumb li{
+	float:left;
+	margin-right:0px;
+	padding-left:15px;
+	padding-right:9px;
+	list-style:none;
+	background:url(../images/bread-crumb-back.png) no-repeat center left;	
+}
+
+ul#bread-crumb li.first{
+	background:none;	
+}
+
+table.payment input#submit-payment{
+	
+	height:30px;
+	width:146px;			
+	cursor:pointer;	
+	text-indent:0px;
+	padding:60px;
+	overflow:hidden;
+}
+
+.col0-2 form{
+	margin-top:0px;
+	padding:0px;
+}
+
+/* clearfix */
+.top-auberges-side li:after, .top-auberges li:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.top-auberges-side li, .top-auberges-vedette li {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .top-auberges-side li {height: 1%;}
+* html .top-auberges-vedette li {height: 1%;}
+.top-auberges-side li, .top-auberges-vedette li {display: block;}
+/* End hide from IE-mac */
+
+/*auberges section */
+
+.home-map .europe {
+	bottom:20px;
+	right:0px;
+	width:216px;
+	height:100px;
+	z-index:999;
+	
+}
+
+.home-map .amen {
+	top:9px;
+	left:9px;
+	width:148px;
+	height:120px;
+}
+
+.home-map .ames {
+	top:129px;
+	left:98px;
+	width:49px;
+	height:90px;
+}
+
+.home-map .ocea {
+	top:150px;
+	left:281px;
+	width:86px;
+	height:61px;
+}
+
+.home-map .afri {
+	top:95px;
+	left:163px;
+	width:68px;
+	height:90px;
+}
+
+.home-map .asie {
+	top:70px;
+	left:231px;
+	width:107px;
+	height:90px;
+	
+}
+
+div.mapbubble h2 a{
+	color:#464646;
+	margin-bottom:5px;	
+	
+}
+
+
+div.mapbubble h2 {
+	margin-bottom:5px;
+	line-height:1.1em;
+	width:auto;	
+}
+
+ul.property-choice{
+	margin-bottom:5px;
+	
+}
+
+
+
+ul.property-choice li a{
+
+	cursor:pointer;
+}
+
+
+
+ul.property-choice li a span{
+	
+	cursor:pointer;
+	
+}
+	
+/* blog */
+
+ol.comment-form-list {
+	
+	margin-left:0px;
+	padding-top:0px;
+}
+
+ol.comment-form-list form {
+	margin-top:-12px;
+	padding-top:0px;
+}
+
+/*flag */
+
+
+#menu ul li.flags-holder{
+		float:right;
+		margin-left:0px;
+		position:relative;
+		padding:0;
+		background:none !important;
+	}
+
+#menu ul li.addthis a, #menu ul li.addthis{
+		padding:0 0 10px 0;
+		display:none;
+		float:right;
+	}
+	
+#flags ul li{
+		background:none !important;
+		
+	}
+
+/*a.addthis_button{
+	display:none;
+}
+
+.warning{
+   margin-top:10px;
+	 position:relative;
+}
+
+.warning p{
+	margin-top:0px;
+}*/
+
+#sidebar .block-300 {
+	float:none;
+}

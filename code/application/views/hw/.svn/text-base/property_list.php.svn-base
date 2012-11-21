@@ -1,0 +1,80 @@
+  <div class="hostel-list block-620-small">
+    <div class="block-620-top-small"></div>
+    <div class="block-620-content-small clearfix">
+    <div class="info">
+    <a href="<?php echo site_url($this->link_hostel_page.'/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0]); ?>">
+    <img src="<?php if (isset($hostel->PropertyImages->PropertyImage->imageURL)){echo $hostel->PropertyImages->PropertyImage->imageURL;}else{ echo base_url().'images/na_small.jpg';} ?>" alt="">
+    </a>
+    <h2><a href="<?php echo site_url($this->link_hostel_page.'/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0]); ?>"><?php echo $hostel->propertyName[0]; ?></a></h2>
+       <?php // echo anchor('hostel/hostel_info/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0], $hostel->propertyName[0])?> 
+       
+      <p>
+        <?php 
+        if(!empty($hostel->shortDescriptionTranslated))
+        {
+          echo '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hostel->shortDescription.'">'.$hostel->shortDescriptionTranslated.'</span>';                 
+        }
+        else
+        {
+          echo strip_tags(word_limiter($hostel->shortDescription, 40));
+        }
+        ?>
+      </p> 
+      <?php if (($searchmode==1)&&isset($hostel->AvailableDates->availableDate)){?>
+          <p class="city-avail"><?php echo _("Disponibilités");?> :</p>
+          
+          <ul class="avail">
+            <?php 
+            //print_r(asort($hostel->AvailableDates->availableDate));
+            foreach ($hostel->AvailableDates->availableDate as $availdate) :  ?>
+            <li><?php echo strftime('%d/%m/%y',strtotime($availdate));?></li>
+            
+            <?php endforeach; ?> 
+          </ul>
+          <?php }else{?>
+          
+          <a href="<?php echo site_url($this->link_hostel_page.'/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0]); ?>" class="more-info"><?php echo _("Plus sur ce logement");?> &raquo;</a>
+          
+          <?php }?>
+  
+        </div>
+        <div class="rating">
+  
+          <?php if(isset($hostel->BedPrices->BedPrice->price)){?>
+          <p class="price">
+          <?php echo _('à partir de');?> 
+              &nbsp;<?php echo $cur = currency_symbol($hostel->BedPrices->BedPrice->currency);?> <strong><?php echo $hostel->BedPrices->BedPrice->price;?></strong></p>
+          <?php }?>
+      <?php 
+      
+      //echo "HW rating: ". $this->Db_hw_rating->get_hw_rating($hostel->propertyNumber);
+      
+      $hostel_rating = $this->Db_reviews->get_property_avg_rating($hostel->propertyNumber,0);
+      
+      
+      if(is_null($this->Db_hw_rating->get_hw_rating($hostel->propertyNumber)) || $this->Db_hw_rating->get_hw_rating($hostel->propertyNumber) == 0)
+      {
+        ?>
+       <p class="value no-rating" style=""><strong>0</strong></p>
+       <p class="comment"><?php echo _("Not Rated Yet!"); ?></p>
+       <?php /*?><p class="contest"><a href="<?php echo base_url().'info/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0]; ?>#tab3">Commentez pour gagner un Ipod!</a></p><?php */?>
+        <?php
+      }
+      else
+      {
+        ?>
+        <p class="value">
+        <?php echo _("évaluation moyenne");?><br />
+        <strong title="<?php echo _("As rated by bookers like you"); ?>"><?php echo $this->Db_hw_rating->get_hw_rating($hostel->propertyNumber);?></strong> %</p>
+        <?php /*?><p class="comment"><?php printf (ngettext("%d commentaire", "%d commentaires", $hostel_rating->rating_count), $hostel_rating->rating_count); ?></p><?php */?>
+        <?php
+      }
+      
+      ?>
+      
+      
+    </div>
+    <a title="<?php printf( gettext("Réserver %s"),$hostel->propertyName[0]);?>" class="reserve" href="<?php echo site_url($this->link_hostel_page.'/'.url_title($hostel->propertyName).'/'.$hostel->propertyNumber[0]); ?>"><?php echo _("Réserver");?></a>
+    </div>
+  
+  </div>

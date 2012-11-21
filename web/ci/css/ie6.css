@@ -1,0 +1,405 @@
+#top-pic {
+bottom:-18px;
+position:absolute;
+}
+
+/*.user-auth #login-connect-page, #password-submit, .user-auth #register-page, form#comment-insert input#comment-submit, #top-login-form form input#login-connect{
+text-indent:0px;
+padding:60px;
+overflow:hidden;
+}*/
+
+#profile-submit {
+
+margin-top:10px;
+text-indent:0px;
+padding:60px;
+overflow:hidden;
+
+}
+
+#menu{
+	margin-left:2px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+
+#menu ul {
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+
+#menu ul li {
+background:transparent url(../images/menu-li-back-left.gif) no-repeat scroll left bottom;
+float:left;
+padding-left:17px;
+padding-bottom:0px;
+margin-bottom:0px;
+}
+
+#menu ul li.current_page_item{
+	padding-left:8px;
+}
+
+#menu ul li.current_page_item a {
+line-height:34px;
+}
+
+#menu ul li.first {
+margin-left:3px;
+}
+
+#menu li a{
+}
+
+#mainbar {
+border-top:0px solid #F0F0F0;
+color:#FFFFFF;
+padding:10px 20px 0;
+}
+
+#second-container {
+
+background:transparent url(../images/content-top.gif) no-repeat scroll left top;
+
+}
+
+#content{
+	background:transparent url(../images/content-inside.gif) repeat-y scroll left top;
+}
+
+#content-bottom {
+		
+		display:none;
+}
+
+.booking-view #content-bottom {
+		background:none;
+		height:1px;
+		clear:both;
+}
+
+.booking ul.site-info li {
+clear:none;
+float:left;
+font-size:0.9em;
+line-height:1.5em;
+margin-bottom:15px;
+padding:0 5px;
+text-align:center;
+display:inline;
+width:140px;
+}
+
+.home #sidebar {
+	padding:0px 0px;
+	display:inline;
+}
+#sidebar {
+	padding:0px 0px 0 0px;
+	display:inline;
+	position:relative;
+	margin-left:0px;
+	margin-right:-10px;
+	float:right;
+}
+
+
+.auberges .col1 {
+		width:620px;
+		padding:0 0px 0px 10px;
+	}
+
+form#search-form{
+	margin-top:0px;
+	padding-top:0px;
+}
+form#search-form ul li.search-submit{
+	 
+}
+	
+form#search-form input#search-submit{
+	  text-indent:0px;
+}
+
+/*ul.continent {
+	margin-bottom:20px;
+	margin-top:10px;
+	padding-left:0px;
+	width:190px;
+}
+
+ul.continent li{
+	padding-left:10px;
+}
+*/
+.block-620 ul {
+	margin-right:30px;
+	margin-left:0px;
+	width:110px;
+	
+}
+
+.block-620 ul li {
+	margin-left:10px;
+}
+
+form#sort-result {
+
+	margin-top:0px;
+}
+
+ul#bread-crumb li{
+	float:left;
+	margin-right:0px;
+	padding-left:15px;
+	padding-right:9px;
+	list-style:none;
+	background:url(../images/bread-crumb-back.png) no-repeat center left;	
+}
+
+ul#bread-crumb li.first{
+	background:none;
+	padding-left:0px;
+}
+
+ul.property-choice{
+		margin-bottom:10px;
+		float:left;
+}
+	
+ul.property-choice li{
+	float:left;
+	margin-right:10px;
+}
+
+ul.property-choice li a{
+	display:inline-block;
+	float:left;
+	height:30px;
+	padding-left:12px;
+	line-height:30px;
+	color:#464646;
+	background:url(../images/city-tabs-button.png) no-repeat top left;
+}
+
+ul.property-choice li a:hover, ul.property-choice li.ui-tabs-selected a{
+	display:inline-block;
+	height:30px;
+	float:left;
+	padding-left:12px;
+	line-height:30px;
+	color:#ffffff;
+	
+	background:url(../images/city-tabs-button-hover.png) no-repeat top left;
+}
+
+
+ul.property-choice li a span{
+	display:inline-block;
+	height:30px;
+	padding-right:12px;
+	background:url(../images/city-tabs-button.png) no-repeat top right;
+}
+
+ul.property-choice li a:hover span, ul.property-choice li.ui-tabs-selected a span{
+	ddisplay:inline-block;
+	height:30px;
+	padding-right:12px;
+	background:url(../images/city-tabs-button-hover.png) no-repeat top right;
+}
+
+ul.property-choice li.ui-tabs-selected a span{
+	ddisplay:inline;
+	height:30px;
+	padding-right:12px;
+	background:url(../images/city-tabs-button-hover.png) no-repeat top right;		
+}
+
+ul.continent{
+		margin-left:10px;
+	}
+	
+ul.continent li{
+	float:left;
+	height:29px;
+	background:url(../images/continent-nav-long.gif) no-repeat top left;
+	padding-left:10px;
+	margin-right:5px;
+	display:inline-block;
+}
+
+ul.continent li a{
+	display:inline-block;
+	height:29px;
+	line-height:32px;
+	background:url(../images/continent-nav-short.gif) no-repeat top right;
+	padding-right:10px;
+	color:#333333;
+}
+
+ul.continent li.ui-tabs-selected{		
+	background:url(../images/continent-nav-long-green.gif) no-repeat top left;
+}
+
+ul.continent li.ui-tabs-selected a{
+	background:url(../images/continent-nav-short-green.gif) no-repeat top right;
+	color:#ffffff;
+}
+
+table.payment input#submit-payment{
+		text-indent:0px;	
+		height:30px;
+		width:146px;			
+		cursor:pointer;	
+		padding:60px;
+		overflow:hidden;
+}
+
+.col0-2 form{
+	margin-top:0px;
+	padding:0px;
+}
+
+
+/* clearfix */
+.top-auberges-side li:after, .top-auberges li:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.top-auberges-side li, .top-auberges-vedette li {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .top-auberges-side li {height: 1%;}
+* html .top-auberges-vedette li {height: 1%;}
+.top-auberges-side li, .top-auberges-vedette li {display: block;}
+/* End hide from IE-mac */
+
+
+/*auberges part */
+
+
+ul.property-choice li a{
+	display:inline;
+	
+}
+
+ul.property-choice li a:hover, ul.property-choice li.ui-tabs-selected a{
+	display:inline;
+
+}
+
+ul.property-choice li a span{
+	display:inline;
+	
+	cursor:pointer;
+
+}
+
+ul.property-choice li a:hover span, ul.property-choice li.ui-tabs-selected a span{
+	display:inline;
+	
+}
+
+.paging{
+height:30px;
+line-height:30px;
+margin-bottom:15px;
+padding-left:12px;
+}
+a.page-first, a.page-last, a.page-prev, a.page-next{
+line-height:25px;
+padding:0px 5px 6px 5px;
+outline:none;
+}
+a.sorting {
+color:#464646;
+display:inline;
+float:left;
+padding:0 12px;
+}
+
+ul.view-menu{
+display:inline;
+}
+
+ul.eval-view{
+display:inline;
+}
+
+ul.view-menu li, ul.eval-view li{
+display:inline;
+}
+
+ul.view-menu li a, ul.eval-view li span{
+display:inline-block;
+}
+
+.slideshow{
+display:inline;
+margin-right:0px;
+position:relative;
+}
+
+.slideshow ul.control li{
+float:left;
+display:inline;
+}
+
+.hostel-view .about {
+	position:relative;
+	float:right;
+}
+
+.hostel-view .about h2{
+	margin-left:0px;
+	width:auto;	
+	margin-bottom:10px;
+}
+
+.slideshow, .slides{
+	overflow:hidden;
+	display:inline;
+}
+
+div.mapbubble h2 {
+	margin-bottom:5px;
+	line-height:1.1em;
+	width:auto;	
+}
+
+/*acccount*/
+
+.account-nav a{
+display:inline;
+}
+
+#footer{
+
+background: url(../images/footer-back.gif) repeat-x bottom left;
+
+}
+
+#menu ul li.flags-holder{
+		float:right;
+		margin-left:0px;
+		position:relative;
+		padding:0;
+		background:none !important;
+	}
+
+#menu ul li.addthis a, #menu ul li.addthis{
+		padding:0 0 10px 0;
+		display:none;
+		float:right;
+	}
+	
+#flags ul li{
+		background:none !important;		
+}
+
+a.addthis_button{
+	display:none;
+}

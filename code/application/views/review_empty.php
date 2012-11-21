@@ -1,0 +1,2 @@
+<h2 class="dotted-line margbot15"><?php echo _("Commentaires et évaluations de voyageurs");?></h2>
+<p class="pad-left"><?php echo _("Il n'y a aucun commentaire. Soyez le premier à évaluer cette auberge!");?></p>
