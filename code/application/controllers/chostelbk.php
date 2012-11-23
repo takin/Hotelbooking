@@ -256,6 +256,7 @@ class CHostelbk extends I18n_site
 
     $this->load->model("Db_hb_hostel");
     //TODO translate
+    $data['important_info'] = new stdClass();
     $data['important_info']->original    = $this->Db_hb_hostel->get_hostel_important_info($propertyNumber);
     $data['important_info']->translation = null;
 

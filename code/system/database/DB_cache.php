@@ -134,7 +134,7 @@ class CI_DB_Cache {
 	    }
 	    
 	    $cache_mode = ($cache_mode == 'ar_table') ? 'table' : $cache_mode;
-	    
+
 	    $dir_path  = $this->db->cachedir.'/'.$cache_mode.'/';
 		$file_name = $cache_id.md5($sql);
 		

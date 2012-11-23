@@ -46,7 +46,7 @@ $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = FALSE;
 $db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = FCPATH."/cache_queries/aj_ci";
+$db['default']['cachedir'] = FCPATH."cache_queries/aj_ci";
 $db['default']['char_set'] = "utf8";
 $db['default']['dbcollat'] = "utf8_general_ci";
 $db['default']['ssl_enable'] = FALSE;
@@ -64,7 +64,7 @@ $db['translation']['dbprefix'] = "";
 $db['translation']['pconnect'] = FALSE;
 $db['translation']['db_debug'] = FALSE;
 $db['translation']['cache_on'] = FALSE;
-$db['translation']['cachedir'] = FCPATH."/cache";
+$db['translation']['cachedir'] = FCPATH."cache";
 $db['translation']['char_set'] = "utf8";
 $db['translation']['dbcollat'] = "utf8_general_ci";
 
@@ -669,6 +669,34 @@ $db['wpblog_en_nf']['cache_on'] = FALSE;
 $db['wpblog_en_nf']['cachedir'] = "";
 $db['wpblog_en_nf']['char_set'] = "utf8";
 $db['wpblog_en_nf']['dbcollat'] = "utf8_general_ci";
+
+//Wordpress database for reviews
+$db['wpblog_hb']['hostname'] = "92.243.25.30";
+$db['wpblog_hb']['username'] = "aj_site";
+$db['wpblog_hb']['password'] = "2bVHhwjCGQrRnGW2";
+$db['wpblog_hb']['database'] = "aj_wp_hb";
+$db['wpblog_hb']['dbdriver'] = "mysqli";
+$db['wpblog_hb']['dbprefix'] = "";
+$db['wpblog_hb']['pconnect'] = FALSE;
+$db['wpblog_hb']['db_debug'] = FALSE;
+$db['wpblog_hb']['cache_on'] = FALSE;
+$db['wpblog_hb']['cachedir'] = "";
+$db['wpblog_hb']['char_set'] = "utf8";
+$db['wpblog_hb']['dbcollat'] = "utf8_general_ci";
+
+//Wordpress database for reviews
+$db['wpblog_hw']['hostname'] = "92.243.25.30";
+$db['wpblog_hw']['username'] = "aj_site";
+$db['wpblog_hw']['password'] = "2bVHhwjCGQrRnGW2";
+$db['wpblog_hw']['database'] = "aj_wp_hw";
+$db['wpblog_hw']['dbdriver'] = "mysqli";
+$db['wpblog_hw']['dbprefix'] = "";
+$db['wpblog_hw']['pconnect'] = FALSE;
+$db['wpblog_hw']['db_debug'] = FALSE;
+$db['wpblog_hw']['cache_on'] = FALSE;
+$db['wpblog_hw']['cachedir'] = "";
+$db['wpblog_hw']['char_set'] = "utf8";
+$db['wpblog_hw']['dbcollat'] = "utf8_general_ci";
 
 
 

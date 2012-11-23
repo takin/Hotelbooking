@@ -15,7 +15,6 @@
  * @package WordPress
  */
 define('WP_INSTALLING', true);
-
 /**
  * Disable error reporting
  *

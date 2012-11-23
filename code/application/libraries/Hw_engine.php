@@ -780,6 +780,8 @@ class Hw_engine {
   // Not compatible with PHP 5.4
   function property_info(&$data, $property_number)
   {
+    log_message('debug', 'Entering HW Engine property_info method');
+
     $api = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'), $property_number, $this->api_functions_lang);
 
     $data['hostel_data'] = array();
@@ -791,6 +793,7 @@ class Hw_engine {
     if($api[0]==true)
     {
       //API return error
+      log_message('error', 'HW API returned an error ('.$api[0].')');
       throw new Exception("api returned error");
     }
     else

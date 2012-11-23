@@ -108,6 +108,8 @@ class CMain extends I18n_site
 
   function index()
   {
+    log_message('debug', 'Entering main controller index method');
+
     $this->_currency_init();
     $cache_time = $this->wordpress->get_option("aj_cache_time_ci_home",0);
     if(!empty($cache_time))
@@ -1202,6 +1204,8 @@ class CMain extends I18n_site
 
   function property_page($property_type, $property_name = "", $property_number = NULL)
   {
+    log_message('debug', 'Entering main controller property page method');
+
     $this->_currency_init();
     $data = array();
     if(empty($property_number))

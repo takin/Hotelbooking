@@ -14,7 +14,6 @@
 //  Comment output
 error_reporting(0);
 define('EXT', '.php');
-define('CI_APPPATH', CI_ABSPATH.'system/application/');
 
 /** mobile detection **/
 $mobile_enable = get_option('aj_enable_mobile');
@@ -84,7 +83,7 @@ require_once ('ci/db_wp_currencies.php');
 require_once ('admin/settings.php');
 require_once ('admin/widgets.php');
 
-require_once (CI_ABSPATH.'system/application/helpers/misc_tools_helper.php');
+require_once (CI_APPPATH.'helpers/misc_tools_helper.php');
 
 global $current_aj_user;
 get_user_info();

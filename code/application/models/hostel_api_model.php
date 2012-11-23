@@ -205,6 +205,7 @@ class Hostel_api_model extends Model {
 
   function PropertyInformation($userID, $propertyNumber, $language = "French")
   {
+    log_message('debug', 'Entering HW API Model Property Information Method');
 
     $file_xml = $this->config->item('hostelworld_API_url');
     $file_xml.= "PropertyInformation.php?Language=$language&PropertyNumber=$propertyNumber&UserID=$userID";
@@ -830,14 +831,17 @@ class Hostel_api_model extends Model {
   function get_API_XML($xml_file_url)
   {
     //TODO XML check charsets errors Alexandrie-Montréal
-
+    log_message('debug', "Reading $xml_file_url");
   	try
   	{
   		$xml_file = @file_get_contents($xml_file_url);
 
       if ($xml_file  === false)
       {
+       log_message('error', "get_API_XML() problem reading $xml_file_url");
         throw new Exception("Problem reading $xml_file_url");
+      } else {
+         log_message('debug', "get_API_XML() $xml_file_url result : $xml_file");
       }
   	}
     catch(Exception $e)

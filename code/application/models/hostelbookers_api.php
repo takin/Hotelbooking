@@ -83,8 +83,9 @@ class Hostelbookers_api extends Model {
     //Setup staging site if test mode is detected
     if($this->testmode > 0)
     {
+      log_message('debug', "Using test mode for HB call");
       $this->apikey = $this->staging_apikey;
-      $this->hbapi = new SoapClient($this->staging_wsdl);
+      $this->hbapi = new SoapClient($this->staging_wsdl, array('trace' => 1));
     }
 
   }
@@ -98,7 +99,7 @@ class Hostelbookers_api extends Model {
         $this->hbapibooking = new SoapClient($this->live_wsdl_booking);
         if($this->testmode > 0)
         {
-          $this->hbapibooking = new SoapClient($this->staging_wsdl_booking);
+          $this->hbapibooking = new SoapClient($this->staging_wsdl_booking, array('trace' => 1));
         }
       }
       catch(SoapFault $exception)
@@ -227,7 +228,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
+       $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
+
+       if($this->testmode > 0)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }     
+       return $return;
     }
     catch(SoapFault $exception)
     {

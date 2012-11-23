@@ -118,7 +118,6 @@ class MY_Router extends CI_Router {
 
     function _validate_request($segments)
     {
-
       $dbroutes = $this->_db_routing($segments);
       if($dbroutes !== FALSE)
       {

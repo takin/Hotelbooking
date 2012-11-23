@@ -1477,6 +1477,7 @@ class Db_hb_hostel extends Model
     {
       foreach($query->result() as $i => $row)
       {
+        $services[$i] = new stdClass();
         $services[$i]->service_id    = (int)$row->service_id;
         $services[$i]->description   = (string)$row->description;
         $services[$i]->service_type  = (string)$row->service_type;
