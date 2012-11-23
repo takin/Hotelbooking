@@ -28,7 +28,7 @@ class I18n_site extends MY_Controller
   var $api_forced = false;  //true when a HW site is force to HB by get parameter
   var $hostel_controller = "chostel";
 
-  var $site_user = NULL;
+  var $site_user;
   var $user_agent = NULL;
   var $user_agent_mobile = FALSE;
   var $user_agent_mobile_bypass = FALSE;
@@ -40,6 +40,8 @@ class I18n_site extends MY_Controller
   function I18n_site()
   {
     parent::MY_Controller();
+
+    $this->site_user = new stdClass();
 
     $this->load_lang_context($_SERVER['HTTP_HOST']);
     $this->get_site_user_info();
@@ -141,6 +143,7 @@ class I18n_site extends MY_Controller
 
       if(empty($this->site_user))
       {
+        $this->site_user = new stdClass();
         $this->site_user->CountryCode = "";
         $this->site_user->RegionCode = "";
         $this->site_user->CountryName = "";

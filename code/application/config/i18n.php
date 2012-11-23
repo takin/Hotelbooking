@@ -15,6 +15,6 @@ $config['gettext_filename'] = "auberge_lang";
 |
 |
 */
-$config['gettext_filedir'] = APPPATH."language/locale";
+$config['gettext_filedir'] = "/opt/languages/ci/locale";
 
 ?>

@@ -545,6 +545,7 @@ $hb_arrhes_rate        = 0.1;
 							foreach($propertyCardTypes as $cardtype)
 							{
 								//TODO if card Solo or UK maestro -> display issue no
+								$card = new stdClass();
 								$card->IssueNO = 0;
 								$card->CCValidFrom = 0;
 		

@@ -281,6 +281,19 @@ switch($_SERVER['HTTP_HOST'])
 		define('DB_NAME', 'aj_wp_ko_ho');
       
     break;
+
+        case "www.hbsitetest.com":
+
+      define('DB_NAME', 'aj_wp_hb');
+
+    break;
+
+        case "www.hwsitetest.com":
+
+      define('DB_NAME', 'aj_wp_hw');
+
+    break;
+
 		
 }
 
@@ -328,7 +341,6 @@ define('DB_COLLATE', '');
   /** Chemin absolu vers le dossier de CI. */
 
 
-
 	
 /**#@+
  * Clefs uniques d'authentification.
@@ -372,10 +384,12 @@ define ('WPLANG', 'en_US');
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 	
-$cipath = substr(ABSPATH,0,-3).'ci/';
-
 if ( !defined('CI_ABSPATH') )
-	define('CI_ABSPATH', $cipath);
+	define('CI_ABSPATH', '/opt/web/ci/');
+
+if ( !defined('CI_APPPATH') )
+        define('CI_APPPATH', '/opt/code/application/');
+
 
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');

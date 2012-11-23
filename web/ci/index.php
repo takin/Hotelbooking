@@ -8,16 +8,9 @@
 | reasons you are encouraged to change this when your site goes live.
 | For more info visit:  http://www.php.net/error_reporting
 |
-*/
+*
 //	error_reporting(E_ALL);
 	error_reporting(0);
-/*
-	if(strcmp($_SERVER['REMOTE_ADDR'],"70.51.36.87") == 0)
-	{
-	  error_reporting(E_ALL);
-          ini_set('display_errors', 1);
-	}
-*/
 
 /*
 |---------------------------------------------------------------
@@ -31,7 +24,7 @@
 | NO TRAILING SLASH!
 |
 */
-	$system_folder = "system";
+	$system_folder = "/opt/code/system";
 
 /*
 |---------------------------------------------------------------
@@ -48,7 +41,7 @@
 | NO TRAILING SLASH!
 |
 */
-	$application_folder = "application";
+	$application_folder = "/opt/code/application";
 
 /*
 |===============================================================

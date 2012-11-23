@@ -533,6 +533,29 @@ RewriteCond %{HTTP_HOST}   ^www\.xn--xn2by4qtje86kn5ezmb\.kr [NC]
 RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
 RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 
+#-------------------  www.hbsitetest.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hbsitetest\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hbsitetest\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
+
+#-------------------  www.hwsitetest.com -------------------
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hwsitetest\.com [NC]
+RewriteCond   $1 ^($|evenements|destinations)  [NC]
+RewriteRule   ^(.*)$   wp/$1  [QSA,L]
+
+#Wordpress French direct access pages
+RewriteCond %{HTTP_HOST}   ^www\.hwsitetest\.com [NC]
+RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
+RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
+
 
 #-------------------  ALL SITES -------------------
 #Everything else is directed to CI folder, if it is not a real folder name or robot
