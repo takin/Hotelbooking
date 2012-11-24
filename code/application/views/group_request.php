@@ -185,12 +185,12 @@
 				 <div class="three_col">
 				 <label for="rm-type"><?php echo _('Room type requested');?></label>
 				 <select name="rm_type" id="rm-type">
-					 <option selected="selected" value="">-- <?php echo _('Please Select');?> --</option>
-					 <option value="Single room"><?php echo _('Single rooms');?></option>
-					 <option value="Twin room"><?php echo _('Twin rooms');?></option>
-					 <option value="Double room"><?php echo _('Double rooms');?></option>
-					 <option value="Triple room"><?php echo _('Triple rooms');?></option>
-					 <option value="Dorm"><?php echo _('In the dormss with the group');?></option>
+					 <option selected="selected" value="N/A">-- <?php echo _('Please Select');?> --</option>
+					 <option value="Single rooms"><?php echo _('Single rooms');?></option>
+					 <option value="Twin rooms"><?php echo _('Twin rooms');?></option>
+					 <option value="Double rooms"><?php echo _('Double rooms');?></option>
+					 <option value="Triple rooms"><?php echo _('Triple rooms');?></option>
+					 <option value="In the dormss with the group"><?php echo _('In the dormss with the group');?></option>
 				 </select>
 				 <span id="rm_type_error" class=" LV_validation_message LV_invalid" style="display:none;"><?php echo _('Champ obligatoire');?></span>
 				 </div>
@@ -203,14 +203,14 @@
 
 			 <div class="radiogroup">
 			 <label for="breakfast"><?php echo _('Breakfast')?> <span class="mandatory">*</span></label>
-			 <input type="radio" class="radio" name="breakfast" value="Yes"> <span class="radio_span"><?php echo _('yes');?></span>
-			 <input type="radio" class="radio" name="breakfast" value="No" checked="checked"> <span class="radio_span"><?php echo _('no');?></span>
+			 <input type="radio" class="radio" name="breakfast" value="yes"> <span class="radio_span"><?php echo _('yes');?></span>
+			 <input type="radio" class="radio" name="breakfast" value="no" checked="checked"> <span class="radio_span"><?php echo _('no');?></span>
 			 </div>
 
 			 <div class="radiogroup">
 			 <label for="dinner"><?php echo _('Dinner')?> <span class="mandatory">*</span></label>
-			 <input type="radio" class="radio" name="dinner" value="Yes"> <span class="radio_span"><?php echo _('yes');?></span>
-			 <input type="radio" class="radio" name="dinner" value="No" checked="checked"> <span class="radio_span"><?php echo _('no');?></span>
+			 <input type="radio" class="radio" name="dinner" value="yes"> <span class="radio_span"><?php echo _('yes');?></span>
+			 <input type="radio" class="radio" name="dinner" value="no" checked="checked"> <span class="radio_span"><?php echo _('no');?></span>
 			 </div>
 			 <div class="radiogroup">
 			 <label for="most_important"><?php echo _('Most Important')?> <span class="mandatory">*</span></label>

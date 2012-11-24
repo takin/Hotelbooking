@@ -88,7 +88,7 @@ NOTE: This is the HB form example for the book now.
 		</tr>
 		<tr>
 			<td class="first"><?php echo _('Nombre de Nuits');?>:</td>
-			<td><strong><?php echo $quotes[0]->rooms[0]->nights;?></strong></td>
+			<td><strong><?php echo $group_request->numnights?></strong></td>
 		</tr>
 		<?php
 		if(!empty($group_request->total_people))
