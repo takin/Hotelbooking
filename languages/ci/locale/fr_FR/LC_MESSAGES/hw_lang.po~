@@ -70,7 +70,7 @@ msgstr "Tous"
 #: ../views/city_view.php:51
 #: ../views/city_ajax_view.php:240
 msgid "Auberges de jeunesse"
-msgstr "Auberges"
+msgstr "Auberges de jeunesse"
 
 #: ../views/city_view.php:52
 #: ../views/city_ajax_view.php:241
@@ -228,14 +228,14 @@ msgstr "Résultats de votre recherche :"
 #: ../views/includes/header.php:30
 #, php-format
 msgid "Auberges à %s incluant Auberges de Jeunesse à %s. 30,000 Auberges de jeunesses et logements pas chers à %s et dans le monde entier. Aussi, cartes des villes, photos, conseils, événements et guides des Auberges de Jeunesse à %s."
-msgstr "%s - Auberges - %s. Cartes de %s, photos et commentaires sur chaque auberge - %s."
+msgstr "%s - Auberges de jeunesse - %s. Cartes de %s, photos et commentaires sur chaque auberge de jeunesse - %s."
 
 #: ../views/search_results.php:55
 #: ../views/includes/header.php:20
 #: ../views/includes/header.php:25
 #, php-format
 msgid "Auberges en %s incluant Auberges de Jeunesse en %s. 30,000 Auberges de jeunesses et logements pas chers en %s et dans le monde entier. Aussi, cartes des villes, photos, conseils, événements et guides des Auberges de Jeunesse en %s."
-msgstr "%s - Auberges - %s. Cartes de %s, photos et commentaires sur chaque auberge - %s."
+msgstr "%s - Auberges de Jeunesse - %s. Cartes de %s, photos et commentaires sur chaque auberge de jeunesse - %s."
 
 #: ../views/search_results.php:63
 msgid "Tous"
@@ -499,7 +499,7 @@ msgstr "Nombre maximum de personnes pour cette chambre"
 #: ../views/helpfile/pofields.php:14
 #, php-format
 msgid "Private rooms from %s"
-msgstr "Chambres privées / par personne %s"
+msgstr "Chambres privées %s"
 
 #: ../views/mustache/property_list.php:128
 #: ../views/hw/booking_avail_view.php:1
@@ -717,7 +717,7 @@ msgstr "Total"
 #: ../views/hb/booking_avail_view.php:400
 #: ../views/hb/booking_avail_view.php:402
 msgid "Chambres privées"
-msgstr "Chambres privées- Prix par chambre"
+msgstr "Chambres privées - Prix par chambre"
 
 #: ../views/email/new_transaction.php:421
 #: ../views/hw/booking_view.php:240
@@ -1131,7 +1131,7 @@ msgstr "Petit déjeuner inclus"
 #: ../views/email/new_transaction_hb.php:243
 #, php-format
 msgid "10%% Arrhes facturé en %s:"
-msgstr "Dépot 10%% %s : "
+msgstr "Montant déja facturé en %s : "
 
 #: ../views/email/new_transaction_hb.php:516
 #: ../views/hw/booking_end_view.php:19
@@ -1276,11 +1276,11 @@ msgstr "Pas de frais de réservation"
 
 #: ../views/helpfile/pofields.php:7
 msgid "Youth Hostel"
-msgstr "Auberge"
+msgstr "Auberge de jeunesse"
 
 #: ../views/helpfile/pofields.php:8
 msgid "Hostel"
-msgstr "Auberge"
+msgstr "Auberge de jeunesse"
 
 #: ../views/helpfile/pofields.php:9
 msgid "Cheap Hotel"
@@ -1489,11 +1489,11 @@ msgstr "Vous désirez recevoir jusqu'à 60 minutes gratuites de Skype?"
 
 #: ../views/helpfile/pofields.php:55
 msgid "Then Join us on Facebook! This is that simple."
-msgstr "Alors rejoignez-nous sur Facebook ! Rien de plus simple."
+msgstr "Alors rejoignez-nous sur Facebook! Rien de plus simple."
 
 #: ../views/helpfile/pofields.php:56
 msgid "Then Join us on Facebook before 30/06/2011! This is that simple!"
-msgstr "Alors rejoignez-nous sur Facebook avant le 30/06/2011! Rien de plus simple !"
+msgstr "Alors rejoignez-nous sur Facebook avant le 30/06/2011 ! Rien de plus simple !"
 
 #: ../views/helpfile/pofields.php:57
 #, php-format
@@ -1818,7 +1818,7 @@ msgstr "5$/nuit + comparez %s à bon prix"
 #: ../views/helpfile/pofields.php:136
 #, php-format
 msgid "Hello. Would you prefer to use %s in %s. Same properties, same great prices!"
-msgstr "Bonjour. Préférez-vous visualiser %s en %s ? Mêmes établissements, mêmes bon prix !"
+msgstr "Bonjour. Préférez-vous visualiser %s en %s? Mêmes établissements, mêmes bon prix !"
 
 #: ../views/helpfile/pofields.php:137
 #, php-format
@@ -1879,7 +1879,7 @@ msgstr "Jusqu'à 500 personnes par réservation !"
 #: ../controllers/cmain.php:939
 #, php-format
 msgid "If you are looking for a hostel, a Youth hostel, a hotel, a B&B or a cheap acommodation for your group, we are here to help."
-msgstr "Si vous cherchez une auberge, une Auberge, un hôtel, un Bed & Breakfast ou un logement à bas prix pour votre groupe, nous pouvons vous aider."
+msgstr "Si vous cherchez une Auberge de jeunesse, un hôtel, un Bed & Breakfast ou un logement à bas prix pour votre groupe, nous pouvons vous aider."
 
 #: ../views/helpfile/pofields.php:148
 #, php-format
@@ -1996,7 +1996,7 @@ msgstr "Prix par chambre (et non par personne)"
 #: ../views/helpfile/pofields.php:169
 #, php-format
 msgid "You must pay for the whole private room, even if you do not need all the beds. The room can not be shared."
-msgstr "Vous devez payer le prix total de la chambre privée, même si vous n'avez pas besoin de tous les lits. Chambre Double = Chambre pour 2 personnes (1 lit double), Chambre Jumeaux/TWIN = Chambre pour 2 personnes (2 lits simples jumeaux), Chambre Triple = Chambre pour 3."
+msgstr "Vous devez payer le prix total de la chambre privée, même si vous n'avez pas besoin de tous les lits."
 
 #: ../views/helpfile/pofields.php:170
 #, php-format
@@ -2232,7 +2232,7 @@ msgstr "Dernieres propriétés vues"
 #: ../views/helpfile/pofields.php:212
 #, php-format
 msgid "Top rated hostels in %s"
-msgstr "Top Auberges - %s"
+msgstr "Top Auberges de jeunesse - %s"
 
 #: ../views/helpfile/pofields.php:213
 #: ../views/helpfile/pofields.php:259
@@ -3204,7 +3204,7 @@ msgstr "On voyage mieux entre amis. Partager cela sur Facebook ! "
 #: ../views/helpfile/pofields.php:412
 #, php-format
 msgid "Add info@NoFeesHostels.com  to your address book to make sure you receive the NoFeesHostels.com newsletter."
-msgstr "Ajouter info@Auberges.com à votre carnet d'adresses pour être certains de recevoir la newsletter de Auberges.com"
+msgstr "Ajouter info@AubergesDeJeunesse.com à votre carnet d'adresses pour être certains de recevoir la newsletter de AubergesDeJeunesse.com"
 
 #: ../views/helpfile/pofields.php:413
 #, php-format
@@ -3437,13 +3437,13 @@ msgstr "Merci d'entrer les dates pour voir toutes les propriétés à %s"
 #: ../views/helpfile/pofields.php:468
 #, php-format
 msgid "Compare all hostels in %s"
-msgstr "Comparer toutes les auberges à %s"
+msgstr "Comparer toutes les auberges de jeunesse à %s"
 
 #: ../views/helpfile/pofields.php:469
 #: ../views/city_lp.php:70
 #, php-format
 msgid "Hostels in %s"
-msgstr "Hostels à %s"
+msgstr "Youth Hostels à %s"
 
 #: ../views/helpfile/pofields.php:470
 #: ../views/city_lp.php:74
@@ -3473,19 +3473,19 @@ msgstr "Camping à %s"
 #: ../views/city_lp.php:91
 #, php-format
 msgid "Properties in %s"
-msgstr "Auberges et chambres pas chères à %s"
+msgstr "Auberges de Jeunesse et chambres pas chères à %s"
 
 #: ../views/helpfile/pofields.php:475
 #: ../views/city_lp.php:43
 #, php-format
 msgid "Hostels close to %s"
-msgstr "Hostels proches de %s"
+msgstr "Youth Hostels proches de %s"
 
 #: ../views/helpfile/pofields.php:476
 #: ../views/city_lp.php:47
 #, php-format
 msgid "Hotels close to %s"
-msgstr "Hotels proches de %s"
+msgstr "Youth Hostels proches de %s"
 
 #: ../views/helpfile/pofields.php:477
 #: ../views/city_lp.php:51
@@ -3509,13 +3509,13 @@ msgstr "Camping proche de %s"
 #: ../views/city_lp.php:63
 #, php-format
 msgid "Properties close to %s"
-msgstr "Auberges et chambres pas chères près de %s"
+msgstr "Auberges de Jeunesse près de %s"
 
 #: ../views/helpfile/pofields.php:481
 #: ../views/city_lp.php:14
 #, php-format
 msgid "Hostels in the %s district"
-msgstr "Hostels dans le quartier de %s"
+msgstr "Youth hostel dans le quartier de %s"
 
 #: ../views/helpfile/pofields.php:482
 #: ../views/city_lp.php:18
@@ -3545,13 +3545,13 @@ msgstr "Camping dans le quartier de %s"
 #: ../views/city_lp.php:34
 #, php-format
 msgid "Properties in the %s district"
-msgstr "Auberges et Chambres pas chères dans le quartier de %s"
+msgstr "Auberges de jeunesse dans le quartier de %s"
 
 #: ../views/helpfile/pofields.php:487
 #: ../views/city_lp.php:69
 #, php-format
 msgid "%s – Hostels in %s. Maps for %s, Photos and Reviews for each Hostel in %s."
-msgstr "%s - Hostels à %s. Cartes pour %s, photos et commentaires pour chaque Hostel à %s. "
+msgstr "%s - Youth hostels à %s. Cartes pour %s, photos et commentaires pour chaque Youth Hostel à %s. "
 
 #: ../views/helpfile/pofields.php:488
 #: ../views/city_lp.php:73
@@ -3575,25 +3575,25 @@ msgstr "%s - Chambres à %s. Cartes pour %s, photos et commentaires pour chaque 
 #: ../views/city_lp.php:85
 #, php-format
 msgid "%s – Camping in %s. Maps for %s, Photos and Reviews for each camping in %s."
-msgstr "%s - Camping à %s. Cartes pour %s, photos et commentaires pour chaque camping à %s. "
+msgstr "%s - Camping à %s. Cartes pour %s, photos et commentaires pour chaque Camping à %s. "
 
 #: ../views/helpfile/pofields.php:492
 #: ../views/city_lp.php:89
 #, php-format
 msgid "%s – Properties in %s. Maps for %s, Photos and Reviews for each properties in %s."
-msgstr "%s - Auberges et chambres pas chères à %s. Cartes de %s, photos et commentaires pour chaque Auberge et chambre pas chère à %s. "
+msgstr "%s - Auberges de jeunesse et chambres pas chères à %s. Cartes de %s, photos et commentaires pour chaque Auberge de jeunesse et chambre pas chère à %s. "
 
 #: ../views/helpfile/pofields.php:493
 #: ../views/city_lp.php:42
 #, php-format
 msgid "%s – Hostels close to %s. Maps for %s, Photos and Reviews for each Hostel in %s."
-msgstr "%s - Hostels près de %s. Cartes pour %s, photos et commentaires pour chaque hostel à %s. "
+msgstr "%s - Auberges de jeunesse près de %s. Cartes pour %s, photos et commentaires pour chaque auberge de jeunesse à %s. "
 
 #: ../views/helpfile/pofields.php:494
 #: ../views/city_lp.php:46
 #, php-format
 msgid "%s – Hotels close to %s. Maps for %s, Photos and Reviews for each Hotel in %s."
-msgstr "%s - Hôtels près de %s. Cartes pour %s, photos et commentaires pour chaque hôtel à %s. "
+msgstr "%s - Youth Hostels près de %s. Cartes pour %s, photos et commentaires pour chaque Youth hostel à %s. "
 
 #: ../views/helpfile/pofields.php:495
 #: ../views/city_lp.php:50
@@ -3617,13 +3617,13 @@ msgstr "%s - Camping près de %s. Cartes pour %s, photos et commentaires pour ch
 #: ../views/city_lp.php:62
 #, php-format
 msgid "%s – Properties close to %s. Maps for %s, Photos and Reviews for each properties in %s."
-msgstr "%s - Auberges et chambres pas chères près de %s. Cartes pour %s, photos et commentaires pour chaque Auberge et chambre pas chère à %s. "
+msgstr "%s - Auberges de jeunesse près de %s. Cartes de %s, photos et commentaires pour chaque Auberge de jeunesse à %s. "
 
 #: ../views/helpfile/pofields.php:499
 #: ../views/city_lp.php:13
 #, php-format
 msgid "%s – Hostels in the %s district. Maps for %s, Photos and Reviews for each Hostel in %s."
-msgstr "%s - Hostels dans le quartier de %s. Cartes pour %s, photos et commentaires pour chaque hostel à %s. "
+msgstr "%s - Youth hostel dans le quartier de %s. Cartes pour %s, photos et commentaires pour chaque youth hostel à %s. "
 
 #: ../views/helpfile/pofields.php:500
 #: ../views/city_lp.php:17
@@ -3641,7 +3641,7 @@ msgstr "%s - Appartements dans le quartier de %s. Cartes pour %s, photos et comm
 #: ../views/city_lp.php:25
 #, php-format
 msgid "%s – Rooms in the %s district. Maps for %s, Photos and Reviews for each room in %s."
-msgstr "%s - Chambres dans le quartier de %s. Cartes pour %s, photos et commentaires pour chaque chambre à %s. "
+msgstr "%s - Chambres pas chères dans le quartier de %s. Cartes pour %s, photos et commentaires pour chaque chambre à %s. "
 
 #: ../views/helpfile/pofields.php:503
 #: ../views/city_lp.php:29
@@ -3653,7 +3653,7 @@ msgstr "%s - Camping dans le quartier de %s. Cartes pour %s, photos et commentai
 #: ../views/city_lp.php:33
 #, php-format
 msgid "%s – Properties in the %s district. Maps for %s, Photos and Reviews for each properties in %s."
-msgstr "%s - Auberges et chambres pas chères dans le quartier de %s. Cartes de %s, photos et commentaires pour chaque Auberge et chambre pas chère à %s. "
+msgstr "%s - Auberges de jeunesse dans le quartier de %s. Cartes de %s, photos et commentaires pour chaque Auberge de jeunesse à %s. "
 
 #: ../views/helpfile/pofields.php:505
 #, php-format
@@ -3764,7 +3764,7 @@ msgstr "Sélectionner le nombre de chambres"
 #: ../views/hw/booking_view.php:857
 #, php-format
 msgid "Important information: Maestro cards must be from Great-Britain."
-msgstr "  "
+msgstr "Information importante concernant les cartes Maestro : Seulement les cartes Maesto de Grande-Bretagne sont acceptées (et non les cartes Maestro Françaises, Belges ou Suisses)."
 
 #: ../views/helpfile/pofields.php:530
 #: ../views/includes/video-popup.php:4
@@ -3875,7 +3875,7 @@ msgstr "* le dépot sera  facturé en Livres Sterling"
 #: ../views/hw/booking_avail_view.php:673
 #, php-format
 msgid "Search for more properties in %s"
-msgstr "Rechercher davantage détablissements à %s"
+msgstr "Rechercher davantage d'établissements à %s"
 
 #: ../views/helpfile/pofields.php:553
 #, php-format
@@ -3885,7 +3885,7 @@ msgstr "Chambre privée à partir de %s"
 #: ../views/helpfile/pofields.php:554
 #, php-format
 msgid "First price per person from: %s"
-msgstr "Premier prix par personne: %s"
+msgstr "Premier prix par personne : %s"
 
 #: ../views/helpfile/pofields.php:557
 #, php-format
@@ -4005,7 +4005,7 @@ msgstr "Pouvons nous vous contacter par téléphone ?"
 #: ../views/helpfile/pofields.php:587
 #, php-format
 msgid "Thank you for your email."
-msgstr "Merci de votre e-mail"
+msgstr "Merci de votre e-email"
 
 #: ../views/helpfile/pofields.php:588
 #, php-format
@@ -4050,7 +4050,7 @@ msgstr "En raison d'un nombre très élevé de demandes de groupe, cela peut pre
 #: ../views/helpfile/pofields.php:596
 #, php-format
 msgid "We thank you for your patience."
-msgstr "Merci pour votre patiance."
+msgstr "Merci pour votre patiance"
 
 #: ../views/helpfile/pofields.php:597
 #: ../views/restricted/user_group_quote.php:160
@@ -4080,7 +4080,7 @@ msgstr "Nous allons bientôt envoyer votre chèque à l'adresse e-mail du dossie
 #: ../views/mobile/hw/booking_end_view.php:52
 #: ../views/hb/booking_avail_view.php:350
 msgid "Price per person (Dorm shared with others)."
-msgstr "Prix par personne (chambre partagée) pour la durée totale de votre séjour."
+msgstr "Prix par personne (chambre partagée)."
 
 #: ../views/property_rooms_avail.php:54
 msgid "Beds (max)"
@@ -4115,13 +4115,13 @@ msgstr "Pas de dortoirs disponibles"
 #: ../views/mobile/hw/booking_end_view.php:96
 #: ../views/hb/booking_avail_view.php:403
 msgid "Price per room (not per person)."
-msgstr "Prix par chambre (et non par personne) pour la durée totale de votre séjour."
+msgstr "Prix par chambre (et non par personne)."
 
 #: ../views/property_rooms_avail.php:160
 #: ../views/hw/booking_avail_view.php:493
 #: ../views/hb/booking_avail_view.php:403
 msgid "You must pay for the whole private room, even if you do not need all the beds. The room cannot be shared."
-msgstr "Vous devez payer le prix total de la chambre privée, même si vous n'avez pas besoin de tous les lits.<br /><br />Chambre simple = Chambre avec 1 lit simple pour 1 personne<br />Chambre double = Chambre avec 1 lit double pour 2 personnes<br />Chambre twin = Chambre avec 2 lits simples pour 2 personnes<br />Chambre triple = Chambre pour 3 personnes"
+msgstr "Vous devez payer le prix total de la chambre privée, même si vous n'avez pas besoin de tous les lits.<br /><br />Chambre simple = Chambre avec 1 lit simple pour 1 personne<br />Chambre double = Chambre avec 1 lit double pour 2 personnes<br />Chambre twin = Chambre avec 2 lits simples pour 2 personnes<br />Chambre triple = Chambre pour 3 personnes<br />Salle de bains privée = salle de bains dans la chambre<br />Salle de bains partagée = salle de bains a l'extérieur"
 
 #: ../views/property_rooms_avail.php:180
 msgid "Rooms (max)"
@@ -4294,7 +4294,7 @@ msgstr "Créer votre compte"
 #: ../views/auth/register_form.php:52
 #: ../views/mobile/auth/register_form.php:48
 msgid "La création d'un compte vous donnera accès à votre historique de réservations et d'évaluations pour les auberges de jeunesse. Veuillez entrer votre adresse de courriel et nous vous enverrons un mot de passe."
-msgstr "La création d'un compte vous donnera accès à votre historique de réservations et d'évaluations pour les auberges. Veuillez entrer votre adresse de courriel et nous vous enverrons un mot de passe."
+msgstr "La création d'un compte vous donnera accès à votre historique de réservations et d'évaluations pour les auberges de jeunesse. Veuillez entrer votre adresse de courriel et nous vous enverrons un mot de passe."
 
 #: ../views/auth/register_form.php:115
 #: ../views/mobile/auth/register_form.php:83
@@ -4375,7 +4375,7 @@ msgstr "Votre Compte"
 
 #: ../views/restricted/user_view.php:7
 msgid "Bienvenue dans votre compte. Vous avez maintenant accès à vos réservations d'Auberges de Jeunesse, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager."
-msgstr "Bienvenue dans votre compte. Vous avez maintenant accès à vos réservations d'Auberges, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager."
+msgstr "Bienvenue dans votre compte. Vous avez maintenant accès à vos réservations d'Auberges de jeunesse, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager."
 
 #: ../views/restricted/user_view.php:12
 #: ../views/mobile/user/user_view.php:8
@@ -4548,7 +4548,7 @@ msgstr "Vos évaluations"
 #: ../views/restricted/user_ratings.php:50
 #, php-format
 msgid "Voici la liste de toutes les évaluations que vous avez fait sur les auberge de jeunesses du site %s."
-msgstr "Voici la liste de toutes les évaluations que vous avez fait sur les auberges du site %s."
+msgstr "Voici la liste de toutes les évaluations que vous avez fait sur les auberges de jeunesse du site %s."
 
 #: ../views/restricted/user_ratings.php:56
 msgid "Soumis le"
@@ -4923,7 +4923,7 @@ msgstr "est le montant total à payer à votre arrivée"
 #: ../views/hw/booking_view.php:427
 #: ../views/hb/booking_view.php:287
 msgid "Modify this booking"
-msgstr "Modifier cette réservation"
+msgstr "Changer cette réservation"
 
 #: ../views/hw/booking_view.php:439
 msgid "Méthode de Paiement"
@@ -5242,7 +5242,7 @@ msgstr "Les changements et annulations sont possibles, faciles à faire et se fo
 #: ../views/mobile/hw/booking_confirm.php:334
 #, php-format
 msgid "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
-msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total et non remboursables) afin de confirmer et garantir votre réservation. Le montant restant (90%%) vous sera demandé à votre arrivée."
+msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
 
 #: ../views/hw/reviews.php:44
 #: ../views/hw/hostel_view.php:322
@@ -5509,7 +5509,7 @@ msgstr "Choisir Dates"
 #: ../views/mobile/home_view.php:6
 #: ../views/includes/search_box.php:175
 msgid "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and Breakfast, Pensions - Plus de 30000!!"
-msgstr "30 000 Auberges, Hôtels, Appartements, Chambres d'hôtes, B&Bs et Pensions."
+msgstr "30 000 Auberges De jeunesse, Hôtels, Appartements, Chambres d'hôtes, B&Bs et Pensions."
 
 #: ../views/mobile/property_list.php:22
 msgid "Not Rated Yet!"
@@ -5606,7 +5606,7 @@ msgstr "Se déconnecter"
 #: ../views/mobile/includes/header.php:13
 #: ../views/includes/header.php:13
 msgid "reservation auberge de jeunesse,auberge de jeunesse,auberges de jeunesse,voyage jeunesse europe,voyage jeunesse,voyage europe,hébergement voyage europe,réserver auberge,voyage europe logement,logement voyage france,logement voyage europe,trip jeunesse euro,euro youth hostel,révervation hôtel londres,reservation hôtel paris"
-msgstr "Reservation, auberge,auberges,réserver auberge,youth hostel, hostel, auberge londres, auberge paris, auberge amsterdam, auberge barcelone, auberge new-york, auberge madrid, auberge rome"
+msgstr "Reservation, auberge de jeunesse,auberges, réserver auberge,youth hostel, hostel, auberge londres, auberge paris, auberge amsterdam, auberge barcelone, auberge new-york, auberge madrid, auberge rome"
 
 #: ../views/mobile/includes/header.php:20
 #: ../views/includes/header.php:41
@@ -5783,7 +5783,7 @@ msgstr "Veuillez saisir vos dates pour voir les tarifs et les disponibilités."
 #: ../views/includes/footer.php:4
 #: ../views/includes/popular_city.php:2
 msgid "Destinations Populaires"
-msgstr "Auberge - Destinations Populaires"
+msgstr "Destinations Populaires"
 
 #: ../views/includes/footer.php:32
 msgid "Navigation"
@@ -5812,11 +5812,11 @@ msgstr "Information"
 #: ../views/includes/footer.php:59
 #, php-format
 msgid "Vous recherchez une auberge, une auberge de jeunesse, un appartement, un Bed And Breakfast B&B, une pension, une chambre d’hôtes, une Hostel ? %s est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. %s propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme Paris en France, Londres en Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie, Amsterdam en Hollande, Dublin en Irlande, Madrid en Espagne, Prague en République tchèque ... Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
-msgstr "<strong>© 1997 - 2012 Auberges.com ® | Site Officiel | Tous droits réservés | 3 Villa Fleurie, 75019 Paris, France. </strong>  %s est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. %s propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme Paris en France, Londres en Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie, Amsterdam en Hollande, Dublin en Irlande, Madrid en Espagne, Prague en République tchèque ... Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
+msgstr "<strong>© 1997 - 2012 AubergesDeJeunesse.com ® | Site Officiel | Tous droits réservés | 3 Villa Fleurie, 75019 Paris, France. </strong>  %s est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements en auberges de jeunesse à bas prix dernière minute. %s propose la réservation dernière minute de chambres en auberges de jeunesse et logements à bas prix dans des villes comme Paris en France, Londres en Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie, Amsterdam en Hollande, Dublin en Irlande, Madrid en Espagne, Prague en République tchèque ... Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
 
 #: ../views/includes/footer.php:59
 msgid "Hostelworld customer review"
-msgstr " "
+msgstr "Hostelworld customer review"
 
 #: ../views/includes/bottom_box.php:12
 #: ../views/includes/bottom_box.php:15
@@ -5855,17 +5855,17 @@ msgstr "Chargement"
 #: ../views/includes/top_box.php:21
 #: ../views/includes/header_book.php:150
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
-msgstr "Plus de 30 000 Auberges disponible en ligne"
+msgstr "Plus de 30 000 Auberges de jeunesse disponible en ligne"
 
 #: ../views/includes/header.php:871
 #: ../views/includes/top_box.php:52
 msgid "Auberges et logements pas chers"
-msgstr "Auberges"
+msgstr "Auberges de jeunesse"
 
 #: ../views/includes/header.php:873
 #: ../views/includes/top_box.php:55
 msgid "Réservation d'auberges de jeunesse pour les groupes"
-msgstr "Réservation d'auberges pour groupes"
+msgstr "Réservation d'auberges de jeunesse pour groupes"
 
 #: ../views/includes/header.php:873
 #: ../views/includes/top_box.php:55
@@ -5887,7 +5887,7 @@ msgstr "Nous suivre sur Twitter"
 
 #: ../views/includes/top_box.php:45
 msgid "Réservation mondiale et immédiate, 30 000 Auberges de jeunesse et hôtels pas chers."
-msgstr "Réservation mondiale et immédiate, 30 000 Auberges et hôtels pas chers."
+msgstr "Réservation mondiale et immédiate, 30 000 Auberges de jeunesse et hôtels pas chers."
 
 #: ../views/includes/navuser.php:2
 msgid "Options de Votre Compte"
@@ -5991,7 +5991,7 @@ msgstr "Type de chambres demandé"
 
 #: ../views/group_request.php:189
 msgid "Single rooms"
-msgstr "Chambre simple"
+msgstr "Chambres simples"
 
 #: ../views/group_request.php:190
 msgid "Twin rooms"
@@ -6040,13 +6040,13 @@ msgstr "Merci de votre patience. Notre équipe vous contactera dans les prochain
 
 #: ../views/continent_view.php:11
 msgid "Hébergement pour l'"
-msgstr "Auberges et chambres pas chères en "
+msgstr "Auberges de jeunesse et chambres pas chères en "
 
 #: ../views/continent_view.php:14
 #: ../views/country_view.php:21
 #, php-format
 msgid "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Pension ? N’allez pas plus loin, tous les bons plans sont sur %s"
-msgstr "Vous recherchez une auberge, une auberge hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Auberge Pension sur %s ?"
+msgstr "Vous recherchez une auberge de jeunesse, une auberge hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Auberge Pension sur %s ?"
 
 #: ../views/continent_view.php:15
 #: ../views/country_view.php:22
@@ -6056,7 +6056,7 @@ msgstr "Prix à partir de 5 €  la nuit par personne !"
 #: ../views/continent_view.php:16
 #: ../views/country_view.php:23
 msgid "Comme des milliers de jeunes et moins jeunes tous les mois, réservez-vous aussi en toute sécurité votre auberge idéale au meilleur prix dans toutes les villes listées ci-dessous."
-msgstr "Comme des milliers de jeunes et moins jeunes tous les jours, réservez vous aussi en toute sécurité votre auberge idéale pas chère."
+msgstr "Comme des milliers de jeunes et moins jeunes tous les jours, réservez vous aussi en toute sécurité votre auberge de jeunesse pas chère."
 
 #: ../views/continent_view.php:18
 msgid "Pays d'"
@@ -6086,7 +6086,7 @@ msgstr "Les changements et annulations sont possibles, faciles à faire et se fo
 #: ../views/hb/booking_view.php:856
 #, php-format
 msgid "Sur %s, vous payez seulement les arrhes (10%% du montant total) afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
-msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total et non remboursables) afin de confirmer et garantir votre réservation. Le montant restant (90%%) vous sera demandé à votre arrivée. "
+msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée. "
 
 #: ../views/hb/booking_end_view.php:77
 #, php-format
@@ -6131,39 +6131,39 @@ msgstr "Départ : "
 
 #: ../views/country_view.php:18
 msgid "Hébergement"
-msgstr "Auberges et chambres pas chères"
+msgstr "Auberges de jeunesse et chambres pas chères"
 
 #: ../views/country_view.php:24
 msgid "Les Villes"
-msgstr "Trouver votre auberge dans les villes suivantes "
+msgstr "Trouver votre auberge de jeunesse dans les villes suivantes "
 
 #: ../views/country_view.php:81
 msgid "Retour à tous les pays d'"
-msgstr "Pour trouver votre auberge - Retour à tous les pays d' "
+msgstr "Pour trouver votre auberge de jeunesse - Retour à tous les pays d' "
 
 #: ../views/city_lp.php:141
 #, php-format
 msgid "Auberges à %s. Toutes les auberges à %s - %s "
-msgstr "%s - Auberges pas chères à %s - %s"
+msgstr "%s - Auberges de jeunesse pas chères à %s - %s"
 
 #: ../views/city_lp.php:151
 #, php-format
 msgid "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Pension à %s ?"
-msgstr "Vous recherchez une auberge, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Auberge Pension à %s ?"
+msgstr "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Auberge Pension à %s ?"
 
 #: ../views/city_lp.php:151
 #, php-format
 msgid "N'allez pas plus loin, tous les bons plans à %s sont sur %s."
-msgstr "N'allez pas plus loin, toutes les bonnes Auberges à %s sont sur %s."
+msgstr "N'allez pas plus loin, toutes les bonnes Auberges de jeunesse à %s sont sur %s."
 
 #: ../views/city_lp.php:151
 #, php-format
 msgid "Comme des milliers de jeunes et moins jeunes tous les mois, réservez vous aussi en toute sécurité le logement dernière minute idéal au meilleur prix dans tous les quartiers de %s : centre ville, quartier branché, quartier étudiant et universitaire, près des bus, de la gare, de l'aéroport ainsi que près de toutes les attractions de %s."
-msgstr "Comme des milliers de jeunes et moins jeunes tous les jours, réservez vous aussi en toute sécurité votre auberge idéale au meilleur prix dans tous les quartiers de %s : une auberge en centre ville, dans les quartiers branchés, quartiers étudiants et universitaires, près des bus, des gares, des aéroports ainsi qu'une auberge près de toutes les attractions de %s."
+msgstr "Comme des milliers de jeunes et moins jeunes tous les jours, réservez vous aussi en toute sécurité votre auberge de jeunesse idéale au meilleur prix dans tous les quartiers de %s : une auberge en centre ville, dans les quartiers branchés, quartiers étudiants et universitaires, près des bus, des gares, des aéroports ainsi qu'une auberge près de toutes les attractions de %s."
 
 #: ../views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
-msgstr "30 000 Auberges et Chambres pas chères - Sélectionnez votre pays :"
+msgstr "30 000 Auberges de jeunesse et Chambres pas chères - Sélectionnez votre pays :"
 
 #: ../views/home_view.php:18
 msgid "Plus de 30,000 Logements dernière minute pas chers accessibles en seulement quelques clics."
@@ -6171,7 +6171,7 @@ msgstr " "
 
 #: ../views/home_view.php:19
 msgid "Bienvenue sur le répertoire le plus complet d'Auberges De Jeunesse, Hôtels pas chers, appartements, chambre d’hôtes, Bed and Breakfast B&B et Pensions en français. Veuillez sélectionner un continent afin de voir tous les pays ou vous pourrez trouver des logements dernière minute pas chers.. Vous pouvez aussi directement choisir le pays dans la liste ci-dessous:"
-msgstr "Bienvenue sur le répertoire le plus complet d'Auberges, Hôtels pas chers, appartements, chambre d’hôtes, Bed and Breakfast B&B et Pensions en français. Pour trouver votre auberge, Veuillez sélectionner un continent afin de voir tous les pays ou vous pourrez trouver des Auberges dernière minute pas cheres... Egalement, pour trouver votre auberge, vous pouvez aussi directement choisir le pays dans la carte ci-dessous :"
+msgstr "Bienvenue sur le répertoire le plus complet d'Auberges de jeunesse, Hôtels pas chers, appartements, chambre d’hôtes, Bed and Breakfast B&B et Pensions en français. Pour trouver votre auberge, Veuillez sélectionner un continent afin de voir tous les pays ou vous pourrez trouver des Auberges dernière minute pas cheres... Egalement, pour trouver votre auberge, de jeunesse, vous pouvez aussi directement choisir le pays dans la carte ci-dessous :"
 
 #: ../controllers/user.php:105
 msgid "Erreur lors de la mise à jour de votre profil."
@@ -6269,7 +6269,7 @@ msgstr "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 #: ../libraries/Hb_engine.php:568
 #, php-format
 msgid "Hostels in %s - %s"
-msgstr "Auberges - %s - %s"
+msgstr "Auberges de jeunesse - %s - %s"
 
 #: ../controllers/chostel.php:322
 #: ../libraries/Hw_engine.php:216
@@ -6489,7 +6489,7 @@ msgstr "Code de confirmation"
 
 #, fuzzy
 #~ msgid "Ville"
-#~ msgstr "Trouver votre auberge dans les villes suivantes "
+#~ msgstr "Trouver votre auberge de jeunesse dans les villes suivantes "
 
 #~ msgid ""
 #~ "Due to high demand, and the limited amount of time Hostels can keep "
