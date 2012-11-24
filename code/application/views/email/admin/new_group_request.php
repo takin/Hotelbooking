@@ -1,39 +1,3 @@
-Hello,<br />
-<br />
-This is Chris at <?php echo $this->config->item('admin_booking_email');?><br />
-Please provide a quote for the following group:<br />
-<br />
-1. Travel details<br />
-Country: <?php echo $search_country; ?><br />
-City:    <?php echo $search_city; ?><br />
-Date:    <?php echo $datepick; ?><br />
-Nights:  <?php echo $search_night; ?><br />
-<br />
-2. Group details<br />
-Male:     <?php echo $nb_male_gp; ?><br />
-Female:   <?php echo $nb_female_gp; ?><br />
-Youngest: <?php echo $lower_age; ?><br />
-<br />
-3. Staff/teachers/Coaches/Bus drivers Details<br />
-Nb. Staff: <?php echo $nb_person_staff; ?><br />
-Room type: <?php echo $rm_type; ?><br />
-<br />
-4. Requirements<br />
-breakfast:      <?php echo $breakfast; ?><br />
-dinner:         <?php echo $dinner; ?><br />
-most-important: <?php echo $most_important; ?><br />
-<br />
-5 End-user details<br />
-first-name: <?php echo $first_name; ?><br />
-last-name:  <?php echo $last_name; ?><br />
-email:      <?php echo $email; ?><br />
-Phone:      <?php echo $phone_number; ?><br />
-Demand:         <?php echo $demand; ?><br />
-<br />
-6. Additional information/requests<br />
-<?php echo $more_info;?><br />
-   <br />
-   <br />
 <?php
 echo _('Hello')." $first_name $last_name<br />";
 echo "<br />";
@@ -50,6 +14,36 @@ echo "<br />";
 
 echo _('Customer Service.')."<br />";
 echo $this->config->item('site_name');
+echo "<br />";
+echo "<br />";
+echo "<br />";
+echo "1."._("Travel details")."<br />";
+echo _("Country").": ".$search_country."<br />";
+echo _("City").": ".$search_city."<br />";
+echo _("Date").": ".$datepick."<br />";
+echo _("Nuits:")." ".$search_night."<br />";
+echo "<br />";
+echo "2."._("Group details")."<br />";
+echo _("Male:")." ".$nb_male_gp."<br />";
+echo _("Female:")." ".$nb_female_gp."<br />";
+echo _("Youngest age").": ".$lower_age."<br />";
+echo "<br />";
+echo "3."._("Staff/teachers/Coaches/Bus drivers Details")."<br />";
+echo _("Persons").": ".$nb_person_staff."<br />";
+echo _("Room type requested").": "._($rm_type)." (".$rm_type.")<br />";
+echo "<br />";
+echo "4."._("Requirements")."<br />";
+echo _("Breakfast").": "._($breakfast)."<br />";
+echo _("Dinner").": "._($dinner)."<br />";
+echo _("Most Important").": "._($most_important)."<br />";
+echo "<br />";
+echo "5."._("Your details")."<br />";
+echo _("Prénom").": ".$first_name."<br />";
+echo _("Nom").": ".$last_name."<br />";
+echo _("Addresse Email").": ".$email."<br />";
+echo _("Phone number").": ".$phone_number."<br />";
+echo "<br />";
+echo "6."._("Additional information/requests")."<br />";
+echo _($demand)."<br />";
+echo $more_info."<br />";
 ?>
-
-

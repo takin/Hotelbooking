@@ -56,8 +56,8 @@ class CForm_ajax extends I18n_site
     $emailcontent = $this->load->view("email/admin/new_group_request",$data , true);
     $this->email->from($this->config->item('admin_booking_email'),$this->config->item('site_name'));
     $this->email->to($this->config->item('admin_booking_email'));
-    $this->email->bcc("louismichel@pweb.ca");
-    $this->email->subject("Request for Group booking - ".$data["search_city"].', '.$data["search_country"]." - $totalpeople people - ". $date_us ." - ". $data["search_night"] ." night(s) - ".$this->config->item('site_name'));
+    $this->email->bcc("technical@mcwebmanagement.com");
+    $this->email->subject($this->config->item('site_name')." - ".sprintf(gettext("Group Booking"))." - ".sprintf(gettext("People:"))." ".$totalpeople." - ".$data["search_city"]." - ".$data["datepick"]);
     $this->email->message($emailcontent);
     $emailsent = $this->email->send();
 
