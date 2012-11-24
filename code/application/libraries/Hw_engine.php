@@ -833,6 +833,7 @@ class Hw_engine {
       //Map all hostel fata
       $this->CI->load->model('Db_hw_rating');
 
+      $data['hostel']=new stdClass();
       $data['hostel']->property_number        = (int) $data['hostel_data']->propertyNumber;
       $data['hostel']->property_name          = (string) $property_name;
       $data['hostel']->property_type          = (string)$data['hostel_data']->propertyType;

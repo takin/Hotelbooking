@@ -187,7 +187,7 @@ rsync -a -e ssh /srv/d_mcweb2/www/ajroot/htdocs/wp/wp-content/plugins/auberges_a
 
 SUBJECT="Mirror has been ran"
 # Email To ?
-EMAIL="logs@graphem.ca"
+EMAIL="technical@mcwebmanagement.com"
 EMAILMESSAGE="/srv/d_mcweb2/sshscript/logs/emailmessage.txt"
 echo "Mirror was ran. Yeah man Replication !!!!">> $EMAILMESSAGE
 

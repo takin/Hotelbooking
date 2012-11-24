@@ -10,8 +10,11 @@ NameVirtualHost 95.142.167.247:80
     <Directory "/opt/web">
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Order allow,deny
-        Allow from all
+	AuthUserFile /etc/apache2/users.conf
+	AuthName "This is a protected area" 
+	AuthGroupFile /dev/null 
+	AuthType Basic 
+	Require valid-user 
     </Directory>
 
     CustomLog /opt/logs/hbsitetest.com-access.log combined
@@ -32,8 +35,11 @@ NameVirtualHost 95.142.167.247:443
     <Directory "/opt/web">
         Options Indexes FollowSymLinks MultiViews
         AllowOverride All
-        Order allow,deny
-        Allow from all
+        AuthUserFile /etc/apache2/users.conf
+        AuthName "This is a protected area" 
+        AuthGroupFile /dev/null 
+        AuthType Basic
+        Require valid-user
     </Directory>
 
     CustomLog /opt/logs/hbsitetest.com-access.log combined
