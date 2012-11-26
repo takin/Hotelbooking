@@ -6,38 +6,17 @@ NameVirtualHost 95.142.170.13:80
         ServerAlias     hostales.com
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb9/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+	<Directory "/opt/web">
+        	Options Indexes FollowSymLinks MultiViews
+        	AllowOverride All
+        	Order allow,deny
+        	Allow from all
+	</Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb9/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb9/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-    ErrorLog /srv/d_mcweb9/www/ajroot/logs/www.hostales.com-error.log
-    LogLevel warn
-
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb9/www/ajroot/logs/www.hostales.com-access.log combined env=!loopback
-    ServerSignature On
-
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb9/www/ajroot/db/DAVLock
-    </IfModule>
-
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
-
+        CustomLog /opt/logs/hostales.com-access.log combined
+        ErrorLog /opt/logs/hostales.com-error.log
+        LogLevel warn
 
 </VirtualHost>
 
@@ -50,44 +29,22 @@ NameVirtualHost 95.142.170.13:443
         ServerAlias     hostales.com
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb9/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+	<Directory "/opt/web">
+        	Options Indexes FollowSymLinks MultiViews
+        	AllowOverride All
+        	Order allow,deny
+        	Allow from all
+    	</Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb9/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb9/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
+        CustomLog /opt/logs/hostales.com-access.log combined
+        ErrorLog /opt/logs/hostales.com-error.log
+        LogLevel warn
 
-    ErrorLog /srv/d_mcweb9/www/ajroot/logs/www.hostales.com-error.log
-    LogLevel warn
+	SSLEngine on
 
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb9/www/ajroot/logs/www.hostales.com-access.log combined env=!loopback
-    ServerSignature On
-
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb9/www/ajroot/db/DAVLock
-    </IfModule>
-
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
-
-
-    SSLEngine on
-
-    SSLCertificateFile      /etc/apache2/ssl-cert/hostales.com.crt
-    SSLCACertificateFile    /etc/apache2/ssl-cert/hostales.com.pem
-    SSLCertificateKeyFile   /etc/apache2/ssl-cert/hostales.com.key
+	SSLCertificateFile      /opt/certificates/hostales.com.crt
+	SSLCACertificateFile    /opt/certificates/hostales.com.pem
+	SSLCertificateKeyFile   /opt/certificates/hostales.com.key
 
 </VirtualHost>
-
