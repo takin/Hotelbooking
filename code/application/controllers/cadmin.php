@@ -336,7 +336,7 @@ class Cadmin extends UserRestricted
     $custom_price = $this->input->post('quote1_custom_price', TRUE);
     $book_price   = $this->input->post('quote1_book_price', TRUE);
 
-    $domain = "alberges.graphemsolutions.net";
+    $domain = "www.hbsitetest.com";
     $api    = "HB";
     $customer_site_lang = $this->Db_links->get_lang_from_domain($domain);
 
@@ -398,7 +398,7 @@ class Cadmin extends UserRestricted
     $data['group_request']->total_people = 25;
 
     $data['quote']->property_number  = 18208;
-    $data["quote"]->property_url = "http://alberges.graphemsolutions.net/Hotel-barato/Hotel-du-Moulin/18208";
+    $data["quote"]->property_url = "http://www.hbsitetest.com/Hotel-barato/Hotel-du-Moulin/18208";
     $inc1->desc       = "Luggage Room";
     $inc1->trans_desc = "Luggage Room translated";
     $inc2->desc       = "Breakfast";

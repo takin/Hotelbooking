@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.84:80
         ServerName      www.hostelek.com
         ServerAlias     www.hostelek.com
         ServerAlias     hostelek.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.84:443
         ServerName      www.hostelek.com
         ServerAlias     www.hostelek.com
         ServerAlias     hostelek.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">

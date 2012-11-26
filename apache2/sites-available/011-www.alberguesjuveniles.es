@@ -4,7 +4,7 @@ NameVirtualHost 92.243.23.95:80
         ServerName      www.alberguesjuveniles.es
         ServerAlias     www.alberguesjuveniles.es
         ServerAlias     alberguesjuveniles.es
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb2/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 92.243.23.95:443
         ServerName      www.alberguesjuveniles.es
         ServerAlias     www.alberguesjuveniles.es
         ServerAlias     alberguesjuveniles.es
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb2/www/ajroot/htdocs">

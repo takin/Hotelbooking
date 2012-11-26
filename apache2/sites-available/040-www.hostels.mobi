@@ -3,7 +3,7 @@ NameVirtualHost 95.142.167.246:80
 <VirtualHost 95.142.167.246:80>
         ServerName      www.hostels.mobi
         ServerAlias     www.hostels.mobi hostels.mobi
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb12/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb12/www/ajroot/htdocs">
@@ -46,7 +46,7 @@ NameVirtualHost 95.142.167.246:443
 
         ServerName      www.hostels.mobi
         ServerAlias     www.hostels.mobi hostels.mobi
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb12/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb12/www/ajroot/htdocs">

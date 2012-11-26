@@ -4,8 +4,6 @@ Plugin Name: auberges admin
 Plugin URI:
 Description: Add admin menu for auberges website outsite wp
 Version: 1.0
-Author: Louis-Michel Raynauld
-Author URI: graphem.ca
 License: Commercial
 */
 

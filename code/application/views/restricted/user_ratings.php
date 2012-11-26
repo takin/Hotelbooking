@@ -23,7 +23,7 @@ stdClass Object
   [comment_ID] => 25 
   [comment_post_ID] => 363 
   [comment_author] => Aaron Palushaj 
-  [comment_author_email] => louismicheljam@gmail.com 
+  [comment_author_email] => technical@mcwebmanagement.com 
   [comment_author_url] => 
   [comment_author_IP] => 67.71.69.226 
   [comment_date] => 2010-03-03 11:17:25 

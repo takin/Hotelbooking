@@ -33,7 +33,7 @@ $config['hw_sec_between_req'] = 1;
 | email_to_report: email to send report of API DB Cache update
 |
 */
-$config['email_to_report_city']   = "louismicheljam@gmail.com";
+$config['email_to_report_city']   = "technical@mcwebmanagement.com";
 $config['email_to_report_hostel'] = "";
 /*
 |--------------------------------------------------------------------------

@@ -4,7 +4,7 @@ NameVirtualHost 95.142.170.13:80
         ServerName      www.hostales.com
         ServerAlias     www.hostales.com
         ServerAlias     hostales.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb9/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.170.13:443
         ServerName      www.hostales.com
         ServerAlias     www.hostales.com
         ServerAlias     hostales.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb9/www/ajroot/htdocs">

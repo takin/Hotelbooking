@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.81:80
         ServerName      www.retkeilymajoja.com
         ServerAlias     www.retkeilymajoja.com
         ServerAlias     retkeilymajoja.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.81:443
         ServerName      www.retkeilymajoja.com
         ServerAlias     www.retkeilymajoja.com
         ServerAlias     retkeilymajoja.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">

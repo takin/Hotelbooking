@@ -4,7 +4,7 @@ NameVirtualHost 92.243.23.150:80
         ServerName      www.ostellidellagioventu.com
         ServerAlias     www.ostellidellagioventu.com
         ServerAlias     ostellidellagioventu.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb1/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb1/www/ajroot/htdocs">
@@ -49,7 +49,7 @@ NameVirtualHost 92.243.23.150:443
         ServerName      www.ostellidellagioventu.com
         ServerAlias     www.ostellidellagioventu.com
         ServerAlias     ostellidellagioventu.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb1/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb1/www/ajroot/htdocs">

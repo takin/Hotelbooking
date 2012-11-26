@@ -4,7 +4,7 @@ NameVirtualHost 95.142.165.226:80
         ServerName      www.pousadasdejuventude.com
         ServerAlias     www.pousadasdejuventude.com
         ServerAlias     pousadasdejuventude.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb5/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb5/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.165.226:443
         ServerName      www.pousadasdejuventude.com
         ServerAlias     www.pousadasdejuventude.com
         ServerAlias     pousadasdejuventude.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb5/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb5/www/ajroot/htdocs">

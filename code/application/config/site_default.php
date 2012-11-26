@@ -34,7 +34,7 @@
 | Now, set via wordpress option.
 |
 */
-//$config['wp_base_url'] = "http://auberges.graphemsolutions.net/blog";
+//$config['wp_base_url'] = "";
 /*
 |--------------------------------------------------------------------------
 | Wordpress database variable name
@@ -156,7 +156,7 @@ $config['admin_review_conf'] = 1;
 | Admin email address to send new review alerts
 |
 */
-$config['admin_review_conf_email'] = "louismicheljam@gmail.com";
+$config['admin_review_conf_email'] = "info@aubergesdejeunesse.com";
 /*
 |--------------------------------------------------------------------------
 | Default site currency

@@ -8,7 +8,7 @@ stdClass Object
 (
     [transaction_id] => 42
     [booking_time] => 2010-03-22 14:52:36
-    [email] => louismicheljam@gmail.com
+    [email] => technical@mcwebmanagement.com
     [first_name] => xzxczx
     [last_name] => 1231
     [gender] => Male

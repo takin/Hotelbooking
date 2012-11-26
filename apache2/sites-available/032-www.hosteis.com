@@ -4,7 +4,7 @@ NameVirtualHost 95.142.170.12:80
         ServerName      www.hosteis.com
         ServerAlias     www.hosteis.com
         ServerAlias    hosteis.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb8/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb8/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.170.12:443
         ServerName      www.hosteis.com
         ServerAlias     www.hosteis.com
         ServerAlias    hosteis.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb8/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb8/www/ajroot/htdocs">

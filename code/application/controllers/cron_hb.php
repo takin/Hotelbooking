@@ -9,7 +9,7 @@ class Cron_hb extends I18n_site
   private $api_delay_retries = 2;
   private $api_max_retries   = 5;
 
-  private $email_to_report_city = "louismichel@pweb.ca";
+  private $email_to_report_city = "technical@mcwebmanagement.com";
 
   private $static_feeds_to_keep = 12;
 
@@ -268,7 +268,6 @@ class Cron_hb extends I18n_site
     $this->load->helper('file');
 
 //     $link = 'http://feeds.hostelbookers.com/affiliate/mcweb/20110601.zip';
-//    $link = 'http://www.graphemsolutions.net/testapi/SampleDataFeed.zip';
 
     $localdest = FCPATH.self::DOWNLOAD_DIR;
     $zipfilename = "staticfeed".date("YMd").".zip";

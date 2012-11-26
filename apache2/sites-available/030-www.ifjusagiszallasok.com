@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.83:80
         ServerName      www.ifjusagiszallasok.com
         ServerAlias     www.ifjusagiszallasok.com
         ServerAlias     ifjusagiszallasok.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.83:443
         ServerName      www.ifjusagiszallasok.com
         ServerAlias     www.ifjusagiszallasok.com
         ServerAlias     ifjusagiszallasok.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">
