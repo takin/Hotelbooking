@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.82:80
         ServerName      www.mladeznickeubytovny.com
         ServerAlias     www.mladeznickeubytovny.com
         ServerAlias     mladeznickeubytovny.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.82:443
         ServerName      www.mladeznickeubytovny.com
         ServerAlias     www.mladeznickeubytovny.com
         ServerAlias     mladeznickeubytovny.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb6/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb6/www/ajroot/htdocs">

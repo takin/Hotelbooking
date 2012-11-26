@@ -11,8 +11,8 @@ if [ $percent -ge 90 ] ; then
 
 SUBJECT="Disk Space is very Lowi on MCWEB2"
 # Email T
-EMAIL="alerts@graphem.ca"
-EMAILMESSAGE="/srv/d_mcweb2/sshscript/logs/emailmessagelow.txt"
+EMAIL="technical@mcwebmanagement.com"
+EMAILMESSAGE="/opt/scripts/emailmessagelow.txt"
 echo "Disk Space is very low only 10% left">> $EMAILMESSAGE
 
 #mail -s "$SUBJECT" "$EMAIL" < ${rep}${f}
@@ -20,4 +20,4 @@ mutt -s "$SUBJECT" -- "$EMAIL" < $EMAILMESSAGE
 
 fi
 done
-rm /srv/d_mcweb2/sshscript/logs/emailmessagelow.txt
+rm /opt/scripts/emailmessagelow.txt

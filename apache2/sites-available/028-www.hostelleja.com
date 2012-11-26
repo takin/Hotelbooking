@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.85:80
         ServerName      www.hostelleja.com
         ServerAlias     www.hostelleja.com
         ServerAlias     hostelleja.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.85:443
         ServerName      www.hostelleja.com
         ServerAlias     www.hostelleja.com
         ServerAlias     hostelleja.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">

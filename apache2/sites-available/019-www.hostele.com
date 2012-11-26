@@ -4,7 +4,7 @@ NameVirtualHost 95.142.168.86:80
         ServerName      www.hostele.com
         ServerAlias     www.hostele.com
         ServerAlias     hostele.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.168.86:443
         ServerName      www.hostele.com
         ServerAlias     www.hostele.com
         ServerAlias     hostele.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb7/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb7/www/ajroot/htdocs">

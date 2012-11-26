@@ -47,7 +47,6 @@ class Hostel_api_model extends Model {
 
     $url_api = $this->config->item('hostelworld_API_url');
     $url_api.= "CityCountryList.php";
-//    $url_api = "http://graphemsolutions.net/testapi/citycountry.xml";
     $data = array ();
     $data['UserID'] = $userID;
 
@@ -167,12 +166,6 @@ class Hostel_api_model extends Model {
     {
       $file_xml.= "&State=".urlencode($state);
     }
-//    print $file_xml;
-//  TONOTICE Beware, the API language parameter does not pass via POST so now using GET
-
-// print $file_xml;
-//$file_xml = "http://graphemsolutions.net/testapi/last_api_result_es.xml";
-//$file_xml = "http://graphemsolutions.net/testapi/montrealsearch.xml";
     $file_xml = $this->get_API_XML($file_xml);
 
     return $this->_validate_api_data($file_xml, "/PropertyLocationSearch/Property", "/SystemMessage", "propertyLocationSearch");
@@ -432,9 +425,6 @@ class Hostel_api_model extends Model {
     {
       $file_xml.= "&Currency=$currency";
     }
-//    echo $file_xml."<br>";
-
-//    $file_xml = "http://graphemsolutions.net/testapi/PropertyBookingRequest.xml";
     $file_xml = $this->get_API_XML($file_xml);
 
     return $this->_validate_api_data($file_xml, "/PropertyBookingRequest", "/SystemMessage", "propertyBookingRequest");
@@ -570,11 +560,7 @@ class Hostel_api_model extends Model {
                                             $IPAddress,
                                             $UserSessionID,
                                             $TestMode);
-//    print_r($data);
-//    $file_xml = file_get_contents("http://auberges.graphemsolutions.net/auberges/testapi/3dsecure.xml");
-//    $file_xml = file_get_contents("http://graphemsolutions.net/testapi/SubmitCustomerDetails.xml");
-//    $file_xml = file_get_contents("http://graphemsolutions.net/testapi/testbookingerror.xml");
-//    $file_xml = file_get_contents("http://graphemsolutions.net/testapi/testbookingerror2.xml");
+
     $file_xml = $this->do_post_request($url_api,$data);
 
     $return = $this->_validate_api_data($file_xml, "/SubmitCustomerDetails", "/SystemMessage", "bookingConfirmationRequest");
@@ -624,7 +610,6 @@ class Hostel_api_model extends Model {
                                               $TestMode);
 
       $file_xml = $this->do_post_request($url_api,$data);
-//      $file_xml = file_get_contents("http://graphemsolutions.net/testapi/testbookingerror2.xml");
       $second_return = $this->_validate_api_data($file_xml, "/SubmitCustomerDetails", "/SystemMessage", "bookingConfirmationRequest");
 
       if($second_return[0] == FALSE)

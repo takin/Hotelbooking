@@ -4,7 +4,7 @@ NameVirtualHost 95.142.165.224:80
         ServerName      www.aubergesdejeunesse.ca
         ServerAlias     www.aubergesdejeunesse.ca
         ServerAlias     aubergesdejeunesse.ca
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb5/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb5/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.165.224:443
         ServerName      www.aubergesdejeunesse.ca
         ServerAlias     www.aubergesdejeunesse.ca
         ServerAlias     aubergesdejeunesse.ca
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb5/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb5/www/ajroot/htdocs">

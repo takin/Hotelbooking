@@ -4,7 +4,7 @@ NameVirtualHost 95.142.165.140:80
         ServerName      www.schroniskamlodziezowe.com
         ServerAlias     www.schroniskamlodziezowe.com
         ServerAlias     schroniskamlodziezowe.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb4/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb4/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 95.142.165.140:443
         ServerName      www.schroniskamlodziezowe.com
         ServerAlias     www.schroniskamlodziezowe.com
         ServerAlias     schroniskamlodziezowe.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb4/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb4/www/ajroot/htdocs">

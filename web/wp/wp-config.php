@@ -316,30 +316,7 @@ define('DB_CHARSET', 'utf8');
 */
 define('DB_COLLATE', '');
 
-//print WPLANG;
-//print DB_NAME;
-//define('DB_NAME', 'graphems_auberge2');
-//define('DB_NAME_AUBERGE', 'graphems_auberge');
-//
-///** Utilisateur de la base de données MySQL. */
-//define('DB_USER', 'graphems_gui');
-//
-///** Mot de passe de la base de données MySQL. */
-//define('DB_PASSWORD', 'colligo11');
-//
-///** Adresse de l'hébergement MySQL. */
-//define('DB_HOST', '92.243.25.30');
-//
-///** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
-//define('DB_CHARSET', 'utf8');
-//
-///** Le type de collabtion de la base de données. 
-//  * N'y touchez qui si vous savez ce que vous faites. 
-//  */
-//define('DB_COLLATE', '');
-
   /** Chemin absolu vers le dossier de CI. */
-
 
 	
 /**#@+

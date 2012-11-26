@@ -3,7 +3,7 @@ NameVirtualHost 95.142.170.9:80
 <VirtualHost 95.142.170.9:80>
         ServerName      www.xn--xn2by4qtje86kn5ezmb.kr
         ServerAlias     www.xn--xn2by4qtje86kn5ezmb.kr xn--xn2by4qtje86kn5ezmb.kr
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb9/www/ajroot/htdocs">
@@ -46,7 +46,7 @@ NameVirtualHost 95.142.170.9:443
 
         ServerName      www.xn--xn2by4qtje86kn5ezmb.kr
         ServerAlias     www.xn--xn2by4qtje86kn5ezmb.kr xn--xn2by4qtje86kn5ezmb.kr
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb9/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb9/www/ajroot/htdocs">

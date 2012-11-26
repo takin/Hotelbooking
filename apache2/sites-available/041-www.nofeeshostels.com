@@ -3,7 +3,7 @@ NameVirtualHost 95.142.167.245:80
 <VirtualHost 95.142.167.245:80>
         ServerName      www.nofeeshostels.com
         ServerAlias     www.nofeeshostels.com nofeeshostels.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb12/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb12/www/ajroot/htdocs">
@@ -46,7 +46,7 @@ NameVirtualHost 95.142.167.245:443
 
         ServerName      www.nofeeshostels.com
         ServerAlias     www.nofeeshostels.com nofeeshostels.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb12/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb12/www/ajroot/htdocs">

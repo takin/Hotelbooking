@@ -92,11 +92,5 @@
   		<?php }?>
 		</div>
 		<?php }?>
-			<!--<div class="hostel-actions round-gradient">
-			 <span class="value" title="Evaluation moyenne"><strong title="Evalué par des clients comme vous">98</strong>%</span>
-				<a onClick="checkPropertyRoomsAvail('http://alberges.graphemsolutions.net/',55663,document.getElementById('datepick').value,document.getElementById('search-night').value,'OASIS Montreal','BRL','Fecha incorrecta','booking-table-55663');return false;" href="#" class="city-avail-check" title="Availability (max)">Check</a>
-				<a rel="55663" href="#" class="city-map-popup" title="Mapas y Direcciones + Comentarios"></a>
-				<a href="http://alberges.graphemsolutions.net/Gasthaus-Bed-Breakfast/OASIS-Montreal/55663" class="city-info" title="Más información sobre este Hostal: ">Reservar</a>
-			</div>-->
 	</div>
 </div>

@@ -4,7 +4,7 @@ NameVirtualHost 92.243.20.50:80
         ServerName      www.herbergen.com
         ServerAlias     www.herbergen.com
         ServerAlias     herbergen.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb2/www/ajroot/htdocs">
@@ -48,7 +48,7 @@ NameVirtualHost 92.243.20.50:443
         ServerName      www.herbergen.com
         ServerAlias     www.herbergen.com
         ServerAlias     herbergen.com
-        ServerAdmin     gbourdages@graphem.ca
+        ServerAdmin     technical@mcwebmanagement.com
 
         DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
     <Directory "/srv/d_mcweb2/www/ajroot/htdocs">

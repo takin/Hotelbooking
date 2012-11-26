@@ -311,7 +311,6 @@ class Hb_engine {
       {
         $data['filters']["type"] = $filters["type"];
         //send to view that we select a type filter but do not filter by type
-        //as per http://project.graphempweb.ca/public/index.php?path_info=projects/aj-features/tasks/20
         unset($filters["type"]);
       }
 
