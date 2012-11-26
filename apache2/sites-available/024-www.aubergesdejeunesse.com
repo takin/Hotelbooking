@@ -6,38 +6,18 @@ NameVirtualHost 92.243.23.28:80
         ServerAlias     aubergesdejeunesse.com
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb2/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb2/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb2/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-    ErrorLog /srv/d_mcweb2/www/ajroot/logs/www.aubergesdejeunesse.com-error.log
-    LogLevel warn
-
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb2/www/ajroot/logs/www.aubergesdejeunesse.com-access.log combined env=!loopback
-    ServerSignature On
-
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb2/www/ajroot/db/DAVLock
-    </IfModule>
-
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
-    
+        CustomLog /opt/logs/aubergesdejeunesse.com-access.log combined
+        ErrorLog /opt/logs/aubergesdejeunesse.com-error.log
+        LogLevel warn
+ 
 
 </VirtualHost>
 
@@ -50,44 +30,24 @@ NameVirtualHost 92.243.23.28:443
         ServerAlias     aubergesdejeunesse.com
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb2/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb2/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb2/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb2/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
+        CustomLog /opt/logs/aubergesdejeunesse.com-access.log combined
+        ErrorLog /opt/logs/aubergesdejeunesse.com-error.log
+        LogLevel warn
 
-    ErrorLog /srv/d_mcweb2/www/ajroot/logs/www.aubergesdejeunesse.com-error.log
-    LogLevel warn
 
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb2/www/ajroot/logs/www.aubergesdejeunesse.com-access.log combined env=!loopback
-    ServerSignature On
+  	SSLEngine on
 
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb2/www/ajroot/db/DAVLock
-    </IfModule>
-
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
-
-    
-    SSLEngine on
-
-    SSLCertificateFile      /etc/apache2/ssl-cert/aubergesdejeunesse-new.com.crt
-    SSLCACertificateFile    /etc/apache2/ssl-cert/aubergesdejeunesse-new.com.pem
-    SSLCertificateKeyFile   /etc/apache2/ssl-cert/aubergesdejeunesse-new.com.key
+    	SSLCertificateFile      /opt/certificates/aubergesdejeunesse.com.crt
+    	SSLCACertificateFile    /opt/certificates/aubergesdejeunesse.com.pem
+    	SSLCertificateKeyFile   /opt/certificates/aubergesdejeunesse.com.key
 
 </VirtualHost>
 

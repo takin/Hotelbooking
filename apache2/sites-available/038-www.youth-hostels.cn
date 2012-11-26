@@ -6,37 +6,17 @@ NameVirtualHost 95.142.171.153:80
         ServerAlias     youth-hostels.cn
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb11/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb11/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb11/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb11/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
-
-    ErrorLog /srv/d_mcweb11/www/ajroot/logs/www.youth-hostels.cn-error.log
-    LogLevel warn
-
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb11/www/ajroot/logs/www.youth-hostels.cn-access.log combined env=!loopback
-    ServerSignature On
-
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb11/www/ajroot/db/DAVLock
-    </IfModule>
-
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
+        CustomLog /opt/logs/youth-hostels.cn-access.log combined
+        ErrorLog /opt/logs/youth-hostels.cn-error.log
+        LogLevel warn
     
 
 </VirtualHost>
@@ -50,58 +30,36 @@ NameVirtualHost 95.142.171.153:443
         ServerAlias     youth-hostels.cn
         ServerAdmin     technical@mcwebmanagement.com
 
-        DocumentRoot "/srv/d_mcweb11/www/ajroot/htdocs"
-    <Directory "/srv/d_mcweb11/www/ajroot/htdocs">
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
 
-    ScriptAlias /cgi-bin/ /srv/d_mcweb11/www/ajroot/cgi-bin/
-    <Directory "/srv/d_mcweb11/www/ajroot/cgi-bin/">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Order allow,deny
-        Allow from all
-    </Directory>
+        CustomLog /opt/logs/youth-hostels.cn-access.log combined
+        ErrorLog /opt/logs/youth-hostels.cn-error.log
+        LogLevel warn
 
-    ErrorLog /srv/d_mcweb11/www/ajroot/logs/www.youth-hostels.cn-error.log
-    LogLevel warn
+#    	SSLEngine on
 
-    SetEnvIf Remote_Addr "127\.0\.0\.1" loopback
-    #CustomLog /srv/d_mcweb11/www/ajroot/logs/www.youth-hostels.cn-access.log combined env=!loopback
-    ServerSignature On
+#    	SSLCertificateFile      /opt/certificates/youth-hostels.cn.crt
+#    	SSLCACertificateFile    /opt/certificates/youth-hostels.cn.pem
+#    	SSLCertificateKeyFile   /opt/certificates/youth-hostels.cn.key
 
-    <IfModule mod_dav.c>
-        DAVLockDB /srv/d_mcweb11/www/ajroot/db/DAVLock
-    </IfModule>
+     	GnuTLSEnable on
+	GnuTLSExportCertificates on
+	GnuTLSCacheTimeout 500
+	GnuTLSCertificateFile  /opt/certificates/youth-hostels.cn.crt
+	GnuTLSClientCAFile     /opt/certificates/youth-hostels.cn.pem
+	GnuTLSKeyFile          /opt/certificates/youth-hostels.cn.key
 
-    <IfModule mpm_peruser_module>
-        ServerEnvironment adminftp_www-adminftp
-        MaxProcessors 40
-    </IfModule>
+	#GnuTLSPriorities NONE:+AES-128-CBC:+ARCFOUR-128:+RSA:+SHA1:+MD5:+COMP-NULL:$
+	GnuTLSPriorities      NORMAL
 
-    
-#    SSLEngine on
-
-#    SSLCertificateFile      /etc/apache2/ssl-cert/youth-hostels.cn.crt
-#    SSLCACertificateFile    /etc/apache2/ssl-cert/youth-hostels.cn.pem
-#    SSLCertificateKeyFile   /etc/apache2/ssl-cert/youth-hostels.cn.key
-
-     GnuTLSEnable on
-GnuTLSExportCertificates on
-GnuTLSCacheTimeout 500
-GnuTLSCertificateFile  /etc/apache2/ssl-cert/youth-hostels.cn.crt
-GnuTLSClientCAFile     /etc/apache2/ssl-cert/youth-hostels.cn.pem
-GnuTLSKeyFile          /etc/apache2/ssl-cert/youth-hostels.cn.key
-
-#GnuTLSPriorities NONE:+AES-128-CBC:+ARCFOUR-128:+RSA:+SHA1:+MD5:+COMP-NULL:$
-GnuTLSPriorities      NORMAL
-
-# SSL Protocol Adjustments:
-BrowserMatch ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force$
-
+	# SSL Protocol Adjustments:
+	BrowserMatch ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force$
 
 </VirtualHost>
 
