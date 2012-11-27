@@ -44,7 +44,7 @@ NameVirtualHost 95.142.165.224:443
     	SSLEngine on
 
     	SSLCertificateFile      /opt/certificates/aubergesdejeunesse.ca.crt
-    	SSLCACertificateFile    /opt/certificates/aubergesdejeunesse-pos.ca.crt
+    	SSLCACertificateFile    /opt/certificates/aubergesdejeunesse.ca.pem
     	SSLCertificateKeyFile   /opt/certificates/aubergesdejeunesse.ca.key
 
 </VirtualHost>
