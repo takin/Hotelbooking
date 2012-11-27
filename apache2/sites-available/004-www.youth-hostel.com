@@ -41,7 +41,7 @@ NameVirtualHost 92.243.23.150:443
         ErrorLog /opt/logs/youth-hostel.com-error.log
         LogLevel warn
 
-	SSLEngine one
+	SSLEngine on
 
 	SSLCertificateFile      /opt/certificates/youth-hostel.com.crt
 	SSLCACertificateFile    /opt/certificates/youth-hostel.com.pem
