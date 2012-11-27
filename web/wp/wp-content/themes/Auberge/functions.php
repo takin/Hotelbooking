@@ -70,7 +70,7 @@ global $dev_site;
 $locale = get_option('aj_set_locale');
 $dev_site = (get_option('aj_dev_site') == true);
 
-$mofile = get_template_directory()."/".get_option('aj_lang_pomo').".mo";
+$mofile = CI_LANGPATH.get_option('aj_lang_pomo').".mo";
 load_textdomain('auberge', $mofile);
 
 setlocale(LC_ALL, $locale);
