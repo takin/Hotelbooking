@@ -367,6 +367,8 @@ if ( !defined('CI_ABSPATH') )
 if ( !defined('CI_APPPATH') )
         define('CI_APPPATH', '/opt/code/application/');
 
+if ( !defined('CI_LANGPATH') )
+        define('CI_LANGPATH', '/opt/languages/wp/');
 
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');
