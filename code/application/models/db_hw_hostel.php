@@ -586,7 +586,7 @@ class Db_hw_hostel extends Model
     //Invalidate all current facilities of property
     $this->update_hostel_facilities_sync_status($property_number,self::PROPERTY_INVALID);
 
-    if(!empty($facilities))
+    if((!empty($facilities) && (is_array($facilities))))
     {
       $this->CI->code_tracker->feed_trace(code_tracker::FEED_DEBUG,"Updating facilities of property $property_number to ". print_r($facilities,true));
 
