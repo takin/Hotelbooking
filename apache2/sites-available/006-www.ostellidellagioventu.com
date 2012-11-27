@@ -1,6 +1,6 @@
-NameVirtualHost 92.243.23.150:80
+NameVirtualHost 92.243.17.11:80
 
-<VirtualHost 92.243.23.150:80>
+<VirtualHost 92.243.17.11:80>
         ServerName      www.ostellidellagioventu.com
         ServerAlias     www.ostellidellagioventu.com
         ServerAlias     ostellidellagioventu.com
@@ -20,9 +20,9 @@ NameVirtualHost 92.243.23.150:80
 
 </VirtualHost>
 
-NameVirtualHost 92.243.23.150:443
+NameVirtualHost 92.243.17.11:443
 
-<VirtualHost 92.243.23.150:443>
+<VirtualHost 92.243.17.11:443>
 
         ServerName      www.ostellidellagioventu.com
         ServerAlias     www.ostellidellagioventu.com
