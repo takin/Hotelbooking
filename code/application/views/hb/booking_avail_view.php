@@ -4,8 +4,8 @@ $date = clone $dateStart;
 $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('aj_date_format'));
 ?>
 <div class="top-table">
-<p><?php echo _('Arrivée');?>: <b><?php echo $datetop;?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits');?>: <b><?php echo $numNights; ?></b></p>
-<a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
+<p><?php echo _('Arrivée');?>: <b><?php echo $datetop;?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits');?>: <b><?php echo $numNights; ?></b><a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a></p>
+
 </div>
 <?php
   $nbRoomType = 0;
