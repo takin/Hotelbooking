@@ -887,6 +887,7 @@ class Db_hw_hostel extends Model
     {
       foreach($query->result() as $i => $row)
       {
+      	$facilities[$i] = new stdClass();
         $facilities[$i]->facility_id = (int)$row->facility_id;
         $facilities[$i]->description = $row->description;
         $facilities[$i]->to_display  = (int)$row->to_display;
