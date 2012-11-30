@@ -415,6 +415,7 @@ class Microsofttranslator extends Model {
 
       //Set data for remote translation request
       $this->batch_text_length += $text_length;
+      $translation_data = new stdClass();
       $translation_data->text = $text;
       $translation_data->tag  = $tag;
       array_push($this->batchText,$translation_data);
