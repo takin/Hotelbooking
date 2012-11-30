@@ -1390,8 +1390,8 @@ h2.comment_sent{background:url(../images/V2/icon_checked.png) no-repeat left cen
 div.comment_sent{background:#FFC !important;}
 /* Legacy Table */
 
-.top-table{position:relative;}
-a#change-dates{position:absolute; right:345px;top:3px; display:none;}
+.top-table{}
+a#change-dates{padding-left:20px;}
 
 #booking-table, .booking_table_city{ clear:both; padding-bottom:10px; border-collapse:separate; position:relative;}
 .booking_table_city{padding-bottom:10px}
