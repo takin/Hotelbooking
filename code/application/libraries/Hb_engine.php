@@ -768,24 +768,29 @@ class Hb_engine {
       //Compute deal properties
       if(empty($deal_property[0]))
       {
+        $deal_property[0] = new stdClass();
         $deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
         $deal_property[0]->index = $i;
       }
       elseif(empty($deal_property[1]))
       {
+        $deal_property[1] = new stdClass();
         $deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
         $deal_property[1]->index = $i;
       }
       elseif($json_data["property_list"][$i]["display_price"] < $deal_property[0]->display_price)
       {
+        $deal_property[1] = new stdClass();
         $deal_property[1]->display_price = $deal_property[0]->display_price;
         $deal_property[1]->index = $deal_property[0]->index;
 
+        $deal_property[0] = new stdClass();
         $deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
         $deal_property[0]->index = $i;
       }
       elseif($json_data["property_list"][$i]["display_price"] < $deal_property[1]->display_price)
       {
+        $deal_property[1] = new stdClass();
         $deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
         $deal_property[1]->index = $i;
       }
