@@ -1623,6 +1623,7 @@ class Db_hb_hostel extends Model
     {
       foreach($query->result() as $i => $row)
       {
+      	$amenities[$i] = new stdClass();
         $amenities[$i]->amenity_id = (int)$row->amenity_id;
         $amenities[$i]->facility_id = $row->type.$row->amenity_id;
         $amenities[$i]->type        = (string)$row->type;
