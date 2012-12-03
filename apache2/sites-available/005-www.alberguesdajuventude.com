@@ -46,6 +46,7 @@ NameVirtualHost 95.142.170.14:443
 	SSLCertificateFile      /opt/certificates/alberguesdajuventude.com.crt
 	SSLCACertificateFile    /opt/certificates/alberguesdajuventude.com.pem
 	SSLCertificateKeyFile   /opt/certificates/alberguesdajuventude.com.key
+	SSLCertificateChainFile	/opt/certificates/alberguesdajuventude.com.ca-bundle
 
 </VirtualHost>
 
