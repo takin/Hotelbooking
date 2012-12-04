@@ -44,8 +44,8 @@ NameVirtualHost 95.142.170.12:443
     	SSLEngine on
 
     	SSLCertificateFile      /opt/certificates/hosteis.com.crt
-    	SSLCACertificateFile    /opt/certificates/hosteis.com.pem
     	SSLCertificateKeyFile   /opt/certificates/hosteis.com.key
+        SSLCertificateChainFile /opt/certificates/hosteis.com.ca-bundle
 
 </VirtualHost>
 
