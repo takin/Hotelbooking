@@ -43,9 +43,10 @@ NameVirtualHost 95.142.170.11:443
 
 	SSLEngine on
 
-    	SSLCertificateFile      /opt/certificates/hostels.in.crt
-    	SSLCACertificateFile    /opt/certificates/hostels.in.pem
-    	SSLCertificateKeyFile   /opt/certificates/hostels.in.key
+     	SSLCertificateFile /opt/certificates/hostels.in.crt
+     	SSLCertificateKeyFile /opt/certificates/hostels.in.key
+        SSLCertificateChainFile /opt/certificates/hostels.in.ca-bundle
+
 
 </VirtualHost>
 
