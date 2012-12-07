@@ -240,7 +240,7 @@ class Cron_hb extends I18n_site
     $latestfeedurl = $this->wordpress->get_option('aj_hb_static_feed_url');
     $lastfeedindb  = $this->wordpress->get_option('aj_hb_static_feed_url_in_db');
 
-//     $latestfeedurl = "http://feeds.hostelbookers.com/affiliate/mcweb/20120914.zip";
+	$latestfeedurl = "http://feeds.hostelbookers.com/affiliate/mcweb/20121201.zip";
 
     if(empty($latestfeedurl) ||
         ((!$forceupdate) && strcasecmp($latestfeedurl,$lastfeedindb)==0))
