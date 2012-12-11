@@ -38,7 +38,7 @@ function checkAvailability(base_url, country, city, propertyNumber, dateId, n, p
 	$.ajax({type:"post",
 			url:base_url+"/booking_avail/",
 			data: { country_selected: country, city_selected: city, propertyNumber: propertyNumber, dateStart: d, numNights: n, propertyName: propertyName, currency:currency, propertyCards: cards },
-			timeout:10000,
+			timeout:60000,
 			error:function(XMLHttpRequest, textStatus, errorThrown)
 			{
 				$("#"+avail_table_id).html("<ul class=\"error\"><li>Erreur.<li>"+textStatus+"</li><li>"+errorThrown+"</li></li></ul>");
