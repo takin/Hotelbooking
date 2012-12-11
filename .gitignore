@@ -1,8 +1,40 @@
+##########################
+#      CodeIgniter       #
+##########################
+
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+*/cache/!placeholder.txt
+
+##########################
+#      Application       #
+##########################
+
+*/cache_queries/aj_ci/model/*
+*/cache_queries/aj_ci/model/!placeholder.txt
+*/cache_queries/azure/*
+*/cache_queries/azure/!placeholder.txt
+*/cache_queries/cache_processes/*
+*/cache_queries/cache_processes/!placeholder.txt
+*/cache_queries/jscitydata/*
+*/cache_queries/jscitydata/!placeholder.txt
+*/cache_queries/jscitydata/hb/*
+*/cache_queries/jscitydata/hb/!placeholder.txt
+*/cache_queries/staticfeeds/*
+*/cache_queries/staticfeeds/!placeholder.txt
+*/wp/wp-content/languages
+
+##########################
+#           OS           #
+##########################
 .DS_Store
-dwsync.xml
+.DS_Store?
 Thumbs.db
+
+##########################
+#     Dreamweaver        #
+##########################
+dwsync.xml
