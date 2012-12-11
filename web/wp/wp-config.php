@@ -1,12 +1,12 @@
 <?php
-/** 
+/**
  * La configuration de base de votre WordPress.
  *
  * Ce fichier contient les réglages de configuration suivants : réglages MySQL,
  * préfixe de table, clefs secrètes, langue utilisée, et ABSPATH.
- * Vous pouvez en savoir plus à leur sujet en allant sur 
+ * Vous pouvez en savoir plus à leur sujet en allant sur
  * {@link http://codex.wordpress.org/Editing_wp-config.php Modifier
- * wp-config.php} (en anglais). Vous devez obtenir les codes MySQL de votre 
+ * wp-config.php} (en anglais). Vous devez obtenir les codes MySQL de votre
  * hébergeur.
  *
  * Ce fichier est utilisé par le script de création de wp-config.php pendant
@@ -17,269 +17,271 @@
  * @package WordPress
  */
 
+define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
+
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Le nom de la base de données de WordPress. */
 switch($_SERVER['HTTP_HOST'])
 {
-  case "www.auberges.com": 
+  case "www.auberges.com":
       define('DB_NAME', 'aj_wp_main_fr');
-      
+
     break;
-    
-	case "www.aubergesdejeunesse.com": 
+
+	case "www.aubergesdejeunesse.com":
       define('DB_NAME', 'aj_wp_fr_aj');
-      
+
     break;
-  case "www.hostales.com": 
-      
+  case "www.hostales.com":
+
       define('DB_NAME', 'aj_wp_ht_es');
-      
+
     break;
-    
-  case "www.alberguesjuveniles.com": 
-      
+
+  case "www.alberguesjuveniles.com":
+
       define('DB_NAME', 'aj_wp_es');
-      
+
     break;
-    
-  case "www.youth-hostel.com": 
-      
+
+  case "www.youth-hostel.com":
+
       define('DB_NAME', 'aj_wp_en');
-      
+
     break;
-    
-  case "www.alberguesdajuventude.com": 
-      
+
+  case "www.alberguesdajuventude.com":
+
       define('DB_NAME', 'aj_wp_pt');
-      
+
     break;
-    
-  case "www.ostellidellagioventu.com": 
-      
+
+  case "www.ostellidellagioventu.com":
+
       define('DB_NAME', 'aj_wp_it');
-      
+
     break;
-		
-  case "www.youth-hostels.jp": 
-      
+
+  case "www.youth-hostels.jp":
+
       define('DB_NAME', 'aj_wp_ja');
-      
+
     break;
-    
-  case "www.youth-hostels.kr": 
-      
+
+  case "www.youth-hostels.kr":
+
       define('DB_NAME', 'aj_wp_ko');
-      
+
     break;
-    
-  case "www.jugendherbergen.eu": 
-      
+
+  case "www.jugendherbergen.eu":
+
       define('DB_NAME', 'aj_wp_de');
-      
+
     break;
-		
-		case "www.pousadasdejuventude.com": 
-      
+
+		case "www.pousadasdejuventude.com":
+
       define('DB_NAME', 'aj_wp_pj_pt');
-      
+
     break;
-		
-		case "www.alberguesjuveniles.es": 
-      
+
+		case "www.alberguesjuveniles.es":
+
       define('DB_NAME', 'aj_wp_es_es');
-      
+
     break;
-		
-		case "www.albergues-pensiones.com": 
-      
+
+		case "www.albergues-pensiones.com":
+
       define('DB_NAME', 'aj_wp_ap_es');
-      
+
     break;
-		
-		case "www.hostels.in": 
-      
+
+		case "www.hostels.in":
+
       define('DB_NAME', 'aj_wp_hi');
-      
+
     break;
-		
-	case "www.youth-hostel.co.uk": 
-      
+
+	case "www.youth-hostel.co.uk":
+
       define('DB_NAME', 'aj_wp_en_uk');
-      
+
     break;
-	
-	case "www.youth-hostels.co.uk": 
-      
+
+	case "www.youth-hostels.co.uk":
+
       define('DB_NAME', 'aj_wp_en_uk');
-      
+
     break;
-	
-	case "www.youth-hostel.hk": 
-      
+
+	case "www.youth-hostel.hk":
+
       define('DB_NAME', 'aj_wp_zh');
-      
+
     break;
-	
-	case "www.youth-hostels.hk": 
-      
+
+	case "www.youth-hostels.hk":
+
       define('DB_NAME', 'aj_wp_zh');
-      
+
     break;
-	
-	case "www.hostele.com": 
-      
+
+	case "www.hostele.com":
+
       define('DB_NAME', 'aj_wp_pl');
-      
+
     break;
-		
-		case "www.youth-hostels.ru": 
-      
+
+		case "www.youth-hostels.ru":
+
       define('DB_NAME', 'aj_wp_ru_yh');
-      
+
     break;
-		
-	case "www.schroniskamlodziezowe.com": 
-      
+
+	case "www.schroniskamlodziezowe.com":
+
       define('DB_NAME', 'aj_wp_pl_sm');
-      
+
     break;
-		
-	case "www.youth-hostels.ca": 
-      
+
+	case "www.youth-hostels.ca":
+
       define('DB_NAME', 'aj_wp_en_ca');
-      
+
     break;
-		
-	case "www.aubergesdejeunesse.ca": 
-      
+
+	case "www.aubergesdejeunesse.ca":
+
       define('DB_NAME', 'aj_wp_fr_ca');
-      
+
     break;
-		
-	case "www.hostelek.com": 
-      
+
+	case "www.hostelek.com":
+
       define('DB_NAME', 'aj_wp_hu');
-      
+
     break;
-		
-	case "www.ifjusagiszallasok.com": 
-      
+
+	case "www.ifjusagiszallasok.com":
+
       define('DB_NAME', 'aj_wp_hu_if');
-      
+
     break;
-		
-	case "www.hostels.ru.com": 
-      
+
+	case "www.hostels.ru.com":
+
       define('DB_NAME', 'aj_wp_ru');
-      
+
     break;
-		
-	case "www.retkeilymajoja.com": 
-      
+
+	case "www.retkeilymajoja.com":
+
       define('DB_NAME', 'aj_wp_fi');
-      
+
     break;
-		
-	case "www.hostelleja.com": 
-      
+
+	case "www.hostelleja.com":
+
       define('DB_NAME', 'aj_wp_fi_ho');
-      
+
     break;
-		
-	case "www.hostely.com": 
-      
+
+	case "www.hostely.com":
+
       define('DB_NAME', 'aj_wp_cs');
-      
+
     break;
-		
-	case "www.mladeznickeubytovny.com": 
-      
+
+	case "www.mladeznickeubytovny.com":
+
       define('DB_NAME', 'aj_wp_cs_ml');
-      
+
     break;
-		
-	case "www.herbergen.com": 
-      
+
+	case "www.herbergen.com":
+
       define('DB_NAME', 'aj_wp_de_he');
-      
+
     break;
-		
-	case "www.xn--e1amhmfp1c.xn--p1ai":       
-     
+
+	case "www.xn--e1amhmfp1c.xn--p1ai":
+
 		define('DB_NAME', 'aj_wp_ru_xo');
-      
+
     break;
-		
-	case "www.hosteis.com": 
-      
+
+	case "www.hosteis.com":
+
       define('DB_NAME', 'aj_wp_pt_ho');
-      
+
     break;
-		
-	case "www.hostelli.com": 
-      
+
+	case "www.hostelli.com":
+
       define('DB_NAME', 'aj_wp_it_ho');
-      
+
     break;
-		
-	case "www.youth-hostels.ie": 
-      
+
+	case "www.youth-hostels.ie":
+
       define('DB_NAME', 'aj_wp_en_ie');
-      
+
     break;
-		
-	case "www.youth-hostels.co.nz": 
-      
+
+	case "www.youth-hostels.co.nz":
+
       define('DB_NAME', 'aj_wp_en_nz');
-      
+
     break;
-	
-	case "www.youth-hostels.eu": 
-      
+
+	case "www.youth-hostels.eu":
+
       define('DB_NAME', 'aj_wp_en_eu');
-      
+
     break;
-	
-	case "www.youth-hostels.asia": 
-      
+
+	case "www.youth-hostels.asia":
+
       define('DB_NAME', 'aj_wp_en_asia');
-      
+
     break;
-	
-	case "www.youth-hostels.cn": 
-      
+
+	case "www.youth-hostels.cn":
+
       define('DB_NAME', 'aj_wp_zh_cn');
-      
+
     break;
-	
-	case "www.hostels.jp": 
-      
+
+	case "www.hostels.jp":
+
       define('DB_NAME', 'aj_wp_ja_ho');
-      
+
     break;
-	
-	case "www.hostels.mobi": 
-      
+
+	case "www.hostels.mobi":
+
       define('DB_NAME', 'aj_wp_en_mobi');
-      
+
     break;
-	
-	case "www.nofeehostels.com": 
-      
+
+	case "www.nofeehostels.com":
+
       define('DB_NAME', 'aj_wp_en_nf');
-      
+
     break;
-	
-	case "www.nofeeshostels.com": 
-      
+
+	case "www.nofeeshostels.com":
+
       define('DB_NAME', 'aj_wp_en_nf');
-      
+
     break;
-	
-	case "www.xn--xn2by4qtje86kn5ezmb.kr":       
-     
+
+	case "www.xn--xn2by4qtje86kn5ezmb.kr":
+
 		define('DB_NAME', 'aj_wp_ko_ho');
-      
+
     break;
 
         case "www.hbsitetest.com":
@@ -294,36 +296,49 @@ switch($_SERVER['HTTP_HOST'])
 
     break;
 
-		
+
 }
 
+if (ISWINDOWS) {
+	$username = "dev_aj_site";
+	$password = "data2016";
+	$DBHostname = "92.243.25.30";
+}
+else
+{
+	$username = "aj_site";
+	$password = "2bVHhwjCGQrRnGW2";
+	$DBHostname = "92.243.25.30";
+}
+
+
 define('DB_NAME_AUBERGE', 'aj_ci');
-      
+
 /** Utilisateur de la base de données MySQL. */
-define('DB_USER', 'aj_site');
+define('DB_USER', $username);
 
 /** Mot de passe de la base de données MySQL. */
-define('DB_PASSWORD', '2bVHhwjCGQrRnGW2');
+define('DB_PASSWORD', $password);
 
 /** Adresse de l'hébergement MySQL. */
-define('DB_HOST', '92.243.25.30');
+define('DB_HOST', $DBHostname);
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define('DB_CHARSET', 'utf8');
 
-/** Le type de collabtion de la base de données. 
-* N'y touchez qui si vous savez ce que vous faites. 
+/** Le type de collabtion de la base de données.
+* N'y touchez qui si vous savez ce que vous faites.
 */
 define('DB_COLLATE', '');
 
   /** Chemin absolu vers le dossier de CI. */
 
-	
+
 /**#@+
  * Clefs uniques d'authentification.
  *
  * Remplacez les valeurs par défaut par des phrases uniques !
- * Vous pouvez générer des phrases aléatoires en utilisant 
+ * Vous pouvez générer des phrases aléatoires en utilisant
  * {@link https://api.wordpress.org/secret-key/1.1/ Le service de clefs secrètes de WordPress.org}.
  * Vous pouvez modifier ces phrases à n'importe quel moment, afin d'invalider tous les cookies existants.
  * Cela forcera également tous les utilisateurs à se reconnecter.
@@ -340,7 +355,7 @@ define('NONCE_KEY',       '6!U8,ck(+~TVsi6*qpMN%-p K^_2PE#rhB#v9{b9c)+aEBQ]e$*7P
  * Préfixe de base de données pour les tables de WordPress.
  *
  * Vous pouvez installer plusieurs WordPress sur une seule base de données
- * si vous leur donnez chacune un préfixe unique. 
+ * si vous leur donnez chacune un préfixe unique.
  * N'utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés!
  */
 $table_prefix  = 'wp_';
@@ -358,17 +373,19 @@ define ('WPLANG', 'en_US');
 /* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 
 /** Chemin absolu vers le dossier de WordPress. */
-if ( !defined('ABSPATH') )
+if (ISWINDOWS)
+{
 	define('ABSPATH', dirname(__FILE__) . '/');
-	
-if ( !defined('CI_ABSPATH') )
+	define('CI_ABSPATH', 'c:/GitHub/source/web/ci/');
+	define('CI_APPPATH', 'c:/GitHub/source/code/application/');
+	define('CI_LANGPATH', 'c:/GitHub/source/languages/wp/');}
+else
+{
+	define('ABSPATH', dirname(__FILE__) . '/');
 	define('CI_ABSPATH', '/opt/web/ci/');
-
-if ( !defined('CI_APPPATH') )
-        define('CI_APPPATH', '/opt/code/application/');
-
-if ( !defined('CI_LANGPATH') )
-        define('CI_LANGPATH', '/opt/languages/wp/');
+	define('CI_APPPATH', '/opt/code/application/');
+	define('CI_LANGPATH', '/opt/languages/wp/');
+}
 
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');
