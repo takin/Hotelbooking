@@ -175,7 +175,7 @@ $config['directory_trigger'] 	= 'd'; // experimental not currently in use
 | Error Logging Threshold
 |--------------------------------------------------------------------------
 |
-| If you have enabled error logging, you can set an error threshold to 
+| If you have enabled error logging, you can set an error threshold to
 | determine what gets logged. Threshold options are:
 | You can enable error logging by setting a threshold over zero. The
 | threshold determines what gets logged. Threshold options are:
@@ -190,8 +190,13 @@ $config['directory_trigger'] 	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 1;
-
+if (ISWINDOWS) {
+	$config['log_threshold'] = 4;
+}
+else
+{
+	$config['log_threshold'] = 1;
+}
 /*
 |--------------------------------------------------------------------------
 | Error Logging Directory Path
@@ -201,7 +206,13 @@ $config['log_threshold'] = 1;
 | system/logs/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '/opt/logs/';
+if (ISWINDOWS) {
+	$config['log_path'] = 'c:/Temp/';
+}
+else
+{
+	$config['log_path'] = '/opt/logs/';
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +234,13 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '/opt/cache/';
+if (ISWINDOWS) {
+	$config['cache_path'] = 'c:/Temp/';
+}
+else
+{
+	$config['cache_path'] = '/opt/cache/';
+}
 
 /*
 |--------------------------------------------------------------------------
