@@ -41,9 +41,9 @@ NameVirtualHost 95.142.167.246:443
     
     	SSLEngine on
 
-    	SSLCertificateFile      /opt/certificates/hostels.mobi.crt
-    	SSLCACertificateFile    /opt/certificates/hostels.mobi.pem
-    	SSLCertificateKeyFile   /opt/certificates/hostels.mobi.key
+        SSLCertificateFile      /opt/certificates/hostels.mobi.crt
+        SSLCertificateKeyFile   /opt/certificates/hostels.mobi.key
+        SSLCertificateChainFile /opt/certificates/hostels.mobi.ca-bundle
 
 </VirtualHost>
 
