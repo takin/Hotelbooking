@@ -43,9 +43,9 @@ NameVirtualHost 95.142.170.10:443
    
     	SSLEngine on
 
-    	SSLCertificateFile      /opt/certificates/hostelli.com.crt
-    	SSLCACertificateFile    /opt/certificates/hostelli.com.pem
-    	SSLCertificateKeyFile   /opt/certificates/hostelli.com.key
+        SSLCertificateFile      /opt/certificates/hostelli.com.crt
+        SSLCertificateKeyFile   /opt/certificates/hostelli.com.key
+        SSLCertificateChainFile /opt/certificates/hostelli.com.ca-bundle
 
 </VirtualHost>
 
