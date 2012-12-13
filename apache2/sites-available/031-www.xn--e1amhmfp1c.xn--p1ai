@@ -43,9 +43,9 @@ NameVirtualHost 95.142.170.59:443
         LogLevel warn
     
     	SSLEngine on
-
-    	SSLCertificateFile      /opt/certificates/xn--e1amhmfp1c.xn--p1ai.crt
-    	SSLCACertificateFile    /opt/certificates/xn--e1amhmfp1c.xn--p1ai.pem
-    	SSLCertificateKeyFile   /opt/certificates/xn--e1amhmfp1c.xn--p1ai.key
+    	
+        SSLCertificateFile      /opt/certificates/xn--e1amhmfp1c.xn--p1ai.crt
+        SSLCertificateKeyFile   /opt/certificates/xn--e1amhmfp1c.xn--p1ai.key
+        SSLCertificateChainFile /opt/certificates/xn--e1amhmfp1c.xn--p1ai.ca-bundle
 
 </VirtualHost>
