@@ -302,7 +302,7 @@ switch($_SERVER['HTTP_HOST'])
 if (ISWINDOWS) {
 	$username = "dev_aj_site";
 	$password = "data2016";
-	$DBHostname = "92.243.25.30";
+	$DBHostname = "127.0.0.1:4040";
 }
 else
 {
