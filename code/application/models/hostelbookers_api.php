@@ -30,6 +30,7 @@ class Hostelbookers_api extends Model {
   var $live_wsdl    = "http://v1.hb-api.com/api/remote/hbcontentcurrency.cfc?wsdl";
   var $live_wsdl_booking    = "https://v1.hb-api.com/api/remote/hbbooking.cfc?wsdl";
   var $live_apikey    = "146588823";
+
 //   var $live_wsdl    = "http://www.hbstaging.net/api/remote/hbcontentcurrency.cfc?wsdl";
 //   var $live_wsdl_booking    = "http://www.hbstaging.net/api/remote/hbbooking.cfc?wsdl";
 //   var $live_apikey    = "HostelBookers19367";
@@ -49,6 +50,8 @@ class Hostelbookers_api extends Model {
   var $CI = NULL;
 
   var $testmode = 0;
+
+  var $tracing = FALSE;
 
   function Hostelbookers_api()
   {
@@ -76,9 +79,6 @@ class Hostelbookers_api extends Model {
         $this->testmode = 1;
       }
     }
-    //Set up live key and live soap client
-    $this->apikey = $this->live_apikey;
-    $this->hbapi = new SoapClient($this->live_wsdl);
 
     //Setup staging site if test mode is detected
     if($this->testmode > 0)
@@ -86,6 +86,19 @@ class Hostelbookers_api extends Model {
       log_message('debug', "Using test mode for HB call");
       $this->apikey = $this->staging_apikey;
       $this->hbapi = new SoapClient($this->staging_wsdl, array('trace' => 1));
+      $this->tracing = TRUE;
+    }
+    else if ($this->tracing)
+    {
+      log_message('debug', "Using normal mode with tracing for HB call");
+      $this->apikey = $this->live_apikey;
+      $this->hbapi = new SoapClient($this->live_wsdl, array('trace' => 1));
+    }
+    else
+    {
+      log_message('debug', "Using normal mode for HB call");
+      $this->apikey = $this->live_apikey;
+      $this->hbapi = new SoapClient($this->live_wsdl);
     }
 
   }
@@ -230,10 +243,10 @@ class Hostelbookers_api extends Model {
     {
        $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
 
-       if($this->testmode > 0)
+       if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
-       }     
+       }
        return $return;
     }
     catch(SoapFault $exception)
@@ -260,7 +273,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyAvailability( $this->apikey, $language_code, $property_number, $startDate, $numNights, $strCurrencyCode );
+       $return = $this->hbapi->getPropertyAvailability( $this->apikey, $language_code, $property_number, $startDate, $numNights, $strCurrencyCode );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
     }
     catch(SoapFault $exception)
     {
@@ -287,7 +306,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyAvailabilityCalendar( $this->apikey, $property_number, $startDate, $numNights, $strCurrencyCode );
+       $return =  $this->hbapi->getPropertyAvailabilityCalendar( $this->apikey, $property_number, $startDate, $numNights, $strCurrencyCode );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
     }
     catch(SoapFault $exception)
     {
@@ -313,7 +338,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+       $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
     }
     catch(SoapFault $exception)
     {
@@ -339,7 +370,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyAvailability5( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+       $return = $this->hbapi->getPropertyAvailability5( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
     }
     catch(SoapFault $exception)
     {
@@ -362,7 +399,13 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyPricing2( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+       $return = $this->hbapi->getPropertyPricing2( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
     }
     catch(SoapFault $exception)
     {
@@ -386,7 +429,14 @@ class Hostelbookers_api extends Model {
   {
     try
     {
-      return $this->hbapi->getPropertyPricing( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+       $return = $this->hbapi->getPropertyPricing( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
+
+       if($this->tracing)
+       {
+          log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
+       }
+       return $return;
+
     }
     catch(SoapFault $exception)
     {
