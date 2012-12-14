@@ -383,7 +383,10 @@ class Hb_api_translate extends Model
             break;
           }
         }
-        $hbresults["PROPERTYEXTRAS_translated"]= array_combine($hbresults["PROPERTYEXTRAS_translated"],$hbresults["PROPERTYEXTRAS"]);
+        if (!empty($hbresults["PROPERTYEXTRAS_translated"]))
+        {
+	        $hbresults["PROPERTYEXTRAS_translated"]= array_combine($hbresults["PROPERTYEXTRAS_translated"],$hbresults["PROPERTYEXTRAS"]);
+	    }
       }
 
       //IF there is a translation error cancel caching
