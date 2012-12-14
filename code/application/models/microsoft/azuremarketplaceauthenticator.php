@@ -16,7 +16,6 @@ class Azuremarketplaceauthenticator extends Model {
     * OAuth endpoint URL
     */
    const QUERY_URL = 'https://datamarket.accesscontrol.windows.net/v2/OAuth2-13';
-
    /**
     * The application scope (the URL of the application endpoint)
     *
@@ -62,6 +61,7 @@ class Azuremarketplaceauthenticator extends Model {
 
   public function initialize($str_client_id, $str_client_secret, $str_application_scope)
   {
+
     $this->str_client_id         = $str_client_id;
     $this->str_client_secret     = $str_client_secret;
     $this->str_application_scope = $str_application_scope;

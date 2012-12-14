@@ -27,14 +27,18 @@ class Db_translation_cache extends Model
 
   public function add_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id, $tag)
   {
+    if ($lang_code === $orig_lang_code)
+    {
+    	return TRUE;
+    }
+
     $orig_text = $this->transDB->escape_str($orig_text);
 
     $this->transDB->set('lang_code', $lang_code);
+    $this->transDB->set('ref_hash', "COMPRESS('$orig_text')", FALSE);
     $this->transDB->set('translation', $translation);
     $this->transDB->set('ref_lang_code', $orig_lang_code);
     $this->transDB->set('source_id', $source_id);
-
-    $this->transDB->set('ref_hash', "COMPRESS('$orig_text')", FALSE);
 
     if($this->transDB->insert(self::TEXT_TABLE) !== FALSE)
     {
@@ -46,6 +50,13 @@ class Db_translation_cache extends Model
   }
   public function update_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id)
   {
+    log_message('debug', 'Entering update translation');
+
+    if ($lang_code === $orig_lang_code)
+    {
+    	return TRUE;
+    }
+
     $orig_text = $this->transDB->escape_str($orig_text);
 
     $this->transDB->set('translation', $translation);
@@ -54,6 +65,7 @@ class Db_translation_cache extends Model
 
     $this->transDB->where('ref_hash', "COMPRESS('$orig_text')", FALSE);
     $this->transDB->where('lang_code', $lang_code);
+
     return $this->transDB->update(self::TEXT_TABLE);
   }
 
@@ -61,16 +73,18 @@ class Db_translation_cache extends Model
   {
     log_message('debug', 'Entering get translation');
 
+    $orig_text = $this->transDB->escape_str($orig_text);
+    $lang_code = $this->transDB->escape_str($lang_code);
+
     if(empty($orig_text)) return $orig_text;
 
     if(isset($this->mem_cache[$lang_code][md5($orig_text)]))
     {
+      log_message('debug', 'Translation found in the Cache for:'.$orig_text);
       return $this->mem_cache[$lang_code][md5($orig_text)];
     }
-    $orig_text = $this->transDB->escape_str($orig_text);
-    $lang_code = $this->transDB->escape_str($lang_code);
 
-    log_message('debug', 'Language:'.$lang_code.' Text:'.$orig_text);
+    log_message('debug', 'language:'.$lang_code.' original text:'.$orig_text);
 
     $sql = "SELECT ".self::TEXT_TABLE.".translation_id, `translation`,`ref_lang_code`, source, key_slug,
             (
@@ -86,9 +100,11 @@ class Db_translation_cache extends Model
 
     $query = $this->transDB->query($sql);
 
-    if($query === false) return false;
-
-    if ($query->num_rows() > 0)
+    if($query === false)
+    {
+      log_message('debug', 'Translation NOT Found for:'.$orig_text);
+	}
+    else if ($query->num_rows() > 0)
     {
       log_message('debug', 'Translation Found');
 
@@ -102,11 +118,20 @@ class Db_translation_cache extends Model
         return $query->row();
       }
     }
+    else
+    {
+        log_message('debug', 'Translation NOT Found in the DB for:'.$orig_text);
+    }
     return FALSE;
   }
 
   public function cache_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source = "", $tag = "")
   {
+    if ($lang_code === $orig_lang_code)
+    {
+    	return $translation;
+    }
+
     $return = FALSE;
     $trans = $this->get_translation($orig_text, $lang_code, false);
 
