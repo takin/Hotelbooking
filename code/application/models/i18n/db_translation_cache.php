@@ -59,6 +59,8 @@ class Db_translation_cache extends Model
 
   public function get_translation($orig_text, $lang_code, $memcached = true)
   {
+    log_message('debug', 'Entering get translation');
+
     if(empty($orig_text)) return $orig_text;
 
     if(isset($this->mem_cache[$lang_code][md5($orig_text)]))
@@ -67,6 +69,8 @@ class Db_translation_cache extends Model
     }
     $orig_text = $this->transDB->escape_str($orig_text);
     $lang_code = $this->transDB->escape_str($lang_code);
+
+    log_message('debug', 'Language:'.$lang_code.' Text:'.$orig_text);
 
     $sql = "SELECT ".self::TEXT_TABLE.".translation_id, `translation`,`ref_lang_code`, source, key_slug,
             (
@@ -86,6 +90,8 @@ class Db_translation_cache extends Model
 
     if ($query->num_rows() > 0)
     {
+      log_message('debug', 'Translation Found');
+
       if($memcached === true)
       {
         $this->mem_cache[$lang_code][md5($orig_text)] = $query->row();
