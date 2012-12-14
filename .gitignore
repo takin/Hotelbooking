@@ -2,29 +2,26 @@
 #      CodeIgniter       #
 ##########################
 
-*/config/development
-*/logs/log-*.php
-*/logs/!index.html
-*/cache/*
-*/cache/!index.html
-*/cache/!placeholder.txt
+/logs/log-*.php
+/cache/*
 
 ##########################
 #      Application       #
 ##########################
 
-*/cache_queries/aj_ci/model/*
-*/cache_queries/aj_ci/model/!placeholder.txt
-*/cache_queries/azure/*
-*/cache_queries/azure/!placeholder.txt
-*/cache_queries/cache_processes/*
-*/cache_queries/cache_processes/!placeholder.txt
-*/cache_queries/jscitydata/*
-*/cache_queries/jscitydata/!placeholder.txt
-*/cache_queries/jscitydata/hb/*
-*/cache_queries/jscitydata/hb/!placeholder.txt
-*/cache_queries/staticfeeds/*
-*/cache_queries/staticfeeds/!placeholder.txt
+/web/ci/cache_queries/aj_ci/model/+*
+/web/ci/cache_queries/azure/*
+/web/ci/cache_queries/azure/!placeholder.txt
+/web/ci/cache_queries/cache_processes/*
+/web/ci/cache_queries/cache_processes/!placeholder.txt
+/web/ci/cache_queries/jscitydata/*
+/web/ci/cache_queries/jscitydata/!placeholder.txt
+/web/ci/cache_queries/jscitydata/hb/*
+/web/ci/cache_queries/jscitydata/hb/!placeholder.txt
+/web/ci/cache_queries/staticfeeds/*
+/web/ci/cache_queries/staticfeeds/!placeholder.txt
+/web/ci/cache_queries/jscitydata/hb/*.xml
+/web/ci/js/cache/*
 
 ##########################
 #           OS           #
