@@ -680,13 +680,13 @@ class Hb_api_translate extends Model
                 elseif(!empty($gtrans["responseData"][$i]))
                 {
                   $properties_reviewed[$prop_number]['user_reviews'][$r]["review_likebest_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
-                  log_message(TRANSLATION_ERROR_LEVEL,"translate_mixed_reviews: " .current_url()." -> [review] -> ".$reviews[$i]["review_likebest_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
+                  log_message(TRANSLATION_ERROR_LEVEL,"translate_mixed_reviews: " .current_url()." -> [review] -> ".$properties_reviewed[$prop_number]['user_reviews'][$r]["review_likebest_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
                 else
                 {
                   log_message(TRANSLATION_ERROR_LEVEL,"translation missing in translation API reply: " .current_url()." -> [review]");
                 }
-                $i++;
+                $i++;;
               }
             }
           }
