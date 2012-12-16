@@ -7,6 +7,7 @@ class Microsofttranslator extends Model {
   * @const MS_API_HTTP_URL
   */
   const MS_API_HTTP_URL = 'http://api.microsofttranslator.com/V2/Http.svc';
+  //const MS_API_HTTP_URL = 'http://localhost:8080/V2/Http.svc';
 
   /**
   * The application scope (the URL of the application endpoint)
@@ -75,6 +76,7 @@ class Microsofttranslator extends Model {
     {
       $this->CI->translation_source_slug = $this->default_source_slug;
     }
+
     $this->source_account = $this->CI->db_translation_cache->get_source($this->CI->translation_source_slug);
 
     if(empty($this->source_account))
@@ -83,6 +85,9 @@ class Microsofttranslator extends Model {
       //Taking default account
       $this->source_account = $this->CI->db_translation_cache->get_source($this->default_source_slug);
     }
+
+    log_message('debug', "MS Translator source account key slug: " . $this->source_account->key_slug);
+
     $this->CI->Azuremarketplaceauthenticator->initialize($this->source_account->client_id,
                                                          $this->source_account->client_secret,
                                                          $this->str_application_scope);
@@ -150,24 +155,26 @@ class Microsofttranslator extends Model {
     curl_setopt($ch, CURLOPT_HTTPHEADER,$http_header);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-    curl_setopt($ch, CURLOPT_FAILONERROR, true );
+    curl_setopt($ch, CURLOPT_FAILONERROR, false );
     curl_setopt($ch, CURLOPT_POST, true );
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data );
     curl_setopt($ch, CURLOPT_HEADER, FALSE );
 
     $curl_result = curl_exec ( $ch );
+    $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 
-    if (false === $curl_result)
+	if ($http_status == 200)
+	{
+	  curl_close ( $ch );
+	  return $curl_result;
+	}
+	else
     {
-      log_message('error', "MS Translator function $api_function_name error: " . curl_error ( $ch ). " -> request: ".$data );
+      log_message('error', "MS Translator function $api_function_name error: " . $http_status);
 //       debug_dump("MS Translator function $api_function_name error: " . curl_error ( $ch ). " -> request: ".$data ,"184.161.43.99");
-
+      curl_close ( $ch );
       return FALSE;
-    }
-
-    curl_close ( $ch );
-//     return FALSE;
-    return $curl_result;
+    };
   }
 
   public function google_to_ms_lang($google_lang_letters)
@@ -196,6 +203,13 @@ class Microsofttranslator extends Model {
     {
       $this->setLangs($to,$from);
     }
+
+	if ($this.FromLang === $this.ToLang)
+	{
+		log_message('error', "MS Translator function Request to translate to the same language");
+		return $text;
+	}
+
     if(is_array($text))
     {
       return $this->translateArray($text, $this->ToLang, $this->FromLang);
@@ -415,7 +429,7 @@ class Microsofttranslator extends Model {
 
       //Set data for remote translation request
       $this->batch_text_length += $text_length;
-      
+
       $translation_data = new stdClass();
       $translation_data->text = $text;
       $translation_data->tag  = $tag;

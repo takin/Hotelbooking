@@ -255,6 +255,11 @@ class I18n_site extends MY_Controller
 
       $this->config->load($this->site_conf,TRUE);
 
+      if (ISWINDOWS)
+      {
+         putenv('LANG='.$domain->locale);
+      }
+
       //locale settings for gettext and datetime format
       setlocale(LC_ALL, $domain->locale);
 
