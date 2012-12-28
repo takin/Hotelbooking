@@ -8,9 +8,9 @@ if (ISWINDOWS) {
 }
 else
 {
-	$username = "aj_site";
-	$password = "2bVHhwjCGQrRnGW2";
-	$DBHostname = "92.243.25.30";
+	$username = "root";
+	$password = "am04";
+	$DBHostname = "localhost";
 	$translationDBHost = "95.142.167.244";
 }
 
@@ -71,8 +71,8 @@ $db['default']['ssl_key']  = "/srv/d_mcweb1/mysql-ssl/client-key.pem";
 
 //Database for cache translation
 $db['translation']['hostname'] = $translationDBHost;
-$db['translation']['username'] = $username;
-$db['translation']['password'] = $password;
+$db['translation']['username'] = 'dev_aj_site';
+$db['translation']['password'] = 'data2016';
 $db['translation']['database'] = "aj_translation";
 $db['translation']['dbdriver'] = "mysqli";
 $db['translation']['dbprefix'] = "";
