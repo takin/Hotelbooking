@@ -936,7 +936,12 @@ Les habitants d’Amsterdam parlent le néerlandais, mais......<br /><a href="ht
 style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
 <!-- Velaro Weblink Code -->
 <script>
-var vnt='yes';
+var displayVelaro='<?php echo $this->config->item('displayVelaro'); ?>';	
+
+if(displayVelaro ==1)
+{
+	
+var vnt='yes'
 var vrt='no';
 var vt=1;
 var pt='http';
@@ -966,6 +971,7 @@ sm=sm+'&la='+escape(la)+'&pl='+escape(navigator.platform)+'&pal='+screen.colorDe
 sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
+}
 </script>
 
 <script type="text/javascript">

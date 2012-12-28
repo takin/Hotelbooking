@@ -304,12 +304,19 @@ echo '<meta name="robots" content="noindex,follow" />';
 					<?php if(get_option('aj_page_guides') != ''){?>
 				 <li><a<?php if ((is_page_template('single-page-destination.php') || is_page_template('page-destination.php') || is_page_template('subpage-destinations.php'))&&!is_home()){?> class="current_page_item"<?php }?> href="<?php echo get_option('aj_page_guides');?>"><?php _e('Destinations','auberge');?></a></li>
 				<?php }}?>
-
-				<?php if (get_option('aj_velaro_id') !=''){?>
+                <?php 
+               
+                if(DISPLAY_VELARO==1)
+                { 
+                
+					if (get_option('aj_velaro_id') !='')
+					{  
+					
+				?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a></li>
 				<?php }else{?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
-				<?php }?>
+				<?php } }?>
 
 
 				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li>

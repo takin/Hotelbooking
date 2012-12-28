@@ -64,7 +64,13 @@
 <iframe name="lf_iframe_invite" id="lf_iframe_invite" frameborder="0" src="about:blank" 
 style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
 <!-- Velaro Weblink Code -->
+
+
 <script type='text/javascript'>
+var displayVelaro='<?php echo $this->config->item('displayVelaro'); ?>';	
+
+if(displayVelaro ==1)
+{	
 var pt='http';
 var qs=escape(window.location.search);
 var ti=new Date();
@@ -82,6 +88,7 @@ sm=sm+'&la='+escape(la)+'&pl='+escape(navigator.platform)+'&pal='+screen.colorDe
 sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
+}
 </script>
 <!-- End Velaro Weblink Code -->
 

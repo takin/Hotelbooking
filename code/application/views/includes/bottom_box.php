@@ -32,12 +32,18 @@
 
 	<?php endif; //continent?>
 	<ul id="account-mainbar">
-
-		<?php if ($this->wordpress->get_option('aj_velaro_id') !=''){?>
+           
+		<?php 
+		$displayVelaro = $this->config->item('displayVelaro');
+		if($displayVelaro==1)
+		{
+			if ($this->wordpress->get_option('aj_velaro_id') !='')
+			{
+		?>
 		<li><a style="padding:0px;" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a></li>
 		<?php }else{?>
 		<li><a style="padding:0px;" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
-		<?php }?>
+		<?php }  } ?>
 
 		<?php /*?><li><a class="your-account" href="<?php echo site_url($this->Db_links->get_link("user")); ?>"><?php echo _("Mon Compte");?></a></li>
 		<?php  if($this->wordpress->get_option('aj_group_url') != ''){?>

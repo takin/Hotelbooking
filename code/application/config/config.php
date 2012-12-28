@@ -106,6 +106,8 @@ $config['charset'] = "UTF-8";
 |
 */
 $config['enable_hooks'] = FALSE;
+/* Valero chat globale variable set false for disable and True for enable chat*/
+$config['displayVelaro'] = FALSE;
 
 
 /*

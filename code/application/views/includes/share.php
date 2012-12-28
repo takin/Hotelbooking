@@ -18,7 +18,7 @@
     <a class="addthis_button_tweet"></a>
     <a addthis:locale="fr_FR" class="addthis_counter addthis_pill_style"></a><?php */?>
     </div>
-    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aubergescom"></script>
+   <!-- <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aubergescom"></script>-->
     <!-- AddThis Button END -->
 
   </div>
