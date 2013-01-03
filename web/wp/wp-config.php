@@ -306,9 +306,9 @@ if (ISWINDOWS) {
 }
 else
 {
-	$username = "root";
-	$password = "am04";
-	$DBHostname = "localhost";
+	$username = "aj_site";
+	$password = "2bVHhwjCGQrRnGW2";
+	$DBHostname = "92.243.25.30";
 }
 
 
