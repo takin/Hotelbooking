@@ -69,6 +69,10 @@ include( TEMPLATEPATH . '/footer-mobile.php' );
 style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
 <!-- Velaro Weblink Code -->
 <script type='text/javascript'>
+var DISPLAY_VELARO='<?php echo DISPLAY_VELARO ?>';	
+
+if(DISPLAY_VELARO ==1)
+{	
 var pt='http';
 var qs=escape(window.location.search);
 var ti=new Date();
@@ -86,9 +90,8 @@ sm=sm+'&la='+escape(la)+'&pl='+escape(navigator.platform)+'&pal='+screen.colorDe
 sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
+}
 </script>
-<!-- End Velaro Weblink Code -->
-<!--<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aubergescom"></script> -->
 </body>
 </html>
 <?php } ?>
