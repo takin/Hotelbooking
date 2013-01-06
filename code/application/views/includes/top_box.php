@@ -63,10 +63,8 @@
     <!--[if lt IE 8]>
     <![endif]-->
     <li class="shareit">
-			<a style="padding:0px; line-height:0; height:auto;" id="fbLike" fb:like:locale="<?php echo str_replace('-','_',$this->wordpress->get_option('aj_lang_code')); ?>" fb:like:width="120" class="addthis_button_facebook_like" fb:like:href="<?php echo strtolower(base_url()); ?>"></a>
-			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aubergescom"></script>
-		</li>
-		
+<a style="padding:0px; line-height:0; height:auto;" id="fbLike" fb:like:locale="<?php echo str_replace('-','_',$this->wordpress->get_option('aj_lang_code')); ?>" fb:like:width="120" class="addthis_button_facebook_like" fb:like:href="<?php echo strtolower(base_url()); ?>"></a>
+</li>
 		<?php if ($this->wordpress->get_option('aj_api_ascii')==""){?>
 		<li class="shareit">
 		<!-- Place this tag where you want the +1 button to render -->

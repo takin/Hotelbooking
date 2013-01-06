@@ -87,8 +87,6 @@ sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
 </script>
-<!-- End Velaro Weblink Code -->
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aubergescom"></script>
 </body>
 </html>
 <?php } ?>
