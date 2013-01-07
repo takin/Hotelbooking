@@ -1,28 +1,23 @@
 === WP-PageNavi ===
-Contributors: GamerZ, scribu, aaroncampbell
-Donate link: http://lesterchan.net/wordpress
-Tags: pagenavi, navi, navigation, wp-pagenavi, page
-Requires at least: 2.8
-Tested up to: 2.9.1
-Stable tag: 2.61
+Contributors: GamerZ, scribu
+Tags: navigation, pagination, paging, pages
+Requires at least: 3.2
+Tested up to: 3.4
+Stable tag: 2.83
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a more advanced paging navigation to your WordPress site.
+Adds a more advanced paging navigation interface.
 
 == Description ==
 
-Adds a more advanced paging navigation to your WordPress site.
+[PHP5 is required since version 2.70](http://scribu.net/wordpress/wp-pagenavi/wp-2-70.html)
 
-Example:
+Want to replace the old *&larr; Older posts | Newer posts &rarr;* links with some page links?
 
-	Pages (17): [1] 2 3 4 » ... Last »
+This plugin provides the `wp_pagenavi()` template tag which generates fancy pagination links. See the [installation instructions](http://wordpress.org/extend/plugins/wp-pagenavi/installation/) for using it in your theme.
 
-
-<br>
-[Demo](http://lesterchan.net/wordpress/) | [Translations](http://dev.wp-plugins.org/browser/wp-pagenavi/i18n/) | [Support Forums](http://forums.lesterchan.net/index.php?board=14.0)
-
-= Credits =
-* Right-to-left language support by [Kambiz R. Khojasteh](http://persian-programming.com/)
-* Maintenance by [scribu](http://scribu.net)
+Links: [Demo](http://lesterchan.net/wordpress/) | [Plugin News](http://scribu.net/wordpress/wp-pagenavi/) | [Translating](http://scribu.net/wordpress/translating-plugins.html)
 
 == Installation ==
 
@@ -33,9 +28,28 @@ You can either install it automatically from the WordPress admin, or do it manua
 
 = Usage =
 
-1. Open `wp-content/themes/<YOUR THEME NAME>/footer.php`
-2. Add Anywhere: `<?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>`
-3. Go to *WP-Admin -> Settings -> PageNavi* to configure WP-PageNavi.
+In your theme, you need to find calls to next_posts_link() and previous_posts_link() and replace them.
+
+In the Twentyten theme, it looks like this:
+
+`
+<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
+<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
+`
+
+You would replace those two lines with this:
+
+`<?php wp_pagenavi(); ?>`
+
+For multipart pages, you would look for code like this:
+
+`<?php wp_link_pages( ... ); ?>`
+
+and replace it with this:
+
+`<?php wp_pagenavi( array( 'type' => 'multipart' ) ); ?>`
+
+Go to *WP-Admin -> Settings -> PageNavi* for configuration.
 
 = Changing the CSS =
 
@@ -51,9 +65,72 @@ Alternatively, you can uncheck the "Use pagenavi.css?" option from the settings 
 
 == Frequently Asked Questions ==
 
-[WP-PageNavi Support Forums](http://forums.lesterchan.net/index.php?board=14.0 "WP-PageNavi Support Forums")
+= Error on activation: "Parse error: syntax error, unexpected..." =
+
+Make sure your host is running PHP 5. The only foolproof way to do this is to add this line to wp-config.php (after the opening `<?php` tag):
+
+`var_dump(PHP_VERSION);`
+<br>
+
+= When I go to page 2, I see the same posts as on page 1! =
+
+You're using `query_posts()` wrong. See [The Right Way To use query_posts()](http://scribu.net/wordpress/wp-pagenavi/right-way-to-use-query_posts.html)
+
+= Does PageNavi work with secondary WP_Query instances? =
+
+Yes; read [this tutorial](http://scribu.net/wordpress/wp-pagenavi/wpn-2-74.html)
+
+= How do I ignore the options page? =
+
+If you are running a multi-language plugin, you will probably want to ignore the strings in the options page.
+
+You can do that like so:
+
+`<?php wp_pagenavi( array( 'options' => PageNavi_Core::$options->get_defaults() ) ); ?>`
 
 == Changelog ==
+
+= 2.83 =
+* added 'echo' parameter
+* added Estonian and Bengali translations
+* updated scbFramework
+
+= 2.82 =
+* fixed prev/next links not appearing in some conditions
+* added Hebrew, Georgian and Azerbaijani translations
+* updated scbFramework
+
+= 2.81 =
+* require an explicit type; fixes bugs with multipart pages
+
+= 2.80 =
+* support for multi-part pages and user queries
+* moved prev/next links before/after first/last links
+* [more info](http://scribu.net/wordpress/wp-pagenavi/wpn-2-80.html)
+
+= 2.74 (2011-02-17) =
+* added 'smaller' and 'larger' classes
+* added $query arg to wp_pagenavi()
+* updated translations
+* [more info](http://scribu.net/wordpress/wp-pagenavi/wpn-2-74.html)
+
+= 2.73 (2010-08-17) =
+* added $options arg to wp_pagenavi()
+* updated scbFramework
+* 3 new translations: AL, JA, BR
+
+= 2.72 (2010-04-19) =
+* fixed first link
+
+= 2.71 (2010-04-18) =
+* remove conflicting .left and .right from .extend elements
+* bundle language files
+
+= 2.70 (2010-04-11) =
+* better default CSS
+* fixed issue with slashed quotes in settings
+* let WordPress handle uninstallation
+* [more info](http://scribu.net/wordpress/wp-pagenavi/wp-2-70.html)
 
 = 2.61 (2010-02-07) =
 * fixed: memory limit error
