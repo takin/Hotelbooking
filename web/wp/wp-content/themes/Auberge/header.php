@@ -306,7 +306,7 @@ echo '<meta name="robots" content="noindex,follow" />';
 				<?php }}?>
                 <?php 
                
-                if(DISPLAY_VELARO==1)
+                if(DISPLAY_VELARO == 1)
                 { 
                 
 					if (get_option('aj_velaro_id') !='')
@@ -316,7 +316,8 @@ echo '<meta name="robots" content="noindex,follow" />';
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a></li>
 				<?php }else{?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
-				<?php } }?>
+				<?php } 
+				           }?>
 
 
 				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li>

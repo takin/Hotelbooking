@@ -804,9 +804,9 @@ $hb_arrhes_rate        = 0.1;
 			</div>
 	</form>	 
 		<?php 
-		$displayVelaro = $this->config->item('displayVelaro');
+		$displayVelaro =  $this->config->item('displayVelaro');
 		
-		if($displayVelaro==1)
+		if($displayVelaro == 1)
 		{
 			if ($this->wordpress->get_option('aj_velaro_id') !='')
 			{
@@ -820,7 +820,8 @@ $hb_arrhes_rate        = 0.1;
 		<div class="chat_help_booking box_round">
 		<a onclick="this.newWindow = window.open('https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;" target="OnlineChatSoftware" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue"><img border="0" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&amp;showwhen=inqueue" alt="OnlineChatSoftware"></a>
 		</div>
-		<?php } } ?>	 
+		<?php } 
+		         } ?>	 
 	 
 	 <?php if (!empty($important_info->original)){?>
 	 <div class="booking_section">  
