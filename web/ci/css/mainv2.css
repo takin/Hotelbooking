@@ -1391,7 +1391,12 @@ div.comment_sent{background:#FFC !important;}
 /* Legacy Table */
 
 .top-table{}
-a#change-dates{padding-left:20px;}
+a#change-dates{
+background:url(../images/calendar_edit.png)no-repeat left;
+margin-left:23px;
+padding:11px 0px 13px 17px;
+
+}
 
 #booking-table, .booking_table_city{ clear:both; padding-bottom:10px; border-collapse:separate; position:relative;}
 .booking_table_city{padding-bottom:10px}
