@@ -73,13 +73,8 @@ $db['default']['ssl_key']  = "/srv/d_mcweb1/mysql-ssl/client-key.pem";
 
 //Database for cache translation
 $db['translation']['hostname'] = $translationDBHost;
-/*
-$db['translation']['username'] = 'dev_aj_site';
-$db['translation']['password'] = 'data2016';
-*/
 $db['translation']['username'] = $username;
 $db['translation']['password'] = $password;
-
 $db['translation']['database'] = "aj_translation";
 $db['translation']['dbdriver'] = "mysqli";
 $db['translation']['dbprefix'] = "";
