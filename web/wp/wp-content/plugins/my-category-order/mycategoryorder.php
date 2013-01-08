@@ -3,7 +3,7 @@
 Plugin Name: My Category Order
 Plugin URI: http://www.geekyweekly.com/mycategoryorder
 Description: My Category Order allows you to set the order in which categories will appear in the sidebar. Uses a drag and drop interface for ordering. Adds a widget with additional options for easy installation on widgetized themes.
-Version: 2.8.7
+Version: 3.3.2
 Author: Andrew Charlton
 Author URI: http://www.geekyweekly.com
 Author Email: froman118@gmail.com
@@ -13,12 +13,11 @@ function mycategoryorder_init() {
 
 function mycategoryorder_menu()
 {   
-	if (function_exists('add_submenu_page'))
-		add_submenu_page(mycategoryorder_getTarget(), __('My Category Order','mycategoryorder'), __('My Category Order','mycategoryorder'), 4,"mycategoryorder",'mycategoryorder');
+	 add_posts_page(__('My Category Order', 'mycategoryorder'), __('My Category Order', 'mycategoryorder'), 'manage_categories', 'mycategoryorder', 'mycategoryorder');
 }
 
 function mycategoryorder_js_libs() {
-	if ( $_GET['page'] == "mycategoryorder" )
+	if ( isset($_GET['page']) && $_GET['page'] == "mycategoryorder" )
 	{	
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('jquery-ui-core');
@@ -36,7 +35,7 @@ function mycategoryorder_set_plugin_meta($links, $file) {
 	// create link
 	if ($file == $plugin) {
 		return array_merge( $links, array( 
-			'<a href="edit.php?page=mycategoryorder">' . __('Order Categories') . '</a>',
+			'<a href="' . mycategoryorder_getTarget() . '">' . __('Order Categories', 'mycategoryorder') . '</a>',
 			'<a href="http://wordpress.org/tags/my-category-order?forum_id=10#postform">' . __('Support Forum') . '</a>',
 			'<a href="http://geekyweekly.com/gifts-and-donations">' . __('Donate') . '</a>' 
 		));
@@ -44,24 +43,16 @@ function mycategoryorder_set_plugin_meta($links, $file) {
 	return $links;
 }
 
-add_filter( 'plugin_row_meta', 'mycategoryorder_set_plugin_meta', 10, 2 );
+add_filter('plugin_row_meta', 'mycategoryorder_set_plugin_meta', 10, 2 );
 add_action('admin_menu', 'mycategoryorder_menu');
-add_action('admin_menu', 'mycategoryorder_js_libs');
+add_action('admin_print_scripts', 'mycategoryorder_js_libs');
 
 function mycategoryorder()
 {
 	global $wpdb;
 	
-	$mode = "";
-	$mode = $_GET['mode'];
 	$parentID = 0;
-	$success = "";
-	if (isset($_GET['parentID']))
-	    $parentID = $_GET['parentID'];
-		
-	if(isset($_GET['hideNote']))
-		update_option('mycategoryorder_hideNote', '1');
-		
+	
 	$wpdb->show_errors();
 
 	$query1 = $wpdb->query("SHOW COLUMNS FROM $wpdb->terms LIKE 'term_order'");
@@ -69,50 +60,37 @@ function mycategoryorder()
 	if ($query1 == 0) {
 		$wpdb->query("ALTER TABLE $wpdb->terms ADD `term_order` INT( 4 ) NULL DEFAULT '0'");
 	}
-
-	if($mode == "act_OrderCategories")
-	{  
-		$idString = $_GET['idString'];
-		$catIDs = explode(",", $idString);
-		$result = count($catIDs);
-		for($i = 0; $i < $result; $i++)
-		{	
-			$wpdb->query("UPDATE $wpdb->terms SET term_order = '$i' WHERE term_id ='$catIDs[$i]'");
-		}
-		$success = '<div id="message" class="updated fade"><p>'. __('Categories updated successfully.', 'mycategoryorder').'</p></div>';
+	
+	if (isset($_POST['btnSubCats'])) { 
+		$parentID = $_POST['cats'];
+	}
+	elseif (isset($_POST['hdnParentID'])) { 
+		$parentID = $_POST['hdnParentID'];
 	}
 
-	$subCatStr = "";
-
-	$results=$wpdb->get_results("SELECT t.term_id, t.name FROM $wpdb->term_taxonomy tt, $wpdb->terms t, $wpdb->term_taxonomy tt2 WHERE tt.parent = $parentID AND tt.taxonomy = 'category' AND t.term_id = tt.term_id AND tt2.parent = tt.term_id GROUP BY t.term_id, t.name HAVING COUNT(*) > 0 ORDER BY t.term_order ASC");
-	foreach($results as $row)
-	{
-		$subCatStr = $subCatStr."<option value='$row->term_id'>$row->name</option>";
+	if (isset($_POST['btnReturnParent'])) { 
+		$parentsParent = $wpdb->get_row($wpdb->prepare("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = %d ", $_POST['hdnParentID']) , ARRAY_N);
+		$parentID = $parentsParent[0];
 	}
+		
+	$success = "";
+	if (isset($_POST['btnOrderCats'])) { 
+		$success = mycategoryorder_updateOrder();
+	}
+
+	$subCatStr = mycategoryorder_getSubCats($parentID);
+	
 ?>
-	<div class='wrap'>
+<div class='wrap'>
+<form name="frmMyCatOrder" method="post" action="">
 		<h2><?php _e('My Category Order','mycategoryorder'); ?></h2>
 	<?php 
-	
-	echo $success; 
-	
-	if (get_option("mycategoryorder_hideNote") != "1")
-		{	?>
-			<div class="updated">
-				<strong><p><?php _e('If you like my plugin please consider donating. Every little bit helps me provide support and continue development.','mycategoryorder'); ?> <a href="http://geekyweekly.com/gifts-and-donations"><?php _e('Donate', 'mycategoryorder'); ?></a>&nbsp;&nbsp;<small><a href="edit.php?page=mycategoryorder&hideNote=true"><?php _e('No thanks, hide this', 'mycategoryorder'); ?></a></small></p></strong>
-			</div>
-		<?php
-		}?>
+		echo $success; 
+	?>
 
 	<p><?php _e('Choose a category from the drop down to order subcategories in that category or order the categories on this level by dragging and dropping them into the desired order.','mycategoryorder'); ?></p>
 
 <?php 
-	if($parentID != 0)
-	{
-		$parentsParent = $wpdb->get_row("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = $parentID ", ARRAY_N);
-		echo "<a href='". mycategoryorder_getTarget() . "?page=mycategoryorder&parentID=$parentsParent[0]'>".__('Return to parent category','mycategoryorder')."</a>";
-	}
-
 	if($subCatStr != "")
 	{ 
 	?>
@@ -120,59 +98,139 @@ function mycategoryorder()
 	<select id="cats" name="cats">
 		<?php echo $subCatStr; ?>
 	</select>
-	&nbsp;<input type="button" name="edit" Value="<?php _e('Order Subcategories','mycategoryorder'); ?>" onClick="javascript:goEdit();">
-<?php }
-	$results=$wpdb->get_results("SELECT * FROM $wpdb->terms t inner join $wpdb->term_taxonomy tt on t.term_id = tt.term_id WHERE taxonomy = 'category' and parent = $parentID ORDER BY term_order ASC"); ?>
+	&nbsp;<input type="submit" name="btnSubCats" class="button" id="btnSubCats" value="<?php _e('Order Subcategories','mycategoryorder'); ?>" />
+	<?php } ?>
+	
 	<h3><?php _e('Order Categories','mycategoryorder'); ?></h3>
-	    <ul id="order" style="width: 90%; margin:10px 10px 10px 0px; padding:10px; border:1px solid #B2B2B2; list-style:none;">
-		<?php foreach($results as $row)
-		{
-			echo "<li id='$row->term_id' class='lineitem'>$row->name</li>";
-		}?>
+	<ul id="myCategoryOrderList">
+	<?php 
+	$results= mycategoryorder_catQuery($parentID);
+	foreach($results as $row)
+		echo "<li id='id_$row->term_id' class='lineitem'>".__($row->name)."</li>";
+	?>
 	</ul>
 
-	<input type="button" id="orderButton" Value="<?php _e('Click to Order Categories','mycategoryorder'); ?>" onclick="javascript:orderCats();">&nbsp;&nbsp;<strong id="updateText"></strong>
-
+	<input type="submit" name="btnOrderCats" id="btnOrderCats" class="button-primary" value="<?php _e('Click to Order Categories', 'mycategoryorder') ?>" onclick="javascript:orderCats(); return true;" />
+	<?php echo mycategoryorder_getParentLink($parentID); ?>
+	&nbsp;&nbsp;<strong id="updateText"></strong>
+	<br /><br />
+	<p>
+	<a href="http://geekyweekly.com/mycategoryorder"><?php _e('Plugin Homepage', 'mycategoryorder') ?></a>&nbsp;|&nbsp;<a href="http://geekyweekly.com/gifts-and-donations"><?php _e('Donate', 'mycategoryorder') ?></a>&nbsp;|&nbsp;<a href="http://wordpress.org/tags/my-category-order?forum_id=10"><?php _e('Support Forum', 'mycategoryorder') ?></a>
+	</p>
+	<input type="hidden" id="hdnMyCategoryOrder" name="hdnMyCategoryOrder" />
+	<input type="hidden" id="hdnParentID" name="hdnParentID" value="<?php echo $parentID; ?>" />
+</form>
 </div>
 
-<style>
+<style type="text/css">
+	#myCategoryOrderList {
+		width: 90%; 
+		border:1px solid #B2B2B2; 
+		margin:10px 10px 10px 0px;
+		padding:5px 10px 5px 10px;
+		list-style:none;
+		background-color:#fff;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+	}
+
 	li.lineitem {
-		margin: 3px 0px;
-		padding: 2px 5px 2px 5px;
-		background-color: #F1F1F1;
 		border:1px solid #B2B2B2;
-		cursor: move;
+		-moz-border-radius:3px;
+		-webkit-border-radius:3px;
+		background-color:#F1F1F1;
+		color:#000;
+		cursor:move;
+		font-size:13px;
+		margin-top:5px;
+		margin-bottom:5px;
+		padding: 2px 5px 2px 5px;
+		height:1.5em;
+		line-height:1.5em;
+	}
+	
+	.sortable-placeholder{ 
+		border:1px dashed #B2B2B2;
+		margin-top:5px;
+		margin-bottom:5px; 
+		padding: 2px 5px 2px 5px;
+		height:1.5em;
+		line-height:1.5em;	
 	}
 </style>
 
-<script language="JavaScript">
-	
+<script type="text/javascript">
+// <![CDATA[
+
 	function mycategoryrderaddloadevent(){
-		jQuery("#order").sortable({ 
-			placeholder: "ui-selected", 
+		jQuery("#myCategoryOrderList").sortable({ 
+			placeholder: "sortable-placeholder", 
 			revert: false,
 			tolerance: "pointer" 
 		});
 	};
 
 	addLoadEvent(mycategoryrderaddloadevent);
-
+	
 	function orderCats() {
-		jQuery("#orderButton").css("display", "none");
-		jQuery("#updateText").html("<?php _e('Updating Category Order...','mycategoryorder'); ?>");
-		
-		idList = jQuery("#order").sortable("toArray");
-		location.href = '<?php echo mycategoryorder_getTarget(); ?>?page=mycategoryorder&mode=act_OrderCategories&parentID=<?php echo $parentID; ?>&idString='+idList;
+		jQuery("#updateText").html("<?php _e('Updating Category Order...', 'mycategoryorder') ?>");
+		jQuery("#hdnMyCategoryOrder").val(jQuery("#myCategoryOrderList").sortable("toArray"));
 	}
-	function goEdit ()
-	{
-		if(jQuery("#cats").val() != "")
-			location.href="<?php echo mycategoryorder_getTarget(); ?>?page=mycategoryorder&parentID="+jQuery("#cats").val();
-	}
+
+// ]]>
 </script>
 
 <?php
 }
+}
+
+function mycategoryorder_getSubCats($parentID)
+{
+	global $wpdb;
+	
+	$subCatStr = "";
+	$results=$wpdb->get_results($wpdb->prepare("SELECT t.term_id, t.name FROM $wpdb->term_taxonomy tt, $wpdb->terms t, $wpdb->term_taxonomy tt2 WHERE tt.parent = %d AND tt.taxonomy = 'category' AND t.term_id = tt.term_id AND tt2.parent = tt.term_id GROUP BY t.term_id, t.name HAVING COUNT(*) > 0 ORDER BY t.term_order ASC", $parentID));
+	foreach($results as $row)
+	{
+		$subCatStr = $subCatStr."<option value='$row->term_id'>$row->name</option>";
+	}
+
+	return $subCatStr;
+}
+
+function mycategoryorder_updateOrder()
+{
+	if (isset($_POST['hdnMyCategoryOrder']) && $_POST['hdnMyCategoryOrder'] != "") { 
+		global $wpdb;
+		
+		$hdnMyCategoryOrder = $_POST['hdnMyCategoryOrder'];
+		$IDs = explode(",", $hdnMyCategoryOrder);
+		$result = count($IDs);
+
+		for($i = 0; $i < $result; $i++)
+		{
+			$str = str_replace("id_", "", $IDs[$i]);
+			$wpdb->query($wpdb->prepare("UPDATE $wpdb->terms SET term_order = %d WHERE term_id = %d ", $i, $str));
+		}
+
+		return '<div id="message" class="updated fade"><p>'. __('Categories updated successfully.', 'mycategoryorder').'</p></div>';
+	}
+	else
+		return '<div id="message" class="updated fade"><p>'. __('An error occured, order has not been saved.', 'mycategoryorder').'</p></div>';
+}
+
+function mycategoryorder_catQuery($parentID)
+{
+	global $wpdb;
+	return $wpdb->get_results($wpdb->prepare("SELECT * FROM $wpdb->terms t inner join $wpdb->term_taxonomy tt on t.term_id = tt.term_id WHERE taxonomy = 'category' and parent = %d ORDER BY term_order ASC", $parentID));
+}
+
+function  mycategoryorder_getParentLink($parentID)
+{
+	if($parentID != 0)
+		return "&nbsp;&nbsp;<input type='submit' class='button' id='btnReturnParent' name='btnReturnParent' value='" . __('Return to parent category', 'mycategoryorder') ."' />";
+	else
+		return "";
 }
 
 function mycategoryorder_applyorderfilter($orderby, $args)
@@ -229,26 +287,33 @@ class mycategoryorder_Widget extends WP_Widget {
 		$cat_args = array('orderby' => $orderby, 'order' => $order, 'show_last_updated' => $show_last_updated, 'show_count' => $show_count, 
 			'hide_empty' => $hide_empty, 'use_desc_for_title' => $use_desc_for_title, 'child_of' => $child_of, 'feed' => $feed, 
 			'feed_image' => $feed_image, 'exclude' => $exclude, 'exclude_tree' => $exclude_tree, 'include' => $include,
-			'hierarchical' => $hierarchical, 'number' => $number, 'depth' => $depth);
+			'hierarchical' => $hierarchical, 'number' => $number, 'depth' => $depth,  );
 
 		if ( $show_dropdown ) {
+			static $dropdown_count = 0;
+
+			$cat_id = 'dropdown_'.$args['widget_id'];
+			$cat_args['id'] = $cat_args['name'] = $cat_id;
 			$cat_args['show_option_none'] = __('Select Category');
 			wp_dropdown_categories(apply_filters('widget_categories_dropdown_args', $cat_args));
-		?>
+?>
 
-		<script type='text/javascript'>
-		/* <![CDATA[ */
-			var dropdown = document.getElementById("cat");
-			function onCatChange() {
-				if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
-					location.href = "<?php echo get_option('home'); ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
-				}
-			}
-			dropdown.onchange = onCatChange;
-		/* ]]> */
-		</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+<?php if ( $dropdown_count == 0 ) { ?>
+	function onCatChange( dropdownID ) {
+		var dropdown = document.getElementById(dropdownID);
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "<?php echo home_url(); ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+<?php } ?>
+	document.getElementById("<?php echo $cat_id; ?>").onchange = function(){onCatChange(this.id)};
+/* ]]> */
+</script>
 
-		<?php
+<?php
+		$dropdown_count++;
 		} else {
 		?>
 		<ul>

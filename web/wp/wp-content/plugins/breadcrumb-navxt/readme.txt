@@ -1,36 +1,147 @@
 === Breadcrumb NavXT ===
 Contributors: mtekk, hakre
-Tags: breadcrumb, navigation
-Requires at least: 2.6
-Tested up to: 2.9
-Stable tag: 3.4.1
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=FD5XEU783BR8U&lc=US&item_name=Breadcrumb%20NavXT%20Donation&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
+Tags: breadcrumb, breadcrumbs, trail, navigation, menu, widget
+Requires at least: 3.2
+Tested up to: 3.4.2
+Stable tag: 4.2.0
 Adds breadcrumb navigation showing the visitor's path to their current location.
 
 == Description ==
 
-Breadcrumb NavXT, the successor to the popular WordPress plugin Breadcrumb Navigation XT, was written from the ground up to be better than its ancestor. This plugin generates locational breadcrumb trails for your WordPress blog. These breadcrumb trails are highly customizable to suit the needs of just about any blog. The Administrative interface makes setting options easy, while a direct class access is available for theme developers and more adventurous users. Do note that Breadcrumb NavXT requires PHP5.
+Breadcrumb NavXT, the successor to the popular WordPress plugin Breadcrumb Navigation XT, was written from the ground up to be better than its ancestor. This plugin generates locational breadcrumb trails for your WordPress powered blog or website. These breadcrumb trails are highly customizable to suit the needs of just about any website running WordPress. The Administrative interface makes setting options easy, while a direct class access is available for theme developers and more adventurous users.
 
 = Translations =
 
 Breadcrumb NavXT distributes with translations for the following languages:
 
 * English - default -
-* German by Tom Klingenberg
-* French by Laurent Grabielle
-* Spanish by Karin Sequen
-* Dutch by Stan Lenssen
-* Russian by Yuri Gribov
+* Russian by Alexander Samsonov
+* German by Daniel Lang
+* Dutch by Joachim Jensen
+* French (France) by Emmanuel Beziat
+* Norwegian (Bokmål) by Jan Rosvoldsve
+* Spanish (Spain) by Karin Sequen
+* Portuguese (Portugal) by Luís Rodrigues
+* Estonian by Martin Orn
+* Latvian by Martins Dzerve
 * Swedish by Patrik Spathon
-* Italian by Luca Camellini
+* Azerbaijani by Zaur Bayramov
 
+The following were not included, but are in the process of being updated:
 
-Don't see your language on the list? Feel free to translate Breadcrumb NavXT and send John Havlik the translations.
+* Italian by Tamara Balestri
+* Malay by Ben Di
+* Hindi by Love Chandel
+
+The following translations are in need of a maintainer:
+
+* Japanese originally maintained by Kazuhiro Terada
+
+Don't see your language on the list? Stop by [Breadcrumb NavXT's translation project](http://translate.mtekk.us/projects/breadcrumb-navxt "Go to Breadcrumb NavXT's GlotPress based translation project").
 
 == Installation ==
 
-Please visit [Breadcrumb NavXT's](http://mtekk.weblogs.us/code/breadcrumb-navxt/#installation "Go to Breadcrumb NavXT's project page's installation section.") project page for installation and usage instructions.
+Please visit [Breadcrumb NavXT's](http://mtekk.us/code/breadcrumb-navxt/#installation "Go to Breadcrumb NavXT's project page's installation section.") project page for installation and usage instructions.
 
 == Changelog ==
+= 4.2.0 =
+* Behaviour change: Date archives are only available for the 'post' post type.
+* New feature: All Custom Post Types can now either use a post parent, or taxonomy based hierarchy.
+* New feature: Post Format archives are now supported.
+* New feature: Reorganized settings page with more responsive elements.
+* Bug fix: Widget will now display properly when told to include the paged breadcrumb on the main posts archive.
+* Bug fix: Using flat taxonomies as the post hierarchy no longer causes extraneous breadcrumb templates to be applied.
+* Bug fix: Mainsite link now works on posts and pages in multisite environments.
+* Bug fix: `bcn_breadcrumb::title_trim()` no longer cuts HTML encoded characters.
+* Bug fix: `bcn_breadcrumb::title_trim()` no longer trims the title when the title length is equal to the max length.
+= 4.1.0 =
+* Behavior change: Made the behavior of posts using flat taxonomies match the behavior of using a hierarchical taxonomy when the post is not assigned a taxonomy term.
+* New feature: Custom Post Types that are hierarchical can now fall back to a taxonomy if they don’t have a parent.
+* New feature: Pretext option for the included Widget, allows 'You are here:' type messages in the widget.
+* Bug fix: Textdomain was changed to the correct one in the widget.
+* Bug fix: Textdomain was changed from 'breadcrumb_navxt' to 'breadcrumb-navxt' for improved compatibility with the new GlotPress translation flow.
+* Bug fix: Fixed cause of PHP warnings on empty term archive pages.
+* Bug fix: Fixed cause of PHP warnings on term archives restricted to a specified post type.
+* Bug fix: Fixed cause of PHP warnings and improper behavior on author archives if showing the page number in the breadcrumb trail.
+= 4.0.2 =
+* New feature: Estonian translation added props to Martin Orn.
+* New feature: Azerbaijani translation added props to Zaur Bayramov.
+* Bug fix: Replaced deprecated RDFa and Microformat breadcrumbs with Schema.org breadcrumbs support in the included sidebar widget.
+* Bug fix: Mainsite breadcrumbs are linked once again.
+* Bug fix: Safe default settings for CPTs and taxonomies should work now.
+* Bug fix: Updated translations should work, previously the old ones loaded.
+= 4.0.1 =
+* New feature: Norwegian translations added props to Jan Rosvoldsve.
+* Bug fix: Fixed line 591 and line 646 errors in multisite installs.
+* Bug fix: Attachments will now obey the root page setting for their parent, regardless of the parent's post type.
+= 4.0.0 =
+* Behavior change: Prefix, suffix, and anchor settings have been replaced with templates for all breadcrumb types.
+* Behavior change: `bcn_display_nested` function was removed from the main plugin. Will appear in a supplementary plugin.
+* Behavior change: Import/Export/Reset tab moved under the admin bar Help menu.
+* Behavior change: Paged breadcrumbs are enabled in the default settings, among other subtle changes.
+* New feature: More useful Help menu, utilizing the new WordPress 3.3 Help menu.
+* New feature: True URLs are now generated for current items when link current item is enabled.
+* New feature: The display of the custom post type archive breadcrumb for custom post types may now be disabled.
+* New feature: Added in fallback functions for PHP's multibyte character string functions for environments that do not have multibyte character support.
+* Bug fix: Custom post type archives now respect the root page setting.
+* Bug fix: Custom post types without WordPress post archives enabled will no longer cause a double root page breadcrumb to be generated.
+* Bug fix: Tabs on the settings page are now rounded for all "modern" browsers, including Firefox, Chrome, and IE9.
+* Bug fix: Tabs on the settings page are now remembered between setting saves (including multiple saves from within the same tab).
+* Bug fix: Fixed another cause of the "The following settings were not saved" error message.
+= 3.9.0 =
+* Behavior change: Settings can not be saved, imported, or exported until any necessary settings updates and/or installs are completed.
+* New feature: Support for WordPress 3.1 custom post type archives.
+* Bug fix: Displays a warning message in the WordPress dashboard if PHP version is too old rather than trying to deactivate and dieing on all pages.
+* Bug fix: Fixed a potential cause for the "options not saved" error.
+* Bug fix: Fixed bug where the "Blog Breadcrumb" was not obeyed on archives.
+= 3.8.1 =
+* Bug fix: Root pages for custom post types should work again.
+* Bug fix: The post_post_root and post_page_root not being saved warning when saving settings should be fixed.
+= 3.8.0 =
+* New feature: Error reporting added for some errors that may occur during a settings save.
+* New feature: Custom post types may use dates as their taxonomy type.
+* New feature: New display_nested function to facilitate support for Google's Breadcrumbs RDFa and Microformat.
+* New feature: Paged display works for all post types now (was previously restricted to archives).
+* Bug fix: Fixed a few cases where Breadcrumb NavXT may cause PHP warnings.
+* Bug fix: Automatically deactivates if PHP version is tool old rather than just displaying warning message.
+* Bug fix: Custom post types that are not associated with any taxonomies no longer cause PHP Notices.
+* Bug fix: Various PHP Notices introduced in 3.7.0 were fixed.
+* Bug fix: Fixed issue where multiple runs caused the current_item_prefix and current_item_suffix to be applied multiple times.
+* Bug fix: The included display functions will behave more appropriately when database settings don't exist.
+* Bug fix: Fixed multibyte UTF-8 character support for custom taxonomies.
+* Bug fix: Fixed issue where the widget (Appearance > Widgets) would not load the appropriate translations.
+= 3.7.0 =
+* New feature: Support for "global"/network wide breadcrumb trails in networked setups of WordPress 3.0.
+* New feature: Can use any hierarchical post type as a hierarchy for flat post types.
+* New feature: Users are now warned if settings are out of date, allowed to do a one click settings migration.
+* New feature: Users can now control if a post type uses the "posts page" in it's hierarchy or not.
+* Bug fix: Breadcrumb trails for attachments work properly now for custom post types.
+* Bug fix: Users can now set custom post types to have a page hierarchy through the settings page.
+* Bug fix: Fixed issues where the PHP version check did not work correctly.
+* Bug fix: Fixed issue where all settings would get reset on "clean" 3.6.0 installs on plugin activation.
+* Bug fix: Fixed issue when a static front page is specified but the post page is not.
+= 3.6.0 =
+* New feature: Vastly improved support for WordPress custom post types.
+* New feature: Can now restrict breadcrumb trail output for the front page in the included Widget.
+* New feature: Can now undo setting saves, resets, and imports.
+* New feature: Translations for Japanese now included thanks to Kazuhiro Terada.
+* Bug fix: Fixed issue where the class element were not closed in a li opening tag.
+* Bug fix: Safer handling of blank anchor templates.
+* Bug fix: Fixed issue where the %title% tag in the current item anchor template would be trimmed.
+= 3.5.1 =
+* Bug fix: Fixed issue where a deactivation/activation cycle would reset all of the user specified settings.
+* Bug fix: Fixed issue where the archive by date suffix field did not save.
+* Bug fix: Fixed issue where custom taxonomy settings did not save.
+* Bug fix: Fixed issue where xml settings files would not import.
+* Bug fix: French and German translations updated for 3.5.x.
+= 3.5.0 =
+* New feature: Added actions `bcn_before_fill` and `bcn_after_fill`, see documentation for more information.
+* New feature: Widget rewritten to use the WordPress 2.8 Widget API, now multi-widget capable.
+* New feature: Widget output can be in list form, can be in reversed order, and can be unlinked.
+* Bug fix: Fixed issue where the current tab was forgotten after a save in the settings page.
+* Bug fix: Fixed various WP API issues with WordPress 3.0.
+* Bug fix: Fixed title trimming so that it works properly with multi-byte characters.
 = 3.4.1 =
 * Bug fix: Fixed issue with PHP unexpected $end on line 1567 in breadcrumb_navxt_admin.php.
 * Bug fix: Fixed issue where the %link% anchor tag would not be replaced with a URI for flat taxonomies (e.g. tags).
