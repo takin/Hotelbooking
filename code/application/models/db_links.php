@@ -46,7 +46,7 @@ class Db_links extends Model
   {
     $property_type = $this->get_property_type_link($property_type, $lang);
 
-    return site_url($property_type.'/'.url_title($property_name).'/'.$property_number);
+    return site_url($property_type.'/'.url_title(iconv('UTF-8', 'ASCII//TRANSLIT', $property_name)).'/'.$property_number);
   }
 
   function get_property_type_link($property_type, $lang = "en")
