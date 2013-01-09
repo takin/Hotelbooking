@@ -67,6 +67,8 @@ include( TEMPLATEPATH . '/footer-mobile.php' );
 <div id="lf_div_invite" name="lf_div_invite" style="display:none;position:absolute;left:0px;top:0px;width:0px;height:0px;">
 <iframe name="lf_iframe_invite" id="lf_iframe_invite" frameborder="0" src="about:blank" 
 style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
+
+<?php  if(DISPLAY_VELARO == 1)  {  ?>
 <!-- Velaro Weblink Code -->
 <script type='text/javascript'>
 var pt='http';
@@ -86,7 +88,13 @@ sm=sm+'&la='+escape(la)+'&pl='+escape(navigator.platform)+'&pal='+screen.colorDe
 sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
+
 </script>
+<<<<<<< HEAD
+=======
+<!-- End Velaro Weblink Code -->
+<?php  }  ?> 
+>>>>>>> origin/MCWEB-87
 </body>
 </html>
 <?php } ?>

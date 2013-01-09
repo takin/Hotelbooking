@@ -8,10 +8,17 @@ if (ISWINDOWS) {
 }
 else
 {
+<<<<<<< HEAD
 	$username = "aj_site";
 	$password = "2bVHhwjCGQrRnGW2";
 	$DBHostname = "92.243.25.30";
 	$translationDBHost = "95.142.167.244";
+=======
+		$username = "aj_site";
+		$password = "2bVHhwjCGQrRnGW2";
+		$DBHostname = "92.243.25.30";
+		$translationDBHost = "95.142.167.244";
+>>>>>>> origin/MCWEB-87
 }
 
 /*

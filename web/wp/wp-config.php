@@ -333,6 +333,10 @@ define('DB_COLLATE', '');
 
   /** Chemin absolu vers le dossier de CI. */
 /* Valero chat globale variable set false for disable and True for enable chat*/
+<<<<<<< HEAD
+=======
+define('DISPLAY_VELARO',FALSE);
+>>>>>>> origin/MCWEB-87
 
 /**#@+
  * Clefs uniques d'authentification.

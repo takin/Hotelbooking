@@ -1035,7 +1035,13 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
 		</div>
 	</form>
 
-	<?php if ($this->wordpress->get_option('aj_velaro_id') !=''){?>
+		<?php 
+		$displayVelaro = $this->config->item('displayVelaro');
+		if($displayVelaro==1)
+		{
+			if ($this->wordpress->get_option('aj_velaro_id') !='')
+			{
+		?>
 		<div class="chat_help_booking box_round">
 		<a href="https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a>
 		</div>
@@ -1044,7 +1050,8 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
 		<div class="chat_help_booking box_round">
 		<a onclick="this.newWindow = window.open('https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;" target="OnlineChatSoftware" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue"><img border="0" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&amp;showwhen=inqueue" alt="OnlineChatSoftware"></a>
 		</div>
-		<?php }?>	 
+		<?php } 
+		           }?>	 
 
 
    <?php endif; //if secure not 3d request ?>
