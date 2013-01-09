@@ -94,9 +94,9 @@ function slash_date_conv($date_DD_MM_YYYY, $custom_format = NULL)
     $custom_format = "%e %B %Y";
   }
   if (ISWINDOWS) {
-    log_message('debug', "date_conv for date $date_DD_MM_YYYY with format $custom_format");
+    log_message('debug', "slash_date_conv for date $date_DD_MM_YYYY with format $custom_format");
     $custom_format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $custom_format);
-    log_message('debug', "date_conv replaced for date $date_DD_MM_YYYY with format $custom_format");
+    log_message('debug', "slash_date_conv replaced for date $date_DD_MM_YYYY with format $custom_format");
   }
   $return = strftime($custom_format,$date);
   return $return;
