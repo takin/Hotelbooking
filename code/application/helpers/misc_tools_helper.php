@@ -66,12 +66,16 @@ function login_check($logged = 0, $logged_display, $default_display)
 function date_conv($date_YYYY_MM_DD, $custom_format = NULL)
 {
   $date = mktime(0, 0, 0, substr($date_YYYY_MM_DD,5,2) , substr($date_YYYY_MM_DD,8,2) ,substr($date_YYYY_MM_DD,0,4) );
-	if((empty($custom_format))) {
-		return strftime("%e %B %Y",$date);
-	} else {
-		return strftime($custom_format,$date);
-	}
-
+  if((empty($custom_format))) {
+    $custom_format = "%e %B %Y";
+  }
+  if (ISWINDOWS) {
+    log_message('debug', "date_conv for date $date_YYYY_MM_DD with format $custom_format");
+    $custom_format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $custom_format);
+    log_message('debug', "date_conv replaced for date $date_YYYY_MM_DD with format $custom_format");
+  }
+  $return = strftime($custom_format,$date);
+  return $return;
 }
 
 /**
@@ -86,12 +90,16 @@ function date_conv($date_YYYY_MM_DD, $custom_format = NULL)
 function slash_date_conv($date_DD_MM_YYYY, $custom_format = NULL)
 {
   $date = mktime(0, 0, 0, substr($date_DD_MM_YYYY,3,2) , substr($date_DD_MM_YYYY,0,2) ,substr($date_DD_MM_YYYY,6,4) );
-	if((empty($custom_format))) {
-		return strftime("%e %B %Y",$date);
-	} else {
-		return strftime($custom_format,$date);
-	}
-
+  if((empty($custom_format))) {
+    $custom_format = "%e %B %Y";
+  }
+  if (ISWINDOWS) {
+    log_message('debug', "date_conv for date $date_DD_MM_YYYY with format $custom_format");
+    $custom_format = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $custom_format);
+    log_message('debug', "date_conv replaced for date $date_DD_MM_YYYY with format $custom_format");
+  }
+  $return = strftime($custom_format,$date);
+  return $return;
 }
 /**
  * get default date
