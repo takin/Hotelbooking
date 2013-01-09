@@ -72,7 +72,6 @@ $(document).ready(
 	);
 function keyaction(e)
 {
-
 	if (!$('ul#suggestion').is(':visible') && e.keyCode == 13)
 	{
 		goToSearchPage('<?php echo get_option('aj_api_url');?>','<?php echo $countryEmptyVal; ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo $cityEmptyVal; ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');
