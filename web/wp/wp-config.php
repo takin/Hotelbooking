@@ -17,6 +17,7 @@
  * @package WordPress
  */
 
+/** customization specific tour our application. */
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
