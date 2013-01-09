@@ -1,13 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-<<<<<<< HEAD
 
 if (ISWINDOWS)
 {
-=======
-//Application Customization
-if (ISWINDOWS) {
->>>>>>> origin/master
 	$username = "dev_aj_site";
 	$password = "data2016";
 	$DBHostname = "127.0.0.1:4040";
@@ -719,3 +714,8 @@ $db['wpblog_hw']['cache_on'] = FALSE;
 $db['wpblog_hw']['cachedir'] = "";
 $db['wpblog_hw']['char_set'] = "utf8";
 $db['wpblog_hw']['dbcollat'] = "utf8_general_ci";
+
+
+
+/* End of file database.php */
+/* Location: ./system/application/config/database.php */
