@@ -1,5 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+//Application Customization
 if (ISWINDOWS) {
 	$username = "dev_aj_site";
 	$password = "data2016";
