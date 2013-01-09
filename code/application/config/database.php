@@ -712,8 +712,3 @@ $db['wpblog_hw']['cache_on'] = FALSE;
 $db['wpblog_hw']['cachedir'] = "";
 $db['wpblog_hw']['char_set'] = "utf8";
 $db['wpblog_hw']['dbcollat'] = "utf8_general_ci";
-
-
-
-/* End of file database.php */
-/* Location: ./system/application/config/database.php */
