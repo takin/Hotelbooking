@@ -1,8 +1,12 @@
-<?php if($GLOBALS['print']=='nostyle'){
+<?php if($GLOBALS['print']=='nostyle')
+{
 include( TEMPLATEPATH . '/footer-nostyle.php' );
-}elseif($GLOBALS['print']=='mobile'){
+}
+elseif($GLOBALS['print']=='mobile')
+{
 include( TEMPLATEPATH . '/footer-mobile.php' );
-}else{?>
+}
+else {?>
 <footer class="grid_16 box_round box_shadow">
 	<div class="footer-inner">
 		<div class="footer-block grid_6">

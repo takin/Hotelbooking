@@ -1,6 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if (ISWINDOWS) {
+
+if (ISWINDOWS)
+{
 	$username = "dev_aj_site";
 	$password = "data2016";
 	$DBHostname = "127.0.0.1:4040";
