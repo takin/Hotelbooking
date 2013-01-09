@@ -15,6 +15,9 @@ $(document).click(function(event)
 function searchSuggest(e, base_url, suggest_url_type, show_more_results_link, term_from_start)
 {
 	var suggest_term = document.getElementById("search-custom").value;
+	
+	suggest_term = suggest_term.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g," ");
+	
 	$('#custom-url').val("");
 	$('#custom-type').val("");
 
