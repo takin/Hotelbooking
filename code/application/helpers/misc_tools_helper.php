@@ -1,8 +1,5 @@
 <?php
 /**
- * @author Louis-Michel Raynauld
- *
- * @license commercial
  *
  * References: none
  *
