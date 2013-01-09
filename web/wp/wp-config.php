@@ -17,7 +17,7 @@
  * @package WordPress
  */
 
-/** customization specific tour our application. */
+/** Customization for the application. */
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
@@ -29,7 +29,7 @@ switch($_SERVER['HTTP_HOST'])
 
     break;
 
-  case "www.aubergesdejeunesse.com":
+	case "www.aubergesdejeunesse.com":
       define('DB_NAME', 'aj_wp_fr_aj');
 
     break;
@@ -355,7 +355,7 @@ define('AUTH_SALT',        't-2&p;AAaP3JXsE*D4 i2udj4|2xPh)YZG/8#CZW{3P`I[>y+/|l
 define('SECURE_AUTH_SALT', 'z8d<)-Vmy2Ye_UGDqHIQd2grVQqYOy+UC>^A0v,E[%C6:i]nQE:%iw(ZM3!=w;4)');
 define('LOGGED_IN_SALT',   '1uK-g]%b^kaZ?k/ztQnNCuDIDW+}Ae_G5p+N!7*|4)n_pL`@x/O7k.*r<ovL%[?m');
 define('NONCE_SALT',       '5,;py&`LpczunDm%3|Ui(L7Y#5*RXxqGM>n[C-W_r`^Y-3XGJ=A;IUU*p2~_]DZ)');
-/**
+/**#@-*/
 
 /**
  * Préfixe de base de données pour les tables de WordPress.
