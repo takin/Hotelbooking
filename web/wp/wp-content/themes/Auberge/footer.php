@@ -1,6 +1,6 @@
-<?php if($GLOBALS['print']=='nostyle'){
+<?php if($GLOBALS['print']=='nostyle') {
 include( TEMPLATEPATH . '/footer-nostyle.php' );
-}elseif($GLOBALS['print']=='mobile'){
+}elseif($GLOBALS['print']=='mobile') {
 include( TEMPLATEPATH . '/footer-mobile.php' );
 }else{?>
 <footer class="grid_16 box_round box_shadow">
@@ -67,7 +67,6 @@ include( TEMPLATEPATH . '/footer-mobile.php' );
 <div id="lf_div_invite" name="lf_div_invite" style="display:none;position:absolute;left:0px;top:0px;width:0px;height:0px;">
 <iframe name="lf_iframe_invite" id="lf_iframe_invite" frameborder="0" src="about:blank"
 style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
-
 <?php  if(DISPLAY_VELARO == 1)  {  ?>
 <!-- Velaro Weblink Code -->
 <script type='text/javascript'>
@@ -88,7 +87,6 @@ sm=sm+'&la='+escape(la)+'&pl='+escape(navigator.platform)+'&pal='+screen.colorDe
 sm=sm+ pn+'&je='+navigator.javaEnabled()+'&origin=';
 sm=sm+rm+'&pa='+pm;
 document.write('<script src="'+sm+'"></scr'+'ipt>');
-
 </script>
 <!-- End Velaro Weblink Code -->
 <?php } ?>
