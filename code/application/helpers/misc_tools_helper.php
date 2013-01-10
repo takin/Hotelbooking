@@ -1033,29 +1033,4 @@ function debug_dump($Str, $ip = NULL)
     print "</pre>";
   }
 }
-
-/*
- * getColorRating
- *
- * This function is specific for the HB hostel view
- *
- * Will probably be better to find a better for this function in the future.
- */
-function getColorRating($value)
-{
-	switch ($value){
-		case $value >= 60:
-			$color =  ' green';
-			break;
-		case $value > 40 && $value < 60:
-			$color = ' yellow';
-			break;
-		case $value <= 40:
-			$color = ' red';
-			break;
-		default:
-			$color = '';
-	}
-	return $color;
-}
 ?>
