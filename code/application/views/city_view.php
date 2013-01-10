@@ -147,11 +147,18 @@
 		if(!isset($bc_city))            $bc_city = NULL;
 		$this->load->view('includes/city_lp_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	}?>
-
-	<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
-
+	<div id="city_search_title_bar">
+		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
+		<span id="city_results_counter">
+			<?php printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
+		</span>
+	</div>
+	
+		
 		  <div id="city_results_count" class="group">
-				<?php printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
+				
+				<?php printf( '<span id="city_results_arrive">'.gettext('Arrivée : %s').'</span>', '<span id="city_results_arrive_date">'.strftime("%d %B %Y", strtotime($date_selected)).'</span>');?>
+				<?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
 				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
