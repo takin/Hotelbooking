@@ -764,11 +764,20 @@ div.mapbubble h2 { margin-bottom:5px; line-height:1.2em; font-size:1.2em;}
 div.mapbubble p.price{ font-size:0.9em; margin-top:-4px; margin-bottom:3px; text-align:left;}
 div.mapbubble p.price span{ color:red; display:inline;}
 
+#city_search_title_bar{width: 100%;height:22px;margin-bottom:15px;padding-bottom:5px;border-bottom:1px dashed #AAAAAA;}
+#city_search_title_bar h1{float:left;border:0px;}
 #city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none;}
 #city_results_count .view_map{float:right;font-weight:normal;
 color:#227BBD;
 background:url(../images/V2/icon_view_map_green.png) no-repeat center left;
 padding:2px 0px 2px 23px;}
+#city_results_counter{float:right;font-weight:bold;}
+#city_results_count_current{}
+#city_results_count_total{}
+#city_results_arrive{margin:0px; font-weight:normal;}
+#city_results_arrive_date{font-weight:bold;}
+#city_results_numnights{margin:0px 0px 0px 30px; font-weight:normal;}
+#city_results_numnights_selected{font-weight:bold;}
 #city_map_hide{display:none;}
 
 nav.city-tools{
@@ -1391,12 +1400,7 @@ div.comment_sent{background:#FFC !important;}
 /* Legacy Table */
 
 .top-table{}
-a#change-dates{
-background:url(../images/pick-date.png)no-repeat left;
-margin-left:23px;
-padding:14px 0px 13px 17px;
-
-}
+a#change-dates{padding-left:20px;}
 
 #booking-table, .booking_table_city{ clear:both; padding-bottom:10px; border-collapse:separate; position:relative;}
 .booking_table_city{padding-bottom:10px}
