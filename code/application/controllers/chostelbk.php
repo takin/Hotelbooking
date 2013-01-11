@@ -591,9 +591,8 @@ class CHostelbk extends I18n_site
 
     $this->load->model("Db_hb_hostel");
 
-    if (!empty($this->Db_hb_hostel->get_hostel_important_info($data['propertyNumber']))) {
-      $data['important_info']->original = $this->Db_hb_hostel->get_hostel_important_info($data['propertyNumber']);
-    }
+    $data['important_info']->original = $this->Db_hb_hostel->get_hostel_important_info($data['propertyNumber']);
+   
     //Get main services and breakfast included
     $this->load->model('i18n/db_translation_cache');
     $data['main_services'] = $this->Db_hb_hostel->get_hostel_main_services($data['propertyNumber']);
