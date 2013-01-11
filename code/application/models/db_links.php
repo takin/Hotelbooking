@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_links extends Model
+class Db_links extends CI_Model
 {
   const LINKS_TABLE = 'site_links';
   const DOMAINS_TABLE = 'site_domains';
@@ -13,7 +13,7 @@ class Db_links extends Model
 
   function Db_links()
   {
-      parent::Model();
+      parent::__construct();
       $this->db->simple_query("SET NAMES 'utf8'");
       $this->cached_property_type_links = array();
   }

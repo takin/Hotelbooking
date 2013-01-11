@@ -10,7 +10,7 @@
  * @license   Commercial
  */
 
-class Wordpress extends Model
+class Wordpress extends CI_Model
 {
   const OPTION_TABLE = 'wp_options';
 
@@ -20,7 +20,7 @@ class Wordpress extends Model
 
   function Wordpress()
   {
-    parent::Model();
+    parent::__construct();
   }
 
   /*

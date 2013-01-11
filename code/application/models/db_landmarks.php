@@ -1,6 +1,6 @@
 <?php
 
-class Db_landmarks extends Model
+class Db_landmarks extends CI_Model
 {
   const PROPERTY_VALID   = 1;
   const PROPERTY_INVALID = 0;
@@ -17,7 +17,7 @@ class Db_landmarks extends Model
 
   function __construct()
   {
-      parent::Model();
+      parent::__construct();
       $this->CI =& get_instance();
   }
 

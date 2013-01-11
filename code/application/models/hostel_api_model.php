@@ -7,13 +7,13 @@
  *
  */
 
-class Hostel_api_model extends Model {
+class Hostel_api_model extends CI_Model {
 
   var $hostelworld_API_url = "";
 
   function Hostel_api_model()
   {
-    parent::Model();
+    parent::__construct();
 
     $config =& get_config();
 

@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_translation_cache extends Model
+class Db_translation_cache extends CI_Model
 {
   const TEXT_TABLE     = 'translations';
   const SOURCE_TABLE   = 'sources';

@@ -3,14 +3,14 @@
  * @author Louis-Michel
  *
  */
-class Db_model extends Model
+class Db_model extends CI_Model
 {
     var $queries_path = "";
     var $transaction_queries = array();
 
     function Db_model()
     {
-        parent::Model();
+        parent::__construct();
 
         $this->load->model('Db_links');
 

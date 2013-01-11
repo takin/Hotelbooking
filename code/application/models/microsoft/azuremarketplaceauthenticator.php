@@ -1,6 +1,6 @@
 <?php
 
-class Azuremarketplaceauthenticator extends Model {
+class Azuremarketplaceauthenticator extends CI_Model {
 
    /**
     * Directory where the token is stored

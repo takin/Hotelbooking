@@ -1,12 +1,12 @@
 <?php
-class Db_hw_hb_properties_match extends Model
+class Db_hw_hb_properties_match extends CI_Model
 {
 
   private $CI;
 
   function __construct()
   {
-    parent::Model();
+    parent::__construct();
     $this->CI =& get_instance();
     $this->db->simple_query("SET NAMES 'utf8'");
   }

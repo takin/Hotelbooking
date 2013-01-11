@@ -2,7 +2,7 @@
 
 define('HB_TRANSLATION_ERROR_LEVEL',"debug");
 
-class Hb_api_translate extends Model
+class Hb_api_translate extends CI_Model
 {
 
   var $toLang = "fr";
@@ -12,7 +12,7 @@ class Hb_api_translate extends Model
 
   function Hb_api_translate()
   {
-    parent::Model();
+    parent::__construct();
 
 //     $this->load->model('google/Gtranslateapi', 'translation_api');
     //Replace google translate API by Microsoft translator API

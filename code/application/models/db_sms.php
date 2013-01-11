@@ -3,14 +3,14 @@
  * @author Louis-Michel
  *
  */
-class Db_sms extends Model
+class Db_sms extends CI_Model
 {
   const SMS_TABLE          = 'sms';
   const TRANSACTION_TABLE  = 'transactions_hostelworld';
 
   function Db_sms()
   {
-      parent::Model();
+      parent::__construct();
   }
 
   function add_sms($transaction_id, $status = 0, $days_from_arrival = NULL, $msg_id = NULL, $error_code = NULL)

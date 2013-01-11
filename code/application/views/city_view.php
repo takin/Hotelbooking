@@ -186,6 +186,7 @@
 			<div id="property_list">
 			<script type="text/javascript">
 			$(document).ready(function(){
+				alert('<?php echo site_url("location_avail");?>');
 				$.ajax(
 				{
 						type:"GET",

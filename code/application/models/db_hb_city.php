@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hb_city extends Model
+class Db_hb_city extends CI_Model
 {
   const CITY_TABLE      = 'hb_city';
   const COUNTRY_TABLE   = 'hb_country';
@@ -15,7 +15,7 @@ class Db_hb_city extends Model
 
   function Db_hb_city()
   {
-      parent::Model();
+      parent::__construct();
 
       $this->CI =& get_instance();
       $this->CI->load->library('code_tracker');

@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hw_hostel extends Model
+class Db_hw_hostel extends CI_Model
 {
   const HW_CITY_TABLE           = 'hw_city';
   const HW_COUNTRY_TABLE        = 'hw_country';
@@ -31,7 +31,7 @@ class Db_hw_hostel extends Model
 
   function __construct()
   {
-      parent::Model();
+      parent::__construct();
       $this->CI =& get_instance();
       $this->CI->load->library('code_tracker');
       $this->db->simple_query("SET NAMES 'utf8'");

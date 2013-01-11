@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hw_rating extends Model
+class Db_hw_rating extends CI_Model
 {
   const HW_RATING_TABLE      = 'hw_rating';
   const HW_HOSTEL_TABLE    = 'hw_hostel';
@@ -11,7 +11,7 @@ class Db_hw_rating extends Model
 
   function Db_hw_rating()
   {
-      parent::Model();
+      parent::__construct();
 
       $this->db->simple_query("SET NAMES 'utf8'");
   }
