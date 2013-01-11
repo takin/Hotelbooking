@@ -153,7 +153,13 @@ $config['hostelworld_userID'] = "aubergesdejeunesse.com";
 | ex: testaffiliate.com
 |
 */
-$config['hostelworld_API_url'] = "http://www.mcdev1.com:8080/proxy.php/";
+if (ISWINDOWS) {
+  $config['hostelworld_API_url'] = "http://www.mcdev1.com:8080/proxy.php/";
+}
+else
+{
+  $config['hostelworld_API_url'] = "http://reservations.bookhostels.com/xmlapi/";
+}
 /*
 |--------------------------------------------------------------------------
 | HostelWorld.com API url
@@ -164,6 +170,13 @@ $config['hostelworld_API_url'] = "http://www.mcdev1.com:8080/proxy.php/";
 | ex: testaffiliate.com
 |
 */
-$config['hostelworld_API_url_secure_booking'] = "https://www.mcdev1.com:8443/proxy.php/";
+if (ISWINDOWS)
+{
+  $config['hostelworld_API_url_secure_booking'] = "https://www.mcdev1.com:8443/proxy.php/";
+}
+else
+{
+  $config['hostelworld_API_url_secure_booking'] = "https://secure.hostelworld.com/bookhostels/xmlapi/";
+}
 
 ?>
