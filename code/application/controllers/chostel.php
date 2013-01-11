@@ -1056,7 +1056,7 @@ class CHostel extends I18n_site
 
 
       $data['booking_request'] = $this->Hw_api_translate->translate_bookingRequest($api[1][0],$propertyNumber,$dateStart,$numNights);
-      $this->session->set_userdata('BSID_'.$propertyNumber, $data['booking_request']->BSID->value);
+      $this->session->set_userdata('BSID_'.$propertyNumber, "".$data['booking_request']->BSID->value);
 
       $numNights_calculated = $this->Hostel_api_model->count_numnights($data['booking_request']->RoomDetails);
       $dateStart_calculated = $data['booking_request']->RoomDetails[0]->date;
