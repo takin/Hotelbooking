@@ -75,7 +75,7 @@ $captcha = array(
 							<td><?php echo form_password($confirm_password); ?></td>
 							<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
 					</tr>
-				<?  endif;?>
+				<?php  endif;?>
 				<?php if ($captcha_registration) {
 						if ($use_recaptcha) { ?>
 				<tr>
