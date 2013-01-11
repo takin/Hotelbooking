@@ -41,9 +41,9 @@ NameVirtualHost 95.142.167.245:443
 
     	SSLEngine on
 
-    	SSLCertificateFile      /opt/certificates/nofeeshostels.com.crt
-    	SSLCACertificateFile    /opt/certificates/nofeeshostels.com.pem
-    	SSLCertificateKeyFile   /opt/certificates/nofeeshostels.com.key
+        SSLCertificateFile      /opt/certificates/nofeeshostels.com.crt
+        SSLCertificateKeyFile   /opt/certificates/nofeeshostels.com.key
+        SSLCertificateChainFile /opt/certificates/nofeeshostels.com.ca-bundle
 
 </VirtualHost>
 
