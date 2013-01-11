@@ -1,13 +1,13 @@
 <?php
 
-class Db_districts extends Model
+class Db_districts extends CI_Model
 {
   const DISTRICTS_TABLE = 'districts';
   private $CI;
 
   function __construct()
   {
-      parent::Model();
+      parent::__construct();
       $this->CI =& get_instance();
   }
 

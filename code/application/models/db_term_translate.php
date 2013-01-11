@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_term_translate extends Model
+class Db_term_translate extends CI_Model
 {
   const LANG_TABLE           = 'translation_langs';
   const TERM_TABLE           = 'translation_terms';
@@ -13,7 +13,7 @@ class Db_term_translate extends Model
 
   function Db_term_translate()
   {
-      parent::Model();
+      parent::__construct();
 
       $this->cached_translation = array();
   }

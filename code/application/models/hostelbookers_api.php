@@ -24,7 +24,7 @@
  *
  */
 
-class Hostelbookers_api extends Model {
+class Hostelbookers_api extends CI_Model {
 
   //location of the api wsdl
   var $live_wsdl    = "http://v1.hb-api.com/api/remote/hbcontentcurrency.cfc?wsdl";
@@ -55,7 +55,7 @@ class Hostelbookers_api extends Model {
 
   function Hostelbookers_api()
   {
-    parent::Model();
+    parent::__construct();
 
     $config =& get_config();
 

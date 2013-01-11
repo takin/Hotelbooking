@@ -4,7 +4,7 @@
  *
  */
 
-class Db_reviews extends Model
+class Db_reviews extends CI_Model
 {
     const REVIEW_TABLE    = 'wp_ext_hw_reviews';
     const WP_REVIEW_TABLE = 'wp_comments';
@@ -16,7 +16,7 @@ class Db_reviews extends Model
     
     function Db_reviews()
     {
-      parent::Model();
+      parent::__construct();
       $this->wpblogDB  = $this->load->database('wpblog_reviews', TRUE);
       $this->aubergeDB = $this->load->database('default', TRUE);
 

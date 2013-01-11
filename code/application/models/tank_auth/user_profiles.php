@@ -5,14 +5,14 @@
  *
  */
 
-class User_profiles extends Model {
+class User_profiles extends CI_Model {
 
   const TABLE       = 'user_profiles';  // user profiles
   const TABLE_USERS = 'users';    // user accounts
 
   function User_profiles()
   {
-    parent::Model();
+    parent::__construct();
     $this->db->simple_query("SET NAMES 'utf8'");
   }
 

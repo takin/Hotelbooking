@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hb_country extends Model
+class Db_hb_country extends CI_Model
 {
   const CITY_TABLE      = 'hb_city';
   const COUNTRY_TABLE   = 'hb_country';
@@ -18,7 +18,7 @@ class Db_hb_country extends Model
 
   function Db_hb_country()
   {
-      parent::Model();
+      parent::__construct();
       $this->load->model('Db_country');
   }
 

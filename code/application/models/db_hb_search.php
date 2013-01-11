@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hb_search extends Model
+class Db_hb_search extends CI_Model
 {
   const HW_HOSTEL_TABLE    = 'hw_hostel';
   const HW_CITY_TABLE      = 'hw_city';
@@ -14,7 +14,7 @@ class Db_hb_search extends Model
 
   function Db_hb_search()
   {
-      parent::Model();
+      parent::__construct();
   }
 
   function prepare_search_terms($terms)

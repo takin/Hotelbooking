@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hw_city extends Model
+class Db_hw_city extends CI_Model
 {
   const HW_CITY_TABLE      = 'hw_city';
   const HW_COUNTRY_TABLE   = 'hw_country';
@@ -17,7 +17,7 @@ class Db_hw_city extends Model
 
   function Db_hw_city()
   {
-      parent::Model();
+      parent::__construct();
 
       $this->CI =& get_instance();
       $this->CI->load->library('code_tracker');

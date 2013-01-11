@@ -1,5 +1,5 @@
 <?php
-class Microsofttranslator extends Model {
+class Microsofttranslator extends CI_Model {
 
  /**
   * The URL that we use to access the HTTP service wsdl.

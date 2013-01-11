@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_country extends Model
+class Db_country extends CI_Model
 {
   const CITY_TABLE      = 'cities2';
   const COUNTRY_TABLE   = 'countries';
@@ -20,14 +20,13 @@ class Db_country extends Model
 
   function Db_country()
   {
-      parent::Model();
-
+      parent::__construct();
 
       $this->db->simple_query("SET NAMES 'utf8'");
 
       //Initialize all langages continent fields
       $sql = "SHOW COLUMNS FROM continents WHERE Type LIKE'varchar(255)' AND Field LIKE'continent%'";
-      $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+      //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
       $query = $this->db->query($sql);
 
       foreach ($query->result() as $row)
@@ -37,7 +36,7 @@ class Db_country extends Model
 
       //Initialize all langages country fields
       $sql = "SHOW COLUMNS FROM ".self::CITY_TABLE." WHERE Type LIKE'varchar(255)' AND Field LIKE'country%'";
-      $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+      //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
       $query = $this->db->query($sql);
 
       foreach ($query->result() as $row)
@@ -47,7 +46,7 @@ class Db_country extends Model
 
       //Initialize all langages country fields
       $sql = "SHOW COLUMNS FROM ".self::CITY_TABLE." WHERE Type LIKE'varchar(255)' AND Field LIKE'city%'";
-      $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+      //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
       $query = $this->db->query($sql);
 
       foreach ($query->result() as $row)
@@ -93,7 +92,7 @@ class Db_country extends Model
       $nbcontinentfield++;
     }
 
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CONTINENT_TABLE);
 
     if ($query->num_rows() == 1)
@@ -141,7 +140,7 @@ class Db_country extends Model
     $query.= "    GROUP BY ".self::CITY_TABLE.".country_iso_code_2,".self::CITY_TABLE.".country_iso_code_3";
     $query.= " LIMIT 1";
 
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->query($query);
 
     if ($query->num_rows() == 1)
@@ -204,7 +203,7 @@ class Db_country extends Model
 
     $this->db->group_by("country_en");
 
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CITY_TABLE);
 
     if ($query->num_rows() == 1)
@@ -254,7 +253,7 @@ class Db_country extends Model
     $sql_where.= " )";
 
     $this->db->where($sql_where);
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CITY_TABLE);
 
     if ($query->num_rows() == 1)
@@ -313,7 +312,7 @@ class Db_country extends Model
 
     $this->db->where($sql_where);
 
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CITY_TABLE);
 
     if ($query->num_rows() == 1)
@@ -369,7 +368,7 @@ class Db_country extends Model
 
     $this->db->where($sql_where);
 
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CITY_TABLE);
 
     if ($query->num_rows() == 1)
@@ -400,7 +399,7 @@ class Db_country extends Model
 
     $this->db->group_by("country_en");
     $this->db->order_by("country_".$text_lang, "ASC");
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CITY_TABLE);
 
     ?>

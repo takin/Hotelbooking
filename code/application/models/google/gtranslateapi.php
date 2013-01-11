@@ -5,7 +5,7 @@
  */
 define('GOOGLE_MAX_QUERY_LENGTH', 5000);
 
-class Gtranslateapi extends Model
+class Gtranslateapi extends CI_Model
 {
   var $googleKey    = "AIzaSyAkhkddCyJnFOI1YBpqmpgRo_SF5cZLAQc";
 
@@ -33,7 +33,7 @@ class Gtranslateapi extends Model
 
   function Gtranslateapi()
   {
-    parent::Model();
+    parent::__construct();
     $this->load->library('Http_request');
     $this->load->library('Json');
   }

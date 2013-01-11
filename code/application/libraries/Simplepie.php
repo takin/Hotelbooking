@@ -734,7 +734,7 @@ class SimplePie
 	function SimplePie($feed_url = null, $cache_location = null, $cache_duration = null)
 	{
 		// Other objects, instances created here so we can set options on them
-		$this->sanitize =& instantiate_class(new SimplePie_Sanitize);
+		$this->sanitize = new SimplePie_Sanitize();
 
 		// Set options if they're passed to the constructor
 		if ($cache_location !== null)

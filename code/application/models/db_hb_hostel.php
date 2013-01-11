@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_hb_hostel extends Model
+class Db_hb_hostel extends CI_Model
 {
   const CURRENCY_TABLE  = 'currencies';
 
@@ -46,7 +46,7 @@ class Db_hb_hostel extends Model
 
   public function __construct()
   {
-      parent::Model();
+      parent::__construct();
 
       $this->CI =& get_instance();
       $this->CI->load->library('code_tracker');

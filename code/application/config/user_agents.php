@@ -1,4 +1,7 @@
-<?php
+<?php  
+
+//if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 /*
 | -------------------------------------------------------------------
 | USER AGENT TYPES
@@ -11,7 +14,6 @@
 */
 
 $platforms = array (
-					'windows nt 6.1'	=> 'Windows 7',
 					'windows nt 6.0'	=> 'Windows Longhorn',
 					'windows nt 5.2'	=> 'Windows 2003',
 					'windows nt 5.0'	=> 'Windows 2000',
@@ -26,12 +28,9 @@ $platforms = array (
 					'win95'				=> 'Windows 95',
 					'windows'			=> 'Unknown Windows OS',
 					'os x'				=> 'Mac OS X',
-					'playstation 3'		=> 'Playstation 3',
-					'nintendo wii'		=> 'Nintendo Wii',
 					'ppc mac'			=> 'Power PC Mac',
 					'freebsd'			=> 'FreeBSD',
 					'ppc'				=> 'Macintosh',
-					'ubuntu'			=> 'Ubuntu',
 					'linux'				=> 'Linux',
 					'debian'			=> 'Debian',
 					'sunos'				=> 'Sun Solaris',
@@ -53,7 +52,6 @@ $platforms = array (
 // multiple browser types so we want to identify the sub-type first.
 $browsers = array(
 					'Flock'				=> 'Flock',
-					'RockMelt'			=> 'RockMelt',
 					'Chrome'			=> 'Chrome',
 					'Opera'				=> 'Opera',
 					'MSIE'				=> 'Internet Explorer',
@@ -77,10 +75,6 @@ $browsers = array(
 					'IBrowse'			=> 'IBrowse'
 				);
 
-$tablets = array(
-						'ipad'				=> "iPad",
-           );
-
 $mobiles = array(
 					// legacy array, old values commented out
 					'mobileexplorer'	=> 'Mobile Explorer',
@@ -102,12 +96,9 @@ $mobiles = array(
 					'motorola'			=> "Motorola",
 					'nokia'				=> "Nokia",
 					'palm'				=> "Palm",
-					'ipod'				=> "Apple iPod Touch",
 					'iphone'			=> "Apple iPhone",
 					'ipad'				=> "iPad",
-					'kindle'			=> "Amazon Kindle",
-					'android'			=> "Android",
-//					'windows'			=> "Windows Phone",  TO CHECK! how to handle windows mobile
+					'ipod'				=> "Apple iPod Touch",
 					'sony'				=> "Sony Ericsson",
 					'ericsson'			=> "Sony Ericsson",
 					'blackberry'		=> "BlackBerry",
@@ -146,8 +137,6 @@ $mobiles = array(
 					'windows ce'			=> "Windows CE",
 
 					// Browsers
-					'fennec'				=> "Firefox Mobile",
-					'minimo'				=> "Minimo",
 					'obigo'					=> "Obigo",
 					'netfront'				=> "Netfront Browser",
 					'openwave'				=> "Openwave Browser",
@@ -189,4 +178,4 @@ $robots = array(
 				);
 
 /* End of file user_agents.php */
-/* Location: ./system/application/config/user_agents.php */
+/* Location: ./application/config/user_agents.php */

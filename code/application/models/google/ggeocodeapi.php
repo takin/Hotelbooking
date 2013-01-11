@@ -1,6 +1,6 @@
 <?php
 
-class Ggeocodeapi extends Model
+class Ggeocodeapi extends CI_Model
 {
   var $key = "";
   var $base_url = "http://maps.google.com/maps/geo?output=xml";// . "&key=" . KEY;
@@ -9,7 +9,7 @@ class Ggeocodeapi extends Model
   
   function Ggeocodeapi()
   {
-    parent::Model();
+    parent::__construct();
   }
   
   function geocode($address)

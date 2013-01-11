@@ -3,7 +3,7 @@
  * @author Louis-Michel
  *
  */
-class Db_currency extends Model
+class Db_currency extends CI_Model
 {
   const CURRENCY_TABLE      = 'currencies';
   const CURRENCY_COUNTRY_TABLE = 'currency_country';
@@ -15,7 +15,7 @@ class Db_currency extends Model
   var $description_fields = array();
   function Db_currency()
   {
-    parent::Model();
+    parent::__construct();
 
     $this->CI =& get_instance();
     $this->default_currency = $this->validate_currency($this->CI->config->item('site_currency_default'));
@@ -30,7 +30,7 @@ class Db_currency extends Model
 
       //Initialize all langages continent fields
       $sql = "SHOW COLUMNS FROM ".self::CURRENCY_TABLE." WHERE Field LIKE'description%'";
-      $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+      //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
       $query = $this->db->query($sql);
 
       foreach ($query->result() as $row)
@@ -220,7 +220,7 @@ class Db_currency extends Model
 
     $this->db->order_by("`order`", "DESC");
     $this->db->order_by("`description_".$text_lang."`", "ASC");
-    $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
+    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::CURRENCY_TABLE);
 
     ?>
