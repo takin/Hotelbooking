@@ -721,7 +721,22 @@
 
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
-	?>
+	
+/* FOR change class in header manu */	
+$url =$_SERVER['PHP_SELF'];	
+$pattern = '/(group)?$/';
+preg_match($pattern, $url , $matches);
+$sel_class = '';
+	if($matches[0] == 'group')
+	{
+		$gorup_sel_class= 'current_page_item';
+	}
+	else
+	{
+		$sel_class= 'current_page_item';
+	}
+
+?>
   <script type="text/javascript">
   //City lists
   //Cities array must be a global variable
@@ -868,9 +883,9 @@ $(document).ready(function(){
 		<nav class="main grid_16 box_shadow box_round">
 			<ul class="group">
 				<li class="first"><a href="/"><?php echo _("Accueil");?></a></li>
-				<li><a class="current_page_item" href="<?php echo site_url($this->Db_links->get_link("homepage")); ?>"><?php echo _("Auberges et logements pas chers");?></a></li>
+				<li><a class="<?php if(!empty($sel_class)){ echo $sel_class; } ?>" href="<?php echo site_url($this->Db_links->get_link("homepage")); ?>"><?php echo _("Auberges et logements pas chers");?></a></li>
 				<?php if($this->wordpress->get_option('aj_group_url') != ''){?>
-				<li><a title="<?php echo _("Réservation d'auberges de jeunesse pour les groupes");?>" href="<?php echo $this->wordpress->get_option('aj_group_url'); ?>" class="group-reserve"><?php echo _("Groupes 10+");?></a></li>
+				<li><a title="<?php echo _("Réservation d'auberges de jeunesse pour les groupes");?>" href="<?php echo $this->wordpress->get_option('aj_group_url'); ?>" class="group-reserve <?php if(!empty($gorup_sel_class)){  echo $gorup_sel_class; } ?>"><?php echo _("Groupes 10+");?></a></li>
 				<?php } ?>
 				<?php if($this->wordpress->get_option('aj_page_events') != ''){?>
 				<li><a href="<?php echo $this->wordpress->get_option('aj_page_events'); ?>"><?php echo _("Événements");?></a></li>
