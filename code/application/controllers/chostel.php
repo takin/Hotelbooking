@@ -1318,6 +1318,7 @@ class CHostel extends I18n_site
         $roomTypeDescription = Array();
         foreach($roomnumbers as $i => $roomnumber)
         {
+          $roomTypeDescription[$roomnumber] = new stdClass();	
           $roomTypeDescription[$roomnumber]->roomDesc = $roomdesc[$i];
           $roomTypeDescription[$roomnumber]->roomDescTrans = $roomdesctrans[$i];
         }
