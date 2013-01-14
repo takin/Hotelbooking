@@ -680,7 +680,6 @@ class Hw_api_translate extends CI_Model
                 {
                   $trans_error = TRUE;
                   $properties_reviewed[$prop_number]['user_reviews'][$r]["review_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
-                  log_message(TRANSLATION_ERROR_LEVEL,"translate_mixed_reviews: " .current_url()." -> [review] -> ".$reviews[$i]["review_likebest_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
                 else
                 {
