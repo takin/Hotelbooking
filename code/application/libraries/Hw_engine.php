@@ -252,8 +252,12 @@ class Hw_engine {
         if(!empty($data['filters']["landmark"]->landmark_name))
         {
           $this->CI->load->model('i18n/db_translation_cache');
-          $data['filters']["landmark"]->landmark_name_ts = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name,$this->CI->site_lang);
-         }
+          $translation_result = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name,$this->CI->site_lang);
+          if(!empty($translation_result))
+          {          
+            $data['filters']["landmark"]->landmark_name_ts = $translation_result->translation;
+          }
+        }
       }
 
       //District data for district landing page
