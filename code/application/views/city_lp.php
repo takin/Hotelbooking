@@ -35,8 +35,14 @@ if(!empty($district)){
 			break;
 	}
 }elseif(!empty($landmark)){
-	$landmark_name = $landmark->landmark_name_ts;
-	if(empty($landmark_name)){$landmark_name = $landmark->landmark_name;}
+	if(!empty($landmark->landmark_name_ts)) 
+	{
+	  $landmark_name = $landmark->landmark_name_ts;
+	}	
+	else 
+	{
+	  $landmark_name = $landmark->landmark_name;
+	}
 	switch($type){
 		case 'hostel':
 			$long_title = sprintf( gettext('%s – Hostels close to %s. Maps for %s, Photos and Reviews for each Hostel in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
