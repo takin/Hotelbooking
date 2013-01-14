@@ -1,6 +1,8 @@
 <div id="sidebar" class="grid_4">
+	
 <?php if($GLOBALS['print']!='nostyle'){?>
 <?php include 'widget/map-search.php';?>
+<?php include 'widget/group-booking.php';?>
 <?php include 'widget/video-popup.php';?>
 <?php include 'widget/video.php';?>
 <?php if (is_home() || is_page_template('canada-page.php')) { if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Home Page Sidebar') ) : endif;}
