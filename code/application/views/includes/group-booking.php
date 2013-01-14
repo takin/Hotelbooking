@@ -18,7 +18,8 @@ if(!empty($group_widget__booking_url))
 		<span><?php echo _('Group Booking')?></span>
 		</a>
 		<a class="group-reserve" href="<?php echo $group_widget_url; ?>" title="Réservation d'auberges de jeunesse pour les groupes">
-		<span style=" background-color: black;width:111px;top: 29px;"><?php echo _('Groupes 10+')?></span></a>
+		<span style="none repeat scroll 0 0 rgba(0, 0, 0, 0.6);width:111px;top: 29px;font-weight:bold;
+	font-size:1.1em;"><?php echo _('Groupes 10+')?></span></a>
 		</div>
 </div>
 <?php }  ?>
