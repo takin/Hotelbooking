@@ -253,8 +253,7 @@ class Hw_engine {
         {
           $this->CI->load->model('i18n/db_translation_cache');
           $data['filters']["landmark"]->landmark_name_ts = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name,$this->CI->site_lang);
-          $data['filters']["landmark"]->landmark_name_ts = $data['filters']["landmark"]->landmark_name_ts->translation;
-        }
+         }
       }
 
       //District data for district landing page
