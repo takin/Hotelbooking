@@ -10,6 +10,7 @@ elseif(!empty($country_selected))
 }
 if(!empty($group_widget__booking_url))
 {
+	
 ?>
 <div class="box_content box_round group">
 		<div class="group_book_side">
