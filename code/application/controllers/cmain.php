@@ -1585,7 +1585,6 @@ class CMain extends I18n_site
         unset($_POST['year_comment']);
         unset($_POST['star-rating']);
         unset($_POST['comment-submit']);
-        $this->form_validation->_field_data = array();
 
         $data['warning']         = true;
         $data['warning_message'] = _('Votre commentaire a été envoyé à notre équipe pour approbation. Merci!');
