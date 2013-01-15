@@ -158,7 +158,7 @@
 		  <div id="city_results_count" class="group">
 			  <span id="city_results_arrive">
 			  <p><?php echo _('Arrivée');?>: <b><?php echo $date_selected;?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits');?>: <b><?php echo $numnights_selected; ?></p>
-			  </script>
+			  </span>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
 				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
