@@ -156,8 +156,9 @@
 	
 		
 		  <div id="city_results_count" class="group">
-<?php printf( '<span id="city_results_arrive">'.gettext('Arrivée : %s').'</span>', '<span id="city_results_arrive_date">'.strftime("%d %B %Y", strtotime($date_selected)).'</span>');?>
-<?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
+                    <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
+                    <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
+                    <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
 				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
