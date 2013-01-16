@@ -22,6 +22,7 @@
 			</a>
 		</div>
 		<?php }?>
+		<?php $this->load->view('includes/group-booking'); ?>
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<?php //TODO show filter reset;?>
 			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
