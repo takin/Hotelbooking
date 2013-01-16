@@ -1,0 +1,19 @@
+source
+====
+
+Source Code and Artifcats for Auberges De Jeunesse 
+
+
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text eol=lf
+
+*.com text  eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.gif binary
+*.exe binary
+*.mo binary
+*.po binary
+*.po~ binary
