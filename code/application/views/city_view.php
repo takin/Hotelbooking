@@ -156,7 +156,7 @@
 	
 		
 		  <div id="city_results_count" class="group">
-                    <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
+                    <span id="city_results_arrive"><?php echo _('Arrivée');?>&nbsp;:</span>
                     <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
                     <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
