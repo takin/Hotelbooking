@@ -320,8 +320,14 @@ else
 		}
 		?>
 		</div>
+		<div style="float:left">
 		<p><a id="read_more_hostel" href="#"><?php echo _('Read more…')?> &raquo;</a></p>
 		<p><a id="read_less_hostel" style="display:none;" href="#">&laquo; <?php echo _('Close')?></a></p>
+		</div>
+		<select name="translated_or_not" class="translation-toggle">
+			<option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+			<option value="original"><?php echo _("Voir l'original"); ?></option>
+		</select><br clear="all" />
 		<?php $code=$this->wordpress->get_option('aj_lang_code');
 			$shortcode = strtolower(substr($code,0,2));
 			$code=str_replace('-','_',$code);
@@ -800,3 +806,14 @@ else
 	</div>
 </div>
 <?php endif; //endif api error?>
+<script type="text/javascript">
+	$("select[name=translated_or_not]").change(function () {
+		if($(this).find('option:selected').val() == "original") {
+			$("#top_info_short .translated, #top_info_long .translated").hide();
+			$("#top_info_short .original, #top_info_long .original").show();
+		} else {
+			$("#top_info_short .original, #top_info_long .original").hide();
+			$("#top_info_short .translated, #top_info_long .translated").show();
+		}
+	});
+</script>
