@@ -1267,7 +1267,9 @@ a.back_to_results{margin-bottom:20px;display:none; margin-left:5px;}
 .hostel_tabs ul li.first{border-left:0;}
 .hostel_tabs ul li.last{border-right:0;}
 .content_block{margin-bottom:20px; position:relative;}
-.content_block select.select-translate{position:absolute; right:0px; top:-3px; padding:2px; border:1px solid #cccccc;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; font-size:0.9em;}
+.content_block select.select-translate, select.translation-toggle {padding:2px; border:1px solid #cccccc;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; font-size:0.9em;}
+.content_block select.select-translate { position:absolute; right:0px; top:-3px; }
+select.translation-toggle { float: right; }
 #comment-translate-menu{position:absolute; right:0px; top:0px;}
 #comment-translate-menu select.select-translate{padding:2px; border:1px solid #cccccc;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; font-size:0.9em;}
 .hostel_tabs ul li a{display:block; padding:10px 15px 20px 40px;  font-size:1.0em; color:#333333; font-weight:bold;}
