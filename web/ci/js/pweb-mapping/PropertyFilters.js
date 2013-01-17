@@ -196,7 +196,7 @@ PWebFilterApp.prototype.init = function() {
 	this.actual_sort_index = this.indexes[3];
 	this.actual_sort_order = jOrder.asc;
 	
-	this.results_limit = 10;
+	this.results_limit = 20;
 	
 	this.pweb_maps = new Array();
 	
@@ -268,7 +268,7 @@ PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_l
 
 PWebFilterApp.prototype.apply_filters = function() {
 	
-	this.results_limit = 10;
+	this.results_limit = 20;
 	
 	this.$data_empty_msg.hide();
 	this.$sort_controls_div.hide();
