@@ -470,15 +470,7 @@ class CHostelbk extends I18n_site
     }
 
     $postdata["testmode"] = $this->config->item('booking_test_mode');
-    $user_id = $this->tank_auth->get_user_id();
-    if(($user_id !== false))
-    {
-      $uprof = $this->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id >= 8)
-      {
-        $postdata["testmode"] = 1;
-      }
-    }
+
     $settlecurrency = "GBP";
 
     $postdata['propertyCardTypes']   = $this->input->post('propertyCardTypes',TRUE);

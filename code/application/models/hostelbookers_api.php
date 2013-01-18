@@ -67,18 +67,8 @@ class Hostelbookers_api extends CI_Model {
     $this->log_path = ($config['log_path'] != '') ? $config['log_path'] : BASEPATH.'logs/';
 
     $this->CI =& get_instance();
-    $this->CI->load->library('tank_auth');
 
     $this->testmode = $this->CI->config->item('booking_test_mode');
-    $user_id = $this->CI->tank_auth->get_user_id();
-    if(($user_id !== false))
-    {
-      $uprof = $this->CI->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id >= 8)
-      {
-        $this->testmode = 1;
-      }
-    }
 
     //Setup staging site if test mode is detected
     if($this->testmode > 0)
