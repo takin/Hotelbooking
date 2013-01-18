@@ -474,7 +474,7 @@ class CHostelbk extends I18n_site
     if(($user_id !== false))
     {
       $uprof = $this->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id > 1)
+      if($uprof->user_level_id >= 8)
       {
         $postdata["testmode"] = 1;
       }
@@ -593,7 +593,7 @@ class CHostelbk extends I18n_site
 
     $data['important_info'] = new stdClass();
     $data['important_info']->original = $this->Db_hb_hostel->get_hostel_important_info($data['propertyNumber']);
-   
+
     //Get main services and breakfast included
     $this->load->model('i18n/db_translation_cache');
     $data['main_services'] = $this->Db_hb_hostel->get_hostel_main_services($data['propertyNumber']);

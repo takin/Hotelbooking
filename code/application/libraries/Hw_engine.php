@@ -254,7 +254,7 @@ class Hw_engine {
           $this->CI->load->model('i18n/db_translation_cache');
           $translation_result = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name,$this->CI->site_lang);
           if(!empty($translation_result))
-          {          
+          {
             $data['filters']["landmark"]->landmark_name_ts = $translation_result->translation;
           }
         }
@@ -1774,7 +1774,7 @@ class Hw_engine {
     if(($user_id !== false))
     {
       $uprof = $this->CI->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id > 1)
+      if($uprof->user_level_id >= 8)
       {
         $booking_data["testmode"] = 1;
       }

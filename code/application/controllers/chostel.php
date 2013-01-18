@@ -1209,7 +1209,7 @@ class CHostel extends I18n_site
     if(($user_id !== false))
     {
       $uprof = $this->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id > 1)
+      if($uprof->user_level_id >= 8)
       {
         $postdata["testmode"] = 1;
       }
@@ -1318,7 +1318,7 @@ class CHostel extends I18n_site
         $roomTypeDescription = Array();
         foreach($roomnumbers as $i => $roomnumber)
         {
-          $roomTypeDescription[$roomnumber] = new stdClass();	
+          $roomTypeDescription[$roomnumber] = new stdClass();
           $roomTypeDescription[$roomnumber]->roomDesc = $roomdesc[$i];
           $roomTypeDescription[$roomnumber]->roomDescTrans = $roomdesctrans[$i];
         }

@@ -74,7 +74,7 @@ class Hostelbookers_api extends CI_Model {
     if(($user_id !== false))
     {
       $uprof = $this->CI->tank_auth->get_profile($user_id);
-      if($uprof->user_level_id > 1)
+      if($uprof->user_level_id >= 8)
       {
         $this->testmode = 1;
       }
