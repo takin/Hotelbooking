@@ -1,5 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+// used by HB
+
 class CHostelbk extends I18n_site
 {
 
@@ -469,8 +471,6 @@ class CHostelbk extends I18n_site
       $ccvalidfrom = $postdata['ccvalidfrom_m'].$postdata['ccvalidfrom_y'];
     }
 
-    $postdata["testmode"] = $this->config->item('booking_test_mode');
-
     $settlecurrency = "GBP";
 
     $postdata['propertyCardTypes']   = $this->input->post('propertyCardTypes',TRUE);
@@ -512,8 +512,9 @@ class CHostelbk extends I18n_site
     $postdata['api_booking_error_msg'] = array();
     $postdata['api_booking_error'] = "";
 
+    $testmode = 0;
     $booking = $this->Hostelbookers_api->make_booking(
-                                              $postdata["testmode"],
+                                              $testmode,
                                               $postdata['book_firstname'],
                                               $postdata['book_lastname'],
                                               $postdata['book_nationality'],

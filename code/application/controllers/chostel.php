@@ -1,5 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+// used by HW
+
 class CHostel extends I18n_site
 {
 
