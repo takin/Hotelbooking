@@ -3,6 +3,7 @@ $cur                   = currency_symbol($settleCurrency);
 $bookCurSymbol         = currency_symbol($bookCurrency);
 $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
 $hb_arrhes_rate        = 0.1;
+$SPACE = '&nbsp;';
 ?>
 
 <?php // Sidebar ?>
@@ -194,7 +195,7 @@ $hb_arrhes_rate        = 0.1;
                      <td><?php echo $persons_in_room;?></td>
                      <td class="value">
 
-                      <?php echo $bookCurSymbol.number_format($night_total,2,'.','');?>
+                      <?php echo $bookCurSymbol.$SPACE.number_format($night_total,2,'.','');?>
                       </td>
                   </tr>
                  <?php
@@ -226,12 +227,12 @@ $hb_arrhes_rate        = 0.1;
               <tr class="dark">
                 <td class="first" align="right"><b><?php echo _('Total en');?> <?php  echo $bookCurrency;?>:</b></td>
                 <td class="total-value">
-                  <?php echo $bookCurSymbol.number_format($booking_total_price,2,'.','');?>                 
+                  <?php echo $bookCurSymbol.$SPACE.number_format($booking_total_price,2,'.','');?>                 
                 </td>
                </tr>
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?>:</td>
-               <td><span class="cur book selected"><?php echo $bookCurSymbol.$settle_deposit_booking;?></span></td>
+               <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></td>
               </tr>
 
 							<tr class="light">
@@ -266,7 +267,7 @@ $hb_arrhes_rate        = 0.1;
 
               <tr class="end-total">
                <td class="first" align="right"><strong><?php echo _('Total à payer maintenant');?>:</strong></td>
-               <td><span style="display: inline;"><b><span class="cur book selected"><?php echo $bookCurSymbol.$settle_deposit_booking;?></span></b></span></td>
+               <td><span style="display: inline;"><b><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></b></span></td>
               </tr>
 
               <tr>
@@ -274,7 +275,7 @@ $hb_arrhes_rate        = 0.1;
 								 <b><?php echo $property_currency;?> <?php echo number_format($booking_total_hostel_price*(1-$hb_arrhes_rate),2,'.','');?></b>
                  <span style="display: inline;">
                  <?php if(strcmp($property_currency,$bookCurrency)!=0):?>
-                  	(<?php echo '~ '.$bookCurSymbol.number_format($booking_total_price*(1-$hb_arrhes_rate),2,'.','');?>)
+                  	(<?php echo '~ '.$bookCurSymbol.$SPACE.number_format($booking_total_price*(1-$hb_arrhes_rate),2,'.','');?>)
 
 								 <?php endif;?>
                  </span>
