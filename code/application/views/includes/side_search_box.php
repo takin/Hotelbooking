@@ -1,11 +1,20 @@
 <div class="box_content box_round group side_search" id="side_search_box">
-	<?php if($current_view == "city_view" || $current_view == "hostel_view"){?>
+	<?php if($current_view == "hostel_view"){?>
 	<span id="modify_search" class=""><a title="<?php echo _('Modify search')?>" class="modify_search expand" href="#"><strong><?php echo _('Modify search')?></strong></a></span>
+	<span id="search_now" style="display:none;" class="search_title"><?php echo _('Search Now')?></span>
+	<?php } elseif($current_view == "city_view") { ?>
+	<span id="modify_search" class=""><a class="modify_search expand" style="border-bottom: 1px solid #80B422;margin-bottom: 10px;font-size: 1.2em;padding: 5px 0 7px;text-decoration:none;cursor:pointer;"><strong><?php echo _('Modify search')?></strong></a></span>
 	<span id="search_now" style="display:none;" class="search_title"><?php echo _('Search Now')?></span>
 	<?php }else{?>
 	<span class="search_title"><?php echo _('Search Now')?></span>
 	<?php }?>
-	<div id="side_search_wrap">
+	<?php 
+		
+		$side_search_wrap = $current_view == "city_view"?'side_search_wrap_city':'side_search_wrap';
+	
+	?>
+
+	<div id="<?php echo $side_search_wrap; ?>" >
 		<script>
 		$(document).ready(function(){
 				<?php if(!isset($country_selected)||($country_selected===NULL)):?>
