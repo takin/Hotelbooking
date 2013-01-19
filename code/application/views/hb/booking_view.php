@@ -190,7 +190,7 @@ $SPACE = '&nbsp;';
                      </td>
                      <td>
 
-                      <?php echo $bookCurSymbol.number_format((float)($booking_room["PRICES"]["CUSTOMER"]["MINPRICE"])*($min_persons_room),2,'.','');?>
+                      <?php echo $bookCurSymbol.$SPACE.number_format((float)($booking_room["PRICES"]["CUSTOMER"]["MINPRICE"])*($min_persons_room),2,'.','');?>
                      </td>
                      <td><?php echo $persons_in_room;?></td>
                      <td class="value">
