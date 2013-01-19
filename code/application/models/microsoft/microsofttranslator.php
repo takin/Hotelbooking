@@ -57,6 +57,7 @@ class Microsofttranslator extends CI_Model {
   public function __construct()
   {
     parent::__construct();
+    $this->load->library('custom_log');
     $this->initialize();
   }
 
@@ -471,6 +472,9 @@ class Microsofttranslator extends CI_Model {
       $c = 0;
       foreach($this->batch_results['responseData'] as $i => $translation_data)
       {
+		  if($this->config->item('translationLog')==TRUE){
+          $this->CI->custom_log->log("bing_translation","From: ".$this->FromLang." To: ". $this->ToLang." string: ".$this->batchText[$c]->text);
+          }
         if($translation_data['responseDetails'] === "Remote Translation Needed")
         {
           if($contents === FALSE)
