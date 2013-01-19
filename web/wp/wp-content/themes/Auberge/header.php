@@ -122,9 +122,9 @@ echo '<meta name="robots" content="noindex,follow" />';
   			$theid = get_id_out();
   			$selcountry = get_post_meta($theid, 'preselect_country', true);
   			$selcity = get_post_meta($theid, 'preselect_city', true);
-  			echo $selcountry.$selcity;
+  			
   			?>
-  			loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'search-country','search-city','<?php echo $selcountry;?>','<?php echo $selcity;?>');
+  			loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'search-country','search-city','<?php echo $_COOKIE['country_selected'];?>','<?php echo $_COOKIE['city_selected'];?>');
 		<?php
       }
       else
