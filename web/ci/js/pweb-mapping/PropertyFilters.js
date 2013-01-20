@@ -659,7 +659,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		}
 		
 		//Property type filter
-		jQuery.each(types_filter, function() {
+		jQuery.each(types_filter, function() { 
 			if((this.toString() === "type_hostels")&&
 			  (property.propertyType === "Hostel"))
 			{
@@ -694,6 +694,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		
 		//If no district filter is selected match all
 		//Else match only the checked filter
+		
 		if(facilities_filter.length === 0)
 		{
 			match_facility = true;
@@ -1015,12 +1016,54 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 	}
 };
 
+
+var totalRecords = 0;
+var hostelCount = 0;
+var apartmentCount = 0;
+var guesthouseCount = 0;
+var hotelCount = 0;
+var campCount = 0;
 //Put setup filter in PWebFilterApp prototypes?
 function setup_filters(data)
 {
 	data = jQuery.parseJSON(data);
 	pweb_filter.setRequestData(data.request);
 	pweb_filter.setData(data.property_list);
+	
+	totalRecords = data.property_list.length;
+	
+	//check , count and show property type.
+	for(var i=0;i<data.property_list.length;i++)
+	{
+		if(data.property_list[i].propertyType=='Hostel')
+		{
+			hostelCount = hostelCount+1;
+		}
+		else if(data.property_list[i].propertyType=='Guesthouse')
+		{
+			guesthouseCount = guesthouseCount+1;
+		}
+		else if(data.property_list[i].propertyType=='Apartment')
+		{
+			apartmentCount = apartmentCount+1;
+		}
+		else if(data.property_list[i].propertyType=='Hotel')
+		{
+			hotelCount = hotelCount+1;
+		}
+		else if(data.property_list[i].propertyType=='Camping' || data.property_list[i].propertyType=='Campsite')
+		{
+			campCount = campCount+1;
+		}
+	}
+	
+	$('#prop-types-count-0').text(totalRecords);
+	$('#prop-types-count-1').text(hostelCount);
+	$('#prop-types-count-2').text(hotelCount);
+	$('#prop-types-count-3').text(apartmentCount);
+	$('#prop-types-count-4').text(guesthouseCount);
+	$('#prop-types-count-5').text(campCount);
+	
 	
 	pweb_filter.addFilterMap('city', 'city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	pweb_filter.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);

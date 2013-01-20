@@ -48,12 +48,12 @@
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["all"]; ?> name="prop_types" value="type_all" id="type_all" /> <?php echo _("All")?> <?php /*?>(<span id="prop-types-count-0"></span>)<?php */?></li>
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hostels"]; ?> name="prop_types" value="type_hostels" id="type_hostels" /> <?php echo _("Auberges de jeunesse")?> <?php /*?>(<span id="prop-types-count-1"></span>)<?php */?></li>
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hotels"]; ?> name="prop_types" value="type_hotels" id="type_hotels" /> <?php echo _("Hôtels pas chers")?> <?php /*?>(<span id="prop-types-count-2"></span>)<?php */?></li>
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["apartments"]; ?> name="prop_types" value="type_apartments" id="type_apartments"/> <?php echo _("Appartements")?> <?php /*?>(<span id="prop-types-count-3"></span>)<?php */?></li>
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["bbs"]; ?> name="prop_types" value="type_bbs" id="type_bbs" /> <?php echo _("Chambres - B&B - Pensions")?> <?php /*?>(<span id="prop-types-count-4"></span>)<?php */?></li>
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["campings"]; ?> name="prop_types" value="type_campings" id="type_campings" /> <?php echo _("Camping")?> <?php /*?>(<span id="prop-types-count-5"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["all"]; ?> name="prop_types" value="type_all" id="type_all" /> <?php echo _("All")?> (<span id="prop-types-count-0">0</span>)</li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hostels"]; ?> name="prop_types" value="type_hostels" id="type_hostels" /> <?php echo _("Auberges de jeunesse")?> (<span id="prop-types-count-1">0</span>)</li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hotels"]; ?> name="prop_types" value="type_hotels" id="type_hotels" /> <?php echo _("Hôtels pas chers")?> (<span id="prop-types-count-2">0</span>)</li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["apartments"]; ?> name="prop_types" value="type_apartments" id="type_apartments"/> <?php echo _("Appartements")?> (<span id="prop-types-count-3">0</span>)</li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["bbs"]; ?> name="prop_types" value="type_bbs" id="type_bbs" /> <?php echo _("Chambres - B&B - Pensions")?> (<span id="prop-types-count-4">0</span>)</li>
+					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["campings"]; ?> name="prop_types" value="type_campings" id="type_campings" /> <?php echo _("Camping")?> (<span id="prop-types-count-5">0</span>)</li>
 				</ul>
 			</div>
 			<?php /*?><span class="filter_title box_round expand"><strong><?php echo _('Facilities')?></strong></span>
