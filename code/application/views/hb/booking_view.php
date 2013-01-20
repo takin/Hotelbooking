@@ -739,19 +739,19 @@ $SPACE = '&nbsp;';
 				</div>
 				
 				<div class="reminders">
-					<span class="last_reminder_price_now"><strong><?php echo _('Total à payer maintenant');?>: <?php echo $bookCurSymbol;?> <?php echo $settle_deposit_booking;?></strong></span>
+					<span class="last_reminder_price_now"><strong><?php echo _('Total à payer maintenant');?>: <?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></strong></span>
 					<span class="last_reminder_price_full">
 						<b><?php echo $property_currency;?> <?php echo number_format($booking_total_hostel_price*(1-$hb_arrhes_rate),2,'.','');?></b>
 						<span style="display: inline;">
 						<?php if(strcmp($property_currency,$bookCurrency)!=0):?>
-							(<?php echo '~ '.$bookCurSymbol.' '.number_format($booking_total_price*(1-$hb_arrhes_rate),2,'.','');?>)
+							(<?php echo '~ '.$bookCurSymbol.$SPACE.number_format($booking_total_price*(1-$hb_arrhes_rate),2,'.','');?>)
 						
 						<?php endif;?>
 						</span>						
 						<?php echo _('est le montant total à payer à votre arrivée');?>
 					</span>					
 					<span class="last_reminder_confirmation">
-					<?php echo _("* En cliquant sur le bouton de Confirmation ci-dessous, vous acceptez les modalités et les conditions et autorisez la facturation d'un montant non remboursable de");?>: <?php echo $bookCurSymbol;?> <?php echo $settle_deposit_booking;?>
+					<?php echo _("* En cliquant sur le bouton de Confirmation ci-dessous, vous acceptez les modalités et les conditions et autorisez la facturation d'un montant non remboursable de");?>: <?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?>
 					</span>
 				</div>	
 					
