@@ -381,23 +381,23 @@ class Hb_engine {
         $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_landmarks_by_city_id($city->hb_id,2);
         //translate city landmarks
         $this->CI->load->model('i18n/db_translation_cache');
-          /*pramod*/   $tmp_city_landmarks=array();
-      /*pramod*/  $tmp_landmarks=array();
+             $tmp_city_landmarks=array();
+        $tmp_landmarks=array();
         foreach($data['city_landmarks'] as $i => $landmark)
         {
           $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name,$this->CI->site_lang);
           $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
           
-        /*pramod*/  $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
+          $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
          
            if(!empty($translation))
           {
             $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
             $data['city_landmarks'][$i]->landmark_name = $translation->translation;
-          /*pramod*/ $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
+           $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
         
           }
-         /*pramod*/ $tmp_landmarks[$i] = $data['city_landmarks'][$i];
+          $tmp_landmarks[$i] = $data['city_landmarks'][$i];
           
         }
         
@@ -415,22 +415,22 @@ class Hb_engine {
 	}
 	
 	 //translate city districts
-      /*pramod*/  $tmp_city_districts=array();
-       /*pramod*/ $tmp_districts=array();
+        $tmp_city_districts=array();
+        $tmp_districts=array();
         foreach($data['city_districts'] as $i => $district)
         {
           $translation = $this->CI->db_translation_cache->get_translation($district->district_name,$this->CI->site_lang);
           
-          /*pramod*/ $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
+           $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
            
           if(!empty($translation))
           {
             $data['city_districts'][$i]->original_name = $data['city_districts'][$i]->district_name;
             $data['city_districts'][$i]->district_name = $translation->translation;
-        /*pramod*/    $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
+            $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
          
           }
-         /*pramod*/  $tmp_districts[$i] = $data['city_districts'][$i];
+           $tmp_districts[$i] = $data['city_districts'][$i];
         }
       
         /* array data shot by city districts pramod */
@@ -448,20 +448,20 @@ class Hb_engine {
         
             
         //translate city amenities
-        /*pramod*/ $tmp_city_name=array();
-        /*pramod*/ $tmp_city=array();
+         $tmp_city_name=array();
+         $tmp_city=array();
         foreach($data['city_amenities'] as $i => $amenity)
         {
 			
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
           $data['city_amenities'][$i]->original_name = $amenity->facility_name;
-        /*pramod*/  $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
+          $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
           if(!empty($translation))
           {
             $data['city_amenities'][$i]->facility_name = $translation->translation;
-         /*pramod*/   $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name); 
+            $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name); 
           }
-        /*pramod*/  $tmp_city[$i] = $data['city_amenities'][$i];
+          $tmp_city[$i] = $data['city_amenities'][$i];
 		}
 		
 		/* array data shot by Facilities pramod*/
