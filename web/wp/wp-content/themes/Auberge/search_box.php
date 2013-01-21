@@ -79,7 +79,7 @@ function keyaction(e)
 }
 </script>
 
-<form class="clearfix" id="search_form_wp" action="" method="post">
+<form class="clearfix" id="search_form_wp" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 	<span class="search_title"><?php _e("Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and Breakfast, Pensions - Plus de 30000!!",'auberge');?></span>
 	<div class="group">
 		<div class="small_block">
@@ -142,7 +142,6 @@ function keyaction(e)
 	<input type="hidden" id="custom-type" name="custom-type" value =""/>
 	<input type="hidden" id="custom-url"  name="custom-url" value =""/>
 
-	</form>
 </div>
 
 

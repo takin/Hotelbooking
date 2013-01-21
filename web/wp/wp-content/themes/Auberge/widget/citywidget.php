@@ -21,7 +21,7 @@ $apiurl = get_option('aj_api_url');
 				  if(!empty($topcity->converted_city_min_price) && ($topcity->converted_city_min_price > 0))
           {
 				  ?>
-          <li><strong><a href="<?php echo get_option('aj_api_url').$topcity->translated_country."/".$topcity->translated_city; ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
+          <li><strong><a href="<?php echo get_option('aj_api_url').urlencode($topcity->translated_country)."/".urlencode($topcity->translated_city); ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
           <?php 
           }
 				}
@@ -36,7 +36,7 @@ $apiurl = get_option('aj_api_url');
           if(!empty($topcity->converted_city_min_price) && ($topcity->converted_city_min_price > 0))
           {
           ?>
-          <li><strong><a href="<?php echo get_option('aj_api_url').$topcity->translated_country."/".$topcity->translated_city; ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
+          <li><strong><a href="<?php echo get_option('aj_api_url').urlencode($topcity->translated_country)."/".urlencode($topcity->translated_city); ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
           <?php 
           }
         }
@@ -52,7 +52,7 @@ $apiurl = get_option('aj_api_url');
           if(!empty($topcity->converted_city_min_price) && ($topcity->converted_city_min_price > 0))
           {
           ?>
-          <li><strong><a href="<?php echo get_option('aj_api_url').$topcity->translated_country."/".$topcity->translated_city; ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
+          <li><strong><a href="<?php echo get_option('aj_api_url').urlencode($topcity->translated_country)."/".urlencode($topcity->translated_city); ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
           <?php 
           }
         }
@@ -68,7 +68,7 @@ $apiurl = get_option('aj_api_url');
           if(!empty($topcity->converted_city_min_price) && ($topcity->converted_city_min_price > 0))
           {
           ?>
-          <li><strong><a href="<?php echo get_option('aj_api_url').$topcity->translated_country."/".$topcity->translated_city; ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
+          <li><strong><a href="<?php echo get_option('aj_api_url').urlencode($topcity->translated_country)."/".urlencode($topcity->translated_city); ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
           <?php 
           }
         }
@@ -84,7 +84,7 @@ $apiurl = get_option('aj_api_url');
           if(!empty($topcity->converted_city_min_price) && ($topcity->converted_city_min_price > 0))
           {
           ?>
-          <li><strong><a href="<?php echo get_option('aj_api_url').$topcity->translated_country."/".$topcity->translated_city; ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
+          <li><strong><a href="<?php echo get_option('aj_api_url').urlencode($topcity->translated_country)."/".urlencode($topcity->translated_city); ?>"><?php echo $topcity->translated_city; ?></a></strong> <em><?php echo $currency_symbol." ".$topcity->converted_city_min_price;?></em></li>  
           <?php 
           }
         }

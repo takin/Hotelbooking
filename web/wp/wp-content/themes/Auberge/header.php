@@ -206,6 +206,7 @@ echo '<meta name="robots" content="noindex,follow" />';
 
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php echo get_option('aj_google_analytic');?>
+
 </head>
 
 <body <?php if (get_option('aj_api_site_data') == 'hb'){body_class('hb_frame');}else{body_class();}?>>
@@ -218,7 +219,7 @@ echo '<meta name="robots" content="noindex,follow" />';
 			if($code=='' || $shortcode =='en'){$code="en_US";}
 		?>
 			<div class="fblike">
-				<script src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
+				<script  type="text/javascript" src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
 				<fb:like show_faces="false" layout="button_count" href="<?php echo $apiurl; ?>"></fb:like>
 			</div>
 			</div>
