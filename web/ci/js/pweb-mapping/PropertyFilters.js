@@ -360,8 +360,8 @@ PWebFilterApp.prototype.update = function() {
 	//update count
 	this.FiltersCounts['city_results_count_current'] = this.jtable_hits_sorted.length;
 	this.FiltersCounts['city_results_count_total']   = this.FiltersCounts['city_results_filtered'];
-	
 	this.update_counts();
+	
 	
 	if(this.FiltersCounts['city_results_count_current'] < this.FiltersCounts['city_results_count_total'])
 	{
@@ -465,6 +465,12 @@ PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) {
 PWebFilterApp.prototype.init_counts = function() {
 	this.FiltersCounts['city_results_count_current'] = 0;
 	this.FiltersCounts['city_results_filtered']      = 0;
+	this.FiltersCounts['prop-types-count-0'] = 0;
+	this.FiltersCounts['prop-types-count-1'] = 0;
+	this.FiltersCounts['prop-types-count-2'] = 0;
+	this.FiltersCounts['prop-types-count-3'] = 0;
+	this.FiltersCounts['prop-types-count-4'] = 0;
+	this.FiltersCounts['prop-types-count-5'] = 0;
 //	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 //	{
 //		this.FiltersCounts['facility-count-'+this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.value] = 0;
@@ -582,8 +588,10 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 };
 
 PWebFilterApp.prototype.update_counts = function() {
+	
 	for (var id in this.FiltersCounts)
 	{ 
+		
 		$('#'+id).html(this.FiltersCounts[id]);
 	}
 //	$('#city_results_count_current').html(this.jtable_hits.count());
@@ -659,6 +667,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		}
 		
 		//Property type filter
+	
 		jQuery.each(types_filter, function() { 
 			if((this.toString() === "type_hostels")&&
 			  (property.propertyType === "Hostel"))
@@ -678,8 +687,7 @@ PWebFilterApp.prototype.get_filters = function() {
 				match_type =  true;
 				return true;
 			}
-			else if((this.toString() === "type_bbs")&&
-			  (property.propertyType === "Guesthouse"))
+			else if((property.propertyType === "Guesthouse"))
 			{
 				match_type =  true;
 				return true;
@@ -690,6 +698,7 @@ PWebFilterApp.prototype.get_filters = function() {
 				match_type =  true;
 				return true;
 			}
+			
 		});
 		
 		//If no district filter is selected match all
@@ -836,15 +845,57 @@ PWebFilterApp.prototype.get_filters = function() {
 			match_rating = true;
 		}
 		
-		if((match_type && match_facility && match_price && match_rating && match_district && match_landmark) === true)
+		/*if((match_type && match_facility && match_price && match_rating && match_district && match_landmark) === true)
 		{
 			that.FiltersCounts['city_results_filtered']++;
 			return true;
-		}
-		else
-		{
+		}else{
 			return false;
-		}
+		}*/
+		
+		if((match_type && match_facility && match_price && match_rating && match_district && match_landmark) === true)
+		{
+			
+			if(match_type){
+				that.FiltersCounts['city_results_filtered']++;
+				that.FiltersCounts['prop-types-count-0']++;
+				
+			//return true;
+				}
+				
+				
+			
+			
+			if((property.propertyType === "Hostel"))
+			{
+				that.FiltersCounts['prop-types-count-1']++;
+				return true;
+			}
+			else if((property.propertyType === "Hotel"))
+			{
+				that.FiltersCounts['prop-types-count-2']++;
+				return true;
+			}
+			else if((property.propertyType === "Apartment"))
+			{
+				that.FiltersCounts['prop-types-count-3']++;
+				return true;
+			}
+			else if((property.propertyType === "Guesthouse"))
+			{
+				that.FiltersCounts['prop-types-count-4']++;
+				return true;
+			}
+			else if((property.propertyType === "Camping")||((property.propertyType === "Campsite")))
+			{
+				that.FiltersCounts['prop-types-count-5']++;
+				return true;
+			}
+			
+	}
+		
+		
+		
 	
 	};
 };
@@ -854,8 +905,8 @@ PWebFilterApp.prototype.setData = function(json_data) {
 	this.jtable = jOrder(json_data)
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
-
 	this.FiltersCounts['city_results_count_total'] = json_data.length;
+	
 };
 
 PWebFilterApp.prototype.setRequestData = function(json_request_data) {
@@ -868,6 +919,7 @@ PWebFilterApp.prototype.change_price_filter = function(event, ui) {
 	this.PriceFilterMax = ui.values[ 1 ];
 	this.apply_filters();
 };
+
 PWebFilterApp.prototype.change_rating_filter = function(event, ui) {
 	this.RatingFilterMin = ui.values[ 0 ];
 	this.RatingFilterMax = ui.values[ 1 ];
@@ -1032,7 +1084,7 @@ function setup_filters(data)
 	
 	totalRecords = data.property_list.length;
 	
-	//check , count and show property type.
+/*	//check , count and show property type.
 	for(var i=0;i<data.property_list.length;i++)
 	{
 		if(data.property_list[i].propertyType=='Hostel')
@@ -1041,6 +1093,7 @@ function setup_filters(data)
 		}
 		else if(data.property_list[i].propertyType=='Guesthouse')
 		{
+			
 			guesthouseCount = guesthouseCount+1;
 		}
 		else if(data.property_list[i].propertyType=='Apartment')
@@ -1063,7 +1116,7 @@ function setup_filters(data)
 	$('#prop-types-count-3').text(apartmentCount);
 	$('#prop-types-count-4').text(guesthouseCount);
 	$('#prop-types-count-5').text(campCount);
-	
+*/	
 	
 	pweb_filter.addFilterMap('city', 'city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	pweb_filter.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
