@@ -11,12 +11,12 @@ include( TEMPLATEPATH . '/header-nostyle.php' );
 include( TEMPLATEPATH . '/header-mobile.php' );
 }else{?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="<?php echo get_option('aj_lang_code')?>">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php dynamictitles();?></title>
 
-<meta http-equiv="Content-Language" content="<?php echo get_option('aj_lang_code')?>" />
+<!-- <meta http-equiv="Content-Language" content="<?php //echo get_option('aj_lang_code')?>" /> -->
 <?php echo get_option('aj_special_meta')?>
 <?php wp_head(); ?>
 <?php if (is_single() || get_option('aj_block_bot') || is_page(array(get_option('aj_no_seo')))){
@@ -32,8 +32,8 @@ echo '<meta name="robots" content="noindex,follow" />';
 <?php if (get_option('aj_api_site_data') == 'hb'){?>
 <?php /*?><link rel="stylesheet" href="<?php echo $apiurl; ?>css/hostels.css" type="text/css" media="screen" charset="utf-8" /><?php */?>
 <?php }?>
-<link rel="stylesheet" href="<?php echo $apiurl; ?>css/fancybox.css" type="text/css" media="screen" charset="utf-8" />
-<link rel="stylesheet" href="<?php echo $apiurl; ?>css/smoothness/jquery-ui.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="<?php echo $apiurl; ?>css/fancybox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo $apiurl; ?>css/smoothness/jquery-ui.css" type="text/css" media="screen"/>
 <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -220,7 +220,8 @@ echo '<meta name="robots" content="noindex,follow" />';
 		?>
 			<div class="fblike">
 				<script  type="text/javascript" src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
-				<fb:like show_faces="false" layout="button_count" href="<?php echo $apiurl; ?>"></fb:like>
+				<div class="fb-like" data-href="<?php echo $apiurl; ?>" data-send="false" data-width="450" data-show-faces="false"></div>
+				<!--<fb:like show_faces="false" layout="button_count" href="<?php //echo $apiurl; ?>"></fb:like> -->
 			</div>
 			</div>
 			<div class="grid_10">
