@@ -123,7 +123,7 @@ function keyaction(e)
 	</div><?php */?>
 	<div class="group bottom_group">
 		<div class="left">
-		<label for="search-date"><?php _e("Arrivée le:","auberge");?></label>
+		<label for="datepick"><?php _e("Arrivée le:","auberge");?></label>
 		<input tabindex="9" type="text" id="datepick" name="search-date" class="search_date" value="<?php echo $date_selected;?>" />
 		</div>
 		<div class="left">

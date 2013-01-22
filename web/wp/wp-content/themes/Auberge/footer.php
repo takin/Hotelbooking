@@ -61,7 +61,7 @@ else {?>
 </footer>
 <section class="grid_16">
 	<div class="outside-inner">
-		<p class="last-part"><strong><?php _e('Vous recherchez une <strong>auberge</strong>, une <strong>auberge de jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse.com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme <strong>Paris</strong> en France, <strong>Londres</strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, <strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, <strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République tchèque ….Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires.','auberge');?></p>
+		<p class="last-part"><strong><?php _e('Vous recherchez une <strong>auberge</strong>, une <strong>auberge de jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse.com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme <strong>Paris</strong> en France, <strong>Londres</strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, <strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, <strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République tchèque ….Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires.','auberge');?></strong></p>
 	</div>
  </section>
 </div>
@@ -69,8 +69,7 @@ else {?>
 <?php wp_footer(); ?>
 
 <div id="lf_div_invite" name="lf_div_invite" style="display:none;position:absolute;left:0px;top:0px;width:0px;height:0px;">
-<iframe name="lf_iframe_invite" id="lf_iframe_invite" frameborder="0" src="about:blank"
-style="width:100%;height:100%;border:none;" allowtransparency="true" scrolling="no"></iframe></div>
+<iframe name="lf_iframe_invite" id="lf_iframe_invite"  src="about:blank" style="width:100%;height:100%;overflow: hidden;background-color:transparent;border: 0px none transparent;"></iframe></div>
 
 <?php  if(DISPLAY_VELARO == 1)  {  ?>
 <!-- Velaro Weblink Code -->
