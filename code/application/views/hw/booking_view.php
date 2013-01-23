@@ -8,7 +8,7 @@ $bookBookFeeField      = $bookCurrency."BookingFee";
 $bookBillTotalField    = $bookCurrency."BillTotal";
 $bookAmountDueField    = $bookCurrency."AmountDue";
 $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
-$SPACE = '&nbsp;';
+$SPACE = '&nbsp';
 ?>
 
 <?php // Sidebar ?>
