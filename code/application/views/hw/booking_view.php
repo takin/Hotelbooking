@@ -8,6 +8,7 @@ $bookBookFeeField      = $bookCurrency."BookingFee";
 $bookBillTotalField    = $bookCurrency."BillTotal";
 $bookAmountDueField    = $bookCurrency."AmountDue";
 $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
+$SPACE = '&nbsp;';
 ?>
 
 <?php // Sidebar ?>
@@ -195,18 +196,18 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
                   <td>
 
                    <?php if($isCustomCurrency):?>
-                   <?php echo $bookCurSymbol.$room->$bookRoomPriceField;?>
+                   <?php echo $bookCurSymbol.$SPACE.$room->$bookRoomPriceField;?>
                    <?php else:?>
-                   <?php echo $cur;?><?php echo $room->priceSettle;?>
+                   <?php echo $cur.$SPACE;?><?php echo $room->priceSettle;?>
                    <?php endif;?>
                   </td>
                   <td><?php echo $room->beds;?></td>
                   <td class="value">
 
                    <?php if($isCustomCurrency):?>
-                   <?php echo $bookCurSymbol.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
+                   <?php echo $bookCurSymbol.$SPACE.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
                    <?php else: ?>
-                   <?php echo $cur;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
+                   <?php echo $cur.$SPACE;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
                    <?php endif; ?>
                   </td>
                </tr>
@@ -297,7 +298,7 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
                 <td class="first" align="right"><?php echo _('Total en');?> <?php if($isCustomCurrency):?><?php echo $bookCurrency;?><?php else:?><?php echo $settleCurrency;?><?php endif; ?>:</td>
                 <td class="total-value">
                   <?php if($isCustomCurrency):?>
-                  <?php echo $bookCurSymbol.$booking_request->$bookTotalPriceField->value;?>
+                  <?php echo $bookCurSymbol.$SPACE.$booking_request->$bookTotalPriceField->value;?>
                   <?php else:?>
 									<?php echo $cur;?><?php echo $booking_request->SettleBedsTotal->value;?>
 									<?php endif; ?>                  
@@ -306,7 +307,7 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?> <?php echo $settleCurrency;?>:</td>
                <td>
-                  <?php echo $cur;?><?php echo $booking_request->SettleDeposit->value;?>
+                  <?php echo $cur.$SPACE; ?><?php echo $booking_request->SettleDeposit->value;?>
                   <?php /* if($isCustomCurrency):?>
                   <span class="totaluser-currency">(<?php echo '~'.$booking_request->$bookDepositPriceField->value. ''.$bookCurSymbol;?>)</span>
                   <?php endif; */?>
@@ -319,7 +320,7 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
                    <span id="bookingFeeDesc"><?php echo _('Frais de Service')?>:</span></td>
                    <td>
                    <span style="display: inline;">
-                     <?php echo $cur;?><?php echo $booking_request->SettleBookingFee->value;?>
+                     <?php echo $cur.$SPACE;?><?php echo $booking_request->SettleBookingFee->value;?>
                      <?php /* if($isCustomCurrency):?>
                      <span class="totaluser-currency">(<?php echo '~'.$booking_request->$bookBookFeeField->value. ''.$bookCurSymbol;?>)</span>
                      <?php endif;*/?>
@@ -353,7 +354,7 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
                    <?php printf(gettext("%s yearly membership card - waived:"),$member); ?></span></td>
                    <td>
                    <span style="display: inline;">
-                     <?php echo $cur;?>0.00
+                     <?php echo $cur.$SPACE;?>0.00
                        <?php /* if($isCustomCurrency):?>
                        <span class="totaluser-currency">(0.00<?php echo $bookCurSymbol;?>)</span>
                        <?php endif;*/?>
@@ -369,7 +370,7 @@ $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
                   <span style="display: inline;">
                   <b>
 
-										<?php echo $cur;?><?php echo $booking_request->SettleBillTotal->value;?>
+										<?php echo $cur.$SPACE;?><?php echo $booking_request->SettleBillTotal->value;?>
                     <?php /* if($isCustomCurrency):?>
                     <span class="totaluser-currency">(<?php echo '~ '.$booking_request->$bookBillTotalField->value. ''.$bookCurSymbol;?>)</span>
                     <?php endif; */?>
