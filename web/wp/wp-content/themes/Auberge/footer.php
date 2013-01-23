@@ -68,7 +68,7 @@ else {?>
 
 <?php wp_footer(); ?>
 
-<div id="lf_div_invite" name="lf_div_invite" style="display:none;position:absolute;left:0px;top:0px;width:0px;height:0px;">
+<div id="lf_div_invite" style="display:none;position:absolute;left:0px;top:0px;width:0px;height:0px;">
 <iframe name="lf_iframe_invite" id="lf_iframe_invite"  src="about:blank" style="width:100%;height:100%;overflow: hidden;background-color:transparent;border: 0px none transparent;"></iframe></div>
 
 <?php  if(DISPLAY_VELARO == 1)  {  ?>
