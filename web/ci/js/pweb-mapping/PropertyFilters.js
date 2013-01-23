@@ -208,6 +208,7 @@ PWebFilterApp.prototype.set_init_filters_value = function() {
 	{
 		this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
 	}
+	
 	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 	{
 		this.FiltersInitValues[this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
@@ -687,7 +688,9 @@ PWebFilterApp.prototype.get_filters = function() {
 				match_type =  true;
 				return true;
 			}
-			else if((property.propertyType === "Guesthouse"))
+			
+			else if((this.toString() === "type_bbs")&&
+			  (property.propertyType === "Guesthouse"))	
 			{
 				match_type =  true;
 				return true;
@@ -899,6 +902,7 @@ PWebFilterApp.prototype.get_filters = function() {
 	
 	};
 };
+
 
 PWebFilterApp.prototype.setData = function(json_data) {
 	jOrder.logging = null;
