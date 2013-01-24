@@ -12,9 +12,9 @@
 	<div class="box_content box_round group rating_bars">
 	<span class="title"><?php echo ucwords(_("évaluation moyenne"));?>
 	<?php if(!empty($hostel_db_data->rating_overall)){
-					echo round(floatval($hostel_db_data->rating_overall),0).' %';
+					echo ceil($hostel_db_data->rating_overall).' %';
 				}elseif(!empty($hostel["RATING"])){
-					echo floatval($hostel["RATING"]).' %';
+					echo ceil($hostel["RATING"]).' %';
 				}?>
 	</span>
 	<div class="clearfix bar-overview">
