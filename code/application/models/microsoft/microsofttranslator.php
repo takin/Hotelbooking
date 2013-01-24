@@ -36,8 +36,10 @@ class Microsofttranslator extends CI_Model {
 
   private $batch_results = Array();
   private $results_count = 0;
+  private $translation_text_count = 0;
 
   private $batchText     = Array();
+  private $batchTranslationText = Array();
   private $batchTextType = Array();
   private $batch_text_length = 0;
 
@@ -57,6 +59,7 @@ class Microsofttranslator extends CI_Model {
   public function __construct()
   {
     parent::__construct();
+    $this->load->library('custom_log');
     $this->initialize();
   }
 
@@ -144,6 +147,7 @@ class Microsofttranslator extends CI_Model {
 */
   public function make_xml_request($api_function_name, $data)
   {
+
     $this->app_token = $this->CI->Azuremarketplaceauthenticator->get_token();
 
     $this->CI->benchmark->mark('start');
@@ -162,9 +166,9 @@ class Microsofttranslator extends CI_Model {
 
     $curl_result = curl_exec ( $ch );
     $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
-
 	if ($http_status == 200)
 	{
+		
 	  curl_close ( $ch );
 	  return $curl_result;
 	}
@@ -250,11 +254,13 @@ class Microsofttranslator extends CI_Model {
 //     $xmldata .= "<User xmlns=\"http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2\"></User>";
     $xmldata .= "</Options>";
     $xmldata .= "<Texts>";
-
-    foreach($translate_data as $key => $data)
+    foreach($this->batchTranslationText as $data)
     {
-      $xmldata .= "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">".xml_convert($data->text)."</string>";
+		
+		$this->CI->custom_log->log("bing-translation",": From ".$this->FromLang." -> To ".$this->ToLang." original text :".$data);
+		$xmldata .= "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">".xml_convert($data)."</string>";
     }
+    
     $xmldata .= "</Texts>";
     $xmldata .= "<To>".$this->google_to_ms_lang($this->ToLang)."</To>";
     $xmldata .= "</TranslateArrayRequest>";
@@ -263,12 +269,19 @@ class Microsofttranslator extends CI_Model {
     $results['responseDetails'] = NULL;
     $results['responseStatus']  = 200;
 
-    if(!empty($translate_data))
+    if(count($this->batchTranslationText)>0)
     {
+		$filename = '/opt/logs/bing-request-'.date('h: i',time()).'-'.rand(0,2323).'.xml';
+		$handle = fopen($filename, "a");
+		
+		fwrite($handle,$xmldata);
       $remote_translations = $this->make_xml_request('TranslateArray',$xmldata);
-
+$filename = '/opt/logs/bing-response-'.date('h-i',time()).'-'.rand(0,2323).'.text';
+		$handle = fopen($filename, "a");
+		fwrite($handle,$remote_translations);
       if($remote_translations === FALSE)
       {
+		
         //TODO get real error ffrom curl_error
         $results['responseStatus']  = 400;
         return $results;
@@ -294,6 +307,7 @@ class Microsofttranslator extends CI_Model {
         $results['responseData'][$i]['tag_linked'] = $translate_data[$i]->tag;
 
         $trans_object = simplexml_import_dom($doc->importNode($z->expand(), true));
+       log_message("error","tr count $i"); 
 
         if($trans_object === FALSE)
         {
@@ -324,6 +338,7 @@ class Microsofttranslator extends CI_Model {
                                                              $this->source_account->source_id,
                                                              $translate_data[$i]->tag );
         }
+        log_message("error","tr response st : ".$results['responseData'][$i]['responseStatus']);
         $i++;
 
         $z->next($resultnode);
@@ -338,6 +353,8 @@ class Microsofttranslator extends CI_Model {
 
   public function startBatch($toLang="", $fromLang="")
   {
+	  log_message("error",'start batch');
+	  
     if($toLang != "")
     {
       $this->ToLang = $toLang;
@@ -358,27 +375,30 @@ class Microsofttranslator extends CI_Model {
     $this->batch_results['responseDetails'] = NULL;
     $this->batch_results['responseStatus']  = 200;
     $this->results_count = 0;
+    $this->translation_text_count=0;
   }
   function clearBatchText()
   {
     $this->batchText = Array();
+    $this->batchTranslationText = Array();
     $this->batch_text_length = 0;
   }
 
   function addTextForBatch($text = "", $tag = "")
   {
-//     debug_dump($text);
+  
     $text_length = strlen($text);
 
     //check if in translation cache else add text for remote API translation
     if($this->db_cache_enable === TRUE)
     {
+		
       $textdb = $text;
       if((self::MAX_QUERY_LENGTH > 0) && ($text_length > self::MAX_QUERY_LENGTH))
       {
         $textdb = mb_substr($text, 0, self::MAX_QUERY_LENGTH-10,"UTF-8");
       }
-
+log_message("debug"," Translation language From ".$this->FromLang.' To '. $this->ToLang." $text :::".$textdb);
       $trans_cached = $this->CI->db_translation_cache->get_translation($textdb,$this->ToLang);
 
       //If cache found put translation in batch results and return
@@ -425,15 +445,21 @@ class Microsofttranslator extends CI_Model {
       $this->batch_results['responseData'][$this->results_count] = array();
       $this->batch_results['responseData'][$this->results_count]['responseDetails'] = "Remote Translation Needed";
       $this->batch_results['responseData'][$this->results_count]['responseStatus']  = 0;
-      $this->results_count++;
+     
 
       //Set data for remote translation request
       $this->batch_text_length += $text_length;
-
       $translation_data = new stdClass();
       $translation_data->text = $text;
       $translation_data->tag  = $tag;
-      array_push($this->batchText,$translation_data);
+      //array_push($this->batchTranslationText,$text);
+      if(!in_array($text,$this->batchTranslationText)){
+		  array_push($this->batchTranslationText,$text);
+		  
+	  }
+	  array_push($this->batchText,$translation_data);
+      $this->batch_results['responseData'][$this->results_count]=$text;
+       $this->results_count++;
     }
     else
     {
@@ -473,7 +499,7 @@ class Microsofttranslator extends CI_Model {
       {
         if($translation_data['responseDetails'] === "Remote Translation Needed")
         {
-          if($contents === FALSE)
+		  if($contents === FALSE)
           {
             $this->batch_results['responseData'][$i]['responseDetails'] = "Error from MS translator API";
             $this->batch_results['responseData'][$i]['responseStatus']  = 400;
@@ -481,6 +507,7 @@ class Microsofttranslator extends CI_Model {
           elseif(!empty($contents['responseData'][$c]))
           {
             $this->batch_results['responseData'][$i] =  $contents['responseData'][$c];
+         
             $c++;
           }
         }
