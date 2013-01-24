@@ -23,7 +23,11 @@ include( TEMPLATEPATH . '/header-mobile.php' );
 echo '<meta name="robots" content="noindex,follow" />';
 }?>
 
-<?php $apiurl = get_option('aj_api_url'); ?>
+<?php 
+$apiurl = get_option('aj_api_url'); 
+// if https protocol set https
+$apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl;
+?>
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/reset.css" type="text/css" media="screen,projection" />
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/mainv2.css" type="text/css" media="screen,projection" />
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/tools.css" type="text/css" media="screen,projection" />
@@ -85,6 +89,33 @@ echo '<meta name="robots" content="noindex,follow" />';
 			$(this).next('div.entry').slideToggle(300);
 			$(this).toggleClass('expand');
 		});
+                
+                if (document.location.protocol === 'https:') {
+ 
+                        // change all img src to secure connection https
+                        $('a').each(function() {
+                            if ( this.host === location.hostname ) {                
+                                this.href = this.href.replace('http:', 'https:');
+                            }
+                        });
+                        
+                        // change all img src to secure connection https
+                        $('img').each(function() {
+                            if ( this.src.indexOf(location.hostname) > -1 ) {
+                                this.src = this.src.replace('http:', 'https:');
+                            }
+                        });   
+                        
+                        // all links to load in secure connection https
+                        $('link').each(function() {
+                            var href = $(this).attr('href');
+                            if (href.indexOf('http:') > -1) {
+                                href = href.replace('http:', 'https:');
+                                $(this).attr('href', href);
+                            }
+                        });
+                                   
+                    }
 	});
 </script>
 
