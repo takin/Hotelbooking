@@ -1619,6 +1619,31 @@ class CMain extends I18n_site
 //    $numNights = $this->session->userdata('numnights_selected');
 
     //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
+     
+        $urldate = $this->uri->segment(4);
+        $units = $this->uri->segment(5);
+ 
+	if($dateStart!=false)
+    {
+		if(!empty($urldate))
+		 $data['date_selected'] = $urldate;
+		else
+        $data['date_selected'] = $dateStart;
+    }else{
+		 $data['date_selected'] = $urldate;
+		 }
+   
+    if($numNights!=false)
+     {
+		if(!empty($units))
+		$data['numnights_selected'] = $units;
+		else
+        $data['numnights_selected'] = $numNights;
+    }else{
+		$data['numnights_selected'] = $units;
+		}
+    	    
+		    
     if($country!=false)
     {
       $data['country_selected'] = $country;
@@ -1627,18 +1652,12 @@ class CMain extends I18n_site
     {
       $data['city_selected'] = $city;
     }
-    if($dateStart!=false)
-    {
-      $data['date_selected'] = $dateStart;
-    }
-    if($numNights!=false)
-    {
-      $data['numnights_selected'] = $numNights;
-    }
     if($search_term!=false)
     {
 //      $data['search_term'] = urldecode($search_term);
     }
+    
+    
   }
 
   function condition_check($str)

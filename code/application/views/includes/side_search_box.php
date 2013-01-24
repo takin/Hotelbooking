@@ -41,47 +41,30 @@
 		<form class="group side_search" id="side_search" action="" method="post">
 
 			<?php
-			
-			$REQUEST_URI =  $_SERVER['REQUEST_URI'];
-			if(!empty($REQUEST_URI)){
-			$urlval = explode("/", $REQUEST_URI);
-			 $urlcount = count($urlval);
-			 
-			 $last = $urlcount-1;
-			 $secondlast = $urlcount-2;
-			 
-			$units = $urlval[$last]; 
-			$urldate = $urlval[$secondlast]; 
-		    }
-			 
-			 if (is_numeric($units)) {
-				$date_selected = $urlval[$secondlast]; 
-				
+			if(!empty($date_selected))
+			{
+				$date_selected = $date_selected;
 				setcookie("date_selected", $date_selected);
-			 }else if(!empty($_COOKIE["date_selected"]))
+			}
+			 else if(!empty($_COOKIE["date_selected"]))
 			{
 				$date_selected = $_COOKIE["date_selected"];
-			}
-			else
+			}else
 			{
 				$date_selected = get_date_default();
 			}
 			 
-			 
-			if (is_numeric($units)) {
-				$numnights_selected = $units; 
+		    if(!empty($numnights_selected))
+			{
+				$numnights_selected = $numnights_selected;
 				setcookie("numnights_selected", $numnights_selected);
-			 }
+			}
 			elseif(!empty($_COOKIE["numnights_selected"]))
 			{
 				$numnights_selected = $_COOKIE["numnights_selected"];
 			}else{
 				$numnights_selected = 2;
 			}
-			
-			
-			
-			
 			
 			?>
 			
