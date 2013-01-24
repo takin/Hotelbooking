@@ -69,6 +69,10 @@ RewriteCond %{HTTP_HOST} ^youthhostels\.eu$ [NC]
 RewriteRule ^.*$ http://www.youth-hostels.eu%{REQUEST_URI} [R=301,L]
 
 #-------------------  www.auberges.com -------------------
+# Watch https://mcwebmanagement.atlassian.net/browse/MCWEB-180
+RewriteCond %{HTTP_HOST} ^wwww\.auberges\.com$ [NC]
+RewriteRule ^.*$ http://www.auberges.com%{REQUEST_URI} [R=301,L]
+
 #Wordpress French direct access pages
 RewriteCond %{HTTP_HOST}   ^www\.auberges\.com [NC]
 RewriteCond   $1 ^($|evenements|destinations)  [NC]
@@ -98,6 +102,7 @@ RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
 RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 
 #-------------------  www.youth-hostel.com -------------------
+
 #Wordpress English direct access pages
 RewriteCond %{HTTP_HOST}   ^www\.youth-hostel\.com [NC]
 RewriteCond   $1 ^($|events|destinations)  [NC]
@@ -296,6 +301,7 @@ RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 RewriteRule   ^hostels/(.*)$   ci/$1  [QSA,L]
 
 #-------------------  www.aubergesdejeunesse.ca -------------------
+
 #Wordpress French direct access pages
 RewriteCond %{HTTP_HOST}   ^www\.aubergesdejeunesse\.ca [NC]
 RewriteCond   $1 ^($|evenements|destinations)  [NC]
