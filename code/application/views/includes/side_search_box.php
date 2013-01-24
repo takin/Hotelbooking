@@ -1,8 +1,7 @@
 <div class="box_content box_round group side_search" id="side_search_box">
-	<?php if($current_view == "hostel_view"){?>
-	<span id="modify_search" class=""><a title="<?php echo _('Modify search')?>" class="modify_search expand" href="#"><strong><?php echo _('Modify search')?></strong></a></span>
-	<span id="search_now" style="display:none;" class="search_title"><?php echo _('Search Now')?></span>
-	<?php } elseif($current_view == "city_view") { ?>
+	
+	<?php if(($current_view == "city_view") || ($current_view == "hostel_view")) {
+	?>
 	<span id="modify_search" class=""><a class="modify_search expand" style="border-bottom: 1px solid #80B422;margin-bottom: 10px;font-size: 1.2em;padding: 5px 0 7px;text-decoration:none;cursor:pointer;"><strong><?php echo _('Modify search')?></strong></a></span>
 	<span id="search_now" style="display:none;" class="search_title"><?php echo _('Search Now')?></span>
 	<?php }else{?>
@@ -10,8 +9,14 @@
 	<?php }?>
 	<?php 
 		
-		$side_search_wrap = $current_view == "city_view"?'side_search_wrap_city':'side_search_wrap';
-	
+		if(($current_view == "city_view") || ($current_view == "hostel_view"))
+		{
+			$side_search_wrap = "side_search_wrap_city";	
+		}
+		else{
+			$side_search_wrap = "side_search_wrap";	
+		}
+		
 	?>
 
 	<div id="<?php echo $side_search_wrap; ?>" >
@@ -38,29 +43,31 @@
 			<?php
 			if(!empty($date_selected))
 			{
-				;
+				$date_selected = $date_selected;
+				setcookie("date_selected", $date_selected);
 			}
-			elseif(!empty($_COOKIE["date_selected"]))
+			 else if(!empty($_COOKIE["date_selected"]))
 			{
 				$date_selected = $_COOKIE["date_selected"];
-			}
-			else
+			}else
 			{
 				$date_selected = get_date_default();
 			}
-			if(!empty($numnights_selected))
+			 
+		    if(!empty($numnights_selected))
 			{
-				;
+				$numnights_selected = $numnights_selected;
+				setcookie("numnights_selected", $numnights_selected);
 			}
 			elseif(!empty($_COOKIE["numnights_selected"]))
 			{
 				$numnights_selected = $_COOKIE["numnights_selected"];
-			}
-			else
-			{
+			}else{
 				$numnights_selected = 2;
 			}
+			
 			?>
+			
 			<script>
 			$(document).ready(
 
