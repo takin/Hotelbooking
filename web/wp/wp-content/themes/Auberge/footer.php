@@ -54,9 +54,15 @@ else {?>
 				<?php $about = get_option('aj_page_about'); if (!empty($about)){?><li><a href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php }?>
 			</ul>
 		</div>
-		<div class="footer-block grid_3">
-			<?php include (TEMPLATEPATH . '/flags.php');?>
+		<?php if (get_option('aj_api_site_data')=="hb"){?>
+		
+		    <div class="footer-block grid_3">
+				<?php include (TEMPLATEPATH . '/flags.php');?>
 		</div>
+	    <?php }else { ?>
+		<div class="footer-block grid_3">
+		</div>
+		<?php } ?>
 	</div>
 </footer>
 <section class="grid_16">

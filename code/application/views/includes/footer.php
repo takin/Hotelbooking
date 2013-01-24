@@ -48,10 +48,15 @@
 				<?php }?>		
 			</ul>
 		</div>
+		<?php if ($this->wordpress->get_option('aj_api_site_data')=="hb"){?>
 		
-		<div class="footer-block grid_3">
+		    <div class="footer-block grid_3">
 			<?php $this->load->view('includes/flags'); ?>
 		</div>
+	    <?php }else { ?>
+		<div class="footer-block grid_3">
+		</div>
+		<?php } ?>
 	</div>
 </footer>
 <section class="grid_16">
