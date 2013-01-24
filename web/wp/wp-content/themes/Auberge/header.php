@@ -220,8 +220,7 @@ echo '<meta name="robots" content="noindex,follow" />';
 		?>
 			<div class="fblike">
 				<script  type="text/javascript" src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
-				<div class="fb-like" data-href="<?php echo $apiurl; ?>" data-send="false" data-width="450" data-show-faces="false" ></div>
-				<!--<fb:like show_faces="false" layout="button_count" href="<?php //echo $apiurl; ?>"></fb:like> -->
+				<div class="fb-like" data-href="<?php echo $apiurl; ?>" data-send="false" data-width="450" data-show-faces="false" data-layout="button_count"></div>
 			</div>
 			</div>
 			<div class="grid_10">
