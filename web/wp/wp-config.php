@@ -300,7 +300,14 @@ switch($_SERVER['HTTP_HOST'])
 
 }
 
-if (ISWINDOWS) {
+
+if((getenv('ENVIRONMENT') == 'development'))
+{
+	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
+	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+
+}else if (ISWINDOWS) {
 	$username = "dev_aj_site";
 	$password = "data2016";
 	$DBHostname = "127.0.0.1:4040";
@@ -311,7 +318,6 @@ else
 	$password = "2bVHhwjCGQrRnGW2";
 	$DBHostname = "92.243.25.30";
 }
-
 
 define('DB_NAME_AUBERGE', 'aj_ci');
 
