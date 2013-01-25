@@ -271,6 +271,8 @@ class Microsofttranslator extends CI_Model {
 
     if(count($this->batchTranslationText)>0)
     {
+      $remote_translations = $this->make_xml_request('TranslateArray',$xmldata);
+       
       if($remote_translations === FALSE)
       {
 		
