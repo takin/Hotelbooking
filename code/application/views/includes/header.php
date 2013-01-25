@@ -721,9 +721,9 @@
 
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
-	
-/* FOR change class in header manu */	
-$url =$_SERVER['PHP_SELF'];	
+
+/* FOR change class in header manu */
+$url =$_SERVER['PHP_SELF'];
 $pattern = '/(group)?$/';
 preg_match($pattern, $url , $matches);
 $sel_class = '';
@@ -833,7 +833,7 @@ $(document).ready(function(){
 			if($code=='' || $shortcode =='en'){$code="en_US";}
 		?>
 		<div class="fblike">
-				<script src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
+				<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
 				<fb:like show_faces="false" layout="button_count" href="<?php echo strtolower(base_url()); ?>"></fb:like>
 		</div>
 
@@ -896,7 +896,7 @@ $(document).ready(function(){
 				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li><?php */?>
 				<?php
 				$displayVelaro = $this->config->item('displayVelaro');
-			
+
 				if($displayVelaro == 1)
 		        {
 					 if ($this->wordpress->get_option('aj_velaro_id') !='')
@@ -905,7 +905,7 @@ $(document).ready(function(){
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a></li>
 				<?php }else{?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
-				<?php }  
+				<?php }
 				          }?>
 			</ul>
 		</nav>

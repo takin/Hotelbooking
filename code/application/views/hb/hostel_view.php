@@ -336,7 +336,7 @@ else
 		</div>
 		<div class="group hostel-meta">
 			<div class="fblike">
-					<script src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
+					<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
 			</div>
 
 			<div class="amenities no-indent">
