@@ -271,14 +271,6 @@ class Microsofttranslator extends CI_Model {
 
     if(count($this->batchTranslationText)>0)
     {
-		$filename = '/opt/logs/bing-request-'.date('h: i',time()).'-'.rand(0,2323).'.xml';
-		$handle = fopen($filename, "a");
-		
-		fwrite($handle,$xmldata);
-      $remote_translations = $this->make_xml_request('TranslateArray',$xmldata);
-$filename = '/opt/logs/bing-response-'.date('h-i',time()).'-'.rand(0,2323).'.text';
-		$handle = fopen($filename, "a");
-		fwrite($handle,$remote_translations);
       if($remote_translations === FALSE)
       {
 		
