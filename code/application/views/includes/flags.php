@@ -19,7 +19,6 @@
 	<li><a title="AubergesDeJeunesse.ca" class="flag-ca" href="http://www.aubergesdejeunesse.ca">AubergesDeJeunesse.ca</a></li>
 	<li><a title="AlberguesJuveniles.com" class="flag-mx" href="http://www.alberguesjuveniles.com">AlberguesJuveniles.com</a></li>
 	<?php /*?><li class="clear continent"></li><?php */?>
-	<li><a title="Youth-Hostels.asia" class="flag-asia" href="http://www.youth-hostels.asia">Youth-Hostels.asia</a></li>
 	<li><a title="Youth-Hostels.cn" class="flag-zn" href="http://www.youth-hostels.cn">Youth-Hostels.cn</a></li>
 	<li><a title="Youth-Hostels.hk" class="flag-hk" href="http://www.youth-hostels.hk">Youth-Hostels.hk</a></li>
 	<li><a title="Youth-Hostels.kr" class="flag-kr" href="http://www.youth-hostels.kr">Youth-Hostels.kr</a></li>
