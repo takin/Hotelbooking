@@ -102,7 +102,7 @@ GoogleMap.prototype.drawMap = function()
 	if(this.glib_loaded === false)
 	{
 		script.type = "text/javascript";
-		script.src = "http://maps.google.com/maps/api/js?sensor=false&language="+this.map_lang+"&callback=gmap_start";
+		script.src = "https://maps.google.com/maps/api/js?sensor=false&language="+this.map_lang+"&callback=gmap_start";
 		
 		//Create callback function that must be global
 		window.gmap_start = function(){
