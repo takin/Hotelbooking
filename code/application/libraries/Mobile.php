@@ -17,7 +17,7 @@ class Mobile
    */
   function google_map_link($title, $lat, $long, $lang = "en")
   {
-    return "http://maps.google.com/maps?q=".urlencode($title)."&hl=".$lang."&ll=".$lat.",".$long."&spn=0.010334,0.033023&sll=37.0625,-95.677068&sspn=51.222969,135.263672&t=h&z=16";
+    return "https://maps.google.com/maps?q=".urlencode($title)."&hl=".$lang."&ll=".$lat.",".$long."&spn=0.010334,0.033023&sll=37.0625,-95.677068&sspn=51.222969,135.263672&t=h&z=16";
   }
 
   function map_link($title, $lat, $long)
