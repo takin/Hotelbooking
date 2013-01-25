@@ -18,7 +18,7 @@
 		<div class="box_content map_button_box box_round" id="map_button_side">
 			<a id="city_map_show_1" href="#">
 			<span><strong><?php echo _("Voir la carte");?></strong></span>
-			<img class="" src="http://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			</a>
 		</div>
 		<?php }?>
