@@ -1622,10 +1622,12 @@ class CMain extends I18n_site
      
         $urldate = $this->uri->segment(4);
         $units = $this->uri->segment(5);
- 
+  
+      $chkdate = $this->checkData($urldate);
+  
 	if($dateStart!=false)
     {
-		if(!empty($urldate))
+	  if(($chkdate == true) && (!empty($urldate)))
 		 $data['date_selected'] = $urldate;
 		else
         $data['date_selected'] = $dateStart;
@@ -1635,7 +1637,7 @@ class CMain extends I18n_site
    
     if($numNights!=false)
      {
-		if(!empty($units))
+		if((is_numeric($units)) && (!empty($units)))
 		$data['numnights_selected'] = $units;
 		else
         $data['numnights_selected'] = $numNights;
@@ -1643,7 +1645,6 @@ class CMain extends I18n_site
 		$data['numnights_selected'] = $units;
 		}
     	    
-		    
     if($country!=false)
     {
       $data['country_selected'] = $country;
@@ -1659,6 +1660,16 @@ class CMain extends I18n_site
     
     
   }
+
+	function checkData($mydate) {
+		list($yy,$mm,$dd)=explode("-",$mydate);
+		if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
+		{
+			return true;
+		}
+		return false;           
+	} 
+
 
   function condition_check($str)
   {
