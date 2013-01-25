@@ -22,7 +22,6 @@ include( TEMPLATEPATH . '/header-mobile.php' );
 <?php if (is_single() || get_option('aj_block_bot') || is_page(array(get_option('aj_no_seo')))){
 echo '<meta name="robots" content="noindex,follow" />';
 }?>
-
 <?php 
 $apiurl = get_option('aj_api_url'); 
 // if https protocol set https
