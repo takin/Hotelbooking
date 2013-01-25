@@ -62,7 +62,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php /*?><?php register_scripts(); ?><?php */?>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/imageload.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jtools.js"></script>
@@ -250,7 +250,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 			if($code=='' || $shortcode =='en'){$code="en_US";}
 		?>
 			<div class="fblike">
-				<script  type="text/javascript" src="http://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
+				<script  type="text/javascript" src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script>
 				<div class="fb-like" data-href="<?php echo $apiurl; ?>" data-send="false" data-width="450" data-show-faces="false" data-layout="button_count"></div>
 			</div>
 			</div>
