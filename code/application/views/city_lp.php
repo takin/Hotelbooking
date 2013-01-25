@@ -128,9 +128,9 @@ $(document).ready(function(){
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
 			<?php if(!empty($landmark->geo_latitude)){?>
-			<img class="" src="http://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			<?php }else{?>
-			<img class="" src="http://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			<?php }?>
 			<?php /*?></a><?php */?>
 		</div>
