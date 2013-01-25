@@ -48,8 +48,7 @@
 				<?php }?>		
 			</ul>
 		</div>
-		
-		<div class="footer-block grid_3">
+		    <div class="footer-block grid_3">
 			<?php $this->load->view('includes/flags'); ?>
 		</div>
 	</div>
