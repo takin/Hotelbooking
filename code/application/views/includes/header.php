@@ -133,7 +133,7 @@
 
 	  var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://maps.google.com/maps/api/js?sensor=false&language=<?php echo $this->site_lang; ?>&callback="+callbackFunction;
+    script.src = "https://maps.google.com/maps/api/js?sensor=false&language=<?php echo $this->site_lang; ?>&callback="+callbackFunction;
     document.body.appendChild(script);
   }
 
