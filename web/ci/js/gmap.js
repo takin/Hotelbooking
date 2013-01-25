@@ -35,7 +35,7 @@ function Custom_gmap(div, title, lat, lng, address)
 	this.append_gscript = function(lang, callback) {
 		var script = document.createElement("script");
 		script.type = "text/javascript";
-		script.src = "http://maps.google.com/maps/api/js?sensor=false&language="+lang+"&callback="+callback;
+		script.src = "https://maps.google.com/maps/api/js?sensor=false&language="+lang+"&callback="+callback;
 		document.body.appendChild(script);
 	};
 }
