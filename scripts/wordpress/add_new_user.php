@@ -196,7 +196,7 @@ $arrDatabases = array(
 
 $userDetails = array(
     "user_login" => $argv[1],
-    "user_pass" => $argv[2],
+    "user_pass" => "$P$BVq9wNjEJIXLduLUifZ4BmpAB72him0",
     "user_email" => $argv[3],
     "display_name" => $argv[4]
 );
@@ -206,7 +206,7 @@ $userDetails = array(
 $arrFinalResult = array();
 define("HOST", "92.243.25.30");
 define("USER", "aj_site");
-define("PASSWORD", "$P$BVq9wNjEJIXLduLUifZ4BmpAB72him0");
+define("PASSWORD", "2bVHhwjCGQrRnGW2");
 
 // create connection and return it to use it when query
 $connection = mySqlConnect();
