@@ -171,15 +171,16 @@ $arrDatabases = array(
     array(
         "site_name" => "www.xn--xn2by4qtje86kn5ezmb.kr",
         "db_name" => "aj_wp_ko_ho"
-    ),
-    array(
-        "site_name" => "www.hbsitetest.com",
-        "db_name" => "aj_wp_hb"
-    ),
-    array(
-        "site_name" => "www.hwsitetest.com",
-        "db_name" => "aj_wp_hw"
     )
+//    ,
+//    array(
+//        "site_name" => "www.hbsitetest.com",
+//        "db_name" => "aj_wp_hb"
+//    ),
+//    array(
+//        "site_name" => "www.hwsitetest.com",
+//        "db_name" => "aj_wp_hw"
+//    )
 );
 
 //****************************************************************
@@ -289,8 +290,6 @@ function saveData($pConnection, $pDbName, $pUserDetails) {
     $user_email = mysql_escape_string(trim($pUserDetails["user_email"]));
     $display_name = mysql_escape_string(trim($pUserDetails["display_name"]));
 
-
-    echo "Checking user exist in Database \n\r ";
 
     $sql_checkUser = "select user_login from wp_users where user_login='$user_login'";
     $result_checkUser = mysqli_query($pConnection, $sql_checkUser);
