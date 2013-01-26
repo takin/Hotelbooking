@@ -1,10 +1,15 @@
 <?php
 //echo "\r\n" . count($argv) . "\r\n";
 //die();
+
+
+
 if(count($argv) != 5){ 
     
-    die("\r\nMissing userDetails, \r\n example: php add_new_user.php username password me@example.com " . '"firstName LastName"'. " \r\n  \r\n ");
+    die("\n\r Missing userDetails, \n\r example: php add_new_user.php username me@example.com " . '"firstName LastName"'. " \n\r \n\r ");
 }
+
+echo '\n\r Password will be mcweb \n\r';
 
 // define all databases
 $arrDatabases = array(
@@ -201,7 +206,7 @@ $userDetails = array(
 $arrFinalResult = array();
 define("HOST", "92.243.25.30");
 define("USER", "aj_site");
-define("PASSWORD", "2bVHhwjCGQrRnGW2");
+define("PASSWORD", "$P$BVq9wNjEJIXLduLUifZ4BmpAB72him0");
 
 // create connection and return it to use it when query
 $connection = mySqlConnect();
@@ -270,7 +275,7 @@ function saveData($pConnection, $pDbName, $pUserDetails) {
 
 // remove extra spaces from name
     $user_login = mysql_escape_string(trim($pUserDetails["user_login"]));
-    $user_pass = md5(mysql_escape_string(trim($pUserDetails["user_pass"])));
+    $user_pass = mysql_escape_string(trim($pUserDetails["user_pass"]));
     $user_email = mysql_escape_string(trim($pUserDetails["user_email"]));
     $display_name = mysql_escape_string(trim($pUserDetails["display_name"]));
 
