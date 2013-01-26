@@ -4,7 +4,7 @@
 
 
 
-if(count($argv) != 5){ 
+if(count($argv) != 4){ 
     
     die("\n\r Missing userDetails, \n\r example: php add_new_user.php username me@example.com " . '"firstName LastName"'. " \n\r \n\r ");
 }
