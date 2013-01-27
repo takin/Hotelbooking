@@ -1,10 +1,11 @@
 <?php
-//echo "\r\n" . count($argv) . "\r\n";
-//die();
-if(count($argv) != 5){ 
-    
-    die("\r\nMissing userDetails, \r\n example: php add_new_user.php username password me@example.com " . '"firstName LastName"'. " \r\n  \r\n ");
+
+if (count($argv) != 4) {
+
+    die("\n\r Missing userDetails, \n\r example: php add_new_user.php username me@example.com " . '"firstName LastName"' . " \n\r \n\r ");
 }
+
+echo "\n\r Password will be " . '"mcweb"' . " \n\r\n\r";
 
 // define all databases
 $arrDatabases = array(
@@ -170,38 +171,34 @@ $arrDatabases = array(
     array(
         "site_name" => "www.xn--xn2by4qtje86kn5ezmb.kr",
         "db_name" => "aj_wp_ko_ho"
-    ),
-    array(
-        "site_name" => "www.hbsitetest.com",
-        "db_name" => "aj_wp_hb"
-    ),
-    array(
-        "site_name" => "www.hwsitetest.com",
-        "db_name" => "aj_wp_hw"
     )
+//    ,
+//    array(
+//        "site_name" => "www.hbsitetest.com",
+//        "db_name" => "aj_wp_hb"
+//    ),
+//    array(
+//        "site_name" => "www.hwsitetest.com",
+//        "db_name" => "aj_wp_hw"
+//    )
 );
 
 //****************************************************************
-//$userDetails = array(
-//    "user_login" => "Karim",
-//    "user_pass" => "mcweb",
-//    "user_email" => "Karim5977@gmail.com",
-//    "display_name" => "Karim Samir"
-//);
 
 $userDetails = array(
     "user_login" => $argv[1],
-    "user_pass" => $argv[2],
-    "user_email" => $argv[3],
-    "display_name" => $argv[4]
+    "user_pass" => '$P$BVq9wNjEJIXLduLUifZ4BmpAB72him0',
+    "user_email" => $argv[2],
+    "display_name" => $argv[3]
 );
 
 //****************************************************************
 
 $arrFinalResult = array();
-define("HOST", "92.243.25.30");
+
 define("USER", "aj_site");
 define("PASSWORD", "2bVHhwjCGQrRnGW2");
+define("HOST", "92.243.25.30");
 
 // create connection and return it to use it when query
 $connection = mySqlConnect();
@@ -222,24 +219,27 @@ foreach ($arrDatabases as $sites => $siteDetails) {
 
     echo " Backuping users and usersmeta tables  \n\r";
 
-    
+
     // create dir to use it to backup tables in it
     if (!is_dir($dirName)) {
         mkdir($dirName);
     }
-    
-    // backup files using this command
-    $output = 'mysqldump --port 3306 -u '.USER.' --password='.PASSWORD.' -h '.HOST.' --add-drop-table ' . $siteDetails["db_name"] .' wp_users wp_usermeta > '. $dirName ."/" .$siteDetails["db_name"].'_wp_users_backup.sql';
-     shell_exec($output);    
 
-     
+    // backup files using this command
+    $output = 'mysqldump --port 3306 -u ' . USER . ' --password=' . PASSWORD . ' -h ' . HOST . ' --add-drop-table ' . $siteDetails["db_name"] . ' wp_users wp_usermeta > ' . $dirName . "/" . $siteDetails["db_name"] . '_wp_users_backup.sql';
+    shell_exec($output);
+
+
     $arrResult = saveData($connection, $siteDetails["db_name"], $userDetails);
 
     if ((array_key_exists("failed", $arrResult))) {
-        $arrFinalResult["failed"][] = $arrResult + $siteDetails;
+        $arrFinalResult["failed"][] = array_merge((array) $arrResult, (array) $siteDetails);
     } else {
-        $arrFinalResult["success"][] = $arrResult + $siteDetails;
+        $arrFinalResult["success"][] = array_merge((array) $arrResult, (array) $siteDetails);
     }
+
+
+
     echo " -------------Finished " . $siteDetails["db_name"] . " -------------- \n\r";
 }
 
@@ -247,21 +247,37 @@ foreach ($arrDatabases as $sites => $siteDetails) {
 mysqli_close($connection);
 
 echo "\n\r *******************Final Result ****************************** \n\r";
-if (is_array($arrFinalResult["failed"]) && !empty($arrFinalResult["failed"])) {
+
+echo "\n\r Total  = " . count($arrDatabases)  . "\n\r ";
+
+if (array_key_exists("success", $arrFinalResult) ){
+    echo "\n\r Total Succeeded = " . count($arrFinalResult["success"])  . "\n\r ";
+}
+        
+if (array_key_exists("failed", $arrFinalResult) ){
+    echo "Total failed = " . count($arrFinalResult["failed"])  . "\n\r \n\r";
+}
+
+ 
+if (array_key_exists("failed", $arrFinalResult)  && !empty($arrFinalResult["failed"])) {
+
     foreach ($arrFinalResult["failed"] as $key => $value) {
 
         echo "Failed inserting User in database: " . $value["db_name"] . "\n\r ";
         echo "Details: " . $value["details"] . "\n\r ";
         echo " ------------------------------------- \n\r";
     }
+   
 }
+ 
 
 echo "\n\r ************************************************************** \n\r";
-
 
 function saveData($pConnection, $pDbName, $pUserDetails) {
 
     $arrResult = array();
+//    $arrResult["failed"] = false;
+//    $arrResult["failed"] = true;
     $arrResult["user_exist"] = false;
 
     // select DB to used it to insert data
@@ -270,17 +286,15 @@ function saveData($pConnection, $pDbName, $pUserDetails) {
 
 // remove extra spaces from name
     $user_login = mysql_escape_string(trim($pUserDetails["user_login"]));
-    $user_pass = md5(mysql_escape_string(trim($pUserDetails["user_pass"])));
+    $user_pass = mysql_escape_string(trim($pUserDetails["user_pass"]));
     $user_email = mysql_escape_string(trim($pUserDetails["user_email"]));
     $display_name = mysql_escape_string(trim($pUserDetails["display_name"]));
 
 
-    echo "Checking user exist in Database \n\r ";
+    $sql_checkUser = "select user_login from wp_users where user_login='$user_login'";
+    $result_checkUser = mysqli_query($pConnection, $sql_checkUser);
 
-    $sql = "select user_login from wp_users where user_login='$user_login'";
-    $result = mysqli_query($pConnection, $sql);
-
-    if (!$result) {
+    if (!$result_checkUser) {
 
         $arrResult["failed"] = true;
         $arrResult["details"] = 'Error: ' . mysql_error();
@@ -288,21 +302,21 @@ function saveData($pConnection, $pDbName, $pUserDetails) {
         echo "Failed Checking user exist in Database because of " . $arrResult["details"] . "\n\r ";
 
         return $arrResult;
-    } else {
+    }
 
-        // return number of rows found
-        // if 0 then user doesn't exit
-        //otherwise this user already exist in DB
-        if (mysqli_num_rows($result) > 0) {
-            $arrResult["failed"] = true;
-            $arrResult["details"] = 'User already exist in DB';
+    // return number of rows found
+    // if 0 then user doesn't exit
+    //otherwise this user already exist in DB
+    if (mysqli_num_rows($result_checkUser) > 0) {
+        $arrResult["failed"] = true;
+        $arrResult["details"] = 'User already exist in DB';
 
-            echo $arrResult["details"] . "\n\r ";
-            return $arrResult;
-        } else {
+        echo $arrResult["details"] . "\n\r ";
+        return $arrResult;
+    }
 
 
-            $sql = "INSERT INTO `$pDbName`.`wp_users` 
+    $sql_insertInUsersTbl = "INSERT INTO `$pDbName`.`wp_users` 
 	( 
 	`ID`,
         `user_login`, 
@@ -326,57 +340,48 @@ function saveData($pConnection, $pDbName, $pUserDetails) {
 ";
 
 
-            // insert data in MySQL now
-            $result = mysqli_query($pConnection, $sql);
+    // insert data in MySQL now
+    $result_insertInUsersTbl = mysqli_query($pConnection, $sql_insertInUsersTbl);
 
-            $userID = mysqli_insert_id($pConnection);
+    $userID = mysqli_insert_id($pConnection);
 
-            if (!$result || !$userID) {
-                $arrResult["failed"] = true;
-                $arrResult["details"] = 'Failed inserting user details in table "wp_users"  Error: ' . mysql_error();
+    if (!$result_insertInUsersTbl || !$userID) {
+        $arrResult["failed"] = true;
+        $arrResult["details"] = 'Failed inserting user details in table "wp_users"  Error: ' . mysql_error();
 
-                echo $arrResult["details"] . "\n\r ";
-                return $arrResult;
-            } else {
-                $sql = "INSERT INTO `$pDbName`.`wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
+        echo $arrResult["details"] . "\n\r ";
+        return $arrResult;
+    }
+
+    $sql_insertInUserMetaTbl = "INSERT INTO `$pDbName`.`wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) 
         VALUES (NULL, $userID, 'wp_capabilities', 'a:1:{s:13:\"administrator\";b:1;}'),
                 (NULL, $userID, 'wp_user_level', '10');";
 
-                // insert data in MySQL now
-                $result = mysqli_query($pConnection, $sql);
+    // insert data in MySQL now
+    $result_insertInUserMetaTbl = mysqli_query($pConnection, $sql_insertInUserMetaTbl);
 
-                if (!$result) {
-                    $arrResult["failed"] = true;
-                    $arrResult["details"] = 'Failed inserting user details in table "wp_usermeta" Error: ' . mysql_error();
+    if (!$result_insertInUserMetaTbl) {
+        $arrResult["failed"] = true;
+        $arrResult["details"] = 'Failed inserting user details in table "wp_usermeta" Error: ' . mysql_error();
 
-                    echo $arrResult["details"] . "\n\r ";
+        echo $arrResult["details"] . "\n\r ";
 
-                    $sql_delete = "Delete FROM `$pDbName`.`wp_users` where user_login='$user_login';";
+        $sql_delete = "Delete FROM `$pDbName`.`wp_users` where user_login='$user_login';";
 
-                    echo "Deleting user from table wp_users \n\r ";
+//        echo "Deleting user from table wp_users \n\r ";
+        // insert data in MySQL now
+        $result_delete = mysqli_query($pConnection, $sql_delete);
 
-                    // insert data in MySQL now
-                    $result = mysqli_query($pConnection, $sql_delete);
 
-                    if (!$result) {
-                        echo "Failed Deleting user from table wp_users, please delete it manually \n\r ";
-
-                    }
-                    else{
-                        echo "Success deleting user from table wp_users \n\r ";
-
-                    }
-                    echo "FAILED \n\r ";
-
-                    return $arrResult;
-                }
-                else{
-                    echo "Success \n\r ";
-
-                }
-            }
-        }
+        return $arrResult;
     }
+
+    $arrResult["success"] = true;
+    $arrResult["details"] = 'User added successfully';
+
+    echo $arrResult["details"] . " \n\r ";
+
+    return $arrResult;
 }
 
 ?>
