@@ -272,16 +272,16 @@ $SPACE = '&nbsp';
                    <?php if($isCustomCurrency):?>
                    <?php echo $bookCurSymbol.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
                    <?php else:?>
-                   <?php echo $cur;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
+                   <?php echo $cur.$SPACE;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
                    <?php endif;?>
                   </td>
                   <td>1<?php //echo $room->beds;?></td>
                   <td class="value">
 
                    <?php if($isCustomCurrency):?>
-                   <?php echo $bookCurSymbol.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
+                   <?php echo $bookCurSymbol.$SPACE.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
                    <?php else: ?>
-                   <?php echo $cur;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
+                   <?php echo $cur.$SPACE;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
                    <?php endif; ?>
                   </td>
                </tr>
