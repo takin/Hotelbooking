@@ -1,7 +1,7 @@
 <?php
 
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
-
+define('ISDEVELOPMENT', (getenv('ENVIRONMENT') == 'development'));
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

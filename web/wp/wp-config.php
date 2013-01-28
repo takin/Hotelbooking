@@ -19,6 +19,8 @@
 
 /** Customization for the application. */
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
+define('ISDEVELOPMENT', (getenv('ENVIRONMENT') == 'development'));
+
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Le nom de la base de données de WordPress. */
@@ -301,23 +303,21 @@ switch($_SERVER['HTTP_HOST'])
 }
 
 
-if((getenv('ENVIRONMENT') == 'development'))
+if(ISDEVELOPMENT)
 {
 	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
 	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
 	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
-
-}else if (ISWINDOWS) {
+} else if (ISWINDOWS) {
 	$username = "dev_aj_site";
 	$password = "data2016";
 	$DBHostname = "127.0.0.1:4040";
-}
-else
-{
+}else{
 	$username = "aj_site";
 	$password = "2bVHhwjCGQrRnGW2";
 	$DBHostname = "92.243.25.30";
 }
+
 
 define('DB_NAME_AUBERGE', 'aj_ci');
 
