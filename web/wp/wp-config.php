@@ -302,21 +302,34 @@ switch($_SERVER['HTTP_HOST'])
 
 }
 
-
 if(ISDEVELOPMENT)
 {
-	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
-	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
-	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
-} else if (ISWINDOWS) {
-	$username = "dev_aj_site";
-	$password = "data2016";
-	$DBHostname = "127.0.0.1:4040";
+	if(ISWINDOWS){
+		
+		$username = (getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')=="")?"dev_aj_site":getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+		$password = (getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')=="")?"data2016":getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');$DBHostname = (getenv('ENVIRONMENT_DATABASE_WPCI_HOST')=="")?"127.0.0.1:4040":getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+		
+	}else{
+		$username = (getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')=="")?"aj_site":getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+		$password = (getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')=="")?"2bVHhwjCGQrRnGW2":getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');$DBHostname = (getenv('ENVIRONMENT_DATABASE_WPCI_HOST')=="")?"92.243.25.30":getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+		
+	}
 }else{
-	$username = "aj_site";
-	$password = "2bVHhwjCGQrRnGW2";
-	$DBHostname = "92.243.25.30";
+	if(ISWINDOWS){
+		
+		$username = "dev_aj_site";
+		$password = "data2016";
+		$DBHostname = "127.0.0.1:4040";
+		$translationDBHost = "127.0.0.1:4041";
+	}else{
+		
+		$username = "aj_site";
+		$password = "2bVHhwjCGQrRnGW2";
+		$DBHostname = "92.243.25.30";
+		$translationDBHost = "95.142.167.244";
+	}
 }
+
 
 
 define('DB_NAME_AUBERGE', 'aj_ci');
