@@ -27,11 +27,6 @@ class Db_translation_cache extends CI_Model
 
   public function add_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id, $tag)
   {
-    if ($lang_code === $orig_lang_code)
-    {
-    	return TRUE;
-    }
-
     $orig_text = $this->transDB->escape_str($orig_text);
 
     $this->transDB->set('lang_code', $lang_code);
@@ -51,11 +46,6 @@ class Db_translation_cache extends CI_Model
   public function update_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id)
   {
     log_message('debug', 'Entering update translation');
-
-    if ($lang_code === $orig_lang_code)
-    {
-    	return TRUE;
-    }
 
     $orig_text = $this->transDB->escape_str($orig_text);
 
