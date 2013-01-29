@@ -478,8 +478,6 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
 
   function batch_translate()
   {
-  	
-    return NULL;
 
     if(count($this->batchText) > 0 )
     {
