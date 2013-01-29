@@ -695,7 +695,7 @@ else
 		});
 
 		$('a#change-dates').click(function() {
-			$("#dispo-form").toggle();
+			$("#dispo-form").show();
 			$("#booking-table").toggle();
 			return false;
 		});
