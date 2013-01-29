@@ -1661,9 +1661,23 @@ class CMain extends I18n_site
     
   }
 
-	function checkData($mydate) {
-		return false;           
-	} 
+  function checkData($mydate) {
+    if((!empty($mydate)) && ((strpos($mydate,’-‘)) >= 0)){
+      list($yy,$mm,$dd)=explode("-",$mydate);
+
+      $split = explode('-', $ mydate); 
+      $yy = @$split[0]; 
+      $mm = @$split[1];
+      $dd = @$split[2];
+
+     if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
+     {
+       return true;
+     }
+     return false;
+  }
+     
+  } 
 
 
   function condition_check($str)
