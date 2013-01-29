@@ -13,6 +13,7 @@
 	//JS pweb-mapping/PrpoertyFilters.js
 
 	?>
+	
 	<div id="search_load">
 		<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="map_button_side">
@@ -136,6 +137,9 @@
 
 </div>
 
+
+
+
 <div id="main" class="grid_12 city_view_page">
 
 	<?php
@@ -148,6 +152,9 @@
 		if(!isset($bc_city))            $bc_city = NULL;
 		$this->load->view('includes/city_lp_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	}?>
+	
+	
+
 	<div id="city_search_title_bar">
 		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
 		<span id="city_results_counter">
@@ -160,10 +167,19 @@
                     <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
                     <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
                     <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
+                    <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
 				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
 			</div>
+			
+		<!-- research code -->
+	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
+	?>
+		<!-- end --> 	
+			
+
+
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
 
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
@@ -200,6 +216,14 @@
 							$('#wrap').show();
 						}
 				});
+				
+				$('a#change-dates').click(function() {
+					
+					$("#side_search_box_city").toggle();
+					return false;
+				});
+		
+		
 			});
 			</script>
 
