@@ -1662,11 +1662,6 @@ class CMain extends I18n_site
   }
 
 	function checkData($mydate) {
-		list($yy,$mm,$dd)=explode("-",$mydate);
-		if (is_numeric($yy) && is_numeric($mm) && is_numeric($dd))
-		{
-			return true;
-		}
 		return false;           
 	} 
 
