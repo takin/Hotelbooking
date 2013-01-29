@@ -40,9 +40,10 @@ NameVirtualHost 95.142.170.9:443
         LogLevel warn
     
     	SSLEngine on
-
+    	
     	SSLCertificateFile      /opt/certificates/xn--xn2by4qtje86kn5ezmb.kr.crt
-    	SSLCACertificateFile    /opt/certificates/xn--xn2by4qtje86kn5ezmb.kr.pem
-    	SSLCertificateKeyFile   /opt/certificates/xn--xn2by4qtje86kn5ezmb.kr.key
+	SSLCertificateKeyFile   /opt/certificates/xn--xn2by4qtje86kn5ezmb.kr.key
+        SSLCertificateChainFile /opt/certificates/xn--xn2by4qtje86kn5ezmb.kr.ca-bundle
+        
 
 </VirtualHost>
