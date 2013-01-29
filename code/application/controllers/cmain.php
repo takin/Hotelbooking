@@ -1664,7 +1664,6 @@ class CMain extends I18n_site
 
   function checkData($mydate) {
     if((!empty($mydate)) && ((strpos($mydate,"-")) > 0)){
-      //$list($yy,$mm,$dd)=explode("-",$mydate);
 
       $split = explode('-', $mydate);  
       if(is_array($split) && count($split) == 3)
