@@ -300,7 +300,7 @@ $SPACE = '&nbsp';
                   <?php if($isCustomCurrency):?>
                   <?php echo $bookCurSymbol.$SPACE.$booking_request->$bookTotalPriceField->value;?>
                   <?php else:?>
-									<?php echo $cur;?><?php echo $booking_request->SettleBedsTotal->value;?>
+									<?php echo $cur.$SPACE;?><?php echo $booking_request->SettleBedsTotal->value;?>
 									<?php endif; ?>                  
                 </td>
                </tr>

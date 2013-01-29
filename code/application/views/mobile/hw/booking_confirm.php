@@ -53,6 +53,7 @@
         $bookAmountDueField    = $bookCurrency."AmountDue";
         $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
         $dormroomcount = 0;
+        $SPACE = '&nbsp;';
         //Output dorm rooms booked
         foreach($booking_request->RoomDetails as $room)
         {
@@ -95,11 +96,11 @@
                 <?php 
                 if($isCustomCurrency)
                 {
-                  echo $bookCurSymbol.' '.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');
+                  echo $bookCurSymbol.$SPACE.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');
                 }
                 else 
                 {
-                  echo $cur;?>  <?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');
+                  echo $cur.$SPACE;?>  <?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');
                 }
                 ?>
                </td>
@@ -149,11 +150,11 @@
                <?php 
                 if($isCustomCurrency)
                 {
-                  echo $bookCurSymbol.' '.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');
+                  echo $bookCurSymbol.$SPACE.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');
                 }
                 else 
                 {
-                  echo $cur;?>  <?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');
+                  echo $cur.$SPACE;?>  <?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');
                 }
                 ?>
                </td>
@@ -172,9 +173,9 @@
 				<td class="total-value price">
 					<b>
           <?php if($isCustomCurrency):?> 
-          <?php echo $bookCurSymbol.' '.$booking_request->$bookTotalPriceField->value;?>
+          <?php echo $bookCurSymbol.$SPACE.$booking_request->$bookTotalPriceField->value;?>
           <?php else:?>
-          <?php echo $cur;?> <?php echo $booking_request->SettleBedsTotal->value;?>
+          <?php echo $cur.$SPACE;?> <?php echo $booking_request->SettleBedsTotal->value;?>
           <?php endif; ?>
 					</b>
 				</td>
@@ -183,7 +184,7 @@
 			 <td align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?> <?php echo $settleCurrency;?>:</td> 
 			 <td class="price">
 					<b>
-          <?php echo $cur;?> <?php echo $booking_request->SettleDeposit->value;?> 
+          <?php echo $cur.$SPACE;?> <?php echo $booking_request->SettleDeposit->value;?> 
 					</b>
 			 </td>
 			</tr>
@@ -195,7 +196,7 @@
 					 <td class="price">
 					 <span style="display: inline;">
 						 <b>
-             <?php echo $cur;?> <?php echo $booking_request->SettleBookingFee->value;?> 
+             <?php echo $cur.$SPACE;?> <?php echo $booking_request->SettleBookingFee->value;?> 
 						 </b>
 					 </span>
 					 
@@ -232,7 +233,7 @@
            </td> 
 					 <td class="price">
 					 <span style="display: inline;">
-						 <b><?php echo $cur;?> 0.00</b>
+						 <b><?php echo $cur.$SPACE;?> 0.00</b>
 					 </span>
 					 
 			 </td>
@@ -244,7 +245,7 @@
 			 <td class="price white-gradient">
 					<span style="display: inline;">
 					<b>
-						<?php echo $cur;?> <?php echo $booking_request->SettleBillTotal->value;?> 
+						<?php echo $cur.$SPACE;?> <?php echo $booking_request->SettleBillTotal->value;?> 
 					</b>
 					</span>
 					
@@ -260,12 +261,12 @@
            	<?php if ($booking_request->PropertyCurrency->value == $bookCurrency):?>
             	(<?php echo $booking_request->SettleAmountDue->value;?> <?php echo $cur;?>)
             <?php else:?>
-            	(<?php echo '~ '.$booking_request->$bookAmountDueField->value. ' '.$bookCurSymbol;?>)
+            	(<?php echo '~ '.$booking_request->$bookAmountDueField->value.$SPACE.$bookCurSymbol;?>)
             <?php endif;?>
             
            <?php else :?>
 						 <?php if(strcasecmp($booking_request->PropertyCurrency->value,$settleCurrency)!=0):?>
-              (<?php echo $booking_request->SettleAmountDue->value;?> <?php echo $cur;?>)
+              (<?php echo $booking_request->SettleAmountDue->value;?> <?php echo $SPACE.$cur;?>)
              <?php endif; ?> 
 					 <?php endif;?>
            </span>
