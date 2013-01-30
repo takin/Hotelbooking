@@ -2,11 +2,43 @@
 
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 
+if(ISWINDOWS || getenv('ENVIRONMENT') =='development')
+{
+	define('ISDEVELOPMENT',TRUE );
+}
+else
+{
+	define('ISDEVELOPMENT', FALSE);
+}
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
  *---------------------------------------------------------------
+ * Application Root path
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like Application root path.
  *
+ */
+
+if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')=='')
+{
+	if(ISWINDOWS)
+	{
+			define('APPLICATIONROOTPATH',"C:/GitHub/source");
+	}
+	else
+	{
+			define('APPLICATIONROOTPATH',"/opt");
+	}
+}
+else
+{
+	define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
+}
+
+/*
  * You can load different configurations depending on your
  * current environment. Setting the environment also influences
  * things like logging and error reporting.
@@ -20,7 +52,8 @@ define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', (getenv('ENVIRONMENT') == 'development')?"development":"production");
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -29,7 +62,6 @@ define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-
 if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)
@@ -37,7 +69,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -58,14 +90,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-        if (ISWINDOWS)
-	{
-		$system_path = "c:/GitHub/source/code/system";
-	}
-	else
-	{
-		$system_path = "/opt/code/system";
-	}
+$system_path = APPLICATIONROOTPATH."/code/system";
 
 /*
  *---------------------------------------------------------------
@@ -81,14 +106,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	if (ISWINDOWS)
-	{
-		$application_folder = "c:/GitHub/source/code/application";
-	}
-	else
-	{
-		$application_folder = "/opt/code/application";
-	}        
+$application_folder = APPLICATIONROOTPATH."/code/application";
 
 /*
  * --------------------------------------------------------------------

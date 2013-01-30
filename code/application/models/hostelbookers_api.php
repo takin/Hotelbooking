@@ -35,9 +35,9 @@ class Hostelbookers_api extends CI_Model {
 //   var $live_wsdl_booking    = "http://www.hbstaging.net/api/remote/hbbooking.cfc?wsdl";
 //   var $live_apikey    = "HostelBookers19367";
 
-  var $staging_wsdl = "http://www.hbstaging.net/api/remote/hbcontentcurrency.cfc?wsdl";
-  var $staging_wsdl_booking = "http://www.hbstaging.net/api/remote/hbbooking.cfc?wsdl";
-  var $staging_apikey = "HostelBookers19367";
+//  var $staging_wsdl = "http://www.hbstaging.net/api/remote/hbcontentcurrency.cfc?wsdl";
+//  var $staging_wsdl_booking = "http://www.hbstaging.net/api/remote/hbbooking.cfc?wsdl";
+//  var $staging_apikey = "HostelBookers19367";
 
   var $apikey         = "HostelBookers19367";
   var $affiliate_name = "mcweb";
@@ -68,14 +68,14 @@ class Hostelbookers_api extends CI_Model {
 
     $this->CI =& get_instance();
 
-    $this->testmode = $this->CI->config->item('booking_test_mode');
+    $this->testmode = $this->CI->config->item('booking_test_mode') || ISDEVELOPMENT;
 
     //Setup staging site if test mode is detected
     if($this->testmode > 0)
     {
       log_message('debug', "Using test mode for HB call");
-      $this->apikey = $this->staging_apikey;
-      $this->hbapi = new SoapClient($this->staging_wsdl, array('trace' => 1));
+      $this->apikey = $this->live_apikey;
+      $this->hbapi = new SoapClient($this->live_wsdl, array('trace' => 1));
       $this->tracing = TRUE;
     }
     else if ($this->tracing)
@@ -102,7 +102,7 @@ class Hostelbookers_api extends CI_Model {
         $this->hbapibooking = new SoapClient($this->live_wsdl_booking);
         if($this->testmode > 0)
         {
-          $this->hbapibooking = new SoapClient($this->staging_wsdl_booking, array('trace' => 1));
+          $this->hbapibooking = new SoapClient($this->live_wsdl_booking, array('trace' => 1));
         }
       }
       catch(SoapFault $exception)

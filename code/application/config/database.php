@@ -1,19 +1,57 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-if (ISWINDOWS)
+// set the default
+if(ISDEVELOPMENT)
 {
-        $username = "dev_aj_site";
+	$DBHostname = "127.0.0.1";
+	$username = "dev_aj_site";
 	$password = "data2016";
-	$DBHostname = "127.0.0.1:4040";
-	$translationDBHost = "127.0.0.1:4041";
+
+	$translationDBHost = "95.142.167.244";
+	$translationDBUser = "dev_aj_site";
+	$translationDBPassword = "data2016";
 }
 else
 {
+	$DBHostname = "92.243.25.30";
 	$username = "aj_site";
 	$password = "2bVHhwjCGQrRnGW2";
-	$DBHostname = "92.243.25.30";
+
 	$translationDBHost = "95.142.167.244";
+	$translationDBUser = "aj_site";
+	$translationDBPassword = "2bVHhwjCGQrRnGW2";
 }
+
+// get the Apache application DB information if any
+if(getenv('ENVIRONMENT_DATABASE_WPCI_HOST')!='')
+{
+	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')!='')
+{
+	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')!='')
+{
+	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
+}
+
+// application Translation DB credentials
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_HOST')!='')
+{
+	$translationDBHost = getenv('ENVIRONMENT_DATABASE_TRANSLATION_HOST');
+}
+
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME')!='')
+{
+	$translationDBUser = getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME');
+}
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD')!='')
+{
+	$translationDBPassword = getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD');
+}
+
+
 
 /*
 | -------------------------------------------------------------------
@@ -61,6 +99,7 @@ else
 | the active record class
 */
 
+
 $active_group = "default";
 $active_record = TRUE;
 
@@ -81,10 +120,11 @@ $db['default']['ssl_ca']   = "/srv/d_mcweb1/mysql-ssl/ca-cert.pem";
 $db['default']['ssl_cert'] = "/srv/d_mcweb1/mysql-ssl/client-cert.pem";
 $db['default']['ssl_key']  = "/srv/d_mcweb1/mysql-ssl/client-key.pem";
 
+
 //Database for cache translation
 $db['translation']['hostname'] = $translationDBHost;
-$db['translation']['username'] = $username;
-$db['translation']['password'] = $password;
+$db['translation']['username'] = $translationDBUser;
+$db['translation']['password'] = $translationDBPassword;
 $db['translation']['database'] = "aj_translation";
 $db['translation']['dbdriver'] = "mysqli";
 $db['translation']['dbprefix'] = "";

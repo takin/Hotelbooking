@@ -200,7 +200,8 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-if (ISWINDOWS) {
+if (ISDEVELOPMENT)
+{
 	$config['log_threshold'] = 4;
 }
 else
@@ -217,14 +218,7 @@ else
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */
-if (ISWINDOWS) {
-	$config['log_path'] = 'c:/Temp/';
-}
-else
-{
-	$config['log_path'] = '/opt/logs/';
-}
-
+$config['log_path'] =  APPLICATIONROOTPATH.'/logs/';
 
 /*
 |--------------------------------------------------------------------------
@@ -246,14 +240,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-if (ISWINDOWS) {
-	$config['cache_path'] = 'c:/Temp/';
-}
-else
-{
-	$config['cache_path'] = '/opt/cache/';
-}
-
+$config['cache_path'] = APPLICATIONROOTPATH.'/cache/';
 /*
 |--------------------------------------------------------------------------
 | Encryption Key
