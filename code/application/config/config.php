@@ -200,7 +200,8 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-if (ISDEVELOPMENT) {
+if (ISDEVELOPMENT)
+{
 	$config['log_threshold'] = 4;
 }
 else

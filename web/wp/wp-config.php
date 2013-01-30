@@ -20,11 +20,40 @@
 /** Customization for the application. */
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 
-if(ISWINDOWS || getenv('ENVIRONMENT') =='development'){
+if(ISWINDOWS || getenv('ENVIRONMENT') =='development')
+{
 	define('ISDEVELOPMENT',TRUE );
-	
-}else{
+
+}
+else{
 	define('ISDEVELOPMENT', FALSE);
+}
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ * Application Root path
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like Application root path.
+ *
+ */
+
+if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')=='')
+{
+	if(ISWINDOWS)
+	{
+			define('APPLICATIONROOTPATH',"C:/GitHub/source");
+	}
+	else
+	{
+			define('APPLICATIONROOTPATH',"/opt");
+	}
+}
+else
+{
+	define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
 }
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
@@ -309,7 +338,7 @@ switch($_SERVER['HTTP_HOST'])
 
 if(ISDEVELOPMENT)
 {
-	$DBHostname = "127.0.0.1:4040";
+	$DBHostname = "127.0.0.1";
 	$username = "dev_aj_site";
 	$password = "data2016";
 }else{
@@ -319,13 +348,16 @@ if(ISDEVELOPMENT)
 }
 
 // application DB credentials
-if(getenv('ENVIRONMENT_DATABASE_WPCI_HOST')!=''){
+if(getenv('ENVIRONMENT_DATABASE_WPCI_HOST')!='')
+{
 	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
 }
-if(getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')!=''){
+if(getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')!='')
+{
 	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
 }
-if(getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')!=''){
+if(getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')!='')
+{
 	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
 }
 
@@ -397,19 +429,10 @@ define ('WPLANG', 'en_US');
 /* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 
 /** Chemin absolu vers le dossier de WordPress. */
-if (ISWINDOWS)
-{
-	define('ABSPATH', dirname(__FILE__) . '/');
-	define('CI_ABSPATH', 'c:/GitHub/source/web/ci/');
-	define('CI_APPPATH', 'c:/GitHub/source/code/application/');
-	define('CI_LANGPATH', 'c:/GitHub/source/languages/wp/');}
-else
-{
-	define('ABSPATH', dirname(__FILE__) . '/');
-	define('CI_ABSPATH', '/opt/web/ci/');
-	define('CI_APPPATH', '/opt/code/application/');
-	define('CI_LANGPATH', '/opt/languages/wp/');
-}
+define('ABSPATH', dirname(__FILE__) . '/');
+define('CI_ABSPATH', APPLICATIONROOTPATH.'/web/ci/');
+define('CI_APPPATH', APPLICATIONROOTPATH.'/code/application/');
+define('CI_LANGPATH', APPLICATIONROOTPATH.'/languages/wp/');
 
 /** Réglage des variables de WordPress et de ses fichiers inclus. */
 require_once(ABSPATH . 'wp-settings.php');

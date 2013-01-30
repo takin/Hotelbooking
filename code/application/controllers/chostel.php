@@ -1216,6 +1216,10 @@ class CHostel extends I18n_site
         $postdata["testmode"] = 1;
       }
     }
+    if (ISDEVELOPMENT)
+    {
+        $postdata["testmode"] = 1;
+    }
 
     //Secure 3D data
     $secure_cookie      = NULL;

@@ -14,7 +14,7 @@
  */
 
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
-define('ISDEVELOPMENT', (getenv('ENVIRONMENT') == 'development'));
+
 /*
  * --- TimThumb CONFIGURATION ---
  * To edit the configs it is best to create a file called timthumb-config.php

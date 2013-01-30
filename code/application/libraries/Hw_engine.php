@@ -1779,6 +1779,11 @@ class Hw_engine {
         $booking_data["testmode"] = 1;
       }
     }
+    if (ISDEVELOPMENT)
+	{
+	    $booking_data["testmode"] = 1;
+    }
+
     $booking_data['mail_subscribe']  = $this->CI->input->post('mail_subscribe')=="true";
     $booking_data['conditions_agree']= $this->CI->input->post('conditions_agree')=="true";
     $booking_data["propertyNumber"]  = $this->CI->input->post('propertyNumber',TRUE);

@@ -37,8 +37,8 @@ $config['HW_no_confirmation_email'] = 1;
 | Ad words cookie expiration time
 |--------------------------------------------------------------------------
 |
-| default adwords cookies last 30 days = 60*60*24*30 = 2592000 
-| 
+| default adwords cookies last 30 days = 60*60*24*30 = 2592000
+|
 | Set to zero for no expiration as long as the browser is open
 |
 |
@@ -49,7 +49,7 @@ $config['adword_cookie_expiration'] = 2592000;
 | Ad words cookie prefix
 |--------------------------------------------------------------------------
 |
-| prefix for adword cookie 
+| prefix for adword cookie
 |
 */
 $config['adword_cookie_prefix'] = "adword_";
@@ -96,7 +96,7 @@ $config['admin_booking_email'] = "technical@mcwebmanagement.com";
 $config['admin_booking_conf'] = 1;
 /*
 |--------------------------------------------------------------------------
-| admin email for booking confirmation 
+| admin email for booking confirmation
 |--------------------------------------------------------------------------
 |
 | Admin email address to send a new bookings confirmations
@@ -156,7 +156,9 @@ $config['hostelworld_userID'] = "aubergesdejeunesse.com";
 if(ISDEVELOPMENT)
 {
 	$config['hostelworld_API_url'] = "http://www.mcdev1.com:8080/proxy.php/";
-}else{
+}
+else
+{
 	$config['hostelworld_API_url'] = "http://reservations.bookhostels.com/xmlapi/";
 }
 /*

@@ -1,12 +1,16 @@
 <?php
+
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 
-if(ISWINDOWS || getenv('ENVIRONMENT') =='development'){
+if(ISWINDOWS || getenv('ENVIRONMENT') =='development')
+{
 	define('ISDEVELOPMENT',TRUE );
-	
-}else{
+}
+else
+{
 	define('ISDEVELOPMENT', FALSE);
 }
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -17,18 +21,24 @@ if(ISWINDOWS || getenv('ENVIRONMENT') =='development'){
  * things like Application root path.
  *
  */
- 
-if(ISWINDOWS){
-	if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')==''){
+
+if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')=='')
+{
+	if(ISWINDOWS)
+	{
 			define('APPLICATIONROOTPATH',"C:/GitHub/source");
-		}else{
-			define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
-		}
-}else{
-			define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
-		
 	}
-/* 
+	else
+	{
+			define('APPLICATIONROOTPATH',"/opt");
+	}
+}
+else
+{
+	define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
+}
+
+/*
  * You can load different configurations depending on your
  * current environment. Setting the environment also influences
  * things like logging and error reporting.
@@ -43,6 +53,7 @@ if(ISWINDOWS){
  *
  */
 	define('ENVIRONMENT', (getenv('ENVIRONMENT') == 'development')?"development":"production");
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -58,7 +69,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -79,14 +90,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-    if (ISWINDOWS)
-	{
-		$system_path = "c:/GitHub/source/code/system";
-	}
-	else
-	{
-		$system_path = "/opt/code/system";
-	}
+$system_path = APPLICATIONROOTPATH."/code/system";
 
 /*
  *---------------------------------------------------------------
@@ -102,14 +106,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	if (ISWINDOWS)
-	{
-		$application_folder = "c:/GitHub/source/code/application";
-	}
-	else
-	{
-		$application_folder = "/opt/code/application";
-	}        
+$application_folder = APPLICATIONROOTPATH."/code/application";
 
 /*
  * --------------------------------------------------------------------
