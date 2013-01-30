@@ -231,7 +231,9 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {
+       log_message('debug', "getPropertyByID ".$property_number." lang:".$language_code);
        $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
+       log_message('debug', "getPropertyByID ".$property_number. " done");
 
        if($this->tracing)
        {
