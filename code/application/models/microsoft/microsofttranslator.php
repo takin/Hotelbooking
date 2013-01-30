@@ -168,7 +168,7 @@ class Microsofttranslator extends CI_Model {
     $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 	if ($http_status == 200)
 	{
-		
+
 	  curl_close ( $ch );
 	  return $curl_result;
 	}
@@ -256,11 +256,11 @@ class Microsofttranslator extends CI_Model {
     $xmldata .= "<Texts>";
     foreach($this->batchTranslationText as $data)
     {
-		
+
 		$this->CI->custom_log->log("bing-translation",": From ".$this->FromLang." -> To ".$this->ToLang." original text :".$data);
 		$xmldata .= "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">".xml_convert($data)."</string>";
     }
-    
+
     $xmldata .= "</Texts>";
     $xmldata .= "<To>".$this->google_to_ms_lang($this->ToLang)."</To>";
     $xmldata .= "</TranslateArrayRequest>";
@@ -272,10 +272,10 @@ class Microsofttranslator extends CI_Model {
     if(count($this->batchTranslationText)>0)
     {
       $remote_translations = $this->make_xml_request('TranslateArray',$xmldata);
-       
+
       if($remote_translations === FALSE)
       {
-		
+
         //TODO get real error ffrom curl_error
         $results['responseStatus']  = 400;
         return $results;
@@ -301,7 +301,7 @@ class Microsofttranslator extends CI_Model {
         $results['responseData'][$i]['tag_linked'] = $translate_data[$i]->tag;
 
         $trans_object = simplexml_import_dom($doc->importNode($z->expand(), true));
-       log_message("error","tr count $i"); 
+       log_message("error","tr count $i");
 
         if($trans_object === FALSE)
         {
@@ -348,7 +348,7 @@ class Microsofttranslator extends CI_Model {
   public function startBatch($toLang="", $fromLang="")
   {
 	  log_message("error",'start batch');
-	  
+
     if($toLang != "")
     {
       $this->ToLang = $toLang;
@@ -380,13 +380,13 @@ class Microsofttranslator extends CI_Model {
 
   function addTextForBatch($text = "", $tag = "")
   {
-  
+
     $text_length = strlen($text);
 
     //check if in translation cache else add text for remote API translation
     if($this->db_cache_enable === TRUE)
     {
-		
+
       $textdb = $text;
       if((self::MAX_QUERY_LENGTH > 0) && ($text_length > self::MAX_QUERY_LENGTH))
       {
@@ -439,7 +439,7 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
       $this->batch_results['responseData'][$this->results_count] = array();
       $this->batch_results['responseData'][$this->results_count]['responseDetails'] = "Remote Translation Needed";
       $this->batch_results['responseData'][$this->results_count]['responseStatus']  = 0;
-     
+
 
       //Set data for remote translation request
       $this->batch_text_length += $text_length;
@@ -449,7 +449,7 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
       //array_push($this->batchTranslationText,$text);
       if(!in_array($text,$this->batchTranslationText)){
 		  array_push($this->batchTranslationText,$text);
-		  
+
 	  }
 	  array_push($this->batchText,$translation_data);
       $this->batch_results['responseData'][$this->results_count]=$text;
@@ -492,7 +492,7 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
       foreach($this->batch_results['responseData'] as $i => $translation_data)
       {
 		  if($this->config->item('translationLog')==TRUE){
-          $this->CI->custom_log->log("bing_translation","From: ".$this->FromLang." To: ". $this->ToLang." string: ".$this->batchText[$c]->text);
+          $this->CI->custom_log->log("bing-translation","From: ".$this->FromLang." To: ". $this->ToLang." string: ".$this->batchText[$c]->text);
           }
         if($translation_data['responseDetails'] === "Remote Translation Needed")
         {
@@ -504,7 +504,7 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
           elseif(!empty($contents['responseData'][$c]))
           {
             $this->batch_results['responseData'][$i] =  $contents['responseData'][$c];
-         
+
             $c++;
           }
         }
