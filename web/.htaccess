@@ -9,8 +9,8 @@ RewriteBase /
 #RewriteRule (.*) ./maintenance.html [L]
 
 #Ensure www is used
-RewriteCond %{HTTP_HOST}   ^(alberguesjuveniles\.com|youth-hostel\.com|hostales\.com|auberges\.com|aubergesdejeunesse\.com|alberguesdajuventude\.com|ostellidellagioventu\.com|youth-hostels\.jp|jugendherbergen\.eu|youth-hostels\.kr|pousadasdejuventude\.com|alberguesjuveniles\.es|albergues-pensiones\.com|hostels\.in|youth-hostels\.co\.uk|youth-hostels\.ca|aubergesdejeunesse\.ca|hostelek\.com|hostels\.ru\.com|youth-hostels\.hk|hostele\.com|youth-hostels\.ru|schroniskamlodziezowe\.com|retkeilymajoja\.com|hostely\.com|herbergen\.com|ifjusagiszallasok\.com|mladeznickeubytovny\.com|hostelleja\.com|xn--e1amhmfp1c\.xn--p1ai|hosteis\.com|hostelli\.com|youth-hostels\.ie|youth-hostels\.co\.nz|youth-hostels\.co\.nz|youth-hostels\.eu|youth-hostels\.asia|youth-hostels\.cn|hostels\.jp|hostels\.mobi|nofeeshostels\.com|xn--xn2by4qtje86kn5ezmb\.kr) [NC]
-RewriteRule ^/?(.*)         http://www.%{HTTP_HOST}/$1 [L,R,NE]
+RewriteCond %{HTTP_HOST}   ^(wwww\.)?(alberguesjuveniles\.com|youth-hostel\.com|hostales\.com|auberges\.com|aubergesdejeunesse\.com|alberguesdajuventude\.com|ostellidellagioventu\.com|youth-hostels\.jp|jugendherbergen\.eu|youth-hostels\.kr|pousadasdejuventude\.com|alberguesjuveniles\.es|albergues-pensiones\.com|hostels\.in|youth-hostels\.co\.uk|youth-hostels\.ca|aubergesdejeunesse\.ca|hostelek\.com|hostels\.ru\.com|youth-hostels\.hk|hostele\.com|youth-hostels\.ru|schroniskamlodziezowe\.com|retkeilymajoja\.com|hostely\.com|herbergen\.com|ifjusagiszallasok\.com|mladeznickeubytovny\.com|hostelleja\.com|xn--e1amhmfp1c\.xn--p1ai|hosteis\.com|hostelli\.com|youth-hostels\.ie|youth-hostels\.co\.nz|youth-hostels\.co\.nz|youth-hostels\.eu|youth-hostels\.asia|youth-hostels\.cn|hostels\.jp|hostels\.mobi|nofeeshostels\.com|xn--xn2by4qtje86kn5ezmb\.kr) [NC]
+RewriteRule ^/?(.*)         http://www.%2/$1 [L,R,NE]
 
 #-------------------- Redirection ------------------
 
@@ -69,9 +69,6 @@ RewriteCond %{HTTP_HOST} ^youthhostels\.eu$ [NC]
 RewriteRule ^.*$ http://www.youth-hostels.eu%{REQUEST_URI} [R=301,L]
 
 #-------------------  www.auberges.com -------------------
-# Watch https://mcwebmanagement.atlassian.net/browse/MCWEB-180
-RewriteCond %{HTTP_HOST} ^wwww\.auberges\.com$ [NC]
-RewriteRule ^.*$ http://www.auberges.com%{REQUEST_URI} [R=301,L]
 
 #Wordpress French direct access pages
 RewriteCond %{HTTP_HOST}   ^www\.auberges\.com [NC]
