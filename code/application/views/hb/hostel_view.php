@@ -7,6 +7,15 @@
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
+        <?php
+        if(is_array($hostel) && array_key_exists("GPS", $hostel)){  ?>
+		<div class="box_content map_button_box box_round" id="map_button_side">
+			<a id="city_map_show_hostel" href="#hostel_info_direction" onclick="$('#show_full_map').trigger('click');">
+			<span><strong><?php echo _("Voir la carte");?></strong></span>
+			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $hostel["GPS"]["LAT"];?>,<?php echo $hostel["GPS"]["LON"];?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>&markers=<?php echo $hostel["GPS"]["LAT"];?>,<?php echo $hostel["GPS"]["LON"];?>" />
+                        </a>
+		</div>
+		<?php }?>
 	<?php $empty_rating = 0;foreach($property_ratings as $rating_category => $rating_value){if($rating_value == ""){$empty_rating++;}}?>
 	<?php if($empty_rating < 9){?>
 	<div class="box_content box_round group rating_bars">
@@ -398,7 +407,7 @@ else
 	<nav class="hostel_tabs group" id="hostels_tabs">
 		<ul class="box_round ui-tabs-nav green_gradient_faded">
 			<li class="first"><a class="tab_price" href="#hostel_info_home"><?php echo _("Info & Prix");?></a></li>
-			<li><a class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
+			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
 			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
 	</nav>
