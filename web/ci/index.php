@@ -1,12 +1,34 @@
 <?php
-
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
-define('ISDEVELOPMENT', (getenv('ENVIRONMENT') == 'development'));
+
+if(ISWINDOWS || getenv('ENVIRONMENT') =='development'){
+	define('ISDEVELOPMENT',TRUE );
+	
+}else{
+	define('ISDEVELOPMENT', FALSE);
+}
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
  *---------------------------------------------------------------
+ * Application Root path
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like Application root path.
  *
+ */
+ 
+if(ISWINDOWS){
+	if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')==''){
+			define('APPLICATIONROOTPATH',"C:/GitHub/source");
+		}else{
+			define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
+		}
+}else{
+			define('APPLICATIONROOTPATH',getenv('ENVIRONMENT_APPLICATION_ROOT_PATH'));
+		
+	}
+/* 
  * You can load different configurations depending on your
  * current environment. Setting the environment also influences
  * things like logging and error reporting.
@@ -57,7 +79,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-        if (ISWINDOWS)
+    if (ISWINDOWS)
 	{
 		$system_path = "c:/GitHub/source/code/system";
 	}

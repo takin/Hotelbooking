@@ -19,8 +19,13 @@
 
 /** Customization for the application. */
 define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
-define('ISDEVELOPMENT', (getenv('ENVIRONMENT') == 'development'));
 
+if(ISWINDOWS || getenv('ENVIRONMENT') =='development'){
+	define('ISDEVELOPMENT',TRUE );
+	
+}else{
+	define('ISDEVELOPMENT', FALSE);
+}
 
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Le nom de la base de données de WordPress. */
@@ -304,21 +309,24 @@ switch($_SERVER['HTTP_HOST'])
 
 if(ISDEVELOPMENT)
 {
-	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
-	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
-	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+	$DBHostname = "127.0.0.1:4040";
+	$username = "dev_aj_site";
+	$password = "data2016";
 }else{
-	if(ISWINDOWS){
-		
-		$username = "dev_aj_site";
-		$password = "data2016";
-		$DBHostname = "127.0.0.1:4040";
-	}else{
-		
-		$username = "aj_site";
-		$password = "2bVHhwjCGQrRnGW2";
-		$DBHostname = "92.243.25.30";
-	}
+	$DBHostname = "92.243.25.30";
+	$username = "aj_site";
+	$password = "2bVHhwjCGQrRnGW2";
+}
+
+// application DB credentials
+if(getenv('ENVIRONMENT_DATABASE_WPCI_HOST')!=''){
+	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')!=''){
+	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')!=''){
+	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
 }
 
 

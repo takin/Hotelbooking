@@ -15,11 +15,5 @@ $config['gettext_filename'] = "auberge_lang";
 |
 |
 */
-if (ISWINDOWS) {
-	$config['gettext_filedir'] = "c:/GitHub/source/languages/ci/locale";
-}
-else
-{
-	$config['gettext_filedir'] = "/opt/languages/ci/locale";
-}
+$config['gettext_filedir'] = APPLICATIONROOTPATH.'/languages/ci/locale';
 ?>

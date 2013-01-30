@@ -1,26 +1,47 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 if(ISDEVELOPMENT)
 {
-	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
-	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
-	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
-	$translationDBHost = getenv('ENVIRONMENT_DATABASE_TRANSLATION_HOST');
+	$DBHostname = "127.0.0.1:4040";
+	$username = "dev_aj_site";
+	$password = "data2016";
 	
+	$translationDBHost = "127.0.0.1:4041";
+	$translationDBUser = "dev_aj_site";
+	$translationDBPassword = "data2016";
 }else{
-	if(ISWINDOWS){
-		
-		$username = "dev_aj_site";
-		$password = "data2016";
-		$DBHostname = "127.0.0.1:4040";
-		$translationDBHost = "127.0.0.1:4041";
-	}else{
-		
-		$username = "aj_site";
-		$password = "2bVHhwjCGQrRnGW2";
-		$DBHostname = "92.243.25.30";
-		$translationDBHost = "95.142.167.244";
-	}
+	$DBHostname = "92.243.25.30";
+	$username = "aj_site";
+	$password = "2bVHhwjCGQrRnGW2";
+	
+	$translationDBHost = "95.142.167.244";
+	$translationDBUser = "aj_site";
+	$translationDBPassword = "2bVHhwjCGQrRnGW2";
 }
+
+// application DB credentials
+if(getenv('ENVIRONMENT_DATABASE_WPCI_HOST')!=''){
+	$DBHostname = getenv('ENVIRONMENT_DATABASE_WPCI_HOST');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME')!=''){
+	$username = getenv('ENVIRONMENT_DATABASE_WPCI_USERNAME');
+}
+if(getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD')!=''){
+	$password = getenv('ENVIRONMENT_DATABASE_WPCI_PASSWORD');
+}
+
+// application Translation DB credentials
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_HOST')!=''){
+	$translationDBHost = getenv('ENVIRONMENT_DATABASE_TRANSLATION_HOST');
+}
+
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME')!=''){
+	$translationDBUser = getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME');
+}
+if(getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD')!=''){
+	$translationDBPassword = getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD');
+}
+	
 	
 	
 /*
@@ -69,6 +90,7 @@ if(ISDEVELOPMENT)
 | the active record class
 */
 
+
 $active_group = "default";
 $active_record = TRUE;
 
@@ -89,12 +111,11 @@ $db['default']['ssl_ca']   = "/srv/d_mcweb1/mysql-ssl/ca-cert.pem";
 $db['default']['ssl_cert'] = "/srv/d_mcweb1/mysql-ssl/client-cert.pem";
 $db['default']['ssl_key']  = "/srv/d_mcweb1/mysql-ssl/client-key.pem";
 
+
 //Database for cache translation
 $db['translation']['hostname'] = $translationDBHost;
-
-$db['translation']['username'] = (ISDEVELOPMENT && getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME'))?getenv('ENVIRONMENT_DATABASE_TRANSLATION_USERNAME'):$username;
-$db['translation']['password'] = (ISDEVELOPMENT && getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD'))?getenv('ENVIRONMENT_DATABASE_TRANSLATION_PASSWORD'):$password;
-
+$db['translation']['username'] = $translationDBUser;
+$db['translation']['password'] = $translationDBPassword;
 $db['translation']['database'] = "aj_translation";
 $db['translation']['dbdriver'] = "mysqli";
 $db['translation']['dbprefix'] = "";
