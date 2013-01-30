@@ -262,8 +262,17 @@ endforeach; ?>
 		}
 		?>
 		</div>
+		<div style="float:left">
 		<p><a id="read_more_hostel" href="#"><?php echo _('Read more…')?> &raquo;</a></p>
 		<p><a id="read_less_hostel" style="display:none;" href="#">&laquo; <?php echo _('Close')?></a></p>
+		</div>
+		<?php if($this->site_lang !="en") {  ?>
+		<select class="select-translate translation-toggle">
+					<option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+					<option value="original"><?php echo _("Voir l'original"); ?></option>
+				</select>
+		<?php } ?>
+		<br clear="all" />
 		<?php $code=$this->wordpress->get_option('aj_lang_code');
 			$shortcode = strtolower(substr($code,0,2));
 			$code=str_replace('-','_',$code);
