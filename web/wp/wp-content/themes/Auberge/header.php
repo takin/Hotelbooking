@@ -154,7 +154,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
   			$selcity = get_post_meta($theid, 'preselect_city', true);
   			
   			?>
-  			loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'search-country','search-city','<?php echo $_COOKIE['country_selected'];?>','<?php echo $_COOKIE['city_selected'];?>');
+  			loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'search-country','search-city','<?php echo $selcountry  ;?>','<?php echo $selcity;?>');
 		<?php
       }
       else
