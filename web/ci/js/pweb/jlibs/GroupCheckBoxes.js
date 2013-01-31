@@ -81,7 +81,6 @@ GroupCheckBoxes.prototype.getCheckedValues = function() {
       values.push( inputcheck.attr('value'));
     } 
   }); 
-
   return values;
 }; // end getCheckedValues() 
 
@@ -228,3 +227,22 @@ GroupCheckBoxes.prototype.handleCheckboxClick = function($id, e) {
   return true; 
    
 }; // end handleCheckboxClick() 
+
+function closeFilter(type){
+	that = this;
+switch(type){
+		case 'price':
+			$( "#slider_price" ).slider({values: [ pweb_filter.PriceRangeMin, pweb_filter.PriceRangeMax ]});
+		break;
+		case 'rating':
+			$( "#slider_rating" ).slider({values: [ pweb_filter.RatingRangeMin, pweb_filter.RatingRangeMax ]});
+		break;
+		default:	
+		$('input[name^='+type+']').each(function(){
+			$(this).attr('checked',false);
+	
+		})
+	}
+pweb_filter.apply_filters();
+	
+}
