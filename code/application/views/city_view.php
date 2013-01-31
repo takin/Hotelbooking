@@ -238,9 +238,6 @@
 			<div id="property_list">
 			<script type="text/javascript">
 			$(document).ready(function(){
-				//var url = 'http://www.nofeeshostels.com/location_avail/Hongrie/Budapest/2013-02-01/2?currency=EUR';
-			//	var url = 'http://www.nofeeshostels.com/location_avail/USA/Los+Angeles/2013-02-10/2?currency=GBP';
-				//url:'<?php echo site_url("/location_avail/".customurlencode($country_selected)."/".customurlencode($city_selected)."/$date_selected/$numnights_selected?currency=".$currency);?>',
 				$.ajax(
 				{
 						type:"GET",
