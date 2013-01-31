@@ -24,7 +24,7 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
     <p style="margin-top:7px;">
 		<?php $dateurl = $dateStart->format('Y-m-d');?>
 		<a class="alternative button-green hoverit box_round" href="<?php echo site_url();?><?php echo $country_selected;?>/<?php echo $city_selected;?>/<?php echo $dateurl;?>/<?php echo $numNights; ?>">
-		<?php printf( gettext('Search for more properties in %s'),$city_selected);?></a>
+		<?php printf(gettext('Search for more properties in %s'),$city_selected);?></a>
 	</p>
 </div>
 
