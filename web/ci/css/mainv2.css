@@ -2279,3 +2279,80 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 }
 
 /* End Footer */
+/* filter css */
+#results_filters {
+    /*border-bottom: 1px dotted #C6C6C6;*/
+    display: none;
+    overflow: hidden;
+	padding-bottom: 7px;
+}
+#filters_text {
+    float: left;
+    line-height: 21px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+#applied_filters {
+    float: left;
+    margin-bottom: -8px;
+}
+ul.unstyled, ol.unstyled {
+    list-style: none outside none;
+    margin: 0;
+}
+#applied_filters .label {
+    float: left;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+.label-lightblue {
+    background-color: #DDEBEF;
+    border-color: #BAD7DF;
+    color: #93A0A5;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.label span {
+	line-height: 19px;
+}
+.label a {
+	border-left: 1px solid transparent;
+	display: inline-block;
+	height: 15px;
+	margin-bottom: -1px;
+	margin-right: -5px;
+	padding-right: 5px;
+	background-image: url(../images/cross-arrow.png);
+	background-repeat: no-repeat;
+	background-position: right 5px;
+	width: 6px;
+}
+.label .icon {
+    color: #93A0A5;
+    font-size: 10px;
+    padding-left: 5px;
+    width: 8px;
+}
+.icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+}
+.label {
+	background-color: #227BBD;
+	border: 1px solid #227BBD;
+	border-radius: 3px 3px 3px 3px;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	padding-right: 10px;
+	padding-left: 6px;
+}
+/*end filter*/
