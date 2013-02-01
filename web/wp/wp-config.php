@@ -429,7 +429,8 @@ define ('WPLANG', 'en_US');
 /* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 
 /** Chemin absolu vers le dossier de WordPress. */
-define('ABSPATH', dirname(__FILE__) . '/');
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
 define('CI_ABSPATH', APPLICATIONROOTPATH.'/web/ci/');
 define('CI_APPPATH', APPLICATIONROOTPATH.'/code/application/');
 define('CI_LANGPATH', APPLICATIONROOTPATH.'/languages/wp/');
