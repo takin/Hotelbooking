@@ -31,10 +31,14 @@ function setCities(city_empty,countryFieldId,cityFieldId)
 function setCountries(cities_array,countryFieldId)
 {
 	selectField = document.getElementById(countryFieldId);
+	if(selectField == null || selectField == undefined)
+	{
+	     return false;
+     }	
 	selectField.options.length = 0;
-	
+
 	var i=0;
-	for (country in cities_array)
+ for (country in cities_array)
   {
     selectField.options[i] = new Option(cities_array[country][0], country);
     i++;
