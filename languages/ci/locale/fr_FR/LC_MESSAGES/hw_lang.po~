@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-14 20:05+0100\n"
+"POT-Creation-Date: 2012-11-19 01:35+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Mc web <info@mcwebmanagement.com>\n"
 "Language-Team: \n"
@@ -660,8 +660,8 @@ msgstr "Date"
 #: ../views/property_rooms_avail.php:30
 #: ../views/property_rooms_avail.php:32
 #: ../views/hw/booking_view.php:154
-#: ../views/hw/booking_avail_view.php:435
-#: ../views/hw/booking_avail_view.php:437
+#: ../views/hw/booking_avail_view.php:410
+#: ../views/hw/booking_avail_view.php:412
 #: ../views/hw/booking_end_view.php:53
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_confirm.php:67
@@ -674,7 +674,7 @@ msgstr "Dortoirs - Prix par personne"
 #: ../views/email/new_transaction.php:308
 #: ../views/hw/booking_view.php:166
 #: ../views/hw/booking_avail_view.php:136
-#: ../views/hw/booking_avail_view.php:460
+#: ../views/hw/booking_avail_view.php:435
 #: ../views/hw/booking_end_view.php:55
 #: ../views/mobile/hw/booking_confirm.php:68
 #: ../views/hb/booking_avail_view.php:118
@@ -689,7 +689,7 @@ msgstr "Nbre de Lits"
 #: ../views/restricted/user_group_quote.php:248
 #: ../views/hw/booking_view.php:167
 #: ../views/hw/booking_view.php:241
-#: ../views/hw/booking_avail_view.php:577
+#: ../views/hw/booking_avail_view.php:552
 #: ../views/hw/booking_end_view.php:56
 #: ../views/hw/booking_end_view.php:114
 #: ../views/hw/booking_end_view.php:160
@@ -708,8 +708,8 @@ msgstr "Total"
 #: ../views/property_rooms_avail.php:157
 #: ../views/property_rooms_avail.php:159
 #: ../views/hw/booking_view.php:229
-#: ../views/hw/booking_avail_view.php:490
-#: ../views/hw/booking_avail_view.php:492
+#: ../views/hw/booking_avail_view.php:465
+#: ../views/hw/booking_avail_view.php:467
 #: ../views/hw/booking_end_view.php:111
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_confirm.php:122
@@ -722,7 +722,7 @@ msgstr "Chambres privées - Prix par chambre"
 #: ../views/email/new_transaction.php:421
 #: ../views/hw/booking_view.php:240
 #: ../views/hw/booking_avail_view.php:314
-#: ../views/hw/booking_avail_view.php:515
+#: ../views/hw/booking_avail_view.php:490
 #: ../views/hw/booking_end_view.php:113
 #: ../views/mobile/hw/booking_confirm.php:123
 #: ../views/hb/booking_avail_view.php:261
@@ -773,7 +773,6 @@ msgstr "Nom de l'établissement"
 #: ../views/email/new_transaction_hb.php:590
 #: ../views/helpfile/pofields.php:123
 #: ../views/hw/booking_end_view.php:202
-#: ../views/group_request.php:262
 #: ../views/hb/booking_end_view.php:143
 msgid "Phone number"
 msgstr "Numéro de téléphone"
@@ -1018,25 +1017,25 @@ msgstr "Bonjour"
 #: ../views/helpfile/pofields.php:572
 #, php-format
 msgid "Good news!"
-msgstr "Une bonne nouvelle !"
+msgstr "Mon nom est Christophe et je vous remercie de votre demande de prix pour une auberge pour votre groupe. <br><br><b> 30.000 auberges dans 4.000 villes : </b><br>Nous avons plus de 30.000 auberges dans 4.000 villes à votre disposition ! <br> Cela vous donne beaucoup de choix mais également cela peut rendre la sélection compliquée quelques fois.<br>Ne vous inquiétez pas, je suis ici pour vous aider."
 
 #: ../views/email/admin/new_group_request.php:42
 #: ../views/helpfile/pofields.php:573
 #, php-format
 msgid "We have found a great offer for your group."
-msgstr "Nous avons trouvé une super offre pour votre groupe."
+msgstr "<b> Comparez les auberges et les prix : </b><br>Je vous invite à faire une recherche <a href=\"http://reservations.bookhostels.com/aubergesdejeunesse.com/\" title=\"Lien pour les réservations en groupes\"> en cliquant sur ce lien ici </a> afin de trouver  la meilleure auberge possible au meilleur prix.<br>N’hésitez pas à prendre le temps de regarder les types de dortoirs disponibles, si le petit déjeuner est inclus, situez l’auberge sur la carte et toute autre information importante pour votre voyage. <br>S'il n’y pas de résultats pour votre recherche, veuillez changer de dates ou réduire le nombre maximum de personnes par auberge."
 
 #: ../views/email/admin/new_group_request.php:44
 #: ../views/helpfile/pofields.php:574
 #, php-format
 msgid "Please take a look at the attached file for more details."
-msgstr "S'il vous plaît regarder la pièce jointe pour plus de détails."
+msgstr "<b> Les diners et les paniers pique-nique : </b><br>Les diners et les paniers pique-nique sont facilités - après - réservation par nos services auprès des auberges qui en sont responsables.<br>Le budget pour un diner est en général de 10 à 12 €  par personne et 8 € par personne pour les paniers pique-nique."
 
 #: ../views/email/admin/new_group_request.php:46
 #: ../views/helpfile/pofields.php:576
 #, php-format
 msgid "Please do not hesitate to contact me if you have any questions."
-msgstr "S'il vous plaît, n'hésitez pas à nous contacter de nouveau si vous avez des questions."
+msgstr "<b> Dates, nombre de personnes et budget confirmés : </b><br>Dès que les dates et le nombre de personnes sont confirmés, je vous invite à me recontacter directement.<br>Je pourrais à ce moment-là vous aider à finaliser votre selection.<br><br> Merci de votre confiance."
 
 #: ../views/email/admin/new_group_request.php:48
 #: ../views/helpfile/pofields.php:163
@@ -1049,7 +1048,7 @@ msgstr "Sincèrement."
 #: ../views/helpfile/pofields.php:582
 #, php-format
 msgid "Customer Service."
-msgstr "Services clientèle"
+msgstr "Christophe<br>Service clientèle - Spécialiste des réservations de groupe."
 
 #: ../views/email/reset_password-txt.php:7
 #: ../views/email/reset_password-html.php:44
@@ -1977,7 +1976,7 @@ msgstr "Prix par personne (chambre partagée)"
 
 #: ../views/helpfile/pofields.php:167
 #: ../views/property_rooms_avail.php:33
-#: ../views/hw/booking_avail_view.php:438
+#: ../views/hw/booking_avail_view.php:413
 #: ../views/hb/booking_avail_view.php:350
 #, php-format
 msgid "You must share the room (unless you purchase all the beds in the dorm)."
@@ -2603,7 +2602,7 @@ msgstr "Amusement"
 
 #: ../views/helpfile/pofields.php:289
 #: ../views/property_rooms_avail.php:278
-#: ../views/hw/booking_avail_view.php:602
+#: ../views/hw/booking_avail_view.php:577
 #: ../views/hb/booking_avail_view.php:504
 #, php-format
 msgid "Best price. We guarantee it."
@@ -2611,14 +2610,14 @@ msgstr "Meilleur prix. Nous vous le garantissons."
 
 #: ../views/helpfile/pofields.php:290
 #: ../views/property_rooms_avail.php:279
-#: ../views/hw/booking_avail_view.php:603
+#: ../views/hw/booking_avail_view.php:578
 #: ../views/hb/booking_avail_view.php:505
 #, php-format
 msgid "It only takes 2 minutes"
 msgstr "Cela ne prend que 2 minutes"
 
 #: ../views/helpfile/pofields.php:291
-#: ../views/hw/booking_avail_view.php:581
+#: ../views/hw/booking_avail_view.php:556
 #: ../views/hb/booking_avail_view.php:488
 #, php-format
 msgid "You got the best price"
@@ -3872,7 +3871,7 @@ msgid "Deposit will be charged in Pounds."
 msgstr "* le dépot sera  facturé en Livres Sterling"
 
 #: ../views/helpfile/pofields.php:552
-#: ../views/hw/booking_avail_view.php:673
+#: ../views/hw/booking_avail_view.php:648
 #, php-format
 msgid "Search for more properties in %s"
 msgstr "Rechercher davantage d'établissements à %s"
@@ -4075,7 +4074,7 @@ msgid "We will shortly send your voucher to the email address on file."
 msgstr "Nous allons bientôt envoyer votre chèque à l'adresse e-mail du dossier."
 
 #: ../views/property_rooms_avail.php:33
-#: ../views/hw/booking_avail_view.php:438
+#: ../views/hw/booking_avail_view.php:413
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_end_view.php:52
 #: ../views/hb/booking_avail_view.php:350
@@ -4104,13 +4103,13 @@ msgstr "Version originale :"
 
 #: ../views/property_rooms_avail.php:148
 #: ../views/hw/booking_avail_view.php:95
-#: ../views/hw/booking_avail_view.php:481
+#: ../views/hw/booking_avail_view.php:456
 #: ../views/hb/booking_avail_view.php:391
 msgid "No dorms available"
 msgstr "Pas de dortoirs disponibles"
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_end_view.php:96
 #: ../views/hb/booking_avail_view.php:403
@@ -4118,7 +4117,7 @@ msgid "Price per room (not per person)."
 msgstr "Prix par chambre (et non par personne)."
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/hb/booking_avail_view.php:403
 msgid "You must pay for the whole private room, even if you do not need all the beds. The room cannot be shared."
 msgstr "Vous devez payer le prix total de la chambre privée, même si vous n'avez pas besoin de tous les lits.<br /><br />Chambre simple = Chambre avec 1 lit simple pour 1 personne<br />Chambre double = Chambre avec 1 lit double pour 2 personnes<br />Chambre twin = Chambre avec 2 lits simples pour 2 personnes<br />Chambre triple = Chambre pour 3 personnes<br />Salle de bains privée = salle de bains dans la chambre<br />Salle de bains partagée = salle de bains a l'extérieur"
@@ -4129,7 +4128,7 @@ msgstr "Chambres disponibles"
 
 #: ../views/property_rooms_avail.php:269
 #: ../views/hw/booking_avail_view.php:269
-#: ../views/hw/booking_avail_view.php:535
+#: ../views/hw/booking_avail_view.php:510
 #: ../views/hb/booking_avail_view.php:442
 msgid "No private room available"
 msgstr "Pas de chambres privées disponibles"
@@ -4851,7 +4850,7 @@ msgstr "Détails de votre réservation"
 #: ../views/hw/booking_view.php:468
 #: ../views/hw/booking_view.php:685
 #: ../views/hw/booking_view.php:1064
-#: ../views/hw/booking_avail_view.php:553
+#: ../views/hw/booking_avail_view.php:528
 #: ../views/mobile/hw/booking_avail_view.php:259
 #: ../views/mobile/hw/booking_confirm.php:333
 #: ../views/hb/booking_view.php:94
@@ -4863,7 +4862,7 @@ msgid "Notes Importantes"
 msgstr "Notes Importantes"
 
 #: ../views/hw/booking_view.php:115
-#: ../views/hw/booking_avail_view.php:554
+#: ../views/hw/booking_avail_view.php:529
 #: ../views/hb/booking_view.php:95
 #: ../views/hb/booking_avail_view.php:460
 #, php-format
@@ -4877,7 +4876,7 @@ msgid "Total en"
 msgstr "Total en"
 
 #: ../views/hw/booking_view.php:307
-#: ../views/hw/booking_avail_view.php:581
+#: ../views/hw/booking_avail_view.php:556
 #: ../views/mobile/hw/booking_confirm.php:183
 #: ../views/hb/booking_view.php:233
 #: ../views/hb/booking_avail_view.php:488
@@ -5206,7 +5205,7 @@ msgstr "Transaction 100%% sécurisée et encryptée"
 
 #: ../views/hw/booking_view.php:995
 #: ../views/hw/booking_view.php:997
-#: ../views/hw/booking_avail_view.php:601
+#: ../views/hw/booking_avail_view.php:576
 #: ../views/hb/booking_view.php:759
 #: ../views/hb/booking_view.php:761
 #: ../views/hb/booking_avail_view.php:503
@@ -5253,7 +5252,7 @@ msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les f
 msgid "Commentaires"
 msgstr "Commentaires"
 
-#: ../views/hw/booking_avail_view.php:409
+#: ../views/hw/booking_avail_view.php:384
 #: ../views/hw/hostel_view.php:36
 #: ../views/mobile/hw/booking_avail_view.php:12
 #: ../views/mobile/hw/booking_avail_view.php:23
@@ -5263,8 +5262,12 @@ msgstr "Commentaires"
 msgid "Erreur:"
 msgstr "Erreur :"
 
-#: ../views/hw/booking_avail_view.php:415
-#: ../views/hw/booking_avail_view.php:656
+#: ../views/hw/booking_avail_view.php:386
+msgid "No Beds Found"
+msgstr "Aucun lit trouvé."
+
+#: ../views/hw/booking_avail_view.php:390
+#: ../views/hw/booking_avail_view.php:631
 #: ../views/hw/hostel_view.php:49
 #: ../views/mobile/hw/booking_avail_view.php:47
 #: ../views/hb/booking_avail_view.php:329
@@ -5272,12 +5275,16 @@ msgstr "Erreur :"
 msgid "Détails:"
 msgstr "Détails :"
 
-#: ../views/hw/booking_avail_view.php:550
+#: ../views/hw/booking_avail_view.php:392
+msgid "No Beds could be found for your search criteria. Please change your dates and try again."
+msgstr "Aucun it n'a pu être trouvé pour vos critères de recherche. S'il vous plaît, veuillez changer vos dates et essayez à nouveau. Merci."
+
+#: ../views/hw/booking_avail_view.php:525
 #: ../views/hb/booking_avail_view.php:456
 msgid "Your Selection"
 msgstr "Votre Sélection"
 
-#: ../views/hw/booking_avail_view.php:600
+#: ../views/hw/booking_avail_view.php:575
 #: ../views/mobile/hw/booking_view.php:7
 #: ../views/mobile/hw/hostel_view.php:29
 #: ../views/mobile/hw/hostel_view.php:266
@@ -5285,18 +5292,18 @@ msgstr "Votre Sélection"
 msgid "Réserver Maintenant"
 msgstr "Réserver Maintenant"
 
-#: ../views/hw/booking_avail_view.php:616
+#: ../views/hw/booking_avail_view.php:591
 #: ../views/mobile/hw/booking_avail_view.php:13
 msgid "No rooms are available for all the nights you selected."
 msgstr "Aucune chambre n'est disponible pour toutes les nuits sélectionnées."
 
-#: ../views/hw/booking_avail_view.php:623
+#: ../views/hw/booking_avail_view.php:598
 #: ../views/mobile/hw/booking_avail_view.php:247
 #: ../views/hb/booking_avail_view.php:515
 msgid "Please enter at least one choice in the above table to book a room."
 msgstr "Veuillez entrer un choix pour le nombre de chambres ou de personnes."
 
-#: ../views/hw/booking_avail_view.php:632
+#: ../views/hw/booking_avail_view.php:607
 #: ../views/mobile/hw/booking_avail_view.php:23
 #: ../controllers/chostelbk.php:192
 #: ../libraries/Hb_engine.php:1099
@@ -6026,7 +6033,7 @@ msgstr "Plus important"
 msgid "Your details"
 msgstr "Vos détails"
 
-#: ../views/group_request.php:263
+#: ../views/group_request.php:262
 msgid "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr "S'il vous plaît veuillez nous fournir un numéro de téléphone où nous pouvons vous joindre entre 16h00-17h00."
 

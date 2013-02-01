@@ -598,3 +598,9 @@
 <?php echo _('After this date, these beds will be released to other groups, so do not wait to book!');?>
 <?php echo _('We thank you for your group booking.');?>
 <?php echo _('We will shortly send your voucher to the email address on file.');?>
+<?php echo _('Great');?>
+<?php echo _('Fantastic');?>
+<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>
+<?php echo _('Selected filters');?>
+
+

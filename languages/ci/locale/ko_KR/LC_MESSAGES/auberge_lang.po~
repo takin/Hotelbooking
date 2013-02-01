@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-14 20:05+0100\n"
+"POT-Creation-Date: 2012-11-19 01:35+0100\n"
 "PO-Revision-Date: 2012-10-12 09:00-0800\n"
 "Last-Translator: Mc web <info@mcwebmanagement.com>\n"
 "Language-Team: English\n"
@@ -554,8 +554,8 @@ msgstr "날짜"
 
 #: ../views/email/new_transaction.php:292 ../views/property_rooms_avail.php:30
 #: ../views/property_rooms_avail.php:32 ../views/hw/booking_view.php:154
-#: ../views/hw/booking_avail_view.php:435
-#: ../views/hw/booking_avail_view.php:437 ../views/hw/booking_end_view.php:53
+#: ../views/hw/booking_avail_view.php:410
+#: ../views/hw/booking_avail_view.php:412 ../views/hw/booking_end_view.php:53
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_confirm.php:67
 #: ../views/mobile/hw/booking_end_view.php:52
@@ -566,7 +566,7 @@ msgstr "도미토리 - 1인 가격"
 
 #: ../views/email/new_transaction.php:308 ../views/hw/booking_view.php:166
 #: ../views/hw/booking_avail_view.php:136
-#: ../views/hw/booking_avail_view.php:460 ../views/hw/booking_end_view.php:55
+#: ../views/hw/booking_avail_view.php:435 ../views/hw/booking_end_view.php:55
 #: ../views/mobile/hw/booking_confirm.php:68
 #: ../views/hb/booking_avail_view.php:118
 #: ../views/hb/booking_avail_view.php:369
@@ -579,7 +579,7 @@ msgstr "사람"
 #: ../views/restricted/user_bookings.php:50
 #: ../views/restricted/user_group_quote.php:248
 #: ../views/hw/booking_view.php:167 ../views/hw/booking_view.php:241
-#: ../views/hw/booking_avail_view.php:577 ../views/hw/booking_end_view.php:56
+#: ../views/hw/booking_avail_view.php:552 ../views/hw/booking_end_view.php:56
 #: ../views/hw/booking_end_view.php:114 ../views/hw/booking_end_view.php:160
 #: ../views/mobile/user/user_bookings.php:41
 #: ../views/mobile/hw/booking_confirm.php:69
@@ -592,8 +592,8 @@ msgstr "총 금액"
 
 #: ../views/email/new_transaction.php:405
 #: ../views/property_rooms_avail.php:157 ../views/property_rooms_avail.php:159
-#: ../views/hw/booking_view.php:229 ../views/hw/booking_avail_view.php:490
-#: ../views/hw/booking_avail_view.php:492 ../views/hw/booking_end_view.php:111
+#: ../views/hw/booking_view.php:229 ../views/hw/booking_avail_view.php:465
+#: ../views/hw/booking_avail_view.php:467 ../views/hw/booking_end_view.php:111
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_confirm.php:122
 #: ../views/mobile/hw/booking_end_view.php:96
@@ -604,7 +604,7 @@ msgstr "개인 객실 - 1 객실 기준 가격"
 
 #: ../views/email/new_transaction.php:421 ../views/hw/booking_view.php:240
 #: ../views/hw/booking_avail_view.php:314
-#: ../views/hw/booking_avail_view.php:515 ../views/hw/booking_end_view.php:113
+#: ../views/hw/booking_avail_view.php:490 ../views/hw/booking_end_view.php:113
 #: ../views/mobile/hw/booking_confirm.php:123
 #: ../views/hb/booking_avail_view.php:261
 #: ../views/hb/booking_avail_view.php:422 ../controllers/cadmin.php:24
@@ -649,7 +649,7 @@ msgstr "호스텔 이름"
 #: ../views/email/new_transaction.php:934
 #: ../views/email/new_transaction_hb.php:590
 #: ../views/helpfile/pofields.php:123 ../views/hw/booking_end_view.php:202
-#: ../views/group_request.php:262 ../views/hb/booking_end_view.php:143
+#: ../views/hb/booking_end_view.php:143
 msgid "Phone number"
 msgstr "전화번호"
 
@@ -1858,7 +1858,7 @@ msgid "Price per person (Dorm shared with others)"
 msgstr "1인 가격(도미토리룸은 공동사용입니다.)"
 
 #: ../views/helpfile/pofields.php:167 ../views/property_rooms_avail.php:33
-#: ../views/hw/booking_avail_view.php:438
+#: ../views/hw/booking_avail_view.php:413
 #: ../views/hb/booking_avail_view.php:350
 #, php-format
 msgid "You must share the room (unless you purchase all the beds in the dorm)."
@@ -2476,20 +2476,20 @@ msgid "Fun"
 msgstr "재미"
 
 #: ../views/helpfile/pofields.php:289 ../views/property_rooms_avail.php:278
-#: ../views/hw/booking_avail_view.php:602
+#: ../views/hw/booking_avail_view.php:577
 #: ../views/hb/booking_avail_view.php:504
 #, php-format
 msgid "Best price. We guarantee it."
 msgstr "최저 가격을 보장합니다."
 
 #: ../views/helpfile/pofields.php:290 ../views/property_rooms_avail.php:279
-#: ../views/hw/booking_avail_view.php:603
+#: ../views/hw/booking_avail_view.php:578
 #: ../views/hb/booking_avail_view.php:505
 #, php-format
 msgid "It only takes 2 minutes"
 msgstr "2분 거리에 있습니다."
 
-#: ../views/helpfile/pofields.php:291 ../views/hw/booking_avail_view.php:581
+#: ../views/helpfile/pofields.php:291 ../views/hw/booking_avail_view.php:556
 #: ../views/hb/booking_avail_view.php:488
 #, php-format
 msgid "You got the best price"
@@ -3787,7 +3787,7 @@ msgstr "공동 욕실 = 욕실이 객실 내부에 없음"
 msgid "Deposit will be charged in Pounds."
 msgstr "보증금은 영국 파운드로 결제 됩니다."
 
-#: ../views/helpfile/pofields.php:552 ../views/hw/booking_avail_view.php:673
+#: ../views/helpfile/pofields.php:552 ../views/hw/booking_avail_view.php:648
 #, php-format
 msgid "Search for more properties in %s"
 msgstr "%s에 있는 더 많은 숙소 검색"
@@ -4006,7 +4006,7 @@ msgstr "문의 감사드립니다. "
 msgid "We will shortly send your voucher to the email address on file."
 msgstr ""
 
-#: ../views/property_rooms_avail.php:33 ../views/hw/booking_avail_view.php:438
+#: ../views/property_rooms_avail.php:33 ../views/hw/booking_avail_view.php:413
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_end_view.php:52
 #: ../views/hb/booking_avail_view.php:350
@@ -4030,13 +4030,13 @@ msgid "VERSION ORIGINALE :"
 msgstr "원래 버전 :"
 
 #: ../views/property_rooms_avail.php:148 ../views/hw/booking_avail_view.php:95
-#: ../views/hw/booking_avail_view.php:481
+#: ../views/hw/booking_avail_view.php:456
 #: ../views/hb/booking_avail_view.php:391
 msgid "No dorms available"
 msgstr "예약가능한  도미토리 없음"
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_end_view.php:96
 #: ../views/hb/booking_avail_view.php:403
@@ -4044,7 +4044,7 @@ msgid "Price per room (not per person)."
 msgstr "객실당 가격-전체 여행 가격 (1인당 가격 아님)"
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/hb/booking_avail_view.php:403
 msgid ""
 "You must pay for the whole private room, even if you do not need all the "
@@ -4062,7 +4062,7 @@ msgstr "예약가능한 룸"
 
 #: ../views/property_rooms_avail.php:269
 #: ../views/hw/booking_avail_view.php:269
-#: ../views/hw/booking_avail_view.php:535
+#: ../views/hw/booking_avail_view.php:510
 #: ../views/hb/booking_avail_view.php:442
 msgid "No private room available"
 msgstr "예약가능한 개인  룸 없음"
@@ -4753,7 +4753,7 @@ msgstr "예약 세부 사항"
 #: ../views/hw/booking_view.php:114 ../views/hw/booking_view.php:159
 #: ../views/hw/booking_view.php:234 ../views/hw/booking_view.php:468
 #: ../views/hw/booking_view.php:685 ../views/hw/booking_view.php:1064
-#: ../views/hw/booking_avail_view.php:553
+#: ../views/hw/booking_avail_view.php:528
 #: ../views/mobile/hw/booking_avail_view.php:259
 #: ../views/mobile/hw/booking_confirm.php:333 ../views/hb/booking_view.php:94
 #: ../views/hb/booking_view.php:302 ../views/hb/booking_view.php:506
@@ -4761,7 +4761,7 @@ msgstr "예약 세부 사항"
 msgid "Notes Importantes"
 msgstr "중요 사항"
 
-#: ../views/hw/booking_view.php:115 ../views/hw/booking_avail_view.php:554
+#: ../views/hw/booking_view.php:115 ../views/hw/booking_avail_view.php:529
 #: ../views/hb/booking_view.php:95 ../views/hb/booking_avail_view.php:460
 #, php-format
 msgid ""
@@ -4780,7 +4780,7 @@ msgstr ""
 msgid "Total en"
 msgstr "합계"
 
-#: ../views/hw/booking_view.php:307 ../views/hw/booking_avail_view.php:581
+#: ../views/hw/booking_view.php:307 ../views/hw/booking_avail_view.php:556
 #: ../views/mobile/hw/booking_confirm.php:183 ../views/hb/booking_view.php:233
 #: ../views/hb/booking_avail_view.php:488
 msgid "10% Arrhes / Dépôt sera facturé en"
@@ -5049,7 +5049,7 @@ msgid "Transaction 100%% sécurisée et encryptée"
 msgstr "계약은 안전하며 보안이 됩니다. 100%% 안전"
 
 #: ../views/hw/booking_view.php:995 ../views/hw/booking_view.php:997
-#: ../views/hw/booking_avail_view.php:601 ../views/hb/booking_view.php:759
+#: ../views/hw/booking_avail_view.php:576 ../views/hb/booking_view.php:759
 #: ../views/hb/booking_view.php:761 ../views/hb/booking_avail_view.php:503
 msgid "sécurisé"
 msgstr "안전한"
@@ -5099,7 +5099,7 @@ msgstr ""
 msgid "Commentaires"
 msgstr "리뷰"
 
-#: ../views/hw/booking_avail_view.php:409 ../views/hw/hostel_view.php:36
+#: ../views/hw/booking_avail_view.php:384 ../views/hw/hostel_view.php:36
 #: ../views/mobile/hw/booking_avail_view.php:12
 #: ../views/mobile/hw/booking_avail_view.php:23
 #: ../views/mobile/hw/booking_avail_view.php:33
@@ -5107,37 +5107,48 @@ msgstr "리뷰"
 msgid "Erreur:"
 msgstr "오류 :"
 
-#: ../views/hw/booking_avail_view.php:415
-#: ../views/hw/booking_avail_view.php:656 ../views/hw/hostel_view.php:49
+#: ../views/hw/booking_avail_view.php:386
+#, fuzzy
+msgid "No Beds Found"
+msgstr "베드 갯수"
+
+#: ../views/hw/booking_avail_view.php:390
+#: ../views/hw/booking_avail_view.php:631 ../views/hw/hostel_view.php:49
 #: ../views/mobile/hw/booking_avail_view.php:47
 #: ../views/hb/booking_avail_view.php:329 ../views/hb/hostel_view.php:114
 msgid "Détails:"
 msgstr "세부 사항 :"
 
-#: ../views/hw/booking_avail_view.php:550
+#: ../views/hw/booking_avail_view.php:392
+msgid ""
+"No Beds could be found for your search criteria. Please change your dates "
+"and try again."
+msgstr ""
+
+#: ../views/hw/booking_avail_view.php:525
 #: ../views/hb/booking_avail_view.php:456
 msgid "Your Selection"
 msgstr "선택 "
 
-#: ../views/hw/booking_avail_view.php:600
+#: ../views/hw/booking_avail_view.php:575
 #: ../views/mobile/hw/booking_view.php:7 ../views/mobile/hw/hostel_view.php:29
 #: ../views/mobile/hw/hostel_view.php:266
 #: ../views/hb/booking_avail_view.php:502
 msgid "Réserver Maintenant"
 msgstr "지금 예약하기"
 
-#: ../views/hw/booking_avail_view.php:616
+#: ../views/hw/booking_avail_view.php:591
 #: ../views/mobile/hw/booking_avail_view.php:13
 msgid "No rooms are available for all the nights you selected."
 msgstr "죄송합니다. 선택하신 날짜에 룸이 없습니다."
 
-#: ../views/hw/booking_avail_view.php:623
+#: ../views/hw/booking_avail_view.php:598
 #: ../views/mobile/hw/booking_avail_view.php:247
 #: ../views/hb/booking_avail_view.php:515
 msgid "Please enter at least one choice in the above table to book a room."
 msgstr "방을 예약하려면 위의 옵션 중 적어도 하나를 선택하십시오."
 
-#: ../views/hw/booking_avail_view.php:632
+#: ../views/hw/booking_avail_view.php:607
 #: ../views/mobile/hw/booking_avail_view.php:23
 #: ../controllers/chostelbk.php:192 ../libraries/Hb_engine.php:1099
 msgid "Serveur inaccessible en ce moment."
@@ -5845,7 +5856,7 @@ msgstr "중요 사항 "
 msgid "Your details"
 msgstr "귀하의 세부 정보"
 
-#: ../views/group_request.php:263
+#: ../views/group_request.php:262
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
