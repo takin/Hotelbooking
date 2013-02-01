@@ -179,6 +179,10 @@ function loadCitiesMenu(base_url,loading_message,citiesVarName,citiesVar,country
 {
     setCountries(citiesVar,countryFieldId);
     selectCountryField = document.getElementById(countryFieldId);
+    if(selectCountryField == null || selectCountryField == undefined)
+	{
+	     return false;
+    }	
     selectCountryField.options[selectCountryField.length] = new Option(loading_message, '');	
 	
     $.ajax({
