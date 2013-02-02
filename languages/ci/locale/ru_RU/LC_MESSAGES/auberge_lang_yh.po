@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-01 15:23+0530\n"
-"PO-Revision-Date: 2012-10-15 15:36-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-02 17:42+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -189,7 +188,7 @@ msgstr "Поиск"
 msgid ""
 "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and "
 "Breakfast, Pensions - Plus de 30000!!"
-msgstr "30,000 Хостелы, гостиницы, квартиры, кровать и завтрак, пансионы..."
+msgstr "30,000 Хостелы, гостиницы, квартиры, кровать и завтрак, пансионы…"
 
 #: /opt/code/application/views/mobile/city_view.php:42
 #: /opt/code/application/views/city_view.php:188
@@ -6581,9 +6580,9 @@ msgid "Can we contact you by phone ?"
 msgstr ""
 
 #: /opt/code/application/views/helpfile/pofields.php:587
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your email."
-msgstr "Спасибо за вопрос."
+msgstr "Спасибо за ваш электронный адрес."
 
 #: /opt/code/application/views/helpfile/pofields.php:588
 #, php-format
@@ -6619,9 +6618,9 @@ msgid "We will work very hard to give you the best price at that time."
 msgstr ""
 
 #: /opt/code/application/views/helpfile/pofields.php:593
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your trust and support."
-msgstr "Спасибо за вопрос."
+msgstr "Спасибо за ваше доверие и поддержку."
 
 #: /opt/code/application/views/helpfile/pofields.php:594
 #, fuzzy, php-format
@@ -6636,9 +6635,9 @@ msgid ""
 msgstr ""
 
 #: /opt/code/application/views/helpfile/pofields.php:596
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your patience."
-msgstr "Спасибо за вопрос."
+msgstr "Спасибо за ожидание."
 
 #: /opt/code/application/views/helpfile/pofields.php:597
 #: /opt/code/application/views/restricted/user_group_quote.php:160
@@ -6655,9 +6654,9 @@ msgid ""
 msgstr ""
 
 #: /opt/code/application/views/helpfile/pofields.php:599
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your group booking."
-msgstr "Спасибо за вопрос."
+msgstr "Спасибо за групповую бронь."
 
 #: /opt/code/application/views/helpfile/pofields.php:600
 #, php-format
@@ -6943,7 +6942,7 @@ msgstr "%s"
 #: /opt/code/application/controllers/cron.php:647
 #: /opt/code/application/controllers/cron.php:696
 msgid "Donnez nous des nouvelles de votre séjour!"
-msgstr "Расскажите наи о вашем пребывании!"
+msgstr "Расскажите нам о вашем пребывании!"
 
 #: /opt/code/application/controllers/user.php:105
 msgid "Erreur lors de la mise à jour de votre profil."
@@ -7027,9 +7026,8 @@ msgid "Erreur lors de la réservation"
 msgstr "Ошибка при забронировании"
 
 #: /opt/code/application/controllers/cadmin.php:22
-#, fuzzy
 msgid "Beds"
-msgstr "Нет комнат"
+msgstr "Кровати"
 
 #: /opt/code/application/controllers/cadmin.php:28
 #, fuzzy
@@ -7037,9 +7035,8 @@ msgid "Nights"
 msgstr "Ночей"
 
 #: /opt/code/application/controllers/cadmin.php:160
-#, fuzzy
 msgid "Lunch"
-msgstr "Датский"
+msgstr "Обед"
 
 #: /opt/code/application/libraries/Hw_engine.php:1889
 msgid "Card not supported please choose another card"
