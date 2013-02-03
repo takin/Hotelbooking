@@ -113,7 +113,8 @@ $config['enable_hooks'] = FALSE;
 $config['displayVelaro'] = FALSE;
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
-
+/* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
+$config['bing_translation'] = TRUE;
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix

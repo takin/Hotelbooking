@@ -478,7 +478,11 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
 
   function batch_translate()
   {
-    
+	  if($this->config->item('bing_translation')==FALSE)
+	  {
+      return false;
+      }
+
     if(count($this->batchText) > 0 )
     {
 
