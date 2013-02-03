@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-14 20:05+0100\n"
+"POT-Creation-Date: 2012-11-19 01:35+0100\n"
 "PO-Revision-Date: 2012-10-13 07:18-0800\n"
 "Last-Translator: Mc web <info@mcwebmanagement.com>\n"
 "Language-Team: \n"
@@ -560,8 +560,8 @@ msgstr "Datum"
 
 #: ../views/email/new_transaction.php:292 ../views/property_rooms_avail.php:30
 #: ../views/property_rooms_avail.php:32 ../views/hw/booking_view.php:154
-#: ../views/hw/booking_avail_view.php:435
-#: ../views/hw/booking_avail_view.php:437 ../views/hw/booking_end_view.php:53
+#: ../views/hw/booking_avail_view.php:410
+#: ../views/hw/booking_avail_view.php:412 ../views/hw/booking_end_view.php:53
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_confirm.php:67
 #: ../views/mobile/hw/booking_end_view.php:52
@@ -572,7 +572,7 @@ msgstr "Koleje - Cena za osobu"
 
 #: ../views/email/new_transaction.php:308 ../views/hw/booking_view.php:166
 #: ../views/hw/booking_avail_view.php:136
-#: ../views/hw/booking_avail_view.php:460 ../views/hw/booking_end_view.php:55
+#: ../views/hw/booking_avail_view.php:435 ../views/hw/booking_end_view.php:55
 #: ../views/mobile/hw/booking_confirm.php:68
 #: ../views/hb/booking_avail_view.php:118
 #: ../views/hb/booking_avail_view.php:369
@@ -585,7 +585,7 @@ msgstr "Lidé"
 #: ../views/restricted/user_bookings.php:50
 #: ../views/restricted/user_group_quote.php:248
 #: ../views/hw/booking_view.php:167 ../views/hw/booking_view.php:241
-#: ../views/hw/booking_avail_view.php:577 ../views/hw/booking_end_view.php:56
+#: ../views/hw/booking_avail_view.php:552 ../views/hw/booking_end_view.php:56
 #: ../views/hw/booking_end_view.php:114 ../views/hw/booking_end_view.php:160
 #: ../views/mobile/user/user_bookings.php:41
 #: ../views/mobile/hw/booking_confirm.php:69
@@ -598,8 +598,8 @@ msgstr "Celkem "
 
 #: ../views/email/new_transaction.php:405
 #: ../views/property_rooms_avail.php:157 ../views/property_rooms_avail.php:159
-#: ../views/hw/booking_view.php:229 ../views/hw/booking_avail_view.php:490
-#: ../views/hw/booking_avail_view.php:492 ../views/hw/booking_end_view.php:111
+#: ../views/hw/booking_view.php:229 ../views/hw/booking_avail_view.php:465
+#: ../views/hw/booking_avail_view.php:467 ../views/hw/booking_end_view.php:111
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_confirm.php:122
 #: ../views/mobile/hw/booking_end_view.php:96
@@ -610,7 +610,7 @@ msgstr "Soukromý pokoj - Cena za pokoj"
 
 #: ../views/email/new_transaction.php:421 ../views/hw/booking_view.php:240
 #: ../views/hw/booking_avail_view.php:314
-#: ../views/hw/booking_avail_view.php:515 ../views/hw/booking_end_view.php:113
+#: ../views/hw/booking_avail_view.php:490 ../views/hw/booking_end_view.php:113
 #: ../views/mobile/hw/booking_confirm.php:123
 #: ../views/hb/booking_avail_view.php:261
 #: ../views/hb/booking_avail_view.php:422 ../controllers/cadmin.php:24
@@ -655,7 +655,7 @@ msgstr "Jméno"
 #: ../views/email/new_transaction.php:934
 #: ../views/email/new_transaction_hb.php:590
 #: ../views/helpfile/pofields.php:123 ../views/hw/booking_end_view.php:202
-#: ../views/group_request.php:262 ../views/hb/booking_end_view.php:143
+#: ../views/hb/booking_end_view.php:143
 msgid "Phone number"
 msgstr "Telefonní číslo"
 
@@ -1889,7 +1889,7 @@ msgid "Price per person (Dorm shared with others)"
 msgstr "Cena za osobu (pokoj sdílíte s jinými lidmi)."
 
 #: ../views/helpfile/pofields.php:167 ../views/property_rooms_avail.php:33
-#: ../views/hw/booking_avail_view.php:438
+#: ../views/hw/booking_avail_view.php:413
 #: ../views/hb/booking_avail_view.php:350
 #, php-format
 msgid "You must share the room (unless you purchase all the beds in the dorm)."
@@ -2520,20 +2520,20 @@ msgid "Fun"
 msgstr "zábava"
 
 #: ../views/helpfile/pofields.php:289 ../views/property_rooms_avail.php:278
-#: ../views/hw/booking_avail_view.php:602
+#: ../views/hw/booking_avail_view.php:577
 #: ../views/hb/booking_avail_view.php:504
 #, php-format
 msgid "Best price. We guarantee it."
 msgstr "Nejlepší cena. Garantováno."
 
 #: ../views/helpfile/pofields.php:290 ../views/property_rooms_avail.php:279
-#: ../views/hw/booking_avail_view.php:603
+#: ../views/hw/booking_avail_view.php:578
 #: ../views/hb/booking_avail_view.php:505
 #, php-format
 msgid "It only takes 2 minutes"
 msgstr "Zabere vám to pouze 2 minuty"
 
-#: ../views/helpfile/pofields.php:291 ../views/hw/booking_avail_view.php:581
+#: ../views/helpfile/pofields.php:291 ../views/hw/booking_avail_view.php:556
 #: ../views/hb/booking_avail_view.php:488
 #, php-format
 msgid "You got the best price"
@@ -3839,7 +3839,7 @@ msgstr "Sdílená Koupelna = koupelna není v místnosti"
 msgid "Deposit will be charged in Pounds."
 msgstr "Záloha bude účtována v Librách. "
 
-#: ../views/helpfile/pofields.php:552 ../views/hw/booking_avail_view.php:673
+#: ../views/helpfile/pofields.php:552 ../views/hw/booking_avail_view.php:648
 #, php-format
 msgid "Search for more properties in %s"
 msgstr "Hledej více hostelů v %s "
@@ -4058,7 +4058,7 @@ msgstr "Děkujeme vám za váš dotaz."
 msgid "We will shortly send your voucher to the email address on file."
 msgstr ""
 
-#: ../views/property_rooms_avail.php:33 ../views/hw/booking_avail_view.php:438
+#: ../views/property_rooms_avail.php:33 ../views/hw/booking_avail_view.php:413
 #: ../views/mobile/hw/booking_avail_view.php:136
 #: ../views/mobile/hw/booking_end_view.php:52
 #: ../views/hb/booking_avail_view.php:350
@@ -4082,13 +4082,13 @@ msgid "VERSION ORIGINALE :"
 msgstr "PŮVODNÍ VERZE:"
 
 #: ../views/property_rooms_avail.php:148 ../views/hw/booking_avail_view.php:95
-#: ../views/hw/booking_avail_view.php:481
+#: ../views/hw/booking_avail_view.php:456
 #: ../views/hb/booking_avail_view.php:391
 msgid "No dorms available"
 msgstr "Žádné ubytování kolejového typu není k dispozici. "
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/mobile/hw/booking_avail_view.php:174
 #: ../views/mobile/hw/booking_end_view.php:96
 #: ../views/hb/booking_avail_view.php:403
@@ -4096,7 +4096,7 @@ msgid "Price per room (not per person)."
 msgstr "Cena za pokoj (ne za osobu) za celý pobyt."
 
 #: ../views/property_rooms_avail.php:160
-#: ../views/hw/booking_avail_view.php:493
+#: ../views/hw/booking_avail_view.php:468
 #: ../views/hb/booking_avail_view.php:403
 msgid ""
 "You must pay for the whole private room, even if you do not need all the "
@@ -4115,7 +4115,7 @@ msgstr "Dostupné pokoje"
 
 #: ../views/property_rooms_avail.php:269
 #: ../views/hw/booking_avail_view.php:269
-#: ../views/hw/booking_avail_view.php:535
+#: ../views/hw/booking_avail_view.php:510
 #: ../views/hb/booking_avail_view.php:442
 msgid "No private room available"
 msgstr "Žádné soukromé pokoje nejsou k dispozici."
@@ -4813,7 +4813,7 @@ msgstr "Rezervace"
 #: ../views/hw/booking_view.php:114 ../views/hw/booking_view.php:159
 #: ../views/hw/booking_view.php:234 ../views/hw/booking_view.php:468
 #: ../views/hw/booking_view.php:685 ../views/hw/booking_view.php:1064
-#: ../views/hw/booking_avail_view.php:553
+#: ../views/hw/booking_avail_view.php:528
 #: ../views/mobile/hw/booking_avail_view.php:259
 #: ../views/mobile/hw/booking_confirm.php:333 ../views/hb/booking_view.php:94
 #: ../views/hb/booking_view.php:302 ../views/hb/booking_view.php:506
@@ -4821,7 +4821,7 @@ msgstr "Rezervace"
 msgid "Notes Importantes"
 msgstr "Důležité poznámky"
 
-#: ../views/hw/booking_view.php:115 ../views/hw/booking_avail_view.php:554
+#: ../views/hw/booking_view.php:115 ../views/hw/booking_avail_view.php:529
 #: ../views/hb/booking_view.php:95 ../views/hb/booking_avail_view.php:460
 #, php-format
 msgid ""
@@ -4840,7 +4840,7 @@ msgstr ""
 msgid "Total en"
 msgstr "Celkem "
 
-#: ../views/hw/booking_view.php:307 ../views/hw/booking_avail_view.php:581
+#: ../views/hw/booking_view.php:307 ../views/hw/booking_avail_view.php:556
 #: ../views/mobile/hw/booking_confirm.php:183 ../views/hb/booking_view.php:233
 #: ../views/hb/booking_avail_view.php:488
 msgid "10% Arrhes / Dépôt sera facturé en"
@@ -5111,7 +5111,7 @@ msgid "Transaction 100%% sécurisée et encryptée"
 msgstr "Transakce 100%% bezpečné a zašifrované "
 
 #: ../views/hw/booking_view.php:995 ../views/hw/booking_view.php:997
-#: ../views/hw/booking_avail_view.php:601 ../views/hb/booking_view.php:759
+#: ../views/hw/booking_avail_view.php:576 ../views/hb/booking_view.php:759
 #: ../views/hb/booking_view.php:761 ../views/hb/booking_avail_view.php:503
 msgid "sécurisé"
 msgstr "Bezpečný"
@@ -5163,7 +5163,7 @@ msgstr ""
 msgid "Commentaires"
 msgstr "Komentáře"
 
-#: ../views/hw/booking_avail_view.php:409 ../views/hw/hostel_view.php:36
+#: ../views/hw/booking_avail_view.php:384 ../views/hw/hostel_view.php:36
 #: ../views/mobile/hw/booking_avail_view.php:12
 #: ../views/mobile/hw/booking_avail_view.php:23
 #: ../views/mobile/hw/booking_avail_view.php:33
@@ -5171,32 +5171,43 @@ msgstr "Komentáře"
 msgid "Erreur:"
 msgstr "Chyba:"
 
-#: ../views/hw/booking_avail_view.php:415
-#: ../views/hw/booking_avail_view.php:656 ../views/hw/hostel_view.php:49
+#: ../views/hw/booking_avail_view.php:386
+#, fuzzy
+msgid "No Beds Found"
+msgstr "Počet lůžek"
+
+#: ../views/hw/booking_avail_view.php:390
+#: ../views/hw/booking_avail_view.php:631 ../views/hw/hostel_view.php:49
 #: ../views/mobile/hw/booking_avail_view.php:47
 #: ../views/hb/booking_avail_view.php:329 ../views/hb/hostel_view.php:114
 msgid "Détails:"
 msgstr "Podrobnosti:"
 
-#: ../views/hw/booking_avail_view.php:550
+#: ../views/hw/booking_avail_view.php:392
+msgid ""
+"No Beds could be found for your search criteria. Please change your dates "
+"and try again."
+msgstr ""
+
+#: ../views/hw/booking_avail_view.php:525
 #: ../views/hb/booking_avail_view.php:456
 msgid "Your Selection"
 msgstr "váš výběr"
 
-#: ../views/hw/booking_avail_view.php:600
+#: ../views/hw/booking_avail_view.php:575
 #: ../views/mobile/hw/booking_view.php:7 ../views/mobile/hw/hostel_view.php:29
 #: ../views/mobile/hw/hostel_view.php:266
 #: ../views/hb/booking_avail_view.php:502
 msgid "Réserver Maintenant"
 msgstr "Rezervujte nyní"
 
-#: ../views/hw/booking_avail_view.php:616
+#: ../views/hw/booking_avail_view.php:591
 #: ../views/mobile/hw/booking_avail_view.php:13
 msgid "No rooms are available for all the nights you selected."
 msgstr ""
 "Omluváme se, ale žádný pokoj není k dispozici pro všechny vámi zadané noci."
 
-#: ../views/hw/booking_avail_view.php:623
+#: ../views/hw/booking_avail_view.php:598
 #: ../views/mobile/hw/booking_avail_view.php:247
 #: ../views/hb/booking_avail_view.php:515
 msgid "Please enter at least one choice in the above table to book a room."
@@ -5204,7 +5215,7 @@ msgstr ""
 "prosím zvolte alespoň jednu volbu z výše uvedeného seznamu pro rezervaci "
 "pokoje"
 
-#: ../views/hw/booking_avail_view.php:632
+#: ../views/hw/booking_avail_view.php:607
 #: ../views/mobile/hw/booking_avail_view.php:23
 #: ../controllers/chostelbk.php:192 ../libraries/Hb_engine.php:1099
 msgid "Serveur inaccessible en ce moment."
@@ -5931,7 +5942,7 @@ msgstr "Nejdůležitější"
 msgid "Your details"
 msgstr "Vaše podrobnosti"
 
-#: ../views/group_request.php:263
+#: ../views/group_request.php:262
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
