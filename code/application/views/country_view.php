@@ -77,8 +77,7 @@
 			</div>
 
 		</div>
-        
-        <a class="return" href="<?php echo site_url(stripAccents($continent_lang));?>">&laquo; <?php echo _("Retour à tous les pays d'");?><?php echo $continent_lang;?></a>
+        <a class="return" href="<?php echo site_url(stripAccents(customurlencode($continent_lang)));?>">&laquo; <?php echo _("Retour à tous les pays d'");?><?php echo $continent_lang;?></a>
 
 	</div>
 
