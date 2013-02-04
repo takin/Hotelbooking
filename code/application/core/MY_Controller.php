@@ -280,7 +280,8 @@ class UserRestricted extends I18n_site {
         $this->load->library('tank_auth');
 
         if (!$this->tank_auth->is_logged_in()) {
-            redirect('/' . $this->Db_links->get_link("connect"), 'refresh');
+            //redirect('/' . $this->Db_links->get_link("connect"), 'refresh');
+			redirect('/' . $this->Db_links->get_link("connect"), ''); // just fixed url redirect issue
         }
 
         $this->load->model('tank_auth/user_profiles');
