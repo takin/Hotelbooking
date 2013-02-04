@@ -164,8 +164,13 @@ class CHostelbk extends I18n_site
     $data["city_selected"]    = $this->input->post("city_selected",TRUE);
 
     $data["property_cards"] = $this->input->post("propertyCards",TRUE);
-
+    
+    $request_time= microtime();
     $response = $this->Hostelbookers_api->getPropertyPricingPerDate($propertyNumber,$dateStart->format('d-M-Y'),$numNights, $this->api_functions_lang, $currency);
+    $response_time=microtime()-$request_time." ms ";
+    $this->custom_log->log("audit", ' > hb  api > booking_avail '.$response_time);
+    
+    
     $userdata = array(
                    'date_selected'      => $dateStart->format('Y-m-d'),
                    'numnights_selected' => $numNights
@@ -320,13 +325,15 @@ class CHostelbk extends I18n_site
 
       //remove last pipe  character
       if(!empty($roomsIDS)) $roomsIDS = substr($roomsIDS, 0, -1);
-
+      $request_time= microtime();
       $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDate( $propertyNumber,
                                                                            $roomsIDS,
                                                                            $dateStart->format('d-M-Y'),
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
+      $response_time=microtime()-$request_time." ms ";
+      $this->custom_log->log("audit", ' > hb  api > HB API booking_process '.$response_time);
 
       $inputok = true;
       if($response === false)
