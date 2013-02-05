@@ -347,8 +347,6 @@ class Microsofttranslator extends CI_Model {
 
   public function startBatch($toLang="", $fromLang="")
   {
-	  log_message("error",'start batch');
-
     if($toLang != "")
     {
       $this->ToLang = $toLang;
