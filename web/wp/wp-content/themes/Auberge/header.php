@@ -262,7 +262,9 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 							<?php if(is_logged_in()):?>
 								<a class="meta_account" href="<?php echo get_option('aj_api_url'). get_ci_link('user');?>"><?php _e('Mon Compte','auberge');?></a>
 							<?php else:?>
-								<a class="meta_login" href="<?php echo get_option('aj_api_url'). get_ci_link('connect');?>" onClick="toggleById(); return false;"><?php _e('Se connecter','auberge');?></a>
+								<!--<a class="meta_login" href="<?php echo get_option('aj_api_url'). get_ci_link('connect');?>" onClick="toggleById(); return false;"><?php _e('Se connecter','auberge');?></a>-->
+                                <!--modify to remove js error as right  id "top-login-form" is comment at line no 283.-->
+                                <a class="meta_login" href="<?php echo get_option('aj_api_url'). get_ci_link('connect');?>"><?php _e('Se connecter','auberge');?></a>
 							<?php endif;?>
 						</li>
 						<li class="last">

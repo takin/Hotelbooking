@@ -845,7 +845,9 @@ $(document).ready(function(){
 				<?php }?>
 				<li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li>
 				<li>
-					<?php echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>"); ?>
+					<?php //echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");
+					echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\">"._("Se connecter")."</a>"); // modify to remove js error as right  id "top-login-form" is comment at line no 916.
+					 ?>
 				</li>
 				<li class="last">
 					<?php echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_logout\" href=\"".site_url($this->Db_links->get_link("logout"))."\">"._("Se déconnecter")."</a>","<a class=\"meta_register\" href=\"".site_url($this->Db_links->get_link("register"))."\">"._("S'enregistrer")."</a>"); ?>
