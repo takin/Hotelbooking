@@ -111,7 +111,7 @@ $(document).ready(function(){
 </script>
 <div id="sidebar" class="grid_6 city_lp">
 		<?php if(!empty($city_info->city_image)){?>
-		<div class="box_content box_round side_entry" id="city_intro">
+    		<div class="box_content box_round side_entry" id="city_intro">
 			<div class="city_lp_img">
 				<img src="<?php echo base_url();?>/images/city/<?php echo $city_info->city_image;?>" alt="<?php echo ucfirst($city_selected).', '.ucfirst($country_selected);?>"/>
 				<span><?php echo ucfirst($city_selected).', '.ucfirst($country_selected);?>
@@ -120,18 +120,20 @@ $(document).ready(function(){
 
 			</div>
 		</div>
-		<?php }?>
+    		<?php }?>
 
 		<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="map_button_side">
 			<?php //Removed until we can really show the map ?>
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
-			<?php if(!empty($landmark->geo_latitude)){?>
-			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<a href="javascript:void(0);" class="tooltip" title="<?php echo _("Pour afficher toutes les propriétés disponibles sur la carte, s'il vous plaît entrer vos dates dans la boîte en haut à droite");?>">
+                            <?php if(!empty($landmark->geo_latitude)){?>
+			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			<?php }else{?>
-			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+                        <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			<?php }?>
+                        </a>
 			<?php /*?></a><?php */?>
 		</div>
 		<?php }?>
