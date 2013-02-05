@@ -240,7 +240,8 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 </head>
 
 <body <?php if (get_option('aj_api_site_data') == 'hb'){body_class('hb_frame');}else{body_class();}?>>
-	<div id="top_bar">
+<div id="fb-root"></div>	
+    <div id="top_bar">
 		<div id="top_bar_inner" class="container_16 group">
 			<div class="grid_6">
 			<?php $code=get_option('aj_lang_code');
