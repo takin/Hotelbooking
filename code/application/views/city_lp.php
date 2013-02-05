@@ -113,7 +113,7 @@ $(document).ready(function(){
 		<?php if(!empty($city_info->city_image)){?>
 		<div class="box_content box_round side_entry" id="city_intro">
 			<div class="city_lp_img">
-				<img src="<?php echo base_url();?>/images/city/<?php echo $city_info->city_image;?>" alt="<?php echo ucfirst($city_selected).', '.ucfirst($country_selected);?>"/>
+				<img src="<?php echo base_url();?>images/city/<?php echo $city_info->city_image;?>" alt="<?php echo ucfirst($city_selected).', '.ucfirst($country_selected);?>"/>
 				<span><?php echo ucfirst($city_selected).', '.ucfirst($country_selected);?>
 				<?php if (!$single_city){ echo '<strong>'.$small_title.'</strong>';}?>
 				</span>
