@@ -8,7 +8,9 @@
   </ul><?php */?>
   <ul>
     <li>
-      <?php echo login_check($this->tank_auth->is_logged_in(),"<a href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>"); ?>
+      <?php //echo login_check($this->tank_auth->is_logged_in(),"<a href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");
+	  echo login_check($this->tank_auth->is_logged_in(),"<a href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a href=\"".site_url($this->Db_links->get_link("connect"))."\">"._("Se connecter")."</a>");
+	    // modify to remove js error as right now not able to find the id "top-login-form" on click method while using href link.?>
     </li>
     <li class="last">
       <?php echo login_check($this->tank_auth->is_logged_in(),"<a href=\"".site_url($this->Db_links->get_link("logout"))."\">"._("Se déconnecter")."</a>","<a href=\"".site_url($this->Db_links->get_link("register"))."\">"._("S'enregistrer")."</a>"); ?>
