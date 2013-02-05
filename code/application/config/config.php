@@ -114,7 +114,7 @@ $config['displayVelaro'] = FALSE;
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
-$config['bing_translation'] = TRUE;
+$config['bing_translation'] = FALSE;
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix
