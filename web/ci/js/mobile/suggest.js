@@ -55,7 +55,7 @@ function searchSuggest(e, base_url, suggest_url_type, show_more_results_link, te
 		suggest_xhr = $.ajax(
 				{
 						type:"GET",
-						url:base_url+"/suggest/"+suggest_term+"/"+suggest_url_type+"/"+show_more_results_link+"/"+term_from_start,
+						url:base_url+"suggest/"+suggest_term+"/"+suggest_url_type+"/"+show_more_results_link+"/"+term_from_start,
 						success:function(data)
 						{
 							create_suggest_box(data);
