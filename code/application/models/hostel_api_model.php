@@ -198,15 +198,19 @@ class Hostel_api_model extends CI_Model {
 
   function PropertyInformation($userID, $propertyNumber, $language = "French")
   {
+	 
+	 $request_time= microtime(); 
+	  
     log_message('debug', 'Entering HW API Model Property Information Method');
 
     $file_xml = $this->config->item('hostelworld_API_url');
     $file_xml.= "PropertyInformation.php?Language=$language&PropertyNumber=$propertyNumber&UserID=$userID";
 
     $file_xml = $this->get_API_XML($file_xml);
-
+    $response_time=microtime()-$request_time." ms ";
+    $this->custom_log->log("audit", 'HW API PropertyInformation '.$response_time);
     return $this->_validate_api_data($file_xml, "/PropertyInformation/Property", "/SystemMessage", "PropertyInformation");
-
+   
   }
 
   /**

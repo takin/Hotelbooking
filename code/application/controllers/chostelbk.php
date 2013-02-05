@@ -164,7 +164,7 @@ class CHostelbk extends I18n_site
     $data["city_selected"]    = $this->input->post("city_selected",TRUE);
 
     $data["property_cards"] = $this->input->post("propertyCards",TRUE);
-
+    
     $response = $this->Hostelbookers_api->getPropertyPricingPerDate($propertyNumber,$dateStart->format('d-M-Y'),$numNights, $this->api_functions_lang, $currency);
     $userdata = array(
                    'date_selected'      => $dateStart->format('Y-m-d'),
@@ -320,13 +320,13 @@ class CHostelbk extends I18n_site
 
       //remove last pipe  character
       if(!empty($roomsIDS)) $roomsIDS = substr($roomsIDS, 0, -1);
-
       $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDate( $propertyNumber,
                                                                            $roomsIDS,
                                                                            $dateStart->format('d-M-Y'),
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
+   
 
       $inputok = true;
       if($response === false)

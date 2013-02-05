@@ -212,15 +212,19 @@ class Cron_hb extends I18n_site
 //       $lang_code = $this->Hostelbookers_api->lang_code_convert($domain->lang, NULL);
 //       if lang is not supported by HB API
 //       if(is_null($lang_code)) continue;
-
+		
       $response = $this->Hostelbookers_api->getNationalities("en");
       if($response !== false)
-      {
-        $this->Db_hb_country->parse_nationalities($response, "en");
+      { 
+		
+		$this->Db_hb_country->parse_nationalities($response, "en");
         $this->custom_log->log($this->log_filename,"HB API nationalities update for language -> "."en");
+   
       }
       else
       {
+		 
+		  
         $this->custom_log->log($this->log_filename,"HB API bad response for nationalities of language -> "."en");
       }
 //     }
