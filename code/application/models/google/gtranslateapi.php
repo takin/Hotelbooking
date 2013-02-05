@@ -126,7 +126,7 @@ class Gtranslateapi extends CI_Model
 
     if(count($this->batchText) > 0 )
     {
-
+      $request_time= microtime();
       $contents = $this->http_request->post_request($this->TranslateUrl,$this->batch_query,true,"Content-Type: application/x-www-form-urlencoded\r\n charset=utf-8");
 
       $json = NULL;
@@ -145,7 +145,9 @@ class Gtranslateapi extends CI_Model
       //On single result convert to array result so that output is always an array to facilitate handling of results
       if(!empty($json["responseData"]["translatedText"]))
       {
-        $json["responseData"] = array(0 => $json);
+	     $response_time=microtime()-$request_time." ms ";
+         $this->custom_log->log("audit", 'Google Translate API batch_translate '.$response_time);
+         $json["responseData"] = array(0 => $json);
       }
       $this->batch_json = $this->append_json_response($this->batch_json,$json);
 
