@@ -61,7 +61,7 @@
 						This is done to make date function cross browser compatible by passing all(year,month,day) explicilty
 						*/
 						var year = date_avail_list[0];
-						var month = date_avail_list[1];
+						var month = date_avail_list[1]-1;
 						var day = date_avail_list[2];
 						date_avail = new Date(year,month,day);
                         $("#book-pick").datepicker( "setDate" , date_avail );

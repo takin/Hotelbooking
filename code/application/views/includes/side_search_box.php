@@ -76,8 +76,14 @@
 					var date_avail = getCookie('date_selected');
 					if(isValidDate(date_avail))
 					{
-						date_avail = date_avail.replace('-',',','g');
-						date_avail 	= new Date(date_avail);
+						date_avail_list = date_avail.split('-');
+					/* Extract year, month and date seprately
+						This is done to  make date function cross browser compatible by passing all of them explicilty
+						*/
+						var year = date_avail_list[0];
+						var month = date_avail_list[1]-1;
+						var day = date_avail_list[2];
+						date_avail 	= new Date(year,month,day);
 						$("#datepick").datepicker( "setDate" , date_avail );
 					}
 					else
