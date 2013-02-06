@@ -1,5 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* Valero chat globale variable set false for disable and True for enable chat*/
+$config['displayVelaro'] = FALSE;
+
+/* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
+$config['translationLog'] = TRUE;
+
+/* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
+$config['bing_translation'] = FALSE;
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -109,12 +118,7 @@ $config['charset'] = 'UTF-8';
 |
 */
 $config['enable_hooks'] = FALSE;
-/* Valero chat globale variable set false for disable and True for enable chat*/
-$config['displayVelaro'] = FALSE;
-/* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
-$config['translationLog'] = TRUE;
-/* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
-$config['bing_translation'] = FALSE;
+
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix
