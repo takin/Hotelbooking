@@ -48,6 +48,10 @@ wp_enqueue_script('utils');
 
 $admin_body_class = preg_replace('/[^a-z0-9_-]+/i', '-', $hook_suffix);
 ?>
+<?php $apiurl = get_option('aj_api_url'); ?>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="<?php echo $apiurl; ?>js/search_box.js"></script>
+<script src="<?php echo $apiurl; ?>js/jtools.js"></script>
 <script type="text/javascript">
 addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
 var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
@@ -57,6 +61,7 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	thousandsSeparator = '<?php echo addslashes( $wp_locale->number_format['thousands_sep'] ); ?>',
 	decimalPoint = '<?php echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
 	isRtl = <?php echo (int) is_rtl(); ?>;
+	
 </script>
 <?php
 

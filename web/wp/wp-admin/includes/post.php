@@ -612,9 +612,48 @@ function add_meta( $post_ID ) {
 	global $wpdb;
 	$post_ID = (int) $post_ID;
 
+	
 	$metakeyselect = isset($_POST['metakeyselect']) ? stripslashes( trim( $_POST['metakeyselect'] ) ) : '';
+	$metakeyselectcountry = isset($_POST['metakeyselectcountry']) ? stripslashes( trim( $_POST['metakeyselectcountry'] ) ) : '';
+	$metakeyselecity = isset($_POST['metakeyselecity']) ? stripslashes( trim( $_POST['metakeyselecity'] ) ) : '';
 	$metakeyinput = isset($_POST['metakeyinput']) ? stripslashes( trim( $_POST['metakeyinput'] ) ) : '';
 	$metavalue = isset($_POST['metavalue']) ? $_POST['metavalue'] : '';
+	$metakeyselectcountryname = isset($_POST['metakeyselectcountryname']) ? $_POST['metakeyselectcountryname'] : '';
+	$metakeyselectcityname = isset($_POST['metakeyselectcityname']) ? $_POST['metakeyselectcityname'] : '';
+	$myvar=array();
+	if ( ('0' === $metakeyselectcountryname || ! empty ( $metakeyselectcountryname ) ) && ( ( ( '#NONE#' != $metakeyselectcountryname ) && !empty ( $metakeyselectcountry) ) ) ) {
+		// We have a key/value pair. If both the select and the
+		// input for the key have data, the input takes precedence:
+
+ 		if ( '#NONE#' != $metakeyselectcountryname )
+			$metakey = $metakeyselectcountry;
+
+	
+		if ( is_protected_meta( $metakey, 'post' ) || ! current_user_can( 'add_post_meta', $post_ID, $metakey ) )
+			return false;
+
+		$metakey = esc_sql( $metakey );
+
+		 $myvar[]=add_post_meta( $post_ID, $metakey, $metakeyselectcountryname );
+		 
+	}
+	if ( ('0' === $metakeyselectcityname || ! empty ( $metakeyselectcityname ) ) && ( ( ( '#NONE#' != $metakeyselectcityname ) && !empty ( $metakeyselecity) ) ) ) {
+		// We have a key/value pair. If both the select and the
+		// input for the key have data, the input takes precedence:
+
+ 		if ( '#NONE#' != $metakeyselectcityname )
+			$metakey = $metakeyselecity;
+
+	
+		if ( is_protected_meta( $metakey, 'post' ) || ! current_user_can( 'add_post_meta', $post_ID, $metakey ) )
+			return false;
+
+		$metakey = esc_sql( $metakey );
+
+		 $myvar[]=add_post_meta( $post_ID, $metakey, $metakeyselectcityname );
+		 
+	}
+	
 	if ( is_string( $metavalue ) )
 		$metavalue = trim( $metavalue );
 
@@ -633,8 +672,10 @@ function add_meta( $post_ID ) {
 
 		$metakey = esc_sql( $metakey );
 
-		return add_post_meta( $post_ID, $metakey, $metavalue );
+		$myvar[]=add_post_meta( $post_ID, $metakey, $metavalue );
 	}
+	if (count($myvar)!=0)
+	   return $myvar;
 
 	return false;
 } // add_meta
