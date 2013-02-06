@@ -147,7 +147,7 @@ class Microsofttranslator extends CI_Model {
 */
   public function make_xml_request($api_function_name, $data)
   {
-    $request_time= microtime();
+    $request_time= microtime(true);
     $this->app_token = $this->CI->Azuremarketplaceauthenticator->get_token();
 
     $this->CI->benchmark->mark('start');
@@ -168,7 +168,9 @@ class Microsofttranslator extends CI_Model {
     $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 	if ($http_status == 200)
 	{
-	  $response_time=microtime()-$request_time." ms ";
+	  $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'Microsoft Bing API make_xml_request '.$response_time);
 	  curl_close ( $ch );
 	  return $curl_result;

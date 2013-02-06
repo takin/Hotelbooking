@@ -131,9 +131,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     { 
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapi->getCountryList( $this->apikey, $language_code, $continent_code );
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getCountryList '.$response_time);
       return $return;
     }
@@ -160,9 +162,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return = $this->hbapi->getContinentList( $this->apikey, $language_code);
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getContinentList '.$response_time);
        return $return;
     }
@@ -190,9 +194,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapi->getCountryLocationList( $this->apikey, $language_code, $continent_code );
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getCountryLocationList '.$response_time);
       return $return;
     }
@@ -220,9 +226,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapi->getLocationData( $this->apikey, $language_code, $location, $country,  $strCurrencyCode );
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getLocationData '.$response_time);
       return $return;
     }
@@ -247,11 +255,13 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        log_message('debug', "getPropertyByID ".$property_number." lang:".$language_code);
        $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
        log_message('debug', "getPropertyByID ".$property_number. " done");
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getPropertyDataByID '.$response_time);
 
        if($this->tracing)
@@ -284,9 +294,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability( $this->apikey, $language_code, $property_number, $startDate, $numNights, $strCurrencyCode );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getPropertyAvailability '.$response_time);
        if($this->tracing)
        {
@@ -319,9 +331,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailabilityCalendar( $this->apikey, $property_number, $startDate, $numNights, $strCurrencyCode );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getPropertyAvailabilityCalendar '.$response_time);
        if($this->tracing)
        {
@@ -353,9 +367,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getLocationAvailability '.$response_time);
        if($this->tracing)
        {
@@ -387,9 +403,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability5( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getLocationAvailabilityCheapRoom '.$response_time);
        if($this->tracing)
        {
@@ -418,9 +436,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     { 
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing2( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getPropertyPricingPerDate '.$response_time);
        if($this->tracing)
        {
@@ -450,9 +470,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime();
+	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime()-$request_time." ms ";
+       $response_time=microtime(true)-$request_time;
+       $response_time  = number_format($response_time,5,'.',' ');
+       $response_time =  $response_time." ms ";
        $this->custom_log->log("audit", 'HB API getPropertyPricing '.$response_time);
        if($this->tracing)
        {
@@ -484,9 +506,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     { 
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyRoomPricing2( $this->apikey, $property_id, $roomsIDs, $startDate, $numNights, $strCurrencyCode, $language_code );
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getPropertyRoomPricingPerDate '.$response_time);
       return  $return ;
     }
@@ -509,9 +533,11 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     { 
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyReviews( $this->apikey, $property_id, $num_reviews );
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getPropertyReviews '.$response_time);
 
       if($return !== false)
@@ -652,9 +678,11 @@ class Hostelbookers_api extends CI_Model {
 
     try
     {
-      $request_time= microtime();
+      $request_time= microtime(true);
       $return = $this->hbapibooking->makeBooking ( $this->affiliate_name, $this->apikey, $booking_object->asXML(), $language_code);
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API make_booking '.$response_time);
 //      $this->load->helper('file');
 //      $return = read_file('./apibookingreturn.xml');
@@ -696,9 +724,11 @@ class Hostelbookers_api extends CI_Model {
     $this->hbBookingConnect();
     try
     { 
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapibooking->getNationalities  ( $this->affiliate_name, $this->apikey, $language_code);
-      $response_time=microtime()-$request_time." ms ";
+      $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getNationalities '.$response_time);
       return $return;
     }
@@ -724,9 +754,11 @@ class Hostelbookers_api extends CI_Model {
     $this->hbBookingConnect();
     try
     {
-	  $request_time= microtime();
+	  $request_time= microtime(true);
       $return = $this->hbapibooking->getTermsAndConditions ( $this->affiliate_name, $this->apikey, $language_code);
-      $response_time=microtime()-$request_time." ms ";
+     $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
       $this->custom_log->log("audit", 'HB API getTermsAndConditions '.$response_time);
       return  $return;
     }

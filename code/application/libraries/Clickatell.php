@@ -119,7 +119,12 @@ class Clickatell {
     $this->auth();
 
     //$to need to be an array
+    $request_time= microtime(true);
     $responses = $this->clickatell_api->sendmsg($this->session_id, NULL, NULL, NULL, $to, NULL, $text);
+     $response_time=microtime(true)-$request_time;
+    $response_time  = number_format($response_time,5,'.',' ');
+    $response_time =  $response_time." ms ";
+    $this->custom_log->log("audit", 'CLICKATELL API send_single_sms '.$response_time);
 
     if((stristr($responses[0], 'ID: ')) === FALSE)
     {
@@ -135,9 +140,13 @@ class Clickatell {
   {
     $this->zone_coverage = $zone;
     $this->auth();
-
+     
+    $request_time= microtime(true);
     $response = $this->clickatell_api->routeCoverage($this->session_id, NULL, NULL, NULL, $number);
-
+      $response_time=microtime(true)-$request_time;
+    $response_time  = number_format($response_time,5,'.',' ');
+    $response_time =  $response_time." ms ";
+    $this->custom_log->log("audit", 'CLICKATELL API route_coverage '.$response_time);
     if((stristr($response, 'OK: ')) === FALSE)
     {
       return FALSE;
