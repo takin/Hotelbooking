@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-01 15:23+0530\n"
-"PO-Revision-Date: 2013-02-05 23:43+0200\n"
+"PO-Revision-Date: 2013-02-06 23:23+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,6 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,987,-1,-1,-1,-1\n"
 "X-Poedit-SearchPath-0: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
 "\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Auberges SVN\\auberges\\trunk\\system"
@@ -6580,7 +6579,7 @@ msgstr ""
 #: /opt/code/application/views/helpfile/pofields.php:584
 #, php-format
 msgid "Please recontact us later or choose different dates."
-msgstr ""
+msgstr "Пожалуйста, свяжитесь с нами позже или выберите другие даты."
 
 #: /opt/code/application/views/helpfile/pofields.php:585
 #, fuzzy, php-format
@@ -6590,7 +6589,7 @@ msgstr "Спасибо"
 #: /opt/code/application/views/helpfile/pofields.php:586
 #, php-format
 msgid "Can we contact you by phone ?"
-msgstr ""
+msgstr "Можем ли мы связаться с вами по телефону?"
 
 #: /opt/code/application/views/helpfile/pofields.php:587
 #, php-format
@@ -6602,12 +6601,12 @@ msgstr "Спасибо за ваш электронный адрес."
 msgid ""
 "We are very sorry but we were not able to find a hostel for you for the "
 "selected date."
-msgstr ""
+msgstr "К сожалению нет свободных мест по данному запросу."
 
 #: /opt/code/application/views/helpfile/pofields.php:589
 #, php-format
 msgid "We apologize for the inconvenience."
-msgstr ""
+msgstr "Извините за неудобства."
 
 #: /opt/code/application/views/helpfile/pofields.php:590
 #, php-format
@@ -6616,6 +6615,9 @@ msgid ""
 "every day, we can only provide customized quotes to people who will be "
 "making a decision within 1 week."
 msgstr ""
+"Нам очень жаль, но в связи с большим количеством ежедневных запросов, мы "
+"можем предоставить индивидуальные расценки только людям, которые будут "
+"принимать решение в течении 1 недели."
 
 #: /opt/code/application/views/helpfile/pofields.php:591
 #, php-format
@@ -6624,11 +6626,14 @@ msgid ""
 "put together your budget and to recontact us when all details re finalized 1 "
 "week before making your decision."
 msgstr ""
+"Мы приглашаем вас посмотреть на список хостелов и цены на нашем сайте, чтобы "
+"спланировать свой бюджет и повторно связаться с нами, когда уже все детали "
+"прояснятся, за 1 неделю до принятия решениея."
 
 #: /opt/code/application/views/helpfile/pofields.php:592
 #, php-format
 msgid "We will work very hard to give you the best price at that time."
-msgstr ""
+msgstr "Мы будем стараться предложить вам лучшую цену в выбранный период."
 
 #: /opt/code/application/views/helpfile/pofields.php:593
 #, php-format
@@ -6646,6 +6651,8 @@ msgid ""
 "Due to  a very high number of group requests, it might take up to 1 week to "
 "get back to you as we are looking for the best deal for your group."
 msgstr ""
+"В связи с большим количеством групповых запросов, наш ответ может занять "
+"около недели, так как мы подбираем лучшее предложение для вашей группы."
 
 #: /opt/code/application/views/helpfile/pofields.php:596
 #, php-format
@@ -6656,7 +6663,7 @@ msgstr "Спасибо за ожидание."
 #: /opt/code/application/views/restricted/user_group_quote.php:160
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Кровати зарезервированы для вашей группы по следующую дату:"
 
 #: /opt/code/application/views/helpfile/pofields.php:598
 #: /opt/code/application/views/restricted/user_group_quote.php:165
@@ -6665,6 +6672,8 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"После этой даты, места будут отданы другим группам, так что спешите "
+"зарезервировать!"
 
 #: /opt/code/application/views/helpfile/pofields.php:599
 #, php-format
@@ -6675,16 +6684,17 @@ msgstr "Спасибо за групповую бронь."
 #, php-format
 msgid "We will shortly send your voucher to the email address on file."
 msgstr ""
+"В скором времени мы отправим ваш ваучер на адрес электронной почты в файле."
 
 #: /opt/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Замечательно"
 
 #: /opt/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Превосходно"
 
 #: /opt/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6692,6 +6702,8 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Для просмотра всех доступных свойств на карте, введите даты в поле в правом "
+"верхнем углу."
 
 #: /opt/code/application/views/helpfile/pofields.php:604
 #, fuzzy, php-format
@@ -6764,10 +6776,11 @@ msgstr "Место проживания"
 #: /opt/code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
 msgstr ""
+"Ваш персональный запрос для группового бронирования - Вот ваше предложение!"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"
-msgstr ""
+msgstr "Общее количество людей в вашей группе"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -6775,18 +6788,21 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"Пожалуйста, просмотрите ниже некоторые предварительные примеры доступного "
+"жилья. Если вы можете ответить на следующие вопросы, мы постараемся найти "
+"идеальные условия для вас:"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "Довольны ли вы типом номеров предлагаемых ниже?"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "Каким бюджетом вы располагаете?"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "Даты и количество людей утверждены или могут измениться?"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:137
 #, php-format
@@ -6794,6 +6810,8 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
 msgstr ""
+"Когда вы сможете оплатить 20%% от стоимости всей резервации, чтобы "
+"подтвердить бронь?"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:150
 #, fuzzy
@@ -6802,13 +6820,15 @@ msgstr "Бронирование для групп "
 
 #: /opt/code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "ОБРАТИТЕ ВНИМАНИЕ - ЭТА БРОНЬ НЕ ПОДТВЕРЖДЕНА"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Пожалуйста, обратите внимание на предложение ниже, и посетите наш веб-сайт, "
+"чтобы получить больше информации о жилье."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:174
 #, fuzzy
@@ -6817,7 +6837,7 @@ msgstr "Ваши контактные данные"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Описание комнаты"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:211
 #, fuzzy
@@ -6826,11 +6846,11 @@ msgstr "Стоимость за комнату (не за одного чело�
 
 #: /opt/code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Дата окончания предложения"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
-msgstr ""
+msgstr "Стоимость предоплаты бронирования не возвращается и не передается"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:287
 #, php-format
