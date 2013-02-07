@@ -170,7 +170,7 @@
                     <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
-				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
+				
 			</div>
 			
 		<!-- research code -->
@@ -180,8 +180,12 @@
 			
 
 
+                       <a href="#" id="city_map_hide" class="view_map" 
+                          title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
+                         <span id ="close_map_button"> </span>
+                         </a>    
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
-
+                       
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
