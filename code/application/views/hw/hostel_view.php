@@ -327,7 +327,7 @@ endforeach; ?>
 	<nav class="hostel_tabs group" id="hostels_tabs">
 		<ul class="box_round ui-tabs-nav green_gradient_faded">
 			<li class="first"><a class="tab_price" href="#hostel_info_home"><?php echo _("Info & Prix");?></a></li>
-			<li><a class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
+			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
 			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
 		<?php if(!empty($hostel->rating)){?>
@@ -635,3 +635,18 @@ endforeach; ?>
 	</div>
 </div>
 <?php endif; //endif api error?>
+<?php
+/* Check the fourth param in URL */
+if ($this->uri->segment(4, 0)) {
+    /* Convert to lower so make it case in sensitive*/
+    $uri_segement = strtolower($this->uri->segment(4));
+    if ($uri_segement == "view-2") {
+        // make the diection tab selected and triger the click event
+        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";   
+    } else if ($uri_segement == 'view-3') { // make the coments tab selected
+        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',2); });</script>";
+    } else {
+        // do nothing
+    }
+}
+?> 
