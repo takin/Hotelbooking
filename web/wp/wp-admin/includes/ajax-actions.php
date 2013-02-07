@@ -910,13 +910,15 @@ function wp_ajax_add_meta() {
 	$c = 0;
 	$pid = (int) $_POST['post_id'];
 	$post = get_post( $pid );
-
-	if ( isset($_POST['metakeyselect']) || isset($_POST['metakeyinput']) ) {
+	if ( isset($_POST['metakeyselect']) || isset($_POST['metakeyinput']) || isset($_POST['metakeyselectcountryname']) ) {
+		
 		if ( !current_user_can( 'edit_post', $pid ) )
 			wp_die( -1 );
-		if ( isset($_POST['metakeyselect']) && '#NONE#' == $_POST['metakeyselect'] && empty($_POST['metakeyinput']) )
+		if ( isset($_POST['metakeyselect']) && '#NONE#' == $_POST['metakeyselect'] && empty($_POST['metakeyinput']) && isset($_POST['metakeyselectcountryname']) && '#NONE#' == $_POST['metakeyselectcountryname']&& isset($_POST['metakeyselectcityname']) && '#NONE#' == $_POST['metakeyselectcityname'])
 			wp_die( 1 );
+			
 		if ( $post->post_status == 'auto-draft' ) {
+			
 			$save_POST = $_POST; // Backup $_POST
 			$_POST = array(); // Make it empty for edit_post()
 			$_POST['action'] = 'draft'; // Warning fix
@@ -934,27 +936,45 @@ function wp_ajax_add_meta() {
 					) );
 					$x->send();
 				}
+				
+				
 				$_POST = $save_POST; // Now we can restore original $_POST again
+				
 				if ( !$mid = add_meta( $pid ) )
 					wp_die( __( 'Please provide a custom field value.' ) );
 			} else {
 				wp_die( 0 );
 			}
 		} else if ( !$mid = add_meta( $pid ) ) {
+			
 			wp_die( __( 'Please provide a custom field value.' ) );
 		}
-
-		$meta = get_metadata_by_mid( 'post', $mid );
+		//$mida = add_meta( $pid );
+			//	print_r($mida);exit;
+		//$x=array();
+		
+		
+foreach ( $mid as $midkey ) {
+	  
+		$meta = get_metadata_by_mid( 'post', $midkey );
+		
 		$pid = (int) $meta->post_id;
-		$meta = get_object_vars( $meta );
-		$x = new WP_Ajax_Response( array(
+		$metaval = get_object_vars( $meta );
+		$data .= _list_meta_row( $metaval,$c );
+		
+	}
+	//var_dump($x);exit;
+	$x= new WP_Ajax_Response( array(
 			'what' => 'meta',
 			'id' => $mid,
-			'data' => _list_meta_row( $meta, $c ),
-			'position' => 1,
+			'data' => $data,
+			'position' => $c,
 			'supplemental' => array('postid' => $pid)
 		) );
+	
+	
 	} else { // Update?
+
 		$mid = (int) key( $_POST['meta'] );
 		$key = stripslashes( $_POST['meta'][$mid]['key'] );
 		$value = stripslashes( $_POST['meta'][$mid]['value'] );
@@ -984,8 +1004,11 @@ function wp_ajax_add_meta() {
 			'position' => 0,
 			'supplemental' => array('postid' => $meta->post_id)
 		) );
+		
 	}
+
 	$x->send();
+
 }
 
 function wp_ajax_add_user( $action ) {

@@ -521,6 +521,10 @@ function meta_form() {
 	if ( $keys )
 		natcasesort($keys);
 ?>
+<?php
+  $countryEmptyVal = __('Choisir le pays','auberge');
+  $cityEmptyVal    = __('Choisir la ville','auberge');
+?>
 <p><strong><?php _e( 'Add New Custom Field:' ) ?></strong></p>
 <table id="newmeta">
 <thead>
@@ -531,6 +535,24 @@ function meta_form() {
 </thead>
 
 <tbody>
+<tr>
+	<td><input type="hidden" type="text" id="metakeyselectcountry" name="metakeyselectcountry" tabindex="7" value="preselect_country" /> Choose site default country</td>
+    <td>
+    <select id="metakeyselectcountryname" name="metakeyselectcountryname" tabindex="7" onchange="setCities('','metakeyselectcountryname','metakeyselectcityname');">
+		
+<option value="#NONE#"><?php echo $countryEmptyVal; ?></option>
+</select>
+    </td>
+</tr>	
+<tr>
+	<td><input type="hidden" type="text" id="metakeyselecity" name="metakeyselecity" tabindex="7" value="preselect_city" /> Choose site default city</td>
+    <td>
+    <select id="metakeyselectcityname" name="metakeyselectcityname" tabindex="7">
+<option value="#NONE#"><?php echo $cityEmptyVal; ?></option>
+</select>
+    </td>
+</tr>	
+	
 <tr>
 <td id="newmetaleft" class="left">
 <?php if ( $keys ) { ?>
@@ -562,6 +584,15 @@ function meta_form() {
 </td></tr>
 </tbody>
 </table>
+
+<script type="text/javascript">
+//<![CDATA[
+var cities = new Array();
+jQuery(document).ready(function(){
+		loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'metakeyselectcountryname','metakeyselectcityname','<?php echo $selcountry  ;?>','<?php echo $selcity;?>');
+	});
+	//]]>
+</script>
 <?php
 
 }
