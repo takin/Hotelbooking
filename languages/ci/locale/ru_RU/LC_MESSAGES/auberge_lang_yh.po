@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-01 15:23+0530\n"
-"PO-Revision-Date: 2013-02-06 23:23+0200\n"
+"PO-Revision-Date: 2013-02-07 22:16+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -2216,7 +2216,7 @@ msgstr "Пожалуйста, просмотрите вложенный файл
 
 #: /opt/code/application/views/email/admin/new_group_request.php:10
 #: /opt/code/application/views/helpfile/pofields.php:576
-#, fuzzy, php-format
+#, php-format
 msgid "Please do not hesitate to contact me if you have any questions."
 msgstr "Пожалуйста, свяжитесь с нами снова, если у вас возникнут вопросы."
 
@@ -2229,9 +2229,9 @@ msgstr "Искренне."
 
 #: /opt/code/application/views/email/admin/new_group_request.php:15
 #: /opt/code/application/views/helpfile/pofields.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Customer Service."
-msgstr "Служба по обслуживанию клиентов"
+msgstr "Служба по обслуживанию клиентов."
 
 #: /opt/code/application/views/email/admin/new_group_request.php:20
 #: /opt/code/application/views/group_request.php:75
@@ -2307,7 +2307,6 @@ msgid "Your details"
 msgstr "Ваши контактные данные"
 
 #: /opt/code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
 msgstr "Адрес электронной почты"
 
@@ -3140,9 +3139,8 @@ msgstr "Вид с улицы"
 #: /opt/code/application/views/hb/booking_avail_error_view.php:14
 #: /opt/code/application/views/hb/booking_avail_view.php:295
 #: /opt/code/application/views/hw/booking_avail_view.php:385
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Нет комнат"
+msgstr "Нет свободных мест"
 
 #: /opt/code/application/views/hb/booking_avail_error_view.php:21
 #: /opt/code/application/views/hb/booking_avail_view.php:300
@@ -4050,9 +4048,8 @@ msgid "Single rooms"
 msgstr "Одноместные номера"
 
 #: /opt/code/application/views/group_request.php:190
-#, fuzzy
 msgid "Twin rooms"
-msgstr "Одноместные номера"
+msgstr "Двухместный номер с двумя кроватями"
 
 #: /opt/code/application/views/group_request.php:191
 msgid "Double rooms"
@@ -6529,9 +6526,9 @@ msgstr "Извините, минимальное количество людей
 
 #: /opt/code/application/views/helpfile/pofields.php:570
 #: /opt/code/application/controllers/cadmin.php:163
-#, fuzzy, php-format
+#, php-format
 msgid "Lunch Pack"
-msgstr "Датский"
+msgstr "Обеденный набор"
 
 #: /opt/code/application/views/helpfile/pofields.php:575
 #, php-format
@@ -6566,6 +6563,8 @@ msgid ""
 "We want to make sure you are 100% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
+"Мы хотим убедиться, что вы удовлетворены на 100%%, так что не стесняйтесь "
+"обращаться к нам."
 
 #: /opt/code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6582,9 +6581,9 @@ msgid "Please recontact us later or choose different dates."
 msgstr "Пожалуйста, свяжитесь с нами позже или выберите другие даты."
 
 #: /opt/code/application/views/helpfile/pofields.php:585
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you."
-msgstr "Спасибо"
+msgstr "Спасибо."
 
 #: /opt/code/application/views/helpfile/pofields.php:586
 #, php-format
@@ -6641,9 +6640,9 @@ msgid "We thank you for your trust and support."
 msgstr "Спасибо за ваше доверие и поддержку."
 
 #: /opt/code/application/views/helpfile/pofields.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your request."
-msgstr "Спасибо за вопрос."
+msgstr "Спасибо за ваш запрос."
 
 #: /opt/code/application/views/helpfile/pofields.php:595
 #, php-format
@@ -6706,9 +6705,9 @@ msgstr ""
 "верхнем углу."
 
 #: /opt/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "Сброс фильтров"
+msgstr "Выбранные фильтры"
 
 #: /opt/code/application/views/property_rooms_avail.php:54
 msgid "Beds (max)"
@@ -6814,9 +6813,8 @@ msgstr ""
 "подтвердить бронь?"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:150
-#, fuzzy
 msgid "Group booking quote information"
-msgstr "Бронирование для групп "
+msgstr "Информация о групповом бронировании"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
@@ -6831,18 +6829,16 @@ msgstr ""
 "чтобы получить больше информации о жилье."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:174
-#, fuzzy
 msgid "Your offers"
-msgstr "Ваши контактные данные"
+msgstr "Ваши предложения"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
 msgstr "Описание комнаты"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:211
-#, fuzzy
 msgid "Price per Person per Night"
-msgstr "Стоимость за комнату (не за одного человека)"
+msgstr "Стоимость за комнату (за одного человека)"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
@@ -6855,28 +6851,31 @@ msgstr "Стоимость предоплаты бронирования не в
 #: /opt/code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr ""
+msgstr "Если предложение будет принято, то баланс должен быть оплачен на %s"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "Особые отметки"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:303
-#, fuzzy
 msgid "Important Notes"
-msgstr "Важные замечания"
+msgstr "Важные заметки"
 
 #: /opt/code/application/views/restricted/user_group_quote.php:306
 msgid ""
 "The deposit is to be paid in British pounds as our Worldwide group center is "
 "located in London, England."
 msgstr ""
+"Предоплата должна осуществляться в британских фунтах, так как наш всемирный "
+"центр находится в Лондоне, Англия."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:308
 msgid ""
 "The Average price per person per night is for the requested arrival date and "
 "length of stay, actual day-by-day prices may vary."
 msgstr ""
+"Средняя цена на человека в ночь расчитана на указанную дату приезда и "
+"продолжительность пребывания, цены за один день могут отличаться."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:310
 msgid ""
@@ -6887,12 +6886,19 @@ msgid ""
 "terms and conditions of any other booking intermediary involved in our "
 "booking."
 msgstr ""
+"Мы выступаем в качестве агента только в отношении всех заказов, которые мы "
+"принимаем или делаем от вашего имени. При бронировании ваш контракт будет "
+"заключен напрямую с поставщиком жилья или другими заинтересованными "
+"службами. Условия бронирования поставщиков будут применяться к договору "
+"также, как и наши собственные условия и любые сроки и условия любого другого "
+"посредника бронирования, участвующего в нашей системе бронирования."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:312
 msgid ""
 "Copies of the other applicable terms and conditions are available from us on "
 "request."
 msgstr ""
+"Копии других применимых правил и условий можно получить у нас по запросу."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:314
 msgid ""
@@ -6900,6 +6906,9 @@ msgid ""
 "Final balance payments will be subject to the exchange rate available 49 "
 "days prior to arrival date."
 msgstr ""
+"Курсы валют рассчитываются с использованием типичной ATM ставки  на www."
+"oanda.com. Итоговые платежы баланса будут подлежать обмену по курсу, "
+"доступному за 49 дней до даты прибытия."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:316
 #, php-format
@@ -6907,18 +6916,24 @@ msgid ""
 "All card payments incur a 2% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
+"Все карточные платежи влекут за собой 2%% взнос и все банковские сборы "
+"должны быть оплачены бронирующей стороной."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:318
 msgid ""
 "As this is a group booking, group leader will need to be present at check in "
 "and the property may require\ta security bond at check-in."
 msgstr ""
+"Так как это групповое бронирование, лидер группы должен присутствовать при "
+"регистрации и услуга может потребовать гарантийного залога при регистрации."
 
 #: /opt/code/application/views/restricted/user_group_quote.php:325
 msgid ""
 "Unpaid fees or transfer of insufficient funds may lead to cancellation of "
 "your booking."
 msgstr ""
+"Невыплаченные сборы или передача недостающих средств может привести к отмене "
+"вашего бронирования."
 
 #: /opt/code/application/views/restricted/user_profile.php:28
 msgid "Votre Profil"
@@ -7060,10 +7075,9 @@ msgstr "Ошибка при забронировании"
 
 #: /opt/code/application/controllers/cadmin.php:22
 msgid "Beds"
-msgstr "Кровати"
+msgstr "Кроватей"
 
 #: /opt/code/application/controllers/cadmin.php:28
-#, fuzzy
 msgid "Nights"
 msgstr "Ночей"
 
