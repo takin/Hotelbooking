@@ -166,7 +166,8 @@ class Hostel_api_model extends CI_Model {
     {
       $file_xml.= "&State=".urlencode($state);
     }
-    $file_xml = $this->get_API_XML($file_xml);
+
+    $file_xml = $this->get_API_XML_and_Audit($file_xml, 'PropertyLocationSearch');
 
     return $this->_validate_api_data($file_xml, "/PropertyLocationSearch/Property", "/SystemMessage", "propertyLocationSearch");
   }
@@ -198,21 +199,18 @@ class Hostel_api_model extends CI_Model {
 
   function PropertyInformation($userID, $propertyNumber, $language = "French")
   {
-	 
-	 $request_time= microtime(true); 
-	  
+
+
     log_message('debug', 'Entering HW API Model Property Information Method');
 
-    $file_xml = $this->config->item('hostelworld_API_url');
-    $file_xml.= "PropertyInformation.php?Language=$language&PropertyNumber=$propertyNumber&UserID=$userID";
+    $file_xml_url = $this->config->item('hostelworld_API_url');
+    $file_xml_url.= "PropertyInformation.php?Language=$language&PropertyNumber=$propertyNumber&UserID=$userID";
 
-    $file_xml = $this->get_API_XML($file_xml);
-    $response_time=microtime(true)-$request_time;
-    $response_time  = number_format($response_time,5,'.',' ');
-    $response_time =  $response_time." ms ";
-    $this->custom_log->log("audit", 'HW API PropertyInformation '.$response_time);
+
+    $file_xml = $this->get_API_XML_and_Audit($file_xml_url,'PropertyInformation');
+
     return $this->_validate_api_data($file_xml, "/PropertyInformation/Property", "/SystemMessage", "PropertyInformation");
-   
+
   }
 
   /**
@@ -236,10 +234,10 @@ class Hostel_api_model extends CI_Model {
    */
   function PropertyReviews($userID, $propertyNumber)
   {
-    $file_xml = $this->config->item('hostelworld_API_url');
-    $file_xml.= "PropertyReviews.php?PropertyNumber=$propertyNumber&UserID=$userID";
+    $file_xml_url = $this->config->item('hostelworld_API_url');
+    $file_xml_url.= "PropertyReviews.php?PropertyNumber=$propertyNumber&UserID=$userID";
 
-    $file_xml = $this->get_API_XML($file_xml);
+    $file_xml = $this->get_API_XML_and_Audit($file_xml_url,'PropertyReviews');
 
     return $this->_validate_api_data($file_xml, "/PropertyReviews", "/SystemMessage", "PropertyInformation");
 
@@ -291,21 +289,21 @@ class Hostel_api_model extends CI_Model {
   function propertyBookingInformation($userID, $propertyNumber, $dateStart, $numNights, $currency = NULL,$language = "French" , $showRoomInfo = 1)
   {
 
-    $file_xml = $this->config->item('hostelworld_API_url');
-    $file_xml.= "PropertyBookingInformation.php";
-    $file_xml.= "?UserID=".$userID;
-    $file_xml.= "&PropertyNumber=".$propertyNumber;
-    $file_xml.= "&DateStart=".$dateStart;
-    $file_xml.= "&NumNights=".$numNights;
-    $file_xml.= "&ShowRoomInfo=".$showRoomInfo;
-    $file_xml.= "&Language=".$language;
+    $file_xml_url = $this->config->item('hostelworld_API_url');
+    $file_xml_url.= "PropertyBookingInformation.php";
+    $file_xml_url.= "?UserID=".$userID;
+    $file_xml_url.= "&PropertyNumber=".$propertyNumber;
+    $file_xml_url.= "&DateStart=".$dateStart;
+    $file_xml_url.= "&NumNights=".$numNights;
+    $file_xml_url.= "&ShowRoomInfo=".$showRoomInfo;
+    $file_xml_url.= "&Language=".$language;
 
     if($currency != NULL)
     {
-      $file_xml.= "&Currency=$currency";
+      $file_xml_url.= "&Currency=$currency";
     }
 //    print $file_xml;
-    $file_xml = $this->get_API_XML($file_xml);
+    $file_xml = $this->get_API_XML_and_Audit($file_xml_url, 'PropertyBookingInformation');
 
     return $this->_validate_api_data($file_xml, "/PropertyBookingInformation", "/SystemMessage", "get_property_availability");
   }
@@ -382,13 +380,13 @@ class Hostel_api_model extends CI_Model {
                                   $language = "")
   {
 
-    $file_xml = $this->config->item('hostelworld_API_url');
-    $file_xml.= "PropertyBookingRequest.php";
-    $file_xml.= "?UserID=".$userID;
-    $file_xml.= "&PropertyNumber=".$propertyNumber;
-    $file_xml.= "&DateStart=".$dateStart;
-    $file_xml.= "&NumNights=".$numNights;
-    $file_xml.= "&Language=".$language;
+    $file_xml_url = $this->config->item('hostelworld_API_url');
+    $file_xml_url.= "PropertyBookingRequest.php";
+    $file_xml_url.= "?UserID=".$userID;
+    $file_xml_url.= "&PropertyNumber=".$propertyNumber;
+    $file_xml_url.= "&DateStart=".$dateStart;
+    $file_xml_url.= "&NumNights=".$numNights;
+    $file_xml_url.= "&Language=".$language;
 
     if(is_array($roomPreferences)&&is_array($nbPersons))
     {
@@ -402,8 +400,8 @@ class Hostel_api_model extends CI_Model {
       {
         if($nbPersons[$i] > 0)
         {
-          $file_xml.= "&RoomPreference$r=".urlencode($roomTypeCode);
-          $file_xml.= "&Persons$r=".$nbPersons[$i];
+          $file_xml_url.= "&RoomPreference$r=".urlencode($roomTypeCode);
+          $file_xml_url.= "&Persons$r=".$nbPersons[$i];
           $r++;
         }
         $i++;
@@ -412,26 +410,26 @@ class Hostel_api_model extends CI_Model {
     }
     else
     {
-      $file_xml.= "&RoomPreference=".$roomPreferences;
-      $file_xml.= "&Persons=".$nbPersons;
+      $file_xml_url.= "&RoomPreference=".$roomPreferences;
+      $file_xml_url.= "&Persons=".$nbPersons;
     }
 
 
     if($settleCurrency != NULL)
     {
-      $file_xml.= "&SettleCurrency=$settleCurrency";
+      $file_xml_url.= "&SettleCurrency=$settleCurrency";
     }
 
     if($bsid != NULL)
     {
-      $file_xml.= "&BSID=$bsid";
+      $file_xml_url.= "&BSID=$bsid";
     }
 
     if($currency != NULL)
     {
-      $file_xml.= "&Currency=$currency";
+      $file_xml_url.= "&Currency=$currency";
     }
-    $file_xml = $this->get_API_XML($file_xml);
+    $file_xml = $this->get_API_XML_and_Audit($file_xml_url,'PropertyBookingRequest');
 
     return $this->_validate_api_data($file_xml, "/PropertyBookingRequest", "/SystemMessage", "propertyBookingRequest");
 
@@ -813,6 +811,23 @@ class Hostel_api_model extends CI_Model {
       $night2 =  strtotime($room->date);
     }
     return $numNights_calculated;
+  }
+
+  /**
+   * get_API_XML
+   *
+   */
+  function get_API_XML_and_Audit($xml_file_url, $auditLogStatement)
+  {
+	$request_time= microtime(true);
+    $file_xml = $this->get_API_XML($xml_file_url);
+    $response_time=microtime(true);
+	$total_time = ($response_time - $request_time) * 1000;
+	$total_time = floor($total_time);
+	$total_time =  $total_time." ms ";
+    $this->custom_log->log("audit", 'HW API '.$auditLogStatement.' '.$total_time);
+
+    return $file_xml;
   }
 
   /**
