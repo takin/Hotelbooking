@@ -147,7 +147,6 @@ class Microsofttranslator extends CI_Model {
 */
   public function make_xml_request($api_function_name, $data)
   {
-    $request_time= microtime(true);
     $this->app_token = $this->CI->Azuremarketplaceauthenticator->get_token();
 
     $this->CI->benchmark->mark('start');
@@ -164,15 +163,21 @@ class Microsofttranslator extends CI_Model {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data );
     curl_setopt($ch, CURLOPT_HEADER, FALSE );
 
+    $request_time= microtime(true);
     $curl_result = curl_exec ( $ch );
+    $response_time=microtime(true);
+	$total_time = ($response_time - $request_time) * 1000;
+	$total_time = floor($total_time);
+	$total_time =  $total_time." ms ";
+    $this->custom_log->log("audit", 'Bing API '.$api_function_name.' '.$total_time);
+
     $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 	if ($http_status == 200)
 	{
-	       $response_time=microtime(true);
-	       $total_time = ($response_time - $request_time) * 1000;
-	       $total_time = floor($total_time);
-	       $total_time =  $total_time." ms ";
-      $this->custom_log->log("audit", 'Microsoft Bing API make_xml_request '.$total_time);
+	  $response_time=microtime(true)-$request_time;
+      $response_time  = number_format($response_time,5,'.',' ');
+      $response_time =  $response_time." ms ";
+      $this->custom_log->log("audit", 'Microsoft Bing API make_xml_request '.$response_time);
 	  curl_close ( $ch );
 	  return $curl_result;
 	}
@@ -260,8 +265,9 @@ class Microsofttranslator extends CI_Model {
     $xmldata .= "<Texts>";
     foreach($this->batchTranslationText as $data)
     {
-
-		$this->CI->custom_log->log("bing-translation",": From ".$this->FromLang." -> To ".$this->ToLang." original text :".$data);
+		if($this->config->item('translationLog')==TRUE){
+			$this->CI->custom_log->log("bing-translation",": From ".$this->FromLang." -> To ".$this->ToLang." original text :".$data);
+		}
 		$xmldata .= "<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">".xml_convert($data)."</string>";
     }
 
@@ -272,6 +278,13 @@ class Microsofttranslator extends CI_Model {
     $results['responseData'] = array();
     $results['responseDetails'] = NULL;
     $results['responseStatus']  = 200;
+
+	if($this->config->item('bingTranslation')==FALSE)
+	{
+        $results['responseStatus']  = 400;
+        return $results;
+	}
+
 
     if(count($this->batchTranslationText)>0)
     {
@@ -351,8 +364,6 @@ class Microsofttranslator extends CI_Model {
 
   public function startBatch($toLang="", $fromLang="")
   {
-	  log_message("error",'start batch');
-
     if($toLang != "")
     {
       $this->ToLang = $toLang;
@@ -482,11 +493,6 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
 
   function batch_translate()
   {
-	  if($this->config->item('bing_translation')==FALSE)
-	  {
-      return false;
-      }
-
     if(count($this->batchText) > 0 )
     {
 
@@ -499,9 +505,6 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
       $c = 0;
       foreach($this->batch_results['responseData'] as $i => $translation_data)
       {
-		  if($this->config->item('translationLog')==TRUE){
-          $this->CI->custom_log->log("bing-translation","From: ".$this->FromLang." To: ". $this->ToLang." string: ".$this->batchText[$c]->text);
-          }
         if($translation_data['responseDetails'] === "Remote Translation Needed")
         {
 		  if($contents === FALSE)
