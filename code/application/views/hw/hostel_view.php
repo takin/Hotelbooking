@@ -640,10 +640,10 @@ endforeach; ?>
 if ($this->uri->segment(4, 0)) {
     /* Convert to lower so make it case in sensitive*/
     $uri_segement = strtolower($this->uri->segment(4));
-    if ($uri_segement == "view-2") {
+    if ($uri_segement == "map") {
         // make the diection tab selected and triger the click event
         echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";   
-    } else if ($uri_segement == 'view-3') { // make the coments tab selected
+    } else if ($uri_segement == 'comments') { // make the coments tab selected
         echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',2); });</script>";
     } else {
         // do nothing
