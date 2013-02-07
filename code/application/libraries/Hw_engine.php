@@ -672,7 +672,12 @@ class Hw_engine {
 
       settype($json_data["property_list"][$i]["maxPax"],"integer");
       $prices = $this->property_cheapest_prices($json_data["property_list"][$i]);
-
+	  // validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
+	  if(empty($prices['min_price'])) 
+	  {	
+		  unset($json_data["property_list"][$i]); // just remove the record from the list
+		  continue; // 
+	  }
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
       $json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
