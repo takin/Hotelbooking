@@ -7,7 +7,7 @@ $config['displayVelaro'] = FALSE;
 $config['translationLog'] = TRUE;
 
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
-$config['bing_translation'] = FALSE;
+$config['bing_translation'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
