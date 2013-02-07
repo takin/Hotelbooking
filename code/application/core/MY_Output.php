@@ -337,6 +337,10 @@ class MY_Output extends CI_Output {
      */
     function _display_cache(&$CFG, &$URI) {
 
+		if (!$config['useCacheOutput']) {
+            return FALSE;
+		}
+
         //If the hostel page is output for review
         if (!empty($_GET["comment"]) && ($_GET["comment"] == "insert")) {
             return FALSE;

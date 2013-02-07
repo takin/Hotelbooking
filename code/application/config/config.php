@@ -9,6 +9,16 @@ $config['translationLog'] = TRUE;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 $config['bingTranslation'] = FALSE;
 
+/* cache output*/
+if (ISDEVELOPMENT)
+{
+	$config['useCacheOutput'] = FALSE;
+}
+else
+{
+	$config['useCacheOutput'] = TRUE;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
