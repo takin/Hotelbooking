@@ -131,12 +131,13 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     { 
-	  $request_time= microtime(true);
+	       $request_time= microtime(true);
       $return = $this->hbapi->getCountryList( $this->apikey, $language_code, $continent_code );
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getCountryList '.$response_time);
+	       $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+           $this->custom_log->log("audit", 'HB API getCountryList '.$total_time);
       return $return;
     }
     catch(SoapFault $exception)
@@ -164,10 +165,11 @@ class Hostelbookers_api extends CI_Model {
     {
 	   $request_time= microtime(true);
        $return = $this->hbapi->getContinentList( $this->apikey, $language_code);
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getContinentList '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getContinentList '.$total_time);
        return $return;
     }
     catch(SoapFault $exception)
@@ -196,10 +198,11 @@ class Hostelbookers_api extends CI_Model {
     {
 	  $request_time= microtime(true);
       $return = $this->hbapi->getCountryLocationList( $this->apikey, $language_code, $continent_code );
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getCountryLocationList '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getCountryLocationList '.$total_time);
       return $return;
     }
     catch(SoapFault $exception)
@@ -228,10 +231,11 @@ class Hostelbookers_api extends CI_Model {
     {
 	  $request_time= microtime(true);
       $return = $this->hbapi->getLocationData( $this->apikey, $language_code, $location, $country,  $strCurrencyCode );
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getLocationData '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getLocationData '.$total_time);
       return $return;
     }
     catch(SoapFault $exception)
@@ -259,10 +263,11 @@ class Hostelbookers_api extends CI_Model {
        log_message('debug', "getPropertyByID ".$property_number." lang:".$language_code);
        $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
        log_message('debug', "getPropertyByID ".$property_number. " done");
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getPropertyDataByID '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getPropertyDataByID '.$total_time);
 
        if($this->tracing)
        {
@@ -296,10 +301,11 @@ class Hostelbookers_api extends CI_Model {
     {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability( $this->apikey, $language_code, $property_number, $startDate, $numNights, $strCurrencyCode );
-       $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getPropertyAvailability '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getPropertyAvailability '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -333,10 +339,11 @@ class Hostelbookers_api extends CI_Model {
     {  
 	   $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailabilityCalendar( $this->apikey, $property_number, $startDate, $numNights, $strCurrencyCode );
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getPropertyAvailabilityCalendar '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getPropertyAvailabilityCalendar '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -369,10 +376,11 @@ class Hostelbookers_api extends CI_Model {
     {  
 	   $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getLocationAvailability '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -405,10 +413,11 @@ class Hostelbookers_api extends CI_Model {
     {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability5( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getLocationAvailabilityCheapRoom '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getLocationAvailabilityCheapRoom '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -438,10 +447,11 @@ class Hostelbookers_api extends CI_Model {
     { 
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing2( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getPropertyPricingPerDate '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getPropertyPricingPerDate '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -472,10 +482,11 @@ class Hostelbookers_api extends CI_Model {
     {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-       $response_time=microtime(true)-$request_time;
-       $response_time  = number_format($response_time,5,'.',' ');
-       $response_time =  $response_time." ms ";
-       $this->custom_log->log("audit", 'HB API getPropertyPricing '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+       $this->custom_log->log("audit", 'HB API getPropertyPricing '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -508,10 +519,11 @@ class Hostelbookers_api extends CI_Model {
     { 
 	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyRoomPricing2( $this->apikey, $property_id, $roomsIDs, $startDate, $numNights, $strCurrencyCode, $language_code );
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getPropertyRoomPricingPerDate '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getPropertyRoomPricingPerDate '.$total_time);
       return  $return ;
     }
     catch(SoapFault $exception)
@@ -535,10 +547,11 @@ class Hostelbookers_api extends CI_Model {
     { 
 	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyReviews( $this->apikey, $property_id, $num_reviews );
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getPropertyReviews '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getPropertyReviews '.$total_time);
 
       if($return !== false)
       {
@@ -680,10 +693,11 @@ class Hostelbookers_api extends CI_Model {
     {
       $request_time= microtime(true);
       $return = $this->hbapibooking->makeBooking ( $this->affiliate_name, $this->apikey, $booking_object->asXML(), $language_code);
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API make_booking '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API make_booking '.$total_time);
 //      $this->load->helper('file');
 //      $return = read_file('./apibookingreturn.xml');
 
@@ -726,10 +740,11 @@ class Hostelbookers_api extends CI_Model {
     { 
 	  $request_time= microtime(true);
       $return = $this->hbapibooking->getNationalities  ( $this->affiliate_name, $this->apikey, $language_code);
-      $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getNationalities '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getNationalities '.$total_time);
       return $return;
     }
     catch(SoapFault $exception)
@@ -756,10 +771,11 @@ class Hostelbookers_api extends CI_Model {
     {
 	  $request_time= microtime(true);
       $return = $this->hbapibooking->getTermsAndConditions ( $this->affiliate_name, $this->apikey, $language_code);
-     $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'HB API getTermsAndConditions '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'HB API getTermsAndConditions '.$total_time);
       return  $return;
     }
     catch(SoapFault $exception)

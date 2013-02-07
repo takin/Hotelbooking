@@ -168,10 +168,11 @@ class Microsofttranslator extends CI_Model {
     $http_status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 	if ($http_status == 200)
 	{
-	  $response_time=microtime(true)-$request_time;
-      $response_time  = number_format($response_time,5,'.',' ');
-      $response_time =  $response_time." ms ";
-      $this->custom_log->log("audit", 'Microsoft Bing API make_xml_request '.$response_time);
+	       $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+      $this->custom_log->log("audit", 'Microsoft Bing API make_xml_request '.$total_time);
 	  curl_close ( $ch );
 	  return $curl_result;
 	}

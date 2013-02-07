@@ -207,10 +207,11 @@ class Hostel_api_model extends CI_Model {
     $file_xml.= "PropertyInformation.php?Language=$language&PropertyNumber=$propertyNumber&UserID=$userID";
 
     $file_xml = $this->get_API_XML($file_xml);
-    $response_time=microtime(true)-$request_time;
-    $response_time  = number_format($response_time,5,'.',' ');
-    $response_time =  $response_time." ms ";
-    $this->custom_log->log("audit", 'HW API PropertyInformation '.$response_time);
+           $response_time=microtime(true);
+	       $total_time = ($response_time - $request_time) * 1000;
+	       $total_time = floor($total_time);
+	       $total_time =  $total_time." ms ";
+    $this->custom_log->log("audit", 'HW API PropertyInformation '.$total_time);
     return $this->_validate_api_data($file_xml, "/PropertyInformation/Property", "/SystemMessage", "PropertyInformation");
    
   }
