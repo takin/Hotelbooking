@@ -196,7 +196,8 @@ class MY_Output extends CI_Output {
         // Does the get_instance() function exist?
         // If not we know we are dealing with a cache file so we'll
         // simply echo out the data and exit.
-        if (!function_exists('get_instance')) {
+        // Changed see MCWEB-304
+        if (!isset($CI)) {
             echo $output;
             log_message('debug', "Final output sent to browser");
             log_message('debug', "Total execution time: " . $elapsed);
@@ -335,6 +336,7 @@ class MY_Output extends CI_Output {
      * @return	void
      */
     function _display_cache(&$CFG, &$URI) {
+
         //If the hostel page is output for review
         if (!empty($_GET["comment"]) && ($_GET["comment"] == "insert")) {
             return FALSE;
@@ -436,8 +438,8 @@ class MY_Output extends CI_Output {
         }
 
         // Display the cache
-        $this->_display(str_replace($match['0'], '', $cache));
         log_message('debug', "Cache file is current. Sending it to browser.");
+        $this->_display(str_replace($match['0'], '', $cache));
         return TRUE;
     }
 

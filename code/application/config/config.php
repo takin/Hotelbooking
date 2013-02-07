@@ -1,5 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* Valero chat globale variable set false for disable and True for enable chat*/
+$config['displayVelaro'] = FALSE;
+
+/* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
+$config['translationLog'] = TRUE;
+
+/* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
+$config['bingTranslation'] = TRUE;
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -109,12 +118,7 @@ $config['charset'] = 'UTF-8';
 |
 */
 $config['enable_hooks'] = FALSE;
-/* Valero chat globale variable set false for disable and True for enable chat*/
-$config['displayVelaro'] = FALSE;
-/* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
-$config['translationLog'] = TRUE;
-/* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
-$config['bing_translation'] = TRUE;
+
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix
@@ -275,7 +279,7 @@ $config['sess_cookie_name']		= 'aj_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
-$config['sess_use_database']	= FALSE;
+$config['sess_use_database']	= TRUE;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
