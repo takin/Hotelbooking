@@ -10,7 +10,7 @@
         <?php
         if(is_array($hostel) && array_key_exists("GPS", $hostel)){  ?>
 		<div class="box_content map_button_box box_round" id="map_button_side">
-			<a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click');">
+			<a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click'); $(document).scrollTop( $('#show_full_map').offset().top );  ">
 			<span><strong><?php echo _("Voir la carte");?></strong></span>
 			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $hostel["GPS"]["LAT"];?>,<?php echo $hostel["GPS"]["LON"];?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>&markers=<?php echo $hostel["GPS"]["LAT"];?>,<?php echo $hostel["GPS"]["LON"];?>" />
                         </a>
