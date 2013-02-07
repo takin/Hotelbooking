@@ -337,7 +337,7 @@ class MY_Output extends CI_Output {
      */
     function _display_cache(&$CFG, &$URI) {
 
-		if (!$config['useCacheOutput']) {
+		if (ISDEVELOPMENT) {
             return FALSE;
 		}
 
