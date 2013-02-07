@@ -37,6 +37,7 @@ class Clickatell {
   function Clickatell()
   {
     $this->clickatell_api = new SoapClient($this->wsdl);
+    $this->load->library('custom_log');
   }
 
   function auth()
@@ -141,7 +142,7 @@ class Clickatell {
   {
     $this->zone_coverage = $zone;
     $this->auth();
-     
+
     $request_time= microtime(true);
     $response = $this->clickatell_api->routeCoverage($this->session_id, NULL, NULL, NULL, $number);
            $response_time=microtime(true);
