@@ -964,6 +964,17 @@ class Hb_engine {
       $this->CI->Hb_api_translate->translate_PropertyData($response["RESPONSE"]);
 
       $data['hostel'] = $response["RESPONSE"];
+     
+	 //String replace code start----------------------
+     $data['hostel']['SHORTDESCRIPTION'] = MY_Controller::domain_name_replace($data['hostel']['SHORTDESCRIPTION']);
+     $data['hostel']['LONGDESCRIPTION'] = MY_Controller::domain_name_replace($data['hostel']['LONGDESCRIPTION']);
+     $data['hostel']['LONGDESCRIPTION_translated'] = MY_Controller::domain_name_replace($data['hostel']['LONGDESCRIPTION_translated']);
+     $data['hostel']['IMPORTANTINFORMATION'] = MY_Controller::domain_name_replace($data['hostel']['IMPORTANTINFORMATION']);
+     //String replace code close----------------------
+	 
+	 $data['property_number'] = $response["RESPONSE"]["ID"];
+
+	   
 
       $data['property_number'] = $response["RESPONSE"]["ID"];
 
