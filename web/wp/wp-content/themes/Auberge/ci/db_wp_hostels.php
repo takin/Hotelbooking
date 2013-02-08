@@ -757,7 +757,7 @@ class Db_hostels
 
     $key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count-".date("Y-W");
     //Added _fixed_ to force transient update on all site after a query fix
-    $cache_key = "topcitieshb_fixed_".md5($key_var);
+    $cache_key = "topcitieshb_".md5($key_var);
 
     $results = array();
     if ( false === ( $results = get_transient( $cache_key ) ) )
