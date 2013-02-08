@@ -9,7 +9,7 @@ $config['translationLog'] = TRUE;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
-	$config['bingTranslation'] = TRUE;
+	$config['bingTranslation'] = FALSE;
 }
 else
 {
