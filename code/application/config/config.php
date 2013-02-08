@@ -17,10 +17,10 @@ else
 }
 
 $config['companies_strings_to_replace'] = array(
-												"hostelbookers",
-												"hostelworld",
 												"hostelbookers.com",
-												"hostelworld.com"
+												"hostelworld.com",
+												"hostelbookers",
+												"hostelworld"
 												);
 												
 /*
