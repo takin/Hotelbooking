@@ -16,6 +16,13 @@ else
 	$config['bingTranslation'] = FALSE;
 }
 
+$config['companies_strings_to_replace'] = array(
+												"hostelbookers",
+												"hostelworld",
+												"hostelbookers.com",
+												"hostelworld.com"
+												);
+												
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -394,14 +401,6 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
-
-
-$config['companies_strings_to_replace'] = array(
-												"hostelbookers",
-												"hostelworld",
-												"hostelbookers.com",
-												"hostelworld.com"
-												);
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
