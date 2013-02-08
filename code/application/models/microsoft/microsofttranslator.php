@@ -486,7 +486,6 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
   {
 
     $batch_result = $this->batch_translate();
-//     debug_dump("count of results: :".$this->results_count,"184.161.43.99");
     $this->clearBatch();
     return $batch_result;
   }
@@ -495,17 +494,13 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
   {
     if(count($this->batchText) > 0 )
     {
-
-//       $this->benchmark->mark('google_req');
       $contents = $this->translateArray($this->batchText);
-//       $this->benchmark->mark('google_req_end');
-//       debug_dump("MS response time".$this->benchmark->elapsed_time('google_req', 'google_req_end'),"184.161.43.99");
-// debug_dump($contents);
 
       $c = 0;
       foreach($this->batch_results['responseData'] as $i => $translation_data)
       {
-        if($translation_data['responseDetails'] === "Remote Translation Needed")
+        if(!empty($translation_data) && isset($translation_data['responseDetails'])
+        		&& $translation_data['responseDetails'] === "Remote Translation Needed")
         {
 		  if($contents === FALSE)
           {

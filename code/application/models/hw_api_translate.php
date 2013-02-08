@@ -602,8 +602,13 @@ class Hw_api_translate extends CI_Model
         $i=0;
         foreach($reviews as $review)
         {
+          if (!isset($gtrans["responseData"][$i]["responseStatus"]) or !isset($gtrans["responseData"][$i]["responseDetails"]))
+          {
+            $reviews[$i]["review_translatedError"] = "Translation error : no status or data";
+            log_message(TRANSLATION_ERROR_LEVEL,"translate_mixed_reviews: " .current_url()." -> [review] -> ".$reviews[$i]["review_translatedError"]. " | google status -> No status");
+          }
           //TONOTICE The detected langage by google is not really reliable because de description is to short
-          if($gtrans["responseData"][$i]["responseStatus"] == 200)
+          else if($gtrans["responseData"][$i]["responseStatus"] == 200)
           {
             if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
             {
