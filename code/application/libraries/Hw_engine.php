@@ -862,8 +862,8 @@ class Hw_engine {
           $data['hostel']->PropertyImages[$key]->imageURL = str_replace("http://images.webresint.com","",$data['hostel']->PropertyImages[$key]->imageURL);
         }
       }
-      $data['hostel']->description            = (string) $data['hostel_data']->description;
-      $data['hostel']->descriptionTranslated  = (string) $data['hostel_data']->descriptionTranslated;
+      $data['hostel']->description            = (string) MY_Controller::domain_name_replace($data['hostel_data']->description);
+      $data['hostel']->descriptionTranslated  = (string) MY_Controller::domain_name_replace($data['hostel_data']->descriptionTranslated);
       $data['hostel']->facilities             = xmlobj2arr($data['hostel_data']->Facilities);
 
       if(!empty($data['hostel']->facilities["facilityTranslated"]))
