@@ -39,9 +39,17 @@ class CMain extends I18n_site
     $this->load->model('Db_currency');
 
     $currency_validated = $this->input->get("currency", TRUE);
-    if(!empty($currency_validated))
-    {
-      $currency_validated = $this->Db_currency->validate_currency($currency_validated);
+	
+	// this line is modified for providing wrong currency parameters
+	if(!empty($currency_validated))
+    {        
+		// check for wrong currency parameter validation
+		 $currency_validated = $this->Db_currency->validate_currency_parameter($currency_validated);
+		 if(!$currency_validated) // find wrong currency parameter
+		 {			
+			return true;
+		 }
+		// $currency_validated = $this->Db_currency->validate_currency($currency_validated);  // old function call
     }
     elseif($this->tank_auth->is_logged_in())
     {
@@ -94,8 +102,8 @@ class CMain extends I18n_site
     }
     else
     {
-      $this->load->model('Db_country');
-      $this->_currency_init();
+      $this->load->model('Db_country');     
+	  $this->_currency_init();
       $this->_searchBoxInit($data);
 
       $data['current_view_dir'] = "";
@@ -168,7 +176,8 @@ class CMain extends I18n_site
 
   function site_search($terms = NULL)
   {
-    $this->_currency_init();
+    
+	$this->_currency_init();
 
     //THIS IS BAD for performance and does not support HB!
     $data['results'] = array();
@@ -852,7 +861,8 @@ class CMain extends I18n_site
 
   function continent_country_page($continent, $country = NULL)
   {
-    $this->_currency_init();
+   
+	$this->_currency_init();
 
     if(!empty($country)&&!empty($continent))
     {
@@ -870,7 +880,7 @@ class CMain extends I18n_site
 
   function continent_page($continent)
   {
-
+	
     $cache_time = $this->wordpress->get_option("aj_cache_time_country_pages",0);
     if(!empty($cache_time))
     {
@@ -924,7 +934,8 @@ class CMain extends I18n_site
 
   function group_request()
   {
-    $this->load->model('Db_country');
+     
+	$this->load->model('Db_country');
 
     $data['country_selected'] = $this->uri->segment(2,null);
     $data['city_selected']    = $this->uri->segment(3,null);
@@ -954,7 +965,9 @@ class CMain extends I18n_site
 
   function property_search($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL)
   {
-    $this->_currency_init();
+    
+	$currency_error = false; // default currency paramete is correct
+	$currency_error = $this->_currency_init();
 
     if(empty($country))
     {
@@ -967,6 +980,12 @@ class CMain extends I18n_site
       $this->error404();
       return;
     }
+	elseif($currency_error) // add the currency parameter provided was wrong
+	{
+		//Display error page
+      $this->error404();
+      return;
+	}
     else
     {
 
@@ -1377,7 +1396,9 @@ class CMain extends I18n_site
     {
       return false;
     }
-    $this->_currency_init();
+   
+	$this->_currency_init();
+	
 //     $this->output->set_header('Cache-Control: public');
     //7200 sec = 2 hours
 //     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+7200).' GMT');
