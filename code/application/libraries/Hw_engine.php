@@ -844,7 +844,9 @@ class Hw_engine {
 
       //Map all hostel fata
       $this->CI->load->model('Db_hw_rating');
-
+      // Load a helper
+	  $this->CI->load->helper('domain_replace');
+	  
       $data['hostel']=new stdClass();
       $data['hostel']->property_number        = (int) $data['hostel_data']->propertyNumber;
       $data['hostel']->property_name          = (string) $property_name;
@@ -862,8 +864,8 @@ class Hw_engine {
           $data['hostel']->PropertyImages[$key]->imageURL = str_replace("http://images.webresint.com","",$data['hostel']->PropertyImages[$key]->imageURL);
         }
       }
-      $data['hostel']->description            = (string) MY_Controller::domain_name_replace($data['hostel_data']->description);
-      $data['hostel']->descriptionTranslated  = (string) MY_Controller::domain_name_replace($data['hostel_data']->descriptionTranslated);
+      $data['hostel']->description            = (string) domain_name_replace($data['hostel_data']->description);
+      $data['hostel']->descriptionTranslated  = (string) domain_name_replace($data['hostel_data']->descriptionTranslated);
       $data['hostel']->facilities             = xmlobj2arr($data['hostel_data']->Facilities);
 
       if(!empty($data['hostel']->facilities["facilityTranslated"]))
@@ -872,8 +874,8 @@ class Hw_engine {
       }
       $data['hostel']->facilities             = $data['hostel']->facilities["facility"];
 
-      $data['hostel']->conditions             = (string) $data['hostel_data']->conditions;
-      $data['hostel']->conditionsTranslated   = (string) $data['hostel_data']->conditionsTranslated;
+      $data['hostel']->conditions             = (string) domain_name_replace($data['hostel_data']->conditions);
+      $data['hostel']->conditionsTranslated   = (string) domain_name_replace($data['hostel_data']->conditionsTranslated);
       $data['hostel']->directions             = (string) $data['hostel_data']->directions;
       $data['hostel']->directionsTranslated   = (string) $data['hostel_data']->directionsTranslated;
       $data['hostel']->address1               = (string) $data['hostel_data']->address1;
