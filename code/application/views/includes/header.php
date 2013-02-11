@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<?php echo $this->html_lang_code; ?>">
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=10; IE=EDGE" />
 	<meta charset="utf-8" />
   <meta http-equiv="Content-Language" content="<?php echo $this->html_lang_code; ?>" />
   <title><?php echo isset($title) ? my_mb_ucfirst($title) : $this->config->item('site_title'); ?></title>
