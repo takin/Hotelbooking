@@ -54,6 +54,24 @@ class Db_currency extends CI_Model
 
   }
 
+/* New function added for wrong currency parameter validation
+* @access public
+* @param currency parameter
+*/
+ function validate_currency_parameter($currency_code)
+ {
+    $query = "SELECT currency_code FROM ".self::CURRENCY_TABLE." WHERE LOWER(currency_code) = ('".strtolower($currency_code)."')";
+    $query = $this->db->query($query);
+
+    if ($query->num_rows() > 0)
+    {
+      $currency = $query->row();
+      return $currency->currency_code;
+    }
+
+    return false;
+
+  }
   function validate_currency_lang($lang)
   {
     foreach($this->description_fields AS $desc_field)
