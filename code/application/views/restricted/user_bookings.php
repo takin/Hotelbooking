@@ -27,6 +27,7 @@ stdClass Object
 )
 
 */
+$SPACE = '&nbsp;';
 ?>
 <div id="sidebar" class="grid_4">
 	<?php $this->load->view('includes/navuser'); ?> 
@@ -82,13 +83,13 @@ stdClass Object
 			echo "</td>";
 			
 			echo "<td align=\"center\">";
-			echo currency_symbol($row->amount_charged_currency).' '.$row->property_grand_total;
+			echo currency_symbol($row->amount_charged_currency).$SPACE.$row->property_grand_total;
 			echo "</td>";
 			echo "<td align=\"center\">";
-			echo currency_symbol($row->amount_charged_currency).' '.$row->amount_charged;
+			echo currency_symbol($row->amount_charged_currency).$SPACE.$row->amount_charged;
 			echo "</td>";
 			echo "<td align=\"center\">";
-			echo currency_symbol($row->property_currency).$row->property_amount_due;
+			echo currency_symbol($row->property_currency).$SPACE.$row->property_amount_due;
 			echo "</td>";
 			echo "</tr>";
 			
