@@ -55,7 +55,7 @@ function keyaction(e)
 {
 	if (!$('ul#suggestion').is(':visible') && e.keyCode == 13)
 	{
-		goToSearchPage('<?php echo get_option('aj_api_url');?>','<?php echo $countryEmptyVal; ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo $cityEmptyVal; ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');
+		goToSearchPage('<?php echo get_option('aj_api_url');?>','<?php echo _('Choisir le pays'); ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo _('Choisir la ville'); ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');
 	}
 }
 </script>
@@ -65,13 +65,13 @@ function keyaction(e)
 		
 		
 		<label class="notshow" for="search-country"><?php _e('Spécifier le pays','auberge');?></label>
-		<select id="search-country" name="search-country" class="search_country" onchange="setCities('<?php echo $cityEmptyVal; ?>','search-country','search-city');">
-		<option value="no_country_selected"><?php echo $countryEmptyVal; ?></option>              
+		<select id="search-country" name="search-country" class="search_country" onchange="setCities('<?php echo _('Choisir la ville'); ?>','search-country','search-city');">
+		<option value="no_country_selected"><?php echo _('Choisir le pays'); ?></option>              
 		</select>
 		
 		<label class="notshow" for="search-city"><?php _e('Spécifier la ville','auberge');?></label>
 		<select id="search-city" name="search-city" class="search_city">
-		<option value="no_city_selected"><?php echo $cityEmptyVal; ?></option>
+		<option value="no_city_selected"><?php echo _('Choisir la ville'); ?></option>
 		</select>	
 		
 		<?php /*?><div class="search_suggest_block">
@@ -94,7 +94,7 @@ function keyaction(e)
 		<label for="search-currency"><?php _e("Currency:","auberge");?></label>
 		<?php select_currency("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); ?>		
 		</div>
-		<input onfocus="this.blur()" type="button" name="search-submit" id="search-submit" class="box_round button-green side_submit hoverit" onclick="goToSearchPage('<?php echo get_option('aj_api_url'); ?>','<?php echo $countryEmptyVal; ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo $cityEmptyVal; ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');" value="<?php _e('Search Now','auberge');?>"/>
+		<input onfocus="this.blur()" type="button" name="search-submit" id="search-submit" class="box_round button-green side_submit hoverit" onclick="goToSearchPage('<?php echo get_option('aj_api_url'); ?>','<?php echo _('Choisir le pays'); ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo _('Choisir la ville'); ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');" value="<?php _e('Search Now','auberge');?>"/>
 					
 		<input type="hidden" id="custom-type" name="custom-type" value =""/>
 		<input type="hidden" id="custom-url"  name="custom-url" value =""/>
