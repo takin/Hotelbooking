@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2012-12-13 12:13-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-15 23:52+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-Language: Spanish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
 "\\system\\application\n"
 "X-Poedit-SearchPath-1: C:\\Users\\Louis-Michel\\workspace_pweb\\auberges"
@@ -2678,8 +2678,8 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
 msgstr ""
-"¿Cuándo estará listo a hacer el pago del depósito del 20% para garantizar su "
-"reserva?"
+"¿Cuándo estará listo a hacer el pago del depósito del 20%% para garantizar "
+"su reserva?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
 msgid "Group booking quote information"
@@ -2808,7 +2808,7 @@ msgid ""
 "All card payments incur a 2% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
-"Todos los pagos con tarjeta implican el 2% y todos los gastos bancarios "
+"Todos los pagos con tarjeta implican el 2%% y todos los gastos bancarios "
 "deben ser pagados por el grupo que hace la reserva."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:318
@@ -3576,9 +3576,8 @@ msgstr "Precio por habitación (no por persona)"
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:385
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:14
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:295
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Camas"
+msgstr "No se encontró ningún alojamiento"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:390
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:21
@@ -3587,6 +3586,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"No se encuentran alojamientos con estos criterios de búsqueda. Por favor "
+"cambia tus fechas e inténtalo otra vez"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:523
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:425
@@ -4386,9 +4387,8 @@ msgid "Your details"
 msgstr "Sus detalles"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
-msgstr "Correo electrónico"
+msgstr "Correo electrónico del destinatario"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:46
 #: /home/yanna/git-test/code/application/views/group_request.php:291
@@ -6955,12 +6955,12 @@ msgstr ""
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Estupendo"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Fantástico"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6968,11 +6968,13 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Para ver en el mapa todas las propiedades disponibles, por favor introduce "
+"las fechas en la casilla de la parte superior derecha."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "Restablecer los filtros"
+msgstr "Filtros seleccionados"
 
 #: /home/yanna/git-test/code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
