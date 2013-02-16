@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2013-02-16 20:52+0200\n"
+"PO-Revision-Date: 2013-02-16 23:44+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -2628,39 +2628,40 @@ msgstr "A lent ajánlott szobák megfelelőek az Ön számára?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "Mekkora a költségkerete?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "A dátumok és a személyek száma végleges, vagy változni fog?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:137
 #, php-format
 msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
-msgstr ""
+msgstr "Mikor tudna 20%% előleget fizetni az előfoglalásra?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
-#, fuzzy
 msgid "Group booking quote information"
-msgstr "Csoportos Foglalási Nyomtatvány  "
+msgstr "Csoportos foglalára vonatkozó ajánlat részletei"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "FONTOS TUDNIA, HOGY EZ NEM VISSZAIGAZOLT FOGLALÁS"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Kérem tekintse meg lenti árajánlatunkat, majd nézze meg honlapunkat, ahol "
+"bővebb információt talál az ingatlanról."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:160
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Az Önök csoportja számára a következő dátumig tartjuk a helyet:"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:165
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:598
@@ -2669,11 +2670,12 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"A megadott dátumot követően a helyek más csoportok számára is lefoglalhatóak "
+"lesznek, ne szalassza el a foglalást!"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:174
-#, fuzzy
 msgid "Your offers"
-msgstr "Az Ön adatai  "
+msgstr "Az Ön ajánlatai"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:196
 #: /home/yanna/git-test/code/application/views/hb/hostel_view.php:613
@@ -2682,20 +2684,20 @@ msgstr "Az ár tartalmaz"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Szoba leírása"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:211
-#, fuzzy
 msgid "Price per Person per Night"
-msgstr "Ár / szoba, nem személy"
+msgstr "Ár / Fő / Éj"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Ajánlat lejáratának dátuma"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
 msgstr ""
+"Vissza nem térítendő és át nem ruházható előleg a foglalás biztosításához"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:287
 #, php-format
@@ -2704,7 +2706,7 @@ msgstr ""
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "Különleges Megjegyzések"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:303
 #, fuzzy
@@ -2716,12 +2718,16 @@ msgid ""
 "The deposit is to be paid in British pounds as our Worldwide group center is "
 "located in London, England."
 msgstr ""
+"Mivel vállalatunk központja Londonban, Angliában talalálható, ezért az "
+"előleget angol fontban kell befizetni."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:308
 msgid ""
 "The Average price per person per night is for the requested arrival date and "
 "length of stay, actual day-by-day prices may vary."
 msgstr ""
+"A megadott Átlagár / fő / éj a kért időszakra és időtartamra vonatkozik, a "
+"tényleges napi árak ettől eltérhetnek."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:310
 msgid ""
@@ -2732,12 +2738,17 @@ msgid ""
 "terms and conditions of any other booking intermediary involved in our "
 "booking."
 msgstr ""
+"A szállásfoglalások lebonyolításában cégünk kizárólag közvetítői szerepet "
+"lát el.  A foglalásra vonatkozó szerződést Ön a szállásadóval, illetve a "
+"szolgáltatóval köti.  A megkötött szerződésre a mind a szállásadó, mind "
+"cégünk és az egyéb közvetítő ügynökségek szerződési feltételei vonatkoznak."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:312
 msgid ""
 "Copies of the other applicable terms and conditions are available from us on "
 "request."
 msgstr ""
+"A vonatkozó szerződési feltételekről kérésre másolat rendelkezésre áll."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:314
 msgid ""
@@ -2745,6 +2756,9 @@ msgid ""
 "Final balance payments will be subject to the exchange rate available 49 "
 "days prior to arrival date."
 msgstr ""
+"A www.oanda.com honlapon található ATM árfolyamok alapján történik az valuta "
+"árfolyam kiszámítása . A végösszeg kifizetésekor az érkezési dátum előtt 49 "
+"nappal érvényes valutaárfolyammal számolunk."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:316
 #, php-format
@@ -2752,18 +2766,25 @@ msgid ""
 "All card payments incur a 2% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
+"Kártyával történő fizetés 2% díjat von maga után, mely költség a "
+"szállásfoglalót terheli."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:318
 msgid ""
 "As this is a group booking, group leader will need to be present at check in "
 "and the property may require\ta security bond at check-in."
 msgstr ""
+"Mivel ez egy csoportos szállásfoglalás, bejelentkezéskor a csoportvezetőnek "
+"jelen kell lennie, valamint a szállásadó biztosíték lefizetését is kérheti a "
+"bejelentkezés során."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:325
 msgid ""
 "Unpaid fees or transfer of insufficient funds may lead to cancellation of "
 "your booking."
 msgstr ""
+"A díjak be nem fizetése, illetve elégtelen összeg átutlása a foglalás "
+"törlését eredményezheti."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_profile.php:28
 msgid "Votre Profil"
@@ -3515,6 +3536,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"Sajnos a megadott keresési feltételekhez nem találtunk szállást.  Kérem, "
+"adjon meg más dátumot és próbálja újra!"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:523
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:425
@@ -4185,19 +4208,19 @@ msgstr "Üdvözöljük"
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:572
 #, php-format
 msgid "Good news!"
-msgstr ""
+msgstr "Jó hír!"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:6
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:573
 #, php-format
 msgid "We have found a great offer for your group."
-msgstr ""
+msgstr "Nagyszerű árajánlatot találtunk az Önök csoportja számára."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:8
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:574
 #, php-format
 msgid "Please take a look at the attached file for more details."
-msgstr ""
+msgstr "A részleteket a mellékelt dokumentumban tekintheti meg."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:10
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:576
@@ -4215,9 +4238,9 @@ msgstr "Tisztelettel"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:15
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Customer Service."
-msgstr "Ügyfél szerviz"
+msgstr "Ügyfélszolgálat"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:20
 #: /home/yanna/git-test/code/application/views/group_request.php:75
@@ -4447,9 +4470,8 @@ msgid "Single rooms"
 msgstr "Egy ágyas szobák  "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:190
-#, fuzzy
 msgid "Twin rooms"
-msgstr "Egy ágyas szobák  "
+msgstr "Kétágyas szobák"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:191
 msgid "Double rooms"
@@ -4461,7 +4483,7 @@ msgstr "Három személyes szobák    "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:193
 msgid "In the dormss with the group"
-msgstr ""
+msgstr "Hálótermekben a csoporttal"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:200
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:568
@@ -4485,6 +4507,7 @@ msgstr "Nem"
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
+"Kérem adjon meg egy telefonszámot, ahol 16.00 és 21.00 óra között elérhető."
 
 #: /home/yanna/git-test/code/application/views/group_request.php:279
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:564
@@ -4494,18 +4517,21 @@ msgid ""
 "availability, we would need to know the following, when will you be able to "
 "book?"
 msgstr ""
+"A nagy érdeklődésre, illetve a szállásfoglalások korlátozott ideig való "
+"fenntartására való tekintettel szertnénk tudni, mikor tudja lefoglalni a "
+"szállást."
 
 #: /home/yanna/git-test/code/application/views/group_request.php:282
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:565
 #, php-format
 msgid "I just want an idea of the price and property"
-msgstr ""
+msgstr "Csak érdeklődök az árakról és a szállásokról"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:283
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:566
 #, php-format
 msgid "Within 1 week or less"
-msgstr ""
+msgstr "1 héten vagy rövidebb időn belül"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:296
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:88
@@ -6672,33 +6698,35 @@ msgstr "Az előleg Angol Fontban lesz felszámolva "
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:567
 #, php-format
 msgid "In the dorms with the group"
-msgstr ""
+msgstr "Hálótermekben a csoporttal"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:569
 #, php-format
 msgid "Sorry. 10 people minimum for a group quote."
-msgstr ""
+msgstr "Sajnos minimum 10 főtől lehet csoportos ajánlatot kérni."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:570
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:163
-#, fuzzy, php-format
+#, php-format
 msgid "Lunch Pack"
-msgstr "Holland"
+msgstr "Ebéddel"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:575
 #, php-format
 msgid "To view the offer, you can also click on the link here:"
 msgstr ""
+"Az árajánlatot megtekintheti az itt megadott linkre való kattintással is:"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:578
 #, php-format
 msgid "I hope you have had time to take a look at the quote for your group."
 msgstr ""
+"Az árajánlatot megtekintheti az itt megadott linkre való kattintással is:"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:579
 #, php-format
 msgid "Do you want a cheaper hostel or or another one in a different area?"
-msgstr ""
+msgstr "Szeretne olcsóbb szállást, vagy másikat valahol máshol?"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:580
 #, php-format
@@ -6707,6 +6735,9 @@ msgid ""
 "to another group unfortunately. If you no longer need these beds, please let "
 "us know also right away."
 msgstr ""
+"Önnek szállásfoglalása van érvényben.  A lejárati dátum után sajnos a "
+"szállást nem tudjuk fenntartani csoportja számára.  Amennyiben már nincs "
+"szüksége erre a foglalásra, kérjük, azonnal jelezze."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:581
 #, php-format
@@ -6714,6 +6745,8 @@ msgid ""
 "We want to make sure you are 100% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
+"Biztosak akarunk lenni abban, hogy Ön 100 %%-ig elégedett.  Kérjük, "
+"nyugodtan vegye fel velünk a kapcsolatot."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6721,38 +6754,42 @@ msgid ""
 "We are very sorry but the selected hostel is the cheapest we have for your "
 "chosen dates."
 msgstr ""
+"A megadott időszakra, sajnos a kiválasztott szállás a legolcsóbb, amit "
+"kínálni tudunk."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:584
 #, php-format
 msgid "Please recontact us later or choose different dates."
 msgstr ""
+"Kérjük a későbbiekben lépjen velünk kapcsolatba, vagy válasszon más "
+"időpontokat."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:585
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you."
-msgstr "Köszönjük"
+msgstr "Köszönjük."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:586
 #, php-format
 msgid "Can we contact you by phone ?"
-msgstr ""
+msgstr "El tudjuk Önt érni telefonon?"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:587
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your email."
-msgstr "Köszönjük kérdését"
+msgstr "Köszönjük emailjét."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:588
 #, php-format
 msgid ""
 "We are very sorry but we were not able to find a hostel for you for the "
 "selected date."
-msgstr ""
+msgstr "A megadott időszakra, sajnos nem találtunk szállást az Ön számára."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:589
 #, php-format
 msgid "We apologize for the inconvenience."
-msgstr ""
+msgstr "Elnézést kérünk a kellemetlenségekért."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:590
 #, php-format
@@ -6761,6 +6798,9 @@ msgid ""
 "every day, we can only provide customized quotes to people who will be "
 "making a decision within 1 week."
 msgstr ""
+"Nagyon sajnáljuk, de a naponta beérkezett ajánlatkérések nagy mennyisége "
+"miatt, csak azon ügyfeleinknek tudunk személyre szabott ajánlatot küldeni, "
+"akik 1 héten belül visszajeleznek."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:591
 #, php-format
@@ -6769,21 +6809,26 @@ msgid ""
 "put together your budget and to recontact us when all details re finalized 1 "
 "week before making your decision."
 msgstr ""
+"Kérjük, látogasson el honlapunkra, tekintse meg szállásajánlatainkat és "
+"árainkat, melyek segítenek a szállásköltségek kiszámításában.  A foglalás "
+"véglegesítése előtt 1 héttel, kérjük, vegye fel velünk újra a kapcsolatot."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:592
 #, php-format
 msgid "We will work very hard to give you the best price at that time."
 msgstr ""
+"Azon leszünk, hogy a megadott időszakra vonatkozó lehető legjobb ajánatot "
+"küldjük el Önnek."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:593
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your trust and support."
-msgstr "Köszönjük kérdését"
+msgstr "Köszönjük bizalmát és támogatását."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your request."
-msgstr "Köszönjük kérdését"
+msgstr "Köszönjük érdeklődését."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:595
 #, php-format
@@ -6791,31 +6836,34 @@ msgid ""
 "Due to  a very high number of group requests, it might take up to 1 week to "
 "get back to you as we are looking for the best deal for your group."
 msgstr ""
+"A csoportos szállásokra vonatkozó ajánlatkérések nagy mennyisége miatt 1 "
+"hétig is eltarthat míg vissza tudunk Önnek jelezni, hiszen a lehető legjobb "
+"ajánlatot keressük az Önök számára."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:596
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your patience."
-msgstr "Köszönjük kérdését"
+msgstr "Köszönjük türelmét."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:599
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your group booking."
-msgstr "Köszönjük kérdését"
+msgstr "Köszönjük csoportos foglalását."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:600
 #, php-format
 msgid "We will shortly send your voucher to the email address on file."
-msgstr ""
+msgstr "A megadott email címre hamarosan elküldjük az Ön utalványát."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Nagyszerű"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Fantasztikus"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6823,11 +6871,13 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"A térképen levő összes szabad ingatlan megtekintéséhez kérjük, a jobb felső "
+"mezőben adja meg a dátumot."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "A szűrés újrakezdése "
+msgstr "Megadott keresési feltételek"
 
 #: /home/yanna/git-test/code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -6947,14 +6997,12 @@ msgid "Beds"
 msgstr "Ágyak száma"
 
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:28
-#, fuzzy
 msgid "Nights"
-msgstr "Éjszakák"
+msgstr "Éjszakák száma"
 
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:160
-#, fuzzy
 msgid "Lunch"
-msgstr "Holland"
+msgstr "Ebéd"
 
 #: /home/yanna/git-test/code/application/controllers/cron.php:647
 #: /home/yanna/git-test/code/application/controllers/cron.php:696
