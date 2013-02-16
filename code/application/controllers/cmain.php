@@ -1175,14 +1175,35 @@ class CMain extends I18n_site
       }
     }
   }
-
+ /*
+ * Set cookies for last review properites
+ * @access private
+ * @param property id
+ */ 
+ function _property_cookies_review($property_id)
+ {
+	  if(!get_cookie('cookiecount')) // check if count for property already set from 1
+	  {
+            set_cookie('cookiecount', 1);
+			$count = 1;
+      } else {
+            
+			$count = get_cookie('cookiecount'); // get last index of cookie array
+			$count = $count + 1;		// increment one	
+      }
+	  
+	 set_cookie(array('name' => 'property['.$count.']', 'value' => $property_id, 'expires' => '1209600')); // expire in 2 weeks
+ } 
+ 
   function property_reviews($property_id)
   {
     //allow browser cache  24 hours
     $this->output->set_header('Cache-Control: public');
     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');
 
-    if($this->api_used == HB_API)
+    $this->_property_cookies_review($property_id); // set cookies for last reviewed
+	
+	if($this->api_used == HB_API)
     {
       $this->load->library('hb_engine');
       $data = $this->hb_engine->property_reviews($property_id);
