@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2012-09-24 16:48-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-17 20:14+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,6 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
 "\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Auberges SVN\\auberges\\trunk\\system"
@@ -2617,7 +2617,7 @@ msgstr "Nie oceniłeś żadnego Schroniska Młodzieżowego do tej pory."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
-msgstr ""
+msgstr "Twoja osobista rezerwacja grupowa - To jest Twoja oferta!"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:66
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:205
@@ -2627,7 +2627,7 @@ msgstr "Szczegóły:"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"
-msgstr ""
+msgstr "Całkowita liczba osób w Twojej grupie."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -2635,18 +2635,21 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"Spójrz poniżej, aby zobaczyć bierzące przykłady dostępnych kwater. "
+"Jeśli odpowiesz na poniższe pytania, zrobimy wszystko co w naszej mocy, aby "
+"znaleść dla Ciebie idealną nieruchomość."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "Czy jesteś zadowolony z rodzajów pokoi sugerowanych poniżej? "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "Jaki jest Twój budżet?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "Czy daty i ilość osób jest już potwierdzona, czy może ulec zmianie?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:137
 #, php-format
@@ -2654,6 +2657,8 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
 msgstr ""
+"Kiedy będziesz gotowy wpłacić 20%% depozyt, w celu potwierdzenia swojej "
+"rezerwacji?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
 #, fuzzy
@@ -2662,19 +2667,21 @@ msgstr "Rezerwacja grupowa"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "PROSZĘ MIEĆ NA UWADZE, ŻE TA REZERWACJA NIE JEST POTWIERDZONA"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Zapoznaj się z poniższą ofertą i wejdź na naszą stronę, aby dowiedzieć się "
+"więcej o danej nieruchomości."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:160
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Łóżka zostały odłożone dla Twojej grupy do dnia: "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:165
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:598
@@ -2683,6 +2690,8 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"Po tej dacie, te łóżka zostaną udostępnione innym grupom, zatem nie zwlekaj "
+"z rezerwacją!"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:174
 #, fuzzy
@@ -2696,7 +2705,7 @@ msgstr "Co jest wliczone"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Opis pokoju"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:211
 #, fuzzy
@@ -2705,11 +2714,12 @@ msgstr "Cena za pokój (Nie za osobę)"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Data Ważności oferty"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
 msgstr ""
+"Depozyt potwierdzający rezerwację jest bezzwrotny oraz nietransferowalny"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:287
 #, php-format
@@ -2718,7 +2728,7 @@ msgstr ""
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "Notatki specjalne"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:303
 #, fuzzy
@@ -2730,12 +2740,16 @@ msgid ""
 "The deposit is to be paid in British pounds as our Worldwide group center is "
 "located in London, England."
 msgstr ""
+"Depozyt należy wpłacić w Funtach Szterlingach, ponieważ nasze centrum "
+"Międzynarodowe centrum grupowe mieści się w Londynie, w Wielkiej Brytanii."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:308
 msgid ""
 "The Average price per person per night is for the requested arrival date and "
 "length of stay, actual day-by-day prices may vary."
 msgstr ""
+"Średnia cena za nocleg jednej osoby zależy od daty i długości pobytu, ceny "
+"za poszczególne dni mogą się różnić.  "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:310
 msgid ""
@@ -2746,12 +2760,16 @@ msgid ""
 "terms and conditions of any other booking intermediary involved in our "
 "booking."
 msgstr ""
+"Podczas procesu rezerwacji występujemy jedynie w charakterze pośrednika. "
+"Kontrakt docelowy podpisywany jest z właścicielem kwatery lub innej usługi. "
+"Kontrakt obejmują warunki udostępniającego zakwaterowanie, warunki naszej "
+"strony oraz wszelkie inne warunki stron zaanagżowanych w rezerwację. "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:312
 msgid ""
 "Copies of the other applicable terms and conditions are available from us on "
 "request."
-msgstr ""
+msgstr "Kopie pozostałych warunków dostępne na żądanie. "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:314
 msgid ""
@@ -2759,6 +2777,9 @@ msgid ""
 "Final balance payments will be subject to the exchange rate available 49 "
 "days prior to arrival date."
 msgstr ""
+"Kursy wymiany walut liczone są na podstawie średniego kursu ze strony www."
+"oanda.com. Ostateczna kwota będzie wyliczona na podstawie aktualnego kursu "
+"49 dni przed przyjazdem.   "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:316
 #, php-format
@@ -2766,18 +2787,25 @@ msgid ""
 "All card payments incur a 2% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
+"Wszystkie płatności za pomocą karty obciążone są 2%% opłatą. Wszystkie "
+"opłaty bankowe ponosi strona rezerwująca."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:318
 msgid ""
 "As this is a group booking, group leader will need to be present at check in "
 "and the property may require\ta security bond at check-in."
 msgstr ""
+"Z uwagi na fakt, że jest to rezerwacja grupowa, organizator rezerwacji musi "
+"być obecny przy zameldowaniu. Właściciel posesji może zażądać zastawu przy "
+"meldunku. "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:325
 msgid ""
 "Unpaid fees or transfer of insufficient funds may lead to cancellation of "
 "your booking."
 msgstr ""
+"Nieuregulowane opłaty lub przelewy bez pokrycia mogą doprowadzić do "
+"anulowania Twojej rezerwacji. "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_profile.php:28
 msgid "Votre Profil"
@@ -3536,6 +3564,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"Nie znaleziono żadnych łóżek w obrębie kryteriów wyszukiwania. Zmień daty i "
+"spróbuj ponownie. "
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:523
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:425
@@ -4210,19 +4240,19 @@ msgstr "Witaj"
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:572
 #, php-format
 msgid "Good news!"
-msgstr ""
+msgstr "Dobre wieści!"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:6
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:573
 #, php-format
 msgid "We have found a great offer for your group."
-msgstr ""
+msgstr "Znaleźliśmy wspaniałą ofertę dla Twojej grupy."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:8
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:574
 #, php-format
 msgid "Please take a look at the attached file for more details."
-msgstr ""
+msgstr "Zapoznaj się z załączonym plikiem w celu poznania szczegółów."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:10
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:576
@@ -4506,7 +4536,7 @@ msgstr ""
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:568
 #, php-format
 msgid "Total Number of people in your group: %s"
-msgstr ""
+msgstr "Całkowita liczba osób w Twojej grupie: %s"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:206
 #: /home/yanna/git-test/code/application/views/group_request.php:212
@@ -4524,6 +4554,8 @@ msgstr "nie"
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
+"Podaj nam numer telefonu, pod którym będziemy mogli się z Tobą skontaktować "
+"w godzinach 16.00 - 21.00. "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:279
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:564
@@ -4533,18 +4565,21 @@ msgid ""
 "availability, we would need to know the following, when will you be able to "
 "book?"
 msgstr ""
+"Z uwagi na duże zapotrzebowanie oraz limitowany czas Hostele mogą wstępnie "
+"zarezerwować dla Ciebie kwaterę. W tym celu, musimy wiedzieć, kiedy będziesz "
+"w stanie dokonać ostatecznej rezerwacji.  "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:282
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:565
 #, php-format
 msgid "I just want an idea of the price and property"
-msgstr ""
+msgstr "Chcę jedynie zorientować się odnośnie ceny i rodzaju kwatery"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:283
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:566
 #, php-format
 msgid "Within 1 week or less"
-msgstr ""
+msgstr "W przeciągu 1 tygodnia lub mniej"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:296
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:88
@@ -6716,12 +6751,12 @@ msgstr "Depozyt będzie płatny w funtach."
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:567
 #, php-format
 msgid "In the dorms with the group"
-msgstr ""
+msgstr "W akademiku z grupą"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:569
 #, php-format
 msgid "Sorry. 10 people minimum for a group quote."
-msgstr ""
+msgstr "Przykro nam. 10 osób to minimalna ilość do rezerwacji grupowej."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:570
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:163
@@ -6732,17 +6767,18 @@ msgstr "Holenderski"
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:575
 #, php-format
 msgid "To view the offer, you can also click on the link here:"
-msgstr ""
+msgstr "Aby obejżeć ofertę, możesz wejść w podany link:"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:578
 #, php-format
 msgid "I hope you have had time to take a look at the quote for your group."
 msgstr ""
+"Mamy nadzieję, że miałeś czas aby zapoznać się z ofertą dla Twojej grupy. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:579
 #, php-format
 msgid "Do you want a cheaper hostel or or another one in a different area?"
-msgstr ""
+msgstr "Czy życzysz sobie tańszy hostel czy całkiem inny w innej lokalizacji?"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:580
 #, php-format
@@ -6751,6 +6787,9 @@ msgid ""
 "to another group unfortunately. If you no longer need these beds, please let "
 "us know also right away."
 msgstr ""
+"Łóżka zaostały dal Ciebie odłożone. Po terminie ważności, niestety zostaną "
+"udostępnione innym grupom. Jeśli nie jesteś już tymi łóżkami zainteresowany, "
+"będziemy wdzięczni za natychmiastową informację zwrotną."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:581
 #, php-format
@@ -6758,6 +6797,8 @@ msgid ""
 "We want to make sure you are 100% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
+"Chcemy mieć pewność, że jesteś w 100%% zadowolony, zatem nie zwlekaj z "
+"kontaktem z nami. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6765,11 +6806,13 @@ msgid ""
 "We are very sorry but the selected hostel is the cheapest we have for your "
 "chosen dates."
 msgstr ""
+"Przykro nam, ale wybrany hostel jest najtańszy, jaki możemy Ci zaoferować w "
+"wybranym przez Ciebe terminie."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:584
 #, php-format
 msgid "Please recontact us later or choose different dates."
-msgstr ""
+msgstr "Skontaktuj się z nami w późniejszym terminie lub wybierz inne daty. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:585
 #, fuzzy, php-format
@@ -6779,7 +6822,7 @@ msgstr "Dziękujemy"
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:586
 #, php-format
 msgid "Can we contact you by phone ?"
-msgstr ""
+msgstr "Czy możemy skontaktować się Tobą telefonicznie?"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:587
 #, fuzzy, php-format
@@ -6792,11 +6835,13 @@ msgid ""
 "We are very sorry but we were not able to find a hostel for you for the "
 "selected date."
 msgstr ""
+"Przykro nam, ale nie znaleźliśmy żadnego hostelu w wybranym przez Ciebie "
+"terminie."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:589
 #, php-format
 msgid "We apologize for the inconvenience."
-msgstr ""
+msgstr "Przepraszamy za utrudnienia."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:590
 #, php-format
@@ -6805,6 +6850,9 @@ msgid ""
 "every day, we can only provide customized quotes to people who will be "
 "making a decision within 1 week."
 msgstr ""
+"Przykro nam, ale z uwagi na ogromną liczbę zapytań, które otrzymujemy "
+"każdego dnia, jesteśmy w stanie zapewnić usługę osobom, które podejmą "
+"decyzję w ciągu 1 tygodnia."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:591
 #, php-format
@@ -6813,11 +6861,16 @@ msgid ""
 "put together your budget and to recontact us when all details re finalized 1 "
 "week before making your decision."
 msgstr ""
+"Zapraszamy do zapoznania się z listą hosteli oraz cenami dostępnymi na "
+"naszej stronie, abyś mógł uściślić swój budżet i skontaktować się z nami "
+"ponownie, tydzień przed podjęciem ostatecznej decyzji.     "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:592
 #, php-format
 msgid "We will work very hard to give you the best price at that time."
 msgstr ""
+"Damy z siebie wszystko, aby zaoferować Ci najlepszą cenę w wybranym przez "
+"Ciebie terminie. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:593
 #, fuzzy, php-format
@@ -6835,6 +6888,9 @@ msgid ""
 "Due to  a very high number of group requests, it might take up to 1 week to "
 "get back to you as we are looking for the best deal for your group."
 msgstr ""
+"Z uwagi na dużą ilość zapytań grupowych, termin oczekiwania na nasza ofertę "
+"może zająć nam do tygodnia czasu, ponieważ chcemy znaleść dla Ciebie "
+"najlepsza z dostępnych propozycji. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:596
 #, fuzzy, php-format
@@ -6849,17 +6905,17 @@ msgstr "Dziękujemy za Twoje pytanie."
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:600
 #, php-format
 msgid "We will shortly send your voucher to the email address on file."
-msgstr ""
+msgstr "Wkrótce prześlemy Ci voucher na adres mailowy podany w pliku."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Świetnie"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Fantastycznie"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6867,6 +6923,8 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Aby zobaczyć wszystkie dostępne kwatery na mapie, wprowadź daty w górnym "
+"prawym polu."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
 #, fuzzy, php-format
