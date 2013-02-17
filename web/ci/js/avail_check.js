@@ -35,21 +35,29 @@ function checkAvailability(base_url, country, city, propertyNumber, dateId, n, p
 	else
 	{
 	  closeWarning();
-	$.ajax({type:"post",
+	  $.ajax({type:"post",
 			url:base_url+"/booking_avail/",
 			data: { country_selected: country, city_selected: city, propertyNumber: propertyNumber, dateStart: d, numNights: n, propertyName: propertyName, currency:currency, propertyCards: cards },
 			timeout:60000,
 			error:function(XMLHttpRequest, textStatus, errorThrown)
 			{
 				$("#"+avail_table_id).html("<ul class=\"error\"><li>Erreur.<li>"+textStatus+"</li><li>"+errorThrown+"</li></li></ul>");
+				$("#dispo-form").show();
 				$("#loading_dispo").hide();
 			},
 			success:function(data)
 			{
 				$("#"+avail_table_id).html(data);
+				$("#dispo-form").show();
 				$("#loading_dispo").hide();
 			}
 		});
 	}
 	
 }
+$('a#change-dates').click(function() {
+			$("#dispo-form").hide();
+			$("#dispo-form").show(100);
+			$("#booking-table").show();
+			return false;
+		});
