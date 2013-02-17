@@ -1,14 +1,14 @@
-<?php //if ($this->wordpress->get_option('aj_type_site') == "Youth Hostels"){?>
-<!--<ul class="group flag-footer">
-	<li><a title="Youth-Hostels.eu" class="flag-eu" href="http://www.youth-hostels.eu">Youth-Hostels.co.uk</a></li>		
+<?php if ($this->wordpress->get_option('aj_type_site') == "Youth Hostels"){?>
+<ul class="group flag-footer">
+	<!--<li><a title="Youth-Hostels.eu" class="flag-eu" href="http://www.youth-hostels.eu">Youth-Hostels.co.uk</a></li>	 -->	
 	<li><a title="Youth-Hostels.co.uk" class="flag-en" href="http://www.youth-hostels.co.uk">Youth-Hostels.co.uk</a></li>
 	<li><a title="Youth-Hostels.ie" class="flag-ie" href="http://www.youth-hostels.ie">Youth-Hostels.ie</a></li>			
 	<li><a title="AubergesDeJeunesse.com" class="flag-fr" href="http://www.aubergesdejeunesse.com">AubergesDeJeunesse.com</a></li>	
 	<li><a title="AlberguesJuveniles.es" class="flag-es" href="http://www.alberguesjuveniles.es">AlberguesJuveniles.es</a></li>
 	<li><a title="Jugendherbergen.eu" class="flag-de" href="http://www.jugendherbergen.eu">Jugendherbergen.eu</a></li>
-	<li><a title="PousadasDeJuventude.com" class="flag-pt" href="http://www.pousadasdejuventude.com">PousadasDeJuventude.com</a></li> 
+	<!--<li><a title="PousadasDeJuventude.com" class="flag-pt" href="http://www.pousadasdejuventude.com">PousadasDeJuventude.com</a></li>--> 
 	<li><a title="OstelliDellaGioventu.com" class="flag-it" href="http://www.ostellidellagioventu.com">OstelliDellaGioventu.com</a></li>	
-	<li><a title="IfjúságiSzállások.com" class="flag-hu" href="http://www.IfjusagiSzallasok.com">IfjúságiSzállások.com</a></li>
+	<!--<li><a title="IfjúságiSzállások.com" class="flag-hu" href="http://www.IfjusagiSzallasok.com">IfjúságiSzállások.com</a></li>
 	<li><a title="MládežnickéUbytovny.com" class="flag-cz" href="http://www.mladeznickeubytovny.com">MládežnickéUbytovny.com</a></li>	
 	<li><a title="SchroniskaMlodziezowe.com" class="flag-pl" href="http://www.schroniskamlodziezowe.com">SchroniskaMlodziezowe.com</a></li>
 	<li><a title="Youth-Hostels.ru" class="flag-ru" href="http://www.youth-hostels.ru">Youth-Hostels.ru</a></li>  
@@ -35,10 +35,10 @@
 	<li><a title="AlberguesJuveniles.com" class="flag-py" href="http://www.alberguesjuveniles.com">AlberguesJuveniles.com</a></li>
 	<li><a title="AlberguesJuveniles.com" class="flag-bo" href="http://www.alberguesjuveniles.com">AlberguesJuveniles.com</a></li>
 	<li><a title="AlberguesJuveniles.com" class="flag-cl" href="http://www.alberguesjuveniles.com">AlberguesJuveniles.com</a></li>
-	
+	-->
 </ul> 
 
-<?php //}else{ ?>
+<?php }else{ ?>
 
 <ul class="group flag-footer">
 	<li><a title="NoFeesHostels.com" class="flag-en-us" href="http://www.nofeeshostels.com?currency=USD">NoFeesHostels.com</a></li>	
@@ -46,18 +46,18 @@
 	<li><a title="NoFeesHostels.com" class="flag-eu" href="http://www.nofeeshostels.com?currency=EUR">NoFeesHostels.com</a></li>
 	<li><a title="Auberges.com" class="flag-fr" href="http://www.auberges.com">Auberges.com</a></li>
 	<li><a title="Hostales.com" class="flag-es" href="http://www.hostales.com">Hostales.com</a></li>
-	<li><a title="Hostels.in" class="flag-in" href="http://www.hostels.in">Hostels.in</a></li>
+	<!--<li><a title="Hostels.in" class="flag-in" href="http://www.hostels.in">Hostels.in</a></li>-->
 	<li><a title="Herbergen.com" class="flag-de" href="http://www.herbergen.com">Herbergen.com</a></li>
-	<li><a title="Hostelek.com" class="flag-hu" href="http://www.hostelek.com">Hostelek.com</a></li>
+    <li><a title="Hostelli.com" class="flag-it" href="http://www.hostelli.com">Hostelli.com</a></li>
+	<!--<li><a title="Hostelek.com" class="flag-hu" href="http://www.hostelek.com">Hostelek.com</a></li>
 	<li><a title="Hostelleja.com" class="flag-fi" href="http://www.hostelleja.com">Hostelleja.com</a></li>
 	<li><a title="Hostele.com" class="flag-pl" href="http://www.hostele.com">Hostele.com</a></li>
 	<li><a title="Hostely.com" class="flag-cz" href="http://www.hostely.com">Hostely.com</a></li>
 	<li><a title="Hostéis.com" class="flag-pt" href="http://www.hosteis.com/?currency=EUR">Hostéis.com</a></li>
-	<li><a title="Hostéis.com" class="flag-br" href="http://www.hosteis.com?currency=BRL">Hostéis.com</a></li>
-	<li><a title="Hostelli.com" class="flag-it" href="http://www.hostelli.com">Hostelli.com</a></li>
+	<li><a title="Hostéis.com" class="flag-br" href="http://www.hosteis.com?currency=BRL">Hostéis.com</a></li>	
 	<li><a title="хостелы.рф" class="flag-ru" href="http://www.хостелы.рф">хостелы.рф</a></li>  
 	<li><a title="Hostels.jp" class="flag-jp" href="http://www.hostels.jp/">Hostels.jp</a></li> 	
-	<li><a title="저렴한호스텔.kr" class="flag-kr" href="http://XN--XN2BY4QTJE86KN5EZMB.KR/">저렴한호스텔.kr</a></li> 		
-</ul> -->
+	<li><a title="저렴한호스텔.kr" class="flag-kr" href="http://XN--XN2BY4QTJE86KN5EZMB.KR/">저렴한호스텔.kr</a></li> -->		
+</ul>
 
-<?php //} ?>
+<?php } ?>
