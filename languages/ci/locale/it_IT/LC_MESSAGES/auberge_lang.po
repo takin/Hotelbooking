@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2012-10-30 20:41-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-17 16:44+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,6 +19,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-Bookmarks: -1,299,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: C:\\Users\\Louis-Michel\\workspace_pweb\\auberges"
 "\\trunk\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
@@ -2693,7 +2693,7 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
 msgstr ""
-"Quando sarete in grado di pagare il deposito del 20% per confermare la "
+"Quando sarete in grado di pagare il deposito del 20%% per confermare la "
 "vostra prenotazione?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
@@ -3588,9 +3588,8 @@ msgstr "Prezzo per stanza (non per persona)"
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:385
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:14
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:295
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Numero di Letti"
+msgstr "Nessun letto disponibile"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:390
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:21
@@ -3599,6 +3598,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"Nessun letto trovato secondo i criteri impostati. Per favore cambiare le "
+"date e tentare nuovamente."
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:523
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:425
@@ -4381,7 +4382,6 @@ msgid "Your details"
 msgstr "La vostra selezione "
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
 msgstr "Indirizzo Email"
 
@@ -4588,6 +4588,7 @@ msgstr "no"
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
+"Per favore fornire un contatto telefonico reperibile dalle ore 16 alle 21. "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:279
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:564
@@ -6960,12 +6961,12 @@ msgstr ""
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Ottimo"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Fantastico"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6973,11 +6974,13 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Per visualizzare tutte le proprietà disponibili sulla mappa, per favore "
+"indicare le date nel box in alto a destra."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "Reimposta il filtro"
+msgstr "Filtri selezionati"
 
 #: /home/yanna/git-test/code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

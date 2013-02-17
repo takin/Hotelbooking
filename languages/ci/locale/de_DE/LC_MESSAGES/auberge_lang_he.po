@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2012-11-14 11:38-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-17 14:20+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,6 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
 "\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Auberges SVN\\auberges\\trunk\\system"
@@ -2679,7 +2679,7 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a "
 "20% deposit?"
 msgstr ""
-"Wann sind Sie bereit, Ihre Buchung mit einer Anzahlung von 20% zu sichern?"
+"Wann sind Sie bereit, Ihre Buchung mit einer Anzahlung von 20%% zu sichern?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
 msgid "Group booking quote information"
@@ -2809,7 +2809,7 @@ msgid ""
 "All card payments incur a 2% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
-"Alle Kreditkartenzahlungen sind zuzüglich einer Gebühr von 2% und alle "
+"Alle Kreditkartenzahlungen sind zuzüglich einer Gebühr von 2%% und alle "
 "Bankgebühren sind vom Buchenden zu zahlen."
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:318
@@ -3574,9 +3574,8 @@ msgstr "Preis pro Zimmer (nicht pro Person)"
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:385
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:14
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:295
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Anzahl der Betten"
+msgstr "Keine freien Betten gefunden"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:390
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:21
@@ -3585,6 +3584,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"Keine freien Betten mit dieser Suchauswahl gefunden. Bitte ändern Sie ihre "
+"Daten und versuchen Sie es nochmals."
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:523
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:425
@@ -4365,7 +4366,6 @@ msgid "Your details"
 msgstr "Ihre Details"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
 msgstr "E-Mail Adresse"
 
@@ -4554,7 +4554,7 @@ msgstr "Im Schlafsaal mit der Gruppe."
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:568
 #, php-format
 msgid "Total Number of people in your group: %s"
-msgstr "Gesamtanzahl der Personen in Ihrer Gruppe:"
+msgstr "Gesamtanzahl der Personen in Ihrer Gruppe: %s"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:206
 #: /home/yanna/git-test/code/application/views/group_request.php:212
@@ -6838,8 +6838,8 @@ msgid ""
 "We want to make sure you are 100% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
-"Wir wollen sicherstellen, dass Sie 100% zufrieden sind. Zögern Sie nicht uns "
-"zu kontaktieren."
+"Wir wollen sicherstellen, dass Sie 100%% zufrieden sind. Zögern Sie nicht "
+"uns zu kontaktieren."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6956,12 +6956,12 @@ msgstr ""
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Super"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Ausgezeichnet"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6969,11 +6969,13 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Um alle verfügbaren Immobilien auf der Karte zu sehen, geben Sie bitte die "
+"gewünschten Daten in dem Kästchen oben rechts ein."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "Suchoptionen zurücksetzten"
+msgstr "Ausgewählte Suchoptionen "
 
 #: /home/yanna/git-test/code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
