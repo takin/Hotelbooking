@@ -1,5 +1,5 @@
-<?php if (get_option('aj_type_site') == "Youth Hostels"){?>
-<ul class="group flag-footer">
+<?php //if (get_option('aj_type_site') == "Youth Hostels"){?>
+<!--<ul class="group flag-footer">
 	<li><a title="Youth-Hostels.eu" class="flag-eu" href="http://www.youth-hostels.eu">Youth-Hostels.co.uk</a></li>		
 	<li><a title="Youth-Hostels.co.uk" class="flag-en" href="http://www.youth-hostels.co.uk">Youth-Hostels.co.uk</a></li>
 	<li><a title="Youth-Hostels.ie" class="flag-ie" href="http://www.youth-hostels.ie">Youth-Hostels.ie</a></li>			
@@ -38,7 +38,7 @@
 	
 </ul> 
 
-<?php }else{ ?>
+<?php //}else{ ?>
 
 <ul class="group flag-footer">
 	<li><a title="NoFeesHostels.com" class="flag-en-us" href="http://www.nofeeshostels.com?currency=USD">NoFeesHostels.com</a></li>	
@@ -59,5 +59,5 @@
 	<li><a title="Hostels.jp" class="flag-jp" href="http://www.hostels.jp/">Hostels.jp</a></li> 	
 	<li><a title="저렴한호스텔.kr" class="flag-kr" href="http://XN--XN2BY4QTJE86KN5EZMB.KR/">저렴한호스텔.kr</a></li> 		
 </ul> 
-
-<?php } ?>
+-->
+<?php //} ?>
