@@ -155,20 +155,16 @@
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
-        
+        <!--What's included line put here-->
         {{#extras}}
         <div class="content_block amenities_included">
             <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
            
             <div class="group">
               <ul class="float-list green-li increase1 translated">
-					
-					
                     {{#extra}}
 					<li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
                     {{/extra}}
-					
-					
 				</ul>
             </div>
 	    </div>
