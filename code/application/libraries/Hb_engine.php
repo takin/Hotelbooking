@@ -719,10 +719,10 @@ class Hb_engine {
 
       $json_data["property_list"][$i]['amenities']        = $data['amenities'][$json_data["property_list"][$i]["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$json_data["property_list"][$i]["propertyNumber"]];
-      foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
+      $j = 0 ;
+	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
-        if(($amenity->description == 'Breakfast Included')||
-        ($amenity->description == 'Breakfast'))
+        if(($amenity->description == 'Breakfast Included')|| ($amenity->description == 'Breakfast'))
         {
           $json_data["property_list"][$i]['amenities'][$a]->slug = "free-breakfast";
         }
@@ -731,7 +731,13 @@ class Hb_engine {
           $json_data["property_list"][$i]['amenities'][$a]->slug = "";
         }
 
-        $translation = $this->CI->db_translation_cache->get_translation($amenity->description,$this->CI->site_lang);
+        if($amenity->type == 'extra')
+        {
+          $json_data["property_list"][$i]["extras"]['extra'][$j] = $amenity->description;
+          $j++;
+		}
+		
+		$translation = $this->CI->db_translation_cache->get_translation($amenity->description,$this->CI->site_lang);
         if(!empty($translation))
         {
           $json_data["property_list"][$i]['amenities'][$a]->description = $translation->translation;

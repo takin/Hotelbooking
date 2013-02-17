@@ -1531,7 +1531,8 @@ class Db_hb_hostel extends CI_Model
     					--	AND desc_order IS NOT NULL
     					ORDER BY -(desc_order) DESC";
 
-    $query = $this->CI->db->query($query);
+    
+	$query = $this->CI->db->query($query);
 
     $amenities = array();
     if($query->num_rows() > 0)
@@ -1541,6 +1542,7 @@ class Db_hb_hostel extends CI_Model
       	$amenities[$i] = new stdClass();
         $amenities[$i]->facility_id = $row->type.$row->ID;
         $amenities[$i]->description = (string)$row->description;
+		$amenities[$i]->type = (string)$row->type;
         $amenities[$i]->to_display  = 0;
         if(!empty($row->desc_order))
         {
