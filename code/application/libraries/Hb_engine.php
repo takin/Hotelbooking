@@ -978,9 +978,9 @@ class Hb_engine {
 	 //String replace code start----------------------
      $data['hostel']['SHORTDESCRIPTION'] = domain_name_replace($data['hostel']['SHORTDESCRIPTION']);
      $data['hostel']['LONGDESCRIPTION'] = domain_name_replace($data['hostel']['LONGDESCRIPTION']);
-     $data['hostel']['LONGDESCRIPTION_translated'] = domain_name_replace($data['hostel']['LONGDESCRIPTION_translated']);
+	 $data['hostel']['LONGDESCRIPTION_translated'] = domain_name_replace(!empty($data['hostel']['LONGDESCRIPTION_translated']) ? $data['hostel']['LONGDESCRIPTION_translated'] : '');
      $data['hostel']['IMPORTANTINFORMATION'] = domain_name_replace($data['hostel']['IMPORTANTINFORMATION']);
-	 $data['hostel']['IMPORTANTINFORMATION_translated'] = domain_name_replace($data['hostel']['IMPORTANTINFORMATION_translated']);
+	 $data['hostel']['IMPORTANTINFORMATION_translated'] = domain_name_replace(!empty($data['hostel']['IMPORTANTINFORMATION_translated']) ? $data['hostel']['IMPORTANTINFORMATION_translated'] : '');
 	 
      //String replace code close----------------------
 	 
