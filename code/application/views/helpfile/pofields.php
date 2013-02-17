@@ -290,7 +290,7 @@
 <?php echo _('It only takes 2 minutes')?>
 <?php echo _('You got the best price')?>
 <?php echo _('See more results')?>
-<?php echo _("Payer seulement 10% maintenant")?>
+<?php echo _("Payer seulement 10%% maintenant")?>
 <?php echo _('Car Parking')?>
 <?php echo _('24 hour hot showers')?>
 <?php echo _('Washing machines')?>
@@ -578,7 +578,7 @@
 <?php echo _('I hope you have had time to take a look at the quote for your group.');?>
 <?php echo _('Do you want a cheaper hostel or or another one in a different area?');?>
 <?php echo _('Beds have been set aside for you. After this expiry date, they will be given to another group unfortunately. If you no longer need these beds, please let us know also right away.');?>
-<?php echo _('We want to make sure you are 100% satisfied, so do not hesitate to contact us.');?>
+<?php echo _('We want to make sure you are 100%% satisfied, so do not hesitate to contact us.');?>
 <?php echo _('Customer Service.');?>
 <?php echo _('We are very sorry but the selected hostel is the cheapest we have for your chosen dates.');?>
 <?php echo _('Please recontact us later or choose different dates.');?>
@@ -601,6 +601,8 @@
 <?php echo _('Great');?>
 <?php echo _('Fantastic');?>
 <?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>
-<?php echo _('Selected filters');?>
-
-
+<?php echo _('Selected filters:');?>
+<?php echo _('Total Number of people in your groups: %s');?>
+<?php echo _('If the offer is accepted, the balance must be paid by %s');?>
+<?php echo _('The request cannot be fulfilled due to bad syntax');?>
+<?php echo _('Your changes has been saved successfully');?>
