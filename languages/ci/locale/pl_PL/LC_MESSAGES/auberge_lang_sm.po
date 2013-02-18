@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-08 16:48+0200\n"
-"PO-Revision-Date: 2013-02-17 20:14+0200\n"
+"PO-Revision-Date: 2013-02-18 12:29+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -2661,9 +2661,8 @@ msgstr ""
 "rezerwacji?"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:150
-#, fuzzy
 msgid "Group booking quote information"
-msgstr "Rezerwacja grupowa"
+msgstr "Informacja o rezerwacji grupowej"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
@@ -2694,9 +2693,8 @@ msgstr ""
 "z rezerwacją!"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:174
-#, fuzzy
 msgid "Your offers"
-msgstr "Twój wybór"
+msgstr "Twoje oferty"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:196
 #: /home/yanna/git-test/code/application/views/hb/hostel_view.php:613
@@ -2708,9 +2706,8 @@ msgid "Room description"
 msgstr "Opis pokoju"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:211
-#, fuzzy
 msgid "Price per Person per Night"
-msgstr "Cena za pokój (Nie za osobę)"
+msgstr "Cena 1 noclegu za osobę "
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
@@ -2724,16 +2721,15 @@ msgstr ""
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr ""
+msgstr "Jeśli akceptujesz ofertę, kwotę należy uiścić do %s"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
 msgstr "Notatki specjalne"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:303
-#, fuzzy
 msgid "Important Notes"
-msgstr "Ważne informacje"
+msgstr "Ważne Informacje"
 
 #: /home/yanna/git-test/code/application/views/restricted/user_group_quote.php:306
 msgid ""
@@ -3553,9 +3549,8 @@ msgstr "Cena za pokój (Nie za osobę)"
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:385
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:14
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_view.php:295
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Liczba łóżek"
+msgstr "Nie znaleziono żadnych łóżek"
 
 #: /home/yanna/git-test/code/application/views/hw/booking_avail_view.php:390
 #: /home/yanna/git-test/code/application/views/hb/booking_avail_error_view.php:21
@@ -4256,11 +4251,9 @@ msgstr "Zapoznaj się z załączonym plikiem w celu poznania szczegółów."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:10
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:576
-#, fuzzy, php-format
+#, php-format
 msgid "Please do not hesitate to contact me if you have any questions."
-msgstr ""
-"Prosimy, nie wahaj sie  z nami skontaktować ponownie, jeśli masz "
-"jakiekolwiek pytania. "
+msgstr "W razie jakichkolwiek pytań, skontaktuj się ze mną bezzwłocznie. "
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:12
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:163
@@ -4271,49 +4264,44 @@ msgstr "Serdecznie"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:15
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Customer Service."
-msgstr "Obsługa klienta"
+msgstr "Obsługa Klienta."
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:20
 #: /home/yanna/git-test/code/application/views/group_request.php:75
-#, fuzzy
 msgid "Travel details"
-msgstr "Zachowaj dane z mojej karty kredytowej"
+msgstr "Szczegóły podróży"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:26
 #: /home/yanna/git-test/code/application/views/group_request.php:139
-#, fuzzy
 msgid "Group details"
-msgstr "Grupy"
+msgstr "Szczegóły grupy"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:29
 #: /home/yanna/git-test/code/application/views/group_request.php:165
-#, fuzzy
 msgid "Youngest age"
-msgstr "Salon"
+msgstr "Najmłodszy wiekiem"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:31
 #: /home/yanna/git-test/code/application/views/group_request.php:176
 msgid "Staff/teachers/Coaches/Bus drivers Details"
-msgstr ""
+msgstr "Ekipa/Nauczyciele/Trenerzy/Kierowcy Autobusu Szczegóły"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:32
 #: /home/yanna/git-test/code/application/views/group_request.php:179
-#, fuzzy
 msgid "Persons"
 msgstr "Osoby"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:33
 #: /home/yanna/git-test/code/application/views/group_request.php:186
-#, fuzzy
 msgid "Room type requested"
-msgstr "Rodzaj pokoju i liczba osób"
+msgstr "Typ wymaganego pokoju"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:35
 #: /home/yanna/git-test/code/application/views/group_request.php:202
 msgid "Requirements"
-msgstr ""
+msgstr "Wymagania"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:36
 #: /home/yanna/git-test/code/application/views/group_request.php:205
@@ -4328,29 +4316,26 @@ msgstr "Śniadanie"
 #: /home/yanna/git-test/code/application/views/group_request.php:211
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:166
 msgid "Dinner"
-msgstr ""
+msgstr "Obiad"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:38
 #: /home/yanna/git-test/code/application/views/group_request.php:216
-#, fuzzy
 msgid "Most Important"
-msgstr "Ważne informacje"
+msgstr "Najważniejsze Informacje"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:40
 #: /home/yanna/git-test/code/application/views/group_request.php:220
-#, fuzzy
 msgid "Your details"
-msgstr "Twój wybór"
+msgstr "Twoje szczegóły"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
-msgstr "Adres e-mail"
+msgstr "Adres E-mail"
 
 #: /home/yanna/git-test/code/application/views/email/admin/new_group_request.php:46
 #: /home/yanna/git-test/code/application/views/group_request.php:291
 msgid "Additional information/requests"
-msgstr ""
+msgstr "Dodatkowe informacje/wymagania"
 
 #: /home/yanna/git-test/code/application/views/email/review_reminder.php:47
 #, php-format
@@ -4389,9 +4374,8 @@ msgid "Il n'y a aucun commentaire. Soyez le premier à évaluer cette auberge!"
 msgstr "Nie ma żadnych komentarzy. Oceń Schronisko Młodzieżowe jako pierwszyl!"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:32
-#, fuzzy
 msgid "Free service - Best price guaranteed!"
-msgstr "Najlepsza cena. Gwarantujemy."
+msgstr "Gwarantujemy darmową usługę oraz najniższą cenę!"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:33
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:145
@@ -4421,6 +4405,8 @@ msgid ""
 "Send a free request now using the form below and we will get back to you in "
 "few hours."
 msgstr ""
+"Wyślij darmowe zapytanie korzystając z formularza poniżej. Odezwiemy się do "
+"Ciebie w ciągu kilku godzin. "
 
 #: /home/yanna/git-test/code/application/views/group_request.php:41
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:149
@@ -4477,25 +4463,22 @@ msgid "Pilgrimage"
 msgstr "Pilegrzymki"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:50
-#, fuzzy
 msgid "Schools"
-msgstr "Grupy szkolne"
+msgstr "Szkoły"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:51
-#, fuzzy
 msgid ""
 "Associations, chambers of commerce, schools, universities, day camps, sports "
 "camps, youth service towns, tourist offices, unions, community centers, "
 "businesses ..."
 msgstr ""
-"Stowarzyszenia, izby handlowe, szkoły,uniwersytety, obozy dzienne, obozy "
-"sportowe, centra młodzieżowe, biura podróży, związki zawodowe, centra "
-"rekreacyjne, firmy…"
+"Stowarzyszenia, izby handlowe, szkoły, uniwersytety, obozy dzienne, obozy "
+"sportowe, stowarzyszenia młodzieżowe, biura turystyczne, związki, domy "
+"kultury, firmy ..."
 
 #: /home/yanna/git-test/code/application/views/group_request.php:71
-#, fuzzy
 msgid "Group Booking Request Form"
-msgstr "Rezerwacja grupowa"
+msgstr "Formularz Rezerwacji Grupowych"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:113
 #: /home/yanna/git-test/code/application/views/group_request.php:144
@@ -4504,33 +4487,28 @@ msgstr "Rezerwacja grupowa"
 #: /home/yanna/git-test/code/application/views/group_request.php:181
 #: /home/yanna/git-test/code/application/views/group_request.php:188
 #: /home/yanna/git-test/code/application/views/group_request.php:281
-#, fuzzy
 msgid "Please Select"
-msgstr "Prosimy pamiętaj:"
+msgstr "Proszę wybrać:"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:189
-#, fuzzy
 msgid "Single rooms"
-msgstr "Palarnie"
+msgstr "Pokoje jednoosobowe"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:190
-#, fuzzy
 msgid "Twin rooms"
-msgstr "Palarnie"
+msgstr "Pokoje dwuosobowe"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:191
-#, fuzzy
 msgid "Double rooms"
-msgstr "Liczba pokoi"
+msgstr "Pokoje dwuosobowe z łożem małżeńskim"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:192
-#, fuzzy
 msgid "Triple rooms"
-msgstr "Pokoje prywatne"
+msgstr "Pokoje trzyosobowe"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:193
 msgid "In the dormss with the group"
-msgstr ""
+msgstr "W akademiku z grupą."
 
 #: /home/yanna/git-test/code/application/views/group_request.php:200
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:568
@@ -4588,7 +4566,7 @@ msgstr "Złóż"
 
 #: /home/yanna/git-test/code/application/views/group_request.php:305
 msgid "Thank you. Our team will contact you within few hours"
-msgstr ""
+msgstr "Dziękujemy. Nasz zespół skontaktuje się z Tobą w ciągu kilku godzin. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:2
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:253
@@ -6744,9 +6722,9 @@ msgid "Languages courses at a very affordable price"
 msgstr "Kursy językowe w bardzo przystępnej cenie"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:563
-#, fuzzy, php-format
+#, php-format
 msgid "Your deposit will be charged in British pounds."
-msgstr "Depozyt będzie płatny w funtach."
+msgstr "Depozyt będzie płatny w funtach szterlingach."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:567
 #, php-format
@@ -6760,9 +6738,9 @@ msgstr "Przykro nam. 10 osób to minimalna ilość do rezerwacji grupowej."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:570
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:163
-#, fuzzy, php-format
+#, php-format
 msgid "Lunch Pack"
-msgstr "Holenderski"
+msgstr "Pakiet Lunchowy"
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:575
 #, php-format
@@ -6815,9 +6793,9 @@ msgid "Please recontact us later or choose different dates."
 msgstr "Skontaktuj się z nami w późniejszym terminie lub wybierz inne daty. "
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:585
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you."
-msgstr "Dziękujemy"
+msgstr "Dziękujemy."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:586
 #, php-format
@@ -6927,9 +6905,9 @@ msgstr ""
 "prawym polu."
 
 #: /home/yanna/git-test/code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters"
-msgstr "Usuń filtry"
+msgstr "Wybrane filtry"
 
 #: /home/yanna/git-test/code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -7043,19 +7021,16 @@ msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Serwer w tej chwili niedostępny. Prosimy spróbować ponownie."
 
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:22
-#, fuzzy
 msgid "Beds"
-msgstr "Liczba łóżek"
+msgstr "Łóżka"
 
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:28
-#, fuzzy
 msgid "Nights"
 msgstr "Noce "
 
 #: /home/yanna/git-test/code/application/controllers/cadmin.php:160
-#, fuzzy
 msgid "Lunch"
-msgstr "Holenderski"
+msgstr "Lunch"
 
 #: /home/yanna/git-test/code/application/controllers/cron.php:647
 #: /home/yanna/git-test/code/application/controllers/cron.php:696
