@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-18 16:12+0200\n"
-"PO-Revision-Date: 2013-02-16 20:40+0200\n"
+"PO-Revision-Date: 2013-02-18 21:25+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -2740,7 +2740,7 @@ msgstr ""
 #: ../code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr "Si la oferta es aceptada, el saldo tiene que ser pagado:"
+msgstr "Si la oferta es aceptada, el saldo tiene que ser pagado %s"
 
 #: ../code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
@@ -6834,13 +6834,13 @@ msgstr ""
 "camas, por favor háganoslo saber de inmediato."
 
 #: ../code/application/views/helpfile/pofields.php:581
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "We want to make sure you are 100%% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
-"Queremos asegurarnos que esté 100% satisfecho, así que no dude en ponerse en "
-"contacto con nosotros."
+"Queremos asegurarnos que esté 100%% satisfecho, así que no dude en ponerse "
+"en contacto con nosotros."
 
 #: ../code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6971,19 +6971,20 @@ msgstr ""
 "las fechas en la casilla de la parte superior derecha."
 
 #: ../code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters:"
-msgstr "Filtros seleccionados"
+msgstr "Filtros seleccionados:"
 
 #: ../code/application/views/helpfile/pofields.php:605
-#, fuzzy, php-format
+#, php-format
 msgid "Total Number of people in your groups: %s"
 msgstr "Número total de personas en su grupo: %s"
 
 #: ../code/application/views/helpfile/pofields.php:606
-#, fuzzy, php-format
+#, php-format
 msgid "If the offer is accepted, the balance must be paid by %s"
-msgstr "Si la oferta es aceptada, el saldo tiene que ser pagado:"
+msgstr ""
+"Si se acepta la oferta, la cantidad restante debe ser abonada antes del %s"
 
 #: ../code/application/views/helpfile/pofields.php:607
 #, php-format
@@ -6991,9 +6992,9 @@ msgid "The request cannot be fulfilled due to bad syntax"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:608
-#, fuzzy, php-format
+#, php-format
 msgid "Your changes has been saved successfully"
-msgstr "Su solicitud de apoyo ha sido exitosamente mandada"
+msgstr "Los cambios se han guardado con éxito"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
