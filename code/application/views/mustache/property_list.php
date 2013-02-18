@@ -58,7 +58,20 @@
 					<span class="icon_facility icon_safety group"><span><?php echo _("Safety");?></span></span>
 					{{/safety80}}
 				</div>
-				<div class="prop_more_info_wrap content_block" id="prop_more_info_wrap_{{propertyNumber}}">
+				<!--missing info with what's include first and than amenities just update it-->
+                <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
+                    <!--What's included line put here-->
+                    {{#extras}}                
+                        <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
+                       <a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
+                        <div class="group">
+                          <ul class="float-list green-li increase1 translated">
+                                {{#extra}}
+                                <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
+                                {{/extra}}
+                            </ul>
+                        </div>                
+                    {{/extras}}				
 					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
 					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
 					<div class="group">
@@ -155,20 +168,7 @@
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
-        <!--What's included line put here-->
-        {{#extras}}
-        <div class="content_block amenities_included" style="display:none">
-            <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
 
-            <div class="group">
-              <ul class="float-list green-li increase1 translated">
-                    {{#extra}}
-					<li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
-                    {{/extra}}
-				</ul>
-            </div>
-	    </div>
-        {{/extras}}
 
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
 
