@@ -23,7 +23,7 @@
             if(!empty($date_selected))
             {
                 $date_selected = $date_selected;
-                setcookie("date_selected", $date_selected);
+                 set_cookie("date_selected", $date_selected);
             }
              else if(!empty($_COOKIE["date_selected"]))
             {
@@ -36,7 +36,7 @@
             if(!empty($numnights_selected))
             {
                 $numnights_selected = $numnights_selected;
-                setcookie("numnights_selected", $numnights_selected);
+                set_cookie("numnights_selected", $numnights_selected);
             }
             elseif(!empty($_COOKIE["numnights_selected"]))
             {
