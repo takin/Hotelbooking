@@ -67,6 +67,7 @@ class Db_translation_cache extends CI_Model
     $lang_code = $this->transDB->escape_str($lang_code);
 
     if(empty($orig_text)) return $orig_text;
+    if(is_numeric($orig_text)) return $orig_text;
 
     if(isset($this->mem_cache[$lang_code][md5($orig_text)]))
     {

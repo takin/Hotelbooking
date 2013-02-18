@@ -462,9 +462,10 @@ log_message("debug"," Translation language From ".$this->FromLang.' To '. $this-
       $translation_data->text = $text;
       $translation_data->tag  = $tag;
       //array_push($this->batchTranslationText,$text);
-      if(!in_array($text,$this->batchTranslationText)){
+      
+    
+      if(!in_array($text,$this->batchTranslationText) && !is_numeric($text)){
 		  array_push($this->batchTranslationText,$text);
-
 	  }
 	  array_push($this->batchText,$translation_data);
       $this->batch_results['responseData'][$this->results_count]=$text;
