@@ -102,7 +102,7 @@
   					{{/display_shared_price}}
   					{{#display_private_price}}
   					  <div class="group">
-							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span> 
+							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span>
 							<span class="nbpeople-text"><?php printf( gettext('Private rooms from %s'),'');?></span>
 							<span class="display-currrency">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
 							</span>
@@ -157,9 +157,9 @@
 		</div>
         <!--What's included line put here-->
         {{#extras}}
-        <div class="content_block amenities_included">
+        <div class="content_block amenities_included" style="display:none">
             <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
-           
+
             <div class="group">
               <ul class="float-list green-li increase1 translated">
                     {{#extra}}
@@ -169,11 +169,11 @@
             </div>
 	    </div>
         {{/extras}}
-    
+
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
-	
-    
-    
+
+
+
     </div>
 </div>
 
