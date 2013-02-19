@@ -685,6 +685,7 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php
+	$this->carabiner->js('jquery.lazyload.js');
 	$this->carabiner->js('imageload.js');
 	$this->carabiner->js('jtools.js');
   $this->carabiner->js('janim.js');

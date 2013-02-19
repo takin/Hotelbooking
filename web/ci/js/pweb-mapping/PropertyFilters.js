@@ -356,6 +356,16 @@ PWebFilterApp.prototype.update = function() {
 				return false;
 			});
 		this.display_extra_filters();
+		
+		$("img .lazy").each(function(index, value) {
+			 $(this).lazyload();
+		});
+		
+		$(".map_number").each(function(index, value) {
+			index = index +1;
+			$(this).html(index);
+		});
+			
 	}
 	
 	//update count

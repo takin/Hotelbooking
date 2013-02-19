@@ -590,6 +590,7 @@ class Hw_engine {
 
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
+      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
 
       foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {

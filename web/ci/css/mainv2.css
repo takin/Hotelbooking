@@ -916,8 +916,8 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	margin-right:10px;
 	padding:3px;
 	border:1px dashed #dddddd;
-	height:59px;
-	width:61px;
+	height:99px;
+	width:99px;
 	display:block;
 	background:#ffffff url(../images/V2/no_pictures.png) no-repeat center center;
 	 -webkit-box-shadow: 1px 1px 3px #888888; 
@@ -926,7 +926,7 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	overflow:hidden;
 }
 
-.hb_frame .hostel_list .info_pic a{height:49px;	width:49px;}
+.hb_frame .hostel_list .info_pic a{height:99px;	width:99px;}
 
 .hb_frame .city_lp .hostel_list .info_pic a{height:49px;	width:49px;}
 
@@ -943,11 +943,11 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .info_indent{
-	margin-left:85px;
+	margin-left:126px;
 }
 
 .hb_frame .info_indent{
-	margin-left:70px;
+	margin-left:120px;
 }
 
 .hostel_list .info h2{
@@ -2279,3 +2279,12 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 }
 
 /* End Footer */
+.map_number{
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #929292;
+	height: 12px;
+	left: 12px;
+	padding: 4px 3px 4px 1px;
+	position: absolute;
+	top: 11px;
+}
