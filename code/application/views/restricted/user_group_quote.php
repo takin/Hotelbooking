@@ -134,7 +134,7 @@ NOTE: This is the HB form example for the book now.
 				</div>
 			</div>
 			<div class="two_col">
-				<label for="">4. <?php echo _('When will you be ready to make a payment to secure your booking with a 20% deposit?');?></label>
+				<label for="">4. <?php echo _('When will you be ready to make a payment to secure your booking with a 20%% deposit?');?></label>
 				<?php /*?><input type="text" name="whenready" />
 				<?php */?>
 			</div>
@@ -313,7 +313,7 @@ NOTE: This is the HB form example for the book now.
 
 		<p><?php echo _('Exchange rates are calculated using the typical ATM rate on www.oanda.com. Final balance payments will be subject to the exchange rate available 49 days prior to arrival date.');?></p>
 
-		<p><?php echo _('All card payments incur a 2% fee and all bank fees are to be paid by the booking party.');?></p>
+		<p><?php echo _('All card payments incur a 2%% fee and all bank fees are to be paid by the booking party.');?></p>
 
 		<p><?php echo _('As this is a group booking, group leader will need to be present at check in and the property may require	a security bond at check-in.');?></p>
 
