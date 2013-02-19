@@ -2,26 +2,66 @@
 <div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" rel="{{propertyNumber}}">
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
-			<li class="first ui-tabs-selected"><a id="first_tab_{{propertyNumber}}" class="tab_price" href="#city_info_{{propertyNumber}}"><?php echo _("Info");?></a></li>
-			<li><a class="tab_pic" href="#city_pictures_{{propertyNumber}}" onClick='display_property_pics("{{propertyNumber}}","{{propertyName}}","property_pics_{{propertyNumber}}");return false;'><?php echo _('Pictures'); ?></a></li>
-			<li><a class="tab_avail" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}","city_avail_table_{{propertyNumber}}");return false;'><?php echo _('Disponibility and Price'); ?></a></li>
+			<li class="first ui-tabs-selected">
+                <a id="first_tab_{{propertyNumber}}" class="tab_price" 
+                   href="#city_info_{{propertyNumber}}">
+                    <?php echo _("Info");?>
+                </a>
+            </li>
+			<li>
+                <a class="tab_pic" href="#city_pictures_{{propertyNumber}}" 
+                   onClick='display_property_pics("{{propertyNumber}}","{{propertyName}}","property_pics_{{propertyNumber}}");return false;'>
+                    <?php echo _('Pictures'); ?>
+                </a>
+            </li>
+			<li>
+                <a class="tab_avail" href="#city_avail_{{propertyNumber}}" 
+                   onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}","city_avail_table_{{propertyNumber}}");return false;'>
+                       <?php echo _('Disponibility and Price'); ?>
+                </a>
+            </li>
 			{{#isGeoValid}}
-			<li><a name="city_map_show_property" rel="{{propertyNumber}}" class="tab_map box_round" href="#city_map_{{propertyNumber}}" title="<?php echo _("Cartes et Directions");?>"><?php echo _("See Map");?></a></span>
+			<li>
+                <a name="city_map_show_property" rel="{{propertyNumber}}" 
+                   class="tab_map box_round" href="#city_map_{{propertyNumber}}" 
+                   title="<?php echo _("Cartes et Directions");?>">
+                       <?php echo _("See Map");?>
+                </a>
+                </span>
 			{{/isGeoValid}}
-			<li class="last"><a name="review_show_property" rel="{{propertyNumber}}" class="tab_review" href="#city_comment_{{propertyNumber}}"><?php echo _('Latest Reviews')?></a></li>
+			<li><a name="review_show_property" rel="{{propertyNumber}}" class="tab_review" href="#city_comment_{{propertyNumber}}"><?php echo _('Latest Reviews')?></a></li>
+            {{#overall_rating}}
+		
+			<li class="last">
+                <a class="tab_avail" href="#property_ratings_{{propertyNumber}}"
+                    title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"
+                    rel="{{propertyNumber}}" name="show_property_ratings">
+                    <strong>{{overall_rating}} %</strong>
+                </a>
+            </li>
+		
+        	{{/overall_rating}}
 		</ul>
-		{{#overall_rating}}
+<!--		{{#overall_rating}}
 		<ul class="box_round rating">
-			<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"><strong>{{overall_rating}} %</strong></span></li>
+			<li class="first last">
+                <a class="tab_avail" href="#property_ratings_{{propertyNumber}}"
+                    rel="{{propertyNumber}}"
+                    title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
+                    <strong>{{overall_rating}} %</strong>
+                </a>
+            </li>
 		</ul>
-		{{/overall_rating}}
+		{{/overall_rating}} -->
 	</nav>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
 				<a href="{{property_page_url}}">
-				{{#PropertyImages}}<img alt="" src="{{#PropertyImage}}{{imageURL}}{{/PropertyImage}}" />{{/PropertyImages}}
+                    {{#PropertyImages}}
+                    <img alt="" src="{{#PropertyImage}}{{imageURL}}{{/PropertyImage}}" />
+                    {{/PropertyImages}}
 				</a>
 				<span class="info_type">{{propertyType}}</span>
 				</div>
@@ -30,7 +70,11 @@
 					<p class="address">{{address1}}</p>
 					<p>{{shortDescription}}</p>
 					{{#has_amenities}}
-					<p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
+					<p>
+                        <a href="#" rel="{{propertyNumber}}" class="prop_more_info">
+                            <?php echo _('Read more…'); ?>
+                        </a>
+                    </p>
 					{{/has_amenities}}
 					<ul class="avail group">
 					{{#AvailableDates}}
@@ -46,7 +90,9 @@
 				<div class="amenities group">
 					{{#amenities}}
 					{{#to_display}}
-					<span class="icon_facility icon_facility_{{facility_id}} group"><span>{{description}}</span></span>
+					<span class="icon_facility icon_facility_{{facility_id}} group">
+                        <span>{{description}}</span>
+                    </span>
 					{{/to_display}}
 					{{/amenities}}
 					{{#landmarks}}
@@ -117,7 +163,10 @@
 		</div>
 
 		<div class="city_hostel ui-tabs-hide" id="city_pictures_{{propertyNumber}}">
-			<h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Pictures'); ?></h3>
+			<h3>
+                <a href="{{property_page_url}}">{{propertyName}}</a>
+                - <?php echo _('Pictures'); ?>
+            </h3>
 			<div class="loading-dispo-city" id="loading-pics-{{propertyNumber}}">
 				<p></p>
 			</div>
@@ -155,7 +204,44 @@
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
-		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
+        
+        <div class="city_hostel ui-tabs-hide" id="property_ratings_{{propertyNumber}}">
+			<h3>
+                <a href="{{property_page_url}}">
+                    {{propertyName}}
+                </a> - <?php echo _('Ratings'); ?>
+            </h3>
+			<div id="property_ratings_{{propertyNumber}}">
+                {{#Ratings}}
+                <?php $ratingCategories = array(
+                    "atmosphere", "staff", "location", "cleanliness",
+                    "facilities", "safety", "value");
+                ?>
+                <div class="propertyRatingsContainer">
+                    <?php foreach ($ratingCategories as $ratingCategory): ?>
+                        <div class="bar-back group">
+                            <div class="bar-top darkYellow"
+                                style="width:{{<?php echo $ratingCategory; ?>}}%">
+                            </div>
+                            <?php $imgSrcUrl = base_url() . "images/rating-" .
+                                    $ratingCategory . ".png";?>
+                            <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
+                            <span class="rating-cat">
+                                <?php echo ucfirst($ratingCategory); ?>
+                            </span>
+                            <span class="rating-value">
+                                {{<?php echo $ratingCategory; ?>}} %
+                            </span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                {{/Ratings}}
+            </div>
+		</div>
+		<a href="{{property_page_url}}" class="reserve button-green hoverit" 
+           title="<?php echo _("Plus sur ce logement");?>">
+               <?php echo _("Réserver");?>
+        </a>
 	</div>
 </div>
 

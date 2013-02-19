@@ -344,7 +344,9 @@ class Hb_engine {
       }
 
       $data['searchmode'] = 0;
-      $results = $this->CI->Db_hb_hostel->get_location_properties($city->country_system_name, $city->system_name, $this->api_functions_lang, $data['currency'], 25, $filters);
+      $results = $this->CI->Db_hb_hostel->get_location_properties(
+            $city->country_system_name, $city->system_name, 
+            $this->api_functions_lang, $data['currency'], 25, $filters);
       $data_from_live_api = false;
 
       if(is_null($results))
@@ -354,7 +356,9 @@ class Hb_engine {
 
       //Standardize case of API array keys, because  API getLocationData returns UPPER CASE array keys
        // Performance takes ~0.003 sec for getLocationData returning array of 94 properties
-        $results = $this->CI->Hostelbookers_api->getLocationData($city->country_system_name, $city->system_name, $this->api_functions_lang, $data['currency']);
+        $results = $this->CI->Hostelbookers_api->getLocationData(
+            $city->country_system_name, $city->system_name,
+            $this->api_functions_lang, $data['currency']);
         $data_from_live_api = true;
       }
     }
@@ -364,7 +368,8 @@ class Hb_engine {
 
       if($include_availdata == TRUE)
       {
-        $results = $this->CI->Hostelbookers_api->getLocationAvailability($city->hb_id,$dateStart, $numNights, $this->api_functions_lang, $data['currency']);
+        $results = $this->CI->Hostelbookers_api->getLocationAvailability(
+            $city->hb_id,$dateStart, $numNights, $this->api_functions_lang, $data['currency']);
       }
 
       $cache_time = $this->CI->wordpress->get_option("aj_cache_time_city_avail_pages",0);
@@ -481,18 +486,18 @@ class Hb_engine {
       }
     }
 
-    $data['property_list'] = array( "property_count" => 0,
-            												"hostel_list" => array(),
-                                    "hostel_count" => 0,
-                                    "guesthouse_list" => array(),
-                                    "guesthouse_count" => 0,
-                                    "hotel_list" => array(),
-                                    "hotel_count" => 0,
-                                    "apartment_list" => array(),
-                                    "apartment_count" => 0,
-                                    "campsite_list" => array(),
-                                    "campsite_count" => 0,
-                                    );
+    $data['property_list'] = array( 
+        "property_count" => 0,
+        "hostel_list" => array(),
+        "hostel_count" => 0,
+        "guesthouse_list" => array(),
+        "guesthouse_count" => 0,
+        "hotel_list" => array(),
+        "hotel_count" => 0,
+        "apartment_list" => array(),
+        "apartment_count" => 0,
+        "campsite_list" => array(),
+        "campsite_count" => 0,);
 
     if(($data['searchmode'] == 0)||($include_availdata == TRUE))
     {
@@ -518,16 +523,13 @@ class Hb_engine {
         {
           array_change_all_key_case($results,CASE_LOWER, true);
           $this->CI->Hb_api_translate->translate_LocationAvailability($results);
-          $data['property_list'] = $this->CI->Db_hb_hostel->append_geo_location_data($results["response"]);
-
+          $data['property_list'] = $this->CI->Db_hb_hostel->appendAdditionalPropertyData($results["response"]);
           $data['property_list'] = $this->properties_avail_prepare($data['property_list']);
-//           $data['property_list'] = $this->properties_sort_by_price($data['property_list']);
-//           $data['property_list'] = $this->properties_filter_by_prop_type($data['property_list']);
-
-          // $data['property_list'] is an XMLSimpleObject, so it is not possible to insert an array as a property
+          
           foreach($data['property_list'] as $property_id => $property)
           {
-            $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link($property["type"],$property["name"],$property["id"],$this->CI->site_lang);
+            $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link(
+                $property["type"],$property["name"],$property["id"],$this->CI->site_lang);
             $data['amenities'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities($property["id"]);
             $data['amenities_filter'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities_for_filter($property["id"]);
             $data['districts'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_districts_for_filter($property["id"]);
@@ -550,7 +552,7 @@ class Hb_engine {
             $this->CI->Hb_api_translate->translate_LocationData($results);
             $data['property_list'] = $results["response"]["properties"];
           }
-
+                    
           //Add property reviews if not search mode
           if(($data['searchmode'] == 0) && ($prop_reviews === TRUE))
           {
@@ -652,11 +654,11 @@ class Hb_engine {
     //because JSON encoding turn non numeric value into JS string
     //Also if not in an array everything is turn into strings, yeah really! array needed! for json_encode
     $json_data["property_list"] = $data["property_list"];
-
+    
     $json_data["request"] = array(
-                                      'date_selected'      => $data["date_selected"],
-                                      'numnights_selected' => $data["numnights_selected"],
-                                      'display_currency' => $this->CI->site_currency
+        'date_selected'      => $data["date_selected"],
+        'numnights_selected' => $data["numnights_selected"],
+        'display_currency' => $this->CI->site_currency
     );
 
     $json_data["city_info"] = $data["city_info"];
@@ -686,27 +688,28 @@ class Hb_engine {
     $deal_property = array(0 => null,
                            1 => null);
 
-    foreach($json_data["property_list"] as $i => $prop)
+    foreach($json_data["property_list"] as $i => $property)
     {
       //Change keys to match HW data
-      $json_data["property_list"][$i]['propertyNumber']     = $prop["id"];
-      $json_data["property_list"][$i]['propertyName']       = $prop["name"];
-      $json_data["property_list"][$i]['shortDescription']   = $prop["shortdescription"];
-      $json_data["property_list"][$i]['propertyType']       = ucfirst($prop["type"]);
-      $json_data["property_list"][$i]['minNights']          = $prop["minlengthofstay"];
-      $json_data["property_list"][$i]["Geo"]["Latitude"]    = null;
-      $json_data["property_list"][$i]["Geo"]["Longitude"]   = null;
+      $json_data["property_list"][$i]['propertyNumber'] = $property["id"];
+      $json_data["property_list"][$i]['propertyName'] = $property["name"];
+      $json_data["property_list"][$i]['shortDescription'] = $property["shortdescription"];
+      $json_data["property_list"][$i]['propertyType'] = ucfirst($property["type"]);
+      $json_data["property_list"][$i]['minNights'] = $property["minlengthofstay"];
+      $json_data["property_list"][$i]["Geo"]["Latitude"] = null;
+      $json_data["property_list"][$i]["Geo"]["Longitude"] = null;
+      $json_data["property_list"][$i]["Ratings"] = $property["ratings"];
 
-      if(isset($prop["geo_latitude"]))
+      if(isset($property["geo_latitude"]))
       {
-        $json_data["property_list"][$i]["Geo"]["Latitude"]    = $prop["geo_latitude"];
+        $json_data["property_list"][$i]["Geo"]["Latitude"]    = $property["geo_latitude"];
       }
-      if(isset($prop["geo_longitude"]))
+      if(isset($property["geo_longitude"]))
       {
-        $json_data["property_list"][$i]["Geo"]["Longitude"]   = $prop["geo_longitude"];
+        $json_data["property_list"][$i]["Geo"]["Longitude"]   = $property["geo_longitude"];
       }
 
-      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageURL"]   = $prop["image_thumbnail"];
+      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageURL"]   = $property["image_thumbnail"];
 
       unset($json_data["property_list"][$i]["id"]);
       unset($json_data["property_list"][$i]["name"]);
@@ -807,17 +810,17 @@ class Hb_engine {
         $json_data["property_list"][$i]["minNights"] = 0;
         settype($json_data["property_list"][$i]["minNights"],"integer");
       }
-//       settype($json_data["property_list"][$i]["maxNights"],"integer");
 
-//       settype($json_data["property_list"][$i]["maxPax"],"integer");
-      $json_data["property_list"][$i]["dual_price"]            = 1;
-      $json_data["property_list"][$i]["display_price"]         = floatval($json_data["property_list"][$i]["prices"]["customer"]["minprice"]);
-      $json_data["property_list"][$i]["display_shared_price"]  = floatval($json_data["property_list"][$i]["prices"]["customer"]["minsharedprice"]);
-      $json_data["property_list"][$i]["display_private_price"] = floatval($json_data["property_list"][$i]["prices"]["customer"]["minprivateprice"]);
+      $json_data["property_list"][$i]["dual_price"] = 1;
+      $json_data["property_list"][$i]["display_price"] = floatval(
+            $json_data["property_list"][$i]["prices"]["customer"]["minprice"]);
+      $json_data["property_list"][$i]["display_shared_price"] = floatval(
+            $json_data["property_list"][$i]["prices"]["customer"]["minsharedprice"]);
+      $json_data["property_list"][$i]["display_private_price"] = floatval(
+            $json_data["property_list"][$i]["prices"]["customer"]["minprivateprice"]);
 
       $json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["prices"]["customer"]["currency"];
       $json_data["property_list"][$i]["display_currency"] = currency_symbol($json_data["property_list"][$i]["prices"]["customer"]["currency"]);
-//       $json_data["property_list"][$i]["original_price"] = null;
       settype($json_data["property_list"][$i]["display_price"],"float");
       $json_data["property_list"][$i]["display_price_formatted"]        = number_format($json_data["property_list"][$i]["display_price"], 2, '.', '');
       $json_data["property_list"][$i]["display_shared_price_formatted"] = number_format($json_data["property_list"][$i]["display_shared_price"], 2, '.', '');
@@ -896,7 +899,6 @@ class Hb_engine {
       $json_data["property_list"][$deal_property[1]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[1]->index]["display_price"]*1.25, 2, '.', '');;
     }
 
-//     debug_dump($json_data,"67.68.71.139");
     $data["json_data"] = json_encode($json_data);
     return $data;
   }
@@ -1331,7 +1333,7 @@ class Hb_engine {
   function properties_avail_prepare(&$property_array)
   {
     $this->CI->load->model("Db_hb_hostel");
-
+    
     foreach($property_array as $i => $property)
     {
 

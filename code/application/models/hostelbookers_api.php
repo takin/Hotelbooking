@@ -374,13 +374,15 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime(true);
-       $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-           $response_time=microtime(true);
-	       $total_time = ($response_time - $request_time) * 1000;
-	       $total_time = floor($total_time);
-	       $total_time =  $total_time." ms ";
-       $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
+	    $request_time= microtime(true);
+        $return =  $this->hbapi->getPropertyAvailability4(
+            $this->apikey, $location_id, $startDate, 
+            $numNights, $strCurrencyCode, $language_code);
+        $response_time=microtime(true);
+        $total_time = ($response_time - $request_time) * 1000;
+        $total_time = floor($total_time);
+        $total_time =  $total_time." ms ";
+        $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());

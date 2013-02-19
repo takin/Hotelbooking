@@ -1993,6 +1993,34 @@ class Db_hb_hostel extends CI_Model
     return $return;
   }
 
+    public function appendAdditionalPropertyData(&$hostelList) {
+        foreach($hostelList as $propertyId => &$property)
+        {
+            $db_property = $this->get_hostel($property["id"]);
+            if(!is_null($db_property)) {
+                $property["geo_latitude"] = $db_property->geo_latitude;
+                $property["geo_longitude"] = $db_property->geo_longitude;
+                $property["ratings"] = $this->getRatingsFromDbProperty($db_property);
+            }
+        }
+        
+        return $hostelList;
+    }
+  
+    private function getRatingsFromDbProperty($property) {
+        $ratings = array(
+            "atmosphere" => round($property->rating_atmosphere),
+            "staff" => round($property->rating_staff),
+            "location" => round($property->rating_location),
+            "cleanliness" => round($property->rating_cleanliness),
+            "facilities" => round($property->rating_facilities),
+            "safety" => round($property->rating_safety),
+            "value" => round($property->rating_value),
+        );
+        
+        return $ratings;
+    }
+    
   function append_geo_location_data(&$hbhostellist)
   {
     foreach($hbhostellist as $key => $property)
