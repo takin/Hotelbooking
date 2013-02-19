@@ -20,9 +20,11 @@
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-				<a href="{{property_page_url}}">
-				{{#PropertyImages}}<img alt="" src="{{#PropertyImage}}{{imageURL}}{{/PropertyImage}}" />{{/PropertyImages}}
-				</a>
+					<div class="map_number" id="{{propertyNumber}}">0</div>
+					<a href="{{property_page_url}}">
+					{{#PropertyImages}}  
+					<img width="inherit" height="inherit" src="<?php echo base_url(); ?>info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src={{#PropertyImage}}{{imageURL}}{{/PropertyImage}}"  title="" style="width: 100px; height: 100px;" class="imageResizerChangedClass" id="map_number_img">{{/PropertyImages}}
+					</a>
 				<span class="info_type">{{propertyType}}</span>
 				</div>
 				<div class="info_indent">

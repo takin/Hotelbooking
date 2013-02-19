@@ -1378,7 +1378,8 @@ class Hb_engine {
 
         if(!empty($property["image"]))
         {
-          $property_array[$i]["image_thumbnail"] = $this->CI->Hostelbookers_api->build_thumb_url($property["image"]);
+          //$property_array[$i]["image_thumbnail"] = $this->CI->Hostelbookers_api->build_thumb_url($property["image"]);
+          $property_array[$i]["image_thumbnail"] = $property["image"];
         }
       }
 
