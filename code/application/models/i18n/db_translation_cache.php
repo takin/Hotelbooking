@@ -97,7 +97,7 @@ class Db_translation_cache extends CI_Model
 	}
     else if ($query->num_rows() > 0)
     {
-      log_message('debug', 'Translation Found');
+      log_message('debug', 'Translation Found '.$query->row()->translation);
 
       if($memcached === true)
       {
