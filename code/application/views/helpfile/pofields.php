@@ -606,3 +606,4 @@
 <?php echo _('If the offer is accepted, the balance must be paid by %s');?>
 <?php echo _('The request cannot be fulfilled due to bad syntax');?>
 <?php echo _('Your changes has been saved successfully');?>
+<?php echo _('Next available property');?>
