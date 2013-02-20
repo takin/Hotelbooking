@@ -402,5 +402,13 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+/*
+|--------------------------------------------------------------------------
+| urbanmapping api key
+|--------------------------------------------------------------------------
+|
+*/
+$config['urbanmapping_key'] = '3e582082263ec602d607b16a3d1b21fb';
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
