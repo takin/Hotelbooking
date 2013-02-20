@@ -46,7 +46,7 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
         $sharedRoomsTable.= $hostel_room['NAME'];
 				$sharedRoomsTableSelect.= $hostel_room['NAME'];
       }
-			
+
 			if($breakfast_included == 1){
 				$sharedRoomsTable.= '<span class="free-breakfast">';
 				$sharedRoomsTable.= _('Breakfast Included');
@@ -58,10 +58,10 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
 
       $sharedRoomsTable.= "</td>";
 			$sharedRoomsTableSelect.= "</td>";
-			
+
 			$sharedRoomsTable.= '<td align="center" title="'._('Bed in a dorm. 1 person per bed maximum').'"><span class="nbpeople-table icon-nbpeople nbpeople-1">1</span></td>';
-			$sharedRoomsTableSelect.= '<td align="center" title="'._('Bed in a dorm. 1 person per bed maximum').'"><span class="nbpeople-table icon-nbpeople nbpeople-1">1</span></td>';		
-			
+			$sharedRoomsTableSelect.= '<td align="center" title="'._('Bed in a dorm. 1 person per bed maximum').'"><span class="nbpeople-table icon-nbpeople nbpeople-1">1</span></td>';
+
 
       $date = clone $dateStart;
 			$subtotal = 0;
@@ -182,7 +182,7 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
         $privateRoomsTable.= $hostel_room['NAME'];
 				$privateRoomsTableSelect.= $hostel_room['NAME'];
       }
-			
+
 			if($breakfast_included == 1){
 				$privateRoomsTable.= '<span class="free-breakfast">';
 				$privateRoomsTable.= _('Breakfast Included');
@@ -521,7 +521,7 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
 		$('a#change-dates').click(function() {
 			$("#dispo-form").hide();
 			$("#dispo-form").show(100);
-			$("#booking-table").show();
+			$("#booking-table").hide();
 			return false;
 		});
 

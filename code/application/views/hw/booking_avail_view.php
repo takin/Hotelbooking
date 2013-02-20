@@ -79,7 +79,7 @@ if($api_error==false)
 
 		// Max Guests per room
 			$nb_guest_per_room = explode(':',$hostel_room_type['roomTypeCode']);
-			
+
 			$sharedRoomsTable.= '<td align="center" title="'._('Bed in a dorm. 1 person per bed maximum').'"><span class="nbpeople-table icon-nbpeople nbpeople-1">1</span></td>';
 			$sharedRoomsTableSelect.= '<td align="center" title="'._('Bed in a dorm. 1 person per bed maximum').'"><span class="nbpeople-table icon-nbpeople nbpeople-1">1</span></td>';
 
@@ -253,7 +253,7 @@ if($api_error==false)
 
 
 		// Max Guests per room
-		
+
 		$privateRoomsTable.= '<td align="center" title="'._('Maximum number of guests in the room').'"><span class="nbpeople-table icon-nbpeople nbpeople-'.$hostel_room_type["bedsIncrement"].'">'.$hostel_room_type["bedsIncrement"].' x</span></td>';
 		$privateRoomsTableSelect.= '<td align="center" title="'._('Maximum number of guests in the room').'"><span class="nbpeople-table icon-nbpeople nbpeople-'.$hostel_room_type["bedsIncrement"].'">'.$hostel_room_type["bedsIncrement"].' x</span></td>';
 
@@ -697,7 +697,7 @@ else
 		$('a#change-dates').click(function() {
 			$("#dispo-form").hide();
 			$("#dispo-form").show(100);
-			$("#booking-table").show();
+			$("#booking-table").hide();
 			return false;
 		});
 
