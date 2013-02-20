@@ -48,7 +48,7 @@ function checkAvailability(base_url, country, city, propertyNumber, dateId, n, p
 			success:function(data)
 			{
 				$("#"+avail_table_id).html(data);
-				$("#dispo-form").show();
+				$("#dispo-form").hide();
 				$("#loading_dispo").hide();
 			}
 		});
