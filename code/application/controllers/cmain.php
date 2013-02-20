@@ -39,14 +39,14 @@ class CMain extends I18n_site
     $this->load->model('Db_currency');
 
     $currency_validated = $this->input->get("currency", TRUE);
-	
+
 	// this line is modified for providing wrong currency parameters
 	if(!empty($currency_validated))
-    {        
+    {
 		// check for wrong currency parameter validation
 		 $currency_validated = $this->Db_currency->validate_currency_parameter($currency_validated);
 		 if(!$currency_validated) // find wrong currency parameter
-		 {			
+		 {
 			return true;
 		 }
 		// $currency_validated = $this->Db_currency->validate_currency($currency_validated);  // old function call
@@ -102,7 +102,7 @@ class CMain extends I18n_site
     }
     else
     {
-      $this->load->model('Db_country');     
+      $this->load->model('Db_country');
 	  $this->_currency_init();
       $this->_searchBoxInit($data);
 
@@ -176,7 +176,7 @@ class CMain extends I18n_site
 
   function site_search($terms = NULL)
   {
-    
+
 	$this->_currency_init();
 
     //THIS IS BAD for performance and does not support HB!
@@ -861,7 +861,7 @@ class CMain extends I18n_site
 
   function continent_country_page($continent, $country = NULL)
   {
-   
+
 	$this->_currency_init();
 
     if(!empty($country)&&!empty($continent))
@@ -880,7 +880,7 @@ class CMain extends I18n_site
 
   function continent_page($continent)
   {
-	
+
     $cache_time = $this->wordpress->get_option("aj_cache_time_country_pages",0);
     if(!empty($cache_time))
     {
@@ -934,7 +934,7 @@ class CMain extends I18n_site
 
   function group_request()
   {
-     
+
 	$this->load->model('Db_country');
 
     $data['country_selected'] = $this->uri->segment(2,null);
@@ -965,7 +965,7 @@ class CMain extends I18n_site
 
   function property_search($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL)
   {
-    
+
 	$currency_error = false; // default currency paramete is correct
 	$currency_error = $this->_currency_init();
 
@@ -1179,7 +1179,7 @@ class CMain extends I18n_site
  * Set cookies for last review properites
  * @access private
  * @param property id
- */ 
+ */
  function _property_cookies_review($property_id)
  {
 	  if(!get_cookie('cookiecount')) // check if count for property already set from 1
@@ -1187,14 +1187,14 @@ class CMain extends I18n_site
             set_cookie('cookiecount', 1);
 			$count = 1;
       } else {
-            
+
 			$count = get_cookie('cookiecount'); // get last index of cookie array
-			$count = $count + 1;		// increment one	
+			$count = $count + 1;		// increment one
       }
-	  
+
 	 set_cookie(array('name' => 'property['.$count.']', 'value' => $property_id, 'expires' => '1209600')); // expire in 2 weeks
- } 
- 
+ }
+
   function property_reviews($property_id)
   {
     //allow browser cache  24 hours
@@ -1202,7 +1202,7 @@ class CMain extends I18n_site
     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');
 
     $this->_property_cookies_review($property_id); // set cookies for last reviewed
-	
+
 	if($this->api_used == HB_API)
     {
       $this->load->library('hb_engine');
@@ -1417,9 +1417,9 @@ class CMain extends I18n_site
     {
       return false;
     }
-   
+
 	$this->_currency_init();
-	
+
 //     $this->output->set_header('Cache-Control: public');
     //7200 sec = 2 hours
 //     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+7200).' GMT');
@@ -1661,32 +1661,33 @@ class CMain extends I18n_site
 //    $numNights = $this->session->userdata('numnights_selected');
 
     //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
-     
+
         $urldate = $this->uri->segment(4);
         $units = $this->uri->segment(5);
-  
+
       $chkdate = $this->checkData($urldate);
-  
+
 	if($dateStart!=false)
     {
 	  if(($chkdate == true) && (!empty($urldate)))
+	  {
 		 $data['date_selected'] = $urldate;
+    	 set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
+		 }
 		else
         $data['date_selected'] = $dateStart;
-    }else{
-		 $data['date_selected'] = $urldate;
-		 }
-   
+    }
     if($numNights!=false)
      {
 		if((is_numeric($units)) && (!empty($units)))
+		{
 		$data['numnights_selected'] = $units;
+	set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
+	}
 		else
         $data['numnights_selected'] = $numNights;
-    }else{
-		$data['numnights_selected'] = $units;
-		}
-    	    
+    }
+
     if($country!=false)
     {
       $data['country_selected'] = $country;
@@ -1699,15 +1700,15 @@ class CMain extends I18n_site
     {
 //      $data['search_term'] = urldecode($search_term);
     }
-    
-    
+
+
   }
 
 
   function checkData($mydate) {
     if((!empty($mydate)) && ((strpos($mydate,"-")) > 0)){
 
-      $split = explode('-', $mydate);  
+      $split = explode('-', $mydate);
       if(is_array($split) && count($split) == 3)
       {
         $yy = $split[0];
@@ -1721,8 +1722,8 @@ class CMain extends I18n_site
      }
      return false;
     }
-  } 
- 
+  }
+
 
 
   function condition_check($str)
