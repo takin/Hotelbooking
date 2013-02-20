@@ -592,7 +592,8 @@ class Hw_engine {
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
 
-      foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
+       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name		   
+	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
 
         if(($amenity->description == 'Breakfast Included')||

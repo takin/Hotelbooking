@@ -696,6 +696,12 @@ class Hb_engine {
       $json_data["property_list"][$i]['minNights']          = $prop["minlengthofstay"];
       $json_data["property_list"][$i]["Geo"]["Latitude"]    = null;
       $json_data["property_list"][$i]["Geo"]["Longitude"]   = null;
+	  $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_lname_en; // set the city name 
+	  
+	   $json_data["property_list"][$i]['propertyType']       = $json_data["property_list"][$i]["propertyType"];
+	 // get address for each propety from the hostel table
+	  $this->CI->load->model('Db_hb_hostel');	  
+	  $json_data["property_list"][$i]["address1"] = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
 
       if(isset($prop["geo_latitude"]))
       {
