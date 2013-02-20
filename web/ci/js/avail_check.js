@@ -42,7 +42,7 @@ function checkAvailability(base_url, country, city, propertyNumber, dateId, n, p
 			error:function(XMLHttpRequest, textStatus, errorThrown)
 			{
 				$("#"+avail_table_id).html("<ul class=\"error\"><li>Erreur.<li>"+textStatus+"</li><li>"+errorThrown+"</li></li></ul>");
-				$("#dispo-form").show();
+				$("#dispo-form").hide();
 				$("#loading_dispo").hide();
 			},
 			success:function(data)
