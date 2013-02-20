@@ -35,7 +35,7 @@
 
 
 		<div class="bar-back group">
-			<div class="bar-top green"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
+			<div class="bar-top yellow"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
 			<img alt="" src="<?php echo base_url();?>images/rating-<?php echo $rating_category;?>.png"/>
 			<span class="rating-cat">
 			<?php
