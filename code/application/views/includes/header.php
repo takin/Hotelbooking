@@ -725,12 +725,21 @@
 
 /* FOR change class in header manu */
 $url =$_SERVER['PHP_SELF'];
+
+$url_ex = explode('/',$url);
+
 $pattern = '/(group)?$/';
 preg_match($pattern, $url , $matches);
+
 $sel_class = '';
 	if($matches[0] == 'group')
 	{
 		$gorup_sel_class= 'current_page_item';
+	}
+	elseif($url_ex[3] == $this->Db_links->get_link("user") || $url_ex[3]==$this->Db_links->get_link("connect") || $url_ex[3] == $this->Db_links->get_link("register") ||  $url_ex[3] == $this->Db_links->get_link("logout") )
+	{
+		$sel_class= '';
+		$gorup_sel_class='';
 	}
 	else
 	{
@@ -885,6 +894,7 @@ $(document).ready(function(){
 
 		<nav class="main grid_16 box_shadow box_round">
 			<ul class="group">
+			
 				<li class="first"><a href="/"><?php echo _("Accueil");?></a></li>
 				<li><a class="<?php if(!empty($sel_class)){ echo $sel_class; } ?>" href="<?php echo site_url($this->Db_links->get_link("homepage")); ?>"><?php echo _("Auberges et logements pas chers");?></a></li>
 				<?php if($this->wordpress->get_option('aj_group_url') != ''){?>
