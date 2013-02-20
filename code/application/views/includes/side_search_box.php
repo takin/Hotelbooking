@@ -1,5 +1,5 @@
 <div class="box_content box_round group side_search" id="side_search_box">
-	
+
 	<?php if(($current_view == "city_view") || ($current_view == "hostel_view")) {
 	?>
 	<span id="modify_search" class=""><a class="modify_search expand" style="border-bottom: 1px solid #80B422;margin-bottom: 10px;font-size: 1.2em;padding: 5px 0 7px;text-decoration:none;cursor:pointer;"><strong><?php echo _('Modify search')?></strong></a></span>
@@ -7,16 +7,16 @@
 	<?php }else{?>
 	<span class="search_title"><?php echo _('Search Now')?></span>
 	<?php }?>
-	<?php 
-		
+	<?php
+
 		if(($current_view == "city_view") || ($current_view == "hostel_view"))
 		{
-			$side_search_wrap = "side_search_wrap_city";	
+			$side_search_wrap = "side_search_wrap_city";
 		}
 		else{
-			$side_search_wrap = "side_search_wrap";	
+			$side_search_wrap = "side_search_wrap";
 		}
-		
+
 	?>
 
 	<div id="<?php echo $side_search_wrap; ?>" >
@@ -44,7 +44,6 @@
 			if(!empty($date_selected))
 			{
 				$date_selected = $date_selected;
-				 set_cookie("date_selected", $date_selected);
 			}
 			 else if(!empty($_COOKIE["date_selected"]))
 			{
@@ -53,11 +52,10 @@
 			{
 				$date_selected = get_date_default();
 			}
-			 
+
 		    if(!empty($numnights_selected))
 			{
 				$numnights_selected = $numnights_selected;
-				 set_cookie("numnights_selected", $numnights_selected);
 			}
 			elseif(!empty($_COOKIE["numnights_selected"]))
 			{
@@ -65,9 +63,9 @@
 			}else{
 				$numnights_selected = 2;
 			}
-			
+
 			?>
-			
+
 			<script>
 			$(document).ready(
 

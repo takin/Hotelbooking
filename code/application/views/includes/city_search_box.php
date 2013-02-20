@@ -1,13 +1,13 @@
 <div class="box_content box_round group side_search" id="side_search_box_city" style="display:none;">
-    
-    
+
+
 
     <div class="content_block" style="margin-bottom:0px;">
         <script>
         $(document).ready(function(){
-                
+
                  loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>","<?php echo _('Chargement...');?>",'cities',cities,'search-country','search-city',"<?php echo $country_selected;?>","<?php echo $city_selected; ?>");
-                
+
         });
         function keyaction(e)
         {
@@ -23,7 +23,6 @@
             if(!empty($date_selected))
             {
                 $date_selected = $date_selected;
-                 set_cookie("date_selected", $date_selected);
             }
              else if(!empty($_COOKIE["date_selected"]))
             {
@@ -32,11 +31,10 @@
             {
                 $date_selected = get_date_default();
             }
-             
+
             if(!empty($numnights_selected))
             {
                 $numnights_selected = $numnights_selected;
-                set_cookie("numnights_selected", $numnights_selected);
             }
             elseif(!empty($_COOKIE["numnights_selected"]))
             {
@@ -44,9 +42,9 @@
             }else{
                 $numnights_selected = 2;
             }
-            
+
             ?>
-            
+
             <script>
             $(document).ready(
 
@@ -130,11 +128,11 @@
             <input style="display:none;"  id="type_search_choice" class="type_search" type="radio" name="type_search" value="1" checked="checked">
             <input style="display:none;" id="type_search_keyword" class="type_search" type="radio" name="type_search" value="2">
             <label class="notshow" for="search-custom"><?php echo _('Search by city or hostel name:'); ?></label>
-            
 
-            
 
-            
+
+
+
 
             <div class="group">
                 <div class="left">
@@ -146,7 +144,7 @@
                 select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected);
                 ?>
                 </div>
-                
+
                 <?php if($current_view != "auth/reset_password_form"){?>
                 <div class="left">
   <label for="book-night"><?php echo _("Devise:");?></label>
@@ -157,7 +155,7 @@
 
 <label >&nbsp;</label>
             <input onfocus="this.blur()" type="button" name="search-submit" class="box_round button-green side_submit hoverit" id="search-submit" onclick="goToSearchPage('<?php echo site_url();?>','<?php echo _('Choisir le pays'); ?>','<?php echo _('Pays introuvable'); ?>','<?php echo _('Choisir la ville'); ?>','<?php echo _('Ville introuvable'); ?>','<?php echo _('Date invalide'); ?>','search-country','search-city','book-pick','book-night','book-property-currency','search-custom')" value="<?php echo _('Search Now')?>"/>
-            
+
             <input type="hidden" id="custom-type" name="custom-type" value =""/>
             <input type="hidden" id="custom-url"  name="custom-url" value =""/>
             </div></div>
