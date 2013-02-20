@@ -52,11 +52,11 @@ class Hostelbookers_api extends CI_Model {
   var $testmode = 0;
 
   var $tracing = FALSE;
-
   function Hostelbookers_api()
   {
     parent::__construct();
-
+    
+    $this->load->library('custom_log');
     $config =& get_config();
 
     if (is_numeric($config['log_threshold']))
@@ -381,6 +381,7 @@ class Hostelbookers_api extends CI_Model {
 	       $total_time = floor($total_time);
 	       $total_time =  $total_time." ms ";
        $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
+       
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
