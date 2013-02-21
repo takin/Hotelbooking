@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-20 17:28+0200\n"
-"PO-Revision-Date: 2013-02-02 20:02+0200\n"
+"PO-Revision-Date: 2013-02-21 14:50+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2603,7 +2602,7 @@ msgstr "You wrote no reviews so far."
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
-msgstr ""
+msgstr "Your personalized group booking quote - Here is your offer!"
 
 #: ../code/application/views/restricted/user_group_quote.php:66
 #: ../code/application/views/helpfile/pofields.php:205
@@ -2612,9 +2611,8 @@ msgid "Details."
 msgstr "Details."
 
 #: ../code/application/views/restricted/user_group_quote.php:98
-#, fuzzy
 msgid "Total Number of people in your group"
-msgstr "Total Number of people in your group: %s"
+msgstr "Total Number of people in your group"
 
 #: ../code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -2622,18 +2620,21 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"Please see below for some provisional examples of accommodation we have "
+"available. If you can answer the following questions, we will do our best to "
+"find you the perfect property:"
 
 #: ../code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "Are you happy with the types of rooms suggested below?"
 
 #: ../code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "What is your budget?"
 
 #: ../code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "Are the dates and number of people confirmed or will they change?"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
 #, php-format
@@ -2641,6 +2642,8 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
 msgstr ""
+"When will you be ready to make a payment to secure your booking with a 20%% "
+"deposit?"
 
 #: ../code/application/views/restricted/user_group_quote.php:150
 #, fuzzy
@@ -2649,19 +2652,21 @@ msgstr "Group Booking Request Form"
 
 #: ../code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
 
 #: ../code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Please have a look at the offer below and check our website to get more "
+"information about the property."
 
 #: ../code/application/views/restricted/user_group_quote.php:160
 #: ../code/application/views/helpfile/pofields.php:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Beds have been put aside for your group until the following date:"
 
 #: ../code/application/views/restricted/user_group_quote.php:165
 #: ../code/application/views/helpfile/pofields.php:598
@@ -2670,6 +2675,8 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"After this date, these beds will be released to other groups, so do not wait "
+"to book!"
 
 #: ../code/application/views/restricted/user_group_quote.php:174
 #, fuzzy
@@ -2684,7 +2691,7 @@ msgstr "What's Included"
 
 #: ../code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Room description"
 
 #: ../code/application/views/restricted/user_group_quote.php:211
 #, fuzzy
@@ -2693,20 +2700,20 @@ msgstr "Price per room (not per person)."
 
 #: ../code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Offer Expiry date"
 
 #: ../code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
-msgstr ""
+msgstr "Non-refundable and non-transferable deposit to secure this booking"
 
 #: ../code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr ""
+msgstr "If the offer is accepted, the balance must be paid by %s"
 
 #: ../code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "Special Notes"
 
 #: ../code/application/views/restricted/user_group_quote.php:303
 #, fuzzy
@@ -2718,12 +2725,16 @@ msgid ""
 "The deposit is to be paid in British pounds as our Worldwide group center is "
 "located in London, England."
 msgstr ""
+"The deposit is to be paid in British pounds as our Worldwide group center is "
+"located in London, England."
 
 #: ../code/application/views/restricted/user_group_quote.php:308
 msgid ""
 "The Average price per person per night is for the requested arrival date and "
 "length of stay, actual day-by-day prices may vary."
 msgstr ""
+"The Average price per person per night is for the requested arrival date and "
+"length of stay, actual day-by-day prices may vary."
 
 #: ../code/application/views/restricted/user_group_quote.php:310
 msgid ""
@@ -2734,12 +2745,20 @@ msgid ""
 "terms and conditions of any other booking intermediary involved in our "
 "booking."
 msgstr ""
+"We act as agent only in respect of all bookings we take or make on your "
+"behalf. For all bookings your contract will be with the supplier of the "
+"accommodation or other service concerned. The suppliers' booking conditions "
+"will apply to your contract as well as our own Terms and conditions and any "
+"terms and conditions of any other booking intermediary involved in our "
+"booking."
 
 #: ../code/application/views/restricted/user_group_quote.php:312
 msgid ""
 "Copies of the other applicable terms and conditions are available from us on "
 "request."
 msgstr ""
+"Copies of the other applicable terms and conditions are available from us on "
+"request."
 
 #: ../code/application/views/restricted/user_group_quote.php:314
 msgid ""
@@ -2747,6 +2766,9 @@ msgid ""
 "Final balance payments will be subject to the exchange rate available 49 "
 "days prior to arrival date."
 msgstr ""
+"Exchange rates are calculated using the typical ATM rate on www.oanda.com. "
+"Final balance payments will be subject to the exchange rate available 49 "
+"days prior to arrival date."
 
 #: ../code/application/views/restricted/user_group_quote.php:316
 #, php-format
@@ -2754,18 +2776,24 @@ msgid ""
 "All card payments incur a 2%% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
+"All card payments incur a 2%% fee and all bank fees are to be paid by the "
+"booking party."
 
 #: ../code/application/views/restricted/user_group_quote.php:318
 msgid ""
 "As this is a group booking, group leader will need to be present at check in "
 "and the property may require\ta security bond at check-in."
 msgstr ""
+"As this is a group booking, group leader will need to be present at check in "
+"and the property may require\ta security bond at check-in."
 
 #: ../code/application/views/restricted/user_group_quote.php:325
 msgid ""
 "Unpaid fees or transfer of insufficient funds may lead to cancellation of "
 "your booking."
 msgstr ""
+"Unpaid fees or transfer of insufficient funds may lead to cancellation of "
+"your booking."
 
 #: ../code/application/views/restricted/user_profile.php:28
 msgid "Votre Profil"
@@ -3509,6 +3537,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"No Beds could be found for your search criteria. Please change your dates "
+"and try again."
 
 #: ../code/application/views/hw/booking_avail_view.php:523
 #: ../code/application/views/hb/booking_avail_view.php:425
@@ -4183,19 +4213,19 @@ msgstr "Hello"
 #: ../code/application/views/helpfile/pofields.php:572
 #, php-format
 msgid "Good news!"
-msgstr ""
+msgstr "Good news!"
 
 #: ../code/application/views/email/admin/new_group_request.php:6
 #: ../code/application/views/helpfile/pofields.php:573
 #, php-format
 msgid "We have found a great offer for your group."
-msgstr ""
+msgstr "We have found a great offer for your group."
 
 #: ../code/application/views/email/admin/new_group_request.php:8
 #: ../code/application/views/helpfile/pofields.php:574
 #, php-format
 msgid "Please take a look at the attached file for more details."
-msgstr ""
+msgstr "Please take a look at the attached file for more details."
 
 #: ../code/application/views/email/admin/new_group_request.php:10
 #: ../code/application/views/helpfile/pofields.php:576
@@ -4212,9 +4242,9 @@ msgstr "Sincerely."
 
 #: ../code/application/views/email/admin/new_group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Customer Service."
-msgstr "Customer Service"
+msgstr "Customer Service."
 
 #: ../code/application/views/email/admin/new_group_request.php:20
 #: ../code/application/views/group_request.php:75
@@ -4277,7 +4307,6 @@ msgid "Your details"
 msgstr "Your details"
 
 #: ../code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
 msgstr "Email Address"
 
@@ -4482,6 +4511,7 @@ msgstr "no"
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
+"Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 
 #: ../code/application/views/group_request.php:279
 #: ../code/application/views/helpfile/pofields.php:564
@@ -6679,24 +6709,24 @@ msgstr "Sorry. 10 people minimum for a group quote."
 
 #: ../code/application/views/helpfile/pofields.php:570
 #: ../code/application/controllers/cadmin.php:163
-#, fuzzy, php-format
+#, php-format
 msgid "Lunch Pack"
-msgstr "Dutch"
+msgstr "Lunch Pack"
 
 #: ../code/application/views/helpfile/pofields.php:575
 #, php-format
 msgid "To view the offer, you can also click on the link here:"
-msgstr ""
+msgstr "To view the offer, you can also click on the link here:"
 
 #: ../code/application/views/helpfile/pofields.php:578
 #, php-format
 msgid "I hope you have had time to take a look at the quote for your group."
-msgstr ""
+msgstr "I hope you have had time to take a look at the quote for your group."
 
 #: ../code/application/views/helpfile/pofields.php:579
 #, php-format
 msgid "Do you want a cheaper hostel or or another one in a different area?"
-msgstr ""
+msgstr "Do you want a cheaper hostel or or another one in a different area?"
 
 #: ../code/application/views/helpfile/pofields.php:580
 #, php-format
@@ -6705,6 +6735,9 @@ msgid ""
 "to another group unfortunately. If you no longer need these beds, please let "
 "us know also right away."
 msgstr ""
+"Beds have been set aside for you. After this expiry date, they will be given "
+"to another group unfortunately. If you no longer need these beds, please let "
+"us know also right away."
 
 #: ../code/application/views/helpfile/pofields.php:581
 #, php-format
@@ -6712,6 +6745,8 @@ msgid ""
 "We want to make sure you are 100%% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
+"We want to make sure you are 100%% satisfied, so do not hesitate to contact "
+"us."
 
 #: ../code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6719,26 +6754,28 @@ msgid ""
 "We are very sorry but the selected hostel is the cheapest we have for your "
 "chosen dates."
 msgstr ""
+"We are very sorry but the selected hostel is the cheapest we have for your "
+"chosen dates."
 
 #: ../code/application/views/helpfile/pofields.php:584
 #, php-format
 msgid "Please recontact us later or choose different dates."
-msgstr ""
+msgstr "Please recontact us later or choose different dates."
 
 #: ../code/application/views/helpfile/pofields.php:585
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you."
-msgstr "Thank you"
+msgstr "Thank you."
 
 #: ../code/application/views/helpfile/pofields.php:586
 #, php-format
 msgid "Can we contact you by phone ?"
-msgstr ""
+msgstr "Can we contact you by phone ?"
 
 #: ../code/application/views/helpfile/pofields.php:587
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your email."
-msgstr "Thank you for your question."
+msgstr "Thank you for your email."
 
 #: ../code/application/views/helpfile/pofields.php:588
 #, php-format
@@ -6746,11 +6783,13 @@ msgid ""
 "We are very sorry but we were not able to find a hostel for you for the "
 "selected date."
 msgstr ""
+"We are very sorry but we were not able to find a hostel for you for the "
+"selected date."
 
 #: ../code/application/views/helpfile/pofields.php:589
 #, php-format
 msgid "We apologize for the inconvenience."
-msgstr ""
+msgstr "We apologize for the inconvenience."
 
 #: ../code/application/views/helpfile/pofields.php:590
 #, php-format
@@ -6759,6 +6798,9 @@ msgid ""
 "every day, we can only provide customized quotes to people who will be "
 "making a decision within 1 week."
 msgstr ""
+"We are very sorry but due to the very high number of requests we receive "
+"every day, we can only provide customized quotes to people who will be "
+"making a decision within 1 week."
 
 #: ../code/application/views/helpfile/pofields.php:591
 #, php-format
@@ -6767,21 +6809,24 @@ msgid ""
 "put together your budget and to recontact us when all details re finalized 1 "
 "week before making your decision."
 msgstr ""
+"We invite you to look at the list of hostels and prices on our website to "
+"put together your budget and to recontact us when all details re finalized 1 "
+"week before making your decision."
 
 #: ../code/application/views/helpfile/pofields.php:592
 #, php-format
 msgid "We will work very hard to give you the best price at that time."
-msgstr ""
+msgstr "We will work very hard to give you the best price at that time."
 
 #: ../code/application/views/helpfile/pofields.php:593
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your trust and support."
-msgstr "Thank you for your question."
+msgstr "We thank you for your trust and support."
 
 #: ../code/application/views/helpfile/pofields.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your request."
-msgstr "Thank you for your question."
+msgstr "Thank you for your request."
 
 #: ../code/application/views/helpfile/pofields.php:595
 #, php-format
@@ -6789,31 +6834,33 @@ msgid ""
 "Due to  a very high number of group requests, it might take up to 1 week to "
 "get back to you as we are looking for the best deal for your group."
 msgstr ""
+"Due to  a very high number of group requests, it might take up to 1 week to "
+"get back to you as we are looking for the best deal for your group."
 
 #: ../code/application/views/helpfile/pofields.php:596
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your patience."
-msgstr "Thank you for your question."
+msgstr "We thank you for your patience."
 
 #: ../code/application/views/helpfile/pofields.php:599
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your group booking."
-msgstr "Thank you for your question."
+msgstr "We thank you for your group booking."
 
 #: ../code/application/views/helpfile/pofields.php:600
 #, php-format
 msgid "We will shortly send your voucher to the email address on file."
-msgstr ""
+msgstr "We will shortly send your voucher to the email address on file."
 
 #: ../code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Great"
 
 #: ../code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Fantastic"
 
 #: ../code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6821,31 +6868,33 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"To view all available properties on the map, please enter your dates in the "
+"box on the top right."
 
 #: ../code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters:"
-msgstr "Reset filters"
+msgstr "Selected filters:"
 
 #: ../code/application/views/helpfile/pofields.php:605
-#, fuzzy, php-format
+#, php-format
 msgid "Total Number of people in your groups: %s"
 msgstr "Total Number of people in your group: %s"
 
 #: ../code/application/views/helpfile/pofields.php:606
 #, php-format
 msgid "If the offer is accepted, the balance must be paid by %s"
-msgstr ""
+msgstr "If the offer is accepted, the balance must be paid by %s"
 
 #: ../code/application/views/helpfile/pofields.php:607
 #, php-format
 msgid "The request cannot be fulfilled due to bad syntax"
-msgstr ""
+msgstr "The request cannot be fulfilled due to bad syntax"
 
 #: ../code/application/views/helpfile/pofields.php:608
-#, fuzzy, php-format
+#, php-format
 msgid "Your changes has been saved successfully"
-msgstr "Your request for support has been successfully sent."
+msgstr "Your changes has been saved successfully"
 
 #: ../code/application/views/helpfile/pofields.php:609
 #, fuzzy, php-format
@@ -6967,14 +7016,12 @@ msgid "Beds"
 msgstr "No. Beds"
 
 #: ../code/application/controllers/cadmin.php:28
-#, fuzzy
 msgid "Nights"
 msgstr "Nights"
 
 #: ../code/application/controllers/cadmin.php:160
-#, fuzzy
 msgid "Lunch"
-msgstr "Dutch"
+msgstr "Lunch"
 
 #: ../code/application/controllers/cron.php:647
 #: ../code/application/controllers/cron.php:696
