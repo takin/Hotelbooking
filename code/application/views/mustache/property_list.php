@@ -22,8 +22,9 @@
 				<div class="left info_pic">
 					<div class="map_number" id="{{propertyNumber}}">0</div>
 					<a href="{{property_page_url}}">
-					{{#PropertyImages}}  
-					<img width="inherit" height="inherit" src="<?php echo base_url(); ?>info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src={{#PropertyImage}}{{imageURL}}{{/PropertyImage}}"  title="" style="width: 100px; height: 100px;" class="imageResizerChangedClass" id="map_number_img">{{/PropertyImages}}
+					{{#PropertyImages}}
+					<img width="inherit" height="inherit" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}"  title="" style="width: 100px; height: 100px;">
+					{{/PropertyImages}}
 					</a>
 				<span class="info_type">{{propertyType}}</span>
 				</div>
@@ -63,7 +64,7 @@
 				<!--missing info with what's include first and than amenities just update it-->
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
                     <!--What's included line put here-->
-                    {{#extras}}                
+                    {{#extras}}
                         <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
                        <a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
                         <div class="group">
@@ -72,8 +73,8 @@
                                 <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
                                 {{/extra}}
                             </ul>
-                        </div>                
-                    {{/extras}}				
+                        </div>
+                    {{/extras}}
 					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
 					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
 					<div class="group">
@@ -171,9 +172,9 @@
 			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
                             <p>
                                <?php echo _('Districts');?>:
-                            {{#districts}} 
-                     
-                         <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}" 
+                            {{#districts}}
+
+                         <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}"
                          value="{{um_id}}" onclick="GoogleMap.prototype.changeDistrictLayer($(this).val())">{{district_name}}
                      {{/districts}}
                             </p>

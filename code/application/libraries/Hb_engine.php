@@ -387,97 +387,97 @@ class Hb_engine {
         {
           $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name,$this->CI->site_lang);
           $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
-          
+
           $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
-         
+
            if(!empty($translation))
           {
             $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
             $data['city_landmarks'][$i]->landmark_name = $translation->translation;
            $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
-        
+
           }
           $tmp_landmarks[$i] = $data['city_landmarks'][$i];
-          
+
         }
-        
+
       /* array data shot by city_landmarks pramod*/
       if(!empty($tmp_city_landmarks)){
 		sort($tmp_city_landmarks);
 		foreach($tmp_city_landmarks as $i=>$val){
-			
+
 			foreach($tmp_landmarks as $j=>$cities_original_data){
 					if($val == strtolower($cities_original_data->landmark_name)){
 						$data['city_landmarks'][$i] = $cities_original_data;
 					}
-			}	
+			}
 		}
 	}
-	
+
 	 //translate city districts
         $tmp_city_districts=array();
         $tmp_districts=array();
         foreach($data['city_districts'] as $i => $district)
         {
           $translation = $this->CI->db_translation_cache->get_translation($district->district_name,$this->CI->site_lang);
-          
+
            $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
-           
+
           if(!empty($translation))
           {
             $data['city_districts'][$i]->original_name = $data['city_districts'][$i]->district_name;
             $data['city_districts'][$i]->district_name = $translation->translation;
             $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
-         
+
           }
            $tmp_districts[$i] = $data['city_districts'][$i];
         }
-      
+
         /* array data shot by city districts pramod */
       if(!empty($tmp_city_districts)){
 		sort($tmp_city_districts);
 		foreach($tmp_city_districts as $i=>$val){
-			
+
 			foreach($tmp_districts as $j=>$districts_original_data){
 					if($val == strtolower($districts_original_data->district_name)){
 						$data['city_districts'][$i] = $districts_original_data;
 					}
-			}	
+			}
 		}
 	}
-        
-            
+
+
         //translate city amenities
          $tmp_city_name=array();
          $tmp_city=array();
         foreach($data['city_amenities'] as $i => $amenity)
         {
-			
+
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
           $data['city_amenities'][$i]->original_name = $amenity->facility_name;
           $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
           if(!empty($translation))
           {
             $data['city_amenities'][$i]->facility_name = $translation->translation;
-            $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name); 
+            $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
           }
           $tmp_city[$i] = $data['city_amenities'][$i];
 		}
-		
+
 		/* array data shot by Facilities pramod*/
 		if(!empty($tmp_city_name)){
 		sort($tmp_city_name);
 		foreach($tmp_city_name as $i=>$val){
-			
+
 			foreach($tmp_city as $j=>$cities_original_data){
 					if($val == strtolower($cities_original_data->facility_name)){
 						$data['city_amenities'][$i] = $cities_original_data;
 					}
-			}	
+			}
 		}
 	}
-       
-        
+
+
       }
     }
 
@@ -532,28 +532,28 @@ class Hb_engine {
             $data['amenities_filter'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities_for_filter($property["id"]);
             $data['districts'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_districts_for_filter($property["id"]);
 
-             if (!empty($data['districts'][(int)$property["id"]])) 
+             if (!empty($data['districts'][(int)$property["id"]]))
               {
-             
+
 //               $this->load->model('i18n/db_translation_cache');
-               
-              foreach ($data['districts'][(int)$property["id"]] as $i => $district)         
+
+              foreach ($data['districts'][(int)$property["id"]] as $i => $district)
                   {
                   $translation = $this->CI->db_translation_cache->get_translation($district->district_name, $this->CI->site_lang);
 
-                  if (!empty($translation))           
+                  if (!empty($translation))
                     {
                      $data['districts'][(int)$property["id"]][$i]->district_name = $translation->translation;
                     }
                     else
-                    { 
+                    {
                           $data['districts'][(int)$property["id"]][$i]->district_name = $district->district_name;
 
                     }
                     $data['districts'][(int)$property["id"]][$i]->original_name = $district->district_name;
                   }
               }
-     
+
             // Second parameter is a range in KM
             $data['landmarks'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_landmarks_for_filter($property["id"], 2);
           }
@@ -613,7 +613,7 @@ class Hb_engine {
       }
     }
 
-//    debug_dump($data['property_list']);
+//debug_dump($data['property_list']);
 
     $userdata = array(
                  'country_selected'  => $country_select,
@@ -728,7 +728,9 @@ class Hb_engine {
         $json_data["property_list"][$i]["Geo"]["Longitude"]   = $prop["geo_longitude"];
       }
 
-      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageURL"]   = $prop["image_thumbnail"];
+      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageListURL"]   = $prop["image_list"];
+      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageURL"]   = $prop["image"];
+      $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"]   = $prop["image_thumbnail"];
 
       unset($json_data["property_list"][$i]["id"]);
       unset($json_data["property_list"][$i]["name"]);
@@ -758,7 +760,7 @@ class Hb_engine {
           $json_data["property_list"][$i]["extras"]['extra'][$j] = $amenity->description;
           $j++;
 		}
-		
+
 		$translation = $this->CI->db_translation_cache->get_translation($amenity->description,$this->CI->site_lang);
         if(!empty($translation))
         {
@@ -983,7 +985,7 @@ class Hb_engine {
     {
       // Load a helper
 	  $this->CI->load->helper('domain_replace');
-	  
+
 	  $cache_time = $this->CI->wordpress->get_option("aj_cache_time_property_pages",0);
       if(!empty($cache_time))
       {
@@ -995,20 +997,20 @@ class Hb_engine {
       $this->CI->Hb_api_translate->translate_PropertyData($response["RESPONSE"]);
 
       $data['hostel'] = $response["RESPONSE"];
-     
-	 
+
+
 	 //String replace code start----------------------
      $data['hostel']['SHORTDESCRIPTION'] = domain_name_replace($data['hostel']['SHORTDESCRIPTION']);
      $data['hostel']['LONGDESCRIPTION'] = domain_name_replace($data['hostel']['LONGDESCRIPTION']);
 	 $data['hostel']['LONGDESCRIPTION_translated'] = domain_name_replace(!empty($data['hostel']['LONGDESCRIPTION_translated']) ? $data['hostel']['LONGDESCRIPTION_translated'] : '');
      $data['hostel']['IMPORTANTINFORMATION'] = domain_name_replace($data['hostel']['IMPORTANTINFORMATION']);
 	 $data['hostel']['IMPORTANTINFORMATION_translated'] = domain_name_replace(!empty($data['hostel']['IMPORTANTINFORMATION_translated']) ? $data['hostel']['IMPORTANTINFORMATION_translated'] : '');
-	 
+
      //String replace code close----------------------
-	 
+
 	 $data['property_number'] = $response["RESPONSE"]["ID"];
 
-	   
+
 
       $data['property_number'] = $response["RESPONSE"]["ID"];
 
@@ -1396,13 +1398,20 @@ class Hb_engine {
       //add thumbnail url
       if(empty($property_array[$i]["image_thumbnail"]))
       {
-        $property_array[$i]["image_thumbnail"] = site_url('images/na_small.jpg');
-
         if(!empty($property["image"]))
         {
-          //$property_array[$i]["image_thumbnail"] = $this->CI->Hostelbookers_api->build_thumb_url($property["image"]);
-          $property_array[$i]["image_thumbnail"] = $property["image"];
+          $property_array[$i]["image_thumbnail"] = $this->CI->Hostelbookers_api->build_thumb_url($property["image"]);
         }
+        else
+        {
+          $property_array[$i]["image_thumbnail"] = site_url('images/na_small.jpg');
+        }
+      }
+
+      //add list url
+      if(!empty($property["image"]))
+      {
+          $property_array[$i]["image_list"] = $this->CI->Hostelbookers_api->build_list_url($property["image"]);
       }
 
       //standardize rating field

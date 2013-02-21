@@ -439,16 +439,16 @@ class Hw_engine {
             $data['amenities_filter'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_hostel_facilities_for_filter($hostel->propertyNumber);
             $data['districts'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_property_districts_for_filter($hostel->propertyNumber);
 
-             if (!empty($data['districts'][(int)$hostel->propertyNumber])) 
+             if (!empty($data['districts'][(int)$hostel->propertyNumber]))
               {
-             
+
 //               $this->load->model('i18n/db_translation_cache');
-               
-              foreach ( $data['districts'][(int)$hostel->propertyNumber] as $i => $district)         
+
+              foreach ( $data['districts'][(int)$hostel->propertyNumber] as $i => $district)
                   {
                   $translation = $this->CI->db_translation_cache->get_translation($district->district_name, $this->CI->site_lang);
 
-                  if (!empty($translation))           
+                  if (!empty($translation))
                     {
                         $data['districts'][(int)$hostel->propertyNumber][$i]->district_name = $translation->translation;
                     }
@@ -460,7 +460,7 @@ class Hw_engine {
                   $data['districts'][(int)$hostel->propertyNumber][$i]->original_name = $district->district_name;
                   }
               }
-     
+
             // Second parameter is a range in KM
             $data['landmarks'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_property_landmarks_for_filter($hostel->propertyNumber, 2);
           }
@@ -612,7 +612,11 @@ class Hw_engine {
 
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
+      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
       $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
+      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
+          base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+
 
       foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
@@ -696,10 +700,10 @@ class Hw_engine {
       settype($json_data["property_list"][$i]["maxPax"],"integer");
       $prices = $this->property_cheapest_prices($json_data["property_list"][$i]);
 	  // validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
-	  if(empty($prices['min_price'])) 
-	  {	
+	  if(empty($prices['min_price']))
+	  {
 		  unset($json_data["property_list"][$i]); // just remove the record from the list
-		  continue; // 
+		  continue; //
 	  }
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
@@ -869,7 +873,7 @@ class Hw_engine {
       $this->CI->load->model('Db_hw_rating');
       // Load a helper
 	  $this->CI->load->helper('domain_replace');
-	  
+
       $data['hostel']=new stdClass();
       $data['hostel']->property_number        = (int) $data['hostel_data']->propertyNumber;
       $data['hostel']->property_name          = (string) $property_name;

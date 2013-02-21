@@ -7,17 +7,14 @@
 			<div class="info">
 				<div class="left info_pic">
 				<?php
-				$hb_image = site_url('images/na_small.jpg');
+				$hb_list_image = site_url('images/na_small.jpg');
 				if(isset($hostel["image"]))
 				{
-				  $hb_image = $this->Hostelbookers_api->build_thumb_url($hostel["image"]);
+				  $hb_list_image = $this->Hostelbookers_api->build_list_url($hostel["image"]);
 				}
 				?>
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>">
-				<img data-href="<?php echo $hb_image; ?>" src="<?php echo site_url("images/V2/blank.gif"); ?>" alt="<?php echo $hostel["name"]; ?>" />
-				<noscript>
-				<img src="<?php echo $hb_image; ?>" alt="<?php echo $hostel["name"]; ?>" />
-				</noscript>
+				<img width="inherit" height="inherit" src="<?php echo $hb_list_image; ?>"  title="" style="width: 100px; height: 100px;">
 				</a>
 				</div>
 				<div class="info_indent">

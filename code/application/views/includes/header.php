@@ -238,28 +238,28 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
            }
 
   }
-  
+
   function changeDistrictLayer(district_um_id){
 
     // working with mapinfulence
     // Initialize Mapfluence with your API key.
     MF.initialize({
-        apiKey: urbanmapping_key 
+        apiKey: urbanmapping_key
     });
-    
+
         // remove any old districts
         //map.overlayMapTypes.push(null);
-        map.overlayMapTypes.setAt(1, null); 
+        map.overlayMapTypes.setAt(1, null);
 
 //get district area from mapfluence
     var filter = MF.filter.Data({
-        column: 'umi.neighborhoods.attributes.hood_id', 
-        operator: '=', 
+        column: 'umi.neighborhoods.attributes.hood_id',
+        operator: '=',
         value: parseInt(district_um_id)
 
     });
-    
-    
+
+
         var hoodsLayer = MF.layer.tile.Simple({
             from : 'umi.neighborhoods.geometry',
             style: {
@@ -272,8 +272,8 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
             where: filter,
             opacity: .40
         });
-                        
-   
+
+
  // Create the Mapfluence adapter for Google Maps
     var googleAdapter = MF.map.google.Adapter();
 
@@ -282,7 +282,7 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 
     // Overlay the Mapfluence layer
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
-       map.overlayMapTypes.setAt(1, adaptedLayer); 
+       map.overlayMapTypes.setAt(1, adaptedLayer);
   }
 
   <?php if(isset($google_map_address)):?>
@@ -742,7 +742,6 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php
-	$this->carabiner->js('jquery.lazyload.js');
 	$this->carabiner->js('imageload.js');
 	$this->carabiner->js('jtools.js');
   $this->carabiner->js('janim.js');
@@ -821,7 +820,7 @@ $sel_class = '';
     });
 
 $(document).ready(function(){
-    
+
 		//$("a[rel^='prettyPhoto']").prettyPhoto();
 		//$("a.openup").fancybox();
 		$('a.openup').live('mouseover focus',function(){
@@ -950,7 +949,7 @@ $(document).ready(function(){
 
 		<nav class="main grid_16 box_shadow box_round">
 			<ul class="group">
-			
+
 				<li class="first"><a href="/"><?php echo _("Accueil");?></a></li>
 				<li><a class="<?php if(!empty($sel_class)){ echo $sel_class; } ?>" href="<?php echo site_url($this->Db_links->get_link("homepage")); ?>"><?php echo _("Auberges et logements pas chers");?></a></li>
 				<?php if($this->wordpress->get_option('aj_group_url') != ''){?>
