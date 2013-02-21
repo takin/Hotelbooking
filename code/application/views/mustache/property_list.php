@@ -86,6 +86,8 @@
                                 <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
                                 {{/extra}}
                             </ul>
+                       </div>
+				  {{/extras}}	
 				</div>
 			</div>
 
