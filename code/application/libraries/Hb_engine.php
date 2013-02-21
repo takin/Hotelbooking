@@ -1145,7 +1145,7 @@ class Hb_engine {
         $translation = $this->CI->db_translation_cache->get_translation($service->description,$this->CI->site_lang);
         if(!empty($translation))
         {
-          $data['main_services'][$si]->description = $translation->translation;
+          $data['main_services'][$si]->description = !empty($translation->translation) ? $translation->translation : '';
         }
       }
     }
