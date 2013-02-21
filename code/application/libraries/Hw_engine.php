@@ -418,7 +418,7 @@ class Hw_engine {
       {
         $this->CI->load->model('Db_hw_rating');
 
-
+		$data['user_reviews']  = array();
         $data['property_list'] = $this->CI->Hw_api_translate->translate_LocationSearch($results[1]);
 		
         foreach($data['property_list'] as $hostel_id => $hostel)

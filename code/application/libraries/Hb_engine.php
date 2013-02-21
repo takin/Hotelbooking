@@ -742,6 +742,8 @@ class Hb_engine {
 		   
 	   }
 	   $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
+	   
+	   $json_data["property_list"][$i]['propertyType']       = $json_data["property_list"][$i]["propertyType"];
 	 // get address for each propety from the hostel table
 	  $this->CI->load->model('Db_hb_hostel');	  
 	  $json_data["property_list"][$i]["address1"] = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
