@@ -29,7 +29,7 @@
 				<span class="info_type">{{propertyType}}</span>
 				</div>
 				<div class="info_indent">
-					<h2><a href="{{property_page_url}}">{{propertyName}} <span style="color: #999999; font-size:0.7em;">({{propertyType}})</span></a></h2>
+					<h2><a href="{{property_page_url}}">{{propertyName}} <span style="color: #999999; font-size:0.7em;">({{propertyTypeTranslate}})</span></a></h2>
 					<p class="address">{{address1}} - {{city_name}}</p>
 					<!--<p>{{shortDescription}}</p>-->
 					<!--{{#has_amenities}}

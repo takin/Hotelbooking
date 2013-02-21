@@ -720,7 +720,28 @@ class Hb_engine {
       $json_data["property_list"][$i]["Geo"]["Longitude"]   = null;
 	  $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_lname_en; // set the city name 
 	  
-	   $json_data["property_list"][$i]['propertyType']       = $json_data["property_list"][$i]["propertyType"];
+	   switch($json_data["property_list"][$i]["propertyType"])
+	   {
+		   	case 'Hostel':
+		   				$propertyType = gettext('Auberges de jeunesse');
+						break;
+		  	case 'Hotel':
+		   				$propertyType = gettext('Hôtels pas chers');
+						break;
+			case 'Guesthouse':
+		   				$propertyType = gettext('Chambres - B&B - Pensions');
+						break;
+			case 'Apartment':
+		   				$propertyType = gettext('Appartements');
+						break;
+			case 'Campsite':
+		   				$propertyType = gettext('Camping');
+						break;
+			default:
+					$propertyType = $json_data["property_list"][$i]["propertyType"];
+		   
+	   }
+	   $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
 	 // get address for each propety from the hostel table
 	  $this->CI->load->model('Db_hb_hostel');	  
 	  $json_data["property_list"][$i]["address1"] = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);

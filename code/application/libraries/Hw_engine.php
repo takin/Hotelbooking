@@ -420,11 +420,12 @@ class Hw_engine {
 
 
         $data['property_list'] = $this->CI->Hw_api_translate->translate_LocationSearch($results[1]);
-        $data['user_reviews']  = array();
-
+		
         foreach($data['property_list'] as $hostel_id => $hostel)
         {
-          $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
+          
+		  $data['propertyType'][(int)$hostel->propertyNumber] = $hostel->propertyType;
+		  $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
           if($prop_reviews === TRUE)
           {
             $data['user_reviews'][(int)$hostel->propertyNumber] = $this->property_reviews((int)$hostel->propertyNumber, TRUE, 5, FALSE, FALSE);
@@ -617,7 +618,29 @@ class Hw_engine {
       $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
           base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
 
-
+	   switch($data['propertyType'][$prop["propertyNumber"]])
+	   {
+		   	case 'Hostel':
+		   				$propertyType = gettext('Auberges de jeunesse');
+						break;
+		  	case 'Hotel':
+		   				$propertyType = gettext('Hôtels pas chers');
+						break;
+			case 'Guesthouse':
+		   				$propertyType = gettext('Chambres - B&B - Pensions');
+						break;
+			case 'Apartment':
+		   				$propertyType = gettext('Appartements');
+						break;
+			case 'Campsite':
+		   				$propertyType = gettext('Camping');
+						break;
+			default:
+					$propertyType = $data['propertyType'][$prop["propertyNumber"]];
+		   
+	   }
+	   
+	   $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
        $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name		   
 	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
