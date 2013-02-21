@@ -29,30 +29,52 @@
                 </a>
                 </span>
 			{{/isGeoValid}}
-			<li><a name="review_show_property" rel="{{propertyNumber}}" class="tab_review" href="#city_comment_{{propertyNumber}}"><?php echo _('Latest Reviews')?></a></li>
-            {{#overall_rating}}
-		
 			<li class="last">
-                <a class="tab_avail" href="#property_ratings_{{propertyNumber}}"
-                    title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"
-                    rel="{{propertyNumber}}" name="show_property_ratings">
-                    <strong>{{overall_rating}} %</strong>
+                <a name="review_show_property" rel="{{propertyNumber}}" 
+                   class="tab_review" href="#city_comment_{{propertyNumber}}">
+                       <?php echo _('Latest Reviews')?>
                 </a>
-            </li>
-		
-        	{{/overall_rating}}
+            </li>		
 		</ul>
-<!--		{{#overall_rating}}
+		{{#overall_rating}}
 		<ul class="box_round rating">
-			<li class="first last">
-                <a class="tab_avail" href="#property_ratings_{{propertyNumber}}"
-                    rel="{{propertyNumber}}"
+            <li class="first last" data-propertyNumber="{{propertyNumber}}">
+                <span class="" 
                     title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
                     <strong>{{overall_rating}} %</strong>
-                </a>
+                </span>
             </li>
 		</ul>
-		{{/overall_rating}} -->
+		{{/overall_rating}}
+        <div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBox">
+        {{#Ratings}}
+            <?php $ratingCategories = array(
+                "atmosphere", "staff", "location", "cleanliness",
+                "facilities", "safety", "value");
+            ?>
+            <div class="propertyRatingsContainer">
+                <h3>
+                    <?php echo _("évaluation moyenne");?> {{overall_rating}} %
+                </h3>
+                <?php foreach ($ratingCategories as $ratingCategory): ?>
+                    <div class="bar-back group">
+                        <div class="bar-top darkYellow"
+                            style="width:{{<?php echo $ratingCategory; ?>}}%">
+                        </div>
+                        <?php $imgSrcUrl = base_url() . "images/rating-" .
+                                $ratingCategory . ".png";?>
+                        <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
+                        <span class="rating-cat">
+                            <?php echo ucfirst($ratingCategory); ?>
+                        </span>
+                        <span class="rating-value">
+                            {{<?php echo $ratingCategory; ?>}} %
+                        </span>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        {{/Ratings}}
+        </div>
 	</nav>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
@@ -205,39 +227,6 @@
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
         
-        <div class="city_hostel ui-tabs-hide" id="property_ratings_{{propertyNumber}}">
-			<h3>
-                <a href="{{property_page_url}}">
-                    {{propertyName}}
-                </a> - <?php echo _('Ratings'); ?>
-            </h3>
-			<div id="property_ratings_{{propertyNumber}}">
-                {{#Ratings}}
-                <?php $ratingCategories = array(
-                    "atmosphere", "staff", "location", "cleanliness",
-                    "facilities", "safety", "value");
-                ?>
-                <div class="propertyRatingsContainer">
-                    <?php foreach ($ratingCategories as $ratingCategory): ?>
-                        <div class="bar-back group">
-                            <div class="bar-top darkYellow"
-                                style="width:{{<?php echo $ratingCategory; ?>}}%">
-                            </div>
-                            <?php $imgSrcUrl = base_url() . "images/rating-" .
-                                    $ratingCategory . ".png";?>
-                            <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
-                            <span class="rating-cat">
-                                <?php echo ucfirst($ratingCategory); ?>
-                            </span>
-                            <span class="rating-value">
-                                {{<?php echo $ratingCategory; ?>}} %
-                            </span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-                {{/Ratings}}
-            </div>
-		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" 
            title="<?php echo _("Plus sur ce logement");?>">
                <?php echo _("Réserver");?>
@@ -246,3 +235,23 @@
 </div>
 
 {{/properties}}
+
+<script type="text/javascript">
+    // Property Ratings Tooltip
+    $(document).ready(function() {
+        $("ul.rating li").bind('mouseover', function(){
+            var container = getPropertyRatingsContainer(this);
+            container.show();
+        });
+
+        $("ul.rating li").bind('mouseout', function(){
+            var container = getPropertyRatingsContainer(this);
+            container.hide();
+        });
+
+        function getPropertyRatingsContainer(that) {
+            var propertyNumber = $(that).attr("data-propertyNumber");
+            return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
+        }
+    });
+</script>

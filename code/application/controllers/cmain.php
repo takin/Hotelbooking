@@ -1066,7 +1066,7 @@ class CMain extends I18n_site
           $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
           $this->carabiner->js('pweb-mapping/PropertyFilters.js');
           $this->carabiner->js('pweb/libs/GoogleMap.js');
-                    
+
           $this->load->view('includes/template',$data);
         }
       }

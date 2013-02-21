@@ -234,17 +234,17 @@
 			</div>
 			<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>
 
-	</div>
+</div>
 
-	<script id="template-infow" type="text/html">
-	<?php
-	//TODO minify using jsmin library and cache
-	$this->load->view('mustache/city_map_property_infow');
-	?>
-	</script>
-	<script id="template" type="text/html">
-		<?php
-		//TODO minify using jsmin library and cache
-		$this->load->view('mustache/property_list');
-		?>
-	</script>
+<script id="template-infow" type="text/html">
+<?php
+//TODO minify using jsmin library and cache
+$this->load->view('mustache/city_map_property_infow');
+?>
+</script>
+<script id="template" type="text/html">
+    <?php
+    //TODO minify using jsmin library and cache
+    $this->load->view('mustache/property_list');
+    ?>
+</script>

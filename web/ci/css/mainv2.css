@@ -889,14 +889,38 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 .city_tabs ul li.view_map a{text-indent:-99999px;background:url("../images/V2/icon_view_map.png") no-repeat center 8px; width:11px; height:16px; padding:10px 15px;box-shadow: 0 0 2px #CCCCCC;-moz-box-shadow: 0 0 2px #CCCCCC;-webkit-box-shadow: 0 0 2px #CCCCCC; border:1px solid #cccccc;}
 .city_tabs ul li.view_map a:hover, .city_tabs ul li.view_map.ui-tabs-selected a{background-color:#ffffff;}
 
-.city_tabs ul.rating{ float:right; margin-right:0px; width:auto; padding:0px; cursor:pointer }
+.city_tabs ul.rating{ float:right; margin-right:0px; width:auto; padding:0px; cursor:default }
 .city_tabs ul.rating li{margin:0px;}
 .city_tabs ul.rating li span{display:block; padding:10px 10px;  font-size:1.4em; margin-top:-3px; color:#082747;}
 
-.propertyRatingsContainer bar-back.group {
-    display:inline;
-    width:25%;
-    
+.propertyRatingsBox {
+    position:relative;
+}
+
+.propertyRatingsContainer {
+    margin:15px;
+    position:absolute;
+    top:37px;
+    right:0px;
+    background:white;
+    z-index:32;
+    display:none;
+    width:35%;
+    -webkit-box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
+    box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
+
+}
+
+.propertyRatingsContainer h3 {
+    margin:10px 20px;
+    border-bottom:2px dotted gray;
+}
+
+.propertyRatingsContainer .bar-back.group {
+    width:80%;
+    color:black;
+    display:block;
+    margin:7px auto 10px 40px;
 }
 
 .city_hostel{}
