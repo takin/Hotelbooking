@@ -29,10 +29,10 @@
 				<span class="info_type">{{propertyType}}</span>
 				</div>
 				<div class="info_indent">
-					<h2><a href="{{property_page_url}}">{{propertyName}}</a></h2>
-					<p class="address">{{address1}}</p>
-					<p>{{shortDescription}}</p>
-					{{#has_amenities}}
+					<h2><a href="{{property_page_url}}">{{propertyName}} <span style="color: #999999; font-size:0.7em;">({{propertyType}})</span></a></h2>
+					<p class="address">{{address1}} - {{city_name}}</p>
+					<!--<p>{{shortDescription}}</p>-->
+					<!--{{#has_amenities}}
 					<p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
 					{{/has_amenities}}
 					<ul class="avail group">
@@ -41,12 +41,12 @@
 					<li>{{.}}</li>
 					{{/availableDate}}
 					{{/AvailableDates}}
-					</ul>
+					</ul>-->
 					{{#isMinNightNeeded}}
 					<p class="minnight">{{minNightsMessage}}</p>
 					{{/isMinNightNeeded}}
 				</div>
-				<div class="amenities group">
+				<div class="amenities group" style="margin-left:120px;">
 					{{#amenities}}
 					{{#to_display}}
 					<span class="icon_facility icon_facility_{{facility_id}} group"><span>{{description}}</span></span>
@@ -61,8 +61,21 @@
 					<span class="icon_facility icon_safety group"><span><?php echo _("Safety");?></span></span>
 					{{/safety80}}
 				</div>
+                {{#has_amenities}}
+					<div class="info_indent"><p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p></div>
+				{{/has_amenities}}
 				<!--missing info with what's include first and than amenities just update it-->
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
+                    			
+					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
+					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
+					<div class="group">
+					<ul class="float-list green-li increase1 translated">
+					{{#amenities}}
+					<li>{{description}}</li>
+					{{/amenities}}
+					</ul>
+					</div>
                     <!--What's included line put here-->
                     {{#extras}}
                         <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
@@ -73,17 +86,6 @@
                                 <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
                                 {{/extra}}
                             </ul>
-                        </div>
-                    {{/extras}}
-					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
-					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
-					<div class="group">
-					<ul class="float-list green-li increase1 translated">
-					{{#amenities}}
-					<li>{{description}}</li>
-					{{/amenities}}
-					</ul>
-					</div>
 				</div>
 			</div>
 

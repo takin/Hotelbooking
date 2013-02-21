@@ -1740,7 +1740,28 @@ class Db_hb_hostel extends CI_Model
     }
     return NULL;
   }
-
+ 
+  /*
+  * Function to get propery address
+  * paraim property number
+  */
+  function get_property_address($property_number = 0)
+  {
+    
+	if($property_number == 0) // ID specified?
+	{
+		return false;
+	}
+	$this->CI->db->where("property_number", $property_number);    
+	$query = $this->CI->db->get(self::HOSTEL_TABLE);
+    if($query->num_rows() > 0)
+    {
+      $row = $query->row();
+	  $address2 = (isset($row->address2) AND $row->address2!=NULL) ? ', '.$row->address2 : ''; // address2 has value or null
+      return $row->address1.$address2;
+    }
+    return false;
+  }
 	// Need to work to get all the extras not just one row
 	function get_hostel_extras($hostel_hb_id)
   {

@@ -618,7 +618,8 @@ class Hw_engine {
           base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
 
 
-      foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
+       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name		   
+	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
 
         if(($amenity->description == 'Breakfast Included')||
