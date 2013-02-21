@@ -54,6 +54,7 @@
 	$this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
   $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	$this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
+	$this->carabiner->css('mapfluence/mfjs.min.css','screen','mapfluence/mfjs.min.css',FALSE,FALSE,"full_site_global");
 
 	if($this->api_used == HB_API)
 	{
