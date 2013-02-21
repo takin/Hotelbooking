@@ -241,6 +241,12 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
   
   function changeDistrictLayer(district_um_id){
 
+    // working with mapinfulence
+    // Initialize Mapfluence with your API key.
+    MF.initialize({
+        apiKey: urbanmapping_key 
+    });
+    
         // remove any old districts
         //map.overlayMapTypes.push(null);
         map.overlayMapTypes.setAt(1, null); 
@@ -806,12 +812,6 @@ $sel_class = '';
     });
 
 $(document).ready(function(){
-
-    // working with mapinfulence
-    // Initialize Mapfluence with your API key.
-    MF.initialize({
-        apiKey: urbanmapping_key 
-    });
     
 		//$("a[rel^='prettyPhoto']").prettyPhoto();
 		//$("a.openup").fancybox();

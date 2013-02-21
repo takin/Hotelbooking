@@ -1256,6 +1256,8 @@ class CMain extends I18n_site
       return;
     }
 
+    // create an empty to avoid notice when no districts are found
+        $data['district_info'] = array();
       //get District um_id
      $this->load->model('Db_hw_hostel');
        $district_info = $this->Db_hw_hostel->get_property_districts( $property_number );
@@ -1264,12 +1266,13 @@ class CMain extends I18n_site
             $this->load->model('Db_hb_hostel');
              $district_info = $this->Db_hb_hostel->get_property_districts( $property_number );
        }
+        $data['district_info'] = $district_info;
        
-        if (!empty($district_info)) 
+        if (!empty($data['district_info'])) 
               {
                $this->load->model('i18n/db_translation_cache');
                
-              foreach ($district_info as $i => $district)         
+              foreach ($data['district_info'] as $i => $district)    
                   {
                   $translation = $this->db_translation_cache->get_translation($district->district_name, $this->site_lang);
 

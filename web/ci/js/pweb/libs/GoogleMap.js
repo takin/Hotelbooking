@@ -220,6 +220,11 @@ GoogleMap.prototype.initInfoWin = function() {
 };
 GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
 
+    // working with mapinfulence
+    // Initialize Mapfluence with your API key.
+    MF.initialize({
+        apiKey: urbanmapping_key 
+    });
         // remove any old districts
         //map.overlayMapTypes.push(null);
    window.gmap.overlayMapTypes.setAt(1, null); 
