@@ -174,11 +174,7 @@
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
-
-
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
-
-
 
     </div>
 </div>
