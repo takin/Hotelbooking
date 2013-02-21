@@ -168,7 +168,17 @@
 
 		<div class="city_hostel ui-tabs-hide city_map_tab" id="city_map_{{propertyNumber}}">
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
-			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
+			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
+                            <p>
+                               <?php echo _('Districts');?>:
+                            {{#districts}} 
+                     
+                         <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}" 
+                         value="{{um_id}}" onclick="GoogleMap.prototype.changeDistrictLayer($(this).val())">{{district_name}}
+                     {{/districts}}
+                            </p>
+                         </div>
+                        <div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 
 

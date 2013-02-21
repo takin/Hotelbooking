@@ -84,6 +84,10 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/ie7.css" />
   <![endif]-->
 
+  <script type="text/javascript">
+var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>";
+</script>
+
   <?php if(isset($google_map_enable)&&($google_map_enable===true)): ?>
 
 <?php if((isset($google_map_hostel_list)&&$google_map_hostel_list==true&&(isset($property_list["property_count"]))&&($property_list["property_count"]>0))||
@@ -226,6 +230,53 @@
     <?php elseif(!empty($google_map_country_list)):?>
     markCountryList();
     <?php endif;?>
+  // check if there is a district radio button and checked
+        // if yes call the district function to show district boundries
+           if($("#distrinct:radio:checked").length > 0)
+           {
+            changeDistrictLayer($("#distrinct:radio:checked").val());
+           }
+
+  }
+  
+  function changeDistrictLayer(district_um_id){
+
+        // remove any old districts
+        //map.overlayMapTypes.push(null);
+        map.overlayMapTypes.setAt(1, null); 
+
+//get district area from mapfluence
+    var filter = MF.filter.Data({
+        column: 'umi.neighborhoods.attributes.hood_id', 
+        operator: '=', 
+        value: parseInt(district_um_id)
+
+    });
+    
+    
+        var hoodsLayer = MF.layer.tile.Simple({
+            from : 'umi.neighborhoods.geometry',
+            style: {
+                color: 'feba02'
+            },
+            border: {
+                color: 'black',
+                size: 1.0
+            },
+            where: filter,
+            opacity: .40
+        });
+                        
+   
+ // Create the Mapfluence adapter for Google Maps
+    var googleAdapter = MF.map.google.Adapter();
+
+    // Adapt a Mapfluence layer for use with the Google Maps API
+    var adaptedLayer = googleAdapter.adaptLayer(hoodsLayer);
+
+    // Overlay the Mapfluence layer
+//    map.overlayMapTypes.insertAt(0, adaptedLayer);
+       map.overlayMapTypes.setAt(1, adaptedLayer); 
   }
 
   <?php if(isset($google_map_address)):?>
@@ -701,6 +752,7 @@
   $this->carabiner->js('jquery.fancybox-1.3.4.pack.js','jquery.fancybox-1.3.4.pack.js',TRUE);
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
+  $this->carabiner->js('mapfluence/mfjs.min.js');
   ?>
 
   <?php
@@ -755,8 +807,12 @@ $sel_class = '';
 
 $(document).ready(function(){
 
-
-
+    // working with mapinfulence
+    // Initialize Mapfluence with your API key.
+    MF.initialize({
+        apiKey: urbanmapping_key 
+    });
+    
 		//$("a[rel^='prettyPhoto']").prettyPhoto();
 		//$("a.openup").fancybox();
 		$('a.openup').live('mouseover focus',function(){

@@ -532,6 +532,28 @@ class Hb_engine {
             $data['amenities_filter'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities_for_filter($property["id"]);
             $data['districts'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_districts_for_filter($property["id"]);
 
+             if (!empty($data['districts'][(int)$property["id"]])) 
+              {
+             
+//               $this->load->model('i18n/db_translation_cache');
+               
+              foreach ($data['districts'][(int)$property["id"]] as $i => $district)         
+                  {
+                  $translation = $this->CI->db_translation_cache->get_translation($district->district_name, $this->CI->site_lang);
+
+                  if (!empty($translation))           
+                    {
+                     $data['districts'][(int)$property["id"]][$i]->district_name = $translation->translation;
+                    }
+                    else
+                    { 
+                          $data['districts'][(int)$property["id"]][$i]->district_name = $district->district_name;
+
+                    }
+                    $data['districts'][(int)$property["id"]][$i]->original_name = $district->district_name;
+                  }
+              }
+     
             // Second parameter is a range in KM
             $data['landmarks'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_landmarks_for_filter($property["id"], 2);
           }

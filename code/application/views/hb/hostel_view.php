@@ -758,6 +758,30 @@ else
 					<?php }?>
 					<div class="content_block">
 						<h2><?php echo _("Cartes");?></h2>
+                                                <?php  
+                                             if (is_array($district_info) && !empty($district_info)) 
+                                                 { ?>
+                                                <div id="hostel_mapView_districts" class="hostel_mapView_districts">
+                                                    <p>
+                                             <?php echo _('Districts');?>:
+                                             
+                                                 <?php
+                                                 foreach ($district_info as $key => $district) 
+                                                     {
+                                                      $checked = "";
+                          
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
+
+                                                     ?>
+                                                      <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
+                                                  onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+
+                                            <?php  }//end Foreach  ?>                                        
+                                       </p>
+                                             </div>            
+                                              <?php   }// end if ?>
 						<div id="map-wrap" class="margbot20">
 							<div id="map_canvas"></div>
 						</div>

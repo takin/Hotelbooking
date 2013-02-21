@@ -2288,3 +2288,11 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 	position: absolute;
 	top: 11px;
 }
+
+/* districts in city page and hostel page */
+.hostel_mapView_districts .city_mapView_districts {
+     display: block;
+     overflow: hidden;
+     white-space: nowrap;
+     clear:both;
+}
