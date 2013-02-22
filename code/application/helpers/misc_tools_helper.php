@@ -444,8 +444,10 @@ function select_day($day_id,$day_name,$day_selected = '01')
  * @return generate two select box to select a date
  */
 
-function select_nights($label_title,$id,$name,$value)
+function select_nights($label_title,$id,$name,$value, $hb_api_used = FALSE)
 {
+  
+  $total_nights = ($hb_api_used) ? 30 : 18;
   ?>
   <label for="<?php echo $id; ?>"><?php echo $label_title; ?></label>
   <select id="<?php echo $id; ?>" name="<?php echo $name; ?>">
@@ -455,7 +457,7 @@ function select_nights($label_title,$id,$name,$value)
     $numnights_selected = 4;
   }
 
-  for($nights_qty=1;$nights_qty<=18;$nights_qty++)
+  for($nights_qty=1;$nights_qty<=$total_nights;$nights_qty++)
   {
     ?>
     <option value="<?php echo $nights_qty; ?>"<?php if($value==$nights_qty) echo " selected=\"selected\" ";?>><?php echo $nights_qty; ?></option>
