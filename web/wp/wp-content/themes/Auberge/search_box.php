@@ -128,7 +128,7 @@ function keyaction(e)
 		</div>
 		<div class="left">
 			<?php $api_used = (get_option('aj_api_site_data')=='hb') ? TRUE : FALSE;
-				select_nights(__('Nuits:','auberge'),"search-night","search-night",$numnights_selected, $api_used);?>
+				select_nights(__('Nuits:','auberge'),"search-night","search-night",$numnights_selected,$api_used);?>
 		</div>
 		<div class="left">
 			<label for="search-currency"><?php _e("Currency:","auberge");?></label>

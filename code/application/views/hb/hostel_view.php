@@ -511,7 +511,8 @@ else
 								{
 								$numnights_selected = 2;
 								}
-								select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected); ?>
+								$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+								select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected, $hb_api_used); ?>
 								</li>
 								<li>
 								<label for="book-property-currency"><?php echo _("Devise:");?></label>
