@@ -889,9 +889,39 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 .city_tabs ul li.view_map a{text-indent:-99999px;background:url("../images/V2/icon_view_map.png") no-repeat center 8px; width:11px; height:16px; padding:10px 15px;box-shadow: 0 0 2px #CCCCCC;-moz-box-shadow: 0 0 2px #CCCCCC;-webkit-box-shadow: 0 0 2px #CCCCCC; border:1px solid #cccccc;}
 .city_tabs ul li.view_map a:hover, .city_tabs ul li.view_map.ui-tabs-selected a{background-color:#ffffff;}
 
-.city_tabs ul.rating{ float:right; background:#ffffff; margin-right:0px; width:auto; padding:0px; }
+.city_tabs ul.rating{ float:right; margin-right:0px; width:auto; padding:0px; cursor:default }
 .city_tabs ul.rating li{margin:0px;}
-.city_tabs ul.rating li span{display:block; padding:10px 10px;  font-size:1.4em; margin-top:-3px; color:#333;}
+.city_tabs ul.rating li span{display:block; padding:10px 10px;  font-size:1.4em; margin-top:-3px; color:#082747;}
+
+.propertyRatingsBox {
+    position:relative;
+}
+
+.propertyRatingsContainer {
+    margin:15px;
+    position:absolute;
+    top:37px;
+    right:0px;
+    background:white;
+    z-index:32;
+    display:none;
+    width:35%;
+    -webkit-box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
+    box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
+
+}
+
+.propertyRatingsContainer h3 {
+    margin:10px 20px;
+    border-bottom:2px dotted gray;
+}
+
+.propertyRatingsContainer .bar-back.group {
+    width:80%;
+    color:black;
+    display:block;
+    margin:7px auto 10px 40px;
+}
 
 .city_hostel{}
 
@@ -1305,7 +1335,7 @@ ul.green-li li{ background:url(../images/V2/icon-check-green.png) no-repeat 0px 
 .icon_user_review.is_low{ background-position:0px -40px;}
 .comment_author{ margin-left:20px; padding-top:15px; margin-top:-1px; background:url(../images/V2/comment_author.png) no-repeat top left;}
 
-/* HB reiview bars */
+/* HB review bars */
 .rating_bars span.title{font-weight:bold; font-size:1.2em; margin-bottom:5px; padding-bottom:5px; border-bottom:1px dashed #aaaaaa; display:block;}
 .bar-overview{padding-top:10px;}
 .bar-rating{}
@@ -1326,6 +1356,10 @@ border:1px solid #E8716F;background:#E8716F;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E8AFAE', endColorstr='#E8716F'); /* for IE */
 background: -webkit-gradient(linear, left top, left bottom, from(#E8AFAE), to(#E8716F)); /* for webkit browsers */
 background: -moz-linear-gradient(top,  #E8AFAE, #E8716F); /* for firefox 3.6+ */}
+.bar-top.darkYellow {
+    border:1px solid rgb(253,202,55);
+    background:rgb(253,202,55);
+}
 span.rating-cat{font-size:0.9em;display:block; position:absolute; top:5px; left:7px;}
 .bar-back img{position:absolute; top:3px; left:-25px;}
 span.rating-value{font-size:0.9em;font-weight:bold;display:block; position:absolute; top:5px; right:3px;}

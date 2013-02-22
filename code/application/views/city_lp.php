@@ -195,7 +195,7 @@ $(document).ready(function(){
 
 	<div id="property_list">
 		<div id="hostel-list">
-			<?php
+			<?php            
 			if(true)
 			{
 				$count = 0;
@@ -204,12 +204,20 @@ $(document).ready(function(){
 					if($this->api_used == HB_API)
 					{
 							$count++;
-							$this->load->view("hb/property_list",array("hostel" => $hostel,'property_type' => $hostel["type"], "date_selected" => $date_selected,"numnights_selected" => $numnights_selected));
+							$this->load->view("hb/property_list",array(
+                                "hostel" => $hostel,
+                                "ratings" => $hostel["ratings"],
+                                'property_type' => $hostel["type"], 
+                                "date_selected" => $date_selected,
+                                "numnights_selected" => $numnights_selected));
 					}
 					else
 					{
 							$count++;
-							$this->load->view("hw/property_list",array("hostel" => $hostel,"date_selected" => $date_selected,"numnights_selected" => $numnights_selected));
+							$this->load->view("hw/property_list",array(
+                                "hostel" => $hostel,
+                                "date_selected" => $date_selected,
+                                "numnights_selected" => $numnights_selected));
 					}
 				}
 

@@ -19,65 +19,68 @@
 	<?php $empty_rating = 0;foreach($property_ratings as $rating_category => $rating_value){if($rating_value == ""){$empty_rating++;}}?>
 	<?php if($empty_rating < 9){?>
 	<div class="box_content box_round group rating_bars">
-	<span class="title"><?php echo ucwords(_("évaluation moyenne"));?>
-	<?php if(!empty($hostel_db_data->rating_overall)){
-					echo ceil($hostel_db_data->rating_overall).' %';
-				}elseif(!empty($hostel["RATING"])){
-					echo ceil($hostel["RATING"]).' %';
-				}?>
-	</span>
-	<div class="clearfix bar-overview">
-	<?php $countrating = 0; foreach($property_ratings as $rating_category => $rating_value):if($rating_category =="overall") continue;?>
-	<?php if($rating_category != 'fun'){?>
-	<?php if ($countrating == 0) {?>
-	<div class="bar-rating">
-	<?php }?>
+        <span class="title"><?php echo ucwords(_("évaluation moyenne"));?>
+            <?php if(!empty($hostel_db_data->rating_overall)){
+                        echo ceil($hostel_db_data->rating_overall).' %';
+                    }elseif(!empty($hostel["RATING"])){
+                        echo ceil($hostel["RATING"]).' %';
+                    }?>
+        </span>
+        <div class="clearfix bar-overview">
+        <?php $countrating = 0; foreach($property_ratings as $rating_category => $rating_value):if($rating_category =="overall") continue;?>
+        <?php if($rating_category != 'fun'){?>
+        <?php if ($countrating == 0) {?>
+        <div class="bar-rating">
+        <?php }?>
 
 
-		<div class="bar-back group">
-			<div class="bar-top green"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
-			<img alt="" src="<?php echo base_url();?>images/rating-<?php echo $rating_category;?>.png"/>
-			<span class="rating-cat">
-			<?php
-			switch ($rating_category){
-				case 'atmosphere':
-					echo _("Atmosphere");
-					break;
-				case 'staff':
-					echo _("Staff");
-					break;
-				case 'location':
-					echo _("Location");
-					break;
-				case 'cleanliness':
-					echo _("Cleanliness");
-					break;
-				case 'facilities':
-					echo _("Facilities");
-					break;
-				case 'safety':
-					echo _("Safety");
-					break;
-				case 'value':
-					echo _("Value");
-					break;
-			}
-			?>
-			</span>
-			<span class="rating-value">
-			<?php
-				if(!empty($rating_value))
-					echo $rating_value."%";
-				else
-					echo _("N/A");
-				?>
-			</span>
-		</div>
-	<?php if ($countrating == 6) {?>
-	</div>
-	<?php }?>
-	<?php $countrating++;}endforeach;?>
-	</div>
+            <div class="bar-back group">
+                <div class="bar-top green"
+                    <?php if(!empty($rating_value)){?> 
+                        style="width:<?php echo $rating_value?>%"<?php }?>>
+                </div>
+                <img alt="" src="<?php echo base_url();?>images/rating-<?php echo $rating_category;?>.png"/>
+                <span class="rating-cat">
+                <?php
+                switch ($rating_category){
+                    case 'atmosphere':
+                        echo _("Atmosphere");
+                        break;
+                    case 'staff':
+                        echo _("Staff");
+                        break;
+                    case 'location':
+                        echo _("Location");
+                        break;
+                    case 'cleanliness':
+                        echo _("Cleanliness");
+                        break;
+                    case 'facilities':
+                        echo _("Facilities");
+                        break;
+                    case 'safety':
+                        echo _("Safety");
+                        break;
+                    case 'value':
+                        echo _("Value");
+                        break;
+                }
+                ?>
+                </span>
+                <span class="rating-value">
+                <?php
+                    if(!empty($rating_value))
+                        echo $rating_value."%";
+                    else
+                        echo _("N/A");
+                    ?>
+                </span>
+            </div>
+        <?php if ($countrating == 6) {?>
+        </div>
+        <?php }?>
+        <?php $countrating++;}endforeach;?>
+        </div>
 	</div>
 	<?php } //end if for display rating if non empty?>
 

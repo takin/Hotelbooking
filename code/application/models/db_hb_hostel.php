@@ -1532,7 +1532,7 @@ class Db_hb_hostel extends CI_Model
     					ORDER BY -(desc_order) DESC";
 
     
-	$query = $this->CI->db->query($query);
+    $query = $this->CI->db->query($query);
 
     $amenities = array();
     if($query->num_rows() > 0)
@@ -1740,10 +1740,10 @@ class Db_hb_hostel extends CI_Model
     }
     return NULL;
   }
- 
-  /*
-  * Function to get propery address
-  * paraim property number
+
+  /**
+  * Function to get property address
+  * param property number
   */
   function get_property_address($property_number = 0)
   {
@@ -1762,6 +1762,7 @@ class Db_hb_hostel extends CI_Model
     }
     return false;
   }
+  
 	// Need to work to get all the extras not just one row
 	function get_hostel_extras($hostel_hb_id)
   {
@@ -2021,6 +2022,34 @@ class Db_hb_hostel extends CI_Model
     return $return;
   }
 
+    public function appendAdditionalPropertyData(&$hostelList) {
+        foreach($hostelList as $propertyId => &$property)
+        {
+            $db_property = $this->get_hostel($property["id"]);
+            if(!is_null($db_property)) {
+                $property["geo_latitude"] = $db_property->geo_latitude;
+                $property["geo_longitude"] = $db_property->geo_longitude;
+                $property["ratings"] = $this->getRatingsFromDbProperty($db_property);
+            }
+        }
+        
+        return $hostelList;
+    }
+  
+    private function getRatingsFromDbProperty($property) {
+        $ratings = array(
+            "atmosphere" => round($property->rating_atmosphere),
+            "staff" => round($property->rating_staff),
+            "location" => round($property->rating_location),
+            "cleanliness" => round($property->rating_cleanliness),
+            "facilities" => round($property->rating_facilities),
+            "safety" => round($property->rating_safety),
+            "value" => round($property->rating_value),
+        );
+        
+        return $ratings;
+    }
+    
   function append_geo_location_data(&$hbhostellist)
   {
     foreach($hbhostellist as $key => $property)
