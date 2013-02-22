@@ -134,7 +134,7 @@
                 <span><?php echo $booking->property->address->street1;?></span>
                 <span><?php echo $booking->property->address->street2;?></span>
                 <span><?php echo $booking->property->address->street3;?></span>
-                <span><?php echo $booking->property->address->city;?>, <?php echo $booking->property->address->state;?></span>
+                <span><?php if(!empty($booking->property->address->city)){ echo $booking->property->address->city.',';}?> <?php echo $booking->property->address->state;?></span>
                 <span><?php echo $booking->property->address->country;?></span>
                 <span><?php echo $booking->property->address->zip;?></span>
             </p>
