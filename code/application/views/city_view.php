@@ -72,8 +72,9 @@
 			<span class="filter_title box_round"><strong><?php echo _('Facilities')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
+					<li><input type="checkbox" class="checkbox" name="facility_types" value="facility_all" id="facility_all" /> <?php echo _("All")?> </li>
 					<?php foreach ($city_amenities as $amenity){?>
-					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php /*?>(<span id="facility-count-<?php echo $amenity->facility_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php ?>(<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)<?php ?></li>
 					<?php }?>
 				</ul>
 			</div>
@@ -82,12 +83,13 @@
 			<span class="filter_title box_round expand"><strong><?php echo _('Districts')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_districts_filter">
+					<li><input type="checkbox" class="checkbox" name="districts_types" value="districts_all" id="districts_all" /> <?php echo _("All")?> </li>
 					<?php foreach ($city_districts as $district){$district_count++;?>
 					<?php if ($district_count == 11){?>
 					<li><a id="show_more_district" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
 					<div id="more_district" class="more_choice_filter">
 					<?php }?>
-					<li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id;?>" value="<?php echo $district->district_id;?>" name="districts" /> <?php echo $district->district_name;?> <?php /*?>(<span id="district-count-<?php echo $district->district_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id;?>" value="<?php echo $district->district_id;?>" name="districts" /> <?php echo $district->district_name;?> <?php ?>(<span id="district-count-<?php echo $district->district_id;?>">0</span>)<?php ?></li>
 					<?php if ($district_count >= 11 && $district_count == $total_dsitrict){?>
 					<li><a id="show_less_district" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
 					</div>
@@ -100,13 +102,14 @@
 			<span class="filter_title box_round expand"><strong><?php echo _('Landmarks (within 2km)')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_landmarks_filter">
+					<li><input type="checkbox" class="checkbox" name="landmark_types" value="landmark_all" id="landmark_all" /> <?php echo _("All")?> </li>
 					<?php //TODO show english in tool tip for landmark ;?>
 					<?php foreach ($city_landmarks as $landmark){$land_count++;?>
 					<?php if ($land_count == 11){?>
 					<li><a id="show_more_land" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
 					<div id="more_land" class="more_choice_filter">
 					<?php }?>
-					<li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id;?>" value="<?php echo $landmark->landmark_id;?>" name="landmarks" /> <?php echo $landmark->landmark_name;?> <?php /*?>(<span id="landmark-count-<?php echo $landmark->landmark_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id;?>" value="<?php echo $landmark->landmark_id;?>" name="landmarks" /> <?php echo $landmark->landmark_name;?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id;?>">0</span>)<?php ?></li>
 					<?php if ($land_count >= 11 && $land_count == $total_land){?>
 					<li><a id="show_less_land" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
 					</div>
@@ -170,7 +173,7 @@
                     <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
-				
+				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
 			</div>
 			
 		<!-- research code -->
@@ -199,6 +202,38 @@
 				</ul>
 
 			</nav>
+			
+			 <!-- filer searcr box -->
+				<div class="panel-padding" id="results_filters" style="display: block;">
+				<div id="filters_text"><?php echo _("Selected filters")?>:</div>
+				<ul class="unstyled" id="applied_filters">
+				<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
+				<span><?php echo _('Price')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('price')"></a>
+				</li>
+				<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
+				<span><?php echo _('Rating')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('rating')"></a>
+				</li>
+				<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
+				<span><?php echo _('Property type')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('prop_types')"></a>
+				</li>
+				<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
+				<span><?php echo _('Facilities')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('facilities')"></a>
+				</li>
+				<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
+				<span><?php echo _('Districts')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('districts')"></a>
+				</li>
+				<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
+				<span><?php echo _('Landmarks (within 2km)')?></span>
+				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('landmarks')"></a>
+				</li>
+				</ul>
+				</div>
+<!-- End search box -->
 
 			<div id="no_data_msg" class="box_content box_round group" style="display: none">
 				<p class="no_result"><?php echo _('Désolé aucun résultat pour ce critère');?></p>
