@@ -720,28 +720,10 @@ class Hb_engine {
       $json_data["property_list"][$i]["Geo"]["Longitude"]   = null;
 	  $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_lname_en; // set the city name 
 	  
-	   switch($json_data["property_list"][$i]["propertyType"])
-	   {
-		   	case 'Hostel':
-		   				$propertyType = gettext('Auberges de jeunesse');
-						break;
-		  	case 'Hotel':
-		   				$propertyType = gettext('Hôtels pas chers');
-						break;
-			case 'Guesthouse':
-		   				$propertyType = gettext('Chambres - B&B - Pensions');
-						break;
-			case 'Apartment':
-		   				$propertyType = gettext('Appartements');
-						break;
-			case 'Campsite':
-		   				$propertyType = gettext('Camping');
-						break;
-			default:
-					$propertyType = $json_data["property_list"][$i]["propertyType"];
-		   
-	   }
-	   $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
+	 // -------Translate the propertyType----------------------------------//
+	   $this->CI->load->model('Db_term_translate');	
+	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"],$this->CI->site_lang);
+	 //  $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
 	   
 	   $json_data["property_list"][$i]['propertyType']       = $json_data["property_list"][$i]["propertyType"];
 	 // get address for each propety from the hostel table
