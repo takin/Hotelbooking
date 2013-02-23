@@ -155,7 +155,7 @@ class CHostelbk extends I18n_site
         $translation = $this->db_translation_cache->get_translation($service->description,$this->site_lang);
         if(!empty($translation))
         {
-          $data['main_services'][$si]->description = !empty($translation->translation) ? $translation->translation : '';
+          $data['main_services'][$si]->description = $translation->translation;
         }
       }
     }
