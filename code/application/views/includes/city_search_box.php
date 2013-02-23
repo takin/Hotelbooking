@@ -141,7 +141,8 @@
                 </div>
                 <div class="left">
                 <?php
-                select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected);
+				$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+                select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected, $hb_api_used);
                 ?>
                 </div>
 
