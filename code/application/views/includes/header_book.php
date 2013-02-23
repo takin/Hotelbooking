@@ -6,11 +6,22 @@
 <title><?php echo isset($title) ? $title : ''; ?></title>
 <?php if ($this->wordpress->get_option('aj_api_ascii')==""){$csspath = $this->wordpress->get_option('aj_api_name');}else{$csspath = $this->wordpress->get_option('aj_api_ascii');} ?>
 <?php
-$this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('fancybox.css','screen','fancybox.css',FALSE,FALSE,"full_site_global");
+if (!empty($print) && strtolower($print) == 'pdf') {
+    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css','all','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('fancybox.css','all','fancybox.css',FALSE,FALSE,"full_site_global");
+
+    $this->carabiner->css('pdf.css','all','pdf.css',FALSE,FALSE,"full_site_global");
+}
+else {
+    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('fancybox.css','screen','fancybox.css',FALSE,FALSE,"full_site_global");
+}
 ?>
 <?php if ($this->wordpress->get_option('aj_api_site_data') == 'hb'){
  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");

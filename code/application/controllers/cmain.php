@@ -1247,7 +1247,13 @@ class CMain extends I18n_site
     log_message('debug', 'Entering main controller property page method');
 
     $this->_currency_init();
-    $data = array();
+    // add the current params in the "stash"
+    $data = array(
+        'property_type'   => $property_type,
+        'property_name'   => $property_name,
+        'property_number' => $property_number,
+        'print'           => $this->input->get('print', true)
+    );
     $district_umid = NULL;
      
     if(empty($property_number))
@@ -1444,6 +1450,120 @@ class CMain extends I18n_site
     {
       $this->output->cache(0);
     }
+  }
+
+  // send email and pdf callback
+  function property_send_email() {
+    $to_email   = $this->input->post('to_email', true);
+    $subject    = $this->input->post('subject', true);
+    $message    = $this->input->post('message', true);
+    $from_name  = $this->input->post('from_name', true);
+    $from_email = $this->input->post('from_email', true);
+    $subscribe  = $this->input->post('subscribe', true);
+    $with_pdf   = $this->input->post('with_pdf', true);
+    $property_type   = $this->input->post('property_type', true);
+    $property_name   = $this->input->post('property_name', true);
+    $property_number = $this->input->post('property_number', true);
+
+
+    $this->load->helper('email');
+
+    $errors = array();
+
+    if (empty($property_type) || empty($property_name) || empty($property_number)) {
+        $errors[] = 'Not enough parameters';
+    }
+
+    if (empty($to_email)) {
+        $errors[] = 'Fill in the email';
+    }
+    else {
+        if (!valid_email($to_email)) {
+            $errors[] = 'Invalid email recipient';
+        }
+    }
+    if (empty($subject)) {
+        $errors[] = 'Fill in the subject';
+    }
+    if (empty($message)) {
+        $errors[] = 'Fill in the message';
+    }
+    if (empty($from_name)) {
+        $errors[] = 'Fill in the from name';
+    }
+    if (empty($from_email)) {
+        $errors[] = 'Fill in the from email';
+    }
+    else {
+        if (!valid_email($from_email)) {
+            $errors[] = 'Invalid from email';
+        }
+    }
+
+    if (!empty($errors)) {
+        $this->load->view('includes/template-json', array(
+            'json_data' => json_encode(array(
+                'ok'     => false,
+                'errors' => $errors 
+            ), true)
+        ));
+
+        return;
+    }
+
+    $this->load->library('email');
+
+    $pdf_path = null;
+
+    if ($with_pdf) {
+        $string = $property_type . '_' . $property_name;
+
+        $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+                   "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+                   "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+        $clean = trim(str_replace($strip, "", strip_tags($string)));
+        $clean = preg_replace('/\s+/', "-", $clean);
+        $clean = preg_replace("/[^a-zA-Z0-9]/", "", $clean);
+
+        $pdf_path = '/tmp/' . $string . '_' . uniqid() . '.pdf';
+
+        // create PDF
+	system('/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path));
+
+        if (file_exists($pdf_path)) {
+            $this->email->attach($pdf_path);
+        }
+    }
+
+    $data = array(
+       'to_email'   => $to_email,
+       'subject'    => $subject,
+       'message'    => $message,
+       'from_name'  => $from_name,
+       'from_email' => $from_email,
+       'property_type'   => $this->input->post('property_type', true),
+       'property_name'   => $this->input->post('property_name', true),
+       'property_number' => $this->input->post('property_number', true)
+    );
+
+    $this->email->from($from_email, $from_name);
+    $this->email->reply_to($this->config->item('email_users_admin'), $this->config->item('site_name'));
+
+    $this->email->to($to_email);
+    $this->email->subject($subject);
+    $this->email->message($this->load->view('email/share_page-html', $data, TRUE));
+    $this->email->set_alt_message($this->load->view('email/share_page-txt', $data, TRUE));
+    $this->email->send();
+
+    if ($pdf_path) {
+        unlink($pdf_path);
+    }
+
+    $this->load->view('includes/template-json', array(
+        'json_data' => json_encode(array(
+            'ok' => true
+        ), true)
+    ));
   }
 
   /*

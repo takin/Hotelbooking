@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/livevalidation_standalone.compressed.js" charset="UTF-8"></script>
+
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<a id="back_to_results" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel["ADDRESS"]["COUNTRY"].'/'.$hostel["ADDRESS"]["CITY"];?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
 	<?php if(!isset($date_selected))      $date_selected = NULL;
@@ -351,6 +353,10 @@ else
 					<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
 			</div>
 
+			<div class="share-email">
+				<a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+			</div>
+
 			<div class="amenities no-indent">
 			<?php
 			if(!empty($main_services))
@@ -411,7 +417,7 @@ else
 		<ul class="box_round ui-tabs-nav green_gradient_faded">
 			<li class="first"><a class="tab_price" href="#hostel_info_home"><?php echo _("Info & Prix");?></a></li>
 			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
-			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
+			<li class="last"><a id="tab_comment" class="tab_review" id="hostel-show-commentaries-tab" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
 	</nav>
 	<div class="box_content box_round group hostel_info ui-tabs">
@@ -539,6 +545,13 @@ else
 			    <?php
           }
 					?>
+
+					<div class="content_block">
+						<strong style="float: left; display: block;"><?php echo _("Want to send a copy?");?></strong>
+						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" /></a>
+						<br style="clear: both" />
+					</div>
+
 					<?php if (!empty($hostel['FEATURES'])){?>
 					<div class="content_block">
 						<h2 class="margbot10"><?php echo _("Commodité");?></h2>
@@ -868,4 +881,85 @@ if ($this->uri->segment(4, 0)) {
         // do nothing
     }
 }
-?> 
+?>
+
+
+
+<div id="share-overlay">
+	<div class="content">
+		<div class="confirmation">
+			<p class="title"><?php echo _('Your message has been sent to'); ?> <span id="email_recipient"></span></p>
+
+			<table>
+				<tr>
+					<td class="label"><?php echo _('From:'); ?></td>
+					<td><strong id="from_feedback"></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><?php echo _('To:'); ?></td>
+					<td><strong id="to_feedback"></strong></td>
+				</tr>
+				<tr>
+					<td class="label"><?php echo _('Subject:'); ?></td>
+					<td id="subject_feedback"></td>
+				</tr>
+				<tr>
+					<td class="label"><?php echo _('Message:'); ?></td>
+					<td id="message_feedback"></td>
+				</tr>
+			</table>
+
+			<br /><br />
+
+			<a href="/" id="show-share-overlay"><?php echo _('Send another message'); ?></a>
+			<a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a>
+		</div>
+
+		<form action="<?php echo site_url("cmain/property_send_email"); ?>" method="post" id="share_email_form">
+			<p class="title"><?php echo _('Mail this page to someone you know, or send it to yourself as a reminder.'); ?></p>
+
+			<div class="form-item">
+				<label><?php echo _('To (email)'); ?></label>
+				<input type="text" name="to_email" id="to_email" class="input" />
+			</div>
+
+			<div class="form-item">
+				<label><?php echo _('Subject'); ?></label>
+				<input type="text" name="subject" id="subject" class="input" />
+			</div>
+
+			<div class="form-item">
+				<label><?php echo _('Message'); ?></label>
+				<textarea name="message" id="message" class="input textarea" rows="4" cols="60"></textarea>
+			</div>
+
+			<div class="form-item">
+				<hr />
+				<label><?php echo _('From (name)'); ?></label>
+				<input type="text" name="from_name" id="from_name" class="input" />
+			</div>
+
+			<div class="form-item">
+				<label><?php echo _('From (email)'); ?></label>
+				<input type="text" name="from_email" id="from_email" class="input" />
+			</div>
+
+			<div class="form-item2">
+				<label for="subscribe"><input type="checkbox" name="subscribe" id="subscribe" checked="checked" /> <?php echo _('Yes, I want to subscribe to the newsletter.'); ?></label>
+			</div>
+
+			<div class="form-item2">
+				<hr />
+				<input type="hidden" name="with_pdf" id="email_send_pdf" value="0" />
+				<input type="hidden" name="property_type" value="<?php echo var_check($property_type, ''); ?>" id="property_type" />
+				<input type="hidden" name="property_name" value="<?php echo var_check($property_name, ''); ?>" id="property_name" />
+				<input type="hidden" name="property_number" value="<?php echo var_check($property_number, ''); ?>" id="property_number" />
+
+				<input type="submit" name="submit" id="submit" value="Send email" />
+				<a href="/" id="close-share-overlay"><?php echo _('Close'); ?></a>
+			</div>
+		</form>
+
+		<img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" id="email_show_pdf" style="margin-top: 30px" />
+	</div>
+</div> 
