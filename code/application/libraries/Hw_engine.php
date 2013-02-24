@@ -654,22 +654,24 @@ class Hw_engine {
 
       foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark)
       {
-        $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
-        if($prop_landmark->slug === 'City-Center')
-        {
+//        $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
+//        if($prop_landmark->slug === 'City-Center')
+//        {
           $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
+          $json_data["property_list"][$i]["landmarks"][$pl]->original_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
+         
           $translation = $this->CI->db_translation_cache->get_translation($prop_landmark->landmark_name,$this->CI->site_lang);
           if(!empty($translation))
           {
             $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
           }
-        }
-        else
-        {
-          //delete useless data to save on bandwith
-          $json_data["property_list"][$i]["landmarks"][$pl]->slug = "";
-          $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = "";
-        }
+//        }
+//        else
+//        {
+//          //delete useless data to save on bandwith
+//          $json_data["property_list"][$i]["landmarks"][$pl]->slug = "";
+//          $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = "";
+//        }
       }
 
       if(!empty($json_data["property_list"][$i]["shortDescriptionTranslated"]))
