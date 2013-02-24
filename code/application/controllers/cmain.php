@@ -1528,8 +1528,8 @@ class CMain extends I18n_site
 	// fallback
         $temp_dir = $this->config->item('temp_dir');
         $temp_dir = empty($temp_dir) ? '/tmp' : $this->config->item('temp_dir');
-	$temp_dir = rtrim($temp_dir, '/');
 
+	$temp_dir = rtrim($temp_dir, '/');
         $pdf_path = $temp_dir . '/' . $string . '_' . uniqid() . '.pdf';
 
         // create PDF
