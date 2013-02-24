@@ -230,6 +230,13 @@ else
 
 /*
 |--------------------------------------------------------------------------
+| Temp Directory Path
+|--------------------------------------------------------------------------
+*/
+$config['temp_dir'] = sys_get_temp_dir();
+
+/*
+|--------------------------------------------------------------------------
 | Error Logging Directory Path
 |--------------------------------------------------------------------------
 |
@@ -412,3 +419,19 @@ $config['urbanmapping_key'] = '3e582082263ec602d607b16a3d1b21fb';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+if ( !function_exists('sys_get_temp_dir')) {
+    function sys_get_temp_dir() {
+        if (!empty($_ENV['TMP'])) {
+            return realpath($_ENV['TMP']);
+        }
+        if (!empty($_ENV['TMPDIR'])) {
+            return realpath( $_ENV['TMPDIR']);
+        }
+        if (!empty($_ENV['TEMP'])) {
+            return realpath( $_ENV['TEMP']);
+        }
+
+        return ISWINDOWS ? 'C:\Windows\TEMP' : '/tmp';
+  }
+}

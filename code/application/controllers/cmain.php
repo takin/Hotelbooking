@@ -1525,10 +1525,15 @@ class CMain extends I18n_site
         $clean = preg_replace('/\s+/', "-", $clean);
         $clean = preg_replace("/[^a-zA-Z0-9]/", "", $clean);
 
-        $pdf_path = '/tmp/' . $string . '_' . uniqid() . '.pdf';
+	// fallback
+        $temp_dir = $this->config->item('temp_dir');
+        $temp_dir = empty($temp_dir) ? '/tmp' : $this->config->item('temp_dir');
+	$temp_dir = rtrim($temp_dir, '/');
+
+        $pdf_path = $temp_dir . '/' . $string . '_' . uniqid() . '.pdf';
 
         // create PDF
-	system('/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path));
+	system('/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path));
 
         if (file_exists($pdf_path)) {
             $this->email->attach($pdf_path);
