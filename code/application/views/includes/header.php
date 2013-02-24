@@ -54,8 +54,7 @@
 	$this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
   $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	$this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-	$this->carabiner->css('mapfluence/mfjs.min.css','screen','mapfluence/mfjs.min.css',FALSE,FALSE,"full_site_global");
-
+	
 	if($this->api_used == HB_API)
 	{
 	  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
@@ -758,9 +757,9 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
   $this->carabiner->js('jquery.fancybox-1.3.4.pack.js','jquery.fancybox-1.3.4.pack.js',TRUE);
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
-  $this->carabiner->js('mapfluence/mfjs.min.js');
   ?>
-
+<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" 
+                type="text/javascript"></script>
   <?php
   if($current_view == "hostel_view")
   {
