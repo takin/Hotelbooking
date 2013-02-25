@@ -17,11 +17,13 @@
 						if (isset($searchmode) && $searchmode == 1){$word = 20;}else{$word = 30;}
 						if(!empty($hostel->shortDescriptionTranslated))
 						{
-							echo strip_tags(word_limiter($hostel->shortDescriptionTranslated, $word));
+						    $short_de=domain_name_replace($hostel->shortDescriptionTranslated);
+							echo strip_tags(word_limiter($short_de, $word));
 						}
 						else
 						{
-							echo strip_tags(word_limiter($hostel->shortDescription, $word));
+						    $short_de=domain_name_replace($hostel->shortDescription);
+							echo strip_tags(word_limiter($short_de, $word));
 						}
 						?>
 					</p>
