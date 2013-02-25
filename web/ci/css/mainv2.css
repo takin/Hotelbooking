@@ -2293,14 +2293,12 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 .hostel_mapView_districts , .city_mapView_districts{
      display: block;
      overflow: hidden;
-     white-space: nowrap;
      clear:both;
 }
 
-/* districts in city page and hostel page */
+/*  start districts and landmarks in city page  */
  .city_hostel_districts , .city_hostel_landmarks{
           margin-left: 126px;
-          margin-bottom: 0;
 }
 
 .city_hostel_districts_district , .city_hostel_landmarks_landmark{
@@ -2312,4 +2310,17 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
         color: #999999;
      }
      
-/*  End districts in city page and hostel page */
+/*  End districts and landmarks in city page */
+
+/* start districts and landmarks in  hostel page */
+
+.hostel_districts_district , .hostel_landmarks_landmark{
+          font-weight: bold;
+          font-size:14px;
+}
+
+ .hostel_districts_values , .hostel_landmarks_values {
+        color: #999999;
+     }
+     
+/*  End districts and landmarks in hostel page  */

@@ -232,6 +232,56 @@ endforeach; ?>
 		<?php // Need to show district name, city, country here, like a breakcrumb almost ?>
 		</p>
 
+                 <?php  
+                        if (is_array($district_info) && !empty($district_info)) 
+                            { ?>
+                      <div id="hostel_districts" class="hostel_districts">
+                        <p>
+                        <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
+                        <span class="hostel_districts_values">
+                            <?php
+                            foreach ($district_info as $key => $district) 
+                                { 
+//                                die(var_dump(count($district_info), $key));
+                                echo $district->district_name;
+
+                                if ( count($district_info) !=  $key+1 ) {
+                                    echo ", ";
+                                }
+                                else{
+                                    echo ".";
+                                }
+                      }//end Foreach  ?> 
+                        </span> 
+                       </p>
+                     </div>            
+                   <?php   }// end if ?>
+                
+                    <?php  
+                        if (is_array($landmarks) && !empty($landmarks)) 
+                            { ?>
+                      <div id="hostel_landmarks" class="hostel_landmarks">
+                        <p>
+                        <span class="hostel_landmarks_landmark"><?php echo _('Landmarks');?>:</span>
+                        <span class="hostel_landmarks_values">
+                            <?php
+                            foreach ($landmarks as $key => $landmark) 
+                                { 
+//                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
+                                echo $landmark->landmark_name;
+
+                                if ( count($landmarks) !=  $key+1 ) {
+                                    echo ", ";
+                                }
+                                else{
+                                    echo ".";
+                                }
+                      }//end Foreach  ?> 
+                        </span> 
+                       </p>
+                     </div>            
+                   <?php   }// end if ?>
+
 		<div class="top_info" id="top_info_short">
 			<?php
 			$word = 50;

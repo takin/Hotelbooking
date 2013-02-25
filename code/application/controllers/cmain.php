@@ -1248,7 +1248,6 @@ class CMain extends I18n_site
 
     $this->_currency_init();
     $data = array();
-    $district_umid = NULL;
      
     if(empty($property_number))
     {
@@ -1256,43 +1255,12 @@ class CMain extends I18n_site
       return;
     }
 
-    // create an empty to avoid notice when no districts are found
-        $data['district_info'] = array();
-      //get District um_id
-     $this->load->model('Db_hw_hostel');
-       $district_info = $this->Db_hw_hostel->get_property_districts( $property_number );
-       
-       if (empty($district_info)) {
-            $this->load->model('Db_hb_hostel');
-             $district_info = $this->Db_hb_hostel->get_property_districts( $property_number );
-       }
-        $data['district_info'] = $district_info;
-       
-        if (!empty($data['district_info'])) 
-              {
-               $this->load->model('i18n/db_translation_cache');
-               
-              foreach ($data['district_info'] as $i => $district)    
-                  {
-                  $translation = $this->db_translation_cache->get_translation($district->district_name, $this->site_lang);
+    // create an empty to avoid notice when no landmarks are found
+    $data['landmarks'] = array();
 
-                  if (!empty($translation))           
-                    {
-                      $data['district_info'][$i]->district_name = $translation->translation;
-                  
-                    }
-                    else
-                    {
-                          $data['district_info'][$i]->district_name = $district->district_name;
-                    }
-                    
-                    $data['district_info'][$i]->original_name = $district->district_name;
-                    $data['district_info'][$i]->um_id = $district->um_id;
-                  
-                  }
-              }
-              
-       
+    // create an empty to avoid notice when no districts are found
+    $data['district_info'] = array();
+
     $force = $this->input->get('groupbkg',true);
     if(($force == 'A') && ($this->api_used === HW_API))
     {
@@ -1306,15 +1274,87 @@ class CMain extends I18n_site
       $this->api_view_dir = "hw/";
       $this->api_forced = true;
     }
+    
+      $this->load->model('i18n/db_translation_cache');
+       
+          if($this->api_used == HB_API)
+    {
+      $this->load->model('Db_hb_hostel');
+      
+      //get District details
+       $data['district_info'] = $this->Db_hb_hostel->get_property_districts( $property_number );
+       
+       // Second parameter is a range in KM
+       $data['landmarks'] = $this->Db_hb_hostel->get_property_landmarks_for_filter($property_number, 2);
+
+    }
+    else
+        {
+         $this->load->model('Db_hw_hostel');
+      
+      //get District details
+       $data['district_info'] = $this->Db_hw_hostel->get_property_districts( $property_number );
+       
+       // Second parameter is a range in KM
+       $data['landmarks'] = $this->Db_hw_hostel->get_property_landmarks_for_filter($property_number, 2);
+
+        }
+            // get district if exist and translate them
+            if (!empty($data['district_info'])) 
+              {
+
+               
+              foreach ($data['district_info'] as $i => $district)    
+                  {
+                  $data['district_info'][$i]->original_name = $district->district_name;
+                  $data['district_info'][$i]->um_id = $district->um_id;
+                  
+                  $translation = $this->db_translation_cache->get_translation($district->district_name, $this->site_lang);
+
+                  if (!empty($translation))           
+                    {
+                      $data['district_info'][$i]->district_name = $translation->translation;
+                  
+                    }
+                    else
+                    {
+                          $data['district_info'][$i]->district_name = $district->district_name;
+                    }        
+                  }
+              }
+              
+              // get landmarks if exist and translate them
+             if (!empty($data['landmarks'])) 
+              {
+            
+              foreach ($data['landmarks'] as $i => $landmark)    
+                  {
+                  $data['landmarks'][$i]->original_name = $landmark->landmark_name;
+                  
+                  $translation = $this->db_translation_cache->get_translation($landmark->landmark_name, $this->site_lang);
+
+                  if (!empty($translation))           
+                    {
+                      $data['landmarks'][$i]->landmark_name = $translation->translation;
+                  
+                    }
+                    else
+                    {
+                          $data['landmarks'][$i]->landmark_name = $landmark->landmark_name;
+                    }        
+                  }
+              }  
+              
 //     $this->hostel_controller = "chostelbk";
     if($this->api_used == HB_API)
     {
       //Check if property requested is HW property
+      $this->load->model('Db_hw_hostel');
       $poperty_requested_hw = $this->Db_hw_hostel->get_hostel_data_from_number($property_number);
 
       //IF property is a HW property redirect
       if(!empty($poperty_requested_hw->property_name) && strcasecmp(url_title($poperty_requested_hw->property_name),$property_name)==0)
-      {
+      {   
         //IF HB city is available redirect to HB city landing page
         $this->load->model('Db_hw_city');
         $hw_city = $this->Db_hw_city->get_hw_city_by_id($poperty_requested_hw->hw_city_id);
@@ -1438,7 +1478,7 @@ class CMain extends I18n_site
       }
 
     }
-
+   
     //cancel any caching is api was forced
     if($this->api_forced === true)
     {
