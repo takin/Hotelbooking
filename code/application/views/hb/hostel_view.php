@@ -436,7 +436,7 @@ else
 				<li class="first last">
 				  <span class="" title="<?php echo _("évaluation moyenne");?>">
 				  <?php if ($rating != '') { ?>
-				  <strong class="txt-mid green"><?php echo _($rating);?></strong>
+				  <strong class="txt-mid green"><?php echo $rating;?></strong>
 				  <?php } ?>
 				  <?php echo _("évaluation moyenne");?>
 				  <strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong>
