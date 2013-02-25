@@ -2289,8 +2289,8 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 	top: 11px;
 }
 
-/* districts in city page and hostel page */
-.hostel_mapView_districts .city_mapView_districts {
+/*  Start districts in city page and hostel page */
+.hostel_mapView_districts , .city_mapView_districts{
      display: block;
      overflow: hidden;
      white-space: nowrap;
@@ -2298,20 +2298,18 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 }
 
 /* districts in city page and hostel page */
- .city_hostel_districts, 
- .city_hostel_landmarks{
+ .city_hostel_districts , .city_hostel_landmarks{
           margin-left: 126px;
-          color: #999999;
           margin-bottom: 0;
 }
 
-/* .city_hostel_districts_values 
- .city_hostel_landmarks_values{
-     font-weight: bold;
-     }
-     
-.city_hostel_districts_district 
-.city_hostel_landmarks_landmark{
+.city_hostel_districts_district , .city_hostel_landmarks_landmark{
           font-weight: bold;
           font-size:14px;
-}*/
+}
+
+ .city_hostel_districts_values , .city_hostel_landmarks_values {
+        color: #999999;
+     }
+     
+/*  End districts in city page and hostel page */
