@@ -433,9 +433,17 @@ else
 			    }
 				?>
 				<ul class="box_round rating">
-				<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong></span></li>
+				<li class="first last">
+				  <span class="" title="<?php echo _("évaluation moyenne");?>">
+				  <?php if ($rating != '') { ?>
+				  <strong class="txt-mid green"><?php echo _($rating);?></strong>
+				  <?php } ?>
+				  <?php echo _("évaluation moyenne");?>
+				  <strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong>
+				  </span>
+				</li>
 				</ul>
-				<?php }?>		
+				<?php }?>
 	</nav>
 	<div class="box_content box_round group hostel_info ui-tabs">
 		<div id="hostel_info_home" class="hostels_tab_content">
