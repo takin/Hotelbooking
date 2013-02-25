@@ -58,7 +58,7 @@
                             <div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" 
                                  name="city_hostel_landmarks_{{propertyNumber}}">
                             <p>
-                               <span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks');?>:</span>
+                               <span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
                             <span id="city_hostel_landmarks_values_{{propertyNumber}}" 
                                   class="city_hostel_landmarks_values">{{#landmarks}}{{landmark_name}}, {{/landmarks}}</span>
                             </p> 

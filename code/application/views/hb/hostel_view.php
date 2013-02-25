@@ -326,7 +326,7 @@ else
                             { ?>
                       <div id="hostel_landmarks" class="hostel_landmarks">
                         <p>
-                        <span class="hostel_landmarks_landmark"><?php echo _('Landmarks');?>:</span>
+                        <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
                         <span class="hostel_landmarks_values">
                             <?php
                             foreach ($landmarks as $key => $landmark) 
