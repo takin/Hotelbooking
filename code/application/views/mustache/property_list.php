@@ -12,7 +12,7 @@
 		</ul>
 		{{#overall_rating}}
 		<ul class="box_round rating">
-			<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"><strong>{{overall_rating}} %</strong></span></li>
+			<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"><strong class="txt-mid green">{{rating}}</strong><strong>{{overall_rating}} %</strong></span></li>
 		</ul>
 		{{/overall_rating}}
 	</nav>
