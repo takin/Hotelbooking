@@ -121,7 +121,7 @@ table p{
 /* Links */
 
 a,	a:link,	a:active {
-	color:#227BBD;
+	color:#3087C9;
 	text-decoration:none;
 	outline:none;
 }
@@ -672,7 +672,6 @@ h2.search_title{padding: 2px 0px 10px 40px;}
 }
 
 .side_search input.side_submit, .main_search input.side_submit{
-	float:left;
 	padding:10px 15px;
 	margin-bottom:0px;
 	cursor:pointer;
@@ -768,7 +767,7 @@ div.mapbubble p.price span{ color:red; display:inline;}
 #city_search_title_bar h1{float:left;border:0px;}
 #city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none;}
 #city_results_count .view_map{float:right;font-weight:normal;
-color:#227BBD;
+color:#3087C9;
 background:url(../images/V2/icon_view_map_green.png) no-repeat center left;
 padding:2px 0px 2px 23px;}
 #city_results_counter{float:right;font-weight:bold;}
@@ -800,7 +799,7 @@ nav.city-tools ul li.title{padding:7px 15px;border-right:1px solid #D0DAE0;}
 
 nav.city-tools ul li a{
 	font-weight:bold;
-	color:#333333;
+	color:#3087C9;
 	float:left;
 	padding:7px 15px;
 	display:block;
@@ -868,8 +867,8 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);}
 .city_tabs ul li{float:left; border-right:1px solid #cccccc;border-left:1px solid #ffffff;}
 .city_tabs ul li.first{border-left:0;}
 .city_tabs ul li.last{border-right:0;}
-.city_tabs ul li a{display:block; padding:10px 15px 20px 37px;  font-size:1.0em; color:#333;}
-.city_tabs ul li a:hover{color:#333333; text-decoration:none;}
+.city_tabs ul li a{display:block; padding:10px 15px 20px 37px;  font-size:1.0em; color:#3087C9;}
+.city_tabs ul li a:hover{color:#3087C9; text-decoration:none;}
 .city_tabs ul li.ui-tabs-selected a{}
 .city_tabs ul li.ui-tabs-selected{background:#dee4d3 url("../images/V2/icon_tab_selected.png") no-repeat center 24px;}
 .city_tabs ul li:hover{background-color:#dee4d3;}
@@ -956,7 +955,7 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .hostel_list .info h2 a{
-	color:#333333;
+	color:#3087C9;
 }
 
 .hostel_list h3{
@@ -1060,11 +1059,11 @@ div.price{
 }
 
 div.price strong {
-	color: #71AB09;
-	font-size: 1.6em;
-	font-weight: bold;
-	padding-top:5px;
-	line-height:1.2em;
+		color: #6DA903;
+		font-size: 1.6em;
+		font-weight: bold;
+		padding-top:5px;
+		line-height:1.2em;
 }
 
 div.price span{
@@ -1294,7 +1293,7 @@ a.tab_map{background-image:url(../images/V2/icon_view_map.png); background-repea
 
 ul.float-list{float:left; margin-top:0px; margin-bottom:0px; margin-left:1%; margin-right:3%; width:29%;}
 ul.green-li li{ background:url(../images/V2/icon-check-green.png) no-repeat 0px 4px; padding-left:20px; line-height:1.4em; margin-bottom:7px; font-size:1.1em;}
-.amenities_included li strong{ background:#71AB09; padding:2px 5px; color:#ffffff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+.amenities_included li strong{ background:#175291; padding:2px 5px; color:#ffffff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
 /* user reviews */
 #comment_list_part{margin-top:20px;}
 .comment_list{margin-bottom:10px;}
@@ -1309,7 +1308,7 @@ ul.green-li li{ background:url(../images/V2/icon-check-green.png) no-repeat 0px 
 .rating_bars span.title{font-weight:bold; font-size:1.2em; margin-bottom:5px; padding-bottom:5px; border-bottom:1px dashed #aaaaaa; display:block;}
 .bar-overview{padding-top:10px;}
 .bar-rating{}
-.bar-back{position:relative;height:23px;margin-left:25px; border:1px solid #cccccc; background:#eeeeee;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px; margin-bottom:15px;}
+.bar-back{position:relative;height:23px;margin-left:25px; border:1px solid #cccccc; background:#FFFFFF;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px; margin-bottom:15px;color: #000000;}
 .bar-top{position:absolute;top:-1px;left:-1px; height:23px; width:0%;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;}
 .bar-top.green{
 border:1px solid #A1D363;background:#A1D363;
@@ -1317,16 +1316,15 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D2EAB4', endC
 background: -webkit-gradient(linear, left top, left bottom, from(#D2EAB4), to(#A1D363)); /* for webkit browsers */
 background: -moz-linear-gradient(top,  #D2EAB4,  #A1D363); /* for firefox 3.6+ */}
 .bar-top.yellow{
-border:1px solid #D8D45D;background:#EAE66E;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F4F2B5', endColorstr='#EAE66E'); /* for IE */
-background: -webkit-gradient(linear, left top, left bottom, from(#F4F2B5), to(#EAE66E)); /* for webkit browsers */
-background: -moz-linear-gradient(top,  #F4F2B5,  #EAE66E); /* for firefox 3.6+ */}
+border:1px solid #CCCCCC;
+background-color: #FDCA37;
+}
 .bar-top.red{
 border:1px solid #E8716F;background:#E8716F;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E8AFAE', endColorstr='#E8716F'); /* for IE */
 background: -webkit-gradient(linear, left top, left bottom, from(#E8AFAE), to(#E8716F)); /* for webkit browsers */
 background: -moz-linear-gradient(top,  #E8AFAE, #E8716F); /* for firefox 3.6+ */}
-span.rating-cat{font-size:0.9em;display:block; position:absolute; top:5px; left:7px;}
+span.rating-cat{font-size:0.9em;display:block; position:absolute; top:5px; left:7px;color:#000000;font-family:Arial Narrow;}
 .bar-back img{position:absolute; top:3px; left:-25px;}
 span.rating-value{font-size:0.9em;font-weight:bold;display:block; position:absolute; top:5px; right:3px;}
 
@@ -1469,7 +1467,7 @@ span.na-book{ display:block; height:15px; width:15px; text-indent:-9999px; backg
 .roomnb,#selection, .calc_init {display:none;}
 #selection-table{display:none;}
 #booking-table table#selection td.psubtotal, #booking-table table#selection td.ssubtotal{	 width:130px;}
-#depositTotal {	 font-size:1.7em; color:#6BB300;}
+#depositTotal {	 font-size:1.7em; color:#175291;}
 span.best_price{color:#a90000; font-size:1.2em; margin-right:20px; font-weight:bold; line-height:24px;background: url("../images/V2/icon-deal.png") no-repeat scroll left center transparent; display:block;padding: 3px 0 3px 25px;}
 strong.deposit_bottom{line-height:30px;}
 .red-error{ padding:5px 10px; background:#FFE6E7; padding:10px;;border:1px dashed #a90000;  display:none; text-align:center; margin-top:5px; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; font-size:1.1em; font-weight:bold;}
@@ -1670,7 +1668,7 @@ a.modify_booking{float:left; padding:5px 7px; display:block; font-weight:bold;}
 #sidebar .switch-translate{margin-bottom:0px;}
 
 .payment_button{padding-top:15px;}
-input#submit-payment{ float:left; margin-right:30px; font-size:1.4em; padding:12px 30px; cursor:pointer; font-weight:bold; letter-spacing:1px;text-shadow:1px 1px 1px #416305; border:1px solid #6DA903;}
+input#submit-payment{ float:left; margin-right:30px; font-size:1.4em; padding:12px 30px; cursor:pointer; font-weight:bold; letter-spacing:1px;text-shadow:1px 1px 1px #2F6AA8; border:1px solid #6DA903;}
 img.ssl-image{float:left;}
 
 p.loading_book{float:left; font-weight:bold; font-size:1.2em;}
@@ -1759,20 +1757,9 @@ img.responsive{width:100%;}
 
 .group_book_side{position:relative;}
 .group_book_side span{
-	padding:7px 10px;
-	color:#ffffff;
-	text-shadow:1px 1px 1px #000000;
-	font-weight:bold;
-	font-size:1.1em;
-	display:block;
-	position:absolute;
-	top:0;
-	right:0px;
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.6);	
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);	/
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+padding:10px 15px 10px 10px;	color:#ffffff;	text-shadow:1px 1px 1px #000000;font-size:1.2em;	display:block;	position:absolute;	bottom:1px;right:0px;background:url("../images/V2/menu-back.png") repeat-x scroll left center #082747;font-weight: bold;
 }
+
 
 #search_load{}
 
@@ -2288,6 +2275,11 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 	position: absolute;
 	top: 11px;
 }
+.searchcenter{
+width: 100%;
+text-align: -moz-center;
+text-align: -khtml-center;
+text-align: -webkit-center;
 
 /* districts in city page and hostel page */
 .hostel_mapView_districts .city_mapView_districts {
