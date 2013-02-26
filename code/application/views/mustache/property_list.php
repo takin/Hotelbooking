@@ -60,7 +60,7 @@
                             <p>
                                <span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
                             <span id="city_hostel_landmarks_values_{{propertyNumber}}" 
-                                  class="city_hostel_landmarks_values">{{#landmarks}}{{landmark_name}}, {{/landmarks}}</span>
+                                  class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
                             </p> 
                             </div>
                             
