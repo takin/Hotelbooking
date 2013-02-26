@@ -1740,7 +1740,28 @@ class Db_hb_hostel extends CI_Model
     }
     return NULL;
   }
-
+ 
+  /*
+  * Function to get propery address
+  * paraim property number
+  */
+  function get_property_address($property_number = 0)
+  {
+    
+	if($property_number == 0) // ID specified?
+	{
+		return false;
+	}
+	$this->CI->db->where("property_number", $property_number);    
+	$query = $this->CI->db->get(self::HOSTEL_TABLE);
+    if($query->num_rows() > 0)
+    {
+      $row = $query->row();
+	  $address2 = (isset($row->address2) AND $row->address2!=NULL) ? ', '.$row->address2 : ''; // address2 has value or null
+      return $row->address1.$address2;
+    }
+    return false;
+  }
 	// Need to work to get all the extras not just one row
 	function get_hostel_extras($hostel_hb_id)
   {
@@ -1861,7 +1882,7 @@ class Db_hb_hostel extends CI_Model
   public function get_districts_by_city_id($city_id)
   {
     $city_id = $this->db->escape_str($city_id);
-    $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HOSTEL_TABLE."`.`property_number`) as `district_count`
+        $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`um_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HOSTEL_TABLE."`.`property_number`) as `district_count`
             FROM (`".self::HOSTEL_TABLE."`)
             RIGHT JOIN `".self::HB_HOSTEL_DISTRICT_TABLE."` ON `".self::HOSTEL_TABLE."`.`property_number` = `".self::HB_HOSTEL_DISTRICT_TABLE."`.`property_number`
             RIGHT JOIN `".self::DISTRICTS_TABLE."` ON `".self::DISTRICTS_TABLE."`.`district_id` = `".self::HB_HOSTEL_DISTRICT_TABLE."`.`district_id`
@@ -1880,8 +1901,13 @@ class Db_hb_hostel extends CI_Model
 
   public function get_property_districts_for_filter($property_number)
   {
-    $this->db->select("district_id");
-    $this->db->where("property_number",$property_number);
+     $this->db->select(
+            self::HB_HOSTEL_DISTRICT_TABLE.".district_id ,"
+            .self::DISTRICTS_TABLE.".district_name ,"
+            .self::DISTRICTS_TABLE.".um_id "
+            );
+    $this->db->join(self::DISTRICTS_TABLE, self::DISTRICTS_TABLE.'.district_id = '.self::HB_HOSTEL_DISTRICT_TABLE.'.district_id', "left");
+    $this->db->where(self::HB_HOSTEL_DISTRICT_TABLE.".property_number",$property_number);
 
     $query = $this->db->get(self::HB_HOSTEL_DISTRICT_TABLE);
 
@@ -1895,7 +1921,7 @@ class Db_hb_hostel extends CI_Model
 
   public function get_property_districts($property_number)
   {
-    $this->db->select(self::DISTRICTS_TABLE.".district_name");
+    $this->db->select(self::DISTRICTS_TABLE.".district_name,".self::DISTRICTS_TABLE.".um_id");
     $this->db->join(self::DISTRICTS_TABLE, self::DISTRICTS_TABLE.'.district_id = '.self::HB_HOSTEL_DISTRICT_TABLE.'.district_id', "left");
     $this->db->where(self::HB_HOSTEL_DISTRICT_TABLE.".property_number",$property_number);
     $query = $this->db->get(self::HB_HOSTEL_DISTRICT_TABLE);

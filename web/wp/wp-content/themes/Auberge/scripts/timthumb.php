@@ -25,18 +25,18 @@ define('ISWINDOWS', (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'));
 define ('VERSION', '2.8.10');																		// Version of this script
 //Load a config file if it exists. Otherwise, use the values below
 if( file_exists(dirname(__FILE__) . '/timthumb-config.php'))	require_once('timthumb-config.php');
-if(! defined('DEBUG_ON') )					define ('DEBUG_ON', false);								// Enable debug logging to web server error log (STDERR)
+if(! defined('DEBUG_ON') )					define ('DEBUG_ON', FALSE);								// Enable debug logging to web server error log (STDERR)
 if(! defined('DEBUG_LEVEL') )				define ('DEBUG_LEVEL', 1);								// Debug level 1 is less noisy and 3 is the most noisy
 if(! defined('MEMORY_LIMIT') )				define ('MEMORY_LIMIT', '30M');							// Set PHP memory limit
 if(! defined('BLOCK_EXTERNAL_LEECHERS') ) 	define ('BLOCK_EXTERNAL_LEECHERS', false);				// If the image or webshot is being loaded on an external site, display a red "No Hotlinking" gif.
 
 //Image fetching and caching
 if(! defined('ALLOW_EXTERNAL') )			define ('ALLOW_EXTERNAL', TRUE);						// Allow image fetching from external websites. Will check against ALLOWED_SITES if ALLOW_ALL_EXTERNAL_SITES is false
-if(! defined('ALLOW_ALL_EXTERNAL_SITES') ) 	define ('ALLOW_ALL_EXTERNAL_SITES', TRUE);				// Less secure.
+if(! defined('ALLOW_ALL_EXTERNAL_SITES') ) 	define ('ALLOW_ALL_EXTERNAL_SITES', FALSE);				// Less secure.
 if(! defined('FILE_CACHE_ENABLED') ) 		define ('FILE_CACHE_ENABLED', TRUE);					// Should we store resized/modified images on disk to speed things up?
-if(! defined('FILE_CACHE_TIME_BETWEEN_CLEANS'))	define ('FILE_CACHE_TIME_BETWEEN_CLEANS', 86400);	// How often the cache is cleaned
+if(! defined('FILE_CACHE_TIME_BETWEEN_CLEANS'))	define ('FILE_CACHE_TIME_BETWEEN_CLEANS', 864000);	// How often the cache is cleaned
 
-if(! defined('FILE_CACHE_MAX_FILE_AGE') ) 	define ('FILE_CACHE_MAX_FILE_AGE', 86400);				// How old does a file have to be to be deleted from the cache
+if(! defined('FILE_CACHE_MAX_FILE_AGE') ) 	define ('FILE_CACHE_MAX_FILE_AGE', 864000);				// How old does a file have to be to be deleted from the cache
 if(! defined('FILE_CACHE_SUFFIX') ) 		define ('FILE_CACHE_SUFFIX', '.timthumb.txt');			// What to put at the end of all files in the cache directory so we can identify them
 if(! defined('FILE_CACHE_PREFIX') ) 		define ('FILE_CACHE_PREFIX', 'timthumb');				// What to put at the beg of all files in the cache directory so we can identify them
 if(! defined('FILE_CACHE_DIRECTORY') ) 		define ('FILE_CACHE_DIRECTORY', './cache');				// Directory where images are cached. Left blank it will use the system temporary directory (which is better for security)
@@ -51,8 +51,8 @@ if(! defined('BROWSER_CACHE_DISABLE') ) 	define ('BROWSER_CACHE_DISABLE', false)
 //Image size and defaults
 if(! defined('MAX_WIDTH') ) 			define ('MAX_WIDTH', 1500);									// Maximum image width
 if(! defined('MAX_HEIGHT') ) 			define ('MAX_HEIGHT', 1500);								// Maximum image height
-if(! defined('NOT_FOUND_IMAGE') )		define ('NOT_FOUND_IMAGE', '');								// Image to serve if any 404 occurs
-if(! defined('ERROR_IMAGE') )			define ('ERROR_IMAGE', '');									// Image to serve if an error occurs instead of showing error message
+if(! defined('NOT_FOUND_IMAGE') )		define ('NOT_FOUND_IMAGE', 'blank.gif');					// Image to serve if any 404 occurs
+if(! defined('ERROR_IMAGE') )			define ('ERROR_IMAGE', 'blank.gif');						// Image to serve if an error occurs instead of showing error message
 if(! defined('PNG_IS_TRANSPARENT') ) 	define ('PNG_IS_TRANSPARENT', FALSE);  //42 Define if a png image should have a transparent background color. Use False value if you want to display a custom coloured canvas_colour
 if(! defined('DEFAULT_Q') )				define ('DEFAULT_Q', 90);									// Default image quality. Allows overrid in timthumb-config.php
 if(! defined('DEFAULT_ZC') )			define ('DEFAULT_ZC', 1);									// Default zoom/crop setting. Allows overrid in timthumb-config.php
@@ -126,15 +126,8 @@ if(! defined('WEBSHOT_XVFB_RUNNING') )	define ('WEBSHOT_XVFB_RUNNING', false);		
 // If ALLOW_EXTERNAL is true and ALLOW_ALL_EXTERNAL_SITES is false, then external images will only be fetched from these domains and their subdomains.
 if(! isset($ALLOWED_SITES)){
 	$ALLOWED_SITES = array (
-		'flickr.com',
-		'staticflickr.com',
-		'picasa.com',
-		'img.youtube.com',
-		'upload.wikimedia.org',
-		'photobucket.com',
-		'imgur.com',
-		'imageshack.us',
-		'tinypic.com',
+		'hb-assets.com',
+		'webresint.com'
 	);
 }
 // -------------------------------------------------------------

@@ -361,10 +361,9 @@ endforeach; ?>
 									if(isValidDate(date_cookie))
 									{
 										var date_url = date_cookie;
-
-										var date_avail 	= new Date(date_cookie.replace('-',',','g'));
+										var date_array = date_cookie.split('-');
+										var date_avail 	= new Date(date_array[0],date_array[1]-1,date_array[2]);
 										$("#book-pick").datepicker( "setDate" , date_avail );
-
 									}
 									else
 									{
@@ -432,7 +431,8 @@ endforeach; ?>
 						{
 							$numnights_selected = 2;
 						}
-						select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected); ?>
+						$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+						select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected, $hb_api_used); ?>
 						</li>
 						<li>
 						<label for="book-property-currency"><?php echo _("Devise:");?></label>
@@ -550,6 +550,31 @@ endforeach; ?>
 				</div>
 				<div class="content_block">
 					<h2><?php echo _("Cartes");?></h2>
+                                        <?php
+                                             if (is_array($district_info) && !empty($district_info))
+                                                 { ?>
+                                                 <div id="hostel_mapView_districts" class="hostel_mapView_districts">
+                                                    <p>
+                                             <?php echo _('Districts');?>:
+
+                                                 <?php
+                                                 foreach ($district_info as $key => $district)
+                                                     {
+                                                      $checked = "";
+
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
+
+                                                     ?>
+                                                      <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
+                                                  onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+
+                                            <?php  }//end Foreach  ?>
+                                                         </p>
+                                             </div>
+
+                                              <?php   }// end if ?>
 					<div id="map-wrap" class="margbot20">
 						<div id="map_canvas"></div>
 					</div>
@@ -642,11 +667,11 @@ if ($this->uri->segment(4, 0)) {
     $uri_segement = strtolower($this->uri->segment(4));
     if ($uri_segement == "map") {
         // make the diection tab selected and triger the click event
-        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";   
+        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";
     } else if ($uri_segement == 'comments') { // make the coments tab selected
         echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',2); });</script>";
     } else {
         // do nothing
     }
 }
-?> 
+?>

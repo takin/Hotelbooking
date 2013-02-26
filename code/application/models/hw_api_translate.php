@@ -190,18 +190,25 @@ class Hw_api_translate extends CI_Model
         foreach($objectHostelList as $hostel)
         {
           //TONOTICE The detected langage by remote translation API is not really reliable because the description might be too short
-          if(!empty($gtrans["responseData"][$i]) && ($gtrans["responseData"][$i]["responseStatus"] == 200))
+          if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+              ($gtrans["responseData"][$i]["responseStatus"] == 200))
           {
             if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
             {
               $hostel->shortDescriptionTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
             }
           }
-          elseif(!empty($gtrans["responseData"][$i]))
+          elseif(!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
           {
             $trans_error = TRUE;
             $hostel->shortDescriptionTranslatedError = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
             log_message(TRANSLATION_ERROR_LEVEL,"translate_LocationSearch: " .current_url()." -> [shortDescription] -> ".$hostel->shortDescriptionTranslatedError. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
+          }
+          elseif(!empty($gtrans["responseData"][$i]))
+          {
+            $trans_error = TRUE;
+            $hostel->shortDescriptionTranslatedError = "Translation error no status: no details";
+            log_message(TRANSLATION_ERROR_LEVEL,"translate_LocationSearch: " .current_url()." -> [shortDescription] -> ".$hostel->shortDescriptionTranslatedError. " | google status -> no status");
           }
           $i++;
         }

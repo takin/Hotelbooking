@@ -911,12 +911,12 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	width:78%;
 }
 
-.hostel_list .info_pic a{
+.hostel_list .info_pic a {
 	margin-right:10px;
 	padding:3px;
 	border:1px dashed #dddddd;
-	height:99px;
-	width:99px;
+	height:100px;
+	width:100px;
 	display:block;
 	background:#ffffff url(../images/V2/no_pictures.png) no-repeat center center;
 	 -webkit-box-shadow: 1px 1px 3px #888888; 
@@ -925,20 +925,20 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	overflow:hidden;
 }
 
-.hb_frame .hostel_list .info_pic a{height:99px;	width:99px;}
+.hb_frame .hostel_list .info_pic a{height:100px;	width:100px;}
 
-.hb_frame .city_lp .hostel_list .info_pic a{height:49px;	width:49px;}
+.hb_frame .city_lp .hostel_list .info_pic a{height:100px;	width:100px;}
 
 .hostel_list .info h2, .hostel_list .info p, .hostel_list .info div{
 	
 }
 
 .info_pic{
-	width:70px;
+	width:120px;
 }
 
 .hb_frame .info_pic{
-	width:53px;
+	width:103px;
 }
 
 .info_indent{
@@ -946,7 +946,7 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .hb_frame .info_indent{
-	margin-left:120px;
+	margin-left:126px;
 }
 
 .hostel_list .info h2{
@@ -1006,8 +1006,8 @@ ul.avail li {
 .loading-dispo-city p{
 	margin-bottom:0px;
 }
-.amenities{ margin-left:85px;}
-.hb_frame .amenities{ margin-left:70px;}
+.amenities{ margin-left:126px;}
+.hb_frame .amenities{ margin-left:126px;}
 .amenities.no-indent{margin-left:0px;}
 span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:5px; height:30px; line-height:30px; margin-right:15px; margin-top:5px;}
 /*span.icon_facility span{display: block; float: left;padding: 8px 0 8px 0px;}*/
@@ -2280,4 +2280,18 @@ width: 100%;
 text-align: -moz-center;
 text-align: -khtml-center;
 text-align: -webkit-center;
+
+/* districts in city page and hostel page */
+.hostel_mapView_districts .city_mapView_districts {
+     display: block;
+     overflow: hidden;
+     white-space: nowrap;
+     clear:both;
+}
+.green{
+ color:#71AB09;
+}
+.txt-mid{
+  font-size:15px;
+ margin-right:5px;
 }
