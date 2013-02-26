@@ -204,37 +204,36 @@
 			</nav>
 			
 			 <!-- filer searcr box -->
-				<div class="panel-padding" id="results_filters" style="display: block;">
-				<div id="filters_text"><?php echo _("Selected filters")?>:</div>
-				<ul class="unstyled" id="applied_filters">
-				<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
-				<span><?php echo _('Price')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('price')"></a>
-				</li>
-				<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
-				<span><?php echo _('Rating')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('rating')"></a>
-				</li>
-				<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
-				<span><?php echo _('Property type')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('prop_types')"></a>
-				</li>
-				<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
-				<span><?php echo _('Facilities')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('facilities')"></a>
-				</li>
-				<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
-				<span><?php echo _('Districts')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('districts')"></a>
-				</li>
-				<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
-				<span><?php echo _('Landmarks (within 2km)')?></span>
-				<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('landmarks')"></a>
-				</li>
-				</ul>
-				</div>
-<!-- End search box -->
-
+			<div class="panel-padding" id="results_filters" style="display: block;">
+			<div id="filters_text"><?php echo _("Selected filters")?>:</div>
+			<ul class="unstyled" id="applied_filters">
+			<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
+			<span><?php echo _('Price')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('price')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
+			<span><?php echo _('Rating')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('rating')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
+			<span><?php echo _('Property type')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('prop_types')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
+			<span><?php echo _('Facilities')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('facilities')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
+			<span><?php echo _('Districts')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('districts')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
+			<span><?php echo _('Landmarks (within 2km)')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('landmarks')"></a>
+			</li>
+			</ul>
+			</div>
+			<!-- End search box -->
 			<div id="no_data_msg" class="box_content box_round group" style="display: none">
 				<p class="no_result"><?php echo _('Désolé aucun résultat pour ce critère');?></p>
 			</div>
