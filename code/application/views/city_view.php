@@ -72,7 +72,7 @@
 			<span class="filter_title box_round"><strong><?php echo _('Facilities')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
-					<li><input type="checkbox" class="checkbox" name="facility_types" value="facility_all" id="facility_all" /> <?php echo _("All")?> </li>
+					<!--<li><input type="checkbox" class="checkbox" name="facility_types" value="facility_all" id="facility_all" /> <?php echo _("All")?> </li>-->
 					<?php foreach ($city_amenities as $amenity){?>
 					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php ?>(<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)<?php ?></li>
 					<?php }?>
@@ -83,7 +83,7 @@
 			<span class="filter_title box_round expand"><strong><?php echo _('Districts')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_districts_filter">
-					<li><input type="checkbox" class="checkbox" name="districts_types" value="districts_all" id="districts_all" /> <?php echo _("All")?> </li>
+					<!--<li><input type="checkbox" class="checkbox" name="districts_types" value="districts_all" id="districts_all" /> <?php echo _("All")?> </li>-->
 					<?php foreach ($city_districts as $district){$district_count++;?>
 					<?php if ($district_count == 11){?>
 					<li><a id="show_more_district" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
@@ -102,7 +102,7 @@
 			<span class="filter_title box_round expand"><strong><?php echo _('Landmarks (within 2km)')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_landmarks_filter">
-					<li><input type="checkbox" class="checkbox" name="landmark_types" value="landmark_all" id="landmark_all" /> <?php echo _("All")?> </li>
+					<!--<li><input type="checkbox" class="checkbox" name="landmark_types" value="landmark_all" id="landmark_all" /> <?php echo _("All")?> </li>-->
 					<?php //TODO show english in tool tip for landmark ;?>
 					<?php foreach ($city_landmarks as $landmark){$land_count++;?>
 					<?php if ($land_count == 11){?>
