@@ -670,6 +670,11 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 };
 
 PWebFilterApp.prototype.update_counts = function() {
+	if($('#applied_filter_hosting_price').css('display')=='none' && $('#applied_filter_hosting_rating').css('display')=='none' && $('#applied_filter_hosting_property').css('display')=='none' && $('#applied_filter_hosting_facilities').css('display')=='none' && $('#applied_filter_hosting_districts').css('display')=='none' && $('#applied_filter_hosting_landmarks').css('display')=='none'  ){
+	$('#filters_text').hide();
+	}else{
+		$('#filters_text').show();
+	}
 	
 	for (var id in this.FiltersCounts)
 	{ 

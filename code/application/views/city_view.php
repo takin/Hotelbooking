@@ -205,7 +205,7 @@
 			
 			 <!-- filer searcr box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">
-			<div id="filters_text"><?php echo _("Selected filters:")?></div>
+			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>
 			<ul class="unstyled" id="applied_filters">
 			<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
 			<span><?php echo _('Price')?></span>
