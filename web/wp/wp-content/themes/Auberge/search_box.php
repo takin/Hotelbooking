@@ -127,7 +127,8 @@ function keyaction(e)
 		<input tabindex="9" type="text" id="datepick" name="search-date" class="search_date" value="<?php echo $date_selected;?>" />
 		</div>
 		<div class="left">
-			<?php select_nights(__('Nuits:','auberge'),"search-night","search-night",$numnights_selected);?>
+			<?php $api_used = (get_option('aj_api_site_data')=='hb') ? TRUE : FALSE;
+				select_nights(__('Nuits:','auberge'),"search-night","search-night",$numnights_selected,$api_used);?>
 		</div>
 		<div class="left">
 			<label for="search-currency"><?php _e("Currency:","auberge");?></label>

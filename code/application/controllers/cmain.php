@@ -1031,6 +1031,7 @@ class CMain extends I18n_site
       }
       if($this->api_used == HB_API)
       {
+	    $this->load->helper('domain_replace_helper');
         $this->load->library('hb_engine');
         $data = $this->hb_engine->location_search($country, $city, $dateStart, $numNights, FALSE, TRUE, $filter);
         if($data === FALSE)
@@ -1069,6 +1070,7 @@ class CMain extends I18n_site
       }
       else
       {
+	    $this->load->helper('domain_replace_helper');
         $this->load->library('hw_engine');
 
         if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)

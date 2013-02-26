@@ -812,10 +812,10 @@ PWebFilterApp.prototype.get_filters = function() {
 			jQuery.each(facilities_filter, function() {
 				
 				var target_filter_id = this.toString();
+				
 				//if array property.amenities_filter is not empty
 				// and contains ALL of the facilities filter match it and return
 				for (var i = 0; i < property.amenities_filter.length; i++) {
-					
 					if(target_filter_id === property.amenities_filter[i].toString())
 					{
 						match_all_facility = match_all_facility && true;
@@ -825,7 +825,19 @@ PWebFilterApp.prototype.get_filters = function() {
 				//When the loop did 
 				match_all_facility = false;
 			});
-				$('#applied_filter_hosting_facilities').show();
+			
+			$('#cb_group_facilities_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'facility_all') && (type_val == true)){
+						 $('#applied_filter_hosting_facilities').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_facilities').show();
+						  }
+		 		});
+		 		
+			//$('#applied_filter_hosting_facilities').show();
 			match_facility = match_all_facility;
 		}
 		//If no district filter is selected match all and compute count
@@ -866,7 +878,18 @@ PWebFilterApp.prototype.get_filters = function() {
 					}
 				}
 			});
-			$('#applied_filter_hosting_districts').show();
+			
+			$('#cb_group_districts_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'districts_all') && (type_val == true)){
+						 $('#applied_filter_hosting_districts').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_districts').show();
+						  }
+		 		});
+			//$('#applied_filter_hosting_districts').show();
 		}
 	
 		//If no landmark filter is selected match all
@@ -908,7 +931,17 @@ PWebFilterApp.prototype.get_filters = function() {
 					
 				}
 			});
-			$('#applied_filter_hosting_landmarks').show();
+			$('#cb_group_landmarks_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'landmark_all') && (type_val == true)){
+						 $('#applied_filter_hosting_landmarks').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_landmarks').show();
+						  }
+		 		});
+			//$('#applied_filter_hosting_landmarks').show();
 		}
 		//Property price filter
 		//if filter is not set automatically match
