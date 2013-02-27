@@ -966,7 +966,7 @@ class Hostel_api_model extends CI_Model {
         log_message('error', $infunction.': simplexml_load_string: '.$e->getMessage());
       }
 
-      if(false)
+      if(!is_object($xml))
       {
         $errorMsg = _('Réponse inattendue du serveur.');
         $xobject = $errorMsg;
