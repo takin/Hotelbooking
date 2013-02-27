@@ -145,9 +145,9 @@ PWebFilterApp.prototype.init = function() {
 	
 	//Filter controls init
 	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter",true);
-	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter",true);
-	this.DistrictsCheckBoxes  = new GroupCheckBoxes("cb_group_districts_filter",true);
-	this.LandmarksCheckBoxes  = new GroupCheckBoxes("cb_group_landmarks_filter",true);
+	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter");
+	this.DistrictsCheckBoxes  = new GroupCheckBoxes("cb_group_districts_filter");
+	this.LandmarksCheckBoxes  = new GroupCheckBoxes("cb_group_landmarks_filter");
 	
 	this.DowntownExtraCheckId  = 'landmark-downtown';
 	this.BreakfastExtraCheckId = 'facility-free-breakfast';
