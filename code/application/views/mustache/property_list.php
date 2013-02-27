@@ -44,7 +44,7 @@
                     <strong>{{overall_rating}} %</strong>
                 </span>
                 <span class="averageRatingCaption">
-                    <?php echo _("Average rating"); ?>
+                    <?php echo _("évaluation moyenne"); ?>
                 </span>
             </li>
 		</ul>
@@ -70,7 +70,7 @@
                                 $ratingCategory . ".png";?>
                         <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
                         <span class="rating-cat">
-                            <?php echo ucfirst(_($ratingCategory)); ?>
+                            <?php echo _(ucfirst($ratingCategory)); ?>
                         </span>
                         <span class="rating-value">
                             {{<?php echo $ratingCategory; ?>}} %
