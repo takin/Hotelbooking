@@ -1530,9 +1530,9 @@ class Db_hb_hostel extends CI_Model
 							WHERE cost = 0
     					--	AND desc_order IS NOT NULL
     					ORDER BY -(desc_order) DESC";
-
     
-    $query = $this->CI->db->query($query);
+
+	$query = $this->CI->db->query($query);
 
     $amenities = array();
     if($query->num_rows() > 0)
@@ -1632,7 +1632,6 @@ class Db_hb_hostel extends CI_Model
         $amenities[$i]->type        = (string)$row->type;
         $amenities[$i]->facility_name = (string)$row->facility_name;
         $amenities[$i]->filter_order  = (int)$row->filter_order;
-        //         $amenities[$i]->to_display  = (int)$row->to_display;
       }
     }
     return $amenities;
@@ -1747,12 +1746,12 @@ class Db_hb_hostel extends CI_Model
   */
   function get_property_address($property_number = 0)
   {
-    
+
 	if($property_number == 0) // ID specified?
 	{
 		return false;
 	}
-	$this->CI->db->where("property_number", $property_number);    
+	$this->CI->db->where("property_number", $property_number);
 	$query = $this->CI->db->get(self::HOSTEL_TABLE);
     if($query->num_rows() > 0)
     {

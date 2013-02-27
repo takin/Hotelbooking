@@ -208,7 +208,6 @@ $(document).ready(function(){
 							$count++;
 							$this->load->view("hb/property_list",array(
                                 "hostel" => $hostel,
-                                "ratings" => $hostel["ratings"],
                                 'property_type' => $hostel["type"], 
                                 "date_selected" => $date_selected,
                                 "numnights_selected" => $numnights_selected));

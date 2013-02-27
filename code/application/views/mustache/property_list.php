@@ -97,7 +97,9 @@
 					<h2>
                         <a href="{{property_page_url}}">
                             {{propertyName}} 
-                            <span style="color: #999999; font-size:0.7em;">({{propertyTypeTranslate}})</span>
+                            <span style="color: #3087C9; font-size:0.7em;">
+                                ({{propertyTypeTranslate}})
+                            </span>
                         </a>
                     </h2>
 					<p class="address">{{address1}} - {{city_name}}</p>
@@ -240,6 +242,7 @@
                                <?php echo _('Districts');?>:
                             {{#districts}}
 
+	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
                          <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}"
                          value="{{um_id}}" onclick="GoogleMap.prototype.changeDistrictLayer($(this).val())">{{district_name}}
                      {{/districts}}
@@ -248,8 +251,7 @@
 			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
-        
-	</div>
+    </div>
 </div>
 
 {{/properties}}
