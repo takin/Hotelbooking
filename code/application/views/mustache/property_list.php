@@ -51,33 +51,34 @@
 		{{/overall_rating}}
         <div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBox">
         {{#Ratings}}
-            <?php $ratingCategories = array(
-                "atmosphere", "staff", "location", "cleanliness",
-                "facilities", "safety", "value");
-            ?>
             <div class="propertyRatingsContainer">
                 <h3>
                     <?php echo _("évaluation moyenne") . " - " .
                         _("As rated by bookers like you") . ": "; ?> 
                     {{overall_rating}} %
                 </h3>
+                <?php $ratingCategories = array(
+                        "atmosphere", "staff", "location", "cleanliness",
+                        "facilities", "safety", "value");
+                ?>
                 <?php foreach ($ratingCategories as $ratingCategory): ?>
-                    <div class="bar-back group">
-                        <div class="bar-top darkYellow"
-                            style="width:{{<?php echo $ratingCategory; ?>}}%">
+                    {{#<?php echo $ratingCategory; ?>}}
+                        <div class="bar-back group">
+                            <div class="bar-top darkYellow"
+                                style="width:{{<?php echo $ratingCategory; ?>}}%">
+                            </div>
+                            <?php $imgSrcUrl = base_url() . "images/rating-" .
+                                    $ratingCategory . ".png";?>
+                            <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
+                            <span class="rating-cat">
+                                <?php echo _(ucfirst($ratingCategory)); ?>
+                            </span>
+                            <span class="rating-value">
+                                {{<?php echo $ratingCategory; ?>}} %
+                            </span>
                         </div>
-                        <?php $imgSrcUrl = base_url() . "images/rating-" .
-                                $ratingCategory . ".png";?>
-                        <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
-                        <span class="rating-cat">
-                            <?php echo _(ucfirst($ratingCategory)); ?>
-                        </span>
-                        <span class="rating-value">
-                            {{<?php echo $ratingCategory; ?>}} %
-                        </span>
-                    </div>
+                   {{/<?php echo $ratingCategory; ?>}}
                 <?php endforeach; ?>
-            </div>
         {{/Ratings}}
         </div>
 	</nav>
