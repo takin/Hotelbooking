@@ -1320,24 +1320,27 @@ function setup_filters(data)
 	
 }
 
-function closeFilter(type){
-that = this;
-switch(type){
-case 'price':
-$( "#slider_price" ).slider({values: [ pweb_filter.PriceRangeMin, pweb_filter.PriceRangeMax ]});
-break;
-case 'rating':
-$( "#slider_rating" ).slider({values: [ pweb_filter.RatingRangeMin, pweb_filter.RatingRangeMax ]});
-break;
-default:	
-$('input[name^='+type+']').each(function(){
-$(this).attr('checked',false);
-
-})
+function closeFilter(type) {
+	that = this;
+	switch(type)
+	{
+		case 'price':
+			$( "#slider_price" ).slider({values: [ pweb_filter.PriceRangeMin, pweb_filter.PriceRangeMax ]});
+			break;
+		case 'rating':
+			$( "#slider_rating" ).slider({values: [ pweb_filter.RatingRangeMin, pweb_filter.RatingRangeMax ]});
+			break;
+		default:	
+			$('input[name^='+type+']').each(function(){
+				$(this).attr('checked',false);
+			});
+			if (type == 'facilities') $("#breakfast_2nd_filter").attr('checked',false);
+			if (type == 'landmarks') $("#downtown_2nd_filter").attr('checked',false);
+			break;
+	}
+	pweb_filter.apply_filters();
 }
-pweb_filter.apply_filters();
 
-}
 $(document).ready(function() { 
 
 	pweb_filter = new PWebFilterApp();
