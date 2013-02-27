@@ -420,10 +420,10 @@ class Hw_engine {
 
 		$data['user_reviews']  = array();
         $data['property_list'] = $this->CI->Hw_api_translate->translate_LocationSearch($results[1]);
-		
+
         foreach($data['property_list'] as $hostel_id => $hostel)
         {
-          
+
 		  $data['propertyType'][(int)$hostel->propertyNumber] = $hostel->propertyType;
 		  $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
           if($prop_reviews === TRUE)
@@ -613,16 +613,19 @@ class Hw_engine {
 
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
-      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
-      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
-          base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-	   
+      if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
+      {
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
+			  base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+	  }
+
 	   // -------Translate the propertyType----------------------------------//
-	    $this->CI->load->model('Db_term_translate');	
+	    $this->CI->load->model('Db_term_translate');
 	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
 	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
-       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name		   
+       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
 	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
 
