@@ -13,7 +13,7 @@
 	//JS pweb-mapping/PrpoertyFilters.js
 
 	?>
-	
+
 	<div id="search_load">
 		<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="map_button_side">
@@ -73,7 +73,7 @@
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
 					<?php foreach ($city_amenities as $amenity){?>
-					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php /*?>(<span id="facility-count-<?php echo $amenity->facility_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php ?>(<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)<?php ?></li>
 					<?php }?>
 				</ul>
 			</div>
@@ -87,7 +87,7 @@
 					<li><a id="show_more_district" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
 					<div id="more_district" class="more_choice_filter">
 					<?php }?>
-					<li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id;?>" value="<?php echo $district->district_id;?>" name="districts" /> <?php echo $district->district_name;?> <?php /*?>(<span id="district-count-<?php echo $district->district_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id;?>" value="<?php echo $district->district_id;?>" name="districts" /> <?php echo $district->district_name;?> <?php ?>(<span id="district-count-<?php echo $district->district_id;?>">0</span>)<?php ?></li>
 					<?php if ($district_count >= 11 && $district_count == $total_dsitrict){?>
 					<li><a id="show_less_district" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
 					</div>
@@ -100,13 +100,12 @@
 			<span class="filter_title box_round expand"><strong><?php echo _('Landmarks (within 2km)')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_landmarks_filter">
-					<?php //TODO show english in tool tip for landmark ;?>
 					<?php foreach ($city_landmarks as $landmark){$land_count++;?>
 					<?php if ($land_count == 11){?>
 					<li><a id="show_more_land" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
 					<div id="more_land" class="more_choice_filter">
 					<?php }?>
-					<li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id;?>" value="<?php echo $landmark->landmark_id;?>" name="landmarks" /> <?php echo $landmark->landmark_name;?> <?php /*?>(<span id="landmark-count-<?php echo $landmark->landmark_id;?>"></span>)<?php */?></li>
+					<li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id;?>" value="<?php echo $landmark->landmark_id;?>" name="landmarks" /> <?php echo $landmark->landmark_name;?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id;?>">0</span>)<?php ?></li>
 					<?php if ($land_count >= 11 && $land_count == $total_land){?>
 					<li><a id="show_less_land" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
 					</div>
@@ -152,8 +151,8 @@
 		if(!isset($bc_city))            $bc_city = NULL;
 		$this->load->view('includes/city_lp_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	}?>
-	
-	
+
+
 
 	<div id="city_search_title_bar">
 		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
@@ -161,8 +160,8 @@
 			<?php printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
 		</span>
 	</div>
-	
-		
+
+
 		  <div id="city_results_count" class="group">
                     <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
                     <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
@@ -170,36 +169,67 @@
                     <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
-				
+				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
 			</div>
-			
+
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-		<!-- end --> 	
-			
+		<!-- end -->
 
 
-                       <a href="#" id="city_map_hide" class="view_map" 
+
+                       <a href="#" id="city_map_hide" class="view_map"
                           title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
                          <span id ="close_map_button"> </span>
-                         </a>    
+                         </a>
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
-                       
+
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
 					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
 					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Prix");?></span></a></li>
 					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Cote");?></span></a></li>
-  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" /> 
+  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
 					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
-					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" /> 
+					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
 					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li>
 				</ul>
 
 			</nav>
 
+			 <!-- filer searcr box -->
+			<div class="panel-padding" id="results_filters" style="display: block;">
+			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>
+			<ul class="unstyled" id="applied_filters">
+			<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
+			<span><?php echo _('Price')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('price')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
+			<span><?php echo _('Rating')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('rating')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
+			<span><?php echo _('Property type')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('prop_types')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
+			<span><?php echo _('Facilities')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('facilities')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
+			<span><?php echo _('Districts')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('districts')"></a>
+			</li>
+			<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
+			<span><?php echo _('Landmarks (within 2km)')?></span>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('landmarks')"></a>
+			</li>
+			</ul>
+			</div>
+			<!-- End search box -->
 			<div id="no_data_msg" class="box_content box_round group" style="display: none">
 				<p class="no_result"><?php echo _('Désolé aucun résultat pour ce critère');?></p>
 			</div>
@@ -220,14 +250,14 @@
 							$('#wrap').show();
 						}
 				});
-				
+
 				$('a#change-dates').click(function() {
-					
+
 					$("#side_search_box_city").toggle();
 					return false;
 				});
-		
-		
+
+
 			});
 			</script>
 
@@ -238,13 +268,11 @@
 
 	<script id="template-infow" type="text/html">
 	<?php
-	//TODO minify using jsmin library and cache
 	$this->load->view('mustache/city_map_property_infow');
 	?>
 	</script>
 	<script id="template" type="text/html">
 		<?php
-		//TODO minify using jsmin library and cache
 		$this->load->view('mustache/property_list');
 		?>
 	</script>

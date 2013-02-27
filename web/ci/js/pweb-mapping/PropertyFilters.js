@@ -134,6 +134,15 @@ PWebFilterApp.prototype.init = function() {
 	this.$data_empty_msg    = $('#no_data_msg');
 	this.$data_loading_msg  = $('#loading_data_msg');
 	
+		//Filter counts init
+		this.FiltersCounts = new Array();
+		this.FiltersCounts['city_results_count_total'] = 0;
+		this.FiltersCounts['city_results_count_total_temp'] = 0;
+		this.FiltersInitValues = new Array();
+		this.init_counts();
+		this.count_st=0;
+
+	
 	//Filter controls init
 	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter",true);
 	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter");
@@ -145,19 +154,23 @@ PWebFilterApp.prototype.init = function() {
 	this.hasDowntownFilter  = false;
 	this.hasBreakfastFilter = false;
 	
-	this.FiltersCounts     = new Array();
-	this.FiltersInitValues = new Array();
-	
-	//Filter counts init
-	this.FiltersCounts = new Array();
-	this.FiltersCounts['city_results_count_total'] = 0;
-	this.init_counts();
 	
 	//Set these range to not set
 	this.PriceRangeMin  = -1;
 	this.PriceRangeMax  = -1;
 	this.RatingRangeMin = -1;
 	this.RatingRangeMax = -1;
+	
+		this.FiltersCounts['city_results_filtered'] = 0;
+		this.FiltersCounts['city_results_filtered_temp'] = 0;
+		this.FiltersCounts['prop-types-count-0'] = 0;
+		this.FiltersCounts['prop-types-count-1'] = 0;
+		this.FiltersCounts['prop-types-count-2'] = 0;
+		this.FiltersCounts['prop-types-count-3'] = 0;
+		this.FiltersCounts['prop-types-count-4'] = 0;
+		this.FiltersCounts['prop-types-count-5'] = 0;
+
+
 	
 	this.PriceCurrencySymbol = '$';
 	
@@ -263,6 +276,25 @@ PWebFilterApp.prototype.reset_filters = function() {
 	}
 };
 
+PWebFilterApp.prototype.reset_Pricefilters = function() {
+var that = this;
+this.PriceFilterMin = this.PriceRangeMin;
+this.PriceFilterMax = this.PriceRangeMax;
+//Change value without filtering results
+$( "#slider_price" ).slider( {change: null} );
+$( "#slider_price" ).slider({values: [ that.PriceRangeMin, that.PriceRangeMax ]});
+document.getElementById('filter_price').innerHTML =
+that.PriceCurrencySymbol + $( "#slider_price" ).slider( "values", 0 ) +
+" - "+that.PriceCurrencySymbol + $( "#slider_price" ).slider( "values", 1 );
+
+$( "#slider_price" ).slider( {
+change: function( event, ui ) {
+that.change_price_filter(event, ui);
+}
+} );
+
+};
+
 PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_lang, lat, lng) {
 	this.pweb_maps[map_slug] = new PWebFilterMap(city_map_div_id, map_lang, lat, lng);
 };
@@ -281,14 +313,19 @@ PWebFilterApp.prototype.apply_filters = function() {
 	
 	this.jtable_hits = this.jtable.filter(this.get_filters());
 	
-//	this.compute_counts();
+		if(this.count_st==0){
+		this.compute_counts();
+		this.update_counts();
+		this.count_st++;
+		}
+
+
 	this.update_counts();
 	
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
     this.update();
     this.updateMap();
 }; // end apply_filters() 
-
 PWebFilterApp.prototype.updateMap = function() { 
 	//Re initiatilize prop_number_to_focus of property map
 	this.pweb_maps['property'].prop_number_to_focus = -1;
@@ -311,6 +348,20 @@ PWebFilterApp.prototype.update = function() {
 		this.$data_empty_msg.show();
 		this.$sort_controls_div.hide();
 		this.$data_div.html("");
+		$('#applied_filter_hosting_property').hide();
+		$('#cb_group_type_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'type_all') && (type_val == true)){
+						 $('#applied_filter_hosting_property').hide();
+						 temp =0;
+						 return false;
+					  }else if(type_val == true){
+						 	   $('#applied_filter_hosting_property').show();
+						  return false;
+						  }
+		 			
+				});
 	}
 	else
 	{
@@ -322,6 +373,16 @@ PWebFilterApp.prototype.update = function() {
 		
 		//Init jquery UI tabs
 		$('.hostel_list').tabs();
+		$('#cb_group_type_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'type_all') && (type_val == true)){
+						 $('#applied_filter_hosting_property').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_property').show();
+						  }
+		 		});
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
@@ -367,10 +428,11 @@ PWebFilterApp.prototype.update = function() {
 	//update count
 	this.FiltersCounts['city_results_count_current'] = this.jtable_hits_sorted.length;
 	this.FiltersCounts['city_results_count_total']   = this.FiltersCounts['city_results_filtered'];
+	this.FiltersCounts['city_results_count_total_temp']   = this.FiltersCounts['city_results_filtered_temp'];
 	this.update_counts();
 	
 	
-	if(this.FiltersCounts['city_results_count_current'] < this.FiltersCounts['city_results_count_total'])
+	if(this.FiltersCounts['city_results_count_current'] < this.FiltersCounts['city_results_count_total_temp'])
 	{
 		$('#show_more_results').show();
 	}
@@ -471,13 +533,16 @@ PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) {
 
 PWebFilterApp.prototype.init_counts = function() {
 	this.FiltersCounts['city_results_count_current'] = 0;
-	this.FiltersCounts['city_results_filtered']      = 0;
+	this.FiltersCounts['city_results_count_total_temp'] =0;
+    this.FiltersCounts['city_results_filtered_temp'] = 0;
+
+	/*this.FiltersCounts['city_results_filtered']      = 0;
 	this.FiltersCounts['prop-types-count-0'] = 0;
 	this.FiltersCounts['prop-types-count-1'] = 0;
 	this.FiltersCounts['prop-types-count-2'] = 0;
 	this.FiltersCounts['prop-types-count-3'] = 0;
 	this.FiltersCounts['prop-types-count-4'] = 0;
-	this.FiltersCounts['prop-types-count-5'] = 0;
+	this.FiltersCounts['prop-types-count-5'] = 0;*/
 //	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 //	{
 //		this.FiltersCounts['facility-count-'+this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.value] = 0;
@@ -559,10 +624,14 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 	{
 		for (var di = 0; di < this.DistrictsCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_district_id = parseInt(this.DistrictsCheckBoxes.$checkboxes_li[di].firstChild.value);
+			var current_district_id = this.DistrictsCheckBoxes.$checkboxes_li[di].firstChild.value;
+			if(current_district_id == undefined)
+			current_district_id = 0;
+			if(this.FiltersCounts['district-count-'+current_district_id]==undefined)
+			this.FiltersCounts['district-count-'+current_district_id]=0;
 			for (var pdi = 0; pdi < this.jtable_hits[index].districts.length; pdi++)
 			{
-				if( current_district_id == parseInt(this.jtable_hits[index].districts[pdi].district_id))
+				if( current_district_id == this.jtable_hits[index].districts[pdi].district_id)
 				{
 					this.FiltersCounts['district-count-'+current_district_id]++;
 				}
@@ -570,10 +639,14 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 		}
 		for (var di = 0; di < this.LandmarksCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_landmark_id = parseInt(this.LandmarksCheckBoxes.$checkboxes_li[di].firstChild.value);
+			var current_landmark_id = this.LandmarksCheckBoxes.$checkboxes_li[di].firstChild.value;
+			if(current_landmark_id == undefined)
+			current_landmark_id = 0;
+			if(this.FiltersCounts['landmark-count-'+current_landmark_id]==undefined)
+			this.FiltersCounts['landmark-count-'+current_landmark_id]=0;
 			for (var pdi = 0; pdi < this.jtable_hits[index].landmarks.length; pdi++)
 			{
-				if( current_landmark_id === parseInt(this.jtable_hits[index].landmarks[pdi].landmark_id))
+				if( current_landmark_id === this.jtable_hits[index].landmarks[pdi].landmark_id)
 				{
 					this.FiltersCounts['landmark-count-'+current_landmark_id]++;
 				}
@@ -582,10 +655,12 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 		
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_facility_id = parseInt(this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].firstChild.value);
+			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].firstChild.value;
+			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined)
+			this.FiltersCounts['facility-count-'+current_facility_id]=0;
 			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++)
 			{
-				if( current_facility_id === parseInt(this.jtable_hits[index].amenities_filter[pdi]))
+				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi])
 				{
 					this.FiltersCounts['facility-count-'+current_facility_id]++;
 				}
@@ -595,6 +670,11 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 };
 
 PWebFilterApp.prototype.update_counts = function() {
+	if($('#applied_filter_hosting_price').css('display')=='none' && $('#applied_filter_hosting_rating').css('display')=='none' && $('#applied_filter_hosting_property').css('display')=='none' && $('#applied_filter_hosting_facilities').css('display')=='none' && $('#applied_filter_hosting_districts').css('display')=='none' && $('#applied_filter_hosting_landmarks').css('display')=='none'  ){
+	$('#filters_text').hide();
+	}else{
+		$('#filters_text').show();
+	}
 	
 	for (var id in this.FiltersCounts)
 	{ 
@@ -715,6 +795,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		
 		if(facilities_filter.length === 0)
 		{
+			$('#applied_filter_hosting_facilities').hide();
 			match_facility = true;
 			
 			//compute counts
@@ -736,10 +817,10 @@ PWebFilterApp.prototype.get_filters = function() {
 			jQuery.each(facilities_filter, function() {
 				
 				var target_filter_id = this.toString();
+				
 				//if array property.amenities_filter is not empty
 				// and contains ALL of the facilities filter match it and return
 				for (var i = 0; i < property.amenities_filter.length; i++) {
-					
 					if(target_filter_id === property.amenities_filter[i].toString())
 					{
 						match_all_facility = match_all_facility && true;
@@ -749,12 +830,26 @@ PWebFilterApp.prototype.get_filters = function() {
 				//When the loop did 
 				match_all_facility = false;
 			});
+			
+			$('#cb_group_facilities_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'facility_all') && (type_val == true)){
+						 $('#applied_filter_hosting_facilities').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_facilities').show();
+						  }
+		 		});
+		 		
+			//$('#applied_filter_hosting_facilities').show();
 			match_facility = match_all_facility;
 		}
 		//If no district filter is selected match all and compute count
 		//Else match only the checked filter
 		if(districts_filter.length === 0)
 		{
+			$('#applied_filter_hosting_districts').hide();
 			match_district = true;
 			
 			//compute counts
@@ -788,12 +883,25 @@ PWebFilterApp.prototype.get_filters = function() {
 					}
 				}
 			});
+			
+			$('#cb_group_districts_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'districts_all') && (type_val == true)){
+						 $('#applied_filter_hosting_districts').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_districts').show();
+						  }
+		 		});
+			//$('#applied_filter_hosting_districts').show();
 		}
 	
 		//If no landmark filter is selected match all
 		//Else match only the checked filter
 		if(landmarks_filter.length === 0)
 		{
+			$('#applied_filter_hosting_landmarks').hide();
 			match_landmark = true;
 			
 			//compute counts
@@ -828,6 +936,17 @@ PWebFilterApp.prototype.get_filters = function() {
 					
 				}
 			});
+			$('#cb_group_landmarks_filter li').find(':input').each(function(){
+		 			var type_val = $(this).attr('checked');
+		 			var type_input = $(this).attr('id');
+		 			 if((type_input == 'landmark_all') && (type_val == true)){
+						 $('#applied_filter_hosting_landmarks').hide();
+						 return false;
+					  }else if(type_val == true){
+						   $('#applied_filter_hosting_landmarks').show();
+						  }
+		 		});
+			//$('#applied_filter_hosting_landmarks').show();
 		}
 		//Property price filter
 		//if filter is not set automatically match
@@ -866,37 +985,43 @@ PWebFilterApp.prototype.get_filters = function() {
 		{
 			
 			if(match_type){
+				that.FiltersCounts['city_results_filtered_temp']++;
+					if(that.count_st==0){
 				that.FiltersCounts['city_results_filtered']++;
 				that.FiltersCounts['prop-types-count-0']++;
-				
-			//return true;
-				}
+			       }
+			  }
 				
 				
 			
 			
 			if((property.propertyType === "Hostel"))
-			{
+			{ 
+				if(that.count_st==0)
 				that.FiltersCounts['prop-types-count-1']++;
 				return true;
 			}
 			else if((property.propertyType === "Hotel"))
 			{
+				if(that.count_st==0)
 				that.FiltersCounts['prop-types-count-2']++;
 				return true;
 			}
 			else if((property.propertyType === "Apartment"))
 			{
+				if(that.count_st==0)
 				that.FiltersCounts['prop-types-count-3']++;
 				return true;
 			}
 			else if((property.propertyType === "Guesthouse"))
 			{
+				if(that.count_st==0)
 				that.FiltersCounts['prop-types-count-4']++;
 				return true;
 			}
 			else if((property.propertyType === "Camping")||((property.propertyType === "Campsite")))
 			{
+				if(that.count_st==0)
 				that.FiltersCounts['prop-types-count-5']++;
 				return true;
 			}
@@ -927,12 +1052,25 @@ PWebFilterApp.prototype.setRequestData = function(json_request_data) {
 PWebFilterApp.prototype.change_price_filter = function(event, ui) {
 	this.PriceFilterMin = ui.values[ 0 ];
 	this.PriceFilterMax = ui.values[ 1 ];
+		if((pweb_filter.PriceRangeMin == this.PriceFilterMin && pweb_filter.PriceRangeMax == this.PriceFilterMax))
+		{
+		$('#applied_filter_hosting_price').hide();
+		}else{
+		$('#applied_filter_hosting_price').show();
+		}
+
 	this.apply_filters();
 };
 
 PWebFilterApp.prototype.change_rating_filter = function(event, ui) {
 	this.RatingFilterMin = ui.values[ 0 ];
 	this.RatingFilterMax = ui.values[ 1 ];
+		if((pweb_filter.RatingRangeMin == this.RatingFilterMin && pweb_filter.RatingRangeMax == this.RatingFilterMax))
+		{
+		$('#applied_filter_hosting_rating').hide();
+		}else{
+		$('#applied_filter_hosting_rating').show();
+		}
 	this.apply_filters();
 };
 
@@ -1181,6 +1319,28 @@ function setup_filters(data)
 			});
 	
 }
+
+function closeFilter(type) {
+	that = this;
+	switch(type)
+	{
+		case 'price':
+			$( "#slider_price" ).slider({values: [ pweb_filter.PriceRangeMin, pweb_filter.PriceRangeMax ]});
+			break;
+		case 'rating':
+			$( "#slider_rating" ).slider({values: [ pweb_filter.RatingRangeMin, pweb_filter.RatingRangeMax ]});
+			break;
+		default:	
+			$('input[name^='+type+']').each(function(){
+				$(this).attr('checked',false);
+			});
+			if (type == 'facilities') $("#breakfast_2nd_filter").attr('checked',false);
+			if (type == 'landmarks') $("#downtown_2nd_filter").attr('checked',false);
+			break;
+	}
+	pweb_filter.apply_filters();
+}
+
 $(document).ready(function() { 
 
 	pweb_filter = new PWebFilterApp();
