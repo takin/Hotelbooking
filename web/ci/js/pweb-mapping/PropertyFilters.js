@@ -1330,6 +1330,11 @@ function closeFilter(type) {
 		case 'rating':
 			$( "#slider_rating" ).slider({values: [ pweb_filter.RatingRangeMin, pweb_filter.RatingRangeMax ]});
 			break;
+		case 'prop_types':
+			$('input[name^='+type+']').each(function(){
+				$(this).attr('checked',true);
+			});
+			break;
 		default:	
 			$('input[name^='+type+']').each(function(){
 				$(this).attr('checked',false);
