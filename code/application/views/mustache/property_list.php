@@ -43,6 +43,9 @@
                     title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
                     <strong>{{overall_rating}} %</strong>
                 </span>
+                <span class="averageRatingCaption">
+                    <?php echo _("Average rating"); ?>
+                </span>
             </li>
 		</ul>
 		{{/overall_rating}}
@@ -54,7 +57,9 @@
             ?>
             <div class="propertyRatingsContainer">
                 <h3>
-                    <?php echo _("évaluation moyenne");?> {{overall_rating}} %
+                    <?php echo _("évaluation moyenne") . " - " .
+                        _("As rated by bookers like you") . ": "; ?> 
+                    {{overall_rating}} %
                 </h3>
                 <?php foreach ($ratingCategories as $ratingCategory): ?>
                     <div class="bar-back group">
@@ -65,7 +70,7 @@
                                 $ratingCategory . ".png";?>
                         <img alt="" src="<?php echo $imgSrcUrl; ?>"/>
                         <span class="rating-cat">
-                            <?php echo ucfirst($ratingCategory); ?>
+                            <?php echo ucfirst(_($ratingCategory)); ?>
                         </span>
                         <span class="rating-value">
                             {{<?php echo $ratingCategory; ?>}} %
