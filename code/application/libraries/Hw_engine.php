@@ -840,7 +840,7 @@ class Hw_engine {
     if($api[0]==true)
     {
       //API return error
-      log_message('error', 'HW API returned an error ('.$api[0].')');
+      log_message('error', 'HW API returned an error ('.$api[0].') for property '.$property_number);
       throw new Exception("api returned error");
     }
     else
