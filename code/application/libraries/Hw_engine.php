@@ -617,30 +617,11 @@ class Hw_engine {
       $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
       $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
           base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-
-	   switch($data['propertyType'][$prop["propertyNumber"]])
-	   {
-		   	case 'Hostel':
-		   				$propertyType = gettext('Auberges de jeunesse');
-						break;
-		  	case 'Hotel':
-		   				$propertyType = gettext('Hôtels pas chers');
-						break;
-			case 'Guesthouse':
-		   				$propertyType = gettext('Chambres - B&B - Pensions');
-						break;
-			case 'Apartment':
-		   				$propertyType = gettext('Appartements');
-						break;
-			case 'Campsite':
-		   				$propertyType = gettext('Camping');
-						break;
-			default:
-					$propertyType = $data['propertyType'][$prop["propertyNumber"]];
-		   
-	   }
 	   
-	   $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
+	   // -------Translate the propertyType----------------------------------//
+	    $this->CI->load->model('Db_term_translate');	
+	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
+	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
        $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name		   
 	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {

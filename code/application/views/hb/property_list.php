@@ -55,15 +55,18 @@
 				//Short description display
 				if(!empty($hostel["shortdescriptionTranslated"]))
 				{
-					echo '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hb_description.'">'.htmlspecialchars(strip_tags(word_limiter($hostel["shortdescriptionTranslated"], 40, "..."))).'</span>';
+				     $short_de=domain_name_replace($hostel["shortdescriptionTranslated"]);
+					echo '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hb_description.'">'.htmlspecialchars(strip_tags(word_limiter($short_de, 40, "..."))).'</span>';
 				}
 				elseif(!empty($hostel["introTranslated"]))
 				{
-					echo '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hb_description.'">'.htmlspecialchars(strip_tags(word_limiter($hostel["introTranslated"], 40, "..."))).'</span>';
+				    $short_de=domain_name_replace($hostel["introTranslated"]);
+					echo '<span class="tooltip" title="'._("VERSION ORIGINALE :").' '.$hb_description.'">'.htmlspecialchars(strip_tags(word_limiter($short_de, 40, "..."))).'</span>';
 				}
 				else
 				{
-					echo $hb_description;
+				    $short_de=domain_name_replace($hb_description);
+					echo $short_de;
 				}
 				?>
 

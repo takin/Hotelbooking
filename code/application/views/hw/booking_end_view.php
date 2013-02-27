@@ -195,7 +195,7 @@
 		
 					<p class="conf-detail"><?php echo _("Adresse");?>:
 							<span><?php echo $booking->PropertyDetails->address;?></span>
-							<span><?php echo $booking->PropertyDetails->city;?>, <?php echo $booking->PropertyDetails->state;?></span>
+							<span><?php if(!empty($booking->PropertyDetails->city)){ echo $booking->PropertyDetails->city.',';}?><?php echo $booking->PropertyDetails->state;?></span>
 							<span><?php echo $booking->PropertyDetails->postCode;?></span>
 					</p>
 		

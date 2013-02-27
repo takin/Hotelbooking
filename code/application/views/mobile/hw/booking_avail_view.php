@@ -93,7 +93,8 @@
   					<li>
               <label for="search-night"><?php echo _('Nuits:');?></label><br />
 							<?php
-              select_nights('',"search-night","search-night",$numNights);
+							$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+              select_nights('',"search-night","search-night",$numNights, $hb_api_used);
               ?>
 						</li>
             <li class="reduce"><label for="search-currency"><?php echo _("Devise:");?></label><br />

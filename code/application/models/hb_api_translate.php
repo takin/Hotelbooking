@@ -140,17 +140,23 @@ class Hb_api_translate extends CI_Model
       foreach($hbresults["response"] as $hostel)
       {
         //TONOTICE The detected langage by google is not really reliable because de description is to short
-        if($gtrans["responseData"][$i]["responseStatus"] == 200)
+        if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
         {
           if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
           {
             $hbresults["response"][$i]["shortdescriptionTranslated"] = html_entity_decode($gtrans["responseData"][$i]["responseData"]["translatedText"],ENT_QUOTES);
           }
         }
-        else
+        else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
         {
           $hbresults["response"][$i]["shortdescriptionTranslatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
           log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_LocationAvailability: " .current_url()." -> [shortDescription] -> ".$hbresults["response"][$i]["shortdescriptionTranslatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
+        }
+        else
+        {
+          $hbresults["response"][$i]["shortdescriptionTranslatedError"] = "Translation error no status: no details";
+          log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_LocationAvailability: " .current_url()." -> [shortDescription] -> ".$hbresults["response"][$i]["shortdescriptionTranslatedError"]. " | google status -> no status");
+
         }
         $i++;
       }
