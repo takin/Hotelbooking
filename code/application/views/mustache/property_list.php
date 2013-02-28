@@ -1,5 +1,6 @@
 {{#properties}}
 <div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" rel="{{propertyNumber}}">
+    <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
 			<li class="first ui-tabs-selected">
@@ -109,6 +110,23 @@
 					<p class="minnight">{{minNightsMessage}}</p>
 					{{/isMinNightNeeded}}
 				</div>
+                            <div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" 
+                                 name="city_hostel_districts_{{propertyNumber}}">
+                            <p>
+                               <span class="city_hostel_districts_district"><?php echo _('Districts');?>:</span>
+                            <span id="city_hostel_districts_values_{{propertyNumber}}" 
+                                  class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
+                            </p> 
+                            </div>
+                            <div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" 
+                                 name="city_hostel_landmarks_{{propertyNumber}}">
+                            <p>
+                               <span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
+                            <span id="city_hostel_landmarks_values_{{propertyNumber}}" 
+                                  class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+                            </p> 
+                            </div>
+                            
 				<div class="amenities group" style="margin-left:120px;">
 					{{#amenities}}
 					{{#to_display}}

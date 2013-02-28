@@ -2336,11 +2336,11 @@ text-align: -moz-center;
 text-align: -khtml-center;
 text-align: -webkit-center;
 }
-/* districts in city page and hostel page */
-.hostel_mapView_districts .city_mapView_districts {
+
+/*  Start districts in city page and hostel page */
+.hostel_mapView_districts , .city_mapView_districts{
      display: block;
      overflow: hidden;
-     white-space: nowrap;
      clear:both;
 }
 
@@ -2351,3 +2351,34 @@ text-align: -webkit-center;
   font-size:15px;
   margin-right:5px;
 }
+
+/*  start districts and landmarks in city page  */
+ 
+.city_hostel_districts , .city_hostel_landmarks{
+          margin-left: 126px;
+}
+
+.city_hostel_districts_district , .city_hostel_landmarks_landmark{
+          font-weight: bold;
+          color: #999999;
+}
+
+ .city_hostel_districts_values , .city_hostel_landmarks_values {
+        color: #999999;
+     }
+     
+/*  End districts and landmarks in city page */
+
+/* start districts and landmarks in  hostel page */
+
+.hostel_districts_district , .hostel_landmarks_landmark{
+          font-weight: bold;
+          color: #999999;
+
+}
+
+ .hostel_districts_values , .hostel_landmarks_values {
+        color: #999999;
+     }
+     
+/*  End districts and landmarks in hostel page  */
