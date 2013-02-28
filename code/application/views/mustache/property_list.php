@@ -4,43 +4,43 @@
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
 			<li class="first ui-tabs-selected">
-                <a id="first_tab_{{propertyNumber}}" class="tab_price" 
+                <a id="first_tab_{{propertyNumber}}" class="tab_price"
                    href="#city_info_{{propertyNumber}}">
                     <?php echo _("Info");?>
                 </a>
             </li>
 			<li>
-                <a class="tab_pic" href="#city_pictures_{{propertyNumber}}" 
+                <a class="tab_pic" href="#city_pictures_{{propertyNumber}}"
                    onClick='display_property_pics("{{propertyNumber}}","{{propertyName}}","property_pics_{{propertyNumber}}");return false;'>
                     <?php echo _('Pictures'); ?>
                 </a>
             </li>
 			<li>
-                <a class="tab_avail" href="#city_avail_{{propertyNumber}}" 
+                <a class="tab_avail" href="#city_avail_{{propertyNumber}}"
                    onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}","city_avail_table_{{propertyNumber}}");return false;'>
                        <?php echo _('Disponibility and Price'); ?>
                 </a>
             </li>
 			{{#isGeoValid}}
 			<li>
-                <a name="city_map_show_property" rel="{{propertyNumber}}" 
-                   class="tab_map box_round" href="#city_map_{{propertyNumber}}" 
+                <a name="city_map_show_property" rel="{{propertyNumber}}"
+                   class="tab_map box_round" href="#city_map_{{propertyNumber}}"
                    title="<?php echo _("Cartes et Directions");?>">
                        <?php echo _("See Map");?>
                 </a>
                 </span>
 			{{/isGeoValid}}
 			<li class="last">
-                <a name="review_show_property" rel="{{propertyNumber}}" 
+                <a name="review_show_property" rel="{{propertyNumber}}"
                    class="tab_review" href="#city_comment_{{propertyNumber}}">
                        <?php echo _('Latest Reviews')?>
                 </a>
-            </li>		
+            </li>
 		</ul>
 		{{#overall_rating}}
 		<ul class="box_round rating">
             <li class="first last" data-propertyNumber="{{propertyNumber}}">
-                <span class="" 
+                <span class=""
                     title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
                     <strong>{{overall_rating}} %</strong>
                 </span>
@@ -55,7 +55,7 @@
             <div class="propertyRatingsContainer">
                 <h3>
                     <?php echo _("évaluation moyenne") . " - " .
-                        _("As rated by bookers like you") . ": "; ?> 
+                        _("As rated by bookers like you") . ": "; ?>
                     {{overall_rating}} %
                 </h3>
                 <?php $ratingCategories = array(
@@ -90,7 +90,7 @@
                     <div class="map_number" id="{{propertyNumber}}">0</div>
                     <a href="{{property_page_url}}">
                         {{#PropertyImages}}
-                        <img alt="" src="{{#PropertyImage}}{{imageURL}}{{/PropertyImage}}" />
+                        <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
                         {{/PropertyImages}}
                     </a>
                     <span class="info_type">{{propertyType}}</span>
@@ -98,35 +98,35 @@
 				<div class="info_indent">
 					<h2>
                         <a href="{{property_page_url}}">
-                            {{propertyName}} 
+                            {{propertyName}}
                             <span style="color: #3087C9; font-size:0.7em;">
                                 ({{propertyTypeTranslate}})
                             </span>
                         </a>
                     </h2>
 					<p class="address">{{address1}} - {{city_name}}</p>
-                    
+
 					{{#isMinNightNeeded}}
 					<p class="minnight">{{minNightsMessage}}</p>
 					{{/isMinNightNeeded}}
 				</div>
-                            <div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" 
+                            <div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}"
                                  name="city_hostel_districts_{{propertyNumber}}">
                             <p>
                                <span class="city_hostel_districts_district"><?php echo _('Districts');?>:</span>
-                            <span id="city_hostel_districts_values_{{propertyNumber}}" 
+                            <span id="city_hostel_districts_values_{{propertyNumber}}"
                                   class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
-                            </p> 
+                            </p>
                             </div>
-                            <div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" 
+                            <div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}"
                                  name="city_hostel_landmarks_{{propertyNumber}}">
                             <p>
                                <span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
-                            <span id="city_hostel_landmarks_values_{{propertyNumber}}" 
+                            <span id="city_hostel_landmarks_values_{{propertyNumber}}"
                                   class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
-                            </p> 
+                            </p>
                             </div>
-                            
+
 				<div class="amenities group" style="margin-left:120px;">
 					{{#amenities}}
 					{{#to_display}}
@@ -149,7 +149,7 @@
 				{{/has_amenities}}
 				<!--missing info with what's include first and than amenities just update it-->
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
-                    			
+
 					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
 					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
 					<div class="group">
@@ -170,7 +170,7 @@
                                 {{/extra}}
                             </ul>
 				</div>
-				  {{/extras}}	
+				  {{/extras}}
 			</div>
 			</div>
 
@@ -205,7 +205,7 @@
   					{{/display_shared_price}}
   					{{#display_private_price}}
   					  <div class="group">
-							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span> 
+							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span>
 							<span class="nbpeople-text"><?php printf( gettext('Private rooms from %s'),'');?></span>
 							<span class="display-currrency">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
 							</span>
