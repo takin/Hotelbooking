@@ -693,6 +693,28 @@ class Hw_engine {
 
       $json_data["property_list"][$i]["overall_rating"] = $json_data["property_list"][$i]["overallHWRating"];
       settype($json_data["property_list"][$i]["overall_rating"],"integer");
+      $json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overallHWRating"]);
+        $json_data["property_list"][$i]["rating"]='';
+
+        if(($json_data["property_list"][$i]["overall_rating"]>59) &&
+            ($json_data["property_list"][$i]["overall_rating"]<70) ) {
+
+            $json_data["property_list"][$i]["rating"] = _("Good");
+        }
+        else if(($json_data["property_list"][$i]["overall_rating"]>69) &&
+                ($json_data["property_list"][$i]["overall_rating"]<80) ) {
+            $json_data["property_list"][$i]["rating"] = _("Very good");
+        }
+        else if(($json_data["property_list"][$i]["overall_rating"]>79) &&
+                ($json_data["property_list"][$i]["overall_rating"]<90) ) {
+            $json_data["property_list"][$i]["rating"] = _("Great");
+        }
+        else if($json_data["property_list"][$i]["overall_rating"]>89) {
+            $json_data["property_list"][$i]["rating"] = _("Fantastic");
+        }
+        else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
+            unset($json_data["property_list"][$i]["overall_rating"]);
+        }
 
       $json_data["property_list"][$i]["isMinNightNeeded"] = false;
       if(isset($prop["minNights"]))
