@@ -293,7 +293,7 @@
 			</div>
 			<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>
 
-	</div>
+</div>
 
 	<script id="template-infow" type="text/html">
 	<?php

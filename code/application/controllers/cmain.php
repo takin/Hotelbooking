@@ -1012,7 +1012,8 @@ class CMain extends I18n_site
           case 'type':
             $dateStart = NULL;
             $numNights = NULL;
-            $filter["type"] = $this->Db_links->get_property_type_term(urldecode($this->uri->segment(4)),$this->site_lang);
+            $filter["type"] = $this->Db_links->get_property_type_term(
+                urldecode($this->uri->segment(4)),$this->site_lang);
             break;
         }
       }
@@ -1025,7 +1026,8 @@ class CMain extends I18n_site
           case 'type':
             $dateStart = NULL;
             $numNights = NULL;
-            $filter["type"] = $this->Db_links->get_property_type_term(urldecode($this->uri->segment(6)),$this->site_lang);
+            $filter["type"] = $this->Db_links->get_property_type_term(
+                urldecode($this->uri->segment(6)),$this->site_lang);
             break;
         }
       }
@@ -1033,7 +1035,8 @@ class CMain extends I18n_site
       {
 	    $this->load->helper('domain_replace_helper');
         $this->load->library('hb_engine');
-        $data = $this->hb_engine->location_search($country, $city, $dateStart, $numNights, FALSE, TRUE, $filter);
+        $data = $this->hb_engine->location_search(
+            $country, $city, $dateStart, $numNights, FALSE, TRUE, $filter);
         if($data === FALSE)
         {
           //cancel any caching
@@ -1101,7 +1104,8 @@ class CMain extends I18n_site
         }
         else
         {
-          $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, false, true, $filter);
+          $data = $this->hw_engine->location_search(
+                $country, $city, $dateStart, $numNights, false, true, $filter);
           if($data === FALSE)
           {
             //cancel any caching
@@ -1132,7 +1136,7 @@ class CMain extends I18n_site
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
             $this->carabiner->js('pweb-mapping/PropertyFilters.js');
             $this->carabiner->js('pweb/libs/GoogleMap.js');
-
+            
             $this->load->view('includes/template',$data);
           }
         }
@@ -1500,25 +1504,19 @@ class CMain extends I18n_site
 
 	$this->_currency_init();
 
-//     $this->output->set_header('Cache-Control: public');
-    //7200 sec = 2 hours
-//     $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+7200).' GMT');
-
     if($this->api_used == HB_API)
     {
       $this->load->library('hb_engine');
       $data = $this->hb_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
       $data = $this->hb_engine->location_json_format($data);
-//       $this->load->view('debug/hb_debug_rome');
     }
     else
     {
       $this->load->library('hw_engine');
       $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
       $data = $this->hw_engine->location_json_format($data);
-//       $this->load->view('debug/debug_view');
     }
-
+    
     $this->load->view('includes/template-json',$data);
   }
 
@@ -1649,21 +1647,21 @@ class CMain extends I18n_site
         }
         $this->load->model('Db_reviews');
 
-        $commentID = $this->Db_reviews->add_property_review($this->input->post('email'),
-                                               $this->input->post('firstname'),
-                                               $this->input->post('lastname'),
-                                               $this->input->post('nationality'),
-                                               $this->input->post('property_number'),
-                                               $this->input->post('property_name'),
-                                               $this->input->post('property_city'),
-                                               $this->input->post('property_country'),
-                                               $this->input->post('property_type'),
-                                               $this->input->post('comment'),
-                                               $rating,
-                                               $this->input->post('year_comment')."-".$this->input->post('month_comment')."-01",
-                                               $_SERVER['REMOTE_ADDR'],
-                                               $_SERVER['HTTP_USER_AGENT']
-                                               );
+        $commentID = $this->Db_reviews->add_property_review(
+            $this->input->post('email'),
+            $this->input->post('firstname'),
+            $this->input->post('lastname'),
+            $this->input->post('nationality'),
+            $this->input->post('property_number'),
+            $this->input->post('property_name'),
+            $this->input->post('property_city'),
+            $this->input->post('property_country'),
+            $this->input->post('property_type'),
+            $this->input->post('comment'),
+            $rating,
+            $this->input->post('year_comment')."-".$this->input->post('month_comment')."-01",
+            $_SERVER['REMOTE_ADDR'],
+            $_SERVER['HTTP_USER_AGENT']);
 
         //Send new review notice to admin
         if($this->config->item('admin_review_conf') > 0)

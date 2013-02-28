@@ -296,55 +296,55 @@ else
 			if (!empty($hostel["ADDRESS"]["COUNTRY"]))echo ', '.var_check($hostel["ADDRESS"]["COUNTRY"],"") ;
 			if (!empty($hostel["ADDRESS"]["ZIP"]))echo ', '.var_check($hostel["ADDRESS"]["ZIP"],"") ;?>
 		</p>
-                   <?php  
-                        if (is_array($district_info) && !empty($district_info)) 
-                            { ?>
-                      <div id="hostel_districts" class="hostel_districts">
-                        <p>
-                        <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
-                        <span class="hostel_districts_values">
-                            <?php
-                            foreach ($district_info as $key => $district) 
-                                { 
+        <?php  
+             if (is_array($district_info) && !empty($district_info)) 
+                 { ?>
+           <div id="hostel_districts" class="hostel_districts">
+             <p>
+             <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
+             <span class="hostel_districts_values">
+                 <?php
+                 foreach ($district_info as $key => $district) 
+                     { 
 //                                die(var_dump(count($district_info), $key));
-                                echo $district->district_name;
+                     echo $district->district_name;
 
-                                if ( count($district_info) !=  $key+1 ) {
-                                    echo ", ";
-                                }
-                                else{
-                                    echo ".";
-                                }
-                      }//end Foreach  ?> 
-                        </span> 
-                       </p>
-                     </div>            
-                   <?php   }// end if ?>
-                
-                    <?php  
-                        if (is_array($landmarks) && !empty($landmarks)) 
-                            { ?>
-                      <div id="hostel_landmarks" class="hostel_landmarks">
-                        <p>
-                        <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
-                        <span class="hostel_landmarks_values">
-                            <?php
-                            foreach ($landmarks as $key => $landmark) 
-                                { 
+                     if ( count($district_info) !=  $key+1 ) {
+                         echo ", ";
+                     }
+                     else{
+                         echo ".";
+                     }
+           }//end Foreach  ?> 
+             </span> 
+            </p>
+          </div>            
+        <?php   }// end if ?>
+
+         <?php  
+             if (is_array($landmarks) && !empty($landmarks)) 
+                 { ?>
+           <div id="hostel_landmarks" class="hostel_landmarks">
+             <p>
+             <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
+             <span class="hostel_landmarks_values">
+                 <?php
+                 foreach ($landmarks as $key => $landmark) 
+                     { 
 //                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
-                                echo $landmark->landmark_name;
+                     echo $landmark->landmark_name;
 
-                                if ( count($landmarks) !=  $key+1 ) {
-                                    echo ", ";
-                                }
-                                else{
-                                    echo ".";
-                                }
-                      }//end Foreach  ?> 
-                        </span> 
-                       </p>
-                     </div>            
-                   <?php   }// end if ?>
+                     if ( count($landmarks) !=  $key+1 ) {
+                         echo ", ";
+                     }
+                     else{
+                         echo ".";
+                     }
+           }//end Foreach  ?> 
+             </span> 
+            </p>
+          </div>            
+        <?php   }// end if ?>
 
 		<div class="top_info" id="top_info_short">
 			<?php
@@ -806,30 +806,30 @@ else
 					<?php }?>
 					<div class="content_block">
 						<h2><?php echo _("Cartes");?></h2>
-                                                <?php
-                                             if (is_array($district_info) && !empty($district_info))
-                                                 { ?>
-                                                <div id="hostel_mapView_districts" class="hostel_mapView_districts">
-                                                    <p>
-                                             <?php echo _('Districts');?>:
+                        <?php
+                     if (is_array($district_info) && !empty($district_info))
+                         { ?>
+                        <div id="hostel_mapView_districts" class="hostel_mapView_districts">
+                            <p>
+                     <?php echo _('Districts');?>:
 
-                                                 <?php
-                                                 foreach ($district_info as $key => $district)
-                                                     {
-                                                      $checked = "";
+                         <?php
+                         foreach ($district_info as $key => $district)
+                             {
+                              $checked = "";
 
-                                                     if ($key == 0) {
-                                                         $checked = "checked";
-                                                     }
+                             if ($key == 0) {
+                                 $checked = "checked";
+                             }
 
-                                                     ?>
-                                                      <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
-                                                  onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+                             ?>
+                              <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
+                          onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
 
-                                            <?php  }//end Foreach  ?>
-                                       </p>
-                                             </div>
-                                              <?php   }// end if ?>
+                    <?php  }//end Foreach  ?>
+               </p>
+                     </div>
+                      <?php   }// end if ?>
 						<div id="map-wrap" class="margbot20">
 							<div id="map_canvas"></div>
 						</div>
