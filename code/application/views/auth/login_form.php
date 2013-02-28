@@ -5,6 +5,7 @@ $login = array(
 	'value' => set_value('login'),
 	'maxlength'	=> 80,
 	'size'	=> 30,
+	'class' => 'inputsize',
 );
 if ($login_by_username AND $login_by_email) {
 	$login_label = $this->lang->line('auth_field_login');
@@ -17,6 +18,7 @@ $password = array(
 	'name'	=> 'password',
 	'id'	=> 'password',
 	'size'	=> 30,
+	'class' => 'inputsize',
 );
 $remember = array(
 	'name'	=> 'remember',
@@ -52,12 +54,12 @@ $captcha = array(
 		
 		<table>
 				<tr>
-						<td class="first label" valign="middle"><?php echo form_label($login_label, $login['id']); ?></td>
+						<td class="first label1" valign="middle"><?php echo form_label($login_label, $login['id']); ?></td>
 						<td valign="middle"><?php echo form_input($login); ?></td>
 						<td valign="middle" style="color: red;"><?php echo form_error($login['name']); ?><?php echo isset($errors[$login['name']])?$errors[$login['name']]:''; ?></td>
 				</tr>
 				<tr>
-						<td class="first label" valign="middle"><?php echo form_label($this->lang->line('auth_field_password'), $password['id']); ?></td>
+						<td class="first label1" valign="middle"><?php echo form_label($this->lang->line('auth_field_password'), $password['id']); ?></td>
 						<td valign="middle"><?php echo form_password($password); ?></td>
 						<td valign="middle" style="color: red;"><?php echo form_error($password['name']); ?><?php echo isset($errors[$password['name']])?$errors[$password['name']]:''; ?></td>
 				</tr>
