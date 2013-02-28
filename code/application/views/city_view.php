@@ -248,6 +248,35 @@
 							$('#city_results_count').show();
 							$('#city_load').hide();
 							$('#wrap').show();
+                                                        
+                 $('.hostel_list').each(function() {
+                    if($(this).find(".city_hostel_districts_values").html() == "")
+                        {
+                            $(this).find(".city_hostel_districts").hide(); 
+                        }
+                        else
+                        {
+                            // remove last "," from districts
+                            var strDistricts = $(this).find(".city_hostel_districts_values").html();  
+                            strDistricts = strDistricts.slice(0,-2);
+                            $(this).find(".city_hostel_districts_values").html(strDistricts+".");
+                        }
+                        
+                        // remove landmarks if there are no landmarks
+                        // remove extra "," from the end of the values
+                        if($(this).find(".city_hostel_landmarks_values").html() == "")
+                        {
+                            $(this).find(".city_hostel_landmarks").hide(); 
+                        }
+                        else
+                        {
+                            // remove last "," from landmarks
+                            var strDistricts = $(this).find(".city_hostel_landmarks_values").html();  
+                            strDistricts = strDistricts.slice(0,-2);
+                            $(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
+                        }
+                });
+                
 						}
 				});
 
