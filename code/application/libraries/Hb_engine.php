@@ -388,13 +388,13 @@ class Hb_engine {
           $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name,$this->CI->site_lang);
           $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
 
-          $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
+          $tmp_city_landmarks[$i]=strtolower($data['city_landmarks'][$i]->landmark_name);
 
            if(!empty($translation))
           {
             $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
             $data['city_landmarks'][$i]->landmark_name = $translation->translation;
-           $tmp_city_landmarks[$data['city_landmarks'][$i]->landmark_id]=strtolower($data['city_landmarks'][$i]->landmark_name);
+           $tmp_city_landmarks[$i]=strtolower($data['city_landmarks'][$i]->landmark_name);
 
           }
           $tmp_landmarks[$i] = $data['city_landmarks'][$i];
@@ -421,13 +421,13 @@ class Hb_engine {
         {
           $translation = $this->CI->db_translation_cache->get_translation($district->district_name,$this->CI->site_lang);
 
-           $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
+           $tmp_city_districts[$i]=strtolower($data['city_districts'][$i]->district_name);
 
           if(!empty($translation))
           {
             $data['city_districts'][$i]->original_name = $data['city_districts'][$i]->district_name;
             $data['city_districts'][$i]->district_name = $translation->translation;
-            $tmp_city_districts[$data['city_districts'][$i]->district_id]=strtolower($data['city_districts'][$i]->district_name);
+            $tmp_city_districts[$i]=strtolower($data['city_districts'][$i]->district_name);
 
           }
            $tmp_districts[$i] = $data['city_districts'][$i];
@@ -450,23 +450,25 @@ class Hb_engine {
         //translate city amenities
          $tmp_city_name=array();
          $tmp_city=array();
+
         foreach($data['city_amenities'] as $i => $amenity)
         {
 
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
           $data['city_amenities'][$i]->original_name = $amenity->facility_name;
-          $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
+          $tmp_city_name[$i]=strtolower($amenity->facility_name);
           if(!empty($translation))
           {
             $data['city_amenities'][$i]->facility_name = $translation->translation;
-            $tmp_city_name[$amenity->amenity_id]=strtolower($amenity->facility_name);
+            $tmp_city_name[$i]=strtolower($amenity->facility_name);
           }
           $tmp_city[$i] = $data['city_amenities'][$i];
 		}
 
-		/* array data shot by Facilities pramod*/
+		/* array data sorted by Facilities pramod*/
 		if(!empty($tmp_city_name)){
 		sort($tmp_city_name);
+
 		foreach($tmp_city_name as $i=>$val){
 
 			foreach($tmp_city as $j=>$cities_original_data){
@@ -718,16 +720,16 @@ class Hb_engine {
       $json_data["property_list"][$i]['minNights']          = $prop["minlengthofstay"];
       $json_data["property_list"][$i]["Geo"]["Latitude"]    = null;
       $json_data["property_list"][$i]["Geo"]["Longitude"]   = null;
-	  $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_lname_en; // set the city name 
-	  
+	  $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_lname_en; // set the city name
+
 	 // -------Translate the propertyType----------------------------------//
-	   $this->CI->load->model('Db_term_translate');	
+	   $this->CI->load->model('Db_term_translate');
 	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"],$this->CI->site_lang);
 	 //  $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
-	   
+
 	   $json_data["property_list"][$i]['propertyType']       = $json_data["property_list"][$i]["propertyType"];
 	 // get address for each propety from the hostel table
-	  $this->CI->load->model('Db_hb_hostel');	  
+	  $this->CI->load->model('Db_hb_hostel');
 	  $json_data["property_list"][$i]["address1"] = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
 
       if(isset($prop["geo_latitude"]))
@@ -839,7 +841,7 @@ class Hb_engine {
       settype($json_data["property_list"][$i]["overall_rating"],"integer");
       $json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overall_rating"]);
       $json_data["property_list"][$i]["rating"]='';
-      
+
 		    if(($json_data["property_list"][$i]["overall_rating"]>59) && ($json_data["property_list"][$i]["overall_rating"]<70) )
 		    {
 			$json_data["property_list"][$i]["rating"] = _("Good");

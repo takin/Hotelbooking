@@ -13,7 +13,7 @@
 		</ul>
 		{{#overall_rating}}
 		<ul class="box_round rating">
-			<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"><strong class="txt-mid green">{{rating}}</strong><strong>{{overall_rating}} %</strong></span></li>
+			<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>"><strong class="txt-mid green">{{rating}}</strong><strong>&nbsp;{{overall_rating}} %</strong></span></li>
 		</ul>
 		{{/overall_rating}}
 	</nav>
@@ -30,7 +30,7 @@
 				<span class="info_type">{{propertyType}}</span>
 				</div>
 				<div class="info_indent">
-					<h2><a href="{{property_page_url}}">{{propertyName}} <span style="color: #999999; font-size:0.7em;">({{propertyTypeTranslate}})</span></a></h2>
+					<h2><a href="{{property_page_url}}">{{propertyName}} <span style="color: #3087C9; font-size:0.7em;">({{propertyTypeTranslate}})</span></a></h2>
 					<p class="address">{{address1}} - {{city_name}}</p>
 					<!--<p>{{shortDescription}}</p>-->
 					<!--{{#has_amenities}}
@@ -196,6 +196,7 @@
                                <?php echo _('Districts');?>:
                             {{#districts}}
 
+	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
                          <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}"
                          value="{{um_id}}" onclick="GoogleMap.prototype.changeDistrictLayer($(this).val())">{{district_name}}
                      {{/districts}}
@@ -204,7 +205,6 @@
                         <div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
-
     </div>
 </div>
 
