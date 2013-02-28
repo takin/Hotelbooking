@@ -1186,19 +1186,104 @@ class CMain extends I18n_site
  * @access private
  * @param property id
  */
- function _property_cookies_review($property_id)
- {
-	  if(!get_cookie('cookiecount')) // check if count for property already set from 1
-	  {
-            set_cookie('cookiecount', 1);
+ function _property_recently_view($property_id)
+ { 
+	
+	if(empty($_COOKIE['property_view_cookies']))
+	{
+			$cookie_data = array('name'=> 'last_review_count',
+								'value'  => ''
+								);
+			set_cookie($cookie_data);
+	}
+	 
+	 if(!empty($_COOKIE["last_review_count"])) // check if count for property already set from 1
+	  {          
+			$count = $_COOKIE["last_review_count"]; // get last index of cookie array
+			
+			//-----check if we have already last 5 review properties in the cookies array
+			if(!empty($_COOKIE['property_view_cookies']) AND count($_COOKIE['property_view_cookies']) > 4)
+			{							
+				$remove_property_number = $count - 4; //--just remove the first one like FIFO (first in first out )-///					
+				$remove_cookie_data = array(
+									'name'=> 'property_view_cookies['.$remove_property_number.']',
+									'value'  => ''
+							);
+							
+				set_cookie($remove_cookie_data);
+                
+				
+			}
+			// check if the property_id is already in cookie no need to set duplication just return			
+			if(!empty($_COOKIE['property_view_cookies']) AND count($_COOKIE['property_view_cookies']) > 0){
+				
+				if (in_array($property_id, $_COOKIE['property_view_cookies'])) {
+					return TRUE;
+				}
+			}
+			$count = (int)$count + 1;		// increment one
+			$cookie_data = array('name'=> 'last_review_count',
+							'value'  => $count,
+							'expire' => '1209600'
+							);
+			
+			set_cookie($cookie_data);			
+		    
+      } else { // user first review so set the cookie value as 1
+
 			$count = 1;
-      } else {
-
-			$count = get_cookie('cookiecount'); // get last index of cookie array
-			$count = $count + 1;		// increment one
-      }
-
-	 set_cookie(array('name' => 'property['.$count.']', 'value' => $property_id, 'expires' => '1209600')); // expire in 2 weeks
+			$cookie_data = array('name'=> 'last_review_count',
+								'value'  => $count,
+								'expire' => '1209600'
+								);
+    		set_cookie($cookie_data);      
+		}
+		
+		$property_cookie = array('name'=> 'property_view_cookies['.$count.']',
+								'value'  => $property_id,
+								'expire' => '1209600'
+								);
+    		
+	 set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks	 
+	
+ }
+  /*
+ * Remove cookie from the recently reviwed properties
+ * @access private
+ * @param property id
+ */
+ function ajax_review_remove_cookie()
+ {
+	 if(!$this->input->post('property_id'))
+	 {
+		 echo json_encode(array('status'=>false));
+		 return false;
+	 }
+	 
+	 // check if the property_id is  in cookie need to remove it			
+	if (in_array($this->input->post('property_id'), $_COOKIE['property_view_cookies']))
+	{
+		$count = $_COOKIE["last_review_count"]; // get last index of cookie array
+		
+		foreach($_COOKIE["property_view_cookies"] as $key => $value)
+		{
+			if($value == $this->input->post('property_id'))
+			{
+				$property_cookie = array('name'=> 'property_view_cookies['.$key.']',
+										 'value'  => ''
+								);
+    		
+	 			set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks	
+			}
+		}
+		
+		echo json_encode(array('status'=>true)); // cookies succesfully removed
+		return TRUE;
+	}
+	
+		echo json_encode(array('status'=>false)); // cookie not present return false
+		return false;
+	 
  }
 
   function property_reviews($property_id)
@@ -1354,6 +1439,7 @@ class CMain extends I18n_site
 //     $this->hostel_controller = "chostelbk";
     if($this->api_used == HB_API)
     {
+       $this->_property_recently_view($property_number); // set cookies for last reviewed
       //Check if property requested is HW property
       $this->load->model('Db_hw_hostel');
       $poperty_requested_hw = $this->Db_hw_hostel->get_hostel_data_from_number($property_number);
