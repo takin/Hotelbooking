@@ -827,12 +827,12 @@ class Hb_engine {
       {
         $json_data["property_list"][$i]["shortDescription"] = strip_tags(word_limiter($json_data["property_list"][$i]["shortDescription"], 30,"..."));
       }
-
+      
       $json_data["property_list"][$i]["overall_rating"] = $json_data["property_list"][$i]["rating"];
       settype($json_data["property_list"][$i]["overall_rating"],"integer");
       $json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overall_rating"]);
       $json_data["property_list"][$i]["rating"]='';
-
+            
 		    if(($json_data["property_list"][$i]["overall_rating"]>59) && ($json_data["property_list"][$i]["overall_rating"]<70) )
 		    {
 			$json_data["property_list"][$i]["rating"] = _("Good");
@@ -848,7 +848,10 @@ class Hb_engine {
 			else if($json_data["property_list"][$i]["overall_rating"]>89)
 			{
 			$json_data["property_list"][$i]["rating"] = _("Fantastic");
-			}
+			} 
+            else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
+                unset($json_data["property_list"][$i]["overall_rating"]);
+            }
       $json_data["property_list"][$i]["isMinNightNeeded"] = false;
       if(isset($json_data["property_list"][$i]["minNights"]))
       {
@@ -958,7 +961,7 @@ class Hb_engine {
     $data["json_data"] = json_encode($json_data);
     return $data;
   }
-
+  
   function property_images($property_number)
   {
     $this->CI->load->model('Db_hb_hostel');
