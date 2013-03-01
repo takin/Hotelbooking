@@ -84,31 +84,10 @@ class Urban_mapping
 
     //select: one or more of the following are permitted
     //        id,centroid,name,area,country,admin1,geometryTable,start,end,bounds,geometry
-    return $this->fix_charset($this->spatial_query('id,name,area,country,admin1',
+    return $this->spatial_query('id,name,area,country,admin1',
     										 'umi.neighborhoods.geometry',
                          'intersects(range('.$range.'km,{"type":"Point","coordinates":['.$geo_lng.','.$geo_lat.']}))',
-                         'area'));
-  }
-
-  /*
-   * fix charset
-   *
-   * it seems that mysql encode an already utf8 character
-   *
-   * This ensure all encoding are the same and mysql can behave correctly
-   *
-   *  Not sure if this is a long term solution though.
-   */
-  private function fix_charset($response)
-  {
-    if(!empty($response->features))
-    {
-      foreach($response->features as $feature)
-      {
-        $feature->properties->name = utf8_decode($feature->properties->name);
-      }
-    }
-    return $response;
+                         'area');
   }
 }
 ?>
