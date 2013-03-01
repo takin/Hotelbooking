@@ -353,6 +353,9 @@ class Db_hb_city extends CI_Model
     $where_continent = "WHERE ";
     $where_country   = "WHERE ";
     if(!empty($country_name))
+   $country_name = addslashes($country_name);
+
+    if(!empty($country_name))
     {
       $where_country .= "hb_country_name = IFNULL((SELECT `country_en` FROM cities2 WHERE LOWER(cities2.`country_$lang`) LIKE LOWER('$country_name') LIMIT 1), '$country_name')";
       $where_country .= " OR country_system_name = IFNULL((SELECT `country_en` FROM cities2 WHERE LOWER(cities2.`country_$lang`) LIKE LOWER('$country_name') LIMIT 1), '$country_name')";
