@@ -85,7 +85,7 @@
 	if(!empty($_COOKIE['property_view_cookies']))
 	{ ?>
     <div class="box_content box_round group rating_bars">	       
-        <span class="title"><?php echo _('Recently Viewed')?></span>
+        <span class="title" style="margin-bottom: 12px;"><?php echo _('Recently Viewed')?></span>
         <div class="bar-rating">        
         <?php 
 		foreach($_COOKIE["property_view_cookies"] as $name => $value)
