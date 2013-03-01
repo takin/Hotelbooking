@@ -8,7 +8,7 @@ $bookBookFeeField      = $bookCurrency."BookingFee";
 $bookBillTotalField    = $bookCurrency."BillTotal";
 $bookAmountDueField    = $bookCurrency."AmountDue";
 $isCustomCurrency      = (strcasecmp($settleCurrency,$bookCurrency)!=0);
-$SPACE = '&nbsp';
+$SPACE = '&nbsp;';
 ?>
 
 <?php // Sidebar ?>
@@ -270,7 +270,7 @@ $SPACE = '&nbsp';
                   <td>
 
                    <?php if($isCustomCurrency):?>
-                   <?php echo $bookCurSymbol.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
+                   <?php echo $bookCurSymbol.$SPACE.number_format((float)($room->$bookRoomPriceField)*($room->beds),2,'.','');?>
                    <?php else:?>
                    <?php echo $cur.$SPACE;?><?php echo number_format((float)($room->priceSettle)*($room->beds),2,'.','');?>
                    <?php endif;?>
