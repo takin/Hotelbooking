@@ -1290,9 +1290,7 @@ class CMain extends I18n_site
   {
     //allow browser cache  24 hours
     $this->output->set_header('Cache-Control: public');
-    $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');
-
-    $this->_property_cookies_review($property_id); // set cookies for last reviewed
+    $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');    
 
 	if($this->api_used == HB_API)
     {
