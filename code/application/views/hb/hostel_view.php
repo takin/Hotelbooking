@@ -461,6 +461,30 @@ else
 			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
 			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
+					<?php if(!empty($hostel["RATING"]))
+					{
+								$rating ='';
+								if(($hostel["RATING"]>59) && ($hostel["RATING"]<70) )
+					            {
+					                   $rating = _("Good");
+					            }
+					            elseif(($hostel["RATING"]>69) && ($hostel["RATING"]<80) )
+					            {
+				                       $rating = _("Very good");
+					            }
+					            elseif(($hostel["RATING"]>79) && ($hostel["RATING"]<90) )
+					            {
+					                   $rating = _("Great");
+					            }
+					            elseif(($hostel["RATING"]>89))
+					            {
+					                   $rating = _("Fantastic");
+					            }
+					?>
+						<ul class="box_round rating">
+						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong></span></li>
+						</ul>
+					<?php }?>
 	</nav>
 	<div class="box_content box_round group hostel_info ui-tabs">
 		<div id="hostel_info_home" class="hostels_tab_content">
