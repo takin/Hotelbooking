@@ -1033,8 +1033,8 @@ class Cron extends I18n_site
 
     foreach ($properties as $property)
     {
-      if(empty($property->geo_latitude) || $property->geo_latitude<-90 || $property->geo_latitude>90
-      		|| empty($property->geo_longitude) || $property->geo_longitude<-180 || $property->geo_longitude>180
+      if($property->geo_latitude<-90 || $property->geo_latitude>90
+      		|| $property->geo_longitude<-180 || $property->geo_longitude>180
       		|| ($property->geo_latitude==0 && $property->geo_longitude==0))
       {
         $this->code_tracker->feed_trace(code_tracker::FEED_INFO,"CRON Cannot update districts for HW property ".$property->property_number.' ('.$property->geo_latitude.','.$property->geo_longitude.')');
@@ -1092,8 +1092,8 @@ class Cron extends I18n_site
 
     foreach ($properties as $property)
     {
-      if(empty($property->geo_latitude) || $property->geo_latitude<-90 || $property->geo_latitude>90
-      		|| empty($property->geo_longitude) || $property->geo_longitude<-180 || $property->geo_longitude>180
+      if($property->geo_latitude<-90 || $property->geo_latitude>90
+      		|| $property->geo_longitude<-180 || $property->geo_longitude>180
       		|| ($property->geo_latitude==0 && $property->geo_longitude==0))
       {
         $this->code_tracker->feed_trace(code_tracker::FEED_INFO,"CRON Cannot update districts for HB property ".$property->property_number.' ('.$property->geo_latitude.','.$property->geo_longitude.')');
