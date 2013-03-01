@@ -202,6 +202,17 @@
                      {{/districts}}
                             </p>
                          </div>
+                        <div class="city_mapView_landmarks" id="divLandmark_{{propertyNumber}}" name="divLandmark_{{propertyNumber}}">
+                            <p>
+                               <?php echo _('Landmarks (within 2km)');?>:
+                            {{#landmarks}}
+
+	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
+                         <input type="radio" name="landmark_selection" id="landmark_{{propertyNumber}}"
+                         value="{{geo_latitude}}###{{geo_longitude}}" onclick="GoogleMap.prototype.changeLandmarkLayer($(this).val())">{{translation_name}}
+                     {{/landmarks}}
+                            </p>
+                         </div>
                         <div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>

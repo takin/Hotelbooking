@@ -2326,3 +2326,11 @@ text-align: -webkit-center;
      }
      
 /*  End districts and landmarks in hostel page  */
+
+/*  Start landmarks in city page and hostel page */
+.hostel_mapView_landmarks , .city_mapView_landmarks{
+     display: block;
+     overflow: hidden;
+     clear:both;
+}
+/*  End landmarks in city page and hostel page */
