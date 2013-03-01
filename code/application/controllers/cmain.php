@@ -1189,62 +1189,52 @@ class CMain extends I18n_site
  function _property_recently_view($property_id)
  { 
 	
-	if(empty($_COOKIE['property_view_cookies']))
-	{
-			$cookie_data = array('name'=> 'last_review_count',
-								'value'  => ''
-								);
-			set_cookie($cookie_data);
-	}
-	 
-	 if(!empty($_COOKIE["last_review_count"])) // check if count for property already set from 1
-	  {          
-			$count = $_COOKIE["last_review_count"]; // get last index of cookie array
-			
-			//-----check if we have already last 5 review properties in the cookies array
-			if(!empty($_COOKIE['property_view_cookies']) AND count($_COOKIE['property_view_cookies']) > 4)
-			{							
-				$remove_property_number = $count - 4; //--just remove the first one like FIFO (first in first out )-///					
-				$remove_cookie_data = array(
-									'name'=> 'property_view_cookies['.$remove_property_number.']',
-									'value'  => ''
-							);
-							
-				set_cookie($remove_cookie_data);
-                
-				
-			}
-			// check if the property_id is already in cookie no need to set duplication just return			
-			if(!empty($_COOKIE['property_view_cookies']) AND count($_COOKIE['property_view_cookies']) > 0){
-				
-				if (in_array($property_id, $_COOKIE['property_view_cookies'])) {
-					return TRUE;
-				}
-			}
-			$count = (int)$count + 1;		// increment one
-			$cookie_data = array('name'=> 'last_review_count',
-							'value'  => $count,
-							'expire' => '1209600'
-							);
-			
-			set_cookie($cookie_data);			
-		    
-      } else { // user first review so set the cookie value as 1
-
-			$count = 1;
-			$cookie_data = array('name'=> 'last_review_count',
-								'value'  => $count,
-								'expire' => '1209600'
-								);
-    		set_cookie($cookie_data);      
-		}
-		
-		$property_cookie = array('name'=> 'property_view_cookies['.$count.']',
+	if (!isset($_COOKIE['last_review_property'])) //-- check if user first time viewing the property
+    {    
+		$property_cookie = array('name'=> 'last_review_property',
 								'value'  => $property_id,
-								'expire' => '1209600'
+								'expire' => time()+1209600,
+                                'path'  => '/'
 								);
     		
-	 set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks	 
+	   set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
+       return;	 	
+	}else{
+	   
+       
+       $cookieArray = explode(",", $_COOKIE['last_review_property']);//-- the propery id is already in cookie
+       if(in_array($property_id,  $cookieArray))
+        {
+	       return TRUE; // property is already in cookie string
+	    }
+        
+        // --- check we have already 5 cookies set------////
+        if(count($cookieArray) >= 5)
+        {
+            //-- unset the first cookie and set the last one viewd----//
+            $cookieArray[0] = $property_id;
+            $new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
+            
+            $property_cookie = array('name'=> 'last_review_property',
+							'value'  =>  $new_cookie_array,
+							'expire' => time()+1209600,
+                            'path'  => '/'
+							);
+		
+            set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
+            
+        }else
+        {
+        	$get_last_cookie = $_COOKIE['last_review_property']; // so get last commad seperated values
+            $property_cookie = array('name'=> 'last_review_property',
+							'value'  => $get_last_cookie.','.$property_id, // set it by comma seperated
+							'expire' => time()+1209600,
+                            'path'  => '/'
+							);
+		
+            set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
+        }
+	}
 	
  }
   /*
@@ -1260,22 +1250,30 @@ class CMain extends I18n_site
 		 return false;
 	 }
 	 
-	 // check if the property_id is  in cookie need to remove it			
-	if (in_array($this->input->post('property_id'), $_COOKIE['property_view_cookies']))
-	{
-		$count = $_COOKIE["last_review_count"]; // get last index of cookie array
+	 // converted cookies string to array
+     $cookieArray = explode(",", $_COOKIE['last_review_property']);
+     			
+	if (in_array($this->input->post('property_id'), $cookieArray))
+	{		
 		
-		foreach($_COOKIE["property_view_cookies"] as $key => $value)
+        foreach($cookieArray as $key => $value) // loop to remove the proper property from cooki
 		{
-			if($value == $this->input->post('property_id'))
-			{
-				$property_cookie = array('name'=> 'property_view_cookies['.$key.']',
-										 'value'  => ''
-								);
-    		
-	 			set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks	
+			if($value == $this->input->post('property_id')) // propery id match in the cookies
+			{				
+                	$cookieArray[$key] = '';
 			}
 		}
+        
+        $new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
+        
+       // make new cookies array/////////////
+        $property_cookie = array('name'=> 'last_review_property',
+						'value'  =>  $new_cookie_array,
+						'expire' => time()+1209600,
+                        'path'  => '/'
+						);
+	
+        set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
 		
 		echo json_encode(array('status'=>true)); // cookies succesfully removed
 		return TRUE;
@@ -1602,6 +1600,15 @@ class CMain extends I18n_site
     }
     
     $this->load->view('includes/template-json',$data);
+  }
+  
+   /*
+   * ajax_location_avail function to update location available properties list by ajax
+   */
+  function ajax_recently_viewed_property()
+  {
+    $this->load->model('Db_hb_hostel');
+    $this->load->view('includes/recent_property_view_cookie');
   }
 
   function property_rooms_avail()
