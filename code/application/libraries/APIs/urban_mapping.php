@@ -4,6 +4,7 @@
  *
  * Urban_mapping Rest API library for code igniter
  *
+ * @author    Louis-Michel Raynauld
  * @version   0.1
  * @license   Commercial
  * $reference: http://developer.urbanmapping.com/docs/mapfluence/js/2.0/guides
@@ -83,10 +84,31 @@ class Urban_mapping
 
     //select: one or more of the following are permitted
     //        id,centroid,name,area,country,admin1,geometryTable,start,end,bounds,geometry
-    return $this->spatial_query('id,name,area,country,admin1',
+    return $this->fix_charset($this->spatial_query('id,name,area,country,admin1',
     										 'umi.neighborhoods.geometry',
                          'intersects(range('.$range.'km,{"type":"Point","coordinates":['.$geo_lng.','.$geo_lat.']}))',
-                         'area');
+                         'area'));
+  }
+
+  /*
+   * fix charset
+   *
+   * it seems that mysql encode an already utf8 character
+   *
+   * This ensure all encoding are the same and mysql can behave correctly
+   *
+   *  Not sure if this is a long term solution though.
+   */
+  private function fix_charset($response)
+  {
+    if(!empty($response->features))
+    {
+      foreach($response->features as $feature)
+      {
+        $feature->properties->name = utf8_decode($feature->properties->name);
+      }
+    }
+    return $response;
   }
 }
 ?>
