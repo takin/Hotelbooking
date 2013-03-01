@@ -1208,8 +1208,8 @@ class CMain extends I18n_site
 	       return TRUE; // property is already in cookie string
 	    }
         
-        // --- check we have already 5 cookies set------////
-        if(count($cookieArray) >= 5)
+        // --- check we have already number of cookies set------////
+        if(count($cookieArray) >= $this->config->item('recent_view_number_cookies'))
         {
             //-- unset the first cookie and set the last one viewd----//
             $cookieArray[0] = $property_id;
@@ -1266,6 +1266,8 @@ class CMain extends I18n_site
         
         $new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
         
+       $new_cookie_array = ltrim($new_cookie_array, ','); // just remove the first empty comma
+       $new_cookie_array = rtrim($new_cookie_array, ','); // just remove the last empty comma
        // make new cookies array/////////////
         $property_cookie = array('name'=> 'last_review_property',
 						'value'  =>  $new_cookie_array,

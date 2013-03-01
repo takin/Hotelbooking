@@ -1,9 +1,12 @@
  <?php 
-	// if cookies set show Recent viewed widget///
-	if(!empty($_COOKIE['last_review_property']))
-	{ ?>
+	//------------check to display the box or not
+    if($this->config->item('recent_view_number_cookies') > 0 )
+    {
+    	// if cookies set show Recent viewed widget///
+        if(!empty($_COOKIE['last_review_property']))
+    	{ ?>
     <div class="box_content box_round group rating_bars">	       
-        <span class="title" style="margin-bottom: 12px;"><?php echo _('Recently Viewed')?></span>
+        <span class="title" style="margin-bottom: 12px;"><?php echo _('Recently Viewed')?> <?php printf(gettext(" (last %d)"), $this->config->item('recent_view_number_cookies'));?></span>
         <div class="bar-rating">        
         <?php 
          $cookieArray = explode(",", $_COOKIE['last_review_property']);
@@ -60,4 +63,5 @@
 			});
 			</script> 
     </div>
-    <?php }?>
+    <?php }
+    }?>

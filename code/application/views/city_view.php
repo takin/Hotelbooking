@@ -117,7 +117,10 @@
 		</div>
 	</div>
 	<?php }?>
-         <?php 
+ <?php 
+        //------------check to display the box or not
+    if($this->config->item('recent_view_number_cookies') > 0 )
+    {
 	// if cookies set show Recent viewed widget///
 	if($this->api_used == HB_API)
     {?>
@@ -125,7 +128,7 @@
 	<script type="text/javascript">
 			$(document).ready(function(){
 				$.ajax({
-						type:"GET",
+						type:"POST",
                         cache: false,
 						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
 						success:function(retdata)
@@ -138,7 +141,8 @@
 
 			});
     </script>	
-    <?php }?>
+    <?php }
+    }?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/siteinfo'); ?>
