@@ -174,8 +174,6 @@
 								{
 									return false;
 								}
-							}, error:function(jqXHR, textStatus, errorThrown)	{
-								alert(textStatus);
 							}
 						});
 					
