@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/livevalidation_standalone.compressed.js" charset="UTF-8"></script>
+
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<a id="back_to_results" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
