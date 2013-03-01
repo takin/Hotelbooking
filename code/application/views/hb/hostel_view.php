@@ -37,7 +37,7 @@
 
 
 		<div class="bar-back group">
-			<div class="bar-top green"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
+			<div class="bar-top yellow"<?php if(!empty($rating_value)){?> style="width:<?php echo $rating_value?>%"<?php }?>></div>
 			<img alt="" src="<?php echo base_url();?>images/rating-<?php echo $rating_category;?>.png"/>
 			<span class="rating-cat">
 			<?php
@@ -83,7 +83,30 @@
 	</div>
 	<?php } //end if for display rating if non empty?>
 
+    <?php 
+        //------------check to display the box or not
+    if($this->config->item('recent_view_number_cookies') > 0 )
+    {?>
+    <div id="recently_viewed_properties" style="display: none;"></div>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$.ajax({
+						type:"POST",
+                        cache: false,
+						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
+						success:function(retdata)
+						{							
+							$('#recently_viewed_properties').show();
+							$('#recently_viewed_properties').html(retdata);
+                
+						}
+				});
 
+			});
+    </script>	
+    <?php 
+    }?>
+    
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
@@ -298,7 +321,55 @@ else
 			if (!empty($hostel["ADDRESS"]["COUNTRY"]))echo ', '.var_check($hostel["ADDRESS"]["COUNTRY"],"") ;
 			if (!empty($hostel["ADDRESS"]["ZIP"]))echo ', '.var_check($hostel["ADDRESS"]["ZIP"],"") ;?>
 		</p>
+        <?php  
+             if (is_array($district_info) && !empty($district_info)) 
+                 { ?>
+           <div id="hostel_districts" class="hostel_districts">
+             <p>
+             <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
+             <span class="hostel_districts_values">
+                 <?php
+                 foreach ($district_info as $key => $district) 
+                     { 
+//                                die(var_dump(count($district_info), $key));
+                     echo $district->district_name;
 
+                     if ( count($district_info) !=  $key+1 ) {
+                         echo ", ";
+                     }
+                     else{
+                         echo ".";
+                     }
+           }//end Foreach  ?> 
+             </span> 
+            </p>
+          </div>            
+        <?php   }// end if ?>
+
+         <?php  
+             if (is_array($landmarks) && !empty($landmarks)) 
+                 { ?>
+           <div id="hostel_landmarks" class="hostel_landmarks">
+             <p>
+             <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
+             <span class="hostel_landmarks_values">
+                 <?php
+                 foreach ($landmarks as $key => $landmark) 
+                     { 
+//                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
+                     echo $landmark->landmark_name;
+
+                     if ( count($landmarks) !=  $key+1 ) {
+                         echo ", ";
+                     }
+                     else{
+                         echo ".";
+                     }
+           }//end Foreach  ?> 
+             </span> 
+            </p>
+          </div>            
+        <?php   }// end if ?>
 
 		<div class="top_info" id="top_info_short">
 			<?php
@@ -419,6 +490,30 @@ else
 			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
 			<li class="last"><a id="tab_comment" class="tab_review" id="hostel-show-commentaries-tab" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
+					<?php if(!empty($hostel["RATING"]))
+					{
+								$rating ='';
+								if(($hostel["RATING"]>59) && ($hostel["RATING"]<70) )
+					            {
+					                   $rating = _("Good");
+					            }
+					            elseif(($hostel["RATING"]>69) && ($hostel["RATING"]<80) )
+					            {
+				                       $rating = _("Very good");
+					            }
+					            elseif(($hostel["RATING"]>79) && ($hostel["RATING"]<90) )
+					            {
+					                   $rating = _("Great");
+					            }
+					            elseif(($hostel["RATING"]>89))
+					            {
+					                   $rating = _("Fantastic");
+					            }
+					?>
+						<ul class="box_round rating">
+						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong></span></li>
+						</ul>
+					<?php }?>
 	</nav>
 	<div class="box_content box_round group hostel_info ui-tabs">
 		<div id="hostel_info_home" class="hostels_tab_content">
@@ -517,8 +612,7 @@ else
 								{
 								$numnights_selected = 2;
 								}
-								$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
-								select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected, $hb_api_used); ?>
+								select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected); ?>
 								</li>
 								<li>
 								<label for="book-property-currency"><?php echo _("Devise:");?></label>
@@ -772,30 +866,30 @@ else
 					<?php }?>
 					<div class="content_block">
 						<h2><?php echo _("Cartes");?></h2>
-                                                <?php  
-                                             if (is_array($district_info) && !empty($district_info)) 
-                                                 { ?>
-                                                <div id="hostel_mapView_districts" class="hostel_mapView_districts">
-                                                    <p>
-                                             <?php echo _('Districts');?>:
-                                             
-                                                 <?php
-                                                 foreach ($district_info as $key => $district) 
-                                                     {
-                                                      $checked = "";
-                          
-                                                     if ($key == 0) {
-                                                         $checked = "checked";
-                                                     }
+                        <?php
+                     if (is_array($district_info) && !empty($district_info))
+                         { ?>
+                        <div id="hostel_mapView_districts" class="hostel_mapView_districts">
+                            <p>
+                     <?php echo _('Districts');?>:
 
-                                                     ?>
-                                                      <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
-                                                  onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+                         <?php
+                         foreach ($district_info as $key => $district)
+                             {
+                              $checked = "";
 
-                                            <?php  }//end Foreach  ?>                                        
-                                       </p>
-                                             </div>            
-                                              <?php   }// end if ?>
+                             if ($key == 0) {
+                                 $checked = "checked";
+                             }
+
+                             ?>
+                              <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
+                          onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+
+                    <?php  }//end Foreach  ?>
+               </p>
+                     </div>
+                      <?php   }// end if ?>
 						<div id="map-wrap" class="margbot20">
 							<div id="map_canvas"></div>
 						</div>
@@ -883,12 +977,10 @@ if ($this->uri->segment(4, 0)) {
 }
 ?>
 
-
-
 <div id="share-overlay">
 	<div class="content">
 		<div class="confirmation">
-			<p class="title"><?php echo _('Your message has been sent to'); ?> <span id="email_recipient"></span></p>
+			<p class="title"><?php echo _('Your message has been sent to %s', '<span id="email_recipient"></span>'); ?></p>
 
 			<table>
 				<tr>
@@ -955,11 +1047,11 @@ if ($this->uri->segment(4, 0)) {
 				<input type="hidden" name="property_name" value="<?php echo var_check($property_name, ''); ?>" id="property_name" />
 				<input type="hidden" name="property_number" value="<?php echo var_check($property_number, ''); ?>" id="property_number" />
 
-				<input type="submit" name="submit" id="submit" value="Send email" />
+				<input type="submit" name="submit" id="submit" value="<?php echo _('Send email'); ?>" />
 				<a href="/" id="close-share-overlay"><?php echo _('Close'); ?></a>
 			</div>
 		</form>
 
-		<img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" id="email_show_pdf" style="margin-top: 30px" />
+		<img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="<?php echo _('Share PDF'); ?>" id="email_show_pdf" style="margin-top: 30px" />
 	</div>
 </div> 

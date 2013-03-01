@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-20 17:28+0200\n"
-"PO-Revision-Date: 2013-02-19 22:29+0200\n"
+"PO-Revision-Date: 2013-02-26 21:44+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1447,7 +1446,7 @@ msgstr "Указать даты"
 #: ../code/application/views/city_ajax_view.php:548
 #: ../code/application/views/city_ajax_view.php:638
 msgid "Prix"
-msgstr "Цыне"
+msgstr "Цена"
 
 #: ../code/application/views/mobile/city_view.php:44
 #: ../code/application/views/mobile/hw/hostel_view.php:21
@@ -2652,7 +2651,7 @@ msgid "Are the dates and number of people confirmed or will they change?"
 msgstr "Даты и количество людей утверждены или могут измениться?"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
@@ -2781,7 +2780,7 @@ msgstr ""
 "доступному за 49 дней до даты прибытия."
 
 #: ../code/application/views/restricted/user_group_quote.php:316
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "All card payments incur a 2%% fee and all bank fees are to be paid by the "
 "booking party."
@@ -3188,7 +3187,7 @@ msgstr "Сброс фильтров"
 #: ../code/application/views/city_view.php:31
 #: ../code/application/views/group_request.php:217
 msgid "Price"
-msgstr "Цына"
+msgstr "Цена"
 
 #: ../code/application/views/city_view.php:34
 #: ../code/application/views/helpfile/pofields.php:457
@@ -5659,7 +5658,7 @@ msgstr "Развлечения"
 #: ../code/application/views/helpfile/pofields.php:293
 #, php-format
 msgid "Payer seulement 10%% maintenant"
-msgstr "Сейчас вы оплачиваете только 10%"
+msgstr "Сейчас вы оплачиваете только 10%%"
 
 #: ../code/application/views/helpfile/pofields.php:294
 #, php-format
@@ -6946,9 +6945,9 @@ msgid "Your changes has been saved successfully"
 msgstr "Ваши изменения были успешно сохранены"
 
 #: ../code/application/views/helpfile/pofields.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "Next available property"
-msgstr "Нет комнат в наличии в данном объекте."
+msgstr "Следующие доступные апартаменты"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

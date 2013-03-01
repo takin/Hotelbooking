@@ -6,6 +6,9 @@ $config['displayVelaro'] = FALSE;
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 
+/* user last review properties and saved number of cookies if set ZERO 0 box not display*/
+$config['recent_view_number_cookies'] = 0;
+
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
@@ -22,7 +25,7 @@ $config['companies_strings_to_replace'] = array(
 												"hostelbookers",
 												"hostelworld"
 												);
-												
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

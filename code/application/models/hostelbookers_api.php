@@ -52,6 +52,7 @@ class Hostelbookers_api extends CI_Model {
   var $testmode = 0;
 
   var $tracing = FALSE;
+
   function Hostelbookers_api()
   {
     parent::__construct();
@@ -130,7 +131,7 @@ class Hostelbookers_api extends CI_Model {
   function getCountryList($language_code = "en", $continent_code = "")
   {
     try
-    {
+    { 
 	       $request_time= microtime(true);
       $return = $this->hbapi->getCountryList( $this->apikey, $language_code, $continent_code );
 	       $response_time=microtime(true);
@@ -258,7 +259,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyDataByID($property_number, $language_code = "en")
   {
     try
-    {
+    {  
 	   $request_time= microtime(true);
        log_message('debug', "getPropertyByID ".$property_number." lang:".$language_code);
        $return = $this->hbapi->getPropertyDataByID( $this->apikey, $language_code, $property_number );
@@ -298,7 +299,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyAvailability($property_number, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability( $this->apikey, $language_code, $property_number, $startDate, $numNights, $strCurrencyCode );
            $response_time=microtime(true);
@@ -336,7 +337,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyAvailabilityCalendar($property_number, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    {  
 	   $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailabilityCalendar( $this->apikey, $property_number, $startDate, $numNights, $strCurrencyCode );
            $response_time=microtime(true);
@@ -373,14 +374,14 @@ class Hostelbookers_api extends CI_Model {
   function getLocationAvailability($location_id, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
-	   $request_time= microtime(true);
+    {  
+	    $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-           $response_time=microtime(true);
-	       $total_time = ($response_time - $request_time) * 1000;
-	       $total_time = floor($total_time);
-	       $total_time =  $total_time." ms ";
-       $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
+        $response_time=microtime(true);
+        $total_time = ($response_time - $request_time) * 1000;
+        $total_time = floor($total_time);
+        $total_time =  $total_time." ms ";
+        $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
 
        if($this->tracing)
        {
@@ -411,7 +412,7 @@ class Hostelbookers_api extends CI_Model {
   function getLocationAvailabilityCheapRoom($location_id, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyAvailability5( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
            $response_time=microtime(true);
@@ -445,7 +446,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyPricingPerDate($location_id, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    { 
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing2( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
            $response_time=microtime(true);
@@ -480,7 +481,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyPricing($location_id, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    {  
 	   $request_time= microtime(true);
        $return = $this->hbapi->getPropertyPricing( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
            $response_time=microtime(true);
@@ -517,7 +518,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyRoomPricingPerDate($property_id, $roomsIDs, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "")
   {
     try
-    {
+    { 
 	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyRoomPricing2( $this->apikey, $property_id, $roomsIDs, $startDate, $numNights, $strCurrencyCode, $language_code );
            $response_time=microtime(true);
@@ -545,7 +546,7 @@ class Hostelbookers_api extends CI_Model {
   function getPropertyReviews($property_id, $num_reviews = 25)
   {
     try
-    {
+    { 
 	  $request_time= microtime(true);
       $return = $this->hbapi->getPropertyReviews( $this->apikey, $property_id, $num_reviews );
            $response_time=microtime(true);
@@ -738,7 +739,7 @@ class Hostelbookers_api extends CI_Model {
   {
     $this->hbBookingConnect();
     try
-    {
+    { 
 	  $request_time= microtime(true);
       $return = $this->hbapibooking->getNationalities  ( $this->affiliate_name, $this->apikey, $language_code);
            $response_time=microtime(true);
@@ -797,9 +798,9 @@ class Hostelbookers_api extends CI_Model {
   }
 
   function build_list_url($image_url)
-  {
+    {
     return base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$image_url;
-  }
+    }
 
   function is_thumb_url($image_url)
   {

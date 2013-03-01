@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-20 17:28+0200\n"
-"PO-Revision-Date: 2012-10-13 07:18-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-02-28 22:51+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-Language: French\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: C:\\Users\\Louis-Michel\\workspace_pweb\\auberges"
 "\\trunk\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
@@ -545,7 +545,7 @@ msgstr "30 000 ubytoven a levných hotelů."
 #: ../code/application/views/includes/footer.php:36
 #: ../code/application/views/includes/header.php:888
 msgid "Accueil"
-msgstr "Nové vyhledávání"
+msgstr "Vítejte"
 
 #: ../code/application/views/includes/top_box.php:54
 #: ../code/application/views/includes/footer.php:47
@@ -2608,7 +2608,7 @@ msgstr "Zatím jste nenapsal žádnou recenzi."
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
-msgstr ""
+msgstr "Cenová nabídka podle vašich požadavků - zde je!"
 
 #: ../code/application/views/restricted/user_group_quote.php:66
 #: ../code/application/views/helpfile/pofields.php:205
@@ -2618,7 +2618,7 @@ msgstr "Podrobnosti:"
 
 #: ../code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"
-msgstr ""
+msgstr "Celkový počet lidí ve vaší skupině"
 
 #: ../code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -2626,46 +2626,50 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"Prosím prohlédněte si níže uvedené dočasné příklady ubytování, které je k "
+"dispozici.Můžete-li zodpovědět následující otázky, budeme se maximálně "
+"snažit najít vám perfektní ubytování:"
 
 #: ../code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "Jste spokojeni s níže navrženým typem pokojů?"
 
 #: ../code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "Jaký je váš rozpočet?"
 
 #: ../code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "Potvrzujete data a počty lidí nebo je budete měnit?"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
 #, php-format
 msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
-msgstr ""
+msgstr "Kdy budete připraveni zaplatit 20%% zálohu k zajištění své rezervace ?"
 
 #: ../code/application/views/restricted/user_group_quote.php:150
-#, fuzzy
 msgid "Group booking quote information"
-msgstr "Formulář pro skupinovou rezervaci"
+msgstr "Cenová nabídka pro skupinu"
 
 #: ../code/application/views/restricted/user_group_quote.php:152
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "PROSÍM VEMTE NA VĚDOMÍ,ŽE TOTO NENÍ POTVRZENÁ REZERVACE"
 
 #: ../code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Prosím podívejte se na níže uvedenou nabídku a pro více informací o "
+"ubytovacím zařízení si prohlédněte náš web."
 
 #: ../code/application/views/restricted/user_group_quote.php:160
 #: ../code/application/views/helpfile/pofields.php:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Lůžka pro vaši skupinu jsme dali stranou až do data:"
 
 #: ../code/application/views/restricted/user_group_quote.php:165
 #: ../code/application/views/helpfile/pofields.php:598
@@ -2674,11 +2678,12 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"Po tomto datu budou lůžka uvolněna pro další skupiny,neváhejte tedy s "
+"rezervací!"
 
 #: ../code/application/views/restricted/user_group_quote.php:174
-#, fuzzy
 msgid "Your offers"
-msgstr "Vaše podrobnosti"
+msgstr "Vaše nabídky"
 
 #: ../code/application/views/restricted/user_group_quote.php:196
 #: ../code/application/views/hb/hostel_view.php:613
@@ -2688,46 +2693,48 @@ msgstr "co je v ceně"
 
 #: ../code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Popis pokoje"
 
 #: ../code/application/views/restricted/user_group_quote.php:211
-#, fuzzy
 msgid "Price per Person per Night"
-msgstr "Cena za pokoj (nikoliv za osobu)"
+msgstr "Cena za osobu a noc"
 
 #: ../code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Nabídka vyprší dne"
 
 #: ../code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
-msgstr ""
+msgstr "Nevratná a nepřevoditelná záloha pro zajištění této rezervace"
 
 #: ../code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr ""
+msgstr "Bude-li nabídka přijata, zbylá částka musí být zaplacena do %s"
 
 #: ../code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "Speciální Poznámky"
 
 #: ../code/application/views/restricted/user_group_quote.php:303
-#, fuzzy
 msgid "Important Notes"
-msgstr "Důležité poznámky"
+msgstr "Důležité Poznámky"
 
 #: ../code/application/views/restricted/user_group_quote.php:306
 msgid ""
 "The deposit is to be paid in British pounds as our Worldwide group center is "
 "located in London, England."
 msgstr ""
+"Záloha musí být zaplacena v britských librách, protože naše Worldwide group "
+"center sídlí v Londýně v Anglii."
 
 #: ../code/application/views/restricted/user_group_quote.php:308
 msgid ""
 "The Average price per person per night is for the requested arrival date and "
 "length of stay, actual day-by-day prices may vary."
 msgstr ""
+"Průměrná cena  za osobu a noc platí pro požadovaný den příjezdu a délku "
+"pobytu.Aktuální ceny se mohou den ode dne lišit."
 
 #: ../code/application/views/restricted/user_group_quote.php:310
 msgid ""
@@ -2738,12 +2745,18 @@ msgid ""
 "terms and conditions of any other booking intermediary involved in our "
 "booking."
 msgstr ""
+"Ve všech rezervacích, které pro vás zajišťujeme, vystupujeme pouze jako "
+"agent.U všech rezervací uzavíráte smlouvu s poskytovatelem ubytování nebo "
+"jiných služeb. Na vaši smlouvu se vztahují rezervační podmínky poskytovatele "
+"a podmínky jakéhokoli dalšího prostředníka,který se účastní vaší rezervace."
 
 #: ../code/application/views/restricted/user_group_quote.php:312
 msgid ""
 "Copies of the other applicable terms and conditions are available from us on "
 "request."
 msgstr ""
+"Kopie dalších příslušných všeobecných podmínek jsou u nás k dispozici na "
+"vyžádání."
 
 #: ../code/application/views/restricted/user_group_quote.php:314
 msgid ""
@@ -2751,6 +2764,9 @@ msgid ""
 "Final balance payments will be subject to the exchange rate available 49 "
 "days prior to arrival date."
 msgstr ""
+"Směnný kurz je kalkulován z běžného bankomatového /ATM/ kurzu na www.oanda."
+"com.Konečná částka k zaplacení se řídí kurzem platným 49 dnů přede dnem "
+"příjezdu."
 
 #: ../code/application/views/restricted/user_group_quote.php:316
 #, php-format
@@ -2758,18 +2774,24 @@ msgid ""
 "All card payments incur a 2%% fee and all bank fees are to be paid by the "
 "booking party."
 msgstr ""
+"Všechny platby kartou zahrnují 2%% poplatek a veškeré bankovní poplatky "
+"platí rezervující strana."
 
 #: ../code/application/views/restricted/user_group_quote.php:318
 msgid ""
 "As this is a group booking, group leader will need to be present at check in "
 "and the property may require\ta security bond at check-in."
 msgstr ""
+"Protože se jedná o skupinovou rezervaci, vedoucí skupiny musí být přítomen "
+"při příjezdu do ubytovacího zařízení a může být požádán o složení kauce."
 
 #: ../code/application/views/restricted/user_group_quote.php:325
 msgid ""
 "Unpaid fees or transfer of insufficient funds may lead to cancellation of "
 "your booking."
 msgstr ""
+"Nesplacení poplatků nebo převod nedostatečné peněžní částky může vést ke "
+"zrušení vaší rezervace."
 
 #: ../code/application/views/restricted/user_profile.php:28
 msgid "Votre Profil"
@@ -3505,9 +3527,8 @@ msgstr "Cena za pokoj (nikoliv za osobu)"
 #: ../code/application/views/hw/booking_avail_view.php:385
 #: ../code/application/views/hb/booking_avail_error_view.php:14
 #: ../code/application/views/hb/booking_avail_view.php:295
-#, fuzzy
 msgid "No Beds Found"
-msgstr "Počet lůžek"
+msgstr "Nenalezena žádná lůžka"
 
 #: ../code/application/views/hw/booking_avail_view.php:390
 #: ../code/application/views/hb/booking_avail_error_view.php:21
@@ -3516,6 +3537,8 @@ msgid ""
 "No Beds could be found for your search criteria. Please change your dates "
 "and try again."
 msgstr ""
+"Nebyla nalazena žádná lůžka splňujcí zadaná kritéria.Prosím zmeňte svá data "
+"a zkuste znovu."
 
 #: ../code/application/views/hw/booking_avail_view.php:523
 #: ../code/application/views/hb/booking_avail_view.php:425
@@ -4192,25 +4215,25 @@ msgstr "Dobrý den"
 #: ../code/application/views/helpfile/pofields.php:572
 #, php-format
 msgid "Good news!"
-msgstr ""
+msgstr "Dobrá zpráva!"
 
 #: ../code/application/views/email/admin/new_group_request.php:6
 #: ../code/application/views/helpfile/pofields.php:573
 #, php-format
 msgid "We have found a great offer for your group."
-msgstr ""
+msgstr "Máme pro vaši skupinu výbornou nabídku."
 
 #: ../code/application/views/email/admin/new_group_request.php:8
 #: ../code/application/views/helpfile/pofields.php:574
 #, php-format
 msgid "Please take a look at the attached file for more details."
-msgstr ""
+msgstr "Prosím prohlédněte si podrobnosti v přiložené složce."
 
 #: ../code/application/views/email/admin/new_group_request.php:10
 #: ../code/application/views/helpfile/pofields.php:576
-#, fuzzy, php-format
+#, php-format
 msgid "Please do not hesitate to contact me if you have any questions."
-msgstr "Prosím neváhejte nás opět kontaktovat pokud máte jakékoliv dotazy."
+msgstr "Máte-li dotazy, prosím neváhejte nás kontaktovat"
 
 #: ../code/application/views/email/admin/new_group_request.php:12
 #: ../code/application/views/helpfile/pofields.php:163
@@ -4221,9 +4244,9 @@ msgstr "Upřímně"
 
 #: ../code/application/views/email/admin/new_group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:582
-#, fuzzy, php-format
+#, php-format
 msgid "Customer Service."
-msgstr "Zákaznícká podpora"
+msgstr "Zákaznický Servis."
 
 #: ../code/application/views/email/admin/new_group_request.php:20
 #: ../code/application/views/group_request.php:75
@@ -4286,9 +4309,8 @@ msgid "Your details"
 msgstr "Vaše podrobnosti"
 
 #: ../code/application/views/email/admin/new_group_request.php:43
-#, fuzzy
 msgid "Addresse Email"
-msgstr "E-mailová adresa"
+msgstr "Emailová Adresa"
 
 #: ../code/application/views/email/admin/new_group_request.php:46
 #: ../code/application/views/group_request.php:291
@@ -4453,9 +4475,8 @@ msgid "Single rooms"
 msgstr "Pokoje pro jednotlivce"
 
 #: ../code/application/views/group_request.php:190
-#, fuzzy
 msgid "Twin rooms"
-msgstr "Pokoje pro jednotlivce"
+msgstr "Dvoulůžkové pokoje(oddělené postele"
 
 #: ../code/application/views/group_request.php:191
 msgid "Double rooms"
@@ -4467,13 +4488,13 @@ msgstr "Pokoje pro tři"
 
 #: ../code/application/views/group_request.php:193
 msgid "In the dormss with the group"
-msgstr ""
+msgstr "Skupinové ubytování na koleji/v hostelu"
 
 #: ../code/application/views/group_request.php:200
 #: ../code/application/views/helpfile/pofields.php:568
 #, php-format
 msgid "Total Number of people in your group: %s"
-msgstr ""
+msgstr "Celkový počet lidí ve vaší skupině: %s"
 
 #: ../code/application/views/group_request.php:206
 #: ../code/application/views/group_request.php:212
@@ -4491,6 +4512,8 @@ msgstr "Ne"
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
+"Prosím poskytněte nám vaše telefonní číslo, abychom vám mohli zavolat mezi "
+"16.00 a 19.00 hod."
 
 #: ../code/application/views/group_request.php:279
 #: ../code/application/views/helpfile/pofields.php:564
@@ -4500,18 +4523,20 @@ msgid ""
 "availability, we would need to know the following, when will you be able to "
 "book?"
 msgstr ""
+"Pro velkou poptávku a časové omezení, kdy může být hostel k dispozici "
+"potřebujeme vědět, kdy budeme moci rezervovat."
 
 #: ../code/application/views/group_request.php:282
 #: ../code/application/views/helpfile/pofields.php:565
 #, php-format
 msgid "I just want an idea of the price and property"
-msgstr ""
+msgstr "Chci si jen udělat představu o ceně a ubytovacím zařízení."
 
 #: ../code/application/views/group_request.php:283
 #: ../code/application/views/helpfile/pofields.php:566
 #, php-format
 msgid "Within 1 week or less"
-msgstr ""
+msgstr "Maximálně do týdne"
 
 #: ../code/application/views/group_request.php:296
 #: ../code/application/views/helpfile/pofields.php:88
@@ -5594,9 +5619,9 @@ msgid "Fun"
 msgstr "zábava"
 
 #: ../code/application/views/helpfile/pofields.php:293
-#, fuzzy, php-format
+#, php-format
 msgid "Payer seulement 10%% maintenant"
-msgstr "Platíte pouze 10% nyní"
+msgstr "Platíte pouze 10%% nyní"
 
 #: ../code/application/views/helpfile/pofields.php:294
 #, php-format
@@ -6683,33 +6708,34 @@ msgstr "Záloha bude účtována v Librách.  "
 #: ../code/application/views/helpfile/pofields.php:567
 #, php-format
 msgid "In the dorms with the group"
-msgstr ""
+msgstr "Skupinové ubytování na koleji/v hostelu"
 
 #: ../code/application/views/helpfile/pofields.php:569
 #, php-format
 msgid "Sorry. 10 people minimum for a group quote."
-msgstr ""
+msgstr "Litujeme.10 lidí je minumum pro skupinovou cenu."
 
 #: ../code/application/views/helpfile/pofields.php:570
 #: ../code/application/controllers/cadmin.php:163
-#, fuzzy, php-format
+#, php-format
 msgid "Lunch Pack"
-msgstr "holandština"
+msgstr "Obědový Balíček"
 
 #: ../code/application/views/helpfile/pofields.php:575
 #, php-format
 msgid "To view the offer, you can also click on the link here:"
-msgstr ""
+msgstr "Pro zobrazení nabídky můžete také kliknout na tento odkaz:"
 
 #: ../code/application/views/helpfile/pofields.php:578
 #, php-format
 msgid "I hope you have had time to take a look at the quote for your group."
 msgstr ""
+"Doufám,že jste měli čas podívat se na cenovou nabídku pro vaši skupinu."
 
 #: ../code/application/views/helpfile/pofields.php:579
 #, php-format
 msgid "Do you want a cheaper hostel or or another one in a different area?"
-msgstr ""
+msgstr "Chcete levnější hostel nebo nebo jiný v jiné oblasti?"
 
 #: ../code/application/views/helpfile/pofields.php:580
 #, php-format
@@ -6718,6 +6744,9 @@ msgid ""
 "to another group unfortunately. If you no longer need these beds, please let "
 "us know also right away."
 msgstr ""
+"Dali jsme vaše lůžka stranou.Bohužel, po tomto datu budou dána k dispozici "
+"jiné skupině.Pokud tato lůžka již nepotřebujeme, dejte nám to prosím hned "
+"vědět."
 
 #: ../code/application/views/helpfile/pofields.php:581
 #, php-format
@@ -6725,6 +6754,8 @@ msgid ""
 "We want to make sure you are 100%% satisfied, so do not hesitate to contact "
 "us."
 msgstr ""
+"Chceme se ujistit, že jste 100%% spokojeni,a proto neváhejte a kontaktujte "
+"nás."
 
 #: ../code/application/views/helpfile/pofields.php:583
 #, php-format
@@ -6732,26 +6763,28 @@ msgid ""
 "We are very sorry but the selected hostel is the cheapest we have for your "
 "chosen dates."
 msgstr ""
+"Litujeme,ale vybraný hostel je nejlevnější, který máme pro vás k dispozici v "
+"uvedených datech."
 
 #: ../code/application/views/helpfile/pofields.php:584
 #, php-format
 msgid "Please recontact us later or choose different dates."
-msgstr ""
+msgstr "Prosím kontaktujte nás později nebo vyberte jiné datum."
 
 #: ../code/application/views/helpfile/pofields.php:585
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you."
-msgstr "Děkujeme Vám"
+msgstr "Děkujeme."
 
 #: ../code/application/views/helpfile/pofields.php:586
 #, php-format
 msgid "Can we contact you by phone ?"
-msgstr ""
+msgstr "Můžeme vám zatelefonovat?"
 
 #: ../code/application/views/helpfile/pofields.php:587
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your email."
-msgstr "Děkujeme vám za váš dotaz."
+msgstr "Děkujeme za váš email."
 
 #: ../code/application/views/helpfile/pofields.php:588
 #, php-format
@@ -6759,11 +6792,12 @@ msgid ""
 "We are very sorry but we were not able to find a hostel for you for the "
 "selected date."
 msgstr ""
+"Velice litujeme, ale ve vybraném termínu jsme pro vás nenašli žádný hostel."
 
 #: ../code/application/views/helpfile/pofields.php:589
 #, php-format
 msgid "We apologize for the inconvenience."
-msgstr ""
+msgstr "Omlouváme se za nepříjemnost."
 
 #: ../code/application/views/helpfile/pofields.php:590
 #, php-format
@@ -6772,6 +6806,8 @@ msgid ""
 "every day, we can only provide customized quotes to people who will be "
 "making a decision within 1 week."
 msgstr ""
+"Velice litujeme, ale kvůli vysokému počtu žádostí každý den můžeme poskytnou "
+"uzpůsobené cenové nabídky pouze těm, kdo se rozhodnou do 1 týdne."
 
 #: ../code/application/views/helpfile/pofields.php:591
 #, php-format
@@ -6780,21 +6816,24 @@ msgid ""
 "put together your budget and to recontact us when all details re finalized 1 "
 "week before making your decision."
 msgstr ""
+"Pro sestavení vašeho rozpočtu se prosím podívejte na seznam hostelů a cen na "
+"našem webu a kontakujte nás znovu po upřesnění všech detailů 1 týden před "
+"svým rozhodnutím."
 
 #: ../code/application/views/helpfile/pofields.php:592
 #, php-format
 msgid "We will work very hard to give you the best price at that time."
-msgstr ""
+msgstr "Uděláme vše pro to,abychom vám dali pro tuto chvíli nejlepší cenu."
 
 #: ../code/application/views/helpfile/pofields.php:593
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your trust and support."
-msgstr "Děkujeme vám za váš dotaz."
+msgstr "Děkujeme za vaši důvěru a podporu."
 
 #: ../code/application/views/helpfile/pofields.php:594
-#, fuzzy, php-format
+#, php-format
 msgid "Thank you for your request."
-msgstr "Děkujeme vám za váš dotaz."
+msgstr "Děkujeme za váš dotaz."
 
 #: ../code/application/views/helpfile/pofields.php:595
 #, php-format
@@ -6802,31 +6841,33 @@ msgid ""
 "Due to  a very high number of group requests, it might take up to 1 week to "
 "get back to you as we are looking for the best deal for your group."
 msgstr ""
+"Kvůli velkému počtu skupinových poptávek může trvat až 1 týden, nežli se vám "
+"ozveme,protože se snažíme najít vám co nejvýhodnější nabídku."
 
 #: ../code/application/views/helpfile/pofields.php:596
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your patience."
-msgstr "Děkujeme vám za váš dotaz."
+msgstr "Děkujeme za vaši trpělivost."
 
 #: ../code/application/views/helpfile/pofields.php:599
-#, fuzzy, php-format
+#, php-format
 msgid "We thank you for your group booking."
-msgstr "Děkujeme vám za váš dotaz."
+msgstr "Děkujeme za vaši skupinovou rezervaci."
 
 #: ../code/application/views/helpfile/pofields.php:600
 #, php-format
 msgid "We will shortly send your voucher to the email address on file."
-msgstr ""
+msgstr "Brzy vám pošleme voucher na uvedený email."
 
 #: ../code/application/views/helpfile/pofields.php:601
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "Výborně"
 
 #: ../code/application/views/helpfile/pofields.php:602
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "Skvělé"
 
 #: ../code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -6834,36 +6875,38 @@ msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
 msgstr ""
+"Pro zobrazení všech ubytovacích zařízení k dispozici na mapě zadejte prosím "
+"svá data do boxu vpravo nahoře."
 
 #: ../code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters:"
-msgstr "Přenastav filter"
+msgstr "Vybrané filtry:"
 
 #: ../code/application/views/helpfile/pofields.php:605
 #, php-format
 msgid "Total Number of people in your groups: %s"
-msgstr ""
+msgstr "Celkový počet lidí ve vaší skupině: %s"
 
 #: ../code/application/views/helpfile/pofields.php:606
 #, php-format
 msgid "If the offer is accepted, the balance must be paid by %s"
-msgstr ""
+msgstr "Jestliže je nabídka přijata, musí být částka zaplacena do %s"
 
 #: ../code/application/views/helpfile/pofields.php:607
 #, php-format
 msgid "The request cannot be fulfilled due to bad syntax"
-msgstr ""
+msgstr "Požadavek nemůže být splněn kvůli vadné syntaxi"
 
 #: ../code/application/views/helpfile/pofields.php:608
-#, fuzzy, php-format
+#, php-format
 msgid "Your changes has been saved successfully"
-msgstr "Vaše žádost o podporu byla úspěšně odeslána"
+msgstr "Vaše změny byly úspěšně uloženy"
 
 #: ../code/application/views/helpfile/pofields.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "Next available property"
-msgstr "Žádné pokoje nejsou k dispozici pro toto zařízení."
+msgstr "Následující realita k dispozici"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -6976,19 +7019,16 @@ msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Server je pro tuto chvíli nedosažitelný. Prosím zkuste to znovu."
 
 #: ../code/application/controllers/cadmin.php:22
-#, fuzzy
 msgid "Beds"
-msgstr "Počet lůžek"
+msgstr "Lůžka"
 
 #: ../code/application/controllers/cadmin.php:28
-#, fuzzy
 msgid "Nights"
 msgstr "Noci"
 
 #: ../code/application/controllers/cadmin.php:160
-#, fuzzy
 msgid "Lunch"
-msgstr "holandština"
+msgstr "Oběd"
 
 #: ../code/application/controllers/cron.php:647
 #: ../code/application/controllers/cron.php:696
