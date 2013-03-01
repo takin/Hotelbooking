@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-20 17:28+0200\n"
-"PO-Revision-Date: 2013-02-18 22:01+0200\n"
+"PO-Revision-Date: 2013-02-28 22:32+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -552,7 +551,7 @@ msgstr ""
 #: ../code/application/views/includes/footer.php:36
 #: ../code/application/views/includes/header.php:888
 msgid "Accueil"
-msgstr "Neue Suche"
+msgstr "Willkommen"
 
 #: ../code/application/views/includes/top_box.php:54
 #: ../code/application/views/includes/footer.php:47
@@ -2672,7 +2671,7 @@ msgstr ""
 "ändern?"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
@@ -2804,7 +2803,7 @@ msgstr ""
 "verfügbar 49 Tage vor Anreisedatum."
 
 #: ../code/application/views/restricted/user_group_quote.php:316
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "All card payments incur a 2%% fee and all bank fees are to be paid by the "
 "booking party."
@@ -6975,25 +6974,27 @@ msgstr ""
 "gewünschten Daten in dem Kästchen oben rechts ein."
 
 #: ../code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters:"
-msgstr "Ausgewählte Suchoptionen "
+msgstr "Ausgewählte Suchoptionen:"
 
 #: ../code/application/views/helpfile/pofields.php:605
-#, fuzzy, php-format
+#, php-format
 msgid "Total Number of people in your groups: %s"
-msgstr "Gesamtanzahl der Personen in Ihrer Gruppe: %s"
+msgstr "Gesamtanzahl der Personen in ihrer Gruppe: %s"
 
 #: ../code/application/views/helpfile/pofields.php:606
 #, fuzzy, php-format
 msgid "If the offer is accepted, the balance must be paid by %s"
 msgstr ""
-"Wenn das Angebot angenommen wird, muss der Restbetrage auf % s bezahlt werden"
+"Falls das Angebot akzeptiert wird, muss die Differenz bis zum %s bezahlt "
+"werden"
 
 #: ../code/application/views/helpfile/pofields.php:607
 #, php-format
 msgid "The request cannot be fulfilled due to bad syntax"
 msgstr ""
+"Die Anfrage kann nicht ausgeführt werden aufgrund falscher Satzstellung"
 
 #: ../code/application/views/helpfile/pofields.php:608
 #, php-format
@@ -7001,9 +7002,9 @@ msgid "Your changes has been saved successfully"
 msgstr "Ihre Änderungen wurden erfolgreich gespeichert"
 
 #: ../code/application/views/helpfile/pofields.php:609
-#, fuzzy, php-format
+#, php-format
 msgid "Next available property"
-msgstr "Es stehen keine Zimmer für diese Unterkunft zur Verfügung."
+msgstr "Nächste verfügbare Immobilie"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

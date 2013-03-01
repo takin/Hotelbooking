@@ -189,7 +189,7 @@
 				<div class="left">
 				<?php
 				$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
-    			
+
 				select_nights(_('Nuits:'),"search-night","search-night",$numnights_selected, $hb_api_used);
 				?>
 				</div>
@@ -203,7 +203,7 @@
 			<?php }?>
 
 			<div class="searchcenter">
-			<input onfocus="this.blur()" type="button" name="search-submit" class="box_round button-blue side_submit hoverit" id="search-submit" onclick="goToSearchPage('<?php echo site_url();?>','<?php echo _('Choisir le pays'); ?>','<?php echo _('Pays introuvable'); ?>','<?php echo _('Choisir la ville'); ?>','<?php echo _('Ville introuvable'); ?>','<?php echo _('Date invalide'); ?>','search-country','search-city','datepick','search-night','search-currency','search-custom')" value="<?php echo _('New Search')?>"/>
+			<input onfocus="this.blur()" type="button" name="search-submit" class="box_round button-blue side_submit hoverit" id="search-submit" onclick="goToSearchPage('<?php echo site_url();?>','<?php echo _('Choisir le pays'); ?>','<?php echo _('Pays introuvable'); ?>','<?php echo _('Choisir la ville'); ?>','<?php echo _('Ville introuvable'); ?>','<?php echo _('Date invalide'); ?>','search-country','search-city','datepick','search-night','search-currency','search-custom')" value="<?php echo _('Search Now')?>"/>
 			</div>
 			<?php /*?>
 			<?php //removed for now so it is always showing as expanded ?>
