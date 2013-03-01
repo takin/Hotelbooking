@@ -1602,32 +1602,32 @@ class CMain extends I18n_site
     $errors = array();
 
     if (empty($property_type) || empty($property_name) || empty($property_number)) {
-        $errors[] = 'Not enough parameters';
+        $errors[] = _('Not enough parameters');
     }
 
     if (empty($to_email)) {
-        $errors[] = 'Fill in the email';
+        $errors[] = _('Fill in the email');
     }
     else {
         if (!valid_email($to_email)) {
-            $errors[] = 'Invalid email recipient';
+            $errors[] = _('Invalid email recipient');
         }
     }
     if (empty($subject)) {
-        $errors[] = 'Fill in the subject';
+        $errors[] = _('Fill in the subject');
     }
     if (empty($message)) {
-        $errors[] = 'Fill in the message';
+        $errors[] = _('Fill in the message');
     }
     if (empty($from_name)) {
-        $errors[] = 'Fill in the from name';
+        $errors[] = _('Fill in the "From" name');
     }
     if (empty($from_email)) {
-        $errors[] = 'Fill in the from email';
+        $errors[] = _('Fill in the "From" email');
     }
     else {
         if (!valid_email($from_email)) {
-            $errors[] = 'Invalid from email';
+            $errors[] = _('Invalid "From" email');
         }
     }
 
@@ -1646,7 +1646,8 @@ class CMain extends I18n_site
 
     $pdf_path = null;
 
-    if ($with_pdf) {
+    // don't run this under windows and if it's not required
+    if ($with_pdf && !ISWINDOWS) {
         $string = $property_type . '_' . $property_name;
 
         $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
@@ -1663,8 +1664,12 @@ class CMain extends I18n_site
 	$temp_dir = rtrim($temp_dir, '/');
         $pdf_path = $temp_dir . '/' . $string . '_' . uniqid() . '.pdf';
 
+	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors -l ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
+
+	log_message('debug', $command);
+
         // create PDF
-	system('/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path));
+	system($command);
 
         if (file_exists($pdf_path)) {
             $this->email->attach($pdf_path);
