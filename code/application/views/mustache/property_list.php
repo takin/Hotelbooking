@@ -42,7 +42,7 @@
             <li class="first last" data-propertyNumber="{{propertyNumber}}">
                 <span class=""
                     title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
-                    <strong>{{overall_rating}} %</strong>
+                    <strong class="txt-mid green">{{rating}}</strong><strong>{{overall_rating}} %</strong>
                 </span>
                 <span class="averageRatingCaption">
                     <?php echo _("évaluation moyenne"); ?>
