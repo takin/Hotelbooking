@@ -1237,6 +1237,8 @@ class Db_hw_hostel extends CI_Model
     $this->db->select(self::HW_HOSTEL_LANDMARK_TABLE.".landmark_id");
     $this->db->select(self::LANDMARKS_TABLE.".slug");
     $this->db->select(self::LANDMARKS_TABLE.".landmark_name");
+    $this->db->select(self::LANDMARKS_TABLE.".geo_latitude");
+    $this->db->select(self::LANDMARKS_TABLE.".geo_longitude");
     $this->db->join(self::LANDMARKS_TABLE, self::HW_HOSTEL_LANDMARK_TABLE.'.landmark_id = '.self::LANDMARKS_TABLE.'.landmark_id');
     $this->db->where("property_number",$property_number);
     $this->db->where("source",$landmark_source_id);

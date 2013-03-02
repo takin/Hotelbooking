@@ -234,16 +234,16 @@ endforeach; ?>
 		<?php // Need to show district name, city, country here, like a breakcrumb almost ?>
 		</p>
 
-                 <?php  
-                        if (is_array($district_info) && !empty($district_info)) 
+                 <?php
+                        if (is_array($district_info) && !empty($district_info))
                             { ?>
                       <div id="hostel_districts" class="hostel_districts">
                         <p>
                         <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
                         <span class="hostel_districts_values">
                             <?php
-                            foreach ($district_info as $key => $district) 
-                                { 
+                            foreach ($district_info as $key => $district)
+                                {
 //                                die(var_dump(count($district_info), $key));
                                 echo $district->district_name;
 
@@ -253,22 +253,22 @@ endforeach; ?>
                                 else{
                                     echo ".";
                                 }
-                      }//end Foreach  ?> 
-                        </span> 
+                      }//end Foreach  ?>
+                        </span>
                        </p>
-                     </div>            
+                     </div>
                    <?php   }// end if ?>
-                
-                    <?php  
-                        if (is_array($landmarks) && !empty($landmarks)) 
+
+                    <?php
+                        if (is_array($landmarks) && !empty($landmarks))
                             { ?>
                       <div id="hostel_landmarks" class="hostel_landmarks">
                         <p>
                         <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
                         <span class="hostel_landmarks_values">
                             <?php
-                            foreach ($landmarks as $key => $landmark) 
-                                { 
+                            foreach ($landmarks as $key => $landmark)
+                                {
 //                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
                                 echo $landmark->landmark_name;
 
@@ -278,10 +278,10 @@ endforeach; ?>
                                 else{
                                     echo ".";
                                 }
-                      }//end Foreach  ?> 
-                        </span> 
+                      }//end Foreach  ?>
+                        </span>
                        </p>
-                     </div>            
+                     </div>
                    <?php   }// end if ?>
 
 		<div class="top_info" id="top_info_short">
@@ -386,23 +386,23 @@ endforeach; ?>
 						$rating ='';
 						if(($hostel->rating>59) && ($hostel->rating<70) )
 						{
-						$rating = 'Good';
+						$rating = _("Good");
 			            }
 			            elseif(($hostel->rating>69) && ($hostel->rating<80) )
 			            {
-						$rating = 'Very good';
+						$rating = _("Very good");
 					    }
 						elseif(($hostel->rating>79) && ($hostel->rating<90) )
 						{
-						$rating = 'Great';
+						$rating = _("Great");
 						}
 						elseif(($hostel->rating>89))
 						{
-						$rating = 'Fantastic';
+						$rating = _("Fantastic");
 						}
 						?>
 						<ul class="box_round rating">
-						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel->rating;?> %</strong></span></li>
+						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo $rating;?></strong><strong style="color:#333333;"><?php echo $hostel->rating;?> %</strong></span></li>
 						</ul>
 						<?php }?>
 	</nav>
@@ -625,7 +625,7 @@ endforeach; ?>
                                                  { ?>
                                                  <div id="hostel_mapView_districts" class="hostel_mapView_districts">
                                                     <p>
-                                             <?php echo _('Districts');?>:
+                                             <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
 
                                                  <?php
                                                  foreach ($district_info as $key => $district)
@@ -645,6 +645,33 @@ endforeach; ?>
                                              </div>
 
                                               <?php   }// end if ?>
+
+                                           <?php // start showing landmarks checkboxes
+                                             if (is_array($landmarks) && !empty($landmarks))
+                                                 { ?>
+                                                <div id="hostel_mapView_landmarks" class="hostel_mapView_landmarks">
+                                                    <p>
+                                             <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
+
+                                                 <?php
+                                                 foreach ($landmarks as $key => $landmark)
+                                                     {
+                                                      $checked = "";
+
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
+
+                                                     ?>
+                                                      <input type="radio" id="landmark" name="landmark" <?php echo $checked; ?> value="<?php echo $landmark->geo_latitude . "###". $landmark->geo_longitude; ?>"
+                                                  onchange="changeLandmarkLayer(<?php echo "'".$landmark->geo_latitude . "###". $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+
+                                            <?php  }//end Foreach  ?>
+                                       </p>
+                                             </div>
+                                              <?php   }// end if
+                                              // end showing landmarks checkboxes
+                                              ?>
 					<div id="map-wrap" class="margbot20">
 						<div id="map_canvas"></div>
 					</div>

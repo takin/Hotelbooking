@@ -1010,7 +1010,7 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	font-weight:bold;
 }
 .hostel_list h3 a{
-	color:#333333;
+	color:#3087C9;
 }
 
 .hostel_list .info_type{
@@ -2485,3 +2485,19 @@ text-align: -webkit-center;
      }
      
 /*  End districts and landmarks in hostel page  */
+
+/*  Start landmarks in city page and hostel page */
+.hostel_mapView_landmarks , .city_mapView_landmarks{
+     display: block;
+     overflow: hidden;
+     clear:both;
+}
+/*  End landmarks in city page and hostel page */
+
+
+/*  Start landmark and districts in city page and hostel page */
+.mapView_districtWord , .mapView_landmarkWord{
+     font-weight: bold;
+     padding-right: 5px;
+}
+/*  End landmarks in city page and hostel page */

@@ -83,7 +83,7 @@
 	</div>
 	<?php } //end if for display rating if non empty?>
 
-    <?php 
+    <?php
         //------------check to display the box or not
     if($this->config->item('recent_view_number_cookies') > 0 )
     {?>
@@ -95,18 +95,18 @@
                         cache: false,
 						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
 						success:function(retdata)
-						{							
+						{
 							$('#recently_viewed_properties').show();
 							$('#recently_viewed_properties').html(retdata);
-                
+
 						}
 				});
 
 			});
-    </script>	
-    <?php 
+    </script>
+    <?php
     }?>
-    
+
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
@@ -321,16 +321,16 @@ else
 			if (!empty($hostel["ADDRESS"]["COUNTRY"]))echo ', '.var_check($hostel["ADDRESS"]["COUNTRY"],"") ;
 			if (!empty($hostel["ADDRESS"]["ZIP"]))echo ', '.var_check($hostel["ADDRESS"]["ZIP"],"") ;?>
 		</p>
-        <?php  
-             if (is_array($district_info) && !empty($district_info)) 
+        <?php
+             if (is_array($district_info) && !empty($district_info))
                  { ?>
            <div id="hostel_districts" class="hostel_districts">
              <p>
              <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
              <span class="hostel_districts_values">
                  <?php
-                 foreach ($district_info as $key => $district) 
-                     { 
+                 foreach ($district_info as $key => $district)
+                     {
 //                                die(var_dump(count($district_info), $key));
                      echo $district->district_name;
 
@@ -340,22 +340,22 @@ else
                      else{
                          echo ".";
                      }
-           }//end Foreach  ?> 
-             </span> 
+           }//end Foreach  ?>
+             </span>
             </p>
-          </div>            
+          </div>
         <?php   }// end if ?>
 
-         <?php  
-             if (is_array($landmarks) && !empty($landmarks)) 
+         <?php
+             if (is_array($landmarks) && !empty($landmarks))
                  { ?>
            <div id="hostel_landmarks" class="hostel_landmarks">
              <p>
              <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
              <span class="hostel_landmarks_values">
                  <?php
-                 foreach ($landmarks as $key => $landmark) 
-                     { 
+                 foreach ($landmarks as $key => $landmark)
+                     {
 //                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
                      echo $landmark->landmark_name;
 
@@ -365,10 +365,10 @@ else
                      else{
                          echo ".";
                      }
-           }//end Foreach  ?> 
-             </span> 
+           }//end Foreach  ?>
+             </span>
             </p>
-          </div>            
+          </div>
         <?php   }// end if ?>
 
 		<div class="top_info" id="top_info_short">
@@ -511,7 +511,7 @@ else
 					            }
 					?>
 						<ul class="box_round rating">
-						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong></span></li>
+						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo $rating;?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"];?></strong></span></li>
 						</ul>
 					<?php }?>
 	</nav>
@@ -866,30 +866,57 @@ else
 					<?php }?>
 					<div class="content_block">
 						<h2><?php echo _("Cartes");?></h2>
-                        <?php
-                     if (is_array($district_info) && !empty($district_info))
-                         { ?>
-                        <div id="hostel_mapView_districts" class="hostel_mapView_districts">
-                            <p>
-                     <?php echo _('Districts');?>:
+                                                <?php
+                                             if (is_array($district_info) && !empty($district_info))
+                                                 { ?>
+                                                <div id="hostel_mapView_districts" class="hostel_mapView_districts">
+                                                    <p>
+                                             <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
 
-                         <?php
-                         foreach ($district_info as $key => $district)
-                             {
-                              $checked = "";
+                                                 <?php
+                                                 foreach ($district_info as $key => $district)
+                                                     {
+                                                      $checked = "";
 
-                             if ($key == 0) {
-                                 $checked = "checked";
-                             }
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
 
-                             ?>
-                              <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
-                          onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+                                                     ?>
+                                                      <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?> value="<?php echo $district->um_id; ?>"
+                                                  onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
 
-                    <?php  }//end Foreach  ?>
-               </p>
-                     </div>
-                      <?php   }// end if ?>
+                                            <?php  }//end Foreach  ?>
+                                       </p>
+                                             </div>
+                                              <?php   }// end if ?>
+
+                                                    <?php // start showing landmarks checkboxes
+                                             if (is_array($landmarks) && !empty($landmarks))
+                                                 { ?>
+                                                <div id="hostel_mapView_landmarks" class="hostel_mapView_landmarks">
+                                                    <p>
+                                             <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
+
+                                                 <?php
+                                                 foreach ($landmarks as $key => $landmark)
+                                                     {
+                                                      $checked = "";
+
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
+
+                                                     ?>
+                                                      <input type="radio" id="landmark" name="landmark" <?php echo $checked; ?> value="<?php echo $landmark->geo_latitude . "###". $landmark->geo_longitude; ?>"
+                                                  onchange="changeLandmarkLayer(<?php echo "'".$landmark->geo_latitude . "###". $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+
+                                            <?php  }//end Foreach  ?>
+                                       </p>
+                                             </div>
+                                              <?php   }// end if
+                                              // end showing landmarks checkboxes
+                                              ?>
 						<div id="map-wrap" class="margbot20">
 							<div id="map_canvas"></div>
 						</div>
@@ -968,7 +995,7 @@ if ($this->uri->segment(4, 0)) {
     $uri_segement = strtolower($this->uri->segment(4));
     if ($uri_segement == "map") {
         // make the diection tab selected and triger the click event
-        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";   
+        echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',1); $('#show_full_map').trigger('click'); });</script>";
     } else if ($uri_segement == 'comments') { // make the coments tab selected
         echo "<script type='text/javascript'>$(document).ready(function() { $('#hostels_tabs').tabs('select',2); });</script>";
     } else {
