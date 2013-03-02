@@ -84,14 +84,17 @@ class CMain extends I18n_site
     $this->load->view("guarantee");
   }
 
-  function error404()
+  function error404($error400 = '')
   {
 
     $data['title'] = $this->config->item('site_title');
 
     $data['user_id'] = $this->user_id;
 
-    header("HTTP/1.0 404 Not Found");
+    if(!empty($error400)) // check if it's 400 error
+        header("HTTP/1.0 400 Not Found");
+    else
+        header("HTTP/1.0 404 Not Found");
 
     if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
     {
@@ -107,7 +110,11 @@ class CMain extends I18n_site
       $this->_searchBoxInit($data);
 
       $data['current_view_dir'] = "";
-      $data['current_view'] = "error404";
+      
+      if(!empty($error400)) // check if it's 400 error display 400 error page
+        $data['current_view'] = "error400";
+      else
+        $data['current_view'] = "error404";
 
       $this->load->view('includes/template',$data);
     }
@@ -983,7 +990,7 @@ class CMain extends I18n_site
 	elseif($currency_error) // add the currency parameter provided was wrong
 	{
 		//Display error page
-      $this->error404();
+      $this->error404('400');
       return;
 	}
     else
