@@ -384,19 +384,19 @@ endforeach; ?>
 						$rating ='';
 						if(($hostel->rating>59) && ($hostel->rating<70) )
 						{
-						$rating = 'Good';
+						$rating = _("Good");
 			            }
 			            elseif(($hostel->rating>69) && ($hostel->rating<80) )
 			            {
-						$rating = 'Very good';
+						$rating = _("Very good");
 					    }
 						elseif(($hostel->rating>79) && ($hostel->rating<90) )
 						{
-						$rating = 'Great';
+						$rating = _("Great");
 						}
 						elseif(($hostel->rating>89))
 						{
-						$rating = 'Fantastic';
+						$rating = _("Fantastic");
 						}
 						?>
 						<ul class="box_round rating">
