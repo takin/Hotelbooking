@@ -255,7 +255,7 @@
 		</div>
 
 		<div class="city_hostel ui-tabs-hide city_map_tab" id="city_map_{{propertyNumber}}">
-			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
+			<h3><a class="city_link_hostel" href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
                             <p>
                                <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
