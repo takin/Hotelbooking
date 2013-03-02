@@ -258,7 +258,7 @@
 			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
                             <p>
-                               <?php echo _('Districts');?>:
+                               <span class="mapView_DistrictWord"><?php echo _('Districts');?>:</span>
                             {{#districts}}
 
 	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
@@ -269,7 +269,7 @@
                          </div>
                         <div class="city_mapView_landmarks" id="divLandmark_{{propertyNumber}}" name="divLandmark_{{propertyNumber}}">
                             <p>
-                               <?php echo _('Landmarks (within 2km)');?>:
+                            <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
                             {{#landmarks}}
 
 	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>

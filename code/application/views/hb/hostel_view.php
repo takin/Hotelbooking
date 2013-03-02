@@ -858,7 +858,7 @@ else
                                                  { ?>
                                                 <div id="hostel_mapView_districts" class="hostel_mapView_districts">
                                                     <p>
-                                             <?php echo _('Districts');?>:
+                                             <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
 
                                                  <?php
                                                  foreach ($district_info as $key => $district)
@@ -883,7 +883,7 @@ else
                                                  { ?>
                                                 <div id="hostel_mapView_landmarks" class="hostel_mapView_landmarks">
                                                     <p>
-                                             <?php echo _('Landmarks (within 2km)');?>:
+                                             <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
 
                                                  <?php
                                                  foreach ($landmarks as $key => $landmark)
