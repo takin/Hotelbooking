@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/js/livevalidation_standalone.compressed.js" charset="UTF-8"></script>
-
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<a id="back_to_results" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
@@ -336,6 +334,11 @@ endforeach; ?>
 					<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
 			</div>
 
+			<div class="share-email">
+                                <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+                        </div>
+
+
 			<div class="amenities no-indent">
 			<?php
 			if(!empty($main_services))
@@ -520,6 +523,14 @@ endforeach; ?>
 				<div id="booking-table"></div>
 
 			</div>
+
+
+			<div class="content_block">
+				<strong style="float: left; display: block;"><?php echo _("Want to send a copy?");?></strong>
+				<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" /></a>
+				<br style="clear: both" />
+			</div>
+
     	<?php
       }
 			?>
@@ -772,3 +783,5 @@ if ($this->uri->segment(4, 0)) {
     }
 }
 ?>
+
+<?php $this->load->view('includes/template-share-email-popup'); ?>
