@@ -84,17 +84,12 @@ class CMain extends I18n_site
     $this->load->view("guarantee");
   }
 
-  function error404($error400 = '')
+  function error($header, $view)
   {
-
     $data['title'] = $this->config->item('site_title');
-
     $data['user_id'] = $this->user_id;
 
-    if(!empty($error400)) // check if it's 400 error
-        header("HTTP/1.0 400 Not Found");
-    else
-        header("HTTP/1.0 404 Not Found");
+    header($header);
 
     if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
     {
@@ -110,15 +105,21 @@ class CMain extends I18n_site
       $this->_searchBoxInit($data);
 
       $data['current_view_dir'] = "";
-      
-      if(!empty($error400)) // check if it's 400 error display 400 error page
-        $data['current_view'] = "error400";
-      else
-        $data['current_view'] = "error404";
 
+      $data['current_view'] = $view;
       $this->load->view('includes/template',$data);
     }
 
+  }
+
+  function error404()
+  {
+     $this->error("HTTP/1.0 404 Not Found", "error404");
+  }
+
+  function error400()
+  {
+     $this->error("HTTP/1.0 400 Bad Request", "error400");
   }
 
   function index()
@@ -990,7 +991,7 @@ class CMain extends I18n_site
 	elseif($currency_error) // add the currency parameter provided was wrong
 	{
 		//Display error page
-      $this->error404('400');
+      $this->error400();
       return;
 	}
     else
@@ -1143,7 +1144,7 @@ class CMain extends I18n_site
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
             $this->carabiner->js('pweb-mapping/PropertyFilters.js');
             $this->carabiner->js('pweb/libs/GoogleMap.js');
-            
+
             $this->load->view('includes/template',$data);
           }
         }
@@ -1194,42 +1195,42 @@ class CMain extends I18n_site
  * @param property id
  */
  function _property_recently_view($property_id)
- { 
-	
+ {
+
 	if (!isset($_COOKIE['last_review_property'])) //-- check if user first time viewing the property
-    {    
+    {
 		$property_cookie = array('name'=> 'last_review_property',
 								'value'  => $property_id,
 								'expire' => time()+1209600,
                                 'path'  => '/'
 								);
-    		
+
 	   set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
-       return;	 	
+       return;
 	}else{
-	   
-       
+
+
        $cookieArray = explode(",", $_COOKIE['last_review_property']);//-- the propery id is already in cookie
        if(in_array($property_id,  $cookieArray))
         {
 	       return TRUE; // property is already in cookie string
 	    }
-        
+
         // --- check we have already number of cookies set------////
         if(count($cookieArray) >= $this->config->item('recent_view_number_cookies'))
         {
             //-- unset the first cookie and set the last one viewd----//
             $cookieArray[0] = $property_id;
             $new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
-            
+
             $property_cookie = array('name'=> 'last_review_property',
 							'value'  =>  $new_cookie_array,
 							'expire' => time()+1209600,
                             'path'  => '/'
 							);
-		
+
             set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
-            
+
         }else
         {
         	$get_last_cookie = $_COOKIE['last_review_property']; // so get last commad seperated values
@@ -1238,11 +1239,11 @@ class CMain extends I18n_site
 							'expire' => time()+1209600,
                             'path'  => '/'
 							);
-		
+
             set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
         }
 	}
-	
+
  }
   /*
  * Remove cookie from the recently reviwed properties
@@ -1256,23 +1257,23 @@ class CMain extends I18n_site
 		 echo json_encode(array('status'=>false));
 		 return false;
 	 }
-	 
+
 	 // converted cookies string to array
      $cookieArray = explode(",", $_COOKIE['last_review_property']);
-     			
+
 	if (in_array($this->input->post('property_id'), $cookieArray))
-	{		
-		
+	{
+
         foreach($cookieArray as $key => $value) // loop to remove the proper property from cooki
 		{
 			if($value == $this->input->post('property_id')) // propery id match in the cookies
-			{				
+			{
                 	$cookieArray[$key] = '';
 			}
 		}
-        
+
         $new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
-        
+
        $new_cookie_array = ltrim($new_cookie_array, ','); // just remove the first empty comma
        $new_cookie_array = rtrim($new_cookie_array, ','); // just remove the last empty comma
        // make new cookies array/////////////
@@ -1281,23 +1282,23 @@ class CMain extends I18n_site
 						'expire' => time()+1209600,
                         'path'  => '/'
 						);
-	
+
         set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
-		
+
 		echo json_encode(array('status'=>true)); // cookies succesfully removed
 		return TRUE;
 	}
-	
+
 		echo json_encode(array('status'=>false)); // cookie not present return false
 		return false;
-	 
+
  }
 
   function property_reviews($property_id)
   {
     //allow browser cache  24 hours
     $this->output->set_header('Cache-Control: public');
-    $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');    
+    $this->output->set_header('Expires: '.gmdate('D, d M Y H:i:s',gmdate("U")+86400).' GMT');
 
 	if($this->api_used == HB_API)
     {
@@ -1344,7 +1345,7 @@ class CMain extends I18n_site
 
     $this->_currency_init();
     $data = array();
-     
+
     if(empty($property_number))
     {
       $this->error404();
@@ -1370,16 +1371,16 @@ class CMain extends I18n_site
       $this->api_view_dir = "hw/";
       $this->api_forced = true;
     }
-    
+
       $this->load->model('i18n/db_translation_cache');
-       
+
           if($this->api_used == HB_API)
     {
       $this->load->model('Db_hb_hostel');
-      
+
       //get District details
        $data['district_info'] = $this->Db_hb_hostel->get_property_districts( $property_number );
-       
+
        // Second parameter is a range in KM
        $data['landmarks'] = $this->Db_hb_hostel->get_property_landmarks_for_filter($property_number, 2);
 
@@ -1387,60 +1388,60 @@ class CMain extends I18n_site
     else
         {
          $this->load->model('Db_hw_hostel');
-      
+
       //get District details
        $data['district_info'] = $this->Db_hw_hostel->get_property_districts( $property_number );
-       
+
        // Second parameter is a range in KM
        $data['landmarks'] = $this->Db_hw_hostel->get_property_landmarks_for_filter($property_number, 2);
 
         }
             // get district if exist and translate them
-            if (!empty($data['district_info'])) 
+            if (!empty($data['district_info']))
               {
 
-               
-              foreach ($data['district_info'] as $i => $district)    
+
+              foreach ($data['district_info'] as $i => $district)
                   {
                   $data['district_info'][$i]->original_name = $district->district_name;
                   $data['district_info'][$i]->um_id = $district->um_id;
-                  
+
                   $translation = $this->db_translation_cache->get_translation($district->district_name, $this->site_lang);
 
-                  if (!empty($translation))           
+                  if (!empty($translation))
                     {
                       $data['district_info'][$i]->district_name = $translation->translation;
-                  
+
                     }
                     else
                     {
                           $data['district_info'][$i]->district_name = $district->district_name;
-                    }        
+                    }
                   }
               }
-              
+
               // get landmarks if exist and translate them
-             if (!empty($data['landmarks'])) 
+             if (!empty($data['landmarks']))
               {
-            
-              foreach ($data['landmarks'] as $i => $landmark)    
+
+              foreach ($data['landmarks'] as $i => $landmark)
                   {
                   $data['landmarks'][$i]->original_name = $landmark->landmark_name;
-                  
+
                   $translation = $this->db_translation_cache->get_translation($landmark->landmark_name, $this->site_lang);
 
-                  if (!empty($translation))           
+                  if (!empty($translation))
                     {
                       $data['landmarks'][$i]->landmark_name = $translation->translation;
-                  
+
                     }
                     else
                     {
                           $data['landmarks'][$i]->landmark_name = $landmark->landmark_name;
-                    }        
+                    }
                   }
-              }  
-              
+              }
+
 //     $this->hostel_controller = "chostelbk";
     if($this->api_used == HB_API)
     {
@@ -1451,7 +1452,7 @@ class CMain extends I18n_site
 
       //IF property is a HW property redirect
       if(!empty($poperty_requested_hw->property_name) && strcasecmp(url_title($poperty_requested_hw->property_name),$property_name)==0)
-      {   
+      {
         //IF HB city is available redirect to HB city landing page
         $this->load->model('Db_hw_city');
         $hw_city = $this->Db_hw_city->get_hw_city_by_id($poperty_requested_hw->hw_city_id);
@@ -1575,7 +1576,7 @@ class CMain extends I18n_site
       }
 
     }
-   
+
     //cancel any caching is api was forced
     if($this->api_forced === true)
     {
@@ -1607,10 +1608,10 @@ class CMain extends I18n_site
       $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
       $data = $this->hw_engine->location_json_format($data);
     }
-    
+
     $this->load->view('includes/template-json',$data);
   }
-  
+
    /*
    * ajax_location_avail function to update location available properties list by ajax
    */
