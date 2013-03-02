@@ -8,6 +8,15 @@
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
+          <?php
+        if(isset( $hostel->geolatitude ) && isset( $hostel->geolongitude ) ){  ?>
+		<div class="box_content map_button_box box_round" id="map_button_side">
+			<a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click'); $(document).scrollTop( $('#show_full_map').offset().top );  ">
+			<span><strong><?php echo _("Voir la carte");?></strong></span>
+			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $hostel->geolatitude;?>,<?php echo $hostel->geolongitude;?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>&markers=<?php echo $hostel->geolatitude;?>,<?php echo $hostel->geolongitude;?>" />
+                        </a>
+		</div>
+		<?php }?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/widget-qr-code'); ?>
