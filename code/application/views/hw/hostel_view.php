@@ -623,7 +623,7 @@ endforeach; ?>
                                                  { ?>
                                                  <div id="hostel_mapView_districts" class="hostel_mapView_districts">
                                                     <p>
-                                             <?php echo _('Districts');?>:
+                                             <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
 
                                                  <?php
                                                  foreach ($district_info as $key => $district)
@@ -643,6 +643,33 @@ endforeach; ?>
                                              </div>
 
                                               <?php   }// end if ?>
+                                        
+                                           <?php // start showing landmarks checkboxes
+                                             if (is_array($landmarks) && !empty($landmarks))
+                                                 { ?>
+                                                <div id="hostel_mapView_landmarks" class="hostel_mapView_landmarks">
+                                                    <p>
+                                             <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
+
+                                                 <?php
+                                                 foreach ($landmarks as $key => $landmark)
+                                                     {
+                                                      $checked = "";
+
+                                                     if ($key == 0) {
+                                                         $checked = "checked";
+                                                     }
+
+                                                     ?>
+                                                      <input type="radio" id="landmark" name="landmark" <?php echo $checked; ?> value="<?php echo $landmark->geo_latitude . "###". $landmark->geo_longitude; ?>"
+                                                  onchange="changeLandmarkLayer(<?php echo "'".$landmark->geo_latitude . "###". $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+
+                                            <?php  }//end Foreach  ?>
+                                       </p>
+                                             </div>
+                                              <?php   }// end if
+                                              // end showing landmarks checkboxes
+                                              ?>
 					<div id="map-wrap" class="margbot20">
 						<div id="map_canvas"></div>
 					</div>

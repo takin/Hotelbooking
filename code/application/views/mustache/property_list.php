@@ -255,10 +255,10 @@
 		</div>
 
 		<div class="city_hostel ui-tabs-hide city_map_tab" id="city_map_{{propertyNumber}}">
-			<h3><a href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
+			<h3><a class="city_link_hostel" href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
                             <p>
-                               <?php echo _('Districts');?>:
+                               <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
                             {{#districts}}
 
 	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
@@ -267,7 +267,18 @@
                      {{/districts}}
                             </p>
                          </div>
-			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
+                        <div class="city_mapView_landmarks" id="divLandmark_{{propertyNumber}}" name="divLandmark_{{propertyNumber}}">
+                            <p>
+                            <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
+                            {{#landmarks}}
+
+	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
+                         <input type="radio" name="landmark_selection" id="landmark_{{propertyNumber}}"
+                         value="{{geo_latitude}}###{{geo_longitude}}" onclick="GoogleMap.prototype.changeLandmarkLayer($(this).val())">{{translation_name}}
+                     {{/landmarks}}
+                            </p>
+                         </div>
+                        <div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
     </div>

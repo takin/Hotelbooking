@@ -22,6 +22,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 	this.default_zoom  = default_zoom || 8;
 	
 	window.gmap       = null;
+        window.cityCircle = null;
 	this.markers    = Array();
 	this.gbounds    = null;
 	
@@ -89,7 +90,29 @@ GoogleMap.prototype.init = function() {
             {
                  $("#frmDistrict_"+property_number).hide();
             }
-               
+            
+            // Start  Landmark Shows on map
+               // check if there is any radio button
+        if ($("#divLandmark_"+property_number+" input:radio:first").length > 0)
+            {
+                 // make first district checked
+                $("#divLandmark_"+property_number+" input:radio:first").attr('checked', true);
+            }
+       
+
+        // check if there is a district radio button and checked
+        // if yes call the district function to show district boundries
+        if($("#divLandmark_"+property_number+" input:radio:checked").length > 0)
+            {
+              var landmark_latlng =   $("#divLandmark_"+property_number+" input:radio:checked").val();
+              // call the function to show the district
+             this.changeLandmarkLayer(landmark_latlng);
+            }
+           else
+            {
+                 $("#divLandmark_"+property_number).hide();
+            }
+          // End  Landmark Shows on map 
 }; // end init() 
 
 GoogleMap.prototype.clearMapDiv = function()
@@ -259,3 +282,35 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
        window.gmap.overlayMapTypes.setAt(1, adaptedLayer); 
 };
+
+GoogleMap.prototype.changeLandmarkLayer = function (landmark_LatLng){
+
+if(window.cityCircle != null)
+{
+    window.cityCircle.setMap(null);
+}
+var point = landmark_LatLng.split("###");
+var lat = point[0];
+var Lng = point[1];
+
+//alert("lat="+lat+"::::Lng="+Lng+"::::");
+
+var citymap = {
+//  center: new google.maps.LatLng(53.477001,-2.230000)
+  center: new google.maps.LatLng( lat, Lng )
+};
+
+    var LandmarkOptions = {
+      strokeColor: "#4E89C9",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+//      fillColor: "#FF0000",
+      fillColor: "#4E89C9",
+      fillOpacity: 0.35,
+      map: window.gmap,
+      center: citymap.center,
+      radius:  2000
+    };
+    window.cityCircle = new google.maps.Circle(LandmarkOptions);
+  
+  }

@@ -109,6 +109,9 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
       infoWindow: null
     };
 
+// this is used to create circles in map (landmark)
+var cityCircle = null;
+           
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
   };
@@ -236,7 +239,12 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
            {
             changeDistrictLayer($("#distrinct:radio:checked").val());
            }
-
+           
+           
+             if($("#landmark:radio:checked").length > 0)
+           {
+            changeLandmarkLayer($("#landmark:radio:checked").val());
+           }
   }
 
   function changeDistrictLayer(district_um_id){
@@ -284,7 +292,38 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
        map.overlayMapTypes.setAt(1, adaptedLayer);
   }
+  
+    function changeLandmarkLayer(landmark_LatLng){
 
+if(cityCircle != null)
+{
+    cityCircle.setMap(null);
+}
+var point = landmark_LatLng.split("###");
+var lat = point[0];
+var Lng = point[1];
+
+//alert("lat="+lat+"::::Lng="+Lng+"::::");
+
+var citymap = {
+//  center: new google.maps.LatLng(53.477001,-2.230000)
+  center: new google.maps.LatLng( lat, Lng )
+};
+
+    var LandmarkOptions = {
+      strokeColor: "#4E89C9",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#4E89C9",
+      fillOpacity: 0.35,
+      map: map,
+      center: citymap.center,
+      radius:  2000
+    };
+    cityCircle = new google.maps.Circle(LandmarkOptions);
+  
+  }
+  
   <?php if(isset($google_map_address)):?>
   function codeAddress() {
 	    var address = "<?php echo $google_map_address;?>";
