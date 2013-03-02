@@ -1656,6 +1656,8 @@ class CMain extends I18n_site
 
     // don't run this under windows and if it's not required
     if ($with_pdf && !ISWINDOWS) {
+	$bookingTableSelect = $this->input->cookie('bookingTableSelect', TRUE);
+
         $string = $property_type . '_' . $property_name;
 
         $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
@@ -1672,7 +1674,9 @@ class CMain extends I18n_site
 	$temp_dir = rtrim($temp_dir, '/');
         $pdf_path = $temp_dir . '/' . $string . '_' . uniqid() . '.pdf';
 
-	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors -l ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
+	$commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect);
+
+	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
 
 	log_message('debug', $command);
 
