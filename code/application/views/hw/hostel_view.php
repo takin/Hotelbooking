@@ -232,16 +232,16 @@ endforeach; ?>
 		<?php // Need to show district name, city, country here, like a breakcrumb almost ?>
 		</p>
 
-                 <?php  
-                        if (is_array($district_info) && !empty($district_info)) 
+                 <?php
+                        if (is_array($district_info) && !empty($district_info))
                             { ?>
                       <div id="hostel_districts" class="hostel_districts">
                         <p>
                         <span class="hostel_districts_district"><?php echo _('Districts');?>:</span>
                         <span class="hostel_districts_values">
                             <?php
-                            foreach ($district_info as $key => $district) 
-                                { 
+                            foreach ($district_info as $key => $district)
+                                {
 //                                die(var_dump(count($district_info), $key));
                                 echo $district->district_name;
 
@@ -251,22 +251,22 @@ endforeach; ?>
                                 else{
                                     echo ".";
                                 }
-                      }//end Foreach  ?> 
-                        </span> 
+                      }//end Foreach  ?>
+                        </span>
                        </p>
-                     </div>            
+                     </div>
                    <?php   }// end if ?>
-                
-                    <?php  
-                        if (is_array($landmarks) && !empty($landmarks)) 
+
+                    <?php
+                        if (is_array($landmarks) && !empty($landmarks))
                             { ?>
                       <div id="hostel_landmarks" class="hostel_landmarks">
                         <p>
                         <span class="hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)');?>:</span>
                         <span class="hostel_landmarks_values">
                             <?php
-                            foreach ($landmarks as $key => $landmark) 
-                                { 
+                            foreach ($landmarks as $key => $landmark)
+                                {
 //                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
                                 echo $landmark->landmark_name;
 
@@ -276,10 +276,10 @@ endforeach; ?>
                                 else{
                                     echo ".";
                                 }
-                      }//end Foreach  ?> 
-                        </span> 
+                      }//end Foreach  ?>
+                        </span>
                        </p>
-                     </div>            
+                     </div>
                    <?php   }// end if ?>
 
 		<div class="top_info" id="top_info_short">
@@ -400,7 +400,7 @@ endforeach; ?>
 						}
 						?>
 						<ul class="box_round rating">
-						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo _($rating);?></strong><strong style="color:#333333;"><?php echo $hostel->rating;?> %</strong></span></li>
+						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo $rating;?></strong><strong style="color:#333333;"><?php echo $hostel->rating;?> %</strong></span></li>
 						</ul>
 						<?php }?>
 	</nav>
@@ -643,7 +643,7 @@ endforeach; ?>
                                              </div>
 
                                               <?php   }// end if ?>
-                                        
+
                                            <?php // start showing landmarks checkboxes
                                              if (is_array($landmarks) && !empty($landmarks))
                                                  { ?>
