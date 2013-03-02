@@ -8,19 +8,19 @@
 			<table>
 				<tr>
 					<td class="label"><?php echo _('From:'); ?></td>
-					<td><strong id="from_feedback"></strong></td>
+					<td><strong id="from_feedback" style="width:300px; overflow:hidden;display:block"></strong></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('To:'); ?></td>
-					<td><strong id="to_feedback"></strong></td>
+					<td><strong id="to_feedback" style="width:300px; overflow:hidden;display:block"></strong></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('Subject:'); ?></td>
-					<td id="subject_feedback"></td>
+					<td id="subject_feedback" style="width:300px; overflow:hidden;display:block"></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('Message:'); ?></td>
-					<td id="message_feedback"></td>
+					<td id="message_feedback" style="width:300px; overflow:hidden;display:block"></td>
 				</tr>
 			</table>
 
