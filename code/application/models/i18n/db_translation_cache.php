@@ -14,15 +14,14 @@ class Db_translation_cache extends CI_Model
 
   private $lang_supported = array("en","fr","es","de","pt","zh-CN","it","pl","ru","fi","cs","ko","ja","hu");
 
-  private $mem_cache = array();
-
   function __construct()
   {
       parent::__construct();
 
       //reset translation memory cache
-      $this->mem_cache = array();
       $this->transDB  = $this->load->database('translation', TRUE);
+
+      $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
   }
 
   public function add_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id, $tag)
@@ -61,19 +60,22 @@ class Db_translation_cache extends CI_Model
 
   public function get_translation($orig_text, $lang_code, $memcached = true)
   {
-    log_message('debug', 'Entering get translation');
-
     $orig_text = $this->transDB->escape_str($orig_text);
     $lang_code = $this->transDB->escape_str($lang_code);
 
     if(empty($orig_text)) return $orig_text;
+
     if(is_numeric($orig_text)) return $orig_text;
 
-    if(isset($this->mem_cache[$lang_code][md5($orig_text)]))
+    if (ISWINDOWS || strlen($orig_text) < 50)
     {
-      log_message('debug', 'Translation found in the Cache for:'.$orig_text);
-      return $this->mem_cache[$lang_code][md5($orig_text)];
-    }
+		$cacheKey = $lang_code.'-'.md5($orig_text);
+		if ($cache = $this->cache->get($cacheKey))
+		{
+		  log_message('debug', 'Translation found in the Cache for:'.$orig_text);
+		  return $cache;
+		}
+	}
 
     log_message('debug', 'language:'.$lang_code.' original text:'.$orig_text);
 
@@ -99,10 +101,10 @@ class Db_translation_cache extends CI_Model
     {
       log_message('debug', 'Translation Found '.$query->row()->translation);
 
-      if($memcached === true)
+      if($memcached === true && (ISWINDOWS || strlen($orig_text) < 50))
       {
-        $this->mem_cache[$lang_code][md5($orig_text)] = $query->row();
-        return $this->mem_cache[$lang_code][md5($orig_text)];
+      	$this->cache->save($cacheKey, $query->row(), 60000);
+        return $query->row();
       }
       else
       {
