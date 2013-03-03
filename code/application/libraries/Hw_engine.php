@@ -658,18 +658,18 @@ class Hw_engine {
     foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark)
       {
         $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
-        
-          
+
+
           $json_data["property_list"][$i]["landmarks"][$pl]->original_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
           $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
-          
+
           $translation = $this->CI->db_translation_cache->get_translation($prop_landmark->landmark_name,$this->CI->site_lang);
           if(!empty($translation))
           {
            $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
            $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $translation->translation;
           }
-          
+
           if($prop_landmark->slug === 'City-Center')
         {
               $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
@@ -713,7 +713,7 @@ class Hw_engine {
             $json_data["property_list"][$i]["rating"] = _("Fantastic");
         }
         else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
-            unset($json_data["property_list"][$i]["overall_rating"]);
+            $json_data["property_list"][$i]["overall_rating"] = '';
         }
 
       $json_data["property_list"][$i]["isMinNightNeeded"] = false;
