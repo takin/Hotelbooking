@@ -607,3 +607,4 @@
 <?php echo _('The request cannot be fulfilled due to bad syntax');?>
 <?php echo _('Your changes has been saved successfully');?>
 <?php echo _('Next available property');?>
+<?php echo _('of %s results');?>
