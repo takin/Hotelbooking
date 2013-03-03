@@ -234,6 +234,10 @@ PWebFilterApp.prototype.set_init_filters_value = function() {
 	{
 		this.FiltersInitValues[this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.id] = this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.checked;
 	}
+	
+	this.FiltersInitValues['breakfast_2nd_filter'] = false;
+	this.FiltersInitValues['downtown_2nd_filter'] = false;
+	
 };
 
 PWebFilterApp.prototype.reset_filters = function() {
