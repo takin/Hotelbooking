@@ -274,6 +274,14 @@ PWebFilterApp.prototype.reset_filters = function() {
 	{ 
 		$('#'+id).attr('checked',this.FiltersInitValues[id]);
 	}
+	
+	$('#applied_filter_hosting_price').hide();
+	$('#applied_filter_hosting_rating').hide();
+	$('#applied_filter_hosting_property').hide();
+	$('#applied_filter_hosting_facilities').hide();
+	$('#applied_filter_hosting_districts').hide();
+	$('#applied_filter_hosting_landmarks').hide();
+	
 };
 
 PWebFilterApp.prototype.reset_Pricefilters = function() {
