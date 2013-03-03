@@ -974,7 +974,7 @@ class Hb_engine {
             $json_data["property_list"][$i]["rating"] = _("Fantastic");
         }
         else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
-            unset($json_data["property_list"][$i]["overall_rating"]);
+            $json_data["property_list"][$i]["overall_rating"] = '';
         }
     }
 
