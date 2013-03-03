@@ -86,10 +86,17 @@ class Hw_api_translate extends CI_Model
           switch($translatedTags[$i])
           {
             case "description":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $objectHostel->descriptionTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
+                }
+				elseif(empty($gtrans["responseData"][$i]["responseStatus"]) || empty($gtrans["responseData"][$i]["responseDetails"]))
+				{
+				   $trans_error = TRUE;
+                  $objectHostel->descriptionTranslatedError = "Translation error no status: no details";
+                  log_message(TRANSLATION_ERROR_LEVEL,"translate_PropertyInformation: " .current_url()." -> [description] -> ".$objectHostel->descriptionTranslatedError. " | google status -> no status");
                 }
                 else
                 {
@@ -102,9 +109,16 @@ class Hw_api_translate extends CI_Model
                 $objectHostel->Facilities->facilityTranslated[$facilitykey] = $objectHostel->Facilities->facility[$facilitykey];
                 $objectHostel->Facilities->facilityTranslatedError[$facilitykey] = 0;
 
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   $objectHostel->Facilities->facilityTranslated[$facilitykey] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
+                }
+				elseif(empty($gtrans["responseData"][$i]["responseStatus"]) || empty($gtrans["responseData"][$i]["responseDetails"]))
+				{
+				   $trans_error = TRUE;
+                  $objectHostel->descriptionTranslatedError = "Translation error no status: no details";
+                  log_message(TRANSLATION_ERROR_LEVEL,"translate_PropertyInformation: " .current_url()." -> [facility] -> ".$objectHostel->descriptionTranslatedError. " | google status -> no status");
                 }
                 else
                 {
@@ -115,10 +129,17 @@ class Hw_api_translate extends CI_Model
                 $facilitykey++;
               break;
             case "conditions":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $objectHostel->conditionsTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
+                }
+				elseif(empty($gtrans["responseData"][$i]["responseStatus"]) || empty($gtrans["responseData"][$i]["responseDetails"]))
+				{
+				   $trans_error = TRUE;
+                  $objectHostel->descriptionTranslatedError = "Translation error no status: no details";
+                  log_message(TRANSLATION_ERROR_LEVEL,"translate_PropertyInformation: " .current_url()." -> [conditions] -> ".$objectHostel->descriptionTranslatedError. " | google status -> no status");
                 }
                 else
                 {
@@ -128,10 +149,17 @@ class Hw_api_translate extends CI_Model
                 }
               break;
             case "directions":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $objectHostel->directionsTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
+                }
+				elseif(empty($gtrans["responseData"][$i]["responseStatus"]) || empty($gtrans["responseData"][$i]["responseDetails"]))
+				{
+				   $trans_error = TRUE;
+                  $objectHostel->descriptionTranslatedError = "Translation error no status: no details";
+                  log_message(TRANSLATION_ERROR_LEVEL,"translate_PropertyInformation: " .current_url()." -> [directions] -> ".$objectHostel->descriptionTranslatedError. " | google status -> no status");
                 }
                 else
                 {
@@ -190,18 +218,25 @@ class Hw_api_translate extends CI_Model
         foreach($objectHostelList as $hostel)
         {
           //TONOTICE The detected langage by remote translation API is not really reliable because the description might be too short
-          if(!empty($gtrans["responseData"][$i]) && ($gtrans["responseData"][$i]["responseStatus"] == 200))
+          if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+              ($gtrans["responseData"][$i]["responseStatus"] == 200))
           {
             if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
             {
               $hostel->shortDescriptionTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
             }
           }
+		  elseif(empty($gtrans["responseData"][$i]["responseStatus"]) || empty($gtrans["responseData"][$i]["responseDetails"]))
+          {
+            $trans_error = TRUE;
+            $hostel->shortDescriptionTranslatedError = "Translation error no status: no details";
+            log_message(TRANSLATION_ERROR_LEVEL,"translate_LocationSearch: " .current_url()." -> [shortDescription] -> ".$hostel->shortDescriptionTranslatedError. " | google status -> no status");
+          }
           elseif(!empty($gtrans["responseData"][$i]))
           {
             $trans_error = TRUE;
-            $hostel->shortDescriptionTranslatedError = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
-            log_message(TRANSLATION_ERROR_LEVEL,"translate_LocationSearch: " .current_url()." -> [shortDescription] -> ".$hostel->shortDescriptionTranslatedError. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
+            $hostel->shortDescriptionTranslatedError = "Translation error no status: no details";
+            log_message(TRANSLATION_ERROR_LEVEL,"translate_LocationSearch: " .current_url()." -> [shortDescription] -> ".$hostel->shortDescriptionTranslatedError. " | google status -> no status");
           }
           $i++;
         }
@@ -272,7 +307,8 @@ class Hw_api_translate extends CI_Model
           switch($translatedTags[$i])
           {
             case "roomTypes":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if(((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||
                   (strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) ) &&
@@ -364,7 +400,8 @@ class Hw_api_translate extends CI_Model
           switch($translatedTags[$i])
           {
             case "Message":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking_request->Message->messageTextTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
@@ -376,7 +413,8 @@ class Hw_api_translate extends CI_Model
                 }
               break;
             case "roomTypes":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if(((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||
                      (strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) ) &&
@@ -394,7 +432,8 @@ class Hw_api_translate extends CI_Model
               break;
 
             case "TermsAndConditionsNote":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking_request->TermsAndConditionsTranslated->note = $gtrans["responseData"][$i]["responseData"]["translatedText"];
@@ -407,7 +446,8 @@ class Hw_api_translate extends CI_Model
               break;
 
             case "TermsAndConditionsValue":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking_request->TermsAndConditionsTranslated->value = strip_tags($gtrans["responseData"][$i]["responseData"]["translatedText"]);
@@ -499,7 +539,8 @@ class Hw_api_translate extends CI_Model
           switch($translatedTags[$i])
           {
             case "directions":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking->PropertyDetails->directionsTranslated = $gtrans["responseData"][$i]["responseData"]["translatedText"];
@@ -511,7 +552,8 @@ class Hw_api_translate extends CI_Model
                 }
               break;
             case "roomTypes":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if(((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||
                       (strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) ) &&
@@ -529,7 +571,8 @@ class Hw_api_translate extends CI_Model
               break;
 
             case "TermsAndConditionsNote":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking->TermsAndConditionsTranslated->note = $gtrans["responseData"][$i]["responseData"]["translatedText"];
@@ -542,7 +585,8 @@ class Hw_api_translate extends CI_Model
               break;
 
             case "TermsAndConditionsValue":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking->TermsAndConditionsTranslated->value = strip_tags($gtrans["responseData"][$i]["responseData"]["translatedText"]);
@@ -554,7 +598,8 @@ class Hw_api_translate extends CI_Model
                 }
               break;
             case "ChargedCurrencyWarning":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+			    if(!empty($gtrans["responseData"][$i]) && !empty($gtrans["responseData"][$i]["responseStatus"]) &&
+				    ($gtrans["responseData"][$i]["responseStatus"] == 200))
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $booking->ChargedCurrencyWarning->noteTranslated = strip_tags($gtrans["responseData"][$i]["responseData"]["translatedText"]);

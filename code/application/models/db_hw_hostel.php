@@ -1150,7 +1150,7 @@ class Db_hw_hostel extends CI_Model
   public function get_districts_by_city_id($city_id)
   {
     $city_id = $this->db->escape_str($city_id);
-    $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HW_HOSTEL_TABLE."`.`property_number`) as `district_count`
+    $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`um_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HW_HOSTEL_TABLE."`.`property_number`) as `district_count`     
             FROM (`".self::HW_HOSTEL_TABLE."`)
             RIGHT JOIN `".self::HW_HOSTEL_DISTRICT_TABLE."` ON `".self::HW_HOSTEL_TABLE."`.`property_number` = `".self::HW_HOSTEL_DISTRICT_TABLE."`.`property_number`
             RIGHT JOIN `".self::DISTRICTS_TABLE."` ON `".self::DISTRICTS_TABLE."`.`district_id` = `".self::HW_HOSTEL_DISTRICT_TABLE."`.`district_id`
@@ -1169,8 +1169,13 @@ class Db_hw_hostel extends CI_Model
 
   public function get_property_districts_for_filter($property_number)
   {
-    $this->db->select("district_id");
-    $this->db->where("property_number",$property_number);
+    $this->db->select(
+            self::HW_HOSTEL_DISTRICT_TABLE.".district_id ,"
+            .self::DISTRICTS_TABLE.".district_name ,"
+            .self::DISTRICTS_TABLE.".um_id "
+            );
+    $this->db->join(self::DISTRICTS_TABLE, self::DISTRICTS_TABLE.'.district_id = '.self::HW_HOSTEL_DISTRICT_TABLE.'.district_id', "left");
+    $this->db->where(self::HW_HOSTEL_DISTRICT_TABLE.".property_number",$property_number);
 
     $query = $this->db->get(self::HW_HOSTEL_DISTRICT_TABLE);
 
@@ -1183,7 +1188,7 @@ class Db_hw_hostel extends CI_Model
   }
   public function get_property_districts($property_number)
   {
-    $this->db->select(self::DISTRICTS_TABLE.".district_name");
+    $this->db->select(self::DISTRICTS_TABLE.".district_name,".self::DISTRICTS_TABLE.".um_id");
     $this->db->join(self::DISTRICTS_TABLE, self::DISTRICTS_TABLE.'.district_id = '.self::HW_HOSTEL_DISTRICT_TABLE.'.district_id', "left");
     $this->db->where(self::HW_HOSTEL_DISTRICT_TABLE.".property_number",$property_number);
     $query = $this->db->get(self::HW_HOSTEL_DISTRICT_TABLE);
@@ -1232,6 +1237,8 @@ class Db_hw_hostel extends CI_Model
     $this->db->select(self::HW_HOSTEL_LANDMARK_TABLE.".landmark_id");
     $this->db->select(self::LANDMARKS_TABLE.".slug");
     $this->db->select(self::LANDMARKS_TABLE.".landmark_name");
+    $this->db->select(self::LANDMARKS_TABLE.".geo_latitude");
+    $this->db->select(self::LANDMARKS_TABLE.".geo_longitude");
     $this->db->join(self::LANDMARKS_TABLE, self::HW_HOSTEL_LANDMARK_TABLE.'.landmark_id = '.self::LANDMARKS_TABLE.'.landmark_id');
     $this->db->where("property_number",$property_number);
     $this->db->where("source",$landmark_source_id);

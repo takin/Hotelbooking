@@ -57,6 +57,7 @@ class Hostelbookers_api extends CI_Model {
   {
     parent::__construct();
 
+    $this->load->library('custom_log');
     $config =& get_config();
 
     if (is_numeric($config['log_threshold']))
@@ -374,13 +375,14 @@ class Hostelbookers_api extends CI_Model {
   {
     try
     {  
-	   $request_time= microtime(true);
+	    $request_time= microtime(true);
        $return =  $this->hbapi->getPropertyAvailability4( $this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code );
-           $response_time=microtime(true);
-	       $total_time = ($response_time - $request_time) * 1000;
-	       $total_time = floor($total_time);
-	       $total_time =  $total_time." ms ";
-       $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
+        $response_time=microtime(true);
+        $total_time = ($response_time - $request_time) * 1000;
+        $total_time = floor($total_time);
+        $total_time =  $total_time." ms ";
+        $this->custom_log->log("audit", 'HB API getLocationAvailability '.$total_time);
+
        if($this->tracing)
        {
           log_message('debug', "last API response ".$this->hbapi->__getLastResponse());
@@ -789,18 +791,16 @@ class Hostelbookers_api extends CI_Model {
   //adding s before extension returns thumbnail of image per HB server
   //No doc on this just happen to be this way could change....
   //possible .jpeg, .jpg
+  // fix to use timthumb
   function build_thumb_url($image_url)
   {
-    $url_array = parse_url($image_url);
-
-    $filename = explode(".",$url_array['path']);
-
-    if(substr($filename[0], -1) == 's')
-    {
-      return $image_url;
-    }
-    return $url_array['scheme']."://".$url_array['host'].$filename[0]."s.".$filename[1];
+    return base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=50&h=50&src='.$image_url;
   }
+
+  function build_list_url($image_url)
+    {
+    return base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$image_url;
+    }
 
   function is_thumb_url($image_url)
   {

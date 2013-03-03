@@ -418,13 +418,14 @@ class Hw_engine {
       {
         $this->CI->load->model('Db_hw_rating');
 
-
+		$data['user_reviews']  = array();
         $data['property_list'] = $this->CI->Hw_api_translate->translate_LocationSearch($results[1]);
-        $data['user_reviews']  = array();
 
         foreach($data['property_list'] as $hostel_id => $hostel)
         {
-          $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
+
+		  $data['propertyType'][(int)$hostel->propertyNumber] = $hostel->propertyType;
+		  $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
           if($prop_reviews === TRUE)
           {
             $data['user_reviews'][(int)$hostel->propertyNumber] = $this->property_reviews((int)$hostel->propertyNumber, TRUE, 5, FALSE, FALSE);
@@ -438,6 +439,28 @@ class Hw_engine {
             $data['amenities'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_hostel_facilities($hostel->propertyNumber);
             $data['amenities_filter'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_hostel_facilities_for_filter($hostel->propertyNumber);
             $data['districts'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_property_districts_for_filter($hostel->propertyNumber);
+
+             if (!empty($data['districts'][(int)$hostel->propertyNumber]))
+              {
+
+//               $this->load->model('i18n/db_translation_cache');
+
+              foreach ( $data['districts'][(int)$hostel->propertyNumber] as $i => $district)
+                  {
+                  $translation = $this->CI->db_translation_cache->get_translation($district->district_name, $this->CI->site_lang);
+
+                  if (!empty($translation))
+                    {
+                        $data['districts'][(int)$hostel->propertyNumber][$i]->district_name = $translation->translation;
+                    }
+                    else
+                    {
+                        $data['districts'][(int)$hostel->propertyNumber][$i]->district_name = $district->district_name;
+
+                    }
+                  $data['districts'][(int)$hostel->propertyNumber][$i]->original_name = $district->district_name;
+                  }
+              }
 
             // Second parameter is a range in KM
             $data['landmarks'][(int)$hostel->propertyNumber] = $this->CI->Db_hw_hostel->get_property_landmarks_for_filter($hostel->propertyNumber, 2);
@@ -590,9 +613,20 @@ class Hw_engine {
 
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
-      $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
+      if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
+      {
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
+		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
+			  base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+	  }
 
-      foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
+	   // -------Translate the propertyType----------------------------------//
+	    $this->CI->load->model('Db_term_translate');
+	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
+	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
+       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
+	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
       {
 
         if(($amenity->description == 'Breakfast Included')||
@@ -621,17 +655,24 @@ class Hw_engine {
       $json_data["property_list"][$i]['districts'] = $data['districts'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]["landmarks"] = $data['landmarks'][$prop["propertyNumber"]];
 
-      foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark)
+    foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark)
       {
         $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
-        if($prop_landmark->slug === 'City-Center')
-        {
-          $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
+
+
+          $json_data["property_list"][$i]["landmarks"][$pl]->original_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
+          $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
+
           $translation = $this->CI->db_translation_cache->get_translation($prop_landmark->landmark_name,$this->CI->site_lang);
           if(!empty($translation))
           {
-            $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
+           $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
+           $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $translation->translation;
           }
+
+          if($prop_landmark->slug === 'City-Center')
+        {
+              $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
         }
         else
         {
@@ -652,6 +693,28 @@ class Hw_engine {
 
       $json_data["property_list"][$i]["overall_rating"] = $json_data["property_list"][$i]["overallHWRating"];
       settype($json_data["property_list"][$i]["overall_rating"],"integer");
+      $json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overallHWRating"]);
+        $json_data["property_list"][$i]["rating"]='';
+
+        if(($json_data["property_list"][$i]["overall_rating"]>59) &&
+            ($json_data["property_list"][$i]["overall_rating"]<70) ) {
+
+            $json_data["property_list"][$i]["rating"] = _("Good");
+        }
+        else if(($json_data["property_list"][$i]["overall_rating"]>69) &&
+                ($json_data["property_list"][$i]["overall_rating"]<80) ) {
+            $json_data["property_list"][$i]["rating"] = _("Very good");
+        }
+        else if(($json_data["property_list"][$i]["overall_rating"]>79) &&
+                ($json_data["property_list"][$i]["overall_rating"]<90) ) {
+            $json_data["property_list"][$i]["rating"] = _("Great");
+        }
+        else if($json_data["property_list"][$i]["overall_rating"]>89) {
+            $json_data["property_list"][$i]["rating"] = _("Fantastic");
+        }
+        else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
+            $json_data["property_list"][$i]["overall_rating"] = '';
+        }
 
       $json_data["property_list"][$i]["isMinNightNeeded"] = false;
       if(isset($prop["minNights"]))
@@ -674,10 +737,10 @@ class Hw_engine {
       settype($json_data["property_list"][$i]["maxPax"],"integer");
       $prices = $this->property_cheapest_prices($json_data["property_list"][$i]);
 	  // validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
-	  if(empty($prices['min_price'])) 
-	  {	
+	  if(empty($prices['min_price']))
+	  {
 		  unset($json_data["property_list"][$i]); // just remove the record from the list
-		  continue; // 
+		  continue; //
 	  }
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
@@ -806,7 +869,7 @@ class Hw_engine {
     if($api[0]==true)
     {
       //API return error
-      log_message('error', 'HW API returned an error ('.$api[0].')');
+      log_message('error', 'HW API returned an error ('.$api[0].') for property '.$property_number);
       throw new Exception("api returned error");
     }
     else
@@ -847,7 +910,7 @@ class Hw_engine {
       $this->CI->load->model('Db_hw_rating');
       // Load a helper
 	  $this->CI->load->helper('domain_replace');
-	  
+
       $data['hostel']=new stdClass();
       $data['hostel']->property_number        = (int) $data['hostel_data']->propertyNumber;
       $data['hostel']->property_name          = (string) $property_name;

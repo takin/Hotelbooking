@@ -65,11 +65,12 @@
 
             function()
             {
-              var date_avail = getCookie('date_selected');
-              if(isValidDate(date_avail))
+              var date_cookie = getCookie('date_selected');
+              if(isValidDate(date_cookie))
               {
-            	  var date_avail 	= new Date(date_avail.replace('-',',','g'));
-								$("#datepick").datepicker( "setDate" , date_avail );
+					var date_array = date_cookie.split('-');
+					var date_avail 	= new Date(date_array[0],date_array[1]-1,date_array[2]);
+					$("#datepick").datepicker( "setDate" , date_avail );
               }
         		  else
         		  {
@@ -119,7 +120,8 @@
 
       <li>
         <?php
-        select_nights(_('Nuits:'),"search-night","search-night",$numnights_selected);
+		$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+        select_nights(_('Nuits:'),"search-night","search-night",$numnights_selected, $hb_api_used );
         ?>
       </li>
       <li style="clear:both;"></li>

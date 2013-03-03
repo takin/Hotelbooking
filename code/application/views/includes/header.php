@@ -54,7 +54,7 @@
 	$this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
   $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	$this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-
+	
 	if($this->api_used == HB_API)
 	{
 	  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
@@ -84,6 +84,10 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/ie7.css" />
   <![endif]-->
 
+  <script type="text/javascript">
+var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>";
+</script>
+
   <?php if(isset($google_map_enable)&&($google_map_enable===true)): ?>
 
 <?php if((isset($google_map_hostel_list)&&$google_map_hostel_list==true&&(isset($property_list["property_count"]))&&($property_list["property_count"]>0))||
@@ -105,6 +109,9 @@
       infoWindow: null
     };
 
+// this is used to create circles in map (landmark)
+var cityCircle = null;
+           
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
   };
@@ -226,8 +233,97 @@
     <?php elseif(!empty($google_map_country_list)):?>
     markCountryList();
     <?php endif;?>
+  // check if there is a district radio button and checked
+        // if yes call the district function to show district boundries
+           if($("#distrinct:radio:checked").length > 0)
+           {
+            changeDistrictLayer($("#distrinct:radio:checked").val());
+           }
+           
+           
+             if($("#landmark:radio:checked").length > 0)
+           {
+            changeLandmarkLayer($("#landmark:radio:checked").val());
+           }
   }
 
+  function changeDistrictLayer(district_um_id){
+
+    // working with mapinfulence
+    // Initialize Mapfluence with your API key.
+    MF.initialize({
+        apiKey: urbanmapping_key
+    });
+
+        // remove any old districts
+        //map.overlayMapTypes.push(null);
+        map.overlayMapTypes.setAt(1, null);
+
+//get district area from mapfluence
+    var filter = MF.filter.Data({
+        column: 'umi.neighborhoods.attributes.hood_id',
+        operator: '=',
+        value: parseInt(district_um_id)
+
+    });
+
+
+        var hoodsLayer = MF.layer.tile.Simple({
+            from : 'umi.neighborhoods.geometry',
+            style: {
+                color: 'feba02'
+            },
+            border: {
+                color: 'black',
+                size: 1.0
+            },
+            where: filter,
+            opacity: .40
+        });
+
+
+ // Create the Mapfluence adapter for Google Maps
+    var googleAdapter = MF.map.google.Adapter();
+
+    // Adapt a Mapfluence layer for use with the Google Maps API
+    var adaptedLayer = googleAdapter.adaptLayer(hoodsLayer);
+
+    // Overlay the Mapfluence layer
+//    map.overlayMapTypes.insertAt(0, adaptedLayer);
+       map.overlayMapTypes.setAt(1, adaptedLayer);
+  }
+  
+    function changeLandmarkLayer(landmark_LatLng){
+
+if(cityCircle != null)
+{
+    cityCircle.setMap(null);
+}
+var point = landmark_LatLng.split("###");
+var lat = point[0];
+var Lng = point[1];
+
+//alert("lat="+lat+"::::Lng="+Lng+"::::");
+
+var citymap = {
+//  center: new google.maps.LatLng(53.477001,-2.230000)
+  center: new google.maps.LatLng( lat, Lng )
+};
+
+    var LandmarkOptions = {
+      strokeColor: "#4E89C9",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#4E89C9",
+      fillOpacity: 0.35,
+      map: map,
+      center: citymap.center,
+      radius:  2000
+    };
+    cityCircle = new google.maps.Circle(LandmarkOptions);
+  
+  }
+  
   <?php if(isset($google_map_address)):?>
   function codeAddress() {
 	    var address = "<?php echo $google_map_address;?>";
@@ -685,7 +781,6 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<?php
-	$this->carabiner->js('jquery.lazyload.js');
 	$this->carabiner->js('imageload.js');
 	$this->carabiner->js('jtools.js');
   $this->carabiner->js('janim.js');
@@ -702,7 +797,8 @@
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
   ?>
-
+<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" 
+                type="text/javascript"></script>
   <?php
   if($current_view == "hostel_view")
   {
@@ -725,12 +821,21 @@
 
 /* FOR change class in header manu */
 $url =$_SERVER['PHP_SELF'];
+
+$url_ex = explode('/',$url);
+
 $pattern = '/(group)?$/';
 preg_match($pattern, $url , $matches);
+
 $sel_class = '';
 	if($matches[0] == 'group')
 	{
 		$gorup_sel_class= 'current_page_item';
+	}
+	elseif($url_ex[3] == $this->Db_links->get_link("user") || $url_ex[3]==$this->Db_links->get_link("connect") || $url_ex[3] == $this->Db_links->get_link("register") ||  $url_ex[3] == $this->Db_links->get_link("logout") )
+	{
+		$sel_class= '';
+		$gorup_sel_class='';
 	}
 	else
 	{
@@ -754,8 +859,6 @@ $sel_class = '';
     });
 
 $(document).ready(function(){
-
-
 
 		//$("a[rel^='prettyPhoto']").prettyPhoto();
 		//$("a.openup").fancybox();
@@ -885,6 +988,7 @@ $(document).ready(function(){
 
 		<nav class="main grid_16 box_shadow box_round">
 			<ul class="group">
+
 				<li class="first"><a href="/"><?php echo _("Accueil");?></a></li>
 				<li><a class="<?php if(!empty($sel_class)){ echo $sel_class; } ?>" href="<?php echo site_url($this->Db_links->get_link("homepage")); ?>"><?php echo _("Auberges et logements pas chers");?></a></li>
 				<?php if($this->wordpress->get_option('aj_group_url') != ''){?>

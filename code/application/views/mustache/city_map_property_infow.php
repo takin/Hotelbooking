@@ -1,7 +1,7 @@
 {{#property}}
 <div class="mapbubble">
 <a href="{{property_page_url}}">
-  {{#PropertyImages}}<img class="alignleft" alt="{{propertyName}}" src="{{#PropertyImage}}{{imageURL}}{{/PropertyImage}}" />{{/PropertyImages}}
+  {{#PropertyImages}}<img class="alignleft" alt="{{propertyName}}" src="{{#PropertyImage}}{{imageThumbnailURL}}{{/PropertyImage}}" />{{/PropertyImages}}
 </a>
 <h2>
 <a href="{{property_page_url}}">{{propertyName}}</a>

@@ -152,33 +152,34 @@ img.alignright {
 }
 
 .button-green, a.button-green, input.button-green{
-	display:block;
-	padding:7px 10px;	 
-  background-color: #6DA903;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#96C249), to(#6DA903));
-  background-image: -webkit-linear-gradient(top, #96C249, #6DA903);
-  background-image:    -moz-linear-gradient(top, #96C249, #6DA903);
-  background-image:     -ms-linear-gradient(top, #96C249, #6DA903);
-  background-image:      -o-linear-gradient(top, #96C249, #6DA903);
-  background-image:         linear-gradient(to bottom, #96C249, #6DA903);
-	color:#ffffff;
-	border:1px solid #6DA903;
-	text-shadow:1px 1px 1px #416305;
-	font-weight:bold;
-	box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
-	-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
-	-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset
+display:block;
+padding:7px 10px;
+background-color: #6DA903;
+    background-image: linear-gradient(to bottom, #96C249, #6DA903);
+    border: 1px solid #6DA903;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8) inset;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    padding: 7px 10px;
+    text-shadow: 1px 1px 1px #416305;
+    color:#ffffff;
+border:1px solid #5EC841;
+text-shadow:1px 1px 1px #416305;
+font-weight:bold;
+box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
+-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
+-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset
 }
-
 a.button-green.hoverit:hover, .button-green.hoverit:hover{
-	background-color: #6DA903;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#b3e261), to(#6DA903));
-  background-image: -webkit-linear-gradient(top, #b3e261, #6DA903);
-  background-image:    -moz-linear-gradient(top, #b3e261, #6DA903);
-  background-image:     -ms-linear-gradient(top, #b3e261, #6DA903);
-  background-image:      -o-linear-gradient(top, #b3e261, #6DA903);
-  background-image:         linear-gradient(to bottom, #b3e261, #6DA903);
-	text-decoration:none;
+background-color: #6DA903;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#B3E261), to(#6DA903));
+  background-image: -webkit-linear-gradient(top, #B3E261, #6DA903);
+  background-image: -moz-linear-gradient(top, #B3E261, #6DA903);
+  background-image: -ms-linear-gradient(top, #B3E261, #6DA903);
+  background-image: -o-linear-gradient(top, #B3E261, #6DA903);
+  background-image: linear-gradient(to bottom, #B3E261, #6DA903);
+text-decoration:none;
 }
 
 .button-green-faded, a.button-green-dafed, input.button-green-faded{
@@ -220,22 +221,23 @@ a.button-green-faded.hoverit:hover, .button-green-faded.hoverit:hover{
 }
 
 .button-blue, a.button-blue, input.button-blue{
-	display:block;
-	padding:7px 10px;	 
-  background-color: #1568A7;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#389AE0), to(#1568A7));
-  background-image: -webkit-linear-gradient(top, #389AE0, #1568A7);
-  background-image:    -moz-linear-gradient(top, #389AE0, #1568A7);
-  background-image:     -ms-linear-gradient(top, #389AE0, #1568A7);
-  background-image:      -o-linear-gradient(top, #389AE0, #1568A7);
-  background-image:         linear-gradient(to bottom, #389AE0, #1568A7);
-	color:#ffffff;
-	border:1px solid #1568A7;
-	text-shadow:1px 1px 1px #123855;
-	font-weight:bold;
-	box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
-	-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
-	-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
+display:block;
+padding:7px 10px;	
+  background: #2e69a7; /* Old browsers */
+background: -moz-linear-gradient(top, #2e69a7 0%, #2e69a7 50%, #16508d 50%, #16508d 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e69a7), color-stop(50%,#2e69a7), color-stop(50%,#16508d), color-stop(100%,#16508d)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #2e69a7 0%,#2e69a7 50%,#16508d 50%,#16508d 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #2e69a7 0%,#2e69a7 50%,#16508d 50%,#16508d 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #2e69a7 0%,#2e69a7 50%,#16508d 50%,#16508d 100%); /* IE10+ */
+background: linear-gradient(to bottom, #2e69a7 0%,#2e69a7 50%,#16508d 50%,#16508d 100%); /* W3C */
+filter: progidXImageTransform.Microsoft.gradient( startColorstr='#2e69a7', endColorstr='#16508d',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #17528F;
+    color: #FFFFFF !important;
+text-shadow:1px 1px 1px #123855;
+font-weight:bold;
+box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
+-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
+-webkit-box-shadow:0 0 2px rgba(255, 255, 255, 0.8) inset;
 }
 
 .button-blue.hoverit:hover, a.button-blue.hoverit:hover, input.button-blue.hoverit:hover{
@@ -344,3 +346,86 @@ border:1px solid #c97c30;
 }
 
 .margbot10{margin-bottom:10px;}
+
+/* filter css */
+#results_filters {
+    display: none;
+    overflow: hidden;
+padding-bottom: 7px;
+}
+#filters_text {
+    float: left;
+    line-height: 21px;
+    margin-right: 8px;
+    font-weight: bold;
+}
+#applied_filters {
+    float: left;
+    margin-bottom: -8px;
+}
+ul.unstyled, ol.unstyled {
+    list-style: none outside none;
+    margin: 0;
+}
+#applied_filters .label {
+    float: left;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+.label-lightblue {
+    background-color: #DDEBEF;
+    border-color: #BAD7DF;
+    color: #93A0A5;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.label span {
+line-height: 19px;
+}
+.label a {
+border-left: 1px solid transparent;
+display: inline-block;
+height: 15px;
+margin-bottom: -1px;
+margin-right: -5px;
+padding-right: 5px;
+background-image: url(../images/cross-arrow.png);
+background-repeat: no-repeat;
+background-position: right 5px;
+width: 6px;
+}
+.label .icon {
+    color: #93A0A5;
+    font-size: 10px;
+    padding-left: 5px;
+    width: 8px;
+}
+.icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+.label {
+background-color: #175290;
+border: 1px solid #175290;
+border-radius: 3px 3px 3px 3px;
+color: #FFFFFF;
+font-size: 11px;
+font-weight: bold;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+padding-right: 10px;
+padding-left: 6px;
+}
+.label1 {
+border: none;
+font-size: 11px;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+padding-right: 10px;
+padding-left: 6px;
+color:#000;
+}
+.inputsize{
+width:210px;
+}
+/*end filter*/
+

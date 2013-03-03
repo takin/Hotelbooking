@@ -72,7 +72,7 @@ $config['cache_dir'] = 'js/cache/';
 |
 */
 
-$config['dev'] = ISDEVELOPMENT;
+$config['dev'] = FALSE;
 
 
 /*
