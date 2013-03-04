@@ -183,7 +183,16 @@
 	<div id="city_search_title_bar">
 		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
 		<span id="city_results_counter">
-			<?php printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
+			<!-- top city result counter-->
+			<div id="resu" class="left_pagi" style="display:none;">
+					<span class="resultcount"></span>
+					<?php echo _('of');?>
+					<span class="resulttotal"></span>
+					<?php echo _('Results');?>
+			</div>
+			<!-- top city result counter-->
+		
+			<?php //printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
 		</span>
 	</div>
 
@@ -259,7 +268,11 @@
 			<div id="no_data_msg" class="box_content box_round group" style="display: none">
 				<p class="no_result"><?php echo _('Désolé aucun résultat pour ce critère');?></p>
 			</div>
-
+			<!-- Next 20 result code start-->
+			<script src="<?php echo site_url("js/propertypagination.js"); ?>"></script>
+			<input type="hidden" id="current_page" value="0">  
+			<input type="hidden" id="show_per_page" value="0"> 
+			<!-- Next 20 result code start-->
 			<div id="property_list">
 			<script type="text/javascript">
 			$(document).ready(function(){
@@ -317,7 +330,19 @@
 			</script>
 
 			</div>
-			<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>
+			<!-- Next 20 result code start-->
+			<div id="navi" class="pagination_pro" style="display:none;">
+				<div id="resu" class="left_pagi">
+					<span class="resultcount"></span>
+					<?php echo _('of');?>
+					<span class="resulttotal"></span>
+					<?php echo _('Results');?>
+				</div>
+				<div id="page_navigation" class="page_navigation"></div>
+			</div>
+			<!-- Next 20 result code start-->
+			
+			<!--<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>-->
 
 </div>
 
