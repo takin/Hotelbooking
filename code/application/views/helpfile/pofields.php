@@ -607,7 +607,6 @@
 <?php echo _('The request cannot be fulfilled due to bad syntax');?>
 <?php echo _('Your changes has been saved successfully');?>
 <?php echo _('Next available property');?>
-<?php echo _('of %s results');?>
 <?php echo _('Group Type:');?>
 <?php echo _('Age Ranges:');?>
 <?php echo _('Choose one...');?>
@@ -628,7 +627,6 @@
 <?php echo _('of');?>
 <?php echo _('Please see selected properties to compare on top of the page.');?>
 <?php echo _('Loading');?>
-<?php echo _('Overall');?>
 <?php echo _('Location');?>
 <?php echo _('Not available');?>
 <?php echo _('See Map');?>
@@ -646,7 +644,7 @@
 <?php echo _('Value');?>
 <?php echo _('Results');?>
 <?php echo _('Result');?>
-<?php echo _('Only %d properties can be compared');?>
+<?php echo _('Only 5 properties can be compared');?>
 <?php echo _('Please remove a property from list.');?>
 <?php echo _('Quick Compare (5 properties maximum)');?>
 <?php echo _('Remove All');?>
