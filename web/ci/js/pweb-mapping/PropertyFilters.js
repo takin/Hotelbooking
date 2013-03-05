@@ -315,7 +315,7 @@ change: function( event, ui ) {
 that.change_price_filter(event, ui);
 }
 } );
-
+initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_lang, lat, lng) {
