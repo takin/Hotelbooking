@@ -1,6 +1,6 @@
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<?php //$this->load->view('includes/widget-cours'); ?>
-	<a id="back_to_results" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
+	<a id="back_to_results" style="display: none;" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
 	<?php if(!isset($date_selected))      $date_selected = NULL;
 	if(!isset($numnights_selected)) $numnights_selected = NULL;
 	if(!isset($bc_continent))       $bc_continent = NULL;

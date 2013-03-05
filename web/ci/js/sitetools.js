@@ -33,8 +33,25 @@ $(document).ready(function(){
 	//$('.city_lp .info_pic img').jail({effect:"fadeIn"});
 	
 	$("a.modify_search").click(function(){
-		 $('#side_search_wrap').toggle();
+                $('#side_search_wrap').toggle();
 		 $(this).toggleClass('expand');
+                  $(this).toggleClass('collapse');
+
+                 if ($(this).hasClass('expand'))
+                    {
+                        // Show everything in side search box 
+                        $('#side_search_wrap_city').show();
+                        $('#side_search_wrap').show();		
+                
+                    }
+                    else
+                    {
+                        // hide everything in side search box 
+                        // except header
+                         $('#side_search_wrap_city').hide();
+                         $('#side_search_wrap').hide();		
+                    }
+                    
 		 return false;
 	});
 	

@@ -567,13 +567,21 @@ ul#bread-crumb li.first{ list-style:none; }
 /* End Naviguation */
 
 /* Search boxed */
-a.modify_search{font-size:1.2em;padding:5px 0px 7px 0px; margin-bottom:10px; display:block;color:#333333; border-bottom:1px solid #80B422;}
+a.modify_search.expand {
+    border-bottom: 1px solid #80B422;margin-bottom: 10px;
+    font-size: 1.2em;padding: 5px 0 7px;text-decoration:none;cursor:pointer;
+    display:block;
+              color:#333333;}
 a.modify_search strong{
 	background:url(../images/V2/icon_search_side.png) no-repeat left center;
 	padding:3px 0px 5px 30px;
 	display:block;
 }
-a.modify_search.expand {margin-bottom:0px; border:0px;padding:5px 0px;}
+a.modify_search.collapse {
+    margin-bottom:0px; border:0px;
+    padding:5px 0px; cursor: pointer;
+    font-size: 1.2em; text-decoration:none;
+}
 /*a.modify_search.expand strong{
 	background:url(../images/V2/slider_collapse.png) no-repeat left center;
 }*/
@@ -1293,7 +1301,7 @@ a.review_wrap_close{position:absolute; top:5px; right:0px; font-size:1em;}
 .testimonial div{text-align:center;}
 
 /* Hostel_view*/
-a.back_to_results{margin-bottom:20px;display:none; margin-left:5px;}
+a.back_to_results{margin-bottom:10px;display:block; margin-left:5px;}
 .address_title{background:url(../images/V2/icon_address.png) no-repeat 2px 0px; padding-left:30px;}
 .hostel-meta{border-top:1px dashed #aaaaaa; margin-top:10px;}
 .fblike{height:25px; float:left; margin-right:20px; margin-top:12px;}

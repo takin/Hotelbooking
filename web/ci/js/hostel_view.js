@@ -20,11 +20,32 @@ jQuery(function()
 		});
 	//To show full search if user has no search cookies
 	var city_selected = getCookie('city_selected');	
-	if(city_selected == ''){
-		$('#modify_search').hide();
-		$('#back_to_results').hide();
-		$('#search_now').show();
+
+                $('a.modify_search').toggleClass('expand');
+                $('a.modify_search').toggleClass('collapse');
+          if(city_selected == '' )
+          {
+               // show everything in side search box 
+               // except modify search and back to result
+               // because this user land page
+                $('#modify_search').hide();
+                $('#back_to_results').hide();
+		
+                $('#search_now').show();
+                $('#side_search_wrap_city').show();
+		$('#side_search_wrap').show();
+                $('#back_to_results').hide();		
+	  }
+          else
+          {
+               // hide everything in side search box 
+               // except header
+                $('#modify_search').show();
+                $('#back_to_results').show();
+		
+                $('#search_now').hide();
+                $('#side_search_wrap_city').hide();
 		$('#side_search_wrap').show();		
-	}
-	
+          }
+      
 });
