@@ -2406,3 +2406,49 @@ text-align: -webkit-center;
      padding-right: 5px;
 }
 /*  End landmarks in city page and hostel page */
+
+/*next 20 result start*/
+.pagination_pro{
+	display:block;
+	padding:12px 10px;	 
+	background-color: #EAF0DE;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F7EF), to(#EAF0DE));
+	background-image: -webkit-linear-gradient(top, #F5F7EF, #EAF0DE);
+	background-image: -moz-linear-gradient(top, #F5F7EF, #EAF0DE);
+	background-image: -ms-linear-gradient(top, #F5F7EF, #EAF0DE);
+	background-image: -o-linear-gradient(top, #F5F7EF, #EAF0DE);
+	background-image: linear-gradient(to bottom, #F5F7EF, #EAF0DE);
+	border:1px solid #C5D6A7;
+	font-weight:bold;
+	border-radius:5px;
+	display: inline-block;
+	width: 97%;
+	margin-bottom: 20px;
+}
+.left_pagi{
+float: left;
+	
+}
+.page_navigation{
+float: right;
+	
+}
+.page_link,.previous_link,.next_link{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+	border-radius: 3px 3px 3px 3px;
+	font-weight: 100;
+    margin: 0 2px;
+    padding: 1px 5px;
+    text-align: center;
+	
+}
+a.page_link:hover,a.previous_link:hover,a.next_link:hover{
+text-decoration: none;
+}
+.active_page{
+background:#999;
+color:#fff !important;
+border:1px solid #666;
+}
+/*next 20 result end*/
