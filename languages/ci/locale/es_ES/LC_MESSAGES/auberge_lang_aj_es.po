@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-04 16:40+0200\n"
-"PO-Revision-Date: 2013-03-05 20:14+0200\n"
+"PO-Revision-Date: 2013-03-05 21:11+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -3197,7 +3197,6 @@ msgstr ""
 "encontrará un albergue adecuado y barato."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Error 404 - Página no encontrada"
 
@@ -7196,9 +7195,9 @@ msgid "Quick Compare"
 msgstr "Comparación Rápida"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, php-format
+#, fuzzy, php-format
 msgid "Dorms From"
-msgstr "Dormitorios Desde"
+msgstr "Dormitorios Desde %d"
 
 #: ../code/application/views/helpfile/pofields.php:638
 #, php-format
@@ -7326,14 +7325,14 @@ msgid "Fill in the \"From\" email"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
 msgstr "Formato inválido"
 
 #: ../code/application/views/helpfile/pofields.php:671
 #, fuzzy, php-format
 msgid "Your message has been sent to %s"
-msgstr "Un correo electronico ha sido mandado a su direccion"
+msgstr "Un correo electrónico ha sido mandado a su dirección"
 
 #: ../code/application/views/helpfile/pofields.php:672
 #, php-format
