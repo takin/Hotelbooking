@@ -686,3 +686,7 @@
 <?php echo _('Send PDF');?>
 <?php echo _('Recently Viewed');?>
 <?php echo _('We use cookies to give you the best possible experience on our site. By continuing to browse our site you are agreeing to our Cookies Policy and use of cookies technology. Find out more');?>
+<?php echo _('New Search');?>
+<?php echo _('Search');?>
+<?php echo _('Select');?>
+<?php echo _('last %d');?>
