@@ -624,7 +624,7 @@
 <?php echo _('Review');?>
 <?php echo _('Reviews');?>
 <?php echo _('Compare');?>
-<?php echo _('of');?>
+<?php echo _(' of ');?>
 <?php echo _('Please see selected properties to compare on top of the page.');?>
 <?php echo _('Loading');?>
 <?php echo _('Location');?>
@@ -650,11 +650,10 @@
 <?php echo _('Remove All');?>
 <?php echo _('Please see selected properties to compare on top of this page.');?>
 <?php echo _('%d Results');?>
-<?php echo _('of %d results');?>
 <?php echo _('Home');?>
 <?php echo _('Restore Everything');?>
 <?php echo _('Rating');?>
-<?php echo _('Compare (%d out of %d)');?>
+<?php echo _('Compare (%d out of 5)');?>
 <?php echo _('Facilities');?>
 <?php echo _('Show More');?>
 <?php echo _('Show Less');?>
