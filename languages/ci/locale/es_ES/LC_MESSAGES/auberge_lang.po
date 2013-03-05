@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-04 16:40+0200\n"
-"PO-Revision-Date: 2013-03-04 22:19+0200\n"
+"PO-Revision-Date: 2013-03-05 21:12+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -3196,7 +3196,6 @@ msgstr ""
 "encontrará un hostal adecuado y barato."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Error 404 - Página no encontrada"
 
@@ -3984,7 +3983,7 @@ msgstr "El personal"
 #: ../code/application/views/helpfile/pofields.php:632
 #, php-format
 msgid "Location"
-msgstr "Ubicación"
+msgstr "Situación"
 
 #: ../code/application/views/hb/hostel_view.php:53
 #: ../code/application/views/helpfile/pofields.php:643
@@ -7102,7 +7101,7 @@ msgstr "Rango de Edad:"
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Elige uno..."
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
@@ -7125,7 +7124,7 @@ msgid "College / University"
 msgstr "Universidad"
 
 #: ../code/application/views/helpfile/pofields.php:618
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
 msgstr "Viajes de Negocios"
 
@@ -7150,17 +7149,9 @@ msgid "Please specify a type of group."
 msgstr "Por favor, especifica un tipo de grupo."
 
 #: ../code/application/views/helpfile/pofields.php:623
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr ""
-"<b>Compare precios y hostales</b><br><br>Los invito a hacer una búsqueda "
-"haciendo <a href=\"http://reservations.bookhostels.com/youth-hostel.com/?"
-"SubID=spain\" title=\"reserva de grupo\"> click en el link </a>para poder "
-"encontrar el mejor hostal, adecuado a sus posibilidades y precios.<br>Tómese "
-"su tiempo para ver el tipo de dormitorios que se ofrece, si el desayuno está "
-"incluido, ubicación en el mapa y otra información importante que lo ayude en "
-"su viaje.<br>Si no obtiene resultados en su búsqueda por favor cambie la "
-"fecha o reduzca el número de personas en su búsqueda.<br><br>"
+msgstr "Por favor especifica un rango de edad para tu grupo."
 
 #: ../code/application/views/helpfile/pofields.php:624
 #, php-format
@@ -7215,9 +7206,9 @@ msgid "Privates From"
 msgstr "Habitaciones Privadas desde %d"
 
 #: ../code/application/views/helpfile/pofields.php:639
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "En general"
+msgstr "Puntuación Total"
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
@@ -7335,14 +7326,14 @@ msgid "Fill in the \"From\" email"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
 msgstr "Formato inválido"
 
 #: ../code/application/views/helpfile/pofields.php:671
 #, fuzzy, php-format
 msgid "Your message has been sent to %s"
-msgstr "Un correo electronico ha sido mandado a su direccion"
+msgstr "Un correo electrónico ha sido mandado a su dirección"
 
 #: ../code/application/views/helpfile/pofields.php:672
 #, php-format
