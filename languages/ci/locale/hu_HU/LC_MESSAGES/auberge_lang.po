@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-04 16:40+0200\n"
-"PO-Revision-Date: 2013-03-04 20:35+0200\n"
+"PO-Revision-Date: 2013-03-05 23:49+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1138,7 +1138,7 @@ msgstr "Kérjük várjon, amíg megtaláljuk Önnek a  legjobb ajánlatot.... "
 #: ../code/application/views/helpfile/pofields.php:630
 #, php-format
 msgid "Loading"
-msgstr "Rakodás"
+msgstr "Betöltés"
 
 #: ../code/application/views/includes/help.php:3
 #: ../code/application/views/restricted/user_view.php:18
@@ -3928,7 +3928,7 @@ msgstr "Személyzet"
 #: ../code/application/views/helpfile/pofields.php:632
 #, php-format
 msgid "Location"
-msgstr "Helyszin"
+msgstr "Helyszín"
 
 #: ../code/application/views/hb/hostel_view.php:53
 #: ../code/application/views/helpfile/pofields.php:643
@@ -5400,7 +5400,7 @@ msgstr "Az utolsó foglalás:"
 #: ../code/application/views/helpfile/pofields.php:625
 #, php-format
 msgid "Review"
-msgstr "Áttekintés"
+msgstr "Leírás"
 
 #: ../code/application/views/helpfile/pofields.php:185
 #, php-format
@@ -6521,7 +6521,7 @@ msgstr "Minden korosztálynak"
 #: ../code/application/views/mustache/property_list.php:29
 #, php-format
 msgid "See Map"
-msgstr "Nézd a térképet"
+msgstr "Lásd Térkép"
 
 #: ../code/application/views/helpfile/pofields.php:461
 #, php-format
@@ -6987,84 +6987,84 @@ msgid "of %s results"
 msgstr "Vissza az eredményhez"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "Csoportok"
+msgstr "Csoport típus:"
 
 #: ../code/application/views/helpfile/pofields.php:612
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "Ár skála"
+msgstr "Éltekor tartomány:"
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Válasszon egy…"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "Nyaralás barátokkal"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "Általános iskola"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "Középiskola"
 
 #: ../code/application/views/helpfile/pofields.php:617
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "Főiskola / Egyetem"
 
 #: ../code/application/views/helpfile/pofields.php:618
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
-msgstr "Üzleti utazásokat"
+msgstr "Üzleti út"
 
 #: ../code/application/views/helpfile/pofields.php:619
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "Legénybúcsú/Leánybúcsú"
 
 #: ../code/application/views/helpfile/pofields.php:620
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "Sportoló csoportoknak,"
+msgstr "Sport csoport"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "Kultúrális csoport"
 
 #: ../code/application/views/helpfile/pofields.php:622
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "Kérem, adja meg a csoport típusát."
 
 #: ../code/application/views/helpfile/pofields.php:623
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr "Nagyszerű árajánlatot találtunk az Önök csoportja számára."
+msgstr "Kérem, adja meg a csoport életkorát."
 
 #: ../code/application/views/helpfile/pofields.php:624
-#, fuzzy, php-format
+#, php-format
 msgid "Map"
-msgstr "%s-Térkép"
+msgstr "Térkép"
 
 #: ../code/application/views/helpfile/pofields.php:626
-#, fuzzy, php-format
+#, php-format
 msgid "Reviews"
-msgstr "Áttekintés"
+msgstr "Vélemények"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "Összehasonlítás"
 
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
@@ -7075,46 +7075,47 @@ msgstr " ból "
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
 msgstr ""
+"Az oldal tetején találhatja a kiválasztott ingatlanok összehasonlítását."
 
 #: ../code/application/views/helpfile/pofields.php:633
-#, fuzzy, php-format
+#, php-format
 msgid "Not available"
-msgstr "Hálóterem nem foglalható"
+msgstr "Nem elérhető"
 
 #: ../code/application/views/helpfile/pofields.php:635
-#, fuzzy, php-format
+#, php-format
 msgid "Print"
-msgstr "Nyomtassa ki most."
+msgstr "Nyomtatás"
 
 #: ../code/application/views/helpfile/pofields.php:636
 #, php-format
 msgid "Quick Compare"
-msgstr ""
+msgstr "Gyors Összehasonlítás"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms From"
-msgstr "Hálóterem %s"
+msgstr "Kollégiumi szobák -ból"
 
 #: ../code/application/views/helpfile/pofields.php:638
-#, fuzzy, php-format
+#, php-format
 msgid "Privates From"
-msgstr "Különszobák"
+msgstr "Magánszállások -ból"
 
 #: ../code/application/views/helpfile/pofields.php:639
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "Összesen"
+msgstr "Teljes Értékelés"
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Site"
-msgstr ""
+msgstr "Helyszín"
 
 #: ../code/application/views/helpfile/pofields.php:644
 #, php-format
 msgid "Services"
-msgstr ""
+msgstr "Szolgáltatások"
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
@@ -7124,27 +7125,27 @@ msgstr "Eredmények"
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Result"
-msgstr ""
+msgstr "Eredmény "
 
 #: ../code/application/views/helpfile/pofields.php:649
-#, php-format
+#, fuzzy, php-format
 msgid "Only %d properties can be compared"
-msgstr ""
+msgstr "Csak 5 ingatlan összehasonlítása lehetséges"
 
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Please remove a property from list."
-msgstr ""
+msgstr "Kérem, töröljön egy ingatlant a listából."
 
 #: ../code/application/views/helpfile/pofields.php:651
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "%s városban"
+msgstr "Gyors Összehasonlítás (maximum 5 ingatlan)"
 
 #: ../code/application/views/helpfile/pofields.php:652
-#, fuzzy, php-format
+#, php-format
 msgid "Remove All"
-msgstr "Eltávolitás"
+msgstr "Mindet Eltávolítja"
 
 #: ../code/application/views/helpfile/pofields.php:653
 #, php-format
@@ -7154,12 +7155,12 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "%d Results"
-msgstr ""
+msgstr "%d Találat"
 
 #: ../code/application/views/helpfile/pofields.php:655
-#, fuzzy, php-format
+#, php-format
 msgid "of %d results"
-msgstr "Vissza az eredményhez"
+msgstr "találat a %d-ből"
 
 #: ../code/application/views/helpfile/pofields.php:656
 #, fuzzy, php-format
