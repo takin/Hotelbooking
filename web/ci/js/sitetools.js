@@ -151,8 +151,33 @@ $(document).ready(function(){
 	});
 		
 	$(".iframe").fancybox();
-	
+	modifySideSearch_showHide();
 });
+
+    function modifySideSearch_showHide(){
+        if( $('a.modify_search').hasClass('collapse') )
+          {
+               // hide everything in side search box 
+               // except header
+                $('#modify_search').show();
+		
+                $('#search_now').hide();
+                $('#side_search_wrap_city').hide();
+		$('#side_search_wrap').show();
+           
+	  }
+          else
+          {
+               // show everything in side search box 
+               // except modify search and back to result
+               // because this user land page
+                $('#modify_search').show();
+		
+                $('#search_now').hide();
+                $('#side_search_wrap_city').show();
+		$('#side_search_wrap').show();  		
+          }
+}
 function startslideshow(){
 	var main_pic = $('.main-pic');
 	if (main_pic.length){
