@@ -21,31 +21,31 @@ jQuery(function()
 	//To show full search if user has no search cookies
 	var city_selected = getCookie('city_selected');	
 
-                $('a.modify_search').toggleClass('expand');
-                $('a.modify_search').toggleClass('collapse');
+                  // Don't show back to result in all cases
+                $('#back_to_results').hide();
+                
           if(city_selected == '' )
           {
+            $('a.modify_search').removeClass('expand collapse').addClass('expand');
                // show everything in side search box 
                // except modify search and back to result
                // because this user land page
-                $('#modify_search').hide();
-                $('#back_to_results').hide();
+                $('#modify_search').show();
 		
-                $('#search_now').show();
+                $('#search_now').hide();
                 $('#side_search_wrap_city').show();
 		$('#side_search_wrap').show();
-                $('#back_to_results').hide();		
 	  }
           else
           {
+              $('a.modify_search').removeClass('expand collapse').addClass('collapse');
                // hide everything in side search box 
                // except header
                 $('#modify_search').show();
-                $('#back_to_results').show();
 		
                 $('#search_now').hide();
                 $('#side_search_wrap_city').hide();
-		$('#side_search_wrap').show();		
+		$('#side_search_wrap').hide();		
           }
       
 });

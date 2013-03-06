@@ -2,7 +2,7 @@
 
 	<?php if(($current_view == "city_view") || ($current_view == "hostel_view")) {
 	?>
-	<span id="modify_search"><a class="modify_search expand" ><strong><?php echo _('Modify search')?></strong></a></span>
+	<span id="modify_search"><a class="modify_search collapse" ><strong><?php echo _('Modify search')?></strong></a></span>
 	<span id="search_now" style="display:none;" class="search_title"><?php echo _('Search Now')?></span>
 	<?php }else{?>
 	<span class="search_title"><?php echo _('Search Now')?></span>
