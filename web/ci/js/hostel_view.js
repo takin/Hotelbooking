@@ -23,15 +23,8 @@ jQuery(function()
 	//To show full search if user has no search cookies
 	var city_selected = getCookie('city_selected');	
 
-	if(city_selected == ''){
-		$('#modify_search').hide();
-		$('#back_to_results').hide();
-		$('#search_now').show();
-		$('#side_search_wrap').show();		
-	}
-
-        // Don't show back to result in all cases
-        $('#back_to_results').hide();
+                  // Don't show back to result in all cases
+                $('#back_to_results').hide();
                 
           if(city_selected == '' )
           {
@@ -56,7 +49,7 @@ jQuery(function()
                 $('#side_search_wrap_city').hide();
 		$('#side_search_wrap').hide();		
           }
-
+      
 	
 });
 
