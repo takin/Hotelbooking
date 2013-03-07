@@ -32,7 +32,20 @@
 								<br /><br />
 								<i style="font-size:16px;color:#003580; margin-left:20px">"<?php echo var_check($message, ''); ?>"</i>
 								<br /><br />
-								<?php $property_url = site_url("/{$property_type}/{$property_name}/{$property_number}"); ?>
+								<?php
+									$property_url = site_url("/{$property_type}/{$property_name}/{$property_number}");
+
+									$append = '';
+									if (!empty($date)) {
+										$append .= '/' . $date;
+
+										if (!empty($nights) && is_numeric($nights)) {
+											$append .= '/' . $nights;
+										}
+									}
+
+									$property_url .= $append;
+								?>
 								<a href="<?php echo var_check($property_url, ''); ?>" style="font-size:16px;color:#00a2e8"><?php echo var_check($property_url, ''); ?></a>
 
 								<br /><br />

@@ -1339,7 +1339,7 @@ class CMain extends I18n_site
     }
   }
 
-  function property_page($property_type, $property_name = "", $property_number = NULL)
+  function property_page($property_type, $property_name = "", $property_number = NULL, $date = null, $nights = null)
   {
     log_message('debug', 'Entering main controller property page method');
 
@@ -1349,8 +1349,19 @@ class CMain extends I18n_site
         'property_type'   => $property_type,
         'property_name'   => $property_name,
         'property_number' => $property_number,
+        'date'            => $date,
+        'nights'          => $nights,
         'print'           => $this->input->get('print', true)
     );
+
+    if (!empty($date)) {
+        set_cookie('date_selected', $date,$this->config->item('sess_expiration'));
+        if (!empty($nights) && is_numeric($nights)) {
+            set_cookie('numnights_selected', $nights,$this->config->item('sess_expiration'));
+        }
+    }
+
+
     $district_umid = NULL;
      
     if(empty($property_number))
@@ -1604,6 +1615,9 @@ class CMain extends I18n_site
     $property_name   = $this->input->post('property_name', true);
     $property_number = $this->input->post('property_number', true);
 
+    $date   = $this->input->post('date', true);
+    $nights = $this->input->post('nights', true);
+
 
     $this->load->helper('email');
 
@@ -1674,9 +1688,21 @@ class CMain extends I18n_site
 	$temp_dir = rtrim($temp_dir, '/');
         $pdf_path = $temp_dir . '/' . $string . '_' . uniqid() . '.pdf';
 
-	$commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect);
+	$cookie_append = '';
+	$append = '';
+	if (!empty($date)) {
+		$append .= '/' . $date;
+		$cookie_append .= ' --cookie date_selected ' . escapeshellarg($date);
 
-	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
+		if (!empty($nights) && is_numeric($nights)) {
+			$append .= '/' . (int)$nights;
+			$cookie_append .= ' --cookie numnights_selected ' . escapeshellarg((int)$nights);
+		}
+	}
+
+	$commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect) . $cookie_append;
+
+	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
 
 	log_message('debug', $command);
 
@@ -1696,7 +1722,9 @@ class CMain extends I18n_site
        'from_email' => $from_email,
        'property_type'   => $this->input->post('property_type', true),
        'property_name'   => $this->input->post('property_name', true),
-       'property_number' => $this->input->post('property_number', true)
+       'property_number' => $this->input->post('property_number', true),
+       'date'       => $date,
+       'nights'     => $nights,
     );
 
     $this->email->from($from_email, $from_name);
