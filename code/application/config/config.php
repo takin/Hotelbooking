@@ -7,7 +7,7 @@ $config['displayVelaro'] = FALSE;
 $config['translationLog'] = TRUE;
 
 /* user last review properties and saved number of cookies if set ZERO 0 box not display*/
-$config['recent_view_number_cookies'] = 0;
+$config['recent_view_number_cookies'] = 5;
 
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)

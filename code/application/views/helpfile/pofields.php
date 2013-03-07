@@ -607,3 +607,86 @@
 <?php echo _('The request cannot be fulfilled due to bad syntax');?>
 <?php echo _('Your changes has been saved successfully');?>
 <?php echo _('Next available property');?>
+<?php echo _('Group Type:');?>
+<?php echo _('Age Ranges:');?>
+<?php echo _('Choose one...');?>
+<?php echo _('Holidays with friends');?>
+<?php echo _('Junior/Primary school');?>
+<?php echo _('High/Secondary school');?>
+<?php echo _('College / University');?>
+<?php echo _('Business trip');?>
+<?php echo _('Stag/Hen/Bachelor party');?>
+<?php echo _('Sports group');?>
+<?php echo _('Cultural group');?>
+<?php echo _('Please specify a type of group.');?>
+<?php echo _('Please specify an age range for your group.');?>
+<?php echo _('Map');?>
+<?php echo _('Review');?>
+<?php echo _('Reviews');?>
+<?php echo _('Compare');?>
+<?php echo _(' of ');?>
+<?php echo _('Please see selected properties to compare on top of the page.');?>
+<?php echo _('Loading');?>
+<?php echo _('Location');?>
+<?php echo _('Not available');?>
+<?php echo _('See Map');?>
+<?php echo _('Print');?>
+<?php echo _('Quick Compare');?>
+<?php echo _('Dorms From');?>
+<?php echo _('Privates From');?>
+<?php echo _('Rating Overall');?>
+<?php echo _('Atmosphere');?>
+<?php echo _('Staff');?>
+<?php echo _('Site');?>
+<?php echo _('Cleanliness');?>
+<?php echo _('Services');?>
+<?php echo _('Safety');?>
+<?php echo _('Value');?>
+<?php echo _('Results');?>
+<?php echo _('Result');?>
+<?php echo _('Only 5 properties can be compared');?>
+<?php echo _('Please remove a property from list.');?>
+<?php echo _('Quick Compare (5 properties maximum)');?>
+<?php echo _('Remove All');?>
+<?php echo _('Please see selected properties to compare on top of this page.');?>
+<?php echo _('%d Results');?>
+<?php echo _('Home');?>
+<?php echo _('Restore Everything');?>
+<?php echo _('Rating');?>
+<?php echo _('Compare (%d out of 5)');?>
+<?php echo _('Facilities');?>
+<?php echo _('Show More');?>
+<?php echo _('Show Less');?>
+<?php echo _('Not enough parameters');?>
+<?php echo _('Fill in the email');?>
+<?php echo _('Invalid email recipient');?>
+<?php echo _('Fill in the subject');?>
+<?php echo _('Fill in the message');?>
+<?php echo _('Fill in the "From" name');?>
+<?php echo _('Fill in the "From" email');?>
+<?php echo _('Invalid "From" email');?>
+<?php echo _('Your message has been sent to %s');?>
+<?php echo _('From:');?>
+<?php echo _('To:');?>
+<?php echo _('Subject:');?>
+<?php echo _('Message:');?>
+<?php echo _('Send another message');?>
+<?php echo _('Close');?>
+<?php echo _('Mail this page to someone you know, or send it to yourself as a reminder.');?>
+<?php echo _('To (email)');?>
+<?php echo _('Subject');?>
+<?php echo _('Message');?>
+<?php echo _('From (name)');?>
+<?php echo _('From (email)');?>
+<?php echo _('Yes, I want to subscribe to the newsletter.');?>
+<?php echo _('Send email');?>
+<?php echo _('Close');?>
+<?php echo _('Share PDF');?>
+<?php echo _('Want to send a PDF copy of this page or quote by email?');?>
+<?php echo _('Send PDF');?>
+<?php echo _('Recently Viewed');?>
+<?php echo _('We use cookies to give you the best possible experience on our site. By continuing to browse our site you are agreeing to our Cookies Policy and use of cookies technology. Find out more');?>
+<?php echo _('New Search');?>
+<?php echo _('Search');?>
+<?php echo _('Select');?>
+<?php echo _('last %d');?>

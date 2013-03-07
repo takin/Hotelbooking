@@ -1,4 +1,5 @@
 //PWeb map wrapper for map in filter
+var result_per_page=20;   //Property Per page result
 function PWebFilterMap(default_div, lang, default_lat, default_lng)
 {
 	this.map_lang    = lang;
@@ -17,6 +18,7 @@ PWebFilterMap.prototype.reDraw = function ()
 	{
 		this.gmap.drawMap();
 	}
+	initpaging(result_per_page);
 };
 
 PWebFilterMap.prototype.toggle = function ()
@@ -29,6 +31,7 @@ PWebFilterMap.prototype.toggle = function ()
 	{
 		this.disableMap();
 	}
+	initpaging(result_per_page);
 };
 
 PWebFilterMap.prototype.enableMap = function() {
@@ -36,6 +39,7 @@ PWebFilterMap.prototype.enableMap = function() {
 //	this.updateMap(map_slug);
 	this.gmap.drawMap();
 	this.enabled = true;
+	initpaging(result_per_page);
 };
 
 PWebFilterMap.prototype.disableMap = function() {
@@ -45,10 +49,12 @@ PWebFilterMap.prototype.disableMap = function() {
 	this.gmap.setFocusMarkerID(-1);
 	this.enabled = false;
 //	this.pweb_maps[map_slug]  = null;
+	initpaging(result_per_page);
 };
 
 PWebFilterMap.prototype.isMapEnable = function() {
 	return this.enabled;
+	initpaging(result_per_page);
 };
 
 //UPDATE map data
@@ -73,6 +79,7 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data) {
 			}
 		}
 	}
+	initpaging(result_per_page);
 };
 //PWeb filter app
 function PWebFilterApp()
@@ -120,7 +127,8 @@ function PWebFilterApp()
 	this.city_map_toggle;
 	this.pweb_maps;
 	
-	this.init(); 
+	this.init();
+	initpaging(result_per_page);
 }
 
 //init after document ready
@@ -212,6 +220,7 @@ PWebFilterApp.prototype.init = function() {
 	this.results_limit = 20;
 	
 	this.pweb_maps = new Array();
+	initpaging(result_per_page);
 	
 }; // end init()
 
@@ -234,6 +243,11 @@ PWebFilterApp.prototype.set_init_filters_value = function() {
 	{
 		this.FiltersInitValues[this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.id] = this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.checked;
 	}
+	
+	this.FiltersInitValues['breakfast_2nd_filter'] = false;
+	this.FiltersInitValues['downtown_2nd_filter'] = false;
+	initpaging(result_per_page);
+	
 };
 
 PWebFilterApp.prototype.reset_filters = function() {
@@ -274,6 +288,15 @@ PWebFilterApp.prototype.reset_filters = function() {
 	{ 
 		$('#'+id).attr('checked',this.FiltersInitValues[id]);
 	}
+	
+	$('#applied_filter_hosting_price').hide();
+	$('#applied_filter_hosting_rating').hide();
+	$('#applied_filter_hosting_property').hide();
+	$('#applied_filter_hosting_facilities').hide();
+	$('#applied_filter_hosting_districts').hide();
+	$('#applied_filter_hosting_landmarks').hide();
+	initpaging(result_per_page);
+	
 };
 
 PWebFilterApp.prototype.reset_Pricefilters = function() {
@@ -292,16 +315,17 @@ change: function( event, ui ) {
 that.change_price_filter(event, ui);
 }
 } );
-
+initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_lang, lat, lng) {
 	this.pweb_maps[map_slug] = new PWebFilterMap(city_map_div_id, map_lang, lat, lng);
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.apply_filters = function() {
 	
-	this.results_limit = 20;
+	this.results_limit = '';
 	
 	this.$data_empty_msg.hide();
 	this.$sort_controls_div.hide();
@@ -325,6 +349,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
     this.update();
     this.updateMap();
+    initpaging(result_per_page);
 }; // end apply_filters() 
 PWebFilterApp.prototype.updateMap = function() { 
 	//Re initiatilize prop_number_to_focus of property map
@@ -335,6 +360,7 @@ PWebFilterApp.prototype.updateMap = function() {
 		this.pweb_maps['city'].updateMarkers(this.jtable_hits);
 	}
 	this.pweb_maps['city'].reDraw();
+	initpaging(result_per_page);
 };
 PWebFilterApp.prototype.update = function() { 
 	var that = this;
@@ -468,6 +494,7 @@ PWebFilterApp.prototype.update = function() {
 		$("#prop_more_info_wrap_"+ID).toggle();
 		return false;
 	});
+	initpaging(result_per_page);
 }; // end init() 
 
 PWebFilterApp.prototype.changeMapProperty = function(map_slug, prop_number) {
@@ -495,6 +522,7 @@ PWebFilterApp.prototype.changeMapProperty = function(map_slug, prop_number) {
 		this.pweb_maps[map_slug].enableMap();
 		
 	}
+	initpaging(result_per_page);
 };
 PWebFilterApp.prototype.fetch_index = function(rowname) {
 	var index = false;
@@ -505,6 +533,7 @@ PWebFilterApp.prototype.fetch_index = function(rowname) {
 		}
 	});
 	return index;
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) { 
@@ -528,6 +557,7 @@ PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) {
 	{
 		this.update();
 	}
+	initpaging(result_per_page);
 	
 };// end sort_hits
 
@@ -555,6 +585,7 @@ PWebFilterApp.prototype.init_counts = function() {
 //	{
 //		this.FiltersCounts['landmark-count-'+this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.value] = 0;
 //	}
+	initpaging(result_per_page);
 };
 
 //Compute counts
@@ -611,12 +642,13 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 	{
 		$('#breakfast_2nd_filter').parent().hide();
 	}
-	
+	initpaging(result_per_page);
 };
 //Compute counts
 PWebFilterApp.prototype.compute_counts = function() {
 	//compute counts
 	this.compute_district_counts();
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.compute_district_counts = function() {
@@ -667,6 +699,7 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 			}
 		}
 	}
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.update_counts = function() {
@@ -683,6 +716,7 @@ PWebFilterApp.prototype.update_counts = function() {
 	}
 //	$('#city_results_count_current').html(this.jtable_hits.count());
 	//city_results_count_current
+	initpaging(result_per_page);
 };
 PWebFilterApp.prototype.get_filters = function() {
 
@@ -1032,6 +1066,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		
 	
 	};
+	initpaging(result_per_page);
 };
 
 
@@ -1041,12 +1076,14 @@ PWebFilterApp.prototype.setData = function(json_data) {
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
 	this.FiltersCounts['city_results_count_total'] = json_data.length;
+	initpaging(result_per_page);
 	
 };
 
 PWebFilterApp.prototype.setRequestData = function(json_request_data) {
 	this.request = json_request_data;
 	this.PriceCurrencySymbol = this.request.display_currency;
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.change_price_filter = function(event, ui) {
@@ -1060,6 +1097,7 @@ PWebFilterApp.prototype.change_price_filter = function(event, ui) {
 		}
 
 	this.apply_filters();
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.change_rating_filter = function(event, ui) {
@@ -1072,6 +1110,7 @@ PWebFilterApp.prototype.change_rating_filter = function(event, ui) {
 		$('#applied_filter_hosting_rating').show();
 		}
 	this.apply_filters();
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.init_action_filters = function() {
@@ -1175,6 +1214,7 @@ PWebFilterApp.prototype.init_action_filters = function() {
 	this.LandmarksCheckBoxes.clickAction(function (){
 		that.apply_filters();
 	});
+	initpaging(result_per_page);
 };
 PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 	var that = this;
@@ -1199,6 +1239,7 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 		}
 		return false;
 	});
+	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.refresh = function(more_results) {
@@ -1206,6 +1247,7 @@ PWebFilterApp.prototype.refresh = function(more_results) {
 	
 	this.results_limit = this.results_limit + more_results;
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order,true);
+	initpaging(result_per_page);
 };
 PWebFilterApp.prototype.toggleMap = function(map_slug) {
 	this.pweb_maps[map_slug].toggle();
@@ -1214,6 +1256,7 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 	{
 		this.pweb_maps[map_slug].updateMarkers(this.jtable_hits);
 	}
+	initpaging(result_per_page);
 };
 
 
@@ -1317,6 +1360,7 @@ function setup_filters(data)
 				pweb_filter.apply_filters();
 				return false;
 			});
+	initpaging(result_per_page);		
 	
 }
 
@@ -1349,4 +1393,5 @@ function closeFilter(type) {
 $(document).ready(function() { 
 
 	pweb_filter = new PWebFilterApp();
+	initpaging(result_per_page);
 }); // end ready event 

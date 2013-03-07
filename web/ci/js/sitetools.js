@@ -33,8 +33,25 @@ $(document).ready(function(){
 	//$('.city_lp .info_pic img').jail({effect:"fadeIn"});
 	
 	$("a.modify_search").click(function(){
-		 $('#side_search_wrap').toggle();
+                $('#side_search_wrap').toggle();
 		 $(this).toggleClass('expand');
+                  $(this).toggleClass('collapse');
+
+                 if ($(this).hasClass('expand'))
+                    {
+                        // Show everything in side search box 
+                        $('#side_search_wrap_city').show();
+                        $('#side_search_wrap').show();		
+                
+                    }
+                    else
+                    {
+                        // hide everything in side search box 
+                        // except header
+                         $('#side_search_wrap_city').hide();
+                         $('#side_search_wrap').hide();		
+                    }
+                    
 		 return false;
 	});
 	
@@ -134,8 +151,33 @@ $(document).ready(function(){
 	});
 		
 	$(".iframe").fancybox();
-	
+	modifySideSearch_showHide();
 });
+
+    function modifySideSearch_showHide(){
+        if( $('a.modify_search').hasClass('collapse') )
+          {
+               // hide everything in side search box 
+               // except header
+                $('#modify_search').show();
+		
+                $('#search_now').hide();
+                $('#side_search_wrap_city').hide();
+		$('#side_search_wrap').show();
+           
+	  }
+          else
+          {
+               // show everything in side search box 
+               // except modify search and back to result
+               // because this user land page
+                $('#modify_search').show();
+		
+                $('#search_now').hide();
+                $('#side_search_wrap_city').show();
+		$('#side_search_wrap').show();  		
+          }
+}
 function startslideshow(){
 	var main_pic = $('.main-pic');
 	if (main_pic.length){

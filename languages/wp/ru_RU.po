@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-13 13:57-0800\n"
-"PO-Revision-Date: 2012-06-13 13:57-0800\n"
-"Last-Translator: Guillaume <gbourdages@graphem.ca>\n"
+"PO-Revision-Date: 2013-03-03 20:42+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-Country: CANADA\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: fr_CA\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:6
@@ -21,13 +21,16 @@ msgid "Erreur 404 - Page introuvable"
 msgstr "Ошибка 404 - Страница не найдена"
 
 #: 404.php:10
-msgid "Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi effectuer une recherche:"
-msgstr "К сожалению мы не можем найти эту страницу. Пожалуйста, используйте верхнее меню для навигации по сайту и поиска нужной информации. Вы также можете найти:"
+msgid ""
+"Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut "
+"pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi "
+"effectuer une recherche:"
+msgstr ""
+"К сожалению мы не можем найти эту страницу. Пожалуйста, используйте верхнее "
+"меню для навигации по сайту и поиска нужной информации. Вы также можете "
+"найти:"
 
-#: archive.php:6
-#: archive.php:32
-#: canada-page.php:17
-#: functions.php:103
+#: archive.php:6 archive.php:32 canada-page.php:17 functions.php:103
 msgid "ville"
 msgstr "город"
 
@@ -47,10 +50,7 @@ msgstr "Посмотреть эту категорию"
 msgid "Archive RSS"
 msgstr "Архив Feed"
 
-#: archive.php:21
-#: archive.php:24
-#: archive.php:27
-#: functions.php:240
+#: archive.php:21 archive.php:24 archive.php:27 functions.php:240
 #: functions.php:250
 msgid "Archive pour"
 msgstr "Архив для"
@@ -131,18 +131,15 @@ msgstr "Ваше имя"
 msgid "Connecté entant que"
 msgstr "Зарегистрирован как"
 
-#: comments.php:124
-#: header.php:239
+#: comments.php:124 header.php:239
 msgid "Se déconnecter"
 msgstr "Выйти"
 
-#: comments.php:136
-#: contact.php:27
+#: comments.php:136 contact.php:27
 msgid "Nom"
 msgstr "Имя"
 
-#: comments.php:139
-#: comments.php:150
+#: comments.php:139 comments.php:150
 msgid "(requis)"
 msgstr "(обязательно)"
 
@@ -155,8 +152,12 @@ msgid "Site Web"
 msgstr "Веб-сайт"
 
 #: comments.php:171
-msgid "Veuillez noter: la modération est active et ralentira la publication de votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
-msgstr "Обратите внимание: после проверки Ваших комментариев, они будут опубликованы на сайте. Нет необходимости повторно оставлять свои комментарии."
+msgid ""
+"Veuillez noter: la modération est active et ralentira la publication de "
+"votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
+msgstr ""
+"Обратите внимание: после проверки Ваших комментариев, они будут опубликованы "
+"на сайте. Нет необходимости повторно оставлять свои комментарии."
 
 #: comments.php:177
 msgid "Soumettre"
@@ -194,40 +195,33 @@ msgstr "Спасибо за ваш комментарий. Мы постарае
 msgid "Veuillez remplir les champs requis correctement."
 msgstr "Пожалуйста, правильно заполните обязательные поля."
 
-#: footer-mobile.php:5
-#: footer.php:39
-#: header-mobile.php:25
+#: footer-mobile.php:5 footer.php:39 header-mobile.php:25
 msgid "Trouver une auberge"
 msgstr "Поиск проживания"
 
 #: footer-mobile.php:6
 msgid "View Full Site"
-msgstr ""
+msgstr "Посмотреть полную версию"
 
-#: footer-mobile.php:7
-#: footer.php:50
+#: footer-mobile.php:7 footer.php:50
 msgid "About us"
 msgstr "О нас"
 
-#: footer-mobile.php:8
-#: footer.php:47
+#: footer-mobile.php:8 footer.php:47
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Помощь / Вопросы / Контакты"
 
-#: footer-mobile.php:9
-#: footer.php:48
+#: footer-mobile.php:9 footer.php:48
 msgid "Confidentialité"
 msgstr "Соглашение о Конфиденциальности"
 
-#: footer-mobile.php:10
-#: footer.php:49
+#: footer-mobile.php:10 footer.php:49
 msgid "Conditions"
 msgstr "Условия"
 
 #: footer.php:9
-#, fuzzy
 msgid "Destinations Populaires"
-msgstr "Путеводители"
+msgstr "Лучшие предложения"
 
 #: footer.php:11
 msgid "Londres"
@@ -393,8 +387,7 @@ msgstr "Италия/Милан"
 msgid "Milan"
 msgstr "Милан"
 
-#: footer.php:31
-#: footer.php:32
+#: footer.php:31 footer.php:32
 msgid "Grenade"
 msgstr "Гренада"
 
@@ -418,9 +411,7 @@ msgstr "Брюссель"
 msgid "Navigation"
 msgstr "Навигация"
 
-#: footer.php:38
-#: header-mobile.php:24
-#: header.php:294
+#: footer.php:38 header-mobile.php:24 header.php:294
 msgid "Accueil"
 msgstr "Главная"
 
@@ -428,8 +419,7 @@ msgstr "Главная"
 msgid "Guides"
 msgstr "Путеводители"
 
-#: footer.php:41
-#: header.php:300
+#: footer.php:41 header.php:300
 msgid "Événements"
 msgstr "События"
 
@@ -438,8 +428,32 @@ msgid "Information"
 msgstr "Информация"
 
 #: footer.php:60
-msgid "Vous recherchez une <strong>auberge</strong>, une <strong>auberge de jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse.com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme <strong>Paris</strong> en France, <strong>Londres</strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, <strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, <strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République tchèque ….Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
-msgstr "Ищите хостелы, квартиру, комнату, комнату и завтрак, гостевой дом? Hostel.ru.com № 1 поисковая система для бронирования проживания  в России, Германии, Франции, Италии, Испании, Чехословакии. Hostel.ru.com предлагает бронирование комнаты в хостелах и местах недорогого проживания в последнюю минуту и по низкой цене в таких городах, как Париж во Франции, Лондон в Англии, Барселона в  Испании, Нью-Йорк в Соединенных Штатах Америки, Рим в Италии, Амстердам в Нидерландах, Дублин в Ирландии, Мадрид в Испании, Прага в Чехии... Планирование поездки с легкостью, мы также предоставляем информацию о бронировании в последнюю минуту, путеводители и обзоры по лучшим хостелам."
+msgid ""
+"Vous recherchez une <strong>auberge</strong>, une <strong>auberge de "
+"jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And "
+"Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre "
+"d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse."
+"com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada "
+"pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com "
+"propose la réservation dernière minute de chambres et logements à bas prix "
+"dans des villes comme <strong>Paris</strong> en France, <strong>Londres</"
+"strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New "
+"York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, "
+"<strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, "
+"<strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République "
+"tchèque ….Préparez votre voyage en toute simplicité, nous proposons "
+"également des informations de dernières minutes, des guides et commentaires."
+msgstr ""
+"Ищите хостелы, квартиру, комнату, комнату и завтрак, гостевой дом? Hostel.ru."
+"com № 1 поисковая система для бронирования проживания  в России, Германии, "
+"Франции, Италии, Испании, Чехословакии. Hostel.ru.com предлагает "
+"бронирование комнаты в хостелах и местах недорогого проживания в последнюю "
+"минуту и по низкой цене в таких городах, как Париж во Франции, Лондон в "
+"Англии, Барселона в  Испании, Нью-Йорк в Соединенных Штатах Америки, Рим в "
+"Италии, Амстердам в Нидерландах, Дублин в Ирландии, Мадрид в Испании, Прага "
+"в Чехии... Планирование поездки с легкостью, мы также предоставляем "
+"информацию о бронировании в последнюю минуту, путеводители и обзоры по "
+"лучшим хостелам."
 
 #: functions.php:103
 msgid "Ville"
@@ -469,9 +483,7 @@ msgstr "дата_события"
 msgid "Date Événements"
 msgstr "Дата события"
 
-#: functions.php:171
-#: index.php:99
-#: index.php:101
+#: functions.php:171 index.php:99 index.php:101
 msgid "Lire la suite"
 msgstr "Подробнее"
 
@@ -507,13 +519,11 @@ msgstr "Ответ"
 msgid "Vous connecter pour répondre"
 msgstr "Войти, чтобы ответить"
 
-#: header-mobile.php:28
-#: header.php:232
+#: header-mobile.php:28 header.php:232
 msgid "Mon Compte"
 msgstr "Мой аккаунт"
 
-#: header-mobile.php:30
-#: header.php:234
+#: header-mobile.php:30 header.php:234
 msgid "Se connecter"
 msgstr "Пользователь"
 
@@ -525,8 +535,7 @@ msgstr "Выберите страну"
 msgid "Choisir la ville"
 msgstr "Выберите город"
 
-#: header.php:130
-#: header.php:137
+#: header.php:130 header.php:137
 msgid "Chargement..."
 msgstr "Загрузка ..."
 
@@ -540,15 +549,15 @@ msgstr "Более 30 000 хостелов онлайн"
 
 #: header.php:276
 msgid "Free SMS"
-msgstr ""
+msgstr "Бесплатные СМС"
 
 #: header.php:283
 msgid "No Booking fees"
-msgstr ""
+msgstr "Бесплатное бронирование"
 
 #: header.php:285
 msgid "Check your reservation on your mobile"
-msgstr ""
+msgstr "Проверить бронь через мобильный"
 
 #: header.php:295
 msgid "Auberges et logements pas chers"
@@ -690,17 +699,11 @@ msgstr "Общая информация - "
 msgid "Coup de Coeur !"
 msgstr "Рекомендуемые!"
 
-#: lp-page.php:85
-#: lp-page.php:93
-#: lp-page.php:103
-#: lp-page.php:114
+#: lp-page.php:85 lp-page.php:93 lp-page.php:103 lp-page.php:114
 msgid "À partir de"
 msgstr "От"
 
-#: lp-page.php:86
-#: lp-page.php:94
-#: lp-page.php:104
-#: lp-page.php:115
+#: lp-page.php:86 lp-page.php:94 lp-page.php:104 lp-page.php:115
 msgid "Réserver Maintenant"
 msgstr "Забронировать сейчас"
 
@@ -764,28 +767,26 @@ msgstr "Тип статьи:"
 msgid "Désolé aucun résultat ne répond à vos critères."
 msgstr "К сожалению, ничего не найдено по вашим критериям."
 
-#: search_box.php:48
-#: search_box.php:87
+#: search_box.php:48 search_box.php:87
 msgid "Enter a city name or hostel name"
 msgstr "Введите название места проживания"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Pays introuvable"
 msgstr "Страна не найдена"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Ville introuvable"
 msgstr "Город не найден"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Date invalide"
 msgstr "Дата указана неверно"
 
 #: search_box.php:63
-msgid "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and Breakfast, Pensions - Plus de 30000!!"
+msgid ""
+"Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and "
+"Breakfast, Pensions - Plus de 30000!!"
 msgstr "30 000 Хостелы, гостиницы, квартиры, кровать и завтрак, пансионы..."
 
 #: search_box.php:69
@@ -813,9 +814,8 @@ msgid "Currency:"
 msgstr "Валюта:"
 
 #: search_box.php:117
-#, fuzzy
 msgid "Search Now"
-msgstr "Поиск по карте"
+msgstr "Поиск "
 
 #: single-destination.php:9
 msgid "Tout ce que vous devez savoir sur"
@@ -825,9 +825,7 @@ msgstr "Все, что вам нужно знать о"
 msgid "Quoi faire à"
 msgstr "Что делать в "
 
-#: single-page-destination.php:15
-#: single.php:22
-#: subpage-destinations.php:32
+#: single-page-destination.php:15 single.php:22 subpage-destinations.php:32
 #: subpage-destinations.php:46
 msgid "Plus sur"
 msgstr "Подробнее о"
@@ -836,8 +834,7 @@ msgstr "Подробнее о"
 msgid "Auberges de Jeunesse à"
 msgstr "Хостелы - "
 
-#: single-page-destination.php:52
-#: subpage-destinations.php:85
+#: single-page-destination.php:52 subpage-destinations.php:85
 msgid "Nos suggestions pour"
 msgstr "Наши предложения для "
 
@@ -853,13 +850,11 @@ msgstr "Не пропустите:"
 msgid "Auberges Populaires"
 msgstr "Популярные хостелы и проживание"
 
-#: admin/widgets.php:150
-#: admin/widgets.php:167
+#: admin/widgets.php:150 admin/widgets.php:167
 msgid "Choisir un pays"
 msgstr "Выберите страну"
 
-#: admin/widgets.php:151
-#: admin/widgets.php:174
+#: admin/widgets.php:151 admin/widgets.php:174
 msgid "Choisir une ville"
 msgstr "Выберите город"
 
@@ -896,169 +891,162 @@ msgid "Visiter nos guides"
 msgstr "Посетите наши путеводители"
 
 #: tools/pofield.php:1
-#, fuzzy
 msgid "Modify search"
-msgstr "(корректировать)"
+msgstr "Корректировать параметры поиска"
 
 #: tools/pofield.php:2
 msgid "Back to top"
-msgstr ""
+msgstr "Вернуться к началу"
 
 #: tools/pofield.php:4
 msgid "Send confirmation email"
-msgstr ""
+msgstr "Подтверждение по электронной почте"
 
 #: tools/pofield.php:5
 msgid "Room type and number of guests"
-msgstr ""
+msgstr "Тип комнаты и количество гостей"
 
 #: tools/pofield.php:6
-#, fuzzy
 msgid "Book Now"
 msgstr "Зарезервировать"
 
 #: tools/pofield.php:7
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 #: tools/pofield.php:8
-#, fuzzy
 msgid "Search for another hostel"
-msgstr "Поиск по названию:"
+msgstr "Поиск другого хостела:"
 
 #: tools/pofield.php:9
-#, fuzzy
 msgid "About"
 msgstr "О нас"
 
 #: tools/pofield.php:10
 msgid "Back to results"
-msgstr ""
+msgstr "Вернуться к результатам"
 
-#: tools/pofield.php:12
-#: tools/pofield.php:37
+#: tools/pofield.php:12 tools/pofield.php:37
 msgid "View Mobile Site"
-msgstr ""
+msgstr "Посмотреть сайт для мобильного"
 
 #: tools/pofield.php:13
 msgid "Reset"
-msgstr ""
+msgstr "Изменить"
 
 #: tools/pofield.php:14
 msgid "Latest Reviews"
-msgstr ""
+msgstr "Последние обзоры"
 
 #: tools/pofield.php:15
 msgid "Check Availability"
-msgstr ""
+msgstr "Проверить наличие"
 
 #: tools/pofield.php:16
 msgid "Change dates"
-msgstr ""
+msgstr "Изменить даты"
 
 #: tools/pofield.php:17
 msgid "Back to search results"
-msgstr ""
+msgstr "Вернуться к результатам поиска"
 
 #: tools/pofield.php:18
 msgid "This property does not offer any dorms."
-msgstr ""
+msgstr "Это место не предлагает общежитие."
 
 #: tools/pofield.php:19
 msgid "This property does not offer any private rooms."
-msgstr ""
+msgstr "Это место не предлагает отдельных комнат."
 
 #: tools/pofield.php:20
 msgid "Read more…"
-msgstr ""
+msgstr "Читать далее…"
 
 #: tools/pofield.php:21
 msgid "View On Map"
-msgstr ""
+msgstr "Посмотреть на карте"
 
 #: tools/pofield.php:22
 msgid "Change Dates"
-msgstr ""
+msgstr "Изменить даты"
 
 #: tools/pofield.php:23
 msgid "Proceed To Payment"
-msgstr ""
+msgstr "Перейти к оплате"
 
 #: tools/pofield.php:24
 msgid "Hostel info"
-msgstr ""
+msgstr "Информация о хостеле"
 
 #: tools/pofield.php:25
 msgid "Back to account home page"
-msgstr ""
+msgstr "Вернуться на страницу аккаунта"
 
 #: tools/pofield.php:26
 msgid "Pictures"
-msgstr ""
+msgstr "Фотографии"
 
 #: tools/pofield.php:27
 msgid "Phone (please include the country code)"
-msgstr ""
+msgstr "Телефон (пожалуйста, укажите код страны)"
 
-#: tools/pofield.php:28
-#: widget/sideinfo.php:14
-#: widget/sideinfo.php:35
+#: tools/pofield.php:28 widget/sideinfo.php:14 widget/sideinfo.php:35
 msgid "Text/SMS (Free)"
-msgstr ""
+msgstr "Текст/СМС (бесплатно)"
 
 #: tools/pofield.php:29
-msgid "Please make sure you have included the country code in your phone number above"
-msgstr ""
+msgid ""
+"Please make sure you have included the country code in your phone number "
+"above"
+msgstr "Пожалуйста, укажите код страны и указанном выше номере"
 
 #: tools/pofield.php:31
 msgid "Mobile version"
-msgstr ""
+msgstr "Версия для мобильного телефона"
 
 #: tools/pofield.php:32
-#, fuzzy
 msgid "Reservation"
-msgstr "Путеводители"
+msgstr "Бронь"
 
 #: tools/pofield.php:34
 msgid "Message to Parents"
-msgstr ""
+msgstr "Сообщение для родителей"
 
 #: tools/pofield.php:35
 msgid "Why booking with us ?"
-msgstr ""
+msgstr "В чем преимущество бронирования через нас ?"
 
 #: tools/pofield.php:38
 msgid "Booking Guarantee"
-msgstr ""
+msgstr "Гарантия брони"
 
 #: tools/pofield.php:39
 msgid "No Fees"
-msgstr ""
+msgstr "Без оплаты"
 
 #: tools/pofield.php:41
 msgid "Youth Hostel"
-msgstr ""
+msgstr "Хостел для молодежи"
 
 #: tools/pofield.php:42
 msgid "Hostel"
-msgstr ""
+msgstr "Хостел"
 
 #: tools/pofield.php:43
 msgid "Cheap Hotel"
-msgstr ""
+msgstr "Дешевая гостиница"
 
 #: tools/pofield.php:44
 msgid "Appartment"
-msgstr ""
+msgstr "Квартира"
 
 #: tools/pofield.php:45
 msgid "Guesthouse - B&B"
-msgstr ""
+msgstr "Гостевой дом - Завтрак и Комната"
 
-#: widget/citywidget.php:11
-#: widget/citywidget.php:12
+#: widget/citywidget.php:11 widget/citywidget.php:12
 msgid "Best Offers"
-msgstr ""
+msgstr "Лучшие предложения"
 
 #: widget/citywidget.php:13
 msgid "Prix par nuit par personne, à partir de :"
@@ -1088,152 +1076,147 @@ msgstr "Океания"
 msgid "Map Search"
 msgstr "Поиск по карте"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:20 widget/sideinfo.php:30
 #: widget/sideinfo.php:41
 msgid "AubergesDeJeunesse.com"
 msgstr "Hostels.ru.com"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:30
 msgid "est réglementé par l'Union Européenne."
 msgstr "регулируется Европейским Союзом."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 #, php-format
 msgid "100%% sécurisé."
 msgstr "100%% гарантии безопасности."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 msgid "Paiements sécurisés et encryptés pour votre sécurité."
 msgstr "Платежи гарантируются и кодируются для Вашей безопасности."
 
-#: widget/sideinfo.php:11
-#: widget/sideinfo.php:32
+#: widget/sideinfo.php:11 widget/sideinfo.php:32
 msgid "Seulement 10% pour garantir votre réservation."
 msgstr "Только 10% для обеспечения брони."
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "Un service clientèle de qualité disponible"
 msgstr "Доступна качественная система обслуживания клиентов"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "24h/24, 7j/7"
 msgstr "24/7"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "prêt à vous guider à tout moment."
 msgstr "готовы направить вас в любое время."
 
-#: widget/sideinfo.php:16
-#: widget/sideinfo.php:37
+#: widget/sideinfo.php:16 widget/sideinfo.php:37
 msgid "Pour tous les ages: ni maximum ni minimum."
 msgstr "Для всех возрастов: нет максимума или минимума."
 
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:41
+#: widget/sideinfo.php:20 widget/sideinfo.php:41
 msgid "Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."
-msgstr "Нет необходимости иметь членскую карту, чтобы получить лучшие цены в Интернете."
+msgstr ""
+"Нет необходимости иметь членскую карту, чтобы получить лучшие цены в "
+"Интернете."
 
-#: widget/testimonial.php:5
-#: widget/testimonial.php:8
-#, fuzzy
+#: widget/testimonial.php:5 widget/testimonial.php:8
 msgid "Yasmine M, Rio De Janeiro"
-msgstr "Рио-де-Жанейро"
+msgstr "Ясмин М, Рио-де-Жанейро"
 
 #: widget/testimonial.php:7
 msgid "Merci pour votre aide."
-msgstr ""
+msgstr "Спасибо"
 
-#: widget/testimonial.php:14
-#: widget/testimonial.php:16
+#: widget/testimonial.php:14 widget/testimonial.php:16
 msgid "Diego R, Mexico"
-msgstr ""
+msgstr "Диего Р, Мексика"
 
 #: widget/testimonial.php:15
 msgid "Génial le site. Et les prix sont imbattables. Merci !"
-msgstr ""
+msgstr "Отличный сайт. Цены самые низкие. Спасибо большое!"
 
-#: widget/testimonial.php:22
-#: widget/testimonial.php:24
+#: widget/testimonial.php:22 widget/testimonial.php:24
 msgid "Lesley F, Boston"
-msgstr ""
+msgstr "Лесли Ф, Бостон"
 
 #: widget/testimonial.php:23
-msgid "Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
+msgid ""
+"Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
 msgstr ""
+"Мои каникулы пролетели отлично благодаря вам! Описания проживания в точности "
+"соответствует тому, что описано на сайте."
 
 #: widget/testimonial.php:30
 msgid "Jérome H, Marseille"
-msgstr ""
+msgstr "Джером Х, Марсель"
 
 #: widget/testimonial.php:31
-msgid "Notre école a réservé pour 35 personnes sur votre site et pas de surprise. Parfait !!! "
+msgid ""
+"Notre école a réservé pour 35 personnes sur votre site et pas de surprise. "
+"Parfait !!! "
 msgstr ""
+"Наша школа забронировала с вашего сайта проживание на 35 человек и не "
+"возникло никаких неожиданностей. Все прошло просто отлично!"
 
 #: widget/testimonial.php:32
 msgid "Jérome H, Marseille "
-msgstr ""
+msgstr "Джером Х, Марсель"
 
-#: widget/testimonial.php:38
-#: widget/testimonial.php:40
+#: widget/testimonial.php:38 widget/testimonial.php:40
 msgid "Carmen J, Lima"
-msgstr ""
+msgstr "Кармен Дж, Лима"
 
 #: widget/testimonial.php:39
 msgid "Choix, prix, sécurité, confirmation. Rien a dire : site super ! "
 msgstr ""
+"Хороший выбор, цена, безопасность, подтверждение. Супер сайт - больше "
+"добавить нечего!"
 
-#: widget/testimonial.php:46
-#: widget/testimonial.php:48
+#: widget/testimonial.php:46 widget/testimonial.php:48
 msgid "Jowar, New Dehli"
-msgstr ""
+msgstr "Джовар, Нью-Дели"
 
 #: widget/testimonial.php:47
-msgid "Les directions étaient bonnes et les prix des plus bas… Voyage réussie. Encore Merci."
-msgstr ""
+msgid ""
+"Les directions étaient bonnes et les prix des plus bas… Voyage réussie. "
+"Encore Merci."
+msgstr "Инструкции были полезными, а цены…супернизкие!. Еще раз спасибо."
 
-#: widget/testimonial.php:54
-#: widget/testimonial.php:56
+#: widget/testimonial.php:54 widget/testimonial.php:56
 msgid "Olivia S, Londres"
-msgstr ""
+msgstr "Оливия С, Лондон"
 
 #: widget/testimonial.php:55
 msgid "Les cartes et les guides m'ont aidée. Votre site est facile a naviguer."
-msgstr ""
+msgstr "Мне помогли карты и путеводители. Навигация по сайту очень простая."
 
-#: widget/testimonial.php:62
-#: widget/testimonial.php:64
+#: widget/testimonial.php:62 widget/testimonial.php:64
 msgid "Michal E, Varsovie"
-msgstr ""
+msgstr "Майкл И, Варшава"
 
 #: widget/testimonial.php:63
-msgid "Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
+msgid ""
+"Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
 msgstr ""
+"Моя невеста и я забронировали свой отпуск с помощью вашего сайта и всё "
+"просло отлично. :)"
 
-#: widget/testimonial.php:70
-#: widget/testimonial.php:72
+#: widget/testimonial.php:70 widget/testimonial.php:72
 msgid "Hiroto V, Seoul"
-msgstr ""
+msgstr "Хирото В, Сеул"
 
 #: widget/testimonial.php:71
 msgid "Très content de vos services."
-msgstr ""
+msgstr "Очень доволен вашими услугами."
 
-#: widget/testimonial.php:78
-#: widget/testimonial.php:80
+#: widget/testimonial.php:78 widget/testimonial.php:80
 msgid "Ali S, Casablanca"
-msgstr ""
+msgstr "Али С, Касабланка"
 
 #: widget/testimonial.php:79
 msgid "Les cartes sont indispensables et très pratiques."
-msgstr ""
+msgstr "Карты практичны и очень помогают."
 
 #: widget/topcity.php:2
 msgid "france/paris"
