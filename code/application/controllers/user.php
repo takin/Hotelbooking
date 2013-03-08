@@ -81,7 +81,7 @@ class User extends UserRestricted
     $this->form_validation->set_rules('gender', _('Sexe'), 'trim|xss_clean');
     $this->form_validation->set_rules('favorite_currency', _('Devise'), 'trim|xss_clean');
     $this->form_validation->set_rules('phone_number', _('Téléphone'), 'trim|xss_clean');
-
+	$profile_change='';
     if ($this->form_validation->run() == FALSE) {                // validation not ok
 
     }
@@ -109,7 +109,8 @@ class User extends UserRestricted
         $data['warning']         = true;
         $data['warning_message'] = _('Une mise à jour de votre profil a été effectuée. Merci!');
       }
-
+	  $data['changes_success']='Change Successfuly';
+	  $profile_change='success';
     }
 //    $this->load->view('auth/change_password_form', $data);
 
@@ -120,8 +121,14 @@ class User extends UserRestricted
     if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
     {
       $data['current_view_dir'] = "mobile/user/";
-      $data['current_view'] = "user_profile";
-
+      if($profile_change!='')
+	  {
+	  	$data['current_view'] = "user_view";
+	  }
+	  else
+	  {
+	  	$data['current_view'] = "user_profile";	
+	  }
       $this->carabiner->load_group_assets('mobile_main_menu');
 
       $this->load->view('mobile/includes/template',$data);
@@ -129,7 +136,14 @@ class User extends UserRestricted
     else
     {
       $data['current_view_dir'] = $this->api_view_dir;
-      $data['current_view'] = "restricted/user_profile";
+      if($profile_change!='')
+	  {
+	  	$data['current_view'] = "restricted/user_view";
+	  }
+	  else
+	  {
+	  	$data['current_view'] = "restricted/user_profile";	
+	  }
       $this->load->view('includes/template',$data);
     }
   }
