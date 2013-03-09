@@ -639,7 +639,7 @@ else
 					?>
 
 					<div class="content_block">
-						<strong style="float: left; display: block;"><?php echo _("Want to send a copy?");?></strong>
+						<strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?");?></strong>
 						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" /></a>
 						<br style="clear: both" />
 					</div>

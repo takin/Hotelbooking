@@ -3,7 +3,8 @@
 <div id="share-overlay">
 	<div class="content">
 		<div class="confirmation">
-			<p class="title"><?php echo sprintf(_('Your message has been sent to %s'), '<span id="email_recipient"></span>'); ?></p>
+			<p class="title"><?php echo sprintf(_('Your message has been sent to %s'), '<br /><br ><span id="email_recipient"></span>'); ?></p>
+			<br /><br />
 
 			<table>
 				<tr>
@@ -24,10 +25,12 @@
 				</tr>
 			</table>
 
-			<br /><br />
+			<br />
 
-			<a href="/" id="show-share-overlay"><?php echo _('Send another message'); ?></a>
-			<a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a>
+			<p style="margin-left: 220px">
+				<a href="/" id="show-share-overlay"><?php echo _('Send another message'); ?></a>
+				<a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a>
+			</p>
 		</div>
 
 		<form action="<?php echo site_url("cmain/property_send_email"); ?>" method="post" id="share_email_form">
@@ -60,7 +63,7 @@
 			</div>
 
 			<div class="form-item2">
-				<label for="subscribe"><input type="checkbox" name="subscribe" id="subscribe" checked="checked" /> <?php echo _('Yes, I want to subscribe to the newsletter.'); ?></label>
+				<label for="subscribe"><input type="checkbox" name="subscribe" id="subscribe" checked="checked" /> <?php echo _('Yes, I want to subscribe to the newsletter to get great deals. (You can unsubscribe anytime)'); ?></label>
 			</div>
 
 			<div class="form-item2">

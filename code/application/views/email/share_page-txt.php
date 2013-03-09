@@ -1,5 +1,8 @@
-<?php echo var_check($from_name, ''); ?> <?php echo _('send you a message:'); ?>
+<?php echo sprintf(_('%s has sent you a message:'), var_check($from_name, '')); ?>
+
 	"<?php echo var_check($message, ''); ?>"
+
+<?php echo _('Here is the link to see the prices, description, maps and much more:'); ?>
 
 <?php 
 	$property_url = site_url("/{$property_type}/{$property_name}/{$property_number}");
