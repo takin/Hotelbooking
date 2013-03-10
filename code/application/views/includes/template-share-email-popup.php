@@ -62,9 +62,9 @@
 				<input type="text" name="from_email" id="from_email" class="input" />
 			</div>
 
-			<div class="form-item2">
+			<!-- <div class="form-item2">
 				<label for="subscribe"><input type="checkbox" name="subscribe" id="subscribe" checked="checked" /> <?php echo _('Yes, I want to subscribe to the newsletter to get great deals. (You can unsubscribe anytime)'); ?></label>
-			</div>
+			</div> -->
 
 			<div class="form-item2">
 				<hr />

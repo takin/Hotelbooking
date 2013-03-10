@@ -60,8 +60,6 @@
 								<br /><br />
 								<span style="color: #003580"><strong><?php echo _('Like what you see?'); ?></strong></span><br />
 								<span style="color: #003580"><strong>Visit <a style="color:#00a2e8" href="<?php echo site_url('/'); ?>"><?php echo site_url('/'); ?></a> or <a style="color:#00a2e8" href="<?php echo site_url('/bienvenue'); ?>">signup</a></strong> to get 70% off of select hotels.</span><br />
-
-								<div><a href="<?php echo site_url('/'); ?>">Subscribe</a></div>
 							</p>
 						</td>
 					</tr>
