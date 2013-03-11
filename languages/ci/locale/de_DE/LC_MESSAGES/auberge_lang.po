@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-11 17:36+0200\n"
-"PO-Revision-Date: 2013-03-08 23:26+0200\n"
+"PO-Revision-Date: 2013-03-11 21:32+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7171,7 +7170,7 @@ msgstr "Vergleichen"
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
 msgid " of "
-msgstr ""
+msgstr " von "
 
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
@@ -7226,7 +7225,7 @@ msgid "Result"
 msgstr "Resultate"
 
 #: ../code/application/views/helpfile/pofields.php:647
-#, fuzzy, php-format
+#, php-format
 msgid "Only 5 properties can be compared"
 msgstr "Nur 5 Immobilien können verglichen werden"
 
@@ -7268,9 +7267,9 @@ msgid "Restore Everything"
 msgstr "Alles Wiederherstellen"
 
 #: ../code/application/views/helpfile/pofields.php:656
-#, fuzzy, php-format
+#, php-format
 msgid "Compare (%d out of 5)"
-msgstr "Vergleich (von %d bis %d)"
+msgstr "Vergleich (von %d bis 5)"
 
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
@@ -7315,12 +7314,12 @@ msgstr "Bitte unter Name \"Von\" eintragen"
 #: ../code/application/views/helpfile/pofields.php:666
 #, php-format
 msgid "Fill in the \"From\" email"
-msgstr "Ungültige Email-Adresse unter \"von\""
+msgstr "Bitte unter Email \"Von\" eintragen"
 
 #: ../code/application/views/helpfile/pofields.php:667
 #, php-format
 msgid "Invalid \"From\" email"
-msgstr "Ungültige Email-Adresse unter \"von\""
+msgstr "Ungültige Email-Adresse unter \"Von\""
 
 #: ../code/application/views/helpfile/pofields.php:668
 #, php-format
@@ -7420,14 +7419,14 @@ msgstr ""
 "Mehr herausfinden"
 
 #: ../code/application/views/helpfile/pofields.php:689
-#, fuzzy, php-format
+#, php-format
 msgid "New Search"
-msgstr "Jetzt suchen"
+msgstr "Neue Suche"
 
 #: ../code/application/views/helpfile/pofields.php:690
-#, fuzzy, php-format
+#, php-format
 msgid "Search"
-msgstr "Jetzt suchen"
+msgstr "Suche"
 
 #: ../code/application/views/helpfile/pofields.php:691
 #: ../code/application/views/mustache/property_list.php:264
