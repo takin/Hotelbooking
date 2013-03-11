@@ -676,7 +676,7 @@ msgstr "Recherchez"
 #: ../code/application/views/group_request.php:63
 #: ../code/application/views/group_request.php:65
 msgid "Chargement..."
-msgstr "Chargement..."
+msgstr "Chargement…"
 
 #: ../code/application/views/includes/side_search_box.php:37
 #: ../code/application/views/includes/side_search_box.php:170
@@ -3188,7 +3188,6 @@ msgstr ""
 "aéroports ainsi qu'une auberge près de toutes les attractions de %s."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Erreur 404 - Page Introuvable"
 
@@ -3297,7 +3296,7 @@ msgstr "Camping"
 #: ../code/application/views/helpfile/pofields.php:660
 #, php-format
 msgid "Facilities"
-msgstr "Services"
+msgstr "Aménagements"
 
 #: ../code/application/views/city_view.php:82
 #: ../code/application/views/city_view.php:249
@@ -3956,7 +3955,7 @@ msgstr "Soyez sur que tous les champs ont été remplis"
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Atmosphere"
-msgstr "Atmosphère"
+msgstr "Ambiance"
 
 #: ../code/application/views/hb/hostel_view.php:47
 #: ../code/application/views/helpfile/pofields.php:641
@@ -7071,74 +7070,74 @@ msgid "Next available property"
 msgstr "Propriété disponible suivante"
 
 #: ../code/application/views/helpfile/pofields.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "of %s results"
-msgstr "Retour aux résultats"
+msgstr "de %s résultats"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "Groupes"
+msgstr "Type de groupe:"
 
 #: ../code/application/views/helpfile/pofields.php:612
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "Fourchette prix : "
+msgstr "Tranches d'âge:"
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Choisir…"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "Vacances entre amis"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "Junior / Ecole primaire"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "École secondaire"
 
 #: ../code/application/views/helpfile/pofields.php:617
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "Collège / Université"
 
 #: ../code/application/views/helpfile/pofields.php:618
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
-msgstr "Voyages d'affaires"
+msgstr "Voyage d'affaires"
 
 #: ../code/application/views/helpfile/pofields.php:619
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "Enterrement de vie de garçon / fille"
 
 #: ../code/application/views/helpfile/pofields.php:620
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "Goupes sportifs"
+msgstr "Ggroupe de sports"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "Groupe culturel"
 
 #: ../code/application/views/helpfile/pofields.php:622
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "S'il vous plaît, veuillez spécifier un type de groupe."
 
 #: ../code/application/views/helpfile/pofields.php:623
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr "Nous avons trouvé une super offre pour votre groupe."
+msgstr "S'il vous plaît spécifier une plage d'âge pour votre groupe."
 
 #: ../code/application/views/helpfile/pofields.php:624
 #, php-format
@@ -7146,14 +7145,14 @@ msgid "Map"
 msgstr "Carte"
 
 #: ../code/application/views/helpfile/pofields.php:626
-#, fuzzy, php-format
+#, php-format
 msgid "Reviews"
 msgstr "Commentaires"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "Comparer"
 
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
@@ -7164,46 +7163,48 @@ msgstr " de "
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
 msgstr ""
+"S'il vous plaît voir les propriétés sélectionnées à comparer le haut de la "
+"page."
 
 #: ../code/application/views/helpfile/pofields.php:633
-#, fuzzy, php-format
+#, php-format
 msgid "Not available"
-msgstr "Pas de dortoirs disponibles"
+msgstr "Non disponible"
 
 #: ../code/application/views/helpfile/pofields.php:635
-#, fuzzy, php-format
+#, php-format
 msgid "Print"
-msgstr "Imprimer maintenant"
+msgstr "Imprimer"
 
 #: ../code/application/views/helpfile/pofields.php:636
 #, php-format
 msgid "Quick Compare"
-msgstr ""
+msgstr "Comparaison Rapide"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms From"
-msgstr "Dortoirs %s"
+msgstr "Dortoirs à partir de"
 
 #: ../code/application/views/helpfile/pofields.php:638
-#, fuzzy, php-format
+#, php-format
 msgid "Privates From"
-msgstr "Chambres privées"
+msgstr "Chambres privées à partir de"
 
 #: ../code/application/views/helpfile/pofields.php:639
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "Note générale"
+msgstr "Evaluation générale "
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Site"
-msgstr ""
+msgstr "Batiment"
 
 #: ../code/application/views/helpfile/pofields.php:644
 #, php-format
 msgid "Services"
-msgstr ""
+msgstr "Services"
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
@@ -7213,188 +7214,193 @@ msgstr "Résultats"
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Result"
-msgstr ""
+msgstr "Résultats"
 
 #: ../code/application/views/helpfile/pofields.php:649
-#, php-format
+#, fuzzy, php-format
 msgid "Only %d properties can be compared"
-msgstr ""
+msgstr "Seulement 5 propriétés peuvent être comparées"
 
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Please remove a property from list."
-msgstr ""
+msgstr "S'il vous plaît supprimer une propriété de la liste."
 
 #: ../code/application/views/helpfile/pofields.php:651
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Comparer toutes les établissements à %s"
+msgstr "Comparer rapide (5 propriétés maximum)"
 
 #: ../code/application/views/helpfile/pofields.php:652
-#, fuzzy, php-format
+#, php-format
 msgid "Remove All"
-msgstr "Enlevez"
+msgstr "Supprimer tout"
 
 #: ../code/application/views/helpfile/pofields.php:653
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
 msgstr ""
+"S'il vous plaît voir les propriétés sélectionnées à comparer le haut de la "
+"page."
 
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "%d Results"
-msgstr ""
+msgstr "%d Résultats"
 
 #: ../code/application/views/helpfile/pofields.php:655
-#, fuzzy, php-format
+#, php-format
 msgid "of %d results"
-msgstr "Retour aux résultats"
+msgstr "de %d résultats"
 
 #: ../code/application/views/helpfile/pofields.php:656
-#, fuzzy, php-format
+#, php-format
 msgid "Home"
-msgstr "Acceuil"
+msgstr "Accueil"
 
 #: ../code/application/views/helpfile/pofields.php:657
 #, php-format
 msgid "Restore Everything"
-msgstr ""
+msgstr "Tout remettre a zéro"
 
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
 msgid "Compare (%d out of %d)"
-msgstr ""
+msgstr "Comparer (%d sur %d)"
 
 #: ../code/application/views/helpfile/pofields.php:661
 #, php-format
 msgid "Show More"
-msgstr ""
+msgstr "Afficher Plus"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #, php-format
 msgid "Show Less"
-msgstr ""
+msgstr "Afficher Moins"
 
 #: ../code/application/views/helpfile/pofields.php:663
 #, php-format
 msgid "Not enough parameters"
-msgstr ""
+msgstr "Pas assez de paramètres"
 
 #: ../code/application/views/helpfile/pofields.php:664
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the email"
-msgstr "Imprimer la carte"
+msgstr "Remplissez l'email"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #, php-format
 msgid "Invalid email recipient"
-msgstr ""
+msgstr "Email du destinataire invalide"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #, php-format
 msgid "Fill in the subject"
-msgstr ""
+msgstr "Remplissez le sujet"
 
 #: ../code/application/views/helpfile/pofields.php:667
 #, php-format
 msgid "Fill in the message"
-msgstr ""
+msgstr "Remplissez le message"
 
 #: ../code/application/views/helpfile/pofields.php:668
 #, php-format
 msgid "Fill in the \"From\" name"
-msgstr ""
+msgstr "Remplissez le nom dans le champ \"De\""
 
 #: ../code/application/views/helpfile/pofields.php:669
 #, php-format
 msgid "Fill in the \"From\" email"
-msgstr ""
+msgstr "Remplissez l'email dans le champ \"De\""
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
-msgstr "Format invalide"
+msgstr "Email invalide \"De\""
 
 #: ../code/application/views/helpfile/pofields.php:671
-#, fuzzy, php-format
+#, php-format
 msgid "Your message has been sent to %s"
-msgstr "Un courriell a été envoyé à votre adresse"
+msgstr "Votre message a été envoyé à %s"
 
 #: ../code/application/views/helpfile/pofields.php:672
 #, php-format
 msgid "From:"
-msgstr ""
+msgstr "De:"
 
 #: ../code/application/views/helpfile/pofields.php:673
-#, fuzzy, php-format
+#, php-format
 msgid "To:"
-msgstr "Total :"
+msgstr "À:"
 
 #: ../code/application/views/helpfile/pofields.php:674
 #, php-format
 msgid "Subject:"
-msgstr ""
+msgstr "Sujet:"
 
 #: ../code/application/views/helpfile/pofields.php:675
-#, fuzzy, php-format
+#, php-format
 msgid "Message:"
-msgstr "Message"
+msgstr "Message:"
 
 #: ../code/application/views/helpfile/pofields.php:676
 #, php-format
 msgid "Send another message"
-msgstr ""
+msgstr "Envoyer un autre message"
 
 #: ../code/application/views/helpfile/pofields.php:678
 #, php-format
 msgid ""
 "Mail this page to someone you know, or send it to yourself as a reminder."
 msgstr ""
+"Envoyer cette page à quelqu'un que vous connaissez, ou l'envoyer à vous-même "
+"pour vous en rappeler."
 
 #: ../code/application/views/helpfile/pofields.php:679
 #, php-format
 msgid "To (email)"
-msgstr ""
+msgstr "À (e-mail)"
 
 #: ../code/application/views/helpfile/pofields.php:680
 #, php-format
 msgid "Subject"
-msgstr ""
+msgstr "Sujet"
 
 #: ../code/application/views/helpfile/pofields.php:682
-#, fuzzy, php-format
+#, php-format
 msgid "From (name)"
-msgstr "Prénom"
+msgstr "De (nom)"
 
 #: ../code/application/views/helpfile/pofields.php:683
 #, php-format
 msgid "From (email)"
-msgstr ""
+msgstr "De (email)"
 
 #: ../code/application/views/helpfile/pofields.php:684
 #, php-format
 msgid "Yes, I want to subscribe to the newsletter."
-msgstr ""
+msgstr "Oui, je souhaite m'abonner à la newsletter."
 
 #: ../code/application/views/helpfile/pofields.php:685
-#, fuzzy, php-format
+#, php-format
 msgid "Send email"
-msgstr "Envoyez Email"
+msgstr "Envoyer un email"
 
 #: ../code/application/views/helpfile/pofields.php:687
 #, php-format
 msgid "Share PDF"
-msgstr ""
+msgstr "PDF à partager"
 
 #: ../code/application/views/helpfile/pofields.php:688
 #, php-format
 msgid "Want to send a PDF copy of this page or quote by email?"
 msgstr ""
+"Voulez-vous envoyer une copie PDF de cette page ou un devis par e-mail ?"
 
 #: ../code/application/views/helpfile/pofields.php:689
-#, fuzzy, php-format
+#, php-format
 msgid "Send PDF"
-msgstr "Envoyer"
+msgstr "Envoyez PDF"
 
 #: ../code/application/views/helpfile/pofields.php:691
 #, php-format
@@ -7403,6 +7409,10 @@ msgid ""
 "continuing to browse our site you are agreeing to our Cookies Policy and use "
 "of cookies technology. Find out more"
 msgstr ""
+"Nous utilisons des cookies pour vous donner la meilleure expérience possible "
+"sur notre site. En continuant à naviguer sur notre site, vous acceptez notre "
+"Politique de cookies et l'utilisation de la technologie des cookies. En "
+"savoir plus"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -7445,9 +7455,8 @@ msgstr "Plus sur ce logement pas cher."
 
 #: ../code/application/views/mustache/property_list.php:264
 #: ../code/application/views/mustache/property_list.php:275
-#, fuzzy
 msgid "Select"
-msgstr "Sélectioner Carte"
+msgstr "Sélectionner"
 
 #: ../code/application/controllers/user.php:105
 msgid "Erreur lors de la mise à jour de votre profil."
