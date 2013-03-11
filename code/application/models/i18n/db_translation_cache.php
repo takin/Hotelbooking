@@ -102,7 +102,7 @@ class Db_translation_cache extends CI_Model
     {
       log_message('debug', 'Translation Found '.$query->row()->translation);
 
-      if($memcached === true && (ISWINDOWS)
+      if($memcached === true && ISWINDOWS)
       {
       	$this->cache->save($cacheKey, $query->row(), 60000);
         return $query->row();
