@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-11 17:36+0200\n"
-"PO-Revision-Date: 2013-03-11 21:00+0200\n"
+"PO-Revision-Date: 2013-03-12 22:06+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -573,9 +573,9 @@ msgstr "여행지"
 
 #: ../code/application/views/includes/recent_property_view_cookie.php:9
 #: ../code/application/views/helpfile/pofields.php:687
-#, fuzzy, php-format
+#, php-format
 msgid "Recently Viewed"
-msgstr "최근에 본 호스텔들"
+msgstr "최근 검색한 내용"
 
 #: ../code/application/views/includes/top_filter.php:24
 #: ../code/application/views/helpfile/pofields.php:282
@@ -1120,7 +1120,7 @@ msgstr "검색중입니다. 잠시만 기다려주십시오. "
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
 msgid "Loading"
-msgstr "로딩중"
+msgstr "로딩"
 
 #: ../code/application/views/includes/help.php:3
 #: ../code/application/views/restricted/user_view.php:21
@@ -3107,7 +3107,6 @@ msgstr ""
 "습니다."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "오류 404 - 페이지를 찾을 수 없음"
 
@@ -3166,7 +3165,7 @@ msgstr "가격 범위"
 #: ../code/application/views/helpfile/pofields.php:655
 #, php-format
 msgid "Rating"
-msgstr "평점"
+msgstr "등급"
 
 #: ../code/application/views/city_view.php:43
 #: ../code/application/views/helpfile/pofields.php:458
@@ -3378,7 +3377,7 @@ msgstr "더 보기…"
 #: ../code/application/views/helpfile/pofields.php:683
 #, php-format
 msgid "Close"
-msgstr "종료"
+msgstr "닫기"
 
 #: ../code/application/views/hw/hostel_view.php:330
 #: ../code/application/views/hw/hostel_view.php:538
@@ -3872,7 +3871,7 @@ msgstr " 모든 필수 입력란이  올바르게 기입되어 있는지 확인�
 #: ../code/application/views/helpfile/pofields.php:638
 #, php-format
 msgid "Atmosphere"
-msgstr "환경"
+msgstr "분위기"
 
 #: ../code/application/views/hb/hostel_view.php:47
 #: ../code/application/views/helpfile/pofields.php:639
@@ -3902,7 +3901,7 @@ msgstr "청결"
 #: ../code/application/views/mustache/property_list.php:244
 #, php-format
 msgid "Safety"
-msgstr "안전"
+msgstr "보안"
 
 #: ../code/application/views/hb/hostel_view.php:62
 #: ../code/application/views/helpfile/pofields.php:644
@@ -6446,7 +6445,7 @@ msgstr "모든 나이가능"
 #: ../code/application/views/mustache/property_list.php:29
 #, php-format
 msgid "See Map"
-msgstr "지도 보기"
+msgstr "지도를 참조하세요"
 
 #: ../code/application/views/helpfile/pofields.php:461
 #, php-format
@@ -6891,69 +6890,69 @@ msgid "Next available property"
 msgstr "다음 사용 가능한 숙소"
 
 #: ../code/application/views/helpfile/pofields.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "그룹"
+msgstr "단체 유형:"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "가격 범위"
+msgstr "연령 범위:"
 
 #: ../code/application/views/helpfile/pofields.php:612
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "하나를 선택하십시오."
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "친구들과 보내는 휴일"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "초등학교"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "중, 고등학교"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "대학교"
 
 #: ../code/application/views/helpfile/pofields.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
 msgstr "출장"
 
 #: ../code/application/views/helpfile/pofields.php:618
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "남성 전용 모임 / 여성 전용 모임 / 총각 파티"
 
 #: ../code/application/views/helpfile/pofields.php:619
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "스포츠팀"
+msgstr "스포츠 단체"
 
 #: ../code/application/views/helpfile/pofields.php:620
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "문화 단체"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "단체 유형을 자세히 알려주세요"
 
 #: ../code/application/views/helpfile/pofields.php:622
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr "귀하의 단체를 위한 최고의 제안을 확인했습니다."
+msgstr "단체의 연령범위를 알려주세요"
 
 #: ../code/application/views/helpfile/pofields.php:623
 #, php-format
@@ -6961,245 +6960,247 @@ msgid "Map"
 msgstr "지도"
 
 #: ../code/application/views/helpfile/pofields.php:625
-#, fuzzy, php-format
+#, php-format
 msgid "Reviews"
-msgstr "후기"
+msgstr "검토"
 
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "비교하세요"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
 msgid " of "
-msgstr ""
+msgstr "의"
 
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
-msgstr ""
+msgstr "페이지 상단의 선택하신 숙소를 비교하세요."
 
 #: ../code/application/views/helpfile/pofields.php:631
-#, fuzzy, php-format
+#, php-format
 msgid "Not available"
-msgstr "예약가능한  도미토리 없음"
+msgstr "사용할 수 없습니다."
 
 #: ../code/application/views/helpfile/pofields.php:633
-#, fuzzy, php-format
+#, php-format
 msgid "Print"
-msgstr "프린트 하기"
+msgstr "인쇄"
 
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
-msgstr ""
+msgstr "빠른 비교"
 
 #: ../code/application/views/helpfile/pofields.php:635
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms From"
-msgstr "도미토리 %s부터 "
+msgstr "기숙사에서"
 
 #: ../code/application/views/helpfile/pofields.php:636
-#, fuzzy, php-format
+#, php-format
 msgid "Privates From"
-msgstr "개인실"
+msgstr "개인실에서"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "종합"
+msgstr "전체 등급"
 
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
-msgstr ""
+msgstr "위치"
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Services"
-msgstr ""
+msgstr "서비스"
 
 #: ../code/application/views/helpfile/pofields.php:646
 #, php-format
 msgid "Result"
-msgstr ""
+msgstr "결과"
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
 msgid "Only 5 properties can be compared"
-msgstr ""
+msgstr "5개 숙소만 비교할 수 있습니다."
 
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Please remove a property from list."
-msgstr ""
+msgstr "목록에서 숙소를 제거하십시오."
 
 #: ../code/application/views/helpfile/pofields.php:649
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "%s 에 위치한 최고 평점의 호스텔들 비교 "
+msgstr "빠른 비교 (최대 5개 숙소)"
 
 #: ../code/application/views/helpfile/pofields.php:650
-#, fuzzy, php-format
+#, php-format
 msgid "Remove All"
-msgstr "삭제"
+msgstr "모두 지우십시오."
 
 #: ../code/application/views/helpfile/pofields.php:651
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
-msgstr ""
+msgstr "페이지 상단의 선택하신 숙소를 비교하세요."
 
 #: ../code/application/views/helpfile/pofields.php:652
 #, php-format
 msgid "%d Results"
-msgstr ""
+msgstr "%d개 결과 "
 
 #: ../code/application/views/helpfile/pofields.php:653
-#, fuzzy, php-format
+#, php-format
 msgid "Home"
-msgstr "홈 페이지"
+msgstr "홈"
 
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "Restore Everything"
-msgstr ""
+msgstr "모두 복원하기"
 
 #: ../code/application/views/helpfile/pofields.php:656
 #, php-format
 msgid "Compare (%d out of 5)"
-msgstr ""
+msgstr "비교하세요( %d 에서 1 )"
 
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
 msgid "Show More"
-msgstr ""
+msgstr "더 많이 보기"
 
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
 msgid "Show Less"
-msgstr ""
+msgstr "더 적게 보기"
 
 #: ../code/application/views/helpfile/pofields.php:660
 #, php-format
 msgid "Not enough parameters"
-msgstr ""
+msgstr "설정 범위가 충분치 않습니다"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the email"
-msgstr "지도 프린트 하기"
+msgstr "이메일에 기입하세요"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #, php-format
 msgid "Invalid email recipient"
-msgstr ""
+msgstr "유효하지 않은 이메일 수신자입니다 "
 
 #: ../code/application/views/helpfile/pofields.php:663
 #, php-format
 msgid "Fill in the subject"
-msgstr ""
+msgstr "제목을 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php:664
 #, php-format
 msgid "Fill in the message"
-msgstr ""
+msgstr "메시지를 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #, php-format
 msgid "Fill in the \"From\" name"
-msgstr ""
+msgstr "\"발신자\"란에 이름을 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #, php-format
 msgid "Fill in the \"From\" email"
-msgstr ""
+msgstr "\"발신자\"란에 이메일을 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php:667
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
-msgstr "잘못된 형식입니다."
+msgstr "\"발신자\"란의 이메일이 유효하지 않습니다"
 
 #: ../code/application/views/helpfile/pofields.php:668
-#, fuzzy, php-format
+#, php-format
 msgid "Your message has been sent to %s"
-msgstr "당신의  주소로 메일을 전송했습니다"
+msgstr "당신의 메시지가 해당 이메일로 발송되었습니다%s."
 
 #: ../code/application/views/helpfile/pofields.php:669
 #, php-format
 msgid "From:"
-msgstr ""
+msgstr "발신자:"
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "To:"
-msgstr "총 금액 :"
+msgstr "수신자:"
 
 #: ../code/application/views/helpfile/pofields.php:671
 #, php-format
 msgid "Subject:"
-msgstr ""
+msgstr "제목:"
 
 #: ../code/application/views/helpfile/pofields.php:672
-#, fuzzy, php-format
+#, php-format
 msgid "Message:"
-msgstr "메시지"
+msgstr "메시지:"
 
 #: ../code/application/views/helpfile/pofields.php:673
 #, php-format
 msgid "Send another message"
-msgstr ""
+msgstr "다른 메시지를 보내세요"
 
 #: ../code/application/views/helpfile/pofields.php:675
 #, php-format
 msgid ""
 "Mail this page to someone you know, or send it to yourself as a reminder."
 msgstr ""
+"이 페이지를 당신의 친구에게 메일로 보내세요. 또는 알림용으로 본인에게 보내세"
+"요."
 
 #: ../code/application/views/helpfile/pofields.php:676
 #, php-format
 msgid "To (email)"
-msgstr ""
+msgstr "수신자(이메일)"
 
 #: ../code/application/views/helpfile/pofields.php:677
 #, php-format
 msgid "Subject"
-msgstr ""
+msgstr "제목"
 
 #: ../code/application/views/helpfile/pofields.php:679
-#, fuzzy, php-format
+#, php-format
 msgid "From (name)"
-msgstr "이름"
+msgstr "발신자(이름)"
 
 #: ../code/application/views/helpfile/pofields.php:680
 #, php-format
 msgid "From (email)"
-msgstr ""
+msgstr "발신자(이메일)"
 
 #: ../code/application/views/helpfile/pofields.php:681
 #, php-format
 msgid "Yes, I want to subscribe to the newsletter."
-msgstr ""
+msgstr "예, 뉴스레터를 받고 싶습니다."
 
 #: ../code/application/views/helpfile/pofields.php:682
-#, fuzzy, php-format
+#, php-format
 msgid "Send email"
-msgstr "이메일을 보내세요 "
+msgstr "이메일을 보내세요"
 
 #: ../code/application/views/helpfile/pofields.php:684
 #, php-format
 msgid "Share PDF"
-msgstr ""
+msgstr "PDF를 공유하기"
 
 #: ../code/application/views/helpfile/pofields.php:685
 #, php-format
 msgid "Want to send a PDF copy of this page or quote by email?"
-msgstr ""
+msgstr "이메일로 이 페이지 또는 견적서의 PDF 사본을 보내고 싶으세요?"
 
 #: ../code/application/views/helpfile/pofields.php:686
-#, fuzzy, php-format
+#, php-format
 msgid "Send PDF"
-msgstr "보내기"
+msgstr "PDF 보내기"
 
 #: ../code/application/views/helpfile/pofields.php:688
 #, php-format
@@ -7208,6 +7209,9 @@ msgid ""
 "continuing to browse our site you are agreeing to our Cookies Policy and use "
 "of cookies technology. Find out more"
 msgstr ""
+"저희는 당신이 사이트에서 최상의 경험을 하실 수 있도록 쿠키를 사용합니다. 저희"
+"의 사이트를 검색 계속하시면, 저희의 쿠키 정책 및 쿠키 기술의 사용에 동의하는 "
+"것으로 간주됩니다.더 많이 찾으세요"
 
 #: ../code/application/views/helpfile/pofields.php:689
 #, php-format
