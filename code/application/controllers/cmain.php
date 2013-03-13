@@ -1725,6 +1725,7 @@ class CMain extends I18n_site
        'property_number' => $this->input->post('property_number', true),
        'date'       => $date,
        'nights'     => $nights,
+       'site_name'  => $this->config->item('site_name'),
     );
 
     $this->email->from($from_email, $from_name);

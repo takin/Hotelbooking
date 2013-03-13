@@ -20,5 +20,5 @@
 ?>
 <?php echo var_check($property_url, ''); ?>
 
-<?php echo _('Like what you see?'); ?>
-Visit <?php echo site_url('/'); ?> or signup to get 70% off of select hotels.
+<?php echo _('Thank you'); ?>
+<?php echo $site_name; ?>

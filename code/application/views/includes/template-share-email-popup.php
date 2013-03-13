@@ -35,6 +35,7 @@
 
 		<form action="<?php echo site_url("cmain/property_send_email"); ?>" method="post" id="share_email_form">
 			<p class="title"><?php echo _('Mail this page to someone you know, or send it to yourself as a reminder.'); ?></p>
+			<p class="title_pdf" style="display: none"><?php echo _('Mail this PDF quote to someone you know, or send it to yourself.'); ?></p>
 
 			<div class="form-item">
 				<label><?php echo _('To (email)'); ?></label>

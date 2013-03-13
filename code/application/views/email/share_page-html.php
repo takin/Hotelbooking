@@ -17,10 +17,8 @@
 							</p>
 						</td>
 						<td valign="middle">
-							<img src="<?php echo base_url();?>images/login_icon.png" valign="middle" /> <a valign="middle" href="<?php echo site_url('/connexion'); ?>">Login</a>
 						</td>
 						<td valign="middle">
-							<img src="<?php echo base_url();?>images/register_icon.png" valign="middle" /> <a valign="middle" href="<?php echo site_url('/bienvenue'); ?>">Register</a>
 						</td>
 					</tr>
 				</table>
@@ -58,8 +56,8 @@
 
 								<br /><br />
 								<br /><br />
-								<span style="color: #003580"><strong><?php echo _('Like what you see?'); ?></strong></span><br />
-								<span style="color: #003580"><strong>Visit <a style="color:#00a2e8" href="<?php echo site_url('/'); ?>"><?php echo site_url('/'); ?></a> or <a style="color:#00a2e8" href="<?php echo site_url('/bienvenue'); ?>">signup</a></strong> to get 70% off of select hotels.</span><br />
+								<span style="color: #003580"><?php echo _('Thank you'); ?></span><br />
+								<span style="color: #003580"><?php echo $site_name; ?></span><br />
 							</p>
 						</td>
 					</tr>

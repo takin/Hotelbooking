@@ -79,11 +79,17 @@ function handleShareEmailPDF() {
 			$('#email_send_pdf').val('1');
 
 			$('#show-share-overlay').addClass('prevPDF');
+
+			$('#share_email_form .title').hide();
+			$('#share_email_form .title_pdf').show();
 		}
 		else {
 			$('#email_show_pdf').hide();
 			$('#email_send_pdf').val('0');
 			$('#show-share-overlay').removeClass('prevPDF');
+
+			$('#share_email_form .title').show();
+			$('#share_email_form .title_pdf').hide();
 		}
 
 
