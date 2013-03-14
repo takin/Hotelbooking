@@ -1339,7 +1339,7 @@ class CMain extends I18n_site
     }
   }
 
-  function property_page($property_type, $property_name = "", $property_number = NULL)
+  function property_page($property_type, $property_name = "", $property_number = NULL, $urldate = NULL, $units = NULL)
   {
     log_message('debug', 'Entering main controller property page method');
 
@@ -1351,9 +1351,6 @@ class CMain extends I18n_site
       $this->error404();
       return;
     }
-
-    $urldate = $this->uri->segment(4);
-    $units = $this->uri->segment(5);
 
     $chkdate = $this->checkData($urldate);
     if(($chkdate == true) && (!empty($urldate)))
