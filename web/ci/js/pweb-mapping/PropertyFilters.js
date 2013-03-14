@@ -407,14 +407,23 @@ PWebFilterApp.prototype.update = function() {
 	}
 	else
 	{
+alert('start mustache');
 		var output = Mustache.to_html(this.template, { "properties": this.jtable_hits_sorted});
+
+alert('end mustache');
 		
 		this.$data_loading_msg.hide();
 		this.$sort_controls_div.show();
 		this.$data_div.html(output);
 		
 		//Init jquery UI tabs
+		
+alert('start tabs');
+
 		$('.hostel_list').tabs();
+
+alert('end tabs');
+
 		$('#cb_group_type_filter li').find(':input').each(function(){
 		 			var type_val = $(this).attr('checked');
 		 			var type_input = $(this).attr('id');
