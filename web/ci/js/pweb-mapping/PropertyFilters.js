@@ -168,16 +168,14 @@ PWebFilterApp.prototype.init = function() {
 	this.RatingRangeMin = -1;
 	this.RatingRangeMax = -1;
 	
-		this.FiltersCounts['city_results_filtered'] = 0;
-		this.FiltersCounts['city_results_filtered_temp'] = 0;
-		this.FiltersCounts['prop-types-count-0'] = 0;
-		this.FiltersCounts['prop-types-count-1'] = 0;
-		this.FiltersCounts['prop-types-count-2'] = 0;
-		this.FiltersCounts['prop-types-count-3'] = 0;
-		this.FiltersCounts['prop-types-count-4'] = 0;
-		this.FiltersCounts['prop-types-count-5'] = 0;
-
-
+	this.FiltersCounts['city_results_filtered'] = 0;
+	this.FiltersCounts['city_results_filtered_temp'] = 0;
+	this.FiltersCounts['prop-types-count-0'] = 0;
+	this.FiltersCounts['prop-types-count-1'] = 0;
+	this.FiltersCounts['prop-types-count-2'] = 0;
+	this.FiltersCounts['prop-types-count-3'] = 0;
+	this.FiltersCounts['prop-types-count-4'] = 0;
+	this.FiltersCounts['prop-types-count-5'] = 0;
 	
 	this.PriceCurrencySymbol = '$';
 	
@@ -401,8 +399,9 @@ PWebFilterApp.prototype.update = function() {
 		this.$data_div.html(output);
 
 		//Init jquery UI tabs
-		$('.hostel_list').tabs();
-
+		//$('.hostel_list').tabs();
+		$('ul.ui-tabs-nav').tabs();
+		
 		$('#cb_group_type_filter li').find(':input').each(function(){
 		 			var type_val = $(this).attr('checked');
 		 			var type_input = $(this).attr('id');
@@ -421,8 +420,7 @@ PWebFilterApp.prototype.update = function() {
 				that.tabs_count = 0;
 			
 				if(that.tabs_map_binded[this.rel] !== true)
-				{
-					
+				{	
 					$('#prop_tab_box_'+this.rel).bind( "tabsshow", 
 						function(event, ui) {
 							var prop_number;
@@ -440,12 +438,9 @@ PWebFilterApp.prototype.update = function() {
 						});
 					that.tabs_map_binded[this.rel] = true;
 				}
-				else
-				{
-					
-				}
 				return false;
 			});
+			
 		this.display_extra_filters();
 		
 		$(".map_number").each(function(index, value) {
@@ -498,7 +493,9 @@ PWebFilterApp.prototype.update = function() {
 		$("#prop_more_info_wrap_"+ID).toggle();
 		return false;
 	});
+	
 	initpaging(result_per_page);
+
 }; // end init() 
 
 PWebFilterApp.prototype.changeMapProperty = function(map_slug, prop_number) {
@@ -528,6 +525,7 @@ PWebFilterApp.prototype.changeMapProperty = function(map_slug, prop_number) {
 	}
 	initpaging(result_per_page);
 };
+
 PWebFilterApp.prototype.fetch_index = function(rowname) {
 	var index = false;
 	jQuery.each(this.indexes, function() {
