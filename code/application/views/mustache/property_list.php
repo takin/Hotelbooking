@@ -147,7 +147,6 @@
                 {{#has_amenities}}
 					<div class="info_indent"><p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p></div>
 				{{/has_amenities}}
-				<!--missing info with what's include first and than amenities just update it-->
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
 
 					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
@@ -159,7 +158,6 @@
 					{{/amenities}}
 					</ul>
 					</div>
-                    <!--What's included line put here-->
                     {{#extras}}
                         <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
                        <a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
