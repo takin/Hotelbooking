@@ -283,24 +283,4 @@
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
     </div>
 </div>
-
 {{/properties}}
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("ul.rating li").bind('mouseover', function(){
-            var container = getPropertyRatingsContainer(this);
-            container.show();
-        });
-
-        $("ul.rating li").bind('mouseout', function(){
-            var container = getPropertyRatingsContainer(this);
-            container.hide();
-        });
-
-        function getPropertyRatingsContainer(that) {
-            var propertyNumber = $(that).attr("data-propertyNumber");
-            return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
-        }
-    });
-</script>

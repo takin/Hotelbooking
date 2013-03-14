@@ -1340,6 +1340,21 @@ function closeFilter(type) {
 
 $(document).ready(function() { 
 
-	pweb_filter = new PWebFilterApp();
-	initpaging(result_per_page);
-}); // end ready event 
+  pweb_filter = new PWebFilterApp();
+  initpaging(result_per_page);
+
+  $("ul.rating li").bind('mouseover', function(){
+    var container = getPropertyRatingsContainer(this);
+    container.show();
+  });
+
+  $("ul.rating li").bind('mouseout', function(){
+    var container = getPropertyRatingsContainer(this);
+    container.hide();
+  });
+
+  function getPropertyRatingsContainer(that) {
+    var propertyNumber = $(that).attr("data-propertyNumber");
+    return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
+  }
+});
