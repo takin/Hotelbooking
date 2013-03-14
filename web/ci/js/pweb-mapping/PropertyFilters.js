@@ -1,79 +1,3 @@
-//PWeb map wrapper for map in filter
-
-function PWebFilterMap(default_div, lang, default_lat, default_lng)
-{
-	this.map_lang    = lang;
-	this.default_lat = default_lat;
-	this.default_lng = default_lng;
-	this.enabled     = false;
-	this.infow_template = document.getElementById('template-infow').innerHTML;
-	this.prop_number_to_focus = -1;
-	
-	this.gmap = new GoogleMap(default_div, lang, default_lat, default_lng);
-}
-
-PWebFilterMap.prototype.reDraw = function ()
-{
-	if(this.enabled === true)
-	{
-		this.gmap.drawMap();
-	}
-};
-
-PWebFilterMap.prototype.toggle = function ()
-{
-	if(this.enabled === false)
-	{
-		this.enableMap();
-	}
-	else
-	{
-		this.disableMap();
-	}
-};
-
-PWebFilterMap.prototype.enableMap = function() 
-{
-	this.gmap.drawMap();
-	this.enabled = true;
-};
-
-PWebFilterMap.prototype.disableMap = function() 
-{	
-	this.gmap.removeMap();
-	this.prop_number_to_focus = -1;
-	this.gmap.setFocusMarkerID(-1);
-	this.enabled = false;
-};
-
-PWebFilterMap.prototype.isMapEnable = function() 
-{
-	return this.enabled;
-};
-
-//UPDATE map data
-PWebFilterMap.prototype.updateMarkers = function(markers_data) 
-{ 
-	//clear all previous added marker and focus
-	this.gmap.clearMap();
-	
-	//Add filtered markers to map
-//	for (var i = 0; i < markers_data.length; i++) {
-	for (var i in markers_data) {
-		if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
-		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
-		{
-			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
-			
-			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
-			{
-				//set focus to last insert marker
-				this.gmap.setFocusMarkerID(i);
-			}
-		}
-	}
-};
 
 //PWeb filter app
 function PWebFilterApp()
@@ -1324,6 +1248,87 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
   $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');  
   $('#current_page').val(page_num);  
 };
+
+
+
+//PWeb map wrapper for map in filter
+
+function PWebFilterMap(default_div, lang, default_lat, default_lng)
+{
+	this.map_lang    = lang;
+	this.default_lat = default_lat;
+	this.default_lng = default_lng;
+	this.enabled     = false;
+	this.infow_template = document.getElementById('template-infow').innerHTML;
+	this.prop_number_to_focus = -1;
+	
+	this.gmap = new GoogleMap(default_div, lang, default_lat, default_lng);
+}
+
+PWebFilterMap.prototype.reDraw = function ()
+{
+	if(this.enabled === true)
+	{
+		this.gmap.drawMap();
+	}
+};
+
+PWebFilterMap.prototype.toggle = function ()
+{
+	if(this.enabled === false)
+	{
+		this.enableMap();
+	}
+	else
+	{
+		this.disableMap();
+	}
+};
+
+PWebFilterMap.prototype.enableMap = function() 
+{
+	this.gmap.drawMap();
+	this.enabled = true;
+};
+
+PWebFilterMap.prototype.disableMap = function() 
+{	
+	this.gmap.removeMap();
+	this.prop_number_to_focus = -1;
+	this.gmap.setFocusMarkerID(-1);
+	this.enabled = false;
+};
+
+PWebFilterMap.prototype.isMapEnable = function() 
+{
+	return this.enabled;
+};
+
+//UPDATE map data
+PWebFilterMap.prototype.updateMarkers = function(markers_data) 
+{ 
+	//clear all previous added marker and focus
+	this.gmap.clearMap();
+	
+	//Add filtered markers to map
+//	for (var i = 0; i < markers_data.length; i++) {
+	for (var i in markers_data) {
+		if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
+		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
+		{
+			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
+			
+			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
+			{
+				//set focus to last insert marker
+				this.gmap.setFocusMarkerID(i);
+			}
+		}
+	}
+};
+
+
 
 $(document).ready(function() { 
 
