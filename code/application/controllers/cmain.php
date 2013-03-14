@@ -1841,30 +1841,27 @@ class CMain extends I18n_site
 
     //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
 
-        $urldate = $this->uri->segment(4);
-        $units = $this->uri->segment(5);
+    $urldate = $this->uri->segment(4);
+    $units = $this->uri->segment(5);
 
-      $chkdate = $this->checkData($urldate);
-
-	if($dateStart!=false)
+    $chkdate = $this->checkData($urldate);
+    if(($chkdate == true) && (!empty($urldate)))
     {
-	  if(($chkdate == true) && (!empty($urldate)))
-	  {
-		 $data['date_selected'] = $urldate;
-    	 set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
-		 }
-		else
-        $data['date_selected'] = $dateStart;
+      $data['date_selected'] = $urldate;
+      set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
     }
-    if($numNights!=false)
-     {
-		if((is_numeric($units)) && (!empty($units)))
-		{
-		$data['numnights_selected'] = $units;
-	set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
+    else
+    {
+      $data['date_selected'] = $dateStart;
+    }
+    if((is_numeric($units)) && (!empty($units)))
+    {
+      $data['numnights_selected'] = $units;
+      set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
 	}
-		else
-        $data['numnights_selected'] = $numNights;
+    else
+    {
+      $data['numnights_selected'] = $numNights;
     }
 
     if($country!=false)
@@ -1875,12 +1872,6 @@ class CMain extends I18n_site
     {
       $data['city_selected'] = $city;
     }
-    if($search_term!=false)
-    {
-//      $data['search_term'] = urldecode($search_term);
-    }
-
-
   }
 
 
