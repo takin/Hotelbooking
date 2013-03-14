@@ -400,12 +400,8 @@ PWebFilterApp.prototype.update = function() {
 
 		this.$data_div.html(output);
 
-alert("before tabs " + output);
-
 		//Init jquery UI tabs
 		$('.hostel_list').tabs();
-
-alert("after tabs");
 
 		$('#cb_group_type_filter li').find(':input').each(function(){
 		 			var type_val = $(this).attr('checked');
