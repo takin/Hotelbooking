@@ -83,6 +83,7 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data) {
 	}
 	initpaging(result_per_page);
 };
+
 //PWeb filter app
 function PWebFilterApp()
 {
@@ -219,6 +220,7 @@ PWebFilterApp.prototype.init = function() {
 	this.results_limit = 20;
 	
 	this.pweb_maps = new Array();
+	
 	initpaging(result_per_page);
 	
 }; // end init()
@@ -987,14 +989,12 @@ PWebFilterApp.prototype.setData = function(json_data) {
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
 	this.FiltersCounts['city_results_count_total'] = json_data.length;
-	initpaging(result_per_page);
 	
 };
 
 PWebFilterApp.prototype.setRequestData = function(json_request_data) {
 	this.request = json_request_data;
 	this.PriceCurrencySymbol = this.request.display_currency;
-	initpaging(result_per_page);
 };
 
 PWebFilterApp.prototype.change_price_filter = function(event, ui) {
@@ -1177,6 +1177,7 @@ var apartmentCount = 0;
 var guesthouseCount = 0;
 var hotelCount = 0;
 var campCount = 0;
+
 //Put setup filter in PWebFilterApp prototypes?
 function setup_filters(data)
 {
