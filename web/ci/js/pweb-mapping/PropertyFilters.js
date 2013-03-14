@@ -1273,7 +1273,7 @@ PWebFilterApp.prototype.previous = function()
 {    
     new_page = parseInt($('#current_page').val()) - 1;  
     if($('.active_page').prev('.page_link').length==true){  
-        go_to_page(new_page);  
+        this.go_to_page(new_page);  
     }  
 };
                                        
@@ -1281,7 +1281,7 @@ PWebFilterApp.prototype.next = function()
 {   
     new_page = parseInt($('#current_page').val()) + 1;  
     if($('.active_page').next('.page_link').length==true){  
-        go_to_page(new_page);  
+        this.go_to_page(new_page);  
     }  
 };
 
