@@ -1004,6 +1004,7 @@ class CMain extends I18n_site
       if(($chkdate == true) && (!empty($urldate)))
       {
         $dateStart = $urldate;
+
       }
       if((is_numeric($units)) && (!empty($units)))
       {
