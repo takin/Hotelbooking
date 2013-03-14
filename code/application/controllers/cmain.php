@@ -973,6 +973,8 @@ class CMain extends I18n_site
 
   function property_search($country = NULL, $city = NULL, $urldate = NULL, $units = NULL)
   {
+    log_message('debug', 'Entering main controller property_search method');
+
 	$currency_error = false; // default currency paramete is correct
 	$currency_error = $this->_currency_init();
 
@@ -1081,7 +1083,7 @@ class CMain extends I18n_site
         $data['current_view_dir'] = "";
         $data['current_view'] = "city_view";
 
-        if(empty($dateStart))
+        if(empty($dateStart) || empty($numNights))
         {
           $data['current_view'] = "city_lp";
           $this->load->view('includes/template-landing-city-page',$data);
@@ -1150,7 +1152,7 @@ class CMain extends I18n_site
           $data['current_view'] = "city_view";
 
 
-          if(empty($dateStart))
+          if(empty($dateStart) || empty($numnights))
           {
             $data['current_view'] = "city_lp";
             $this->load->view('includes/template-landing-city-page',$data);
