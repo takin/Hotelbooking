@@ -1083,7 +1083,7 @@ class CMain extends I18n_site
         $data['current_view_dir'] = "";
         $data['current_view'] = "city_view";
 
-        if(empty($dateStart) || empty($numNights))
+        if(empty($dateStart))
         {
           $data['current_view'] = "city_lp";
           $this->load->view('includes/template-landing-city-page',$data);
@@ -1152,7 +1152,7 @@ class CMain extends I18n_site
           $data['current_view'] = "city_view";
 
 
-          if(empty($dateStart) || empty($numnights))
+          if(empty($dateStart))
           {
             $data['current_view'] = "city_lp";
             $this->load->view('includes/template-landing-city-page',$data);
