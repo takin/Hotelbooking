@@ -7,13 +7,6 @@
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-	<?php
-	//This is dependant to PWEB JS files being loaded
-	//JS pweb/jlibs/GroupCheckBoxes.js
-	//JS pweb-mapping/PrpoertyFilters.js
-
-	?>
-
 	<div id="search_load">
 		<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="map_button_side">
@@ -240,27 +233,27 @@
 			<ul class="unstyled" id="applied_filters">
 			<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
 			<span><?php echo _('Price')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('price')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('price')"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
 			<span><?php echo _('Rating')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('rating')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('rating')"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
 			<span><?php echo _('Property type')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('prop_types')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('prop_types')"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
 			<span><?php echo _('Facilities')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('facilities')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('facilities')"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
 			<span><?php echo _('Districts')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('districts')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('districts')"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
 			<span><?php echo _('Landmarks (within 2km)')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="closeFilter('landmarks')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('landmarks')"></a>
 			</li>
 			</ul>
 			</div>
@@ -268,67 +261,14 @@
 			<div id="no_data_msg" class="box_content box_round group" style="display: none">
 				<p class="no_result"><?php echo _('Désolé aucun résultat pour ce critère');?></p>
 			</div>
-			<!-- Next 20 result code start-->
-			<script src="<?php echo site_url("js/propertypagination.js"); ?>"></script>
+
 			<input type="hidden" id="current_page" value="0">
 			<input type="hidden" id="show_per_page" value="0">
-			<!-- Next 20 result code start-->
-			<div id="property_list">
-			<script type="text/javascript">
-			$(document).ready(function(){
-				$.ajax(
-				{
-						type:"GET",
-						url:'<?php echo site_url("/location_avail/".customurlencode($country_selected)."/".customurlencode($city_selected)."/$date_selected/$numnights_selected?currency=".$currency);?>',
-						success:function(data)
-						{
-							setup_filters(data);
-							$('#search_load').show();
-							$('#city_results_count').show();
-							$('#city_load').hide();
-							$('#wrap').show();
+			<div id="property_list"></div>
+<script type="text/javascript">
+	var availibility_url = '<?php echo site_url("/location_avail/".customurlencode($country_selected)."/".customurlencode($city_selected)."/$date_selected/$numnights_selected?currency=".$currency);?>';
+</script>
 
-							 $('.hostel_list').each(function() {
-								if($(this).find(".city_hostel_districts_values").html() == "")
-									{
-										$(this).find(".city_hostel_districts").hide();
-									}
-									else
-									{
-										// remove last "," from districts
-										var strDistricts = $(this).find(".city_hostel_districts_values").html();
-										strDistricts = strDistricts.slice(0,-2);
-										$(this).find(".city_hostel_districts_values").html(strDistricts+".");
-									}
-
-									// remove landmarks if there are no landmarks
-									// remove extra "," from the end of the values
-									if($(this).find(".city_hostel_landmarks_values").html() == "")
-									{
-										$(this).find(".city_hostel_landmarks").hide();
-									}
-									else
-									{
-										// remove last "," from landmarks
-										var strDistricts = $(this).find(".city_hostel_landmarks_values").html();
-										strDistricts = strDistricts.slice(0,-2);
-										$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
-									}
-							});
-						}
-				});
-
-				$('a#change-dates').click(function() {
-
-					$("#side_search_box_city").toggle();
-					return false;
-				});
-
-
-			});
-			</script>
-
-			</div>
 			<!-- Next 20 result code start-->
 			<div id="navi" class="pagination_pro" style="display:none;">
 				<div id="resu" class="left_pagi">
@@ -339,19 +279,16 @@
 				</div>
 				<div id="page_navigation" class="page_navigation"></div>
 			</div>
-			<!-- Next 20 result code start-->
-
-			<!--<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>-->
 
 </div>
 
-	<script id="template-infow" type="text/html">
-	<?php
-	$this->load->view('mustache/city_map_property_infow');
-	?>
-	</script>
-	<script id="template" type="text/html">
-		<?php
-		$this->load->view('mustache/property_list');
-		?>
-	</script>
+<script id="template-infow" type="text/html">
+<?php
+  $this->load->view('mustache/city_map_property_infow');
+?>
+</script>
+<script id="template" type="text/html">
+<?php
+  $this->load->view('mustache/property_list');
+?>
+</script>
