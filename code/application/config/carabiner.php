@@ -38,7 +38,7 @@ $config['style_dir'] = 'css/';
 |
 */
 
-$config['cache_dir'] = 'js/cache/';
+$config['cache_dir'] = 'cache/';
 
 
 
