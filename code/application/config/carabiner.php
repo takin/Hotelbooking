@@ -162,8 +162,8 @@ $config['groups']['jqueryui'] = array(
 
 	'js' => array(
 
-		array('https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js', TRUE, FALSE),
-		array('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', TRUE, FALSE)
+		array('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', TRUE, FALSE),
+		array('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js', TRUE, FALSE)
 
 	)
 );
@@ -391,9 +391,9 @@ $config['groups']['mobile_city_property_list'] = array(
 $config['groups']['mobile_fancy_box'] = array(
 
 	'js' => array(
-		array('jquery.fancybox-1.3.4.pack.js')
+		array('jquery.fancybox.pack.js')
 	),
 	'css' => array(
-		array('mobile/fancybox.css')
+		array('mobile/jquery.fancybox.css')
 	)
 );

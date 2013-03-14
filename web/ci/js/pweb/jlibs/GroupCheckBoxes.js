@@ -31,13 +31,14 @@ function GroupCheckBoxes(list,first_all) {
 	this.$checkall_li    = this.$id.find('li').first();
 	  
 	//LI elements containing all the checkboxes
-    this.$checkboxes_li = this.$checkall_li.siblings(); 
+    	this.$checkboxes_li = this.$checkall_li.siblings(); 
   }
   else
   {
 	//LI elements containing all the checkboxes
 	this.$checkboxes_li = this.$id.find('li');
   }
+  
   //Nnumber of checkboxes that are checked
   this.checkedCount = 0;  
 
@@ -58,8 +59,8 @@ GroupCheckBoxes.prototype.init = function() {
 
   var that = this; 
 
-  this.$checkboxes_li.each(function() { 
-    if ($(this).find('input').attr('checked') === true) { 
+  this.$checkboxes_li.each(function() {   
+    if ($(this).find('input').is(':checked')) { 
       that.adjCheckedCount(true); 
     } 
   }); 
@@ -72,12 +73,12 @@ GroupCheckBoxes.prototype.clickAction = function(f) {
 
 //@return checked values in array
 GroupCheckBoxes.prototype.getCheckedValues = function() { 
-  var that = this,
-      values = []; 
+  var that = this;
+  var values = []; 
 
-  this.$checkboxes_li.each(function() { 
-    var inputcheck = $(this).find('input');
-    if (inputcheck.attr('checked') === true) { 
+  this.$checkboxes_li.each(function() {   
+    var inputcheck = $(this).find('input');    
+    if (inputcheck.is(':checked')) { 
       values.push( inputcheck.attr('value'));
     } 
   }); 
@@ -183,7 +184,7 @@ GroupCheckBoxes.prototype.handleGroupboxClick = function($id, e) {
      
   var that = this; 
 
-  switch ($id.attr('checked')) { 
+  switch ($id.is(':checked')) { 
     case true : { 
       // check the group 
       // check all the checkboxes in the group 
@@ -218,7 +219,7 @@ GroupCheckBoxes.prototype.handleGroupboxClick = function($id, e) {
 /////////////////////// Checkbox event handlers ///////////////////////////////// 
 
 GroupCheckBoxes.prototype.handleCheckboxClick = function($id, e) { 
-  if($id.attr('checked') === true) { 
+  if($id.is(':checked')) { 
     this.adjCheckedCount(true); 
   } else { 
     this.adjCheckedCount(false); 

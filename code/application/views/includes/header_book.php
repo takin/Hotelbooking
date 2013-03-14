@@ -10,7 +10,7 @@ $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_gl
 $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('fancybox.css','screen','fancybox.css',FALSE,FALSE,"full_site_global");
+$this->carabiner->css('jquery.fancybox.css','screen','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
 ?>
 <?php if ($this->wordpress->get_option('aj_api_site_data') == 'hb'){
  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
@@ -48,23 +48,23 @@ $this->carabiner->js('popup.js');
 $this->carabiner->js('sitetools.js');
 $this->carabiner->js('livevalidation_standalone.compressed.js');
 //$this->carabiner->js('jquery.easing-1.3.pack.js');
-//$this->carabiner->js('jquery.fancybox-1.3.4.pack.js');
+//$this->carabiner->js('jquery.fancybox.pack.js');
 //$this->carabiner->js('jquery.mousewheel.js');
 
 ?>
 <script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.easing-1.3.pack.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.fancybox-1.3.4.pack.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.fancybox.pack.js" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.mousewheel.js" charset="UTF-8"></script>
 
 <script type="text/javascript">
 
 	$(document).ready(function(){
 		$("body").addClass("has-script");
-		$('a.screenshot').live('click',function(){
+		$('a.screenshot').bind('click',function(){
 			$.fancybox({'href': $(this).attr('href')});
 			return false;
 		});
-		$('a.popup').live('click',function(){
+		$('a.popup').bind('click',function(){
 			$.fancybox({
 				'width' : 680,
 				'height' : 495,
@@ -75,7 +75,7 @@ $this->carabiner->js('livevalidation_standalone.compressed.js');
 			return false;
 		});
 
-		$("a.show-translate").live('click',function() {
+		$("a.show-translate").bind('click',function() {
 			$("a.show-translate").toggleClass('active');
 			$("a.show-original").toggleClass('active');
 			$(".original").fadeOut(500, function () { $(".translated").fadeIn(500); });
@@ -83,7 +83,7 @@ $this->carabiner->js('livevalidation_standalone.compressed.js');
 		});
 
 
-		$("a.show-original").live('click',function() {
+		$("a.show-original").bind('click',function() {
 			$("a.show-original").toggleClass('active');
 			$("a.show-translate").toggleClass('active');
 			$(".translated").fadeOut(500, function () { $(".original").fadeIn(500); });
@@ -166,7 +166,7 @@ $this->carabiner->js('livevalidation_standalone.compressed.js');
 		<nav class="main grid_16 box_round box_shadow box_gradient_dark_blue">
 			<ul class="group">
 				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li>			<?php */?>
-				<?php 
+				<?php
 				$displayVelaro = $this->config->item('displayVelaro');
 				if($displayVelaro == 1)
 		         {
@@ -176,7 +176,7 @@ $this->carabiner->js('livevalidation_standalone.compressed.js');
 				<li class="right"><a class="chat_support" href="https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo $this->wordpress->get_option('aj_velaro_id');?>&showwhen=inqueue" border="0" class="chat-top"></a></li>
 				<?php }else{?>
 				<li class="right"><a class="chat_support" onClick="this.newWindow = window.open('https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;" target="OnlineChatSoftware" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue"><img border="0" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&amp;showwhen=inqueue" alt="OnlineChatSoftware" class="chat-top"></a></li>
-				<?php } 
+				<?php }
 				           } ?>
 			</ul>
 		</nav>
