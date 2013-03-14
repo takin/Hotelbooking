@@ -323,14 +323,18 @@ PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_l
 };
 
 PWebFilterApp.prototype.apply_filters = function() {
-	
+
+alert('inside apply_filters 1');
+
 	this.results_limit = '';
 	
 	this.$data_empty_msg.hide();
 	this.$sort_controls_div.hide();
 	this.$data_div.html("");
 	this.$data_loading_msg.show();
-	
+
+alert('inside apply_filters 2');
+
 	this.init_counts();
 	
 	this.jtable_hits = this.jtable.filter(this.get_filters());
@@ -341,14 +345,19 @@ PWebFilterApp.prototype.apply_filters = function() {
 		this.count_st++;
 	}
 
+alert('inside apply_filters 3');
 
 	this.update_counts();
-	
+
+alert('inside apply_filters 4');
+
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
 	
         this.update();
         
         this.updateMap();
+
+alert('inside apply_filters 5');
 
         initpaging(result_per_page);
 
