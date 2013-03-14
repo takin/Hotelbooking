@@ -287,7 +287,6 @@
 {{/properties}}
 
 <script type="text/javascript">
-    // Property Ratings Tooltip
     $(document).ready(function() {
         $("ul.rating li").bind('mouseover', function(){
             var container = getPropertyRatingsContainer(this);
