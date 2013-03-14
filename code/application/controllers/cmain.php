@@ -971,9 +971,8 @@ class CMain extends I18n_site
     $this->load->view('includes/template',$data);
   }
 
-  function property_search($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL)
+  function property_search($country = NULL, $city = NULL, $urldate = NULL, $units = NULL)
   {
-
 	$currency_error = false; // default currency paramete is correct
 	$currency_error = $this->_currency_init();
 
@@ -996,6 +995,18 @@ class CMain extends I18n_site
 	}
     else
     {
+      $dateStart = NULL;
+      $numNights = NULL;
+
+      $chkdate = $this->checkData($urldate);
+      if(($chkdate == true) && (!empty($urldate)))
+      {
+        $dateStart = $urldate;
+      }
+      if((is_numeric($units)) && (!empty($units)))
+      {
+        $numNights = $units;
+	  }
 
       $filter = array("landmark" => NULL,
                       "district" => NULL,
