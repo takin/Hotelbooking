@@ -324,16 +324,12 @@ PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_l
 
 PWebFilterApp.prototype.apply_filters = function() {
 
-alert('inside apply_filters 1');
-
 	this.results_limit = '';
 	
 	this.$data_empty_msg.hide();
 	this.$sort_controls_div.hide();
 	this.$data_div.html("");
 	this.$data_loading_msg.show();
-
-alert('inside apply_filters 2');
 
 	this.init_counts();
 	
@@ -345,23 +341,13 @@ alert('inside apply_filters 2');
 		this.count_st++;
 	}
 
-alert('inside apply_filters 3');
-
 	this.update_counts();
-
-alert('inside apply_filters 4');
-
+	
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
-
-alert('inside apply_filters 6');
 
         this.update();
 
-alert('inside apply_filters 7');
-
         this.updateMap();
-
-alert('inside apply_filters 8');
 
         initpaging(result_per_page);
 
@@ -381,12 +367,8 @@ PWebFilterApp.prototype.updateMap = function() {
 PWebFilterApp.prototype.update = function() { 
 	var that = this;
 
-alert('start update');
-
 	//Re initiatilize prop_number_to_focus of property map
 	this.pweb_maps['property'].prop_number_to_focus = -1;
-
-alert('length:' + this.jtable_hits_sorted.length);
 
 	if(this.jtable_hits_sorted.length <= 0)
 	{
@@ -411,25 +393,15 @@ alert('length:' + this.jtable_hits_sorted.length);
 	}
 	else
 	{
-alert('start mustache');
 		var output = Mustache.to_html(this.template, { "properties": this.jtable_hits_sorted});
 
-alert('end mustache');
-		
 		this.$data_loading_msg.hide();
 		this.$sort_controls_div.show();
-
-alert('output ' + output);
 
 		this.$data_div.html(output);
 		
 		//Init jquery UI tabs
-		
-alert('start tabs');
-
 		$('.hostel_list').tabs();
-
-alert('end tabs');
 
 		$('#cb_group_type_filter li').find(':input').each(function(){
 		 			var type_val = $(this).attr('checked');
