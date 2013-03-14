@@ -476,7 +476,20 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->update(self::HOSTEL_PRICE_TABLE);
   }
 
-  function update_hostel($xml_hostel, $city_id)
+    function update_hostel(array $hostel) {
+        $propertyNumber = $hostel["property_number"];
+        unset($hostel["property_number"]);
+        $this->CI->db->where("property_number", $propertyNumber);
+        $isUpdated = $this->CI->db->update(self::HOSTEL_TABLE, $hostel);
+                
+        if (!$isUpdated) {
+            throw new Exception(sprintf(
+                "Hostel with property number %s unable to be updated.",
+                $propertyNumber));
+        }
+    }
+  
+  function old_update_hostel($xml_hostel, $city_id)
   {
     $this->feed_trace(self::FEED_INFO,print_r($xml_hostel,true));
   	$this->CI->db->set('city_hb_id', $city_id);
@@ -810,7 +823,64 @@ class Db_hb_hostel extends CI_Model
     return $return;
   }
 
-  function update_hb_prices($hostel_id, $property_xml)
+    public function deleteAllPricesForProperty($propertyNumber) {
+        $isDeleted = $this->CI->db->delete(
+                self::HOSTEL_PRICE_TABLE, 
+                array('hostel_hb_id' => $propertyNumber));
+        
+        if (!$isDeleted) {
+            throw new Exception(sprintf(
+                "Error occurred while deleting prices for hb hostel with property number %s",
+                $propertyNumber));
+        }
+    }
+  
+    public function insert_or_update_hb_prices($property_number, array $prices) {
+        $this->update_hostel_price_sync_status($property_number,self::PROPERTY_INVALID);
+        
+        $valuesStr = "";
+        foreach ($prices as $price) {
+            if (!isset($price["hb_hostel_id"])) {
+                $price["hb_hostel_id"] = $property_number;
+            }
+            
+            $valuesStr .= sprintf("(%s, %s, %s, %s),",
+                    $price["hb_hostel_id"],
+                    $price["currency_code"],
+                    $price["bed_price"],
+                    $price["type"]);
+        }
+        
+        $valuesStr = trim($valuesStr, ",");
+        
+        $sql = "INSERT INTO " . self::HOSTEL_PRICE_TABLE . 
+                        " (hostel_hb_id, currency_code, bed_price, type) " .
+                " VALUES " . $valuesStr .
+                " ON DUPLICATE KEY UPDATE " .
+                    " bed_price = VALUES(bed_price) ";
+        
+        $result = $this->CI->db->query($sql);
+        
+        if ($result) $this->delete_hostel_price_sync_status($property_number);
+        else {
+            throw new Exception(
+                "Error occurred while updating or inserting prices for hb property $property_number");
+        }
+        
+        return $result;
+        
+    }
+    
+    public function getExistingHostelPrices($hostel_id) {
+        $this->CI->db->select("hb_hostel_price_id, hostel_hb_id, 
+               currency_code, type, bed_price")
+            ->where("hostel_hb_id", $hostel_id);
+        $query = $this->CI->db->get(self::HOSTEL_PRICE_TABLE);
+        
+        return $query->result();
+    }
+  
+  function old_update_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
 
@@ -968,7 +1038,26 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->delete($table);
   }
 
-  function insert_hostel($xml_hostel, $city_id)
+  function insert_hostel(array $hostel) {
+      if (!empty($hostel)) {
+          $isInserted = $this->CI->db->insert(self::HOSTEL_TABLE, $hostel);
+          
+          if (!$isInserted) {
+              die("Error inserting hostel: " . print_r($hostel));
+              
+              throw new Exception(sprintf(
+                    "Error inserting hostel (property number %s in db", 
+                      $hostel["property_number"]));
+          }
+          
+          return $this->CI->db->insert_id();
+      } else {
+          // TODO: Throw error instead of returning null
+          return null;
+      }
+  }
+  
+  function old_insert_hostel($xml_hostel, $city_id)
   {
 
   	$this->CI->db->set('city_hb_id', $city_id);
@@ -1236,7 +1325,17 @@ class Db_hb_hostel extends CI_Model
     return $return;
   }
 
-  function insert_hb_prices($hostel_id, $property_xml)
+  public function insert_hb_prices($hostel_id, array $prices) {
+        $this->update_hostel_price_sync_status($hostel_id,self::PROPERTY_INVALID);
+        
+        foreach($prices as $price) {
+            $price["hostel_hb_id"] = $hostel_id;
+        }
+        
+        $this->CI->db->insert_batch(self::HOSTEL_PRICE_TABLE, $prices);
+  }
+  
+  function old_insert_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
 

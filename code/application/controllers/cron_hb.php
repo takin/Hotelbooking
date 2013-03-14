@@ -231,142 +231,131 @@ class Cron_hb extends I18n_site
 
   }
 
-  public function hb_hostels_get()
-  {
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+    public function hb_hostels_get() {    
+        require_once(APPPATH . "/services/hostelbookers_feed_service.php");
+        require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
+        
+        $hbFeedService = new Hostelbookers_feed_service();
+        $hbFeedService->updateAllHbProperties();
+        
+        $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
+        $hbPropertyContentService->updateMonthlyPropertyContent();
+    }
+    
+    public function oldHbHostelsGet() {
 
-    //To force update of feed file and parsing even it the file is the same put this to TRUE
-    $forceupdate = FALSE;
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
 
-    $this->wordpress->load_wordpress_db('wpblog_reviews');
+        //To force update of feed file and parsing even it the file is the same put this to TRUE
+        $forceupdate = FALSE;
 
-    $latestfeedurl = $this->wordpress->get_option('aj_hb_static_feed_url');
-    $lastfeedindb  = $this->wordpress->get_option('aj_hb_static_feed_url_in_db');
+        $this->wordpress->load_wordpress_db('wpblog_reviews');
+
+        $latestfeedurl = $this->wordpress->get_option('aj_hb_static_feed_url');
+        $lastfeedindb = $this->wordpress->get_option('aj_hb_static_feed_url_in_db');
 
 //	$latestfeedurl = "http://feeds.hostelbookers.com/affiliate/mcweb/20121201.zip";
 
-    if(empty($latestfeedurl) ||
-        ((!$forceupdate) && strcasecmp($latestfeedurl,$lastfeedindb)==0))
-    {
-      //parsing not needed if URL is empty or not changed
-      $this->custom_log->log($this->log_filename,"HB API data from static update not needed.");
-      return TRUE;
-    }
+        if (empty($latestfeedurl) ||
+                ((!$forceupdate) && strcasecmp($latestfeedurl, $lastfeedindb) == 0)) {
+            //parsing not needed if URL is empty or not changed
+            $this->custom_log->log($this->log_filename, "HB API data from static update not needed.");
+            return TRUE;
+        }
 
-    $this->load->library('custom_log');
-    $this->log_filename.= "_staticfeeds".date("Y");
-    $this->custom_log->log($this->log_filename,"Updating HB API data from static feed");
+        $this->load->library('custom_log');
+        $this->log_filename.= "_staticfeeds" . date("Y");
+        $this->custom_log->log($this->log_filename, "Updating HB API data from static feed");
 
-    $this->lock();
-    if($this->already_running)
-    {
-      $this->custom_log->log($this->log_filename,__FUNCTION__." already running exitting...");
-      exit;
-    }
+        $this->lock();
+        if ($this->already_running) {
+            $this->custom_log->log($this->log_filename, __FUNCTION__ . " already running exitting...");
+            exit;
+        }
 
-    ini_set('memory_limit', '512M');
+        ini_set('memory_limit', '512M');
 //     ini_set('memory_limit', '1024M');
 
-    $this->load->helper('memory_helper');
-    $this->load->helper('file');
+        $this->load->helper('memory_helper');
+        $this->load->helper('file');
 
 //     $link = 'http://feeds.hostelbookers.com/affiliate/mcweb/20110601.zip';
 
-    $localdest = FCPATH.self::DOWNLOAD_DIR;
-    $zipfilename = "staticfeed".date("YMd").".zip";
+        $localdest = FCPATH . self::DOWNLOAD_DIR;
+        $zipfilename = "staticfeed" . date("YMd") . ".zip";
 
-    $this->custom_log->log($this->log_filename,"Downloading feed from ".$latestfeedurl);
-    if(stream_copy($latestfeedurl,$localdest."/".$zipfilename) > 0)
-    {
-      $this->custom_log->log($this->log_filename,"Feed download complete");
-      if ($zip = zip_open($localdest."/".$zipfilename))
-      {
-        $translation_zip_entry = array('en' => null,
-                                       'fr' => null,
-                                       'es' => null,
-                                       'de' => null,
-                                       'it' => null,
-                                       'pt' => null
-                                       );
+        $this->custom_log->log($this->log_filename, "Downloading feed from " . $latestfeedurl);
+        if (stream_copy($latestfeedurl, $localdest . "/" . $zipfilename) > 0) {
+            $this->custom_log->log($this->log_filename, "Feed download complete");
+            if ($zip = zip_open($localdest . "/" . $zipfilename)) {
+                $translation_zip_entry = array('en' => null,
+                    'fr' => null,
+                    'es' => null,
+                    'de' => null,
+                    'it' => null,
+                    'pt' => null
+                );
 
-        $xml_file = false;
-        //Taking biggest file as static feed to import
-        //and other files as translation files
-        while(($zip_entry = zip_read($zip)) !== false)
-        {
-          if(($xml_file === false) ||
-             (zip_entry_filesize($zip_entry) > zip_entry_filesize($xml_file)))
-          {
-            $xml_file = $zip_entry;
-          }
+                $xml_file = false;
+                //Taking biggest file as static feed to import
+                //and other files as translation files
+                while (($zip_entry = zip_read($zip)) !== false) {
+                    if (($xml_file === false) ||
+                            (zip_entry_filesize($zip_entry) > zip_entry_filesize($xml_file))) {
+                        $xml_file = $zip_entry;
+                    }
 
-          if( preg_match("/EN.xml$/",zip_entry_name($zip_entry)) &&
-              ( is_null($translation_zip_entry['en']) || (zip_entry_filesize($zip_entry) < zip_entry_filesize($translation_zip_entry['en']))) )
-          {
-            $translation_zip_entry['en'] = $zip_entry;
-          }
-          elseif(preg_match("/FR.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['fr'] = $zip_entry;
-          }
-          elseif(preg_match("/ES.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['es'] = $zip_entry;
-          }
-          elseif(preg_match("/DE.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['de'] = $zip_entry;
-          }
-          elseif(preg_match("/IT.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['it'] = $zip_entry;
-          }
-          elseif(preg_match("/PT.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['pt'] = $zip_entry;
-          }
-        }
+                    if (preg_match("/EN.xml$/", zip_entry_name($zip_entry)) &&
+                            ( is_null($translation_zip_entry['en']) || (zip_entry_filesize($zip_entry) < zip_entry_filesize($translation_zip_entry['en'])))) {
+                        $translation_zip_entry['en'] = $zip_entry;
+                    } elseif (preg_match("/FR.xml$/", zip_entry_name($zip_entry))) {
+                        $translation_zip_entry['fr'] = $zip_entry;
+                    } elseif (preg_match("/ES.xml$/", zip_entry_name($zip_entry))) {
+                        $translation_zip_entry['es'] = $zip_entry;
+                    } elseif (preg_match("/DE.xml$/", zip_entry_name($zip_entry))) {
+                        $translation_zip_entry['de'] = $zip_entry;
+                    } elseif (preg_match("/IT.xml$/", zip_entry_name($zip_entry))) {
+                        $translation_zip_entry['it'] = $zip_entry;
+                    } elseif (preg_match("/PT.xml$/", zip_entry_name($zip_entry))) {
+                        $translation_zip_entry['pt'] = $zip_entry;
+                    }
+                }
 
 //         $this->_import_hb_translations($translation_zip_entry);
 //         exit;
 
-        $xml_file = $translation_zip_entry['en'];
-        if($xml_file)
-        {
-          $this->custom_log->log($this->log_filename,"Parsing as static feed file ".zip_entry_name($xml_file));
+                $xml_file = $translation_zip_entry['en'];
+                if ($xml_file) {
+                    $this->custom_log->log($this->log_filename, "Parsing as static feed file " . zip_entry_name($xml_file));
 
-          //TONOTICE! the file can be HEAVY and cause memory exceeding limit
-          // Might be nice to consider a methos consuming less memory
-          // Like extracting via command line and reading by step
-          $xml_file = zip_entry_read ($xml_file,zip_entry_filesize($xml_file));
+                    //TONOTICE! the file can be HEAVY and cause memory exceeding limit
+                    // Might be nice to consider a methos consuming less memory
+                    // Like extracting via command line and reading by step
+                    $xml_file = zip_entry_read($xml_file, zip_entry_filesize($xml_file));
 
-          $this->load->model("Db_hb_hostel");
-          $this->Db_hb_hostel->set_logfile($this->log_filename);
-          $this->Db_hb_hostel->parse_static_feed($xml_file);
-          $this->wordpress->set_option('aj_hb_static_feed_url_in_db',$latestfeedurl);
+                    $this->load->model("Db_hb_hostel");
+                    $this->Db_hb_hostel->set_logfile($this->log_filename);
+                    $this->Db_hb_hostel->parse_static_feed($xml_file);
+                    $this->wordpress->set_option('aj_hb_static_feed_url_in_db', $latestfeedurl);
+                } else {
+                    $this->custom_log->log($this->log_filename, "Error reading zip file " . $zipfilename);
+                }
+
+                zip_close($zip);
+            } else {
+                $this->custom_log->log($this->log_filename, "Error opening zip file " . $zipfilename);
+            }
+
+            limit_file_count_of_name($localdest, "staticfeed", $this->static_feeds_to_keep);
+        } else {
+            $this->custom_log->log($this->log_filename, "Error downloading zip file from " . $latestfeedurl);
         }
-        else
-        {
-          $this->custom_log->log($this->log_filename,"Error reading zip file ".$zipfilename);
-        }
 
-        zip_close($zip);
-      }
-      else
-      {
-        $this->custom_log->log($this->log_filename,"Error opening zip file ".$zipfilename);
-      }
-
-      limit_file_count_of_name($localdest,"staticfeed",$this->static_feeds_to_keep);
+        $this->unlock();
     }
-    else
-    {
-      $this->custom_log->log($this->log_filename,"Error downloading zip file from ".$latestfeedurl);
-    }
-
-    $this->unlock();
-  }
 
   function _xml_get_country_node($dom, $xmlobject, $country_id)
   {
