@@ -400,10 +400,10 @@ PWebFilterApp.prototype.update = function() {
 
 		this.$data_div.html(output);
 
-alert("before tabs");
+alert("before tabs " + output);
 
 		//Init jquery UI tabs
-		// $('.hostel_list').tabs();
+		$('.hostel_list').tabs();
 
 alert("after tabs");
 
