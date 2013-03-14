@@ -1352,6 +1352,19 @@ class CMain extends I18n_site
       return;
     }
 
+    $urldate = $this->uri->segment(4);
+    $units = $this->uri->segment(5);
+
+    $chkdate = $this->checkData($urldate);
+    if(($chkdate == true) && (!empty($urldate)))
+    {
+      set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
+    }
+    if((is_numeric($units)) && (!empty($units)))
+    {
+      set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
+	}
+
     // create an empty to avoid notice when no landmarks are found
     $data['landmarks'] = array();
 
@@ -1832,34 +1845,12 @@ class CMain extends I18n_site
     $city      = $this->input->cookie('city_selected',TRUE);
     $dateStart = $this->input->cookie('date_selected',TRUE);
     $numNights = $this->input->cookie('numnights_selected',TRUE);
-    $search_term = $this->input->cookie('search_input_terms',TRUE);
 
-//    $country   = $this->session->userdata('country_selected');
-//    $city      = $this->session->userdata('city_selected');
-//    $dateStart = $this->session->userdata('date_selected');
-//    $numNights = $this->session->userdata('numnights_selected');
-
-    //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
-
-    $urldate = $this->uri->segment(4);
-    $units = $this->uri->segment(5);
-
-    $chkdate = $this->checkData($urldate);
-    if(($chkdate == true) && (!empty($urldate)))
-    {
-      $data['date_selected'] = $urldate;
-      set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
-    }
-    else
+    if($dateStart!=false)
     {
       $data['date_selected'] = $dateStart;
     }
-    if((is_numeric($units)) && (!empty($units)))
-    {
-      $data['numnights_selected'] = $units;
-      set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
-	}
-    else
+    if($numNights!=false)
     {
       $data['numnights_selected'] = $numNights;
     }
