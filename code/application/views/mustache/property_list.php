@@ -154,7 +154,6 @@
 					<div class="group">
 					<ul class="float-list green-li increase1 translated">
 					{{#amenities}}
-					<li>{{description}}</li>
 					{{/amenities}}
 					</ul>
 					</div>
@@ -164,7 +163,6 @@
                         <div class="group">
                           <ul class="float-list green-li increase1 translated">
                                 {{#extra}}
-                                <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
                                 {{/extra}}
                             </ul>
 				</div>
