@@ -261,131 +261,186 @@ class Hb_api_translate extends CI_Model
           switch($translatedTags[$i])
           {
             case "LOCALATTRACTIONS":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["LOCALATTRACTIONS_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["LOCALATTRACTIONS_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [LOCALATTRACTIONS] -> ".$hbresults["LOCALATTRACTIONS_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["LOCALATTRACTIONS_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [LOCALATTRACTIONS] -> ".$hbresults["LOCALATTRACTIONS_translatedError"]. " | google status -> no status");
+                }
               break;
             case "FEATURES":
                 $hbresults["FEATURES_translated"][$featurekey] = $hbresults["FEATURES"][$featurekey];
                 $hbresults["FEATURES_translatedError"][$featurekey] = "";
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   {
                     $hbresults["FEATURES_translated"][$featurekey] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                   }
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["FEATURES_translatedError"][$featurekey] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [FEATURES] -> ".$hbresults["FEATURES_translatedError"][$featurekey]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["FEATURES_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [FEATURES] -> ".$hbresults["FEATURES_translatedError"]. " | google status -> no status");
+                }
+
                $featurekey++;
               break;
             case "LONGDESCRIPTION":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["LONGDESCRIPTION_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["LONGDESCRIPTION_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [LONGDESCRIPTION] -> ".$hbresults["LONGDESCRIPTION_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["LONGDESCRIPTION_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [LONGDESCRIPTION] -> ".$hbresults["LONGDESCRIPTION_translatedError"]. " | google status -> no status");
+                }
               break;
             case "DIRECTIONS":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["DIRECTIONS_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["DIRECTIONS_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [DIRECTIONS] -> ".$hbresults["DIRECTIONS_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["DIRECTIONS_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [DIRECTIONS] -> ".$hbresults["DIRECTIONS_translatedError"]. " | google status -> no status");
+                  }
               break;
             case "ACCOMMODATIONDESCRIPTION":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["ACCOMMODATIONDESCRIPTION_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["ACCOMMODATIONDESCRIPTION_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [ACCOMMODATIONDESCRIPTION] -> ".$hbresults["ACCOMMODATIONDESCRIPTION_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["ACCOMMODATIONDESCRIPTION_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [ACCOMMODATIONDESCRIPTION] -> ".$hbresults["ACCOMMODATIONDESCRIPTION_translatedError"]. " | google status -> no status");
+                }
               break;
             case "CANCELLATIONPOLICY":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["CANCELLATIONPOLICY_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["CANCELLATIONPOLICY_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [CANCELLATIONPOLICY] -> ".$hbresults["CANCELLATIONPOLICY_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["CANCELLATIONPOLICY_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [CANCELLATIONPOLICY] -> ".$hbresults["CANCELLATIONPOLICY_translatedError"]. " | google status -> no status");
+                }
               break;
             case "IMPORTANTINFORMATION":
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   $hbresults["IMPORTANTINFORMATION_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["IMPORTANTINFORMATION_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [IMPORTANTINFORMATION] -> ".$hbresults["IMPORTANTINFORMATION_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["IMPORTANTINFORMATION_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [IMPORTANTINFORMATION] -> ".$hbresults["IMPORTANTINFORMATION_translatedError"]. " | google status -> no status");
+                }
               break;
             case "PROPERTYEXTRAS":
                 $hbresults["PROPERTYEXTRAS_translated"][$extrakey] = $extra_names[$extrakey];
                 $hbresults["PROPERTYEXTRAS_translatedError"][$extrakey] = "";
-                if($gtrans["responseData"][$i]["responseStatus"] == 200)
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
                 {
                   if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
                   {
                     $hbresults["PROPERTYEXTRAS_translated"][$extrakey] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
                   }
                 }
-                else
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
                 {
                   $trans_error = TRUE;
                   $hbresults["PROPERTYEXTRAS_translatedError"][$extrakey] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
                   log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [PROPERTYEXTRAS] -> ".$hbresults["PROPERTYEXTRAS_translatedError"][$extrakey]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
                 }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["PROPERTYEXTRAS_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [PROPERTYEXTRAS] -> ".$hbresults["PROPERTYEXTRAS_translatedError"]. " | google status -> no status");
+                }
                 $extrakey++;
               break;
             case "TYPE":
-              if($gtrans["responseData"][$i]["responseStatus"] == 200)
-              {
-                if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
-                $hbresults["TYPE_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
-              }
-              else
-              {
-                $trans_error = TRUE;
-                $hbresults["TYPE_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
-                log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [TYPE] -> ".$hbresults["TYPE_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
-              }
+                if(!empty($gtrans["responseData"][$i]["responseStatus"]) && $gtrans["responseData"][$i]["responseStatus"] == 200)
+                {
+                  if((!isset($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"]))||(strcasecmp($gtrans["responseData"][$i]["responseData"]["detectedSourceLanguage"],$this->toLang)!=0) )
+                  $hbresults["TYPE_translated"] = $gtrans["responseData"][$i]["responseData"]["translatedText"];
+                }
+                else if (!empty($gtrans["responseData"][$i]["responseStatus"]) && !empty($gtrans["responseData"][$i]["responseDetails"]))
+                {
+                  $trans_error = TRUE;
+                  $hbresults["TYPE_translatedError"] = "Translation error ".$gtrans["responseData"][$i]["responseStatus"].": ".$gtrans["responseData"][$i]["responseDetails"];
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [TYPE] -> ".$hbresults["TYPE_translatedError"]. " | google status -> ".$gtrans["responseData"][$i]["responseStatus"]);
+                }
+                else
+                {
+                  $trans_error = TRUE;
+                  $hbresults["TYPE_translatedError"] = "Translation error no status : no details";
+                  log_message(HB_TRANSLATION_ERROR_LEVEL,"translate_PropertyData: " .current_url()." -> [TYPE] -> ".$hbresults["TYPE_translatedError"]. " | google status -> no status");
+                }
             break;
           }
         }
