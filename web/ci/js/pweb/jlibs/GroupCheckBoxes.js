@@ -184,7 +184,7 @@ GroupCheckBoxes.prototype.handleGroupboxClick = function($id, e) {
      
   var that = this; 
 
-  switch ($id.attr('checked')) { 
+  switch ($id.is(':checked')) { 
     case true : { 
       // check the group 
       // check all the checkboxes in the group 

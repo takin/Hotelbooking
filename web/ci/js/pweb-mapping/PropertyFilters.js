@@ -377,7 +377,7 @@ PWebFilterApp.prototype.update = function() {
 		this.$data_div.html("");
 		$('#applied_filter_hosting_property').hide();
 		$('#cb_group_type_filter li').find(':input').each(function(){
-		 			var type_val = $(this).attr('checked');
+		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'type_all') && (type_val == true)){
 						 $('#applied_filter_hosting_property').hide();
@@ -403,7 +403,7 @@ PWebFilterApp.prototype.update = function() {
 		$('ul.ui-tabs-nav').tabs();
 		
 		$('#cb_group_type_filter li').find(':input').each(function(){
-		 			var type_val = $(this).attr('checked');
+		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'type_all') && (type_val == true)){
 						 $('#applied_filter_hosting_property').hide();
@@ -821,7 +821,7 @@ PWebFilterApp.prototype.get_filters = function() {
 			});
 			
 			$('#cb_group_facilities_filter li').find(':input').each(function(){
-		 			var type_val = $(this).attr('checked');
+		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'facility_all') && (type_val == true)){
 						 $('#applied_filter_hosting_facilities').hide();
@@ -862,7 +862,7 @@ PWebFilterApp.prototype.get_filters = function() {
 			});
 			
 			$('#cb_group_districts_filter li').find(':input').each(function(){
-		 			var type_val = $(this).attr('checked');
+		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'districts_all') && (type_val == true)){
 						 $('#applied_filter_hosting_districts').hide();
@@ -900,7 +900,7 @@ PWebFilterApp.prototype.get_filters = function() {
 				}
 			});
 			$('#cb_group_landmarks_filter li').find(':input').each(function(){
-		 			var type_val = $(this).attr('checked');
+		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'landmark_all') && (type_val == true)){
 						 $('#applied_filter_hosting_landmarks').hide();
