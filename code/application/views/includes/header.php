@@ -780,9 +780,9 @@ var citymap = {
   <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<?php
-	$this->carabiner->js('imageload.js');
-	$this->carabiner->js('jtools.js');
+<?php
+  $this->carabiner->js('imageload.js');
+  $this->carabiner->js('jtools.js');
   $this->carabiner->js('janim.js');
   $this->carabiner->js('tabs.js');
   if($current_view != "group_request")
@@ -797,8 +797,6 @@ var citymap = {
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
   ?>
-<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js"
-                type="text/javascript"></script>
   <?php
   if($current_view == "hostel_view")
   {
@@ -807,15 +805,16 @@ var citymap = {
     $this->carabiner->js('jquery.mousewheel.js','jquery.mousewheel.js',TRUE);
     $this->carabiner->js('jquery.jscrollpane.min.js','jquery.jscrollpane.min.js',TRUE);
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
-		$this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
-
+    $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
   }
-	elseif($current_view == "search_results")
-	{
+  elseif($current_view == "search_results")
+  {
 	  $this->carabiner->js('search-sort.js');
 	  $this->carabiner->js('paginateview.js');
-	}
-
+  }
+  ?>
+<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
+  <?php
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
 

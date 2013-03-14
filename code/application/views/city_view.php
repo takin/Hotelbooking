@@ -117,7 +117,7 @@
 		</div>
 	</div>
 	<?php }?>
- <?php 
+ <?php
         //------------check to display the box or not
     if($this->config->item('recent_view_number_cookies') > 0 )
     {
@@ -132,15 +132,15 @@
                         cache: false,
 						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
 						success:function(retdata)
-						{							
+						{
 							$('#recently_viewed_properties').show();
 							$('#recently_viewed_properties').html(retdata);
-                
+
 						}
 				});
 
 			});
-    </script>	
+    </script>
     <?php }
     }?>
 	<?php $this->load->view('includes/video-popup'); ?>
@@ -191,7 +191,7 @@
 					<?php echo _('Results');?>
 			</div>
 			<!-- top city result counter-->
-		
+
 			<?php //printf( gettext('Showing %s results out of %s'),'<span id="city_results_count_current">0</span>','<span id="city_results_count_total">0</span>');?>
 		</span>
 	</div>
@@ -270,8 +270,8 @@
 			</div>
 			<!-- Next 20 result code start-->
 			<script src="<?php echo site_url("js/propertypagination.js"); ?>"></script>
-			<input type="hidden" id="current_page" value="0">  
-			<input type="hidden" id="show_per_page" value="0"> 
+			<input type="hidden" id="current_page" value="0">
+			<input type="hidden" id="show_per_page" value="0">
 			<!-- Next 20 result code start-->
 			<div id="property_list">
 			<script type="text/javascript">
@@ -282,40 +282,43 @@
 						url:'<?php echo site_url("/location_avail/".customurlencode($country_selected)."/".customurlencode($city_selected)."/$date_selected/$numnights_selected?currency=".$currency);?>',
 						success:function(data)
 						{
+alert('setupfilters');
 							setup_filters(data);
 							$('#search_load').show();
 							$('#city_results_count').show();
 							$('#city_load').hide();
 							$('#wrap').show();
-                                                        
-                 $('.hostel_list').each(function() {
-                    if($(this).find(".city_hostel_districts_values").html() == "")
-                        {
-                            $(this).find(".city_hostel_districts").hide(); 
-                        }
-                        else
-                        {
-                            // remove last "," from districts
-                            var strDistricts = $(this).find(".city_hostel_districts_values").html();  
-                            strDistricts = strDistricts.slice(0,-2);
-                            $(this).find(".city_hostel_districts_values").html(strDistricts+".");
-                        }
-                        
-                        // remove landmarks if there are no landmarks
-                        // remove extra "," from the end of the values
-                        if($(this).find(".city_hostel_landmarks_values").html() == "")
-                        {
-                            $(this).find(".city_hostel_landmarks").hide(); 
-                        }
-                        else
-                        {
-                            // remove last "," from landmarks
-                            var strDistricts = $(this).find(".city_hostel_landmarks_values").html();  
-                            strDistricts = strDistricts.slice(0,-2);
-                            $(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
-                        }
-                });
-                
+
+							 $('.hostel_list').each(function() {
+								if($(this).find(".city_hostel_districts_values").html() == "")
+									{
+										$(this).find(".city_hostel_districts").hide();
+									}
+									else
+									{
+										// remove last "," from districts
+										var strDistricts = $(this).find(".city_hostel_districts_values").html();
+										strDistricts = strDistricts.slice(0,-2);
+										$(this).find(".city_hostel_districts_values").html(strDistricts+".");
+									}
+
+									// remove landmarks if there are no landmarks
+									// remove extra "," from the end of the values
+									if($(this).find(".city_hostel_landmarks_values").html() == "")
+									{
+										$(this).find(".city_hostel_landmarks").hide();
+									}
+									else
+									{
+										// remove last "," from landmarks
+										var strDistricts = $(this).find(".city_hostel_landmarks_values").html();
+										strDistricts = strDistricts.slice(0,-2);
+										$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
+									}
+							});
+
+							alert('done setupfilters');
+
 						}
 				});
 
@@ -341,7 +344,7 @@
 				<div id="page_navigation" class="page_navigation"></div>
 			</div>
 			<!-- Next 20 result code start-->
-			
+
 			<!--<a href="#" id="show_more_results" class="button-green-faded hoverit box_round box_shadow_very_light"><?php echo _('See more results')?></a>-->
 
 </div>
