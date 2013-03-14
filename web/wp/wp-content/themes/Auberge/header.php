@@ -61,8 +61,8 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php /*?><?php register_scripts(); ?><?php */?>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/imageload.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jtools.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/date-lib.js"></script>

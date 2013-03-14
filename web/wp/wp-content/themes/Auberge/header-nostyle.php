@@ -10,13 +10,13 @@
 echo '<meta name="robots" content="noindex,follow" />';
 }?>
 <?php /*?><?php if((is_home() || is_single() || is_page()) && (!(is_page_template('canada-page.php'))))
-{ echo '<meta name="robots" content="index,follow" />'; } 
+{ echo '<meta name="robots" content="index,follow" />'; }
 else { echo '<meta name="robots" content="noindex,follow" />'; } ?><?php */?>
 
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" />
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/nostyle.css" type="text/css" media="screen,projection" />
 
-<script type="text/javascript" src="<?php echo get_option('aj_api_url'); ?>js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 <?php if (is_page_template('contact.php')){?>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/submitform.js"></script>
 <?php }?>
@@ -24,6 +24,5 @@ else { echo '<meta name="robots" content="noindex,follow" />'; } ?><?php */?>
 </head>
 
 <body <?php body_class(); ?>>
-   
+
 <div id="content" class="clearfix">
-     

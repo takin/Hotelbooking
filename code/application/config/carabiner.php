@@ -72,7 +72,7 @@ $config['cache_dir'] = 'js/cache/';
 |
 */
 
-$config['dev'] = TRUE;
+$config['dev'] = FALSE;
 
 
 /*
@@ -151,7 +151,7 @@ $config['groups']['jquery'] = array(
 
 	'js' => array(
 
-		array('https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js', TRUE, FALSE)
+		array('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', TRUE, FALSE)
 
 	)
 );
