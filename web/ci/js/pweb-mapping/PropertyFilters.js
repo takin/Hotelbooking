@@ -380,9 +380,13 @@ PWebFilterApp.prototype.updateMap = function() {
 };
 PWebFilterApp.prototype.update = function() { 
 	var that = this;
-	
+
+alert('start update');
+
 	//Re initiatilize prop_number_to_focus of property map
 	this.pweb_maps['property'].prop_number_to_focus = -1;
+
+alert(this.jtable_hits_sorted.length);
 
 	if(this.jtable_hits_sorted.length <= 0)
 	{
