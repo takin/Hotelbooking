@@ -403,7 +403,7 @@ PWebFilterApp.prototype.update = function() {
 alert("before tabs");
 
 		//Init jquery UI tabs
-		$('.hostel_list').tabs();
+		// $('.hostel_list').tabs();
 
 alert("after tabs");
 
