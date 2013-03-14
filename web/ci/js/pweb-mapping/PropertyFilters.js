@@ -352,12 +352,16 @@ alert('inside apply_filters 3');
 alert('inside apply_filters 4');
 
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
-	
+
+alert('inside apply_filters 6');
+
         this.update();
-        
+
+alert('inside apply_filters 7');
+
         this.updateMap();
 
-alert('inside apply_filters 5');
+alert('inside apply_filters 8');
 
         initpaging(result_per_page);
 
