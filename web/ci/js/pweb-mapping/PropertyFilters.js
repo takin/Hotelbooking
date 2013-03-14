@@ -1218,13 +1218,9 @@ var campCount = 0;
 //Put setup filter in PWebFilterApp prototypes?
 function setup_filters(data)
 {
-alert('parseJSON');
-
 	data = jQuery.parseJSON(data);
 	pweb_filter.setRequestData(data.request);
 	pweb_filter.setData(data.property_list);
-
-alert('setData');
 	
 	totalRecords = data.property_list.length;
 
@@ -1236,19 +1232,12 @@ alert('setData');
 	pweb_filter.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
 	$('#data_sort_controls').show();
 
-alert('apply_filters');
-
-
 	pweb_filter.apply_filters();
-
-alert('set_init_filters_value');
 
 	pweb_filter.set_init_filters_value();
 	
-	//Eventually create a addFilter function for time saving now everything is in init_filters
 	pweb_filter.init_action_filters();
 	
-	//TO MOVE IN pwe-mapping CitySearchMap.js ? 
 	$('#city_map_show_1').click(function()
 	{
 		pweb_filter.toggleMap('city');
