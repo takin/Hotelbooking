@@ -142,6 +142,33 @@ PWebFilterApp.prototype.init = function() {
 	
 }; // end init()
 
+PWebFilterApp.prototype.apply_filters = function() {
+
+	this.$data_empty_msg.hide();
+	this.$sort_controls_div.hide();
+	this.$data_div.html("");
+	this.$data_loading_msg.show();
+
+	this.init_counts();
+	
+	this.jtable_hits = this.jtable.filter(this.get_filters());
+	
+	if(this.count_st==0) {
+		this.compute_counts();
+		this.update_counts();
+		this.count_st++;
+	}
+
+	this.update_counts();
+	
+	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
+
+        this.update();
+
+        this.updateMap();
+        
+};
+
 PWebFilterApp.prototype.set_init_filters_value = function() {
 	this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.id] = this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.checked;
 	for (var i = 0; i < this.TypeFilterCheckBoxes.$checkboxes_li.length; i++)
@@ -235,34 +262,6 @@ PWebFilterApp.prototype.reset_Pricefilters = function()
 
 PWebFilterApp.prototype.addFilterMap = function(map_slug, city_map_div_id, map_lang, lat, lng) {
 	this.pweb_maps[map_slug] = new PWebFilterMap(city_map_div_id, map_lang, lat, lng);
-};
-
-PWebFilterApp.prototype.apply_filters = function() {
-
-	this.$data_empty_msg.hide();
-	this.$sort_controls_div.hide();
-	this.$data_div.html("");
-	this.$data_loading_msg.show();
-
-	this.init_counts();
-	
-	this.jtable_hits = this.jtable.filter(this.get_filters());
-	
-	if(this.count_st==0) {
-		this.compute_counts();
-		this.update_counts();
-		this.count_st++;
-	}
-
-	this.update_counts();
-	
-	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
-
-        this.update();
-
-        this.updateMap();
-
-	this.initpaging();
 };
 
 PWebFilterApp.prototype.updateMap = function() { 
@@ -384,6 +383,10 @@ PWebFilterApp.prototype.update = function() {
 		$("#prop_more_info_wrap_"+ID).toggle();
 		return false;
 	});
+	
+        this.cleanupDistrcitsAndLandmarks();
+	
+	this.initpaging();
 	
 }; // end init() 
 
@@ -1151,6 +1154,37 @@ PWebFilterApp.prototype.closeFilter = function(type)
 	pweb_filter.apply_filters();
 }
 
+PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function() 
+{
+      $('.hostel_list').each(function() {
+        if($(this).find(".city_hostel_districts_values").html() == "")
+	{
+		$(this).find(".city_hostel_districts").hide();
+	}
+	else
+	{
+		// remove last "," from districts
+		var strDistricts = $(this).find(".city_hostel_districts_values").html();
+		strDistricts = strDistricts.slice(0,-2);
+		$(this).find(".city_hostel_districts_values").html(strDistricts+".");
+	}
+
+	// remove landmarks if there are no landmarks
+	// remove extra "," from the end of the values
+	if($(this).find(".city_hostel_landmarks_values").html() == "")
+	{
+		$(this).find(".city_hostel_landmarks").hide();
+	}
+	else
+	{
+		// remove last "," from landmarks
+		var strDistricts = $(this).find(".city_hostel_landmarks_values").html();
+		strDistricts = strDistricts.slice(0,-2);
+		$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
+	}
+      });
+};
+
 PWebFilterApp.prototype.initpaging = function() 
 {
     var show_per_page = this.results_limit;  
@@ -1362,34 +1396,6 @@ $(document).ready(function() {
       $('#city_results_count').show();
       $('#city_load').hide();
       $('#wrap').show();
-
-      $('.hostel_list').each(function() {
-        if($(this).find(".city_hostel_districts_values").html() == "")
-	{
-		$(this).find(".city_hostel_districts").hide();
-	}
-	else
-	{
-		// remove last "," from districts
-		var strDistricts = $(this).find(".city_hostel_districts_values").html();
-		strDistricts = strDistricts.slice(0,-2);
-		$(this).find(".city_hostel_districts_values").html(strDistricts+".");
-	}
-
-	// remove landmarks if there are no landmarks
-	// remove extra "," from the end of the values
-	if($(this).find(".city_hostel_landmarks_values").html() == "")
-	{
-		$(this).find(".city_hostel_landmarks").hide();
-	}
-	else
-	{
-		// remove last "," from landmarks
-		var strDistricts = $(this).find(".city_hostel_landmarks_values").html();
-		strDistricts = strDistricts.slice(0,-2);
-		$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
-	}
-      });
     }
   });
 
