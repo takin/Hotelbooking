@@ -419,7 +419,7 @@ alert('end mustache');
 		this.$data_loading_msg.hide();
 		this.$sort_controls_div.show();
 
-alert('output');
+alert('output ' + output);
 
 		this.$data_div.html(output);
 		

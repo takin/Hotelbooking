@@ -282,7 +282,6 @@
 						url:'<?php echo site_url("/location_avail/".customurlencode($country_selected)."/".customurlencode($city_selected)."/$date_selected/$numnights_selected?currency=".$currency);?>',
 						success:function(data)
 						{
-alert('setupfilters');
 							setup_filters(data);
 							$('#search_load').show();
 							$('#city_results_count').show();
@@ -316,9 +315,6 @@ alert('setupfilters');
 										$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
 									}
 							});
-
-							alert('done setupfilters');
-
 						}
 				});
 
