@@ -1042,6 +1042,16 @@ class CMain extends I18n_site
       {
         switch($url_segment_5)
         {
+          case 'landmark':
+            $dateStart = NULL;
+            $numNights = NULL;
+            $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(6));
+            break;
+          case 'district':
+            $dateStart = NULL;
+            $numNights = NULL;
+            $filter["district"] = $this->uri->segment(6);
+            break;
           case 'type':
             $dateStart = NULL;
             $numNights = NULL;
