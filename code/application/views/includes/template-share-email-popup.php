@@ -2,7 +2,12 @@
 
 <div id="share-overlay">
 	<div class="content">
-		<div id="close_x" style="float:right; width: 30px; margin-top: 20px"><a style="color: #f00; font-weight: bold; text-decoration:underline" href="/">X</a></div>
+		<div id="close_x" style="position:absolute; width: 30px; margin-top: -33px; margin-left: 628px">
+			<a style="color: #f00; font-weight: bold; text-decoration:underline" href="/">
+				<img src="<?php echo site_url('/images/modal_close.png'); ?>" />
+			</a>
+		</div>
+
 		<div class="confirmation">
 			<p class="title"><?php echo sprintf(_('Your message has been sent to %s'), '<br /><br ><span id="email_recipient"></span>'); ?></p>
 			<br /><br />
@@ -30,7 +35,7 @@
 
 			<p style="margin-left: 220px">
 				<a href="/" id="show-share-overlay"><?php echo _('Send another message'); ?></a>
-				<a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a>
+				<!-- <a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a> -->
 			</p>
 		</div>
 
@@ -76,7 +81,7 @@
 				<input type="hidden" name="property_number" value="<?php echo var_check($property_number, ''); ?>" id="property_number" />
 
 				<input type="submit" name="submit" id="submit" value="<?php echo _('Send email'); ?>" />
-				<a href="/" id="close-share-overlay"><?php echo _('Close'); ?></a>
+<!-- 				<a href="/" id="close-share-overlay"><?php echo _('Close'); ?></a> -->
 			</div>
 		</form>
 
