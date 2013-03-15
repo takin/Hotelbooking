@@ -10,7 +10,7 @@ $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_gl
 $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('jquery-fancybox.css','screen','fancybox.css',FALSE,FALSE,"full_site_global");
+$this->carabiner->css('jquery-fancybox.css','screen','jquery-fancybox.css',FALSE,FALSE,"full_site_global");
 ?>
 <?php if ($this->wordpress->get_option('aj_api_site_data') == 'hb'){
  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
@@ -47,14 +47,11 @@ $this->carabiner->js('popup.js');
 //$this->carabiner->js('preview.js');
 $this->carabiner->js('sitetools.js');
 $this->carabiner->js('livevalidation_standalone.compressed.js');
-//$this->carabiner->js('jquery.easing-1.3.pack.js');
-//$this->carabiner->js('jquery.fancybox.pack.js');
-//$this->carabiner->js('jquery.mousewheel.js');
+$this->carabiner->js('jquery.easing.1.3.js');
+$this->carabiner->js('jquery.fancybox.pack.js');
+$this->carabiner->js('jquery.mousewheel.js');
 
 ?>
-<script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.easing-1.3.pack.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.fancybox.pack.js" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo secure_base_url();?>js/jquery.mousewheel.js" charset="UTF-8"></script>
 
 <script type="text/javascript">
 
