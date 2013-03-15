@@ -1375,7 +1375,9 @@ class CMain extends I18n_site
         'property_number' => $property_number,
         'date'            => $urldate,
         'nights'          => $units,
-        'print'           => $this->input->get('print', true)
+        'print'           => $this->input->get('print', true),
+        'showEmail'       => $this->config->item('displayShareEmail'),
+        'showPDF'         => $this->config->item('displaySharePDF')
     );
 
     if (!empty($date)) {

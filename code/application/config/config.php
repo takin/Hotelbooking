@@ -3,6 +3,10 @@
 /* Valero chat globale variable set false for disable and True for enable chat*/
 $config['displayVelaro'] = FALSE;
 
+/* Display or not the share PDF and Email */
+$config['displayShareEmail'] = FALSE;
+$config['displaySharePDF']   = FALSE;
+
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 
