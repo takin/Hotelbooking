@@ -21,13 +21,20 @@ abstract class Xml_Service {
                 CURLOPT_URL => $url,
                 CURLOPT_HTTPHEADER, $this->getHttpHeader(),
             ));       
-            $this->logAudit("HB XML Service - requesting data", 
+            $this->logAudit("HB XML Service - requesting data from $url", 
                     0, 0, 0);
             
             $requestTime = microtime(true);
             $memoryMeasurements = array("requestMem" => memory_get_usage());
             $result = curl_exec($curl);
             $responseTime = microtime(true);
+            
+            $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+            if ($httpStatus != 200) {
+                throw new Exception(
+                        "Error: Request to $url received http status code of $httpStatus");
+            }
+            
             $memoryMeasurements["responseMem"] = memory_get_usage();
             $this->logAudit("HB XML Service - XML retrieval from $url", 
                     $requestTime, $responseTime, $memoryMeasurements);
@@ -64,7 +71,5 @@ abstract class Xml_Service {
     
     protected function trimCDataTag($propertyXml) {
         return $this->ci->db->escape((string) trim($propertyXml));
-    }
-    
-    abstract protected function parseXmlData(&$xmlData);
+    }    
 }

@@ -3,17 +3,27 @@ require_once(APPPATH . "/services/xml_service.php");
 
 class Hostelbookers_feed_service extends Xml_Service {
     
+    const PROPERTY_VALID = 1;
+    const PROPERTY_INVALID = 0;
+    
+    private $existingFacilities = array();
+    
     public function __construct() {
         parent::__construct();
     }
     
-    public function updateAllHbProperties() {        
+    public function updateAllHbProperties() {
+        $startTime = microtime(true);
         $this->ci->load->model("db_hb_hostel");
         $url = $this->getWebServiceUrl();
         //$requestData = $this->getDataFromUrl($url);
-        $requestData = $this->getTestInsertXml();
+        $requestData = $this->getTestUpdateXml();
         $propertiesData = $this->parseXmlData($requestData);
         $this->insertOrUpdatePropertiesDataInDb($propertiesData);
+        $endTime = microtime(true);
+        
+        $this->logAudit("HB XML Service - updated all property details", 
+                $startTime, $endTime);
     }
     
     private function getWebServiceUrl() {
@@ -24,7 +34,7 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $url;
     }
     
-    protected function parseXmlData(&$xmlData) {
+    private function parseXmlData(&$xmlData) {
         $propertiesXml = simplexml_load_string($xmlData);
         
         $properties = array();
@@ -56,18 +66,24 @@ class Hostelbookers_feed_service extends Xml_Service {
                 "city_hb_id" => (string) $propertyXml["locationid"],
                 "cancellation_period" => (string) $propertyXml["canc"],
                 "release_unit" => (string) $propertyXml["release"],
-                "modified" => date("Y-m-d")
+                "modified" => date("Y-m-d"),
+                "api_sync_status" => self::PROPERTY_VALID
             ), $this->parsePropertyXmlRatings($propertyXml->ratings),
             $this->parsePropertyXmlAddress($propertyXml->add)
         );
         
-        $prices = $this->parseXmlPrices($propertyXml->price, $property["property_number"]);
-
-        // $property["facilities"] = $this->parseXmlExtras($propertyXml);
+        $propertyNumber = $property["property_number"];
+        $prices = $this->parseXmlPrices($propertyXml->price, $propertyNumber);
+        $images = $this->parseXmlImages($propertyXml->img, $propertyNumber);        
+        $extras = $this->parseXmlExtras($propertyXml->facilities, $propertyNumber);
+        $facilities = $this->parseXmlFacilities($propertyXml->facilities, $propertyNumber);
         
         return array(
             "property" => $property,
-            "prices" => $prices
+            "prices" => $prices,
+            "images" => $images,
+            "extras" => $extras,
+            "facilities" => $facilities,
         );
     }
     
@@ -122,23 +138,74 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $prices;
     }
     
-    /**
-     * TODO: Finish this method.
-     */
-    private function parseXmlExtras($propertyXml) {
-        $extrasXml = $propertyXml->xpath("/fac//opt//extra");
-        $extras = array();
+    private function parseXmlImages($imagesXml, $propertyNumber) {
+        $images = array();
         
+        foreach ($imagesXml->img as $imgNode) {
+            $img = array(
+                "hostel_hb_id" => $propertyNumber,
+                "url" => (string) $imgNode,
+                "api_sync_status" => self::PROPERTY_VALID
+            );
+            
+            $images[] = $img;
+        }
+        
+        return $images;
+    }
+    
+    private function parseXmlExtras($facilitiesXml, $propertyNumber) {
+        $extrasXml = $facilitiesXml->xpath("//extra");
+        
+        $extras = array();
         foreach ($extrasXml as $extraNode) {
             $extra = array(
-                
+                "hb_extra_id" => intval((string) $extraNode["id"], 10),
+                "cost" => intval((string) $extraNode["cost"]),
+                "hostel_hb_id" => $propertyNumber,
+                "api_sync_status" => self::PROPERTY_VALID
             );
+            
+            $extras[] = $extra;
         }
         
         return $extras;
     }
     
+    /**
+     * Ignores facilities that aren't in the hb_features table
+     */
+    private function parseXmlFacilities($facilitiesXml, $propertyNumber) {
+        $facilitiesXml = $facilitiesXml->xpath("//fac");
+        
+        $facilities = array();
+        foreach($facilitiesXml as $facilityNode) {
+            $facilityId = intval($facilityNode["id"], 10);
+            if (empty($facilityId)) {
+                continue;
+            }
+            
+            if (!isset($this->existingFacilities[$facilityId]) &&
+                    !$this->ci->db_hb_hostel->get_feature_by_id($facilityId)) {
+                continue;
+            }  else {
+                $this->existingFacilities[$facilityId] = $facilityId;
+            }
+            
+            $facility = array(
+                "hostel_hb_id" => $propertyNumber,
+                "hb_feature_id" => $facilityId,
+                "api_sync_status" => 1
+            );
+            
+            $facilities[] = $facility;
+        }
+        
+        return $facilities;
+    }
+    
     private function insertOrUpdatePropertiesDataInDb($propertiesData) {
+        $this->updateSyncStatus(self::PROPERTY_INVALID);
         $startTime = microtime(true);
         foreach($propertiesData as $propertyData) {
             $property = $propertyData["property"];
@@ -159,15 +226,32 @@ class Hostelbookers_feed_service extends Xml_Service {
                 $startTime, $endTime);
     }
     
+    private function updateSyncStatus($status) {
+        $this->ci->db_hb_hostel->update_sync_status($status);
+        $this->ci->db_hb_hostel->update_features_status($status);
+        $this->ci->db_hb_hostel->update_extras_status($status);
+    }
+    
     private function updatePropertyDataInDb(array $propertyData) {
         $property = $propertyData["property"];
-        $prices = $propertyData["prices"];
         $propertyNumber = $property["property_number"];
             
         try {
             $this->ci->db_hb_hostel->update_hostel($property);
-            $this->ci->db_hb_hostel->deleteAllPricesForProperty($propertyNumber);
-            $this->ci->db_hb_hostel->insert_or_update_hb_prices($propertyNumber, $prices);
+            
+            // Deleting because this is a comprehensive feed and I don't think the pks are ever referenced
+            $this->ci->db_hb_hostel->delete_all_prices_for_property($propertyNumber);
+            $this->ci->db_hb_hostel->insert_or_update_hb_prices(
+                    $propertyNumber, $propertyData["prices"]);
+            
+            $this->ci->db_hb_hostel->delete_all_images_for_property($propertyNumber);
+            $this->ci->db_hb_hostel->insert_hb_images($propertyData["images"]);
+            
+            $this->ci->db_hb_hostel->delete_all_extras_for_property($propertyNumber);
+            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel($propertyData["extras"]);
+            
+            $this->ci->db_hb_hostel->delete_all_facilities_for_property($propertyNumber);
+            $this->ci->db_hb_hostel->insert_hb_facilities($propertyData["facilities"]);
         } catch(Exception $e) {
             log_message("error", 
                 sprintf("%s error: updating hostel (property_number %s) in database failed. %s", 
@@ -176,7 +260,6 @@ class Hostelbookers_feed_service extends Xml_Service {
     }
     
     private function insertPropertyDataInDb(array $propertyData) {
-        // Delete this line...Current max id is 26506
         $property = $propertyData["property"];
         $prices = $propertyData["prices"];
         $propertyNumber = $property["property_number"];
@@ -186,6 +269,13 @@ class Hostelbookers_feed_service extends Xml_Service {
         try {
             $this->ci->db_hb_hostel->insert_hostel($property);
             $this->ci->db_hb_hostel->insert_or_update_hb_prices($propertyNumber, $prices);
+            $this->ci->db_hb_hostel->insert_or_update_hb_prices(
+                    $propertyNumber, $propertyData["prices"]);
+            $this->ci->db_hb_hostel->insert_hb_images($propertyData["images"]);
+            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel($propertyData["extras"]);
+            $this->ci->db_hb_hostel->insert_or_update_hb_facilities(
+                    $propertyNumber, $propertyData["facilities"]);
+            $this->ci->db_hb_hostel->insert_hb_facilities($propertyData["facilities"]);
         } catch(Exception $e) {
             $this->logAudit(sprintf(
                     "HB XML Service - error inserting hostel: %s", $e->getMessage()),
@@ -196,32 +286,6 @@ class Hostelbookers_feed_service extends Xml_Service {
         }
     }
     
-    private function getOldTestUpdateXml() {
-        return '<datafeed><country id="2"><name>Andorra</name><location id="2701"><name>Canillo</name>' .
-                    '<property type="Hotel" id="3940" currency="EUR" cancellationperiod="2" added="01-Aug-2005" modified="30-Mar-2012" checkin="" checkout=""><name>Hotel LErmita</name><pageurl>http://es.hostelbookers.com/albergues/andorra/canillo/3940/?affiliate=mcweb</pageurl><countryname>Andorra</countryname><destination>Canillo</destination><dormprice type="dorm" available="false" currency="EUR" exchange="1.0000"/><privateprice type="private" available="true" currency="EUR" exchange="1.0000">29.0000</privateprice><rating><overall>92.68571</overall><atmosphere>94.40</atmosphere><staff>96.00</staff><location>88.00</location><cleanliness>97.60</cleanliness><facilities>88.80</facilities><safety>93.60</safety><value>90.40</value></rating><releaseunit>8</releaseunit><address><address1>Meritxell</address1><address2/><address3/><zipcode>.</zipcode></address><mapurl>http://www.hostelbookers.com/images/hostel/3000/3940-map.jpg</mapurl><images><image>http://assets.hb-assets.com/p/3000/3940-20120520140712.JPG</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140706.JPG</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140729.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140726.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140722.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140716.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120430115516.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120518100530.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120519005422.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140719.jpg</image><image>http://assets.hb-assets.com/p/3000/3940-20120520140702.JPG</image></images><features><feature>Bar</feature><feature>Se aceptan tarjetas de crédito</feature><feature>Parking</feature><feature>Salón de juegos</feature><feature>Internet / Wi-Fi</feature><feature>Mesa de billar</feature><feature>Restaurante</feature><feature>Caja fuerte</feature><feature>Duchas de agua caliente 24 horas</feature><feature>Accesos para silla de ruedas</feature></features><optionalextras><optionalextra cost="-1.0000">Servicio de recogida en el aeropuerto</optionalextra><optionalextra cost="-1.0000">Cuarto de maletas</optionalextra><optionalextra cost="5.0000">Desayuno</optionalextra><optionalextra cost="0.0000">Ropa de cama</optionalextra><optionalextra cost="0.0000">Toalla</optionalextra></optionalextras><latitude>4.255434500000000e+001</latitude><longitude>1.590099000000000e+000</longitude><shortdescription>En pleno corazón del Principado de Andorra, en medio de las montañas de los Pirineos, encontrarán uno de los hoteles familiares más tranquilo y más acogedor:&#x0D;' .
-                        '"El Hotel l’Ermita".&#x0D;' .
-                        'Ofreciendo a sus clientes una situación privilegiada, se encontrarán a pocos kilómetros del centro turístico y comercial, y a algunos minutos del dominio de esquí “Grandvalira”, el más extenso de los Pirineos con 195 Km. de pistas.</shortdescription><longdescription>En cualquiera temporada, el Hotel l’Ermita es el lugar ideal para desconectar y descansar en toda tranquilidad. Haremos todo nuestro posible para que el menor detalle facilite el éxito de su estancia, y procuraremos que se encuentre como en casa, en un ambiente familiar y acogedor.&#x0D;' .
-                        'El hotel dispone:&#x0D;' .
-                        '	Aparcamiento exterior gratuito&#x0D;' .
-                        '	Aparcamiento interior &#x0D;' .
-                        '	Zona de juegos exterior&#x0D;' .
-                        '	Casilleros a esquí a utilización privada&#x0D;' .
-                        '	Punto Internet a la recepción&#x0D;' .
-                        '	Conexión wifi en todo hotel&#x0D;' .
-                        '	Sala de televisión con lector DVD&#x0D;' .
-                        '	Juegos de sociedad&#x0D;' .
-                        '	Sala de juegos (billar, futbolín, ping pong)&#x0D;'.
-                        '	Sala de deporte&#x0D;' .
-                        '	Sauna a uso privada&#x0D;' .
-                        '&#x0D;' .
-                        '&#x0D;' .
-                        'El restaurante l’Ermita, ocupa un espacio privilegiado del hotel puesto que todas las ventanas tienen una vista directa sobre la montaña. Para su almuerzo o su cena, podrán elegir entre nuestro menú diario o la carta del restaurante típicamente francesa y española elaborada a base de productos frescos por un equipo de jóvenes cocineros.&#x0D;' .
-                        'El ambiente rústico y caluroso del restaurante le hará pasar un agradable momento.&#x0D;' .
-                        'La clientela que desee realizar la media pensión, podrá según su elección almorzar o cenar</longdescription><direction/><locationinfo/><accommodationinfo>El hotel está formado por 27 habitaciones de estilo montañés. Pueden ser individuales, dobles a gran cama o a camas gemelas, y también familiares algunas de ellas abuhardilladas para los niños.&#x0D;' .
-                        'Disponen todas de un cuarto de baño (con secador para el pelo), teléfono directo, televisión a pantalla plana con cadenas internacionales, acceso Internet wifi, algunas con balcón y vistas maravillosas sobre las montañas de Andorra… en realidad todo lo necesario para una agradable estanc</accommodationinfo><importantinfo>As soon as the reservation is confirmed you MUST contact the property providing the CVV number of your card.&#x0D;' .
-                        'Please note that failure to provide the CVV number within 48 hours will  result in full cancellation of the booking. The deposit is non refundable.</importantinfo></property>' .
-                '</country></datafeed>';
-    }
     private function getTestUpdateXml() {
         return '<properties><property type="Hostel" id="1026" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Kyle Clown and Bard Prague</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img><img>/p/1000/1026-20120903030956.JPG</img><img>/p/1000/1026-20120903020928.JPG</img><img>/p/1000/1026-20120903060907.jpg</img><img>/p/1000/1026-20120903050948.jpg</img><img>/p/1000/1026-20120903050952.jpg</img><img>/p/1000/1026-20120903050958.JPG</img><img>/p/1000/1026-20120903050943.JPG</img><img>/p/1000/1026-20120903030909.JPG</img><img>/p/1000/1026-20120903050954.JPG</img></img><fac><fac id="2"/><fac id="6"/><fac id="7"/><fac id="8"/><fac id="10"/><fac id="11"/><fac id="12"/><fac id="15"/><fac id="17"/><fac id="18"/><fac id="20"/><fac id="44"/><fac id="63"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property></properties>';        
     }

@@ -16,10 +16,10 @@ class Db_Translation_langs extends CI_Model {
         
         $languagesArray = array();
         foreach ($languages as $language) {
-            $langCode = $language["code_lang"];
-            $languagesArray[$langCode] = $languages["description"];
+            $langCode = $language->code_lang;
+            $languagesArray[$langCode] = $language->description;
         }
-        
+
         return $languagesArray;
     }
 }
