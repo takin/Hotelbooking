@@ -224,7 +224,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 */
 if (ISDEVELOPMENT)
 {
-	$config['log_threshold'] = 1;
+	$config['log_threshold'] = 4;
 }
 else
 {

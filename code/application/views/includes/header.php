@@ -792,7 +792,7 @@ var citymap = {
   $this->carabiner->js('map.js');
   $this->carabiner->js('slide.js');
   //$this->carabiner->js('jquery.evtpaginate.js','jquery.evtpaginate.js',TRUE);
-  $this->carabiner->js('jquery.easing.1.3,js','jquery.easing.1.3,js', TRUE);
+  $this->carabiner->js('jquery.easing.1.3.js','jquery.easing.1.3.js', TRUE);
   $this->carabiner->js('jquery.fancybox.pack.js','jquery.fancybox.pack.js',TRUE);
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);

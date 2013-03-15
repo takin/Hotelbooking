@@ -72,7 +72,7 @@ $config['cache_dir'] = 'cache/';
 |
 */
 
-$config['dev'] = TRUE;
+$config['dev'] = FALSE;
 
 
 /*
