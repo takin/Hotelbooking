@@ -971,8 +971,9 @@ class CMain extends I18n_site
     $this->load->view('includes/template',$data);
   }
 
-  function property_search($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL)
+  function property_search($country = NULL, $city = NULL, $urldate = NULL, $units = NULL)
   {
+    log_message('debug', 'Entering main controller property_search method');
 
 	$currency_error = false; // default currency paramete is correct
 	$currency_error = $this->_currency_init();
@@ -996,6 +997,19 @@ class CMain extends I18n_site
 	}
     else
     {
+      $dateStart = NULL;
+      $numNights = NULL;
+
+      $chkdate = $this->checkData($urldate);
+      if(($chkdate == true) && (!empty($urldate)))
+      {
+        $dateStart = $urldate;
+
+      }
+      if((is_numeric($units)) && (!empty($units)))
+      {
+        $numNights = $units;
+	  }
 
       $filter = array("landmark" => NULL,
                       "district" => NULL,
@@ -1031,6 +1045,16 @@ class CMain extends I18n_site
       {
         switch($url_segment_5)
         {
+          case 'landmark':
+            $dateStart = NULL;
+            $numNights = NULL;
+            $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(6));
+            break;
+          case 'district':
+            $dateStart = NULL;
+            $numNights = NULL;
+            $filter["district"] = $this->uri->segment(6);
+            break;
           case 'type':
             $dateStart = NULL;
             $numNights = NULL;
@@ -1339,7 +1363,7 @@ class CMain extends I18n_site
     }
   }
 
-  function property_page($property_type, $property_name = "", $property_number = NULL)
+  function property_page($property_type, $property_name = "", $property_number = NULL, $urldate = NULL, $units = NULL)
   {
     log_message('debug', 'Entering main controller property page method');
 
@@ -1351,6 +1375,16 @@ class CMain extends I18n_site
       $this->error404();
       return;
     }
+
+    $chkdate = $this->checkData($urldate);
+    if(($chkdate == true) && (!empty($urldate)))
+    {
+      set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
+    }
+    if((is_numeric($units)) && (!empty($units)))
+    {
+      set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
+	}
 
     // create an empty to avoid notice when no landmarks are found
     $data['landmarks'] = array();
@@ -1832,39 +1866,14 @@ class CMain extends I18n_site
     $city      = $this->input->cookie('city_selected',TRUE);
     $dateStart = $this->input->cookie('date_selected',TRUE);
     $numNights = $this->input->cookie('numnights_selected',TRUE);
-    $search_term = $this->input->cookie('search_input_terms',TRUE);
 
-//    $country   = $this->session->userdata('country_selected');
-//    $city      = $this->session->userdata('city_selected');
-//    $dateStart = $this->session->userdata('date_selected');
-//    $numNights = $this->session->userdata('numnights_selected');
-
-    //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
-
-        $urldate = $this->uri->segment(4);
-        $units = $this->uri->segment(5);
-
-      $chkdate = $this->checkData($urldate);
-
-	if($dateStart!=false)
+    if($dateStart!=false)
     {
-	  if(($chkdate == true) && (!empty($urldate)))
-	  {
-		 $data['date_selected'] = $urldate;
-    	 set_cookie('date_selected',$urldate,$this->config->item('sess_expiration'));
-		 }
-		else
-        $data['date_selected'] = $dateStart;
+      $data['date_selected'] = $dateStart;
     }
     if($numNights!=false)
-     {
-		if((is_numeric($units)) && (!empty($units)))
-		{
-		$data['numnights_selected'] = $units;
-	set_cookie('numnights_selected',$units,$this->config->item('sess_expiration'));
-	}
-		else
-        $data['numnights_selected'] = $numNights;
+    {
+      $data['numnights_selected'] = $numNights;
     }
 
     if($country!=false)
@@ -1875,12 +1884,6 @@ class CMain extends I18n_site
     {
       $data['city_selected'] = $city;
     }
-    if($search_term!=false)
-    {
-//      $data['search_term'] = urldecode($search_term);
-    }
-
-
   }
 
 

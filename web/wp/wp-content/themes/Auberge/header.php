@@ -22,8 +22,8 @@ include( TEMPLATEPATH . '/header-mobile.php' );
 <?php if (is_single() || get_option('aj_block_bot') || is_page(array(get_option('aj_no_seo')))){
 echo '<meta name="robots" content="noindex,follow" />';
 }?>
-<?php 
-$apiurl = get_option('aj_api_url'); 
+<?php
+$apiurl = get_option('aj_api_url');
 // if https protocol set https
 $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl;
 ?>
@@ -35,7 +35,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 <?php if (get_option('aj_api_site_data') == 'hb'){?>
 <?php /*?><link rel="stylesheet" href="<?php echo $apiurl; ?>css/hostels.css" type="text/css" media="screen" charset="utf-8" /><?php */?>
 <?php }?>
-<link rel="stylesheet" href="<?php echo $apiurl; ?>css/fancybox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo $apiurl; ?>css/jquery.fancybox.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/smoothness/jquery-ui.css" type="text/css" media="screen"/>
 <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,8 +61,8 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php /*?><?php register_scripts(); ?><?php */?>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/imageload.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jtools.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/date-lib.js"></script>
@@ -70,7 +70,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/mobile/suggest.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/sitetools.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/slide.js"></script>
-<script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/ui-lang/jquery.ui.datepicker-<?php echo get_option("aj_lang_code2");?>.js"></script>
 <?php if (is_page_template('contact.php')){?>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/submitform.js"></script>
@@ -88,23 +88,23 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 			$(this).next('div.entry').slideToggle(300);
 			$(this).toggleClass('expand');
 		});
-                
+
                 if (document.location.protocol === 'https:') {
- 
+
                         // change all img src to secure connection https
                         $('a').each(function() {
-                            if ( this.host === location.hostname ) {                
+                            if ( this.host === location.hostname ) {
                                 this.href = this.href.replace('http:', 'https:');
                             }
                         });
-                        
+
                         // change all img src to secure connection https
                         $('img').each(function() {
                             if ( this.src.indexOf(location.hostname) > -1 ) {
                                 this.src = this.src.replace('http:', 'https:');
                             }
-                        });   
-                        
+                        });
+
                         // all links to load in secure connection https
                         $('link').each(function() {
                             var href = $(this).attr('href');
@@ -113,7 +113,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
                                 $(this).attr('href', href);
                             }
                         });
-                                   
+
                     }
 	});
 </script>
@@ -152,7 +152,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
   			$theid = get_id_out();
   			$selcountry = get_post_meta($theid, 'preselect_country', true);
   			$selcity = get_post_meta($theid, 'preselect_city', true);
-  			
+
   			?>
   			loadCitiesMenu("<?php echo get_ajax_url(); ?>","<?php _e('Chargement...','auberge');?>",'cities',cities,'search-country','search-city','<?php echo $selcountry  ;?>','<?php echo $selcity;?>');
 		<?php
@@ -240,7 +240,7 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 </head>
 
 <body <?php if (get_option('aj_api_site_data') == 'hb'){body_class('hb_frame');}else{body_class();}?>>
-<div id="fb-root"></div>	
+<div id="fb-root"></div>
     <div id="top_bar">
 		<div id="top_bar_inner" class="container_16 group">
 			<div class="grid_6">
@@ -338,19 +338,19 @@ $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl
 					<?php if(get_option('aj_page_guides') != ''){?>
 				 <li><a<?php if ((is_page_template('single-page-destination.php') || is_page_template('page-destination.php') || is_page_template('subpage-destinations.php'))&&!is_home()){?> class="current_page_item"<?php }?> href="<?php echo get_option('aj_page_guides');?>"><?php _e('Destinations','auberge');?></a></li>
 				<?php }}?>
-                <?php 
-               
+                <?php
+
                 if(DISPLAY_VELARO == 1)
-                { 
-                
+                {
+
 					if (get_option('aj_velaro_id') !='')
-					{  
-					
+					{
+
 				?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&deptid=<?php echo get_option('aj_velaro_id');?>&showwhen=inqueue" border="0"></a></li>
 				<?php }else{?>
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
-				<?php } 
+				<?php }
 				           }?>
 
 

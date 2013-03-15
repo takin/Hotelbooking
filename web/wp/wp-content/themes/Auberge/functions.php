@@ -277,7 +277,7 @@ function dynamictitles() {
 function register_scripts() {
 // Register jQuery
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_option('aj_api_url').'js/jquery-1.3.2.min.js', '', '1.3.2');
+	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js', '', '1.8.3');
 	wp_register_script('jtools', get_option('aj_api_url').'js/jtools.js',array('jquery'));
 	wp_register_script('translate',get_option('aj_api_url').'js/jquery.translate-1.3.9.js',array('jquery'));
 }

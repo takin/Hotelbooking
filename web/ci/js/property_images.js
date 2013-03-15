@@ -20,6 +20,11 @@ function display_property_pics(propertyNumber,propertyName,property_pics_div_id)
 				
 				$('#thumbnail_list_'+propertyNumber+' img').jail({effect:"fadeIn"});
 				$('#slideshow_'+propertyNumber+' img').jail({effect:"fadeIn", callback : startslideshowlist(propertyNumber)});
+				
+				$('#thumbnail_list_'+propertyNumber+' a.openup').bind('mouseover',function(){
+					$('#thumbnail_list_'+propertyNumber+' a.openup').fancybox();
+					return false;
+				});
 			}
 		});
 }

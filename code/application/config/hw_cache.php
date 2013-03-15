@@ -34,7 +34,7 @@ $config['hw_sec_between_req'] = 1;
 |
 */
 $config['email_to_report_city']   = "technical@mcwebmanagement.com";
-$config['email_to_report_hostel'] = "";
+$config['email_to_report_hostel'] = "technical@mcwebmanagement.com";
 /*
 |--------------------------------------------------------------------------
 | HW Cache details
