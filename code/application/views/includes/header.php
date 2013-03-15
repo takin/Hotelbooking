@@ -857,11 +857,10 @@ $sel_class = '';
 		  //$('.translate').translate('en','fr');
     });
 
-$(document).ready(function(){
+$(document).ready(function()
+{
 
-		//$("a[rel^='prettyPhoto']").prettyPhoto();
-		//$("a.openup").fancybox();
-		$('a.openup').bind('mouseover focus',function(){
+		$('a.openup').bind('mouseover',function(){
 			$('a.openup').fancybox();
 			return false;
 		});

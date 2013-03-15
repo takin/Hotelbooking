@@ -394,6 +394,6 @@ $config['groups']['mobile_fancy_box'] = array(
 		array('jquery.fancybox.pack.js')
 	),
 	'css' => array(
-		array('mobile/jquery.fancybox.css')
+		array('mobile/jquery-fancybox.css')
 	)
 );
