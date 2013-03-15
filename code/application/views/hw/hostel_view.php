@@ -377,6 +377,7 @@ endforeach; ?>
 		<?php if (isset($hostel->PropertyImages)){ $count = 0;?>
 		<div class="thumbnail_list" id="thumbnail_list">
 		<?php foreach ($thumb_images as $image):?>
+<?php if (empty($print)) { ?>
 		<a class="openup" rel="<?php echo var_check($hostel->property_name,"");?>" href="<?php echo $main_images[$count];?>" alt="<?php echo var_check($hostel->property_name,"");?>">
 
 		  <img height="45px" data-href="<?php echo $image; ?>" src="<?php echo site_url("images/V2/blank.gif"); ?>" alt="<?php echo $hostel->property_name; ?>" />
@@ -385,6 +386,9 @@ endforeach; ?>
 			</noscript>
 
 		</a>
+<?php } else {?>
+			<img height="45px" src="<?php echo $image; ?>" alt="<?php echo $hostel->property_name; ?>" />
+<?php } ?>
 		<?php $count++; endforeach;?>
 		</div>
 		<?php }?>

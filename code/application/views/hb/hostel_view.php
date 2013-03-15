@@ -470,6 +470,8 @@ else
 		<?php if (isset($hostel["IMAGES"])){ $count = 0;?>
 		<div class="thumbnail_list" id="thumbnail_list">
 		<?php foreach ($hostel["IMAGES"] as $image):?>
+
+<?php if (empty($print)) { ?>
 		<a class="openup" rel="<?php echo var_check($hostel["NAME"],"");?>" href="<?php echo $hostel["BIGIMAGES"][$count];?>" alt="<?php echo var_check($hostel["NAME"],"");?>">
 		  <img height="45px" data-href="<?php echo $image; ?>" src="<?php echo site_url("images/V2/blank.gif"); ?>" alt="<?php echo $hostel["NAME"]; ?>" />
 			<noscript>
@@ -478,6 +480,10 @@ else
 
 
 		</a>
+<?php } else { ?>
+				<img height="45px" src="<?php echo $image; ?>" alt="<?php echo $hostel["NAME"]; ?>" />
+<?php } ?>
+
 		<?php $count++; endforeach;?>
 		</div>
 		<?php }?>

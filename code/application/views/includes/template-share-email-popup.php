@@ -23,11 +23,11 @@
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('Subject:'); ?></td>
-					<td id="subject_feedback" style="width:300px; overflow:hidden;display:block"></td>
+					<td id="subject_feedback" style="width:300px; overflow:auto;display:block"></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('Message:'); ?></td>
-					<td id="message_feedback" style="width:300px; overflow:hidden;display:block"></td>
+					<td id="message_feedback" style="width:300px; overflow:auto;display:block"></td>
 				</tr>
 			</table>
 
