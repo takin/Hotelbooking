@@ -690,7 +690,7 @@
 <?php echo _('Search');?>
 <?php echo _('Select');?>
 <?php echo _('last %d');?>
-<?php echo _('Quich View');?>
+<?php echo _('Quick View');?>
 <?php echo _('Want to receive or send a PDF copy of this quote?');?>
 <?php echo _('%s has sent you a message: ');?>
 <?php echo _('Here is the link to see the prices, description, maps and much more:');?>
