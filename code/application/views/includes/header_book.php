@@ -10,7 +10,7 @@ $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_gl
 $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
 $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-$this->carabiner->css('jquery-fancybox.css','screen','jquery-fancybox.css',FALSE,FALSE,"full_site_global");
+$this->carabiner->css('jquery.fancybox.css','screen','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
 ?>
 <?php if ($this->wordpress->get_option('aj_api_site_data') == 'hb'){
  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
@@ -50,7 +50,6 @@ $this->carabiner->js('livevalidation_standalone.compressed.js');
 $this->carabiner->js('jquery.easing.1.3.js');
 $this->carabiner->js('jquery.fancybox.pack.js');
 $this->carabiner->js('jquery.mousewheel.js');
-
 ?>
 
 <script type="text/javascript">
