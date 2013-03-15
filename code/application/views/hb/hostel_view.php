@@ -481,6 +481,9 @@ else
 		<?php }?>
 	</div>
 
+	<?php if (!empty($print)) { ?>
+		<strong><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong><br /><br />
+	<?php } ?>
 
 	<nav class="hostel_tabs group" id="hostels_tabs">
 		<ul class="box_round ui-tabs-nav green_gradient_faded">
@@ -846,6 +849,10 @@ else
 					</div>
 					<?php }?>
 
+					<?php if (!empty($print)) { ?>
+						<link type="text/css" rel="stylesheet" href="/css/pdf.css"/>
+						<strong><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong><br /><br />
+					<?php } ?>
 				</div>
 				<div id="hostel_info_direction" class="hostels_tab_content ui-tabs-hide">
 					<?php if (!empty($hostel['ADDRESS'])){?>

@@ -951,7 +951,6 @@ class Carabiner {
 	*/
 	private function _get_contents($ref)
 	{
-
 		if( $this->isURL($ref) && ( ini_get('allow_url_fopen') == 0 || $this->force_curl ) ):
 
 			$this->_load('curl');
@@ -1114,7 +1113,6 @@ class Carabiner {
 		endif;
 	}
 
-
 	/**
 	* isURL
 	* Checks if the provided string is a URL. Allows for port, path and query string validations.
@@ -1135,7 +1133,6 @@ class Carabiner {
 	 * Custom function to add group assets to queue
 	 * @param string $group_name
 	 */
-
 	public function load_group_assets($group_name)
 	{
 	  if(!empty($this->js[$group_name]))

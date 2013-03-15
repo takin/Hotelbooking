@@ -22,3 +22,6 @@
 
 <?php echo _('Thank you'); ?>
 <?php echo $site_name; ?>
+
+
+<?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?>

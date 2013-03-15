@@ -58,6 +58,8 @@
 								<br /><br />
 								<span style="color: #003580"><?php echo _('Thank you'); ?></span><br />
 								<span style="color: #003580"><?php echo $site_name; ?></span><br />
+								<br /><br /><br /><br />
+								<strong><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong>
 							</p>
 						</td>
 					</tr>

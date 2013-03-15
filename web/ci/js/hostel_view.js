@@ -114,7 +114,7 @@ function handleShareEmailPDF() {
 		};
 	});
 
-	jQuery('#close-share-overlay').click(function(event) {
+	jQuery('#close-share-overlay, #close_x a').click(function(event) {
 		event.preventDefault();
 
 		removeValidation();

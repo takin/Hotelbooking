@@ -52,25 +52,25 @@
 //   $this->carabiner->css('common.css');
   //$this->carabiner->css('common.css','screen','common.css',FALSE,FALSE,"full_site_global");
 
-  // we need media all for the pdf
-  if (!empty($print) && $print == 'pdf') {
-	$this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-        $this->carabiner->css('mainv2.css','all','mainv2.css',FALSE,FALSE,"full_site_global");
-	$this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
-  }
-  else {
-	$this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-        $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
-	$this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-  }
+        if (!empty($print) && $print == 'pdf') {
+    	    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css','all','mainv2.css',FALSE,FALSE,"full_site_global");
+	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
-	
+	    $this->carabiner->css('pdf.css');
+        }
+        else {
+	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
+	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
+        }
+
 	if($this->api_used == HB_API)
 	{
 	  //$this->carabiner->css('hostels.css','screen','hostels.css',FALSE,FALSE,"full_site_global");
 	}
 	//$this->carabiner->css($csspath.'/more.css');
-	$this->carabiner->css('fancybox.css');
+	$this->carabiner->css('jquery.fancybox.css');
 	$this->carabiner->css('smoothness/jquery-ui.css');
 
   if($this->api_used == HB_API)
@@ -121,7 +121,7 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 
 // this is used to create circles in map (landmark)
 var cityCircle = null;
-           
+
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
   };
@@ -249,8 +249,8 @@ var cityCircle = null;
            {
             changeDistrictLayer($("#distrinct:radio:checked").val());
            }
-           
-           
+
+
              if($("#landmark:radio:checked").length > 0)
            {
             changeLandmarkLayer($("#landmark:radio:checked").val());
@@ -302,7 +302,7 @@ var cityCircle = null;
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
        map.overlayMapTypes.setAt(1, adaptedLayer);
   }
-  
+
     function changeLandmarkLayer(landmark_LatLng){
 
 if(cityCircle != null)
@@ -331,9 +331,9 @@ var citymap = {
       radius:  2000
     };
     cityCircle = new google.maps.Circle(LandmarkOptions);
-  
+
   }
-  
+
   <?php if(isset($google_map_address)):?>
   function codeAddress() {
 	    var address = "<?php echo $google_map_address;?>";
@@ -790,9 +790,9 @@ var citymap = {
   <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<?php
-	$this->carabiner->js('imageload.js');
-	$this->carabiner->js('jtools.js');
+<?php
+  $this->carabiner->js('imageload.js');
+  $this->carabiner->js('jtools.js');
   $this->carabiner->js('janim.js');
   $this->carabiner->js('tabs.js');
   if($current_view != "group_request")
@@ -802,13 +802,11 @@ var citymap = {
   $this->carabiner->js('map.js');
   $this->carabiner->js('slide.js');
   //$this->carabiner->js('jquery.evtpaginate.js','jquery.evtpaginate.js',TRUE);
-  $this->carabiner->js('jquery.easing-1.3.pack.js','jquery.easing-1.3.pack.js', TRUE);
-  $this->carabiner->js('jquery.fancybox-1.3.4.pack.js','jquery.fancybox-1.3.4.pack.js',TRUE);
+  $this->carabiner->js('jquery.easing.1.3.js','jquery.easing.1.3.js', TRUE);
+  $this->carabiner->js('jquery.fancybox.pack.js','jquery.fancybox.pack.js',TRUE);
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
   ?>
-<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" 
-                type="text/javascript"></script>
   <?php
   if($current_view == "hostel_view")
   {
@@ -817,15 +815,16 @@ var citymap = {
     $this->carabiner->js('jquery.mousewheel.js','jquery.mousewheel.js',TRUE);
     $this->carabiner->js('jquery.jscrollpane.min.js','jquery.jscrollpane.min.js',TRUE);
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
-		$this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
-
+    $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
   }
-	elseif($current_view == "search_results")
-	{
+  elseif($current_view == "search_results")
+  {
 	  $this->carabiner->js('search-sort.js');
 	  $this->carabiner->js('paginateview.js');
-	}
-
+  }
+  ?>
+<script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
+  <?php
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
 
@@ -868,11 +867,10 @@ $sel_class = '';
 		  //$('.translate').translate('en','fr');
     });
 
-$(document).ready(function(){
+$(document).ready(function()
+{
 
-		//$("a[rel^='prettyPhoto']").prettyPhoto();
-		//$("a.openup").fancybox();
-		$('a.openup').live('mouseover focus',function(){
+		$('a.openup').bind('mouseover',function(){
 			$('a.openup').fancybox();
 			return false;
 		});

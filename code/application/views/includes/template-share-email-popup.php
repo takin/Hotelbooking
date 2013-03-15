@@ -2,6 +2,7 @@
 
 <div id="share-overlay">
 	<div class="content">
+		<div id="close_x" style="float:right; width: 30px; margin-top: 20px"><a style="color: #f00; font-weight: bold; text-decoration:underline" href="/">X</a></div>
 		<div class="confirmation">
 			<p class="title"><?php echo sprintf(_('Your message has been sent to %s'), '<br /><br ><span id="email_recipient"></span>'); ?></p>
 			<br /><br />
