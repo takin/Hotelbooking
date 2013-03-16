@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-15 17:36+0200\n"
-"PO-Revision-Date: 2013-03-11 21:07+0200\n"
+"PO-Revision-Date: 2013-03-16 21:22+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -581,9 +581,9 @@ msgstr "Průvodce"
 
 #: ../code/application/views/includes/recent_property_view_cookie.php:9
 #: ../code/application/views/helpfile/pofields.php:687
-#, fuzzy, php-format
+#, php-format
 msgid "Recently Viewed"
-msgstr "Nedávno prohlížené hostely"
+msgstr "Naposledy navštívené"
 
 #: ../code/application/views/includes/top_filter.php:24
 #: ../code/application/views/helpfile/pofields.php:282
@@ -1138,7 +1138,7 @@ msgstr "Prosím čekejte, zatímco pro vás hledáme nejlepší cenu... "
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
 msgid "Loading"
-msgstr "Nakládání"
+msgstr "Nahrává se"
 
 #: ../code/application/views/includes/help.php:3
 #: ../code/application/views/restricted/user_view.php:21
@@ -3157,7 +3157,6 @@ msgstr ""
 "zastávky, nádraží, letiště a blízko všech atrakcí - %s."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Chyba 404 - Stránka nenalezena"
 
@@ -3216,7 +3215,7 @@ msgstr "Cena od do: "
 #: ../code/application/views/helpfile/pofields.php:655
 #, php-format
 msgid "Rating"
-msgstr "Hodnocení"
+msgstr "Klasifikace"
 
 #: ../code/application/views/city_view.php:36
 #: ../code/application/views/helpfile/pofields.php:458
@@ -3266,7 +3265,7 @@ msgstr "Kempování "
 #: ../code/application/views/helpfile/pofields.php:657
 #, php-format
 msgid "Facilities"
-msgstr "zařízení"
+msgstr "Vybavení"
 
 #: ../code/application/views/city_view.php:75
 #: ../code/application/views/city_view.php:251
@@ -3315,14 +3314,14 @@ msgstr "Výsledky hledání - %s "
 #: ../code/application/views/city_view.php:182
 #: ../code/application/views/city_view.php:276
 msgid "of"
-msgstr ""
+msgstr " s "
 
 #: ../code/application/views/city_view.php:184
 #: ../code/application/views/city_view.php:278
 #: ../code/application/views/helpfile/pofields.php:645
 #, php-format
 msgid "Results"
-msgstr ""
+msgstr "Výsledky"
 
 #: ../code/application/views/city_view.php:196
 #: ../code/application/views/hw/booking_end_view.php:35
@@ -3926,13 +3925,13 @@ msgstr "Prosím ujistěte se, že všechny požadovaná pole jsou vyplněny spr�
 #: ../code/application/views/helpfile/pofields.php:638
 #, php-format
 msgid "Atmosphere"
-msgstr "atmosféra"
+msgstr "Prostředí"
 
 #: ../code/application/views/hb/hostel_view.php:47
 #: ../code/application/views/helpfile/pofields.php:639
 #, php-format
 msgid "Staff"
-msgstr "personál"
+msgstr "Personál"
 
 #: ../code/application/views/hb/hostel_view.php:50
 #: ../code/application/views/group_request.php:218
@@ -3940,13 +3939,13 @@ msgstr "personál"
 #: ../code/application/views/helpfile/pofields.php:630
 #, php-format
 msgid "Location"
-msgstr "lokalita"
+msgstr "Umístění"
 
 #: ../code/application/views/hb/hostel_view.php:53
 #: ../code/application/views/helpfile/pofields.php:641
 #, php-format
 msgid "Cleanliness"
-msgstr "čistota"
+msgstr "Čistota"
 
 #: ../code/application/views/hb/hostel_view.php:59
 #: ../code/application/views/hb/hostel_view.php:452
@@ -3956,13 +3955,13 @@ msgstr "čistota"
 #: ../code/application/views/mustache/property_list.php:242
 #, php-format
 msgid "Safety"
-msgstr "bezpečnost"
+msgstr "Bezpečnost"
 
 #: ../code/application/views/hb/hostel_view.php:62
 #: ../code/application/views/helpfile/pofields.php:644
 #, php-format
 msgid "Value"
-msgstr "hodnota"
+msgstr "Hodnota"
 
 #: ../code/application/views/hb/hostel_view.php:72
 msgid "N/A"
@@ -5413,7 +5412,7 @@ msgstr "Poslední rezervace:"
 #: ../code/application/views/helpfile/pofields.php:624
 #, php-format
 msgid "Review"
-msgstr "Hodnocení"
+msgstr "Komentář"
 
 #: ../code/application/views/helpfile/pofields.php:185
 #, php-format
@@ -6545,7 +6544,7 @@ msgstr "Pro všechny věkové skupiny "
 #: ../code/application/views/mustache/property_list.php:29
 #, php-format
 msgid "See Map"
-msgstr "Podívej se na mapu "
+msgstr "Podívejte se do mapy"
 
 #: ../code/application/views/helpfile/pofields.php:461
 #, php-format
@@ -6993,315 +6992,319 @@ msgid "Next available property"
 msgstr "Následující realita k dispozici"
 
 #: ../code/application/views/helpfile/pofields.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "Skupiny"
+msgstr "Typ skupiny"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "Cena od do: "
+msgstr "Věkový rozsah:"
 
 #: ../code/application/views/helpfile/pofields.php:612
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Vyberte jednu…"
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "Prázdniny s přáteli"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "Základní škola"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "Střední škola"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "Vysoká škola/Univerzita"
 
 #: ../code/application/views/helpfile/pofields.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
-msgstr "Obchodní cesty"
+msgstr "Služební cesta"
 
 #: ../code/application/views/helpfile/pofields.php:618
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "Loučení ženicha se svobodou/Dámská jízda"
 
 #: ../code/application/views/helpfile/pofields.php:619
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "Sportovní skupiny."
+msgstr "Sportovní skupina"
 
 #: ../code/application/views/helpfile/pofields.php:620
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "Kulturní skupina"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "Prosím upřesněte typ skupiny."
 
 #: ../code/application/views/helpfile/pofields.php:622
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr "Máme pro vaši skupinu výbornou nabídku."
+msgstr "Prosím upřesněte věkový rozsah skupiny."
 
 #: ../code/application/views/helpfile/pofields.php:623
-#, fuzzy, php-format
+#, php-format
 msgid "Map"
-msgstr "%s"
+msgstr "Mapa"
 
 #: ../code/application/views/helpfile/pofields.php:625
-#, fuzzy, php-format
+#, php-format
 msgid "Reviews"
-msgstr "Hodnocení"
+msgstr "Komentáře"
 
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "Porovnejte"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
 msgid " of "
-msgstr ""
+msgstr " s "
 
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
 msgstr ""
+"Prosím prohlédněte si porovnání vybraných ubytovacích zařízení nahoře na "
+"stránce."
 
 #: ../code/application/views/helpfile/pofields.php:631
-#, fuzzy, php-format
+#, php-format
 msgid "Not available"
-msgstr "Žádné ubytování kolejového typu není k dispozici. "
+msgstr "Není k dispozici"
 
 #: ../code/application/views/helpfile/pofields.php:633
-#, fuzzy, php-format
+#, php-format
 msgid "Print"
-msgstr "Vytisknout"
+msgstr "Tisk"
 
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
-msgstr ""
+msgstr "Rychlé porovnání"
 
 #: ../code/application/views/helpfile/pofields.php:635
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms From"
-msgstr "Pokoje od %s"
+msgstr "Studentské koleje od"
 
 #: ../code/application/views/helpfile/pofields.php:636
-#, fuzzy, php-format
+#, php-format
 msgid "Privates From"
-msgstr "Soukromý pokoj"
+msgstr "Soukromé pokoje od"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "Celkově"
+msgstr "Celková klasifikace"
 
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
-msgstr ""
+msgstr "Budova"
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Services"
-msgstr ""
+msgstr "Služby"
 
 #: ../code/application/views/helpfile/pofields.php:646
 #, php-format
 msgid "Result"
-msgstr ""
+msgstr "Výsledek"
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
 msgid "Only 5 properties can be compared"
-msgstr ""
+msgstr "Může být porovnáno jen 5 ubytovacích zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Please remove a property from list."
-msgstr ""
+msgstr "Prosím vyjměte 1 ubytovací zařízení ze seznamu."
 
 #: ../code/application/views/helpfile/pofields.php:649
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Porovnej všechny mládežnické ubytovny v %s "
+msgstr "Rychlé porovnání (maximálně 5 ubytovacích zařízení)"
 
 #: ../code/application/views/helpfile/pofields.php:650
-#, fuzzy, php-format
+#, php-format
 msgid "Remove All"
-msgstr "Odstraň"
+msgstr "Zrušit všechny"
 
 #: ../code/application/views/helpfile/pofields.php:651
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
 msgstr ""
+"Prosím prohlédněte si porovnání vybraných ubytovacích zařízení nahoře na "
+"stránce."
 
 #: ../code/application/views/helpfile/pofields.php:652
 #, php-format
 msgid "%d Results"
-msgstr ""
+msgstr "%d Výsledků"
 
 #: ../code/application/views/helpfile/pofields.php:653
-#, fuzzy, php-format
+#, php-format
 msgid "Home"
-msgstr "Hlavní stránka"
+msgstr "Domovská Stránka"
 
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "Restore Everything"
-msgstr ""
+msgstr "Obnovit vše"
 
 #: ../code/application/views/helpfile/pofields.php:656
 #, php-format
 msgid "Compare (%d out of 5)"
-msgstr ""
+msgstr "Porovnej (%d z 5)"
 
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
 msgid "Show More"
-msgstr ""
+msgstr "Ukaž víc"
 
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
 msgid "Show Less"
-msgstr ""
+msgstr "Ukaž méně"
 
 #: ../code/application/views/helpfile/pofields.php:660
 #, php-format
 msgid "Not enough parameters"
-msgstr ""
+msgstr "Nedostatek parametrů"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the email"
-msgstr "Vytiskni mapu "
+msgstr "Vyplňte email"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #, php-format
 msgid "Invalid email recipient"
-msgstr ""
+msgstr "Neplatný emailový adresát"
 
 #: ../code/application/views/helpfile/pofields.php:663
 #, php-format
 msgid "Fill in the subject"
-msgstr ""
+msgstr "Vyplňte předmět"
 
 #: ../code/application/views/helpfile/pofields.php:664
 #, php-format
 msgid "Fill in the message"
-msgstr ""
+msgstr "Vyplňte zprávu"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #, php-format
 msgid "Fill in the \"From\" name"
-msgstr ""
+msgstr "Vyplňte \"od\" jménem"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #, php-format
 msgid "Fill in the \"From\" email"
-msgstr ""
+msgstr "Vyplňte \"od\" emailem"
 
 #: ../code/application/views/helpfile/pofields.php:667
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
-msgstr "Neplatný formát "
+msgstr "Neplatný email \"od\""
 
 #: ../code/application/views/helpfile/pofields.php:668
-#, fuzzy, php-format
+#, php-format
 msgid "Your message has been sent to %s"
-msgstr "email byl poslán na vaši adresu."
+msgstr "Vaše zpráva byla odeslána pro %s"
 
 #: ../code/application/views/helpfile/pofields.php:669
 #, php-format
 msgid "From:"
-msgstr ""
+msgstr "Od:"
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "To:"
-msgstr "Celkem:"
+msgstr "Komu:"
 
 #: ../code/application/views/helpfile/pofields.php:671
 #, php-format
 msgid "Subject:"
-msgstr ""
+msgstr "Předmět:"
 
 #: ../code/application/views/helpfile/pofields.php:672
-#, fuzzy, php-format
+#, php-format
 msgid "Message:"
-msgstr "Zpráva"
+msgstr "Zpráva:"
 
 #: ../code/application/views/helpfile/pofields.php:673
 #, php-format
 msgid "Send another message"
-msgstr ""
+msgstr "Pošlete další zprávu"
 
 #: ../code/application/views/helpfile/pofields.php:675
 #, php-format
 msgid ""
 "Mail this page to someone you know, or send it to yourself as a reminder."
-msgstr ""
+msgstr "Odešlete tuto stránku známému nebo sobě jako připomínku."
 
 #: ../code/application/views/helpfile/pofields.php:676
 #, php-format
 msgid "To (email)"
-msgstr ""
+msgstr "Komu (email)"
 
 #: ../code/application/views/helpfile/pofields.php:677
 #, php-format
 msgid "Subject"
-msgstr ""
+msgstr "Předmět"
 
 #: ../code/application/views/helpfile/pofields.php:679
-#, fuzzy, php-format
+#, php-format
 msgid "From (name)"
-msgstr "Křestní jméno"
+msgstr "Od (jméno)"
 
 #: ../code/application/views/helpfile/pofields.php:680
 #, php-format
 msgid "From (email)"
-msgstr ""
+msgstr "Od (email)"
 
 #: ../code/application/views/helpfile/pofields.php:681
 #, php-format
 msgid "Yes, I want to subscribe to the newsletter."
-msgstr ""
+msgstr "Ano,chic dostávat newsletter."
 
 #: ../code/application/views/helpfile/pofields.php:682
-#, fuzzy, php-format
+#, php-format
 msgid "Send email"
-msgstr "Pošli email"
+msgstr "Odeslat email"
 
 #: ../code/application/views/helpfile/pofields.php:684
 #, php-format
 msgid "Share PDF"
-msgstr ""
+msgstr "Sdílet PDF"
 
 #: ../code/application/views/helpfile/pofields.php:685
 #, php-format
 msgid "Want to send a PDF copy of this page or quote by email?"
-msgstr ""
+msgstr "Chcete odeslat email s PDF kopií této stránky nebo citací?"
 
 #: ../code/application/views/helpfile/pofields.php:686
-#, fuzzy, php-format
+#, php-format
 msgid "Send PDF"
-msgstr "Pošli"
+msgstr "Odelat PDF"
 
 #: ../code/application/views/helpfile/pofields.php:688
 #, php-format
@@ -7310,6 +7313,9 @@ msgid ""
 "continuing to browse our site you are agreeing to our Cookies Policy and use "
 "of cookies technology. Find out more"
 msgstr ""
+"Pro co nejlepší využití naší stránky používáme cookies.Pokračováním jejího "
+"prohlížení souhlasíte s našimi zásadami používání cookies a s touto "
+"technologií. Zjistěte více"
 
 #: ../code/application/views/helpfile/pofields.php:689
 #, php-format
@@ -7336,22 +7342,22 @@ msgstr "posledních %d"
 #: ../code/application/views/helpfile/pofields.php:693
 #, php-format
 msgid "Quich View"
-msgstr ""
+msgstr "Rychlé prohlížení"
 
 #: ../code/application/views/helpfile/pofields.php:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
-msgstr ""
+msgstr "Chcete dostat nebo zaslat PDF kopii této nabídky?"
 
 #: ../code/application/views/helpfile/pofields.php:695
 #, php-format
 msgid "%s has sent you a message: "
-msgstr ""
+msgstr "%s vám zaslal zprávu:"
 
 #: ../code/application/views/helpfile/pofields.php:696
 #, php-format
 msgid "Here is the link to see the prices, description, maps and much more:"
-msgstr ""
+msgstr "Zde je odkaz k prohlédnutí cen,popisů,map a mnoho dalšího:"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
