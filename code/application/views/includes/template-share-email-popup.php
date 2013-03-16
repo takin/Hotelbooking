@@ -2,7 +2,7 @@
 
 <div id="share-overlay">
 	<div class="content">
-		<div id="close_x" style="position:absolute; width: 30px; margin-top: -25px; margin-left: 645px">
+		<div id="close_x" style="position:absolute; width: 30px; margin-top: -23px; margin-left: 615px">
 			<a style="color: #f00; font-weight: bold; text-decoration:underline" href="/">
 				<img src="<?php echo site_url('/images/modal_close.png'); ?>" />
 			</a>
@@ -82,7 +82,7 @@
 
 				<input type="submit" name="submit" id="submit_email" value="<?php echo _('Send email'); ?>" />
 				<input type="submit" name="submit" id="submit_pdf" value="<?php echo _('Send PDF quote'); ?>" />
-				<span id="share_please_wait" style="display: none"><?php echo _('Please wait ...'); ?></span>
+				<span id="share_please_wait" style="display: none; margin-left:150px"><?php echo _('Please wait ...'); ?></span>
 <!-- 				<a href="/" id="close-share-overlay"><?php echo _('Close'); ?></a> -->
 			</div>
 		</form>

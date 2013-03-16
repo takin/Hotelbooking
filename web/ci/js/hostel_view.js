@@ -54,6 +54,8 @@ jQuery(function()
 });
 
 function handleShareEmailPDF() {
+	var blinkTimeout = null
+
 	var send = false;
 
 	var validFields = {
@@ -168,6 +170,15 @@ function handleShareEmailPDF() {
 			$('#submit_email, #submit_pdf, #close-share-overlay').hide();
 			$('#share_please_wait').show();
 
+			blinkTimeout = setInterval(function() {
+				if ($('#share_please_wait').css('visibility') == 'hidden') {
+					$('#share_please_wait').css('visibility', 'visible');
+				}
+				else {
+					$('#share_please_wait').css('visibility', 'hidden');
+				}
+			}, 500);
+
 			send = true;
 
 			var to_email   = $('#to_email').val();
@@ -205,6 +216,7 @@ function handleShareEmailPDF() {
 						$('#submit_email, #close-share-overlay').show();
 					}
 
+					clearTimeout(blinkTimeout);
 					$('#share_please_wait').hide();
 
 					send = false;
@@ -244,49 +256,54 @@ function handleShareEmailPDF() {
 		var to_email = new LiveValidation('to_email', {
 			onlyOnSubmit : true,
 			validMessage : " ",
+			failureMessage: '  ',
 			onValid      : function() {
 				trySubmit('to_email');
 			}
 		});
-		to_email.add(Validate.Email);
-		to_email.add(Validate.Presence);
+		to_email.add(Validate.Email, {failureMessage: '  '});
+		to_email.add(Validate.Presence, {failureMessage: '  '});
 
 		var subject = new LiveValidation('subject', {
 			onlyOnSubmit : true,
 			validMessage : " ",
+			failureMessage: '  ',
 			onValid      : function() {
 				trySubmit('subject');
 			}
 		});
-		subject.add(Validate.Presence);
+		subject.add(Validate.Presence, {failureMessage: '  '});
 
 		var message = new LiveValidation('message', {
 			onlyOnSubmit : true,
 			validMessage : " ",
+			failureMessage: '  ',
 			onValid      : function() {
 				trySubmit('message');
 			}
 		});
-		message.add(Validate.Presence);
+		message.add(Validate.Presence, {failureMessage: '  '});
 
 		var from_name = new LiveValidation('from_name', {
 			onlyOnSubmit : true,
 			validMessage : " ",
+			failureMessage: '  ',
 			onValid      : function() {
 				trySubmit('from_name');
 			}
 		});
-		from_name.add(Validate.Presence);
+		from_name.add(Validate.Presence, {failureMessage: '  '});
 
 		var from_email = new LiveValidation('from_email', {
 			onlyOnSubmit : true,
 			validMessage : " ",
+			failureMessage: '  ',
 			onValid      : function() {
 				trySubmit('from_email');
 			}
 		});
-		from_email.add(Validate.Email);
-		from_email.add(Validate.Presence);
+		from_email.add(Validate.Email, {failureMessage: '  '});
+		from_email.add(Validate.Presence, {failureMessage: '  '});
 	}
 
 	function clearValues(to_fields) {
