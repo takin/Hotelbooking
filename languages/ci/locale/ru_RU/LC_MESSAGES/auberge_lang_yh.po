@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-15 17:36+0200\n"
-"PO-Revision-Date: 2013-03-11 21:38+0200\n"
+"PO-Revision-Date: 2013-03-16 22:36+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3174,7 +3173,6 @@ msgstr ""
 "достопримечательностей - %s."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Ошибка 404 - Страница не найдена"
 
@@ -3339,7 +3337,7 @@ msgstr " из "
 #: ../code/application/views/helpfile/pofields.php:645
 #, php-format
 msgid "Results"
-msgstr ""
+msgstr "Результаты"
 
 #: ../code/application/views/city_view.php:196
 #: ../code/application/views/hw/booking_end_view.php:35
@@ -7032,69 +7030,69 @@ msgid "Next available property"
 msgstr "Следующие доступные апартаменты"
 
 #: ../code/application/views/helpfile/pofields.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "Группы"
+msgstr "Тип Группы:"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "Диапазон Цен:"
+msgstr "Возрастной Диапазон:"
 
 #: ../code/application/views/helpfile/pofields.php:612
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Выберите один…"
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "Отдых с друзьями"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "Начальная школа"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "Средняя школа"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "Колледж / Университет"
 
 #: ../code/application/views/helpfile/pofields.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
-msgstr "Деловые поездки"
+msgstr "Деловая поездка"
 
 #: ../code/application/views/helpfile/pofields.php:618
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "Мужской / Женский / Мальчишник"
 
 #: ../code/application/views/helpfile/pofields.php:619
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "Спортивные группы"
+msgstr "Спортивная группа"
 
 #: ../code/application/views/helpfile/pofields.php:620
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "Культурная группа"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "Пожалуйста, укажите тип группы."
 
 #: ../code/application/views/helpfile/pofields.php:622
-#, fuzzy, php-format
+#, php-format
 msgid "Please specify an age range for your group."
-msgstr "У нас есть замечательное предложение для вашей группы!"
+msgstr "Пожалуйста, укажите возрастной диапазон для вашей группы."
 
 #: ../code/application/views/helpfile/pofields.php:623
 #, php-format
@@ -7109,7 +7107,7 @@ msgstr "Обзоры"
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "Сравнить"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
@@ -7120,227 +7118,234 @@ msgstr " из "
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
 msgstr ""
+"Пожалуйста, смотрите выбранные свойства для сравнения в верхней части "
+"страницы."
 
 #: ../code/application/views/helpfile/pofields.php:631
-#, fuzzy, php-format
+#, php-format
 msgid "Not available"
-msgstr "Нет общежитий"
+msgstr "Не доступен"
 
 #: ../code/application/views/helpfile/pofields.php:633
-#, fuzzy, php-format
+#, php-format
 msgid "Print"
-msgstr "Напечатать Сейчас"
+msgstr "Печать"
 
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
-msgstr ""
+msgstr "Быстрое Сравнение"
 
 #: ../code/application/views/helpfile/pofields.php:635
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms From"
-msgstr "Общежития %s"
+msgstr "Общежития От"
 
 #: ../code/application/views/helpfile/pofields.php:636
-#, fuzzy, php-format
+#, php-format
 msgid "Privates From"
-msgstr "Отдельные номера"
+msgstr "Отдельные номера От"
 
 #: ../code/application/views/helpfile/pofields.php:637
-#, fuzzy, php-format
+#, php-format
 msgid "Rating Overall"
-msgstr "Общие"
+msgstr "Общий Рейтинг"
 
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
-msgstr ""
+msgstr "Сайт"
 
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Services"
-msgstr ""
+msgstr "Услуги"
 
 #: ../code/application/views/helpfile/pofields.php:646
 #, php-format
 msgid "Result"
-msgstr ""
+msgstr "Результат"
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
 msgid "Only 5 properties can be compared"
-msgstr ""
+msgstr "Можно сравнить только 5 свойств"
 
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Please remove a property from list."
-msgstr ""
+msgstr "Пожалуйста, удалите свойство из списка."
 
 #: ../code/application/views/helpfile/pofields.php:649
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Сравнить все хостелы в %s "
+msgstr "Быстрое Сравнение (5 свойств максимум)"
 
 #: ../code/application/views/helpfile/pofields.php:650
-#, fuzzy, php-format
+#, php-format
 msgid "Remove All"
-msgstr "убрать"
+msgstr "Удалить Все"
 
 #: ../code/application/views/helpfile/pofields.php:651
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
 msgstr ""
+"Пожалуйста, смотрите выбранные свойства для сравнения в верхней части "
+"страницы."
 
 #: ../code/application/views/helpfile/pofields.php:652
 #, php-format
 msgid "%d Results"
-msgstr ""
+msgstr "%d Результатов"
 
 #: ../code/application/views/helpfile/pofields.php:653
-#, fuzzy, php-format
+#, php-format
 msgid "Home"
 msgstr "Домашняя страница"
 
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "Restore Everything"
-msgstr ""
+msgstr "Восстановить Все"
 
 #: ../code/application/views/helpfile/pofields.php:656
 #, php-format
 msgid "Compare (%d out of 5)"
-msgstr ""
+msgstr "Сравнить (%d из 5)"
 
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
 msgid "Show More"
-msgstr ""
+msgstr "Показать больше"
 
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
 msgid "Show Less"
-msgstr ""
+msgstr "Показать меньше"
 
 #: ../code/application/views/helpfile/pofields.php:660
 #, php-format
 msgid "Not enough parameters"
-msgstr ""
+msgstr "Не достаточно параметров"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the email"
-msgstr "Распечатать карту"
+msgstr "Заполнить электронную почту"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #, php-format
 msgid "Invalid email recipient"
-msgstr ""
+msgstr "Неверный электронный адрес получателя"
 
 #: ../code/application/views/helpfile/pofields.php:663
 #, php-format
 msgid "Fill in the subject"
-msgstr ""
+msgstr "Введите тему"
 
 #: ../code/application/views/helpfile/pofields.php:664
 #, php-format
 msgid "Fill in the message"
-msgstr ""
+msgstr "Введите сообщение"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #, php-format
 msgid "Fill in the \"From\" name"
-msgstr ""
+msgstr "Введите \"От\" имя"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #, php-format
 msgid "Fill in the \"From\" email"
-msgstr ""
+msgstr "Введите \"От\" электронный адрес"
 
 #: ../code/application/views/helpfile/pofields.php:667
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid \"From\" email"
-msgstr "Неправильный формат"
+msgstr "Неправильный формат поля \"От\""
 
 #: ../code/application/views/helpfile/pofields.php:668
-#, fuzzy, php-format
+#, php-format
 msgid "Your message has been sent to %s"
-msgstr "Письмо с подтверждением выслано на ваш адрес"
+msgstr "Письмо с подтверждением выслано на ваш адрес %s"
 
 #: ../code/application/views/helpfile/pofields.php:669
 #, php-format
 msgid "From:"
-msgstr ""
+msgstr "От:"
 
 #: ../code/application/views/helpfile/pofields.php:670
-#, fuzzy, php-format
+#, php-format
 msgid "To:"
-msgstr "Всего:"
+msgstr "Кому:"
 
 #: ../code/application/views/helpfile/pofields.php:671
 #, php-format
 msgid "Subject:"
-msgstr ""
+msgstr "Тема:"
 
 #: ../code/application/views/helpfile/pofields.php:672
-#, fuzzy, php-format
+#, php-format
 msgid "Message:"
-msgstr "Сообщение"
+msgstr "Сообщение:"
 
 #: ../code/application/views/helpfile/pofields.php:673
 #, php-format
 msgid "Send another message"
-msgstr ""
+msgstr "Отправить еще одно сообщение"
 
 #: ../code/application/views/helpfile/pofields.php:675
 #, php-format
 msgid ""
 "Mail this page to someone you know, or send it to yourself as a reminder."
 msgstr ""
+"Отправьте ссылку на эту страницу своему знакомому или переслать себе, как "
+"напоминание."
 
 #: ../code/application/views/helpfile/pofields.php:676
 #, php-format
 msgid "To (email)"
-msgstr ""
+msgstr "Кому (электронный адрес)"
 
 #: ../code/application/views/helpfile/pofields.php:677
 #, php-format
 msgid "Subject"
-msgstr ""
+msgstr "Тема"
 
 #: ../code/application/views/helpfile/pofields.php:679
-#, fuzzy, php-format
+#, php-format
 msgid "From (name)"
-msgstr "Имя"
+msgstr "От (имя)"
 
 #: ../code/application/views/helpfile/pofields.php:680
 #, php-format
 msgid "From (email)"
-msgstr ""
+msgstr "От (электронный адрес)"
 
 #: ../code/application/views/helpfile/pofields.php:681
 #, php-format
 msgid "Yes, I want to subscribe to the newsletter."
-msgstr ""
+msgstr "Да, я хочу подписаться на рассылку новостей."
 
 #: ../code/application/views/helpfile/pofields.php:682
-#, fuzzy, php-format
+#, php-format
 msgid "Send email"
-msgstr "Выслать сообщение"
+msgstr "Отправить письмо"
 
 #: ../code/application/views/helpfile/pofields.php:684
 #, php-format
 msgid "Share PDF"
-msgstr ""
+msgstr "Поделиться PDF"
 
 #: ../code/application/views/helpfile/pofields.php:685
 #, php-format
 msgid "Want to send a PDF copy of this page or quote by email?"
 msgstr ""
+"Хотите отправить PDF копию этой страницы или цитату по электронной почте?"
 
 #: ../code/application/views/helpfile/pofields.php:686
-#, fuzzy, php-format
+#, php-format
 msgid "Send PDF"
-msgstr "Отправить"
+msgstr "Отправить PDF"
 
 #: ../code/application/views/helpfile/pofields.php:688
 #, php-format
@@ -7349,6 +7354,10 @@ msgid ""
 "continuing to browse our site you are agreeing to our Cookies Policy and use "
 "of cookies technology. Find out more"
 msgstr ""
+"Мы используем cookie-файлы, чтобы сделать пользование нашим сайтом "
+"максимально удобным для вас. Продолжая просматривать наш сайт, вы "
+"соглашаетесь с нашей Cookies политикой и использованием технологий cookies. "
+"Узнайте больше"
 
 #: ../code/application/views/helpfile/pofields.php:689
 #, php-format
@@ -7356,7 +7365,7 @@ msgid "New Search"
 msgstr "Новый поиск"
 
 #: ../code/application/views/helpfile/pofields.php:690
-#, fuzzy, php-format
+#, php-format
 msgid "Search"
 msgstr "Поиск"
 
@@ -7375,22 +7384,22 @@ msgstr "последние %d"
 #: ../code/application/views/helpfile/pofields.php:693
 #, php-format
 msgid "Quich View"
-msgstr ""
+msgstr "Быстрый просмотр"
 
 #: ../code/application/views/helpfile/pofields.php:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
-msgstr ""
+msgstr "Хотите получить или отправить PDF копию этой цитаты?"
 
 #: ../code/application/views/helpfile/pofields.php:695
 #, php-format
 msgid "%s has sent you a message: "
-msgstr ""
+msgstr "%s отправил вам сообщение:"
 
 #: ../code/application/views/helpfile/pofields.php:696
 #, php-format
 msgid "Here is the link to see the prices, description, maps and much more:"
-msgstr ""
+msgstr "Вот ссылка, чтобы увидеть цены, описания, карты и многое другое:"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
