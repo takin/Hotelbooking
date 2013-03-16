@@ -4,9 +4,30 @@
      onmouseout="GoogleMap.prototype.setMarkerIconToOriginal($(this));">
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
     {{#Geo}}
-    <input type="hidden" value="{{Latitude}}" class="input_geo_latitude" name="input_geo_latitude" />
-    <input type="hidden" value="{{Longitude}}" class="input_geo_longitude" name="input_geo_longitude" />
+    <input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
+    <input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
     {{/Geo}}
+    <div id="map_InfoWindow_{{propertyNumber}}" class="map_InfoWindow"  style="display: none;">
+        <div class="mapbubble">
+                <a href="{{property_page_url}}">
+                  {{#PropertyImages}}
+                  <img class="alignleft" alt="{{propertyName}}" 
+                                          src="{{#PropertyImage}}{{imageThumbnailURL}}{{/PropertyImage}}" />
+                  {{/PropertyImages}}
+                </a>
+                <h2>
+                <a href="{{property_page_url}}">{{propertyName}}</a>
+                </h2>
+                <p class="price">
+                <?php echo _('à partir de'); ?><span> {{display_price_formatted}}</span> {{display_currency}}
+                {{#overall_rating}}
+                 - <?php echo _("évaluation moyenne"); ?> {{overall_rating}}%
+                {{/overall_rating}}
+                </p>
+                <a href="{{property_page_url}}" class="more-info"><?php echo _("Plus d'information"); ?> &raquo;</a>
+                <div class="clear"></div>
+        </div>
+    </div>
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
 			<li class="first ui-tabs-selected">
@@ -104,7 +125,7 @@
 				<div class="info_indent">
 					<h2>
                         <a href="{{property_page_url}}">
-                            <span class="hostel_title">{{propertyName}}</span>
+                            <span id="hostel_title_{{propertyNumber}}" class="hostel_title">{{propertyName}}</span>
                             <span style="color: #3087C9; font-size:0.7em;">
                                 ({{propertyTypeTranslate}})
                             </span>

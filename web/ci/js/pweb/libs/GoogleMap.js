@@ -235,7 +235,7 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 
             this.setIcon(image_selected);
             this.setZIndex(100000);
-            that.changeHostelBackground(this);
+            that.changeHostelBackground(this, "mouseover");
 
         });
 
@@ -243,6 +243,7 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 
             this.setIcon(image);
             this.setZIndex(0);
+            that.changeHostelBackground(this, "mouseout");
         });
 
         window.gbounds.extend(window.gmarkers[i].position);
@@ -276,11 +277,12 @@ GoogleMap.prototype.redrawMarkers = function() //, image, iconshadow)
 
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
+var property_number = $(value).attr("rel");
         GoogleMap.prototype.addMarker(index
-                , $(value).find(".input_geo_latitude").val()
-                , $(value).find(".input_geo_longitude").val()
-                , $.trim($(value).find(".hostel_title").text())
-                , $.trim($(value).find(".hostel_title").text())
+                , $("#input_geo_latitude_"+property_number).val()
+                , $("#input_geo_longitude_"+property_number).val()
+                , $.trim($("#hostel_title_"+property_number).text())
+                , $.trim($("#map_InfoWindow_"+property_number).html())
                 );
     });
 
@@ -364,8 +366,6 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
     var lat = point[0];
     var Lng = point[1];
 
-//alert("lat="+lat+"::::Lng="+Lng+"::::");
-
     var citymap = {
 //  center: new google.maps.LatLng(53.477001,-2.230000)
         center: new google.maps.LatLng(lat, Lng)
@@ -393,12 +393,12 @@ GoogleMap.prototype.changeMarkerIconToSelected = function(pDiv) {
 GoogleMap.prototype.setMarkerIconToOriginal = function(pDiv) {
 
     this.changeMarkerIcon(pDiv, "original");
-
 };
 GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
-    var hostel_title = $.trim($(pDiv).find(".hostel_title").text());
     var property_number = $(pDiv).attr("rel");
+    var hostel_title = $.trim($("#hostel_title_"+property_number).text());
+  
     var image = null;
 
     if (pIconType === "selected")
@@ -407,7 +407,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     }
     else
     {
-        image = "map-marker.png"
+        image = "map-marker.png";
     }
 
     $("#city_info_" + property_number).removeClass('property_info_hover');
@@ -443,7 +443,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
         }
     }
 };
-GoogleMap.prototype.changeHostelBackground = function(pMarker) {
+GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigger) {
 
     var that = this;
     var property_list = that.getItemsInPage();
@@ -452,7 +452,7 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker) {
 
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
-            $(value).trigger('mouseover');
+            $(value).trigger(pDivEventToTrigger);
         }
     });
 
