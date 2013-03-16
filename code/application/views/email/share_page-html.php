@@ -32,9 +32,9 @@
 						<td valign="top">
 							<p style="line-height:18px">
 								<br />
-								<strong style="font-size:18px;color: #003580"><?php echo sprintf(_("%s has sent you a message:"), var_check($from_name, '')); ?></strong>
+								<span style="color: #003580"><?php echo sprintf(_("%s has sent you a message:"), var_check($from_name, '')); ?></span>
 								<br /><br />
-								<i style="font-size:16px;color:#003580; margin-left:20px">"<?php echo var_check($message, ''); ?>"</i>
+								<span style="color:#003580; margin-left:20px">"<?php echo var_check($message, ''); ?>"</span>
 								<br /><br />
 								<?php echo '<br />' .  _("Here is the link to see the prices, description, maps and much more:"); ?>
 								<br /><br />
@@ -52,14 +52,14 @@
 
 									$property_url .= $append;
 								?>
-								<a href="<?php echo var_check($property_url, ''); ?>" style="font-size:16px;color:#00a2e8"><?php echo var_check($property_url, ''); ?></a>
+								<a href="<?php echo var_check($property_url, ''); ?>" style="color:#00a2e8"><?php echo var_check($property_url, ''); ?></a>
 
 								<br /><br />
 								<br /><br />
 								<span style="color: #003580"><?php echo _('Thank you'); ?></span><br />
 								<span style="color: #003580"><?php echo $site_name; ?></span><br />
 								<br /><br /><br /><br />
-								<strong><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong>
+								<span><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></span>
 							</p>
 						</td>
 					</tr>

@@ -80,16 +80,16 @@ function handleShareEmailPDF() {
 
 			$('#show-share-overlay').addClass('prevPDF');
 
-			$('#share_email_form .title').hide();
-			$('#share_email_form .title_pdf').show();
+			$('#share_email_form .title, #submit_email').hide();
+			$('#share_email_form .title_pdf, #submit_pdf').show();
 		}
 		else {
 			$('#email_show_pdf').hide();
 			$('#email_send_pdf').val('0');
 			$('#show-share-overlay').removeClass('prevPDF');
 
-			$('#share_email_form .title').show();
-			$('#share_email_form .title_pdf').hide();
+			$('#share_email_form .title, #submit_email').show();
+			$('#share_email_form .title_pdf, #submit_pdf').hide();
 		}
 
 
@@ -165,7 +165,8 @@ function handleShareEmailPDF() {
 		}
 
 		if (ok) {
-			$('#submit, #close-share-overlay').hide();
+			$('#submit_email, #submit_pdf, #close-share-overlay').hide();
+			$('#share_please_wait').show();
 
 			send = true;
 
@@ -197,7 +198,14 @@ function handleShareEmailPDF() {
 					nights          : parseInt($('#book-night').val(), 10) || ''
 				},
 				success  : function(response) {
-					$('#submit, #close-share-overlay').show();
+					if (with_pdf) {
+						$('#submit_pdf, #close-share-overlay').show();
+					}
+					else {		
+						$('#submit_email, #close-share-overlay').show();
+					}
+
+					$('#share_please_wait').hide();
 
 					send = false;
 

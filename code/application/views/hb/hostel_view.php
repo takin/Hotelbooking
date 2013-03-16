@@ -543,8 +543,9 @@ else
 								 if(isValidDate(date_cookie))
 								 {
 									 var date_url = date_cookie;
+									var date_data = date_cookie.split('-');
+									 var date_avail 	= new Date(date_data[0], date_data[1] - 1, date_data[2]);
 
-									 var date_avail 	= new Date(date_cookie.replace('-',',','g'));
 									 $("#book-pick").datepicker( "setDate" , date_avail );
 								 }
 								 else
@@ -663,7 +664,7 @@ else
 					<?php if ($showPDF) { ?>
 					<div class="content_block" id="share_pdf_container">
 						<strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?");?></strong>
-						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" /></a>
+						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px;" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 20px" /></a>
 						<br style="clear: both" />
 					</div>
 					<?php } ?>
