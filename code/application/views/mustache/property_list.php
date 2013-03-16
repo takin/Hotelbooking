@@ -1,6 +1,12 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" rel="{{propertyNumber}}">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" 
+     rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIconToSelected($(this));"
+     onmouseout="GoogleMap.prototype.setMarkerIconToOriginal($(this));">
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
+    {{#Geo}}
+    <input type="hidden" value="{{Latitude}}" class="input_geo_latitude" name="input_geo_latitude" />
+    <input type="hidden" value="{{Longitude}}" class="input_geo_longitude" name="input_geo_longitude" />
+    {{/Geo}}
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
 			<li class="first ui-tabs-selected">
@@ -98,7 +104,7 @@
 				<div class="info_indent">
 					<h2>
                         <a href="{{property_page_url}}">
-                            {{propertyName}}
+                            <span class="hostel_title">{{propertyName}}</span>
                             <span style="color: #3087C9; font-size:0.7em;">
                                 ({{propertyTypeTranslate}})
                             </span>
@@ -303,5 +309,13 @@
             var propertyNumber = $(that).attr("data-propertyNumber");
             return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
         }
+        
+$("#current_page").live("change", function()
+{   
+    GoogleMap.prototype.redrawMarkers(); 
+   
+    return false;
+}); 
+
     });
 </script>

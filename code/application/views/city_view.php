@@ -16,12 +16,7 @@
 
 	<div id="search_load">
 		<?php if(isset($city_info->city_geo_lat)){?>
-		<div class="box_content map_button_box box_round" id="map_button_side">
-			<a id="city_map_show_1" href="#">
-			<span><strong><?php echo _("Voir la carte");?></strong></span>
-			<img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
-			</a>
-		</div>
+		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 		<?php }?>
 		<?php $this->load->view('includes/group-booking'); ?>
 		<div class="filter_block box_content box_round" id="filter_choices">
@@ -203,8 +198,8 @@
                     <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
                     <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
-				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
-				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>
+<!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
+				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
 			</div>
 
 		<!-- research code -->

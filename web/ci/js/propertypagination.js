@@ -94,6 +94,7 @@ function go_to_page(page_num){
     $('#property_list').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');  
   
        $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');  
-  
-    $('#current_page').val(page_num);  
+
+       //added .change() to trigger change event
+       $('#current_page').val(page_num).change();  
 }
