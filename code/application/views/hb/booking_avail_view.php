@@ -468,7 +468,11 @@ $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('
     <div class="bottom-table group">
       <?php /*?><img class="ccard" src="<?php echo site_url();?>images/ccard.gif" alt="<?php echo _("carte de crédit");?>" /><?php */?>
 
+	<?php if (empty($print)) { ?>
       <input type="submit" onfocus="this.blur()" name="booking-form" id="booking-form-submit" class="button-green box_round hoverit" value="<?php echo _("Réserver Maintenant"); ?>" />
+	<?php } else { ?>
+            <strong id="booking-form-submit"><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong>
+       <?php  }?>
       <img src="<?php echo site_url();?>images/padlock.png" alt="<?php echo _("sécurisé");?>" />
 			<span><?php echo _('Best price. We guarantee it.')?></span>
 			<span><?php echo _('It only takes 2 minutes')?></span>

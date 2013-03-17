@@ -188,6 +188,8 @@ class CHostelbk extends I18n_site
     $data['numNights']      = $numNights;
     $data['currency']       = $currency;
 
+    $data['print'] = $this->input->get('print', true);
+
     if($response === false)
     {
       //API unreachable

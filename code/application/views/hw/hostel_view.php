@@ -343,6 +343,13 @@ endforeach; ?>
 					<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
 			</div>
 
+			<?php if ($showEmail) { ?>
+			<div class="share-email">
+                                <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+                        </div>
+			<?php } ?>
+
+
 			<div class="amenities no-indent">
 			<?php
 			if(!empty($main_services))
@@ -370,6 +377,7 @@ endforeach; ?>
 		<?php if (isset($hostel->PropertyImages)){ $count = 0;?>
 		<div class="thumbnail_list" id="thumbnail_list">
 		<?php foreach ($thumb_images as $image):?>
+<?php if (empty($print)) { ?>
 		<a class="openup" rel="<?php echo var_check($hostel->property_name,"");?>" href="<?php echo $main_images[$count];?>" alt="<?php echo var_check($hostel->property_name,"");?>">
 
 		  <img height="45px" data-href="<?php echo $image; ?>" src="<?php echo site_url("images/V2/blank.gif"); ?>" alt="<?php echo $hostel->property_name; ?>" />
@@ -378,6 +386,9 @@ endforeach; ?>
 			</noscript>
 
 		</a>
+<?php } else {?>
+			<img height="45px" src="<?php echo $image; ?>" alt="<?php echo $hostel->property_name; ?>" />
+<?php } ?>
 		<?php $count++; endforeach;?>
 		</div>
 		<?php }?>
@@ -483,9 +494,17 @@ endforeach; ?>
 										currency_value = 'EUR';
 										document.getElementById('book-property-currency').value = currency_value;
 									}
+
+									<?php
+										$and_print = '';
+										if (!empty($print)) {
+											$and_print = '?print=true';
+										}
+									?>
+
 									var current_url = $("#back_to_results").attr("href");
 									$('#back_to_results').attr("href",current_url+"/"+date_url+"/"+night_url);
-									checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table');
+									checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table', '<?php echo $and_print; ?>');
 								}
 							);
 						</script>
@@ -516,8 +535,15 @@ endforeach; ?>
 						<?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$currency,"",$this->site_lang); ?>
 						</li>
 
+						<?php
+							$and_print = '';
+							if (!empty($print)) {
+								$and_print = '?print=true';
+							}
+									?>
+
 						<li class="last">
-						<input onfocus="this.blur()" type="button" name="book-submit" id="book-submit" class="button-green box_round hoverit" value="<?php echo _("Rechercher");?>" OnClick="$('ul.tabing').tabs('select', 0);checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table');" />
+						<input onfocus="this.blur()" type="button" name="book-submit" id="book-submit" class="button-green box_round hoverit" value="<?php echo _("Rechercher");?>" OnClick="$('ul.tabing').tabs('select', 0);checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table', '<?php echo $and_print; ?>');" />
 						</li>
 
 					</ul>
@@ -527,6 +553,16 @@ endforeach; ?>
 				<div id="booking-table"></div>
 
 			</div>
+
+
+			<?php if ($showPDF) { ?>
+			<div class="content_block" id="share_pdf_container">
+				<strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?");?></strong>
+				<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 20px" /></a>
+				<br style="clear: both" />
+			</div>
+			<?php } ?>
+
     	<?php
       }
 			?>
@@ -620,6 +656,12 @@ endforeach; ?>
 			</div>
 			<?php }?>
 			</div>
+
+			<?php if (!empty($print)) { ?>
+                               <link type="text/css" rel="stylesheet" href="/css/pdf.css"/>
+                               <strong><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong><br /><br />
+                        <?php } ?>
+
 			<div id="hostel_info_direction" class="hostels_tab_content ui-tabs-hide">
 				<div class="content_block">
 					<h2><?php echo _("Adresse");?></h2>
@@ -779,3 +821,5 @@ if ($this->uri->segment(4, 0)) {
     }
 }
 ?>
+
+<?php $this->load->view('includes/template-share-email-popup'); ?>

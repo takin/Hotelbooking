@@ -1368,8 +1368,30 @@ class CMain extends I18n_site
     log_message('debug', 'Entering main controller property page method');
 
     $this->_currency_init();
-    $data = array();
+    // add the current params in the "stash"
+    $data = array(
+        'property_type'   => $property_type,
+        'property_name'   => $property_name,
+        'property_number' => $property_number,
+        'date'            => $urldate,
+        'nights'          => $units,
+        'print'           => $this->input->get('print', true),
+        'showEmail'       => $this->config->item('displayShareEmail'),
+        'showPDF'         => $this->config->item('displaySharePDF')
+    );
 
+    $date = $urldate;
+
+    if (!empty($date)) {
+        set_cookie('date_selected', $date,$this->config->item('sess_expiration'));
+        if (!empty($nights) && is_numeric($nights)) {
+            set_cookie('numnights_selected', $nights,$this->config->item('sess_expiration'));
+        }
+    }
+
+
+    $district_umid = NULL;
+     
     if(empty($property_number))
     {
       $this->error404();
@@ -1616,6 +1638,159 @@ class CMain extends I18n_site
     {
       $this->output->cache(0);
     }
+  }
+
+  // send email and pdf callback
+  function property_send_email() {
+    $to_email   = $this->input->post('to_email', true);
+    $subject    = $this->input->post('subject', true);
+    $message    = $this->input->post('message', true);
+    $from_name  = $this->input->post('from_name', true);
+    $from_email = $this->input->post('from_email', true);
+    $subscribe  = $this->input->post('subscribe', true);
+    $with_pdf   = $this->input->post('with_pdf', true);
+    $property_type   = $this->input->post('property_type', true);
+    $property_name   = $this->input->post('property_name', true);
+    $property_number = $this->input->post('property_number', true);
+
+    $date   = $this->input->post('date', true);
+    $nights = $this->input->post('nights', true);
+
+
+    $this->load->helper('email');
+
+    $errors = array();
+
+    if (empty($property_type) || empty($property_name) || empty($property_number)) {
+        $errors[] = _('Not enough parameters');
+    }
+
+    if (empty($to_email)) {
+        $errors[] = _('Fill in the email');
+    }
+    else {
+        if (!valid_email($to_email)) {
+            $errors[] = _('Invalid email recipient');
+        }
+    }
+    if (empty($subject)) {
+        $errors[] = _('Fill in the subject');
+    }
+    if (empty($message)) {
+        $errors[] = _('Fill in the message');
+    }
+    if (empty($from_name)) {
+        $errors[] = _('Fill in the "From" name');
+    }
+    if (empty($from_email)) {
+        $errors[] = _('Fill in the "From" email');
+    }
+    else {
+        if (!valid_email($from_email)) {
+            $errors[] = _('Invalid "From" email');
+        }
+    }
+
+    if (!empty($errors)) {
+        $this->load->view('includes/template-json', array(
+            'json_data' => json_encode(array(
+                'ok'     => false,
+                'errors' => $errors 
+            ), true)
+        ));
+
+        return;
+    }
+
+    $this->load->library('email');
+
+    $pdf_path = null;
+    $temp_dir = null;
+
+    // don't run this under windows and if it's not required
+    if ($with_pdf && !ISWINDOWS) {
+	$bookingTableSelect = $this->input->cookie('bookingTableSelect', TRUE);
+
+        $string = $this->config->item('site_name') . ' ' . $property_name;
+
+        $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+                   "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+                   "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+        $clean = trim(str_replace($strip, "", strip_tags($string)));
+        $clean = preg_replace('/\s+/', "-", $clean);
+        $clean = preg_replace("/[^a-zA-Z0-9]/", "", $clean);
+
+	// fallback
+        $temp_dir = $this->config->item('temp_dir');
+        $temp_dir = empty($temp_dir) ? '/tmp' : $this->config->item('temp_dir');
+
+	$temp_dir = rtrim($temp_dir, '/') . '/dir_' . uniqid();
+
+	// make the temp dir	
+	mkdir($temp_dir, 0700);
+
+        $pdf_path = $temp_dir . '/' . $string . '.pdf';
+
+	$cookie_append = '';
+	$append = '';
+	if (!empty($date)) {
+		$append .= '/' . $date;
+		$cookie_append .= ' --cookie date_selected ' . escapeshellarg($date);
+
+		if (!empty($nights) && is_numeric($nights)) {
+			$append .= '/' . (int)$nights;
+			$cookie_append .= ' --cookie numnights_selected ' . escapeshellarg((int)$nights);
+		}
+	}
+
+	$commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect);
+	$commandCookies .= $cookie_append;
+
+	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
+
+	log_message('debug', $command);
+error_log($command, 3, '/tmp/abc.log');
+        // create PDF
+	system($command);
+
+        if (file_exists($pdf_path)) {
+            $this->email->attach($pdf_path);
+        }
+    }
+
+    $data = array(
+       'to_email'   => $to_email,
+       'subject'    => $subject,
+       'message'    => $message,
+       'from_name'  => $from_name,
+       'from_email' => $from_email,
+       'property_type'   => $this->input->post('property_type', true),
+       'property_name'   => $this->input->post('property_name', true),
+       'property_number' => $this->input->post('property_number', true),
+       'date'       => $date,
+       'nights'     => $nights,
+       'site_name'  => $this->config->item('site_name'),
+    );
+
+    $this->email->from($from_email, $from_name);
+    $this->email->reply_to($this->config->item('email_users_admin'), $this->config->item('site_name'));
+
+    $this->email->to($to_email);
+    $this->email->subject($subject);
+    $this->email->message($this->load->view('email/share_page-html', $data, TRUE));
+    $this->email->set_alt_message($this->load->view('email/share_page-txt', $data, TRUE));
+    $this->email->send();
+
+    if ($pdf_path) {
+        unlink($pdf_path);
+	rmdir($temp_dir);
+    }
+
+    $this->load->view('includes/template-json', array(
+        'json_data' => json_encode(array(
+            'ok' => true
+        ), true)
+    ));
   }
 
   /*

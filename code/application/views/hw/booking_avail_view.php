@@ -570,7 +570,12 @@ if($api_error==false)
       <div class="bottom-table group" id="book-now">
         <?php /*?><img class="ccard" src="<?php echo site_url();?>images/ccard.gif" alt="<?php echo _("carte de crédit");?>" /><?php */?>
 
+        <?php if (!empty($print)) { ?>
+                <strong id="booking-form-submit"><?php echo _('PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING'); ?></strong>
+        <?php } else { ?>
+
         <input type="submit" onfocus="this.blur()" name="booking-form" id="booking-form-submit" class="button-green box_round hoverit" value="<?php echo _("Réserver Maintenant"); ?>" />
+        <?php } ?>
         <img src="<?php echo site_url();?>images/padlock.png" alt="<?php echo _("sécurisé");?>" />
         <span><?php echo _('Best price. We guarantee it.')?></span>
 				<span><?php echo _('It only takes 2 minutes')?></span>

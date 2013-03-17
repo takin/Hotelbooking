@@ -865,6 +865,8 @@ class CHostel extends I18n_site
     $data["country_selected"] = $this->input->post("country_selected",TRUE);
     $data["city_selected"]    = $this->input->post("city_selected",TRUE);
 
+    $data['print'] = $this->input->get('print', true);
+
     $this->load->view('hw/booking_avail_view',$data);
   }
 
