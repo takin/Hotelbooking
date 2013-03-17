@@ -1369,12 +1369,12 @@ $(document).ready(function() {
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
   
-  $("ul.rating li").bind('mouseover', function(){
+  $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();
   });
 
-  $("ul.rating li").bind('mouseout', function(){
+  $("ul.rating li").live('mouseout', function(){
     var container = getPropertyRatingsContainer(this);
     container.hide();
   });
