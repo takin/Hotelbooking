@@ -333,7 +333,7 @@
         
 $("#current_page").live("change", function()
 {   
-    GoogleMap.prototype.redrawMarkers(); 
+    GoogleMap.prototype.reDrawMarkers(); 
    
     return false;
 }); 

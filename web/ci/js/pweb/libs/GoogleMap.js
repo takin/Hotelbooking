@@ -29,8 +29,6 @@ function GoogleMap(map_div_id, lang, default_lat, default_lng, default_zoom) {
 
     this.marker_id_to_focus = -1;
 
-    this.glib_loaded = false;
-
     //info window should be global too bad!
     window.gInfoWin = null;
 
@@ -143,17 +141,18 @@ GoogleMap.prototype.marker_focus = function()
 };
 GoogleMap.prototype.drawMap = function()
 {
-    var script = document.createElement("script"),
-            that = this;
-
-    if (this.glib_loaded === false)
+    that = this;
+    var script_id = "google_map_api_script";
+    
+    if ($("#" + script_id).length <= 0)
     {
+        var script = document.createElement("script");
         script.type = "text/javascript";
+        script.id = script_id;
         script.src = "https://maps.google.com/maps/api/js?sensor=false&language=" + this.map_lang + "&callback=gmap_start";
 
         //Create callback function that must be global
         window.gmap_start = function() {
-            that.glib_loaded = true;
             that.init();
         };
 
@@ -266,7 +265,7 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 
     return $('#property_list').children().slice(start_from, end_on);
 };
-GoogleMap.prototype.redrawMarkers = function() //, image, iconshadow)
+GoogleMap.prototype.reDrawMarkers = function() //, image, iconshadow)
 {
     var that = this;
     var property_list = that.getItemsInPage();

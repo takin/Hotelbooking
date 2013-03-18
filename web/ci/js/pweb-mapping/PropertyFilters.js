@@ -61,7 +61,8 @@ PWebFilterMap.prototype.isMapEnable = function() {
 PWebFilterMap.prototype.updateMarkers = function(markers_data) { 
 	
     //clear all previous added marker and focus
-    this.gmap.clearMap();
+    //Karim : disable this because it clears side map marker too
+//    this.gmap.clearMap();
 	
     //Add filtered markers to map
     //	for (var i = 0; i < markers_data.length; i++) {
@@ -69,7 +70,9 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data) {
         if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
             parseFloat(markers_data[i].Geo.Longitude) != 0.00)
             {
-			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+//            var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+            var content = $.trim($("#map_InfoWindow_"+markers_data[i].propertyNumber).html());
+            
             this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
 			
             if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
@@ -413,7 +416,7 @@ PWebFilterApp.prototype.update = function() {
         //Map tab events
         that.tabs_map_binded = new Array();
         $('a[name=city_map_show_property]').click(function()
-        {
+        {    
             that.tabs_count = 0;
 			
             if(that.tabs_map_binded[this.rel] !== true)
@@ -450,7 +453,7 @@ PWebFilterApp.prototype.update = function() {
         });
 			
     }
-	
+    
     //update count
     this.FiltersCounts['city_results_count_current'] = this.jtable_hits_sorted.length;
     this.FiltersCounts['city_results_count_total']   = this.FiltersCounts['city_results_filtered'];
@@ -1330,19 +1333,19 @@ function setup_filters(data)
     });
 	
     //TO MOVE IN pwe-mapping CitySearchMap.js ? 
-    $('#city_map_show_1').click(function()
-    {
-        pweb_filter.toggleMap('city');
-       
-//        $('#map_button_side').hide();
-        $('#city_map_show_2').hide();
-        $('#city_map_hide').show();
-        return false;
-    });
+//     $('#city_map_show_1').click(function()
+//    {
+//        pweb_filter.toggleMap('city');
+//       
+////        $('#map_button_side').hide();
+//        $('#city_map_show_2').hide();
+//        $('#city_map_hide').show();
+//        return false;
+//    });
+    // this was needed before to show and hide city map
 //    $('#city_map_show_2').click(function()
 //    {
 //        pweb_filter.toggleMap('city');
-////         pweb_filter.toggleMap('city_side_map');
 //        $(this).hide();
 //        $('#map_button_side').hide();
 //        $('#city_map_hide').show();
