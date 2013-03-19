@@ -103,7 +103,7 @@ class MY_Output extends CI_Output {
             $currency = get_currency_of_country($session_data["user_country_code"]);
         } else {
             include_once(APPPATH . "helpers/misc_tools_helper" . EXT);
-            $user_country = freeGeoFromIP($_SERVER["REMOTE_ADDR"]);
+            $user_country = freeGeoFromIP($this->input->ip_address());
             if (!empty($user_country)) {
                 $user_country = $user_country->CountryCode;
                 $currency = get_currency_of_country($user_country);

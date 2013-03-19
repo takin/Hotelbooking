@@ -877,12 +877,28 @@ function get_user_info()
 
   $currencies  = new Db_currencies($aubergedb);
 
-  $current_aj_user = freeGeoFromIP($_SERVER["REMOTE_ADDR"]);
+  $current_aj_user = freeGeoFromIP(getIP());
 
   if(!empty($current_aj_user) && !empty($current_aj_user->CountryCode))
   {
     $current_aj_user->CurrencyCode = $currencies->get_currency_of_country($current_aj_user->CountryCode);
   }
+}
+
+function getIP(){
+	$rem = @$_SERVER["REMOTE_ADDR"];
+	$ff = @$_SERVER["HTTP_X_FORWARDED_FOR"];
+	$ci = @$_SERVER["HTTP_CLIENT_IP"];
+	if(preg_match('/^(?:192\.168|172\.16|10\.|127\.)/', $rem)){
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return $rem;
+	} else {
+		if($rem){ return $rem; }
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return "UNKNOWN";
+	}
 }
 
 if ( ! function_exists('url_title'))

@@ -11,12 +11,6 @@ class Csv extends I18n_site
 
     show_404();
     exit;
-    if( FALSE || //(strcmp($_SERVER["REMOTE_ADDR"],$_SERVER["SERVER_ADDR"])!=0) OR
-    (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0))
-    {
-      show_404();
-      exit();
-    }
   }
 
   public function import_room_types_translation()

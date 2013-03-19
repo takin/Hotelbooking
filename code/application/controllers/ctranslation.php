@@ -10,8 +10,6 @@ class Ctranslation extends I18n_site
     parent::I18n_site();
 
     //Ensure this controller is called by server and that cron code is good
-//    if(  (strcmp($_SERVER["REMOTE_ADDR"],$_SERVER["SERVER_ADDR"])!=0) OR
-//       (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0))
    if( strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0 )
    {
      show_404();

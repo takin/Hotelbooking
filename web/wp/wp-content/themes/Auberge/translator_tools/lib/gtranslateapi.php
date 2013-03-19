@@ -8,40 +8,40 @@ define('GOOGLE_MAX_QUERY_LENGTH', 5000);
 class Gtranslateapi
 {
   var $googleKey    = "AIzaSyAkhkddCyJnFOI1YBpqmpgRo_SF5cZLAQc";
-  
+
   var $TranslateUrl = "http://ajax.googleapis.com/ajax/services/language/translate";
   var $DetectUrl    = "http://ajax.googleapis.com/ajax/services/language/detect";
   var $FromLang     = "";
   var $ToLang       = "fr";
   var $Version      = "1.0";
   var $HostLang     = "fr";
-  
+
   var $Post_data = Array();
   var $batch_query = "";
-  
+
   var $batch_text_length = 0;
-  
+
   var $batch_json = Array();
-  
+
   var $Text = "";
-  
+
   var $batchText = Array();
-  
+
   var $DebugMsg;
   var $DebugStatus;
-  
+
   var $http_request;
   var $json;
-  
+
   function Gtranslateapi()
   {
     require_once("json.php");
     $this->json = new Json();
-    
+
     require_once("http_request.php");
     $this->http_request = new Http_request();
   }
-  
+
   function startBatch($toLang="", $fromLang="")
   {
     if($toLang != "")
@@ -52,11 +52,11 @@ class Gtranslateapi
     {
       $this->FromLang = $fromLang;
     }
-    
+
     $this->clearBatch();
-    
+
   }
-  
+
   function addTextForBatch($text = "")
   {
     $text_length = strlen($text);
@@ -66,7 +66,7 @@ class Gtranslateapi
       $text = mb_substr($text, 0, GOOGLE_MAX_QUERY_LENGTH-10,"UTF-8");
       $text_length = strlen($text);
     }
-    
+
     if(($this->batch_text_length + $text_length) > GOOGLE_MAX_QUERY_LENGTH)
     {
       $this->batch_translate();
@@ -78,61 +78,77 @@ class Gtranslateapi
     }
     array_push($this->batchText,$text);
   }
-  
+
   function clearBatchText()
   {
     $this->batchText = Array();
   }
-  
+
   function clearBatch()
   {
     $this->clearBatchText();
     $this->batch_json = Array();
   }
-  
+
   function makeBatchTranslateUrl()
   {
     $this->batch_query = "v=".$this->Version;
     $this->batch_query.= "&key=".$this->googleKey;
-    $this->batch_query.= "&userip=".$_SERVER["REMOTE_ADDR"];
+    $this->batch_query.= "&userip=".getIP();
 //    $this->batch_query.= "&format=html";
     $this->batch_query.= "&langpair=".$this->FromLang."%7C".$this->ToLang;
-    
+
     //print("<BR>batch count:<BR>".count($this->batchText)."<br>");
     foreach($this->batchText as $text)
     {
       $this->batch_query.= "&q=".urlencode($text);
     }
-    
+
   }
   function makeTranslateUrl()
   {
     $this->Post_data["v"]        = $this->Version;
-    $this->Post_data["userip"]   = $_SERVER["REMOTE_ADDR"];
+    $this->Post_data["userip"]   = getIP();
     $this->Post_data["key"]      = $this->googleKey;
     $this->Post_data["q"]        = $this->Text;
     $this->Post_data["langpair"] = $this->FromLang."|".$this->ToLang;
   }
-  
+
+protected function getIP(){
+	$rem = @$_SERVER["REMOTE_ADDR"];
+	$ff = @$_SERVER["HTTP_X_FORWARDED_FOR"];
+	$ci = @$_SERVER["HTTP_CLIENT_IP"];
+	if(preg_match('/^(?:192\.168|172\.16|10\.|127\.)/', $rem)){
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return $rem;
+	} else {
+		if($rem){ return $rem; }
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return "UNKNOWN";
+	}
+}
+
   function makeDetectUrl()
   {
     $this->CallUrl = $this->DetectUrl;
     $this->CallUrl.= "?v=".$this->Version;
     $this->CallUrl.= "&q=".urlencode($this->Text);
   }
-  
+
   function batch_translate()
   {
-    
+
     $this->makeBatchTranslateUrl();
 //print $this->batch_query ."<br><br>";
 //    echo "<br><br>".strlen($this->batch_query).", q length:".$this->batch_text_length."<br><br>";
-    
+
     if(count($this->batchText) > 0 )
     {
 
       $contents = $this->http_request->post_request($this->TranslateUrl,$this->batch_query,true,"Content-Type: application/x-www-form-urlencoded\r\n charset=utf-8");
-      
+
       $json = NULL;
       try
       {
@@ -145,25 +161,25 @@ class Gtranslateapi
         log_message("error","GOOGLE TRANSLATE RESPONSE: ".$contents);
         log_message("error","GOOGLE TRANSLATE JSON: ".$json);
       }
-      
+
       //On single result convert to array result so that output is always an array to facilitate handling of results
       if(!empty($json["responseData"]["translatedText"]))
       {
         $json["responseData"] = array(0 => $json);
       }
       $this->batch_json = $this->append_json_response($this->batch_json,$json);
-      
+
       $this->clearBatchText();
-      
+
       return $this->batch_json;
     }
-    
+
     return NULL;
   }
-  
+
   function append_json_response($json_array1,$json_array2)
   {
-    
+
     if(empty($json_array1))
     {
       $json_array1 = $json_array2;
@@ -180,18 +196,18 @@ class Gtranslateapi
         $json_array1["responseData"] = array_merge($json_array1["responseData"],$json_array2["responseData"]);
       }
     }
-    
+
     return $json_array1;
   }
-  
+
   function end_batch()
   {
-   
+
     $batch_result = $this->batch_translate();
     $this->clearBatch();
     return $batch_result;
   }
-  
+
   function translate($text="", $toLang="", $fromLang="")
   {
     if($text == ""){
@@ -201,7 +217,7 @@ class Gtranslateapi
     {
       $this->Text = $text;
     }
-    
+
     if($toLang != "")
     {
       $this->ToLang = $toLang;
@@ -210,20 +226,20 @@ class Gtranslateapi
     {
       $this->FromLang = $fromLang;
     }
-    
+
     $this->makeTranslateUrl();
     if($this->Post_data["q"] != "" )
     {
 
       $contents = $this->http_request->post_request($this->TranslateUrl,$this->Post_data);
-      
+
       $json = json_decode($contents, true);
-      
+
       return $json;
-      
+
     }
   }
-  
+
 //  function detect($text)
 //  {
 //    if($text == ""){
@@ -241,9 +257,9 @@ class Gtranslateapi
 //      $contents .= fread($handle, 8192);
 //      }
 //      fclose($handle);
-//      
+//
 //      $json = json_decode($contents, true);
-//      
+//
 //      if($json["responseStatus"] == 200){ //If request was ok
 //        $this->DetectedLanguage = $json["responseData"]["language"];
 //        $this->IsReliable = $json["responseData"]["isReliable"];

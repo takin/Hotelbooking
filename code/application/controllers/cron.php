@@ -9,12 +9,9 @@ class Cron extends I18n_site
     parent::I18n_site();
 
     //Ensure this controller is called by server and that cron code is good
-//    if(strcmp($this->uri->segment(2),"send_sms_reminder")!=0)
-//    if((strcmp($this->uri->segment(2),"sendTestReviewReminder")==0) AND (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0))
-   if((strcmp($_SERVER["REMOTE_ADDR"],$_SERVER["SERVER_ADDR"])!=0) OR
-      (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0))
+   if (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0)
    {
-     $this->_log_cron_job(date("Y-m-d h:i:s A").": Bad attempt to run cron jobs from ".$_SERVER["REMOTE_ADDR"]." at ".current_url()."\n");
+     $this->_log_cron_job(date("Y-m-d h:i:s A").": Bad attempt to run cron jobs at ".current_url()."\n");
      show_404();
      exit();
    }
