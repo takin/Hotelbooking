@@ -101,13 +101,6 @@ class MY_Output extends CI_Output {
         //If currency of country is available via geoIP location return it
         elseif (!empty($session_data["user_country_code"])) {
             $currency = get_currency_of_country($session_data["user_country_code"]);
-        } else {
-            include_once(APPPATH . "helpers/misc_tools_helper" . EXT);
-            $user_country = freeGeoFromIP($CFG->input->ip_address());
-            if (!empty($user_country)) {
-                $user_country = $user_country->CountryCode;
-                $currency = get_currency_of_country($user_country);
-            }
         }
 
         if (!empty($currency)) {
