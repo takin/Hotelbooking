@@ -90,7 +90,7 @@ class Gtranslateapi extends CI_Model
   {
     $this->batch_query = "v=".$this->Version;
     $this->batch_query.= "&key=".$this->googleKey;
-    $this->batch_query.= "&userip=".$_SERVER["REMOTE_ADDR"];
+    $this->batch_query.= "&userip=".ip_address();
 //    $this->batch_query.= "&format=html";
     $this->batch_query.= "&langpair=".$this->FromLang."%7C".$this->ToLang;
 
@@ -104,7 +104,7 @@ class Gtranslateapi extends CI_Model
   function makeTranslateUrl()
   {
     $this->Post_data["v"]        = $this->Version;
-    $this->Post_data["userip"]   = $_SERVER["REMOTE_ADDR"];
+    $this->Post_data["userip"]   = $this->input->ip_address();
     $this->Post_data["key"]      = $this->googleKey;
     $this->Post_data["q"]        = $this->Text;
     $this->Post_data["langpair"] = $this->FromLang."|".$this->ToLang;

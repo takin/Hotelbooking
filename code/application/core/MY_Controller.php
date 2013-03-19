@@ -14,7 +14,7 @@ class MY_Controller extends CI_Controller {
 
     function MY_Controller() {
         parent::__construct();
-    }	
+    }
 
 }
 
@@ -109,10 +109,11 @@ class I18n_site extends MY_Controller {
         $this->load->library('session');
 
         //To limit 3rd party IP detection on every page store info in session cookies
-        $user_ip_address = $this->session->userdata('user_ip_address');
-        if (empty($user_ip_address) || ($user_ip_address != $_SERVER["REMOTE_ADDR"])) {
+        $session_ip_address = $this->session->userdata('session_ip_address');
+        $request_ip_address = $this->input->ip_address();
+        if (empty($user_ip_address) || ($session_ip_address != $request_ip_address)) {
 
-            $this->site_user = freeGeoFromIP($_SERVER["REMOTE_ADDR"]);
+            $this->site_user = freeGeoFromIP($request_ip_address);
 
             if (empty($this->site_user)) {
                 $this->site_user = new stdClass();
@@ -144,7 +145,7 @@ class I18n_site extends MY_Controller {
             }
 
             $userdata = array(
-                'user_ip_address' => $_SERVER["REMOTE_ADDR"],
+                'user_ip_address' => $request_ip_address,
                 'user_country_code' => $this->site_user->CountryCode,
                 'user_region_code' => $this->site_user->RegionCode,
                 'user_country_name' => $this->site_user->CountryName,
@@ -155,7 +156,7 @@ class I18n_site extends MY_Controller {
 
             $this->session->set_userdata($userdata);
         } else {
-            $this->site_user->Ip = $_SERVER["REMOTE_ADDR"];
+            $this->site_user->Ip = $request_ip_address;
             $this->site_user->CountryCode = $this->session->userdata('user_country_code');
             $this->site_user->CountryName = $this->session->userdata('user_country_name');
             $this->site_user->RegionCode = $this->session->userdata('user_region_code');

@@ -22,11 +22,9 @@ class Cron_hb extends I18n_site
     parent::I18n_site();
 
     //Ensure this controller is called by server and that cron code is good
-//     if(strcmp($_SERVER["REMOTE_ADDR"],"208.113.48.86")!=0)
-    if((strcmp($_SERVER["REMOTE_ADDR"],$_SERVER["SERVER_ADDR"])!=0) OR
-      (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0))
+    if (strcmp($this->uri->segment(3,""),self::CRON_CODE)!=0)
     {
-      $this->_log_cron_job(date("Y-m-d h:i:s A").": Bad attempt to run cron jobs from ".$_SERVER["REMOTE_ADDR"]." at ".current_url()."\n");
+      $this->_log_cron_job(date("Y-m-d h:i:s A").": Bad attempt to run cron jobs at ".current_url()."\n");
       show_404();
       exit();
     }
@@ -212,19 +210,19 @@ class Cron_hb extends I18n_site
 //       $lang_code = $this->Hostelbookers_api->lang_code_convert($domain->lang, NULL);
 //       if lang is not supported by HB API
 //       if(is_null($lang_code)) continue;
-		
+
       $response = $this->Hostelbookers_api->getNationalities("en");
       if($response !== false)
-      { 
-		
+      {
+
 		$this->Db_hb_country->parse_nationalities($response, "en");
         $this->custom_log->log($this->log_filename,"HB API nationalities update for language -> "."en");
-   
+
       }
       else
       {
-		 
-		  
+
+
         $this->custom_log->log($this->log_filename,"HB API bad response for nationalities of language -> "."en");
       }
 //     }
