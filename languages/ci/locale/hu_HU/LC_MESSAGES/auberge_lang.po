@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-15 17:36+0200\n"
+"POT-Creation-Date: 2013-03-19 15:12+0200\n"
 "PO-Revision-Date: 2013-03-16 21:42+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,8 +75,8 @@ msgstr "Kérjük válasszon egy új jelszót"
 #: ../code/application/views/auth/register_form.php:117
 #: ../code/application/views/auth/login_form.php:111
 #: ../code/application/views/includes/top_box.php:12
-#: ../code/application/views/includes/header_book.php:135
-#: ../code/application/views/includes/header.php:951
+#: ../code/application/views/includes/header_book.php:146
+#: ../code/application/views/includes/header.php:961
 #: ../code/application/views/mobile/auth/forgot_password_form.php:33
 #: ../code/application/views/mobile/auth/login_form.php:69
 #: ../code/application/views/mobile/includes/footer.php:12
@@ -200,8 +201,8 @@ msgstr "Írja be a kódot pontosan ahogy megjelent:"
 
 #: ../code/application/views/auth/register_form.php:115
 #: ../code/application/views/includes/top_box.php:16
-#: ../code/application/views/includes/header_book.php:138
-#: ../code/application/views/includes/header.php:955
+#: ../code/application/views/includes/header_book.php:149
+#: ../code/application/views/includes/header.php:965
 #: ../code/application/views/mobile/auth/register_form.php:83
 msgid "S'enregistrer"
 msgstr "Regisztráció"
@@ -483,8 +484,8 @@ msgid "Sorry but we have not found any results. Please try again."
 msgstr "Elnázást de a keresés nem járt eredménnyel, probáld újra."
 
 #: ../code/application/views/includes/top_box.php:12
-#: ../code/application/views/includes/header_book.php:135
-#: ../code/application/views/includes/header.php:951
+#: ../code/application/views/includes/header_book.php:146
+#: ../code/application/views/includes/header.php:961
 #: ../code/application/views/mobile/includes/header.php:40
 #: ../code/application/views/mobile/user/user_view.php:4
 #: ../code/application/views/mobile/home_view.php:5
@@ -492,29 +493,29 @@ msgid "Bienvenue!"
 msgstr "Saját fiók"
 
 #: ../code/application/views/includes/top_box.php:16
-#: ../code/application/views/includes/header_book.php:138
-#: ../code/application/views/includes/header.php:955
+#: ../code/application/views/includes/header_book.php:149
+#: ../code/application/views/includes/header.php:965
 #: ../code/application/views/mobile/includes/footer.php:12
 msgid "Se déconnecter"
 msgstr "Kijelentkezés"
 
 #: ../code/application/views/includes/top_box.php:23
-#: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:969
+#: ../code/application/views/includes/header_book.php:157
+#: ../code/application/views/includes/header.php:979
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
 msgstr "Több mint 30.000 szállás online"
 
 #: ../code/application/views/includes/top_box.php:28
-#: ../code/application/views/includes/header_book.php:150
-#: ../code/application/views/includes/header.php:975
+#: ../code/application/views/includes/header_book.php:161
+#: ../code/application/views/includes/header.php:985
 #: ../code/application/views/helpfile/pofields.php:275
 #, php-format
 msgid "Free SMS"
 msgstr "Ingyenes SMS"
 
 #: ../code/application/views/includes/top_box.php:37
-#: ../code/application/views/includes/header_book.php:156
-#: ../code/application/views/includes/header.php:981
+#: ../code/application/views/includes/header_book.php:167
+#: ../code/application/views/includes/header.php:991
 #: ../code/application/views/includes/siteinfo.php:23
 #: ../code/application/views/hb/booking_view.php:51
 #: ../code/application/views/hb/booking_view.php:239
@@ -523,8 +524,8 @@ msgid "No Booking fees"
 msgstr "Díjtalan foglalás"
 
 #: ../code/application/views/includes/top_box.php:39
-#: ../code/application/views/includes/header_book.php:156
-#: ../code/application/views/includes/header.php:981
+#: ../code/application/views/includes/header_book.php:167
+#: ../code/application/views/includes/header.php:991
 #: ../code/application/views/helpfile/pofields.php:43
 #: ../code/application/views/helpfile/pofields.php:188
 #, php-format
@@ -539,19 +540,19 @@ msgstr "30.000 szállás és olcsó hotelek."
 
 #: ../code/application/views/includes/top_box.php:53
 #: ../code/application/views/includes/footer.php:36
-#: ../code/application/views/includes/header.php:990
+#: ../code/application/views/includes/header.php:1000
 msgid "Accueil"
 msgstr "Főoldal"
 
 #: ../code/application/views/includes/top_box.php:54
 #: ../code/application/views/includes/footer.php:47
-#: ../code/application/views/includes/header.php:991
+#: ../code/application/views/includes/header.php:1001
 msgid "Auberges et logements pas chers"
 msgstr "Hostelek és Ifjúsági Szállások"
 
 #: ../code/application/views/includes/top_box.php:57
 #: ../code/application/views/includes/footer.php:52
-#: ../code/application/views/includes/header.php:993
+#: ../code/application/views/includes/header.php:1003
 msgid "Réservation d'auberges de jeunesse pour les groupes"
 msgstr "Hostelek csoport foglalás"
 
@@ -559,19 +560,19 @@ msgstr "Hostelek csoport foglalás"
 #: ../code/application/views/includes/group-booking.php:10
 #: ../code/application/views/includes/group-booking.php:11
 #: ../code/application/views/includes/footer.php:60
-#: ../code/application/views/includes/header.php:993
+#: ../code/application/views/includes/header.php:1003
 msgid "Groupes 10+"
 msgstr "Csoportok 10 +"
 
 #: ../code/application/views/includes/top_box.php:60
 #: ../code/application/views/includes/footer.php:68
-#: ../code/application/views/includes/header.php:996
+#: ../code/application/views/includes/header.php:1006
 msgid "Événements"
 msgstr "Események"
 
 #: ../code/application/views/includes/top_box.php:63
 #: ../code/application/views/includes/footer.php:75
-#: ../code/application/views/includes/header.php:999
+#: ../code/application/views/includes/header.php:1009
 msgid "Destinations"
 msgstr "Úticélok"
 
@@ -678,8 +679,8 @@ msgstr "Töltés ..."
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/includes/header.php:850
-#: ../code/application/views/includes/header.php:853
+#: ../code/application/views/includes/header.php:860
+#: ../code/application/views/includes/header.php:863
 #: ../code/application/views/mobile/hw/booking_view.php:34
 #: ../code/application/views/restricted/admin/group_quote.php:59
 #: ../code/application/views/hw/hostel_view.php:152
@@ -718,8 +719,8 @@ msgstr "Nem található az ország"
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/includes/header.php:851
-#: ../code/application/views/includes/header.php:853
+#: ../code/application/views/includes/header.php:861
+#: ../code/application/views/includes/header.php:863
 #: ../code/application/views/mobile/search_view.php:43
 #: ../code/application/views/restricted/admin/group_quote.php:58
 #: ../code/application/views/restricted/admin/group_quote.php:64
@@ -752,10 +753,10 @@ msgstr "Nem található a város"
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/hw/hostel_view.php:488
-#: ../code/application/views/hw/hostel_view.php:520
-#: ../code/application/views/hb/hostel_view.php:584
-#: ../code/application/views/hb/hostel_view.php:616
+#: ../code/application/views/hw/hostel_view.php:507
+#: ../code/application/views/hw/hostel_view.php:546
+#: ../code/application/views/hb/hostel_view.php:604
+#: ../code/application/views/hb/hostel_view.php:643
 #: ../code/application/views/mustache/property_list.php:20
 msgid "Date invalide"
 msgstr "Érvénytelen dátum"
@@ -796,8 +797,8 @@ msgstr "Írd be a szállás vagy a város nevét"
 #: ../code/application/views/mobile/hw/booking_end_view.php:31
 #: ../code/application/views/mobile/hw/booking_avail_view.php:87
 #: ../code/application/views/mobile/search_view.php:16
-#: ../code/application/views/hw/hostel_view.php:501
-#: ../code/application/views/hb/hostel_view.php:598
+#: ../code/application/views/hw/hostel_view.php:520
+#: ../code/application/views/hb/hostel_view.php:618
 #: ../code/application/views/group_request.php:102
 msgid "Arrivée le:"
 msgstr "Érkezés:"
@@ -811,8 +812,8 @@ msgstr "Érkezés:"
 #: ../code/application/views/mobile/hw/booking_end_view.php:32
 #: ../code/application/views/mobile/hw/booking_avail_view.php:94
 #: ../code/application/views/mobile/search_view.php:25
-#: ../code/application/views/hw/hostel_view.php:512
-#: ../code/application/views/hb/hostel_view.php:609
+#: ../code/application/views/hw/hostel_view.php:531
+#: ../code/application/views/hb/hostel_view.php:629
 #: ../code/application/views/email/admin/new_group_request.php:24
 #: ../code/application/views/group_request.php:111
 msgid "Nuits:"
@@ -825,8 +826,8 @@ msgstr "Éjszakák:"
 #: ../code/application/views/includes/search_box.php:164
 #: ../code/application/views/includes/city_search_box.php:151
 #: ../code/application/views/mobile/hw/booking_avail_view.php:100
-#: ../code/application/views/hw/hostel_view.php:515
-#: ../code/application/views/hb/hostel_view.php:612
+#: ../code/application/views/hw/hostel_view.php:534
+#: ../code/application/views/hb/hostel_view.php:632
 msgid "Devise:"
 msgstr "Pénznem:"
 
@@ -887,8 +888,8 @@ msgid "Information"
 msgstr "Információ"
 
 #: ../code/application/views/includes/footer.php:86
-#: ../code/application/views/includes/header_book.php:133
-#: ../code/application/views/includes/header.php:948
+#: ../code/application/views/includes/header_book.php:144
+#: ../code/application/views/includes/header.php:958
 #: ../code/application/views/mobile/includes/footer.php:9
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Segítség / GYIK / Kapcsolat"
@@ -916,7 +917,7 @@ msgid "Confidentialité"
 msgstr "Adatvédelem"
 
 #: ../code/application/views/includes/footer.php:93
-#: ../code/application/views/includes/header.php:946
+#: ../code/application/views/includes/header.php:956
 #: ../code/application/views/mobile/includes/footer.php:8
 msgid "About us"
 msgstr "Rólunk"
@@ -1055,6 +1056,124 @@ msgstr "Ali S, Casablanca"
 msgid "Les cartes sont indispensables et très pratiques."
 msgstr "Térképek alapvetőek és nagyon praktikusak."
 
+#: ../code/application/views/includes/template-share-email-popup.php:12
+#: ../code/application/views/helpfile/pofields.php:668
+#, php-format
+msgid "Your message has been sent to %s"
+msgstr "Az üzenet a %s elküldve"
+
+#: ../code/application/views/includes/template-share-email-popup.php:17
+#: ../code/application/views/helpfile/pofields.php:669
+#, php-format
+msgid "From:"
+msgstr "Feladó:"
+
+#: ../code/application/views/includes/template-share-email-popup.php:21
+#: ../code/application/views/helpfile/pofields.php:670
+#, php-format
+msgid "To:"
+msgstr "Címzett:"
+
+#: ../code/application/views/includes/template-share-email-popup.php:25
+#: ../code/application/views/helpfile/pofields.php:671
+#, php-format
+msgid "Subject:"
+msgstr "Tárgy:"
+
+#: ../code/application/views/includes/template-share-email-popup.php:29
+#: ../code/application/views/helpfile/pofields.php:672
+#, php-format
+msgid "Message:"
+msgstr "Üzenet:"
+
+#: ../code/application/views/includes/template-share-email-popup.php:37
+#: ../code/application/views/helpfile/pofields.php:673
+#, php-format
+msgid "Send another message"
+msgstr "Másik üzenet küldése"
+
+#: ../code/application/views/includes/template-share-email-popup.php:38
+#: ../code/application/views/includes/template-share-email-popup.php:86
+#: ../code/application/views/hw/hostel_view.php:326
+#: ../code/application/views/hb/hostel_view.php:405
+#: ../code/application/views/helpfile/pofields.php:173
+#: ../code/application/views/helpfile/pofields.php:674
+#: ../code/application/views/helpfile/pofields.php:683
+#, php-format
+msgid "Close"
+msgstr "Zárva"
+
+#: ../code/application/views/includes/template-share-email-popup.php:43
+#: ../code/application/views/helpfile/pofields.php:675
+#, php-format
+msgid ""
+"Mail this page to someone you know, or send it to yourself as a reminder."
+msgstr "Küldje el ezt az oldalt egy ismerősének, vagy önmagának emlékeztetőül."
+
+#: ../code/application/views/includes/template-share-email-popup.php:44
+#, fuzzy
+msgid "Mail this PDF quote to someone you know, or send it to yourself."
+msgstr "Küldje el ezt az oldalt egy ismerősének, vagy önmagának emlékeztetőül."
+
+#: ../code/application/views/includes/template-share-email-popup.php:47
+#: ../code/application/views/helpfile/pofields.php:676
+#, php-format
+msgid "To (email)"
+msgstr "To (email)"
+
+#: ../code/application/views/includes/template-share-email-popup.php:52
+#: ../code/application/views/helpfile/pofields.php:677
+#, php-format
+msgid "Subject"
+msgstr "Tárgy "
+
+#: ../code/application/views/includes/template-share-email-popup.php:57
+#: ../code/application/views/helpfile/pofields.php:85
+#: ../code/application/views/helpfile/pofields.php:678
+#, php-format
+msgid "Message"
+msgstr "Üzenet"
+
+#: ../code/application/views/includes/template-share-email-popup.php:63
+#: ../code/application/views/helpfile/pofields.php:679
+#, php-format
+msgid "From (name)"
+msgstr "Feladó (név)"
+
+#: ../code/application/views/includes/template-share-email-popup.php:68
+#: ../code/application/views/helpfile/pofields.php:680
+#, php-format
+msgid "From (email)"
+msgstr "Feladó (e-mail)"
+
+#: ../code/application/views/includes/template-share-email-popup.php:73
+#, fuzzy
+msgid ""
+"Yes, I want to subscribe to the newsletter to get great deals. (You can "
+"unsubscribe anytime)"
+msgstr "Igen, szeretnék feliratkozni a hírlevélre."
+
+#: ../code/application/views/includes/template-share-email-popup.php:83
+#: ../code/application/views/helpfile/pofields.php:682
+#, php-format
+msgid "Send email"
+msgstr "E-mail küldése"
+
+#: ../code/application/views/includes/template-share-email-popup.php:84
+#, fuzzy
+msgid "Send PDF quote"
+msgstr "PDF küldése"
+
+#: ../code/application/views/includes/template-share-email-popup.php:85
+msgid "Please wait ..."
+msgstr ""
+
+#: ../code/application/views/includes/template-share-email-popup.php:90
+#: ../code/application/views/helpfile/pofields.php:684
+#, php-format
+msgid "Share PDF"
+msgstr "PDF megosztása"
+
 #: ../code/application/views/includes/header.php:13
 #: ../code/application/views/mobile/includes/header.php:13
 msgid ""
@@ -1078,15 +1197,15 @@ msgstr ""
 "Azonnali foglalási garancia %s - %s-ban. Verhetetlen áron %s, fényképek, "
 "értékelések - %s."
 
-#: ../code/application/views/includes/header.php:354
+#: ../code/application/views/includes/header.php:364
 msgid "Localisation invalide sur Google Map"
 msgstr "Érvénytelen helyszin a Google Map-on"
 
-#: ../code/application/views/includes/header.php:436
-#: ../code/application/views/includes/header.php:491
-#: ../code/application/views/hw/hostel_view.php:412
+#: ../code/application/views/includes/header.php:446
+#: ../code/application/views/includes/header.php:501
+#: ../code/application/views/hw/hostel_view.php:423
 #: ../code/application/views/hb/hostel_view.php:22
-#: ../code/application/views/hb/hostel_view.php:508
+#: ../code/application/views/hb/hostel_view.php:519
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
 #: ../code/application/views/mustache/property_list.php:44
@@ -1096,8 +1215,8 @@ msgstr "Érvénytelen helyszin a Google Map-on"
 msgid "évaluation moyenne"
 msgstr "Átlagos értékelés"
 
-#: ../code/application/views/includes/header.php:459
-#: ../code/application/views/includes/header.php:505
+#: ../code/application/views/includes/header.php:469
+#: ../code/application/views/includes/header.php:515
 #: ../code/application/views/mobile/property_list.php:13
 #: ../code/application/views/hw/property_list.php:66
 #: ../code/application/views/hb/property_list.php:122
@@ -1108,10 +1227,10 @@ msgstr "Átlagos értékelés"
 msgid "à partir de"
 msgstr " "
 
-#: ../code/application/views/includes/header.php:460
-#: ../code/application/views/includes/header.php:475
-#: ../code/application/views/includes/header.php:506
-#: ../code/application/views/includes/header.php:521
+#: ../code/application/views/includes/header.php:470
+#: ../code/application/views/includes/header.php:485
+#: ../code/application/views/includes/header.php:516
+#: ../code/application/views/includes/header.php:531
 #: ../code/application/views/city_ajax_view.php:73
 #: ../code/application/views/city_ajax_view.php:88
 #: ../code/application/views/city_ajax_view.php:119
@@ -1120,16 +1239,16 @@ msgstr " "
 msgid "Plus d'information"
 msgstr "További információk"
 
-#: ../code/application/views/includes/header.php:921
+#: ../code/application/views/includes/header.php:931
 #, php-format
 msgid "Searching for %s"
 msgstr "Keresés: %s"
 
-#: ../code/application/views/includes/header.php:923
+#: ../code/application/views/includes/header.php:933
 msgid "Please wait while we are finding the best deals for you ..."
 msgstr "Kérjük várjon, amíg megtaláljuk Önnek a  legjobb ajánlatot.... "
 
-#: ../code/application/views/includes/header.php:924
+#: ../code/application/views/includes/header.php:934
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
 msgid "Loading"
@@ -1241,7 +1360,7 @@ msgstr "Kérjük frissítse adatait"
 #: ../code/application/views/group_request.php:223
 #: ../code/application/controllers/user.php:77
 #: ../code/application/controllers/cmain.php:533
-#: ../code/application/controllers/cmain.php:1761
+#: ../code/application/controllers/cmain.php:1936
 #: ../code/application/controllers/chostel.php:563
 msgid "Prénom"
 msgstr "Keresztnév"
@@ -1255,7 +1374,7 @@ msgstr "Keresztnév"
 #: ../code/application/views/group_request.php:231
 #: ../code/application/controllers/user.php:78
 #: ../code/application/controllers/cmain.php:534
-#: ../code/application/controllers/cmain.php:1762
+#: ../code/application/controllers/cmain.php:1937
 #: ../code/application/controllers/chostel.php:564
 msgid "Nom"
 msgstr "Családnév"
@@ -1265,7 +1384,7 @@ msgstr "Családnév"
 #: ../code/application/views/hw/booking_view.php:500
 #: ../code/application/views/hb/booking_view.php:332
 #: ../code/application/controllers/user.php:79
-#: ../code/application/controllers/cmain.php:1764
+#: ../code/application/controllers/cmain.php:1939
 #: ../code/application/controllers/chostel.php:566
 msgid "Nationalité"
 msgstr "Állampolgárság"
@@ -1467,8 +1586,8 @@ msgstr "Vissza az oldal tetejére"
 #: ../code/application/views/mobile/hw/hostel_view.php:29
 #: ../code/application/views/mobile/hw/hostel_view.php:266
 #: ../code/application/views/mobile/hw/booking_view.php:7
-#: ../code/application/views/hw/booking_avail_view.php:573
-#: ../code/application/views/hb/booking_avail_view.php:471
+#: ../code/application/views/hw/booking_avail_view.php:577
+#: ../code/application/views/hb/booking_avail_view.php:472
 msgid "Réserver Maintenant"
 msgstr "Foglalja le most "
 
@@ -1493,17 +1612,17 @@ msgid "About"
 msgstr "Erről"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:114
-#: ../code/application/views/hw/hostel_view.php:535
-#: ../code/application/views/hb/hostel_view.php:638
+#: ../code/application/views/hw/hostel_view.php:571
+#: ../code/application/views/hb/hostel_view.php:674
 #: ../code/application/views/mustache/property_list.php:152
 msgid "Commodité"
 msgstr "Kényelem"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:159
-#: ../code/application/views/hw/hostel_view.php:390
+#: ../code/application/views/hw/hostel_view.php:401
 #: ../code/application/views/hw/reviews.php:44
-#: ../code/application/views/hb/hostel_view.php:485
-#: ../code/application/controllers/cmain.php:1765
+#: ../code/application/views/hb/hostel_view.php:496
+#: ../code/application/controllers/cmain.php:1940
 #: ../code/application/controllers/chostel.php:567
 msgid "Commentaires"
 msgstr "Hozzászólások"
@@ -1523,16 +1642,16 @@ msgid "Par %s | Le %s"
 msgstr "Által %s |A %s  "
 
 #: ../code/application/views/mobile/hw/hostel_view.php:219
-#: ../code/application/views/hw/hostel_view.php:389
-#: ../code/application/views/hb/hostel_view.php:484
+#: ../code/application/views/hw/hostel_view.php:400
+#: ../code/application/views/hb/hostel_view.php:495
 #: ../code/application/views/mustache/property_list.php:28
 msgid "Cartes et Directions"
 msgstr "Térkép és Útvonal"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:244
-#: ../code/application/views/hw/hostel_view.php:602
+#: ../code/application/views/hw/hostel_view.php:638
 #: ../code/application/views/hw/booking_end_view.php:19
-#: ../code/application/views/hb/hostel_view.php:815
+#: ../code/application/views/hb/hostel_view.php:851
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_view.php:829
 #: ../code/application/views/email/new_transaction_hb.php:516
@@ -1677,9 +1796,9 @@ msgid "Nom de l'établissement"
 msgstr "Neve"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:162
-#: ../code/application/views/hw/hostel_view.php:625
+#: ../code/application/views/hw/hostel_view.php:667
 #: ../code/application/views/hw/booking_end_view.php:196
-#: ../code/application/views/hb/hostel_view.php:842
+#: ../code/application/views/hb/hostel_view.php:882
 #: ../code/application/views/hb/booking_end_view.php:133
 #: ../code/application/views/email/new_transaction.php:947
 #: ../code/application/views/email/new_transaction_hb.php:603
@@ -1697,9 +1816,9 @@ msgid "Fax"
 msgstr "Fax"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:194
-#: ../code/application/views/hw/hostel_view.php:694
+#: ../code/application/views/hw/hostel_view.php:736
 #: ../code/application/views/hw/booking_end_view.php:218
-#: ../code/application/views/hb/hostel_view.php:918
+#: ../code/application/views/hb/hostel_view.php:958
 #: ../code/application/views/hb/booking_end_view.php:159
 #: ../code/application/views/email/new_transaction.php:1006
 #: ../code/application/views/email/new_transaction_hb.php:665
@@ -1923,20 +2042,20 @@ msgid "Erreur:"
 msgstr "Hiba:"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:13
-#: ../code/application/views/hw/booking_avail_view.php:589
+#: ../code/application/views/hw/booking_avail_view.php:594
 msgid "No rooms are available for all the nights you selected."
 msgstr "Sajnáljuk, nincs szabad szoba az összes kiválasztott éjszakára."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
-#: ../code/application/views/hw/booking_avail_view.php:605
-#: ../code/application/controllers/chostelbk.php:194
+#: ../code/application/views/hw/booking_avail_view.php:610
+#: ../code/application/controllers/chostelbk.php:196
 #: ../code/application/libraries/Hb_engine.php:1264
 msgid "Serveur inaccessible en ce moment."
 msgstr "Szerver elérhetetlen ebban a pillanatban."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:47
 #: ../code/application/views/hw/hostel_view.php:58
-#: ../code/application/views/hw/booking_avail_view.php:629
+#: ../code/application/views/hw/booking_avail_view.php:634
 #: ../code/application/views/hb/hostel_view.php:146
 #: ../code/application/views/hb/booking_avail_error_view.php:19
 msgid "Détails:"
@@ -1982,8 +2101,8 @@ msgid "Soumettre"
 msgstr "Beküldeni"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:248
-#: ../code/application/views/hw/booking_avail_view.php:596
-#: ../code/application/views/hb/booking_avail_view.php:484
+#: ../code/application/views/hw/booking_avail_view.php:601
+#: ../code/application/views/hb/booking_avail_view.php:488
 msgid "Please enter at least one choice in the above table to book a room."
 msgstr ""
 "Kérjük, válasszon legalább egy lehetőséget a fenti táblázatban a "
@@ -2507,6 +2626,8 @@ msgstr "Hálóterem nem foglalható"
 #: ../code/application/views/property_rooms_avail.php:160
 #: ../code/application/views/hw/booking_avail_view.php:466
 #: ../code/application/views/hb/booking_avail_view.php:372
+#: ../code/application/views/helpfile/pofields.php:717
+#, php-format
 msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
@@ -2541,16 +2662,16 @@ msgid "No private room available"
 msgstr "Privát szoba nem foglalható"
 
 #: ../code/application/views/property_rooms_avail.php:278
-#: ../code/application/views/hw/booking_avail_view.php:575
-#: ../code/application/views/hb/booking_avail_view.php:473
+#: ../code/application/views/hw/booking_avail_view.php:580
+#: ../code/application/views/hb/booking_avail_view.php:477
 #: ../code/application/views/helpfile/pofields.php:289
 #, php-format
 msgid "Best price. We guarantee it."
 msgstr "A legkedvezőbb ár, garantáljuk!"
 
 #: ../code/application/views/property_rooms_avail.php:279
-#: ../code/application/views/hw/booking_avail_view.php:576
-#: ../code/application/views/hb/booking_avail_view.php:474
+#: ../code/application/views/hw/booking_avail_view.php:581
+#: ../code/application/views/hb/booking_avail_view.php:478
 #: ../code/application/views/helpfile/pofields.php:290
 #, php-format
 msgid "It only takes 2 minutes"
@@ -2644,6 +2765,12 @@ msgid "Group booking quote information"
 msgstr "Csoportos foglalára vonatkozó ajánlat részletei"
 
 #: ../code/application/views/restricted/user_group_quote.php:152
+#: ../code/application/views/hw/hostel_view.php:662
+#: ../code/application/views/hw/booking_avail_view.php:574
+#: ../code/application/views/hb/hostel_view.php:876
+#: ../code/application/views/hb/booking_avail_view.php:474
+#: ../code/application/views/email/share_page-txt.php:27
+#: ../code/application/views/email/share_page-html.php:62
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
 msgstr "FONTOS TUDNIA, HOGY EZ NEM VISSZAIGAZOLT FOGLALÁS"
 
@@ -2676,7 +2803,7 @@ msgid "Your offers"
 msgstr "Az Ön ajánlatai"
 
 #: ../code/application/views/restricted/user_group_quote.php:196
-#: ../code/application/views/hb/hostel_view.php:708
+#: ../code/application/views/hb/hostel_view.php:744
 #: ../code/application/views/mustache/property_list.php:162
 msgid "What's Included"
 msgstr "Az ár tartalmaz"
@@ -3263,9 +3390,9 @@ msgstr "Felszereltség"
 #: ../code/application/views/city_view.php:75
 #: ../code/application/views/city_view.php:251
 #: ../code/application/views/hw/hostel_view.php:249
-#: ../code/application/views/hw/hostel_view.php:635
+#: ../code/application/views/hw/hostel_view.php:677
 #: ../code/application/views/hb/hostel_view.php:327
-#: ../code/application/views/hb/hostel_view.php:861
+#: ../code/application/views/hb/hostel_view.php:901
 #: ../code/application/views/helpfile/pofields.php:447
 #: ../code/application/views/mustache/property_list.php:116
 #: ../code/application/views/mustache/property_list.php:259
@@ -3290,9 +3417,9 @@ msgstr "Kevesebb lehetőség"
 #: ../code/application/views/city_view.php:93
 #: ../code/application/views/city_view.php:255
 #: ../code/application/views/hw/hostel_view.php:274
-#: ../code/application/views/hw/hostel_view.php:661
+#: ../code/application/views/hw/hostel_view.php:703
 #: ../code/application/views/hb/hostel_view.php:352
-#: ../code/application/views/hb/hostel_view.php:886
+#: ../code/application/views/hb/hostel_view.php:926
 #: ../code/application/views/mustache/property_list.php:124
 #: ../code/application/views/mustache/property_list.php:269
 msgid "Landmarks (within 2km)"
@@ -3357,7 +3484,7 @@ msgstr "Hiba használat közben"
 
 #: ../code/application/views/hw/hostel_view.php:99
 #: ../code/application/views/hb/hostel_view.php:169
-#: ../code/application/controllers/cmain.php:1845
+#: ../code/application/controllers/cmain.php:2020
 #: ../code/application/controllers/chostel.php:643
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "Hozzászólását tovább küldtük csapatunkhoz jóváhagyásra. Köszönjük!"
@@ -3407,30 +3534,21 @@ msgstr "Utolsó tartózkodásának dátuma ezen a helyen:"
 msgid "Read more…"
 msgstr "További információk... "
 
-#: ../code/application/views/hw/hostel_view.php:326
-#: ../code/application/views/hb/hostel_view.php:405
-#: ../code/application/views/helpfile/pofields.php:173
-#: ../code/application/views/helpfile/pofields.php:674
-#: ../code/application/views/helpfile/pofields.php:683
-#, php-format
-msgid "Close"
-msgstr "Zárva"
-
 #: ../code/application/views/hw/hostel_view.php:330
-#: ../code/application/views/hw/hostel_view.php:538
-#: ../code/application/views/hw/hostel_view.php:605
-#: ../code/application/views/hw/hostel_view.php:697
+#: ../code/application/views/hw/hostel_view.php:574
+#: ../code/application/views/hw/hostel_view.php:641
+#: ../code/application/views/hw/hostel_view.php:739
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1065
 #: ../code/application/views/hb/hostel_view.php:409
-#: ../code/application/views/hb/hostel_view.php:641
-#: ../code/application/views/hb/hostel_view.php:711
-#: ../code/application/views/hb/hostel_view.php:743
-#: ../code/application/views/hb/hostel_view.php:798
-#: ../code/application/views/hb/hostel_view.php:818
-#: ../code/application/views/hb/hostel_view.php:921
+#: ../code/application/views/hb/hostel_view.php:677
+#: ../code/application/views/hb/hostel_view.php:747
+#: ../code/application/views/hb/hostel_view.php:779
+#: ../code/application/views/hb/hostel_view.php:834
+#: ../code/application/views/hb/hostel_view.php:854
+#: ../code/application/views/hb/hostel_view.php:961
 #: ../code/application/views/hb/reviews.php:5
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -3440,20 +3558,20 @@ msgid "Voir la version traduite"
 msgstr "Lásd a lefordított verziót"
 
 #: ../code/application/views/hw/hostel_view.php:331
-#: ../code/application/views/hw/hostel_view.php:539
-#: ../code/application/views/hw/hostel_view.php:606
-#: ../code/application/views/hw/hostel_view.php:698
+#: ../code/application/views/hw/hostel_view.php:575
+#: ../code/application/views/hw/hostel_view.php:642
+#: ../code/application/views/hw/hostel_view.php:740
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1065
 #: ../code/application/views/hb/hostel_view.php:410
-#: ../code/application/views/hb/hostel_view.php:642
-#: ../code/application/views/hb/hostel_view.php:712
-#: ../code/application/views/hb/hostel_view.php:744
-#: ../code/application/views/hb/hostel_view.php:799
-#: ../code/application/views/hb/hostel_view.php:819
-#: ../code/application/views/hb/hostel_view.php:922
+#: ../code/application/views/hb/hostel_view.php:678
+#: ../code/application/views/hb/hostel_view.php:748
+#: ../code/application/views/hb/hostel_view.php:780
+#: ../code/application/views/hb/hostel_view.php:835
+#: ../code/application/views/hb/hostel_view.php:855
+#: ../code/application/views/hb/hostel_view.php:962
 #: ../code/application/views/hb/reviews.php:6
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -3462,13 +3580,13 @@ msgstr "Lásd a lefordított verziót"
 msgid "Voir l'original"
 msgstr "Az eredeti mutatása"
 
-#: ../code/application/views/hw/hostel_view.php:388
-#: ../code/application/views/hb/hostel_view.php:483
+#: ../code/application/views/hw/hostel_view.php:399
+#: ../code/application/views/hb/hostel_view.php:494
 msgid "Info & Prix"
 msgstr "Info és Árak"
 
-#: ../code/application/views/hw/hostel_view.php:396
-#: ../code/application/views/hb/hostel_view.php:492
+#: ../code/application/views/hw/hostel_view.php:407
+#: ../code/application/views/hb/hostel_view.php:503
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/libraries/Hb_engine.php:963
 #: ../code/application/libraries/Hw_engine.php:702
@@ -3476,8 +3594,8 @@ msgstr "Info és Árak"
 msgid "Good"
 msgstr "Jó"
 
-#: ../code/application/views/hw/hostel_view.php:400
-#: ../code/application/views/hb/hostel_view.php:496
+#: ../code/application/views/hw/hostel_view.php:411
+#: ../code/application/views/hb/hostel_view.php:507
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/libraries/Hb_engine.php:967
 #: ../code/application/libraries/Hw_engine.php:706
@@ -3485,8 +3603,8 @@ msgstr "Jó"
 msgid "Very good"
 msgstr "nagyon jó"
 
-#: ../code/application/views/hw/hostel_view.php:404
-#: ../code/application/views/hb/hostel_view.php:500
+#: ../code/application/views/hw/hostel_view.php:415
+#: ../code/application/views/hb/hostel_view.php:511
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/libraries/Hb_engine.php:971
 #: ../code/application/libraries/Hw_engine.php:710
@@ -3494,8 +3612,8 @@ msgstr "nagyon jó"
 msgid "Great"
 msgstr "Nagyszerű"
 
-#: ../code/application/views/hw/hostel_view.php:408
-#: ../code/application/views/hb/hostel_view.php:504
+#: ../code/application/views/hw/hostel_view.php:419
+#: ../code/application/views/hb/hostel_view.php:515
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/libraries/Hb_engine.php:974
 #: ../code/application/libraries/Hw_engine.php:713
@@ -3503,24 +3621,32 @@ msgstr "Nagyszerű"
 msgid "Fantastic"
 msgstr "Fantasztikus"
 
-#: ../code/application/views/hw/hostel_view.php:520
-#: ../code/application/views/hb/hostel_view.php:616
+#: ../code/application/views/hw/hostel_view.php:546
+#: ../code/application/views/hb/hostel_view.php:643
 msgid "Rechercher"
 msgstr "Keresés"
 
-#: ../code/application/views/hw/hostel_view.php:526
-#: ../code/application/views/hb/hostel_view.php:626
+#: ../code/application/views/hw/hostel_view.php:552
+#: ../code/application/views/hb/hostel_view.php:653
 #: ../code/application/views/mustache/property_list.php:246
 msgid "Recherche de disponibilités..."
 msgstr "Keresési lehetőségek..."
 
-#: ../code/application/views/hw/hostel_view.php:629
-#: ../code/application/views/hb/hostel_view.php:855
+#: ../code/application/views/hw/hostel_view.php:560
+#: ../code/application/views/hb/hostel_view.php:666
+#: ../code/application/views/helpfile/pofields.php:694
+#, php-format
+msgid "Want to receive or send a PDF copy of this quote?"
+msgstr ""
+"Szeretne PDF formátumú másolatot kapni vagy küldeni erről az ajánlatról? "
+
+#: ../code/application/views/hw/hostel_view.php:671
+#: ../code/application/views/hb/hostel_view.php:895
 msgid "Cartes"
 msgstr "Térképek"
 
-#: ../code/application/views/hw/hostel_view.php:687
-#: ../code/application/views/hb/hostel_view.php:912
+#: ../code/application/views/hw/hostel_view.php:729
+#: ../code/application/views/hb/hostel_view.php:952
 msgid "Street View"
 msgstr "Google Street view"
 
@@ -3572,6 +3698,8 @@ msgstr "Dátum"
 #: ../code/application/views/email/new_transaction_hb.php:590
 #: ../code/application/views/email/admin/new_group_request.php:44
 #: ../code/application/views/helpfile/pofields.php:123
+#: ../code/application/views/helpfile/pofields.php:746
+#, php-format
 msgid "Phone number"
 msgstr "Telefonszám"
 
@@ -3587,7 +3715,7 @@ msgid "Le montant restant (après déduction du dépôt) est dû à votre arriv�
 msgstr "A fennmaradó összeg (az előleg levonása után) érkezéskor esedékes."
 
 #: ../code/application/views/hw/reviews.php:5
-#: ../code/application/views/hb/hostel_view.php:951
+#: ../code/application/views/hb/hostel_view.php:991
 #: ../code/application/views/hb/reviews.php:1
 #: ../code/application/views/review_empty.php:1
 #: ../code/application/views/city_ajax_view.php:194
@@ -3659,16 +3787,16 @@ msgstr ""
 msgid "You got the best price"
 msgstr "A legjobb árat kaptad!"
 
-#: ../code/application/views/hw/booking_avail_view.php:574
+#: ../code/application/views/hw/booking_avail_view.php:579
 #: ../code/application/views/hw/booking_view.php:996
 #: ../code/application/views/hw/booking_view.php:998
-#: ../code/application/views/hb/booking_avail_view.php:472
+#: ../code/application/views/hb/booking_avail_view.php:476
 #: ../code/application/views/hb/booking_view.php:761
 #: ../code/application/views/hb/booking_view.php:763
 msgid "sécurisé"
 msgstr "Biztos"
 
-#: ../code/application/views/hw/booking_avail_view.php:646
+#: ../code/application/views/hw/booking_avail_view.php:651
 #: ../code/application/views/hb/booking_avail_error_view.php:27
 #: ../code/application/views/helpfile/pofields.php:552
 #, php-format
@@ -3938,7 +4066,7 @@ msgid "Cleanliness"
 msgstr "Tisztaság"
 
 #: ../code/application/views/hb/hostel_view.php:59
-#: ../code/application/views/hb/hostel_view.php:452
+#: ../code/application/views/hb/hostel_view.php:458
 #: ../code/application/views/hb/property_list.php:104
 #: ../code/application/views/helpfile/pofields.php:643
 #: ../code/application/views/mustache/property_list.php:144
@@ -3957,31 +4085,31 @@ msgstr "Érték"
 msgid "N/A"
 msgstr "Nem alkalmazható"
 
-#: ../code/application/views/hb/hostel_view.php:719
-#: ../code/application/views/hb/hostel_view.php:724
-#: ../code/application/views/hb/hostel_view.php:730
+#: ../code/application/views/hb/hostel_view.php:755
+#: ../code/application/views/hb/hostel_view.php:760
+#: ../code/application/views/hb/hostel_view.php:766
 #: ../code/application/views/hb/booking_view.php:240
 #: ../code/application/views/mustache/property_list.php:167
 msgid "Free"
 msgstr "Ingyenes"
 
-#: ../code/application/views/hb/hostel_view.php:740
+#: ../code/application/views/hb/hostel_view.php:776
 msgid "Purchasable Extras"
 msgstr "Megvásárolható extrák"
 
-#: ../code/application/views/hb/hostel_view.php:775
+#: ../code/application/views/hb/hostel_view.php:811
 msgid "Check-In/Out Details"
 msgstr "Be- és kijelentkezés részletei"
 
-#: ../code/application/views/hb/hostel_view.php:779
+#: ../code/application/views/hb/hostel_view.php:815
 msgid "Check-in:"
 msgstr "Bejelentkezés"
 
-#: ../code/application/views/hb/hostel_view.php:783
+#: ../code/application/views/hb/hostel_view.php:819
 msgid "Check-out:"
 msgstr "Kijelentkezés"
 
-#: ../code/application/views/hb/hostel_view.php:795
+#: ../code/application/views/hb/hostel_view.php:831
 #: ../code/application/views/hb/booking_end_view.php:180
 #: ../code/application/views/email/new_transaction_hb.php:703
 msgid "Cancellation Policy"
@@ -4247,6 +4375,27 @@ msgstr "Felhasználói név: %s"
 #, php-format
 msgid "Votre nom d'usager (adresse email): %s"
 msgstr "Felhasználóneve (e-mail címe): %s"
+
+#: ../code/application/views/email/share_page-txt.php:1
+#: ../code/application/views/email/share_page-html.php:35
+#, fuzzy, php-format
+msgid "%s has sent you a message:"
+msgstr "%s üzenetet küldött Önnek:"
+
+#: ../code/application/views/email/share_page-txt.php:5
+#: ../code/application/views/email/share_page-html.php:39
+#: ../code/application/views/helpfile/pofields.php:696
+#, php-format
+msgid "Here is the link to see the prices, description, maps and much more:"
+msgstr ""
+"Ezen a linken találja az árakat, a leírást, a terképeket és még sok más "
+"hasznos információt:"
+
+#: ../code/application/views/email/share_page-txt.php:23
+#: ../code/application/views/email/share_page-html.php:59
+#: ../code/application/views/helpfile/pofields.php:53
+msgid "Thank you"
+msgstr "Köszönjük"
 
 #: ../code/application/views/email/welcome-html.php:32
 #: ../code/application/views/email/welcome-txt.php:1
@@ -4859,10 +5008,6 @@ msgstr ""
 "Vedd fel velünk a kapcsolatot a %s, hogy elküldhessük a szabad perceket a "
 "Skype-on 7 napon belül, miután csatlakoztál hozzánk a Facebook-on"
 
-#: ../code/application/views/helpfile/pofields.php:53
-msgid "Thank you"
-msgstr "Köszönjük"
-
 #: ../code/application/views/helpfile/pofields.php:54
 msgid "Want to receive up to 60 minutes of free calling from Skype ?"
 msgstr "Akarsz 6ö szabad percet a Skype-on"
@@ -5029,6 +5174,8 @@ msgid "Please wait for someone in %s to join the conversation..."
 msgstr "Kérjük várjon valakire a %s-on, hogy beléphessen a beszélgetésbe"
 
 #: ../code/application/views/helpfile/pofields.php:82
+#: ../code/application/views/helpfile/pofields.php:706
+#, php-format
 msgid "Guest"
 msgstr "Vendég"
 
@@ -5045,12 +5192,6 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:84
 msgid "E-mail"
 msgstr "E-mail"
-
-#: ../code/application/views/helpfile/pofields.php:85
-#: ../code/application/views/helpfile/pofields.php:678
-#, php-format
-msgid "Message"
-msgstr "Üzenet"
 
 #: ../code/application/views/helpfile/pofields.php:86
 #: ../code/application/views/helpfile/pofields.php:255
@@ -5477,14 +5618,14 @@ msgid "Data unavailable. Please try again."
 msgstr "Adat elérhetetlen. Probája újra."
 
 #: ../code/application/views/helpfile/pofields.php:200
-#: ../code/application/controllers/chostelbk.php:210
+#: ../code/application/controllers/chostelbk.php:212
 #: ../code/application/libraries/Hb_engine.php:1274
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "Nincs szabad szoba a kiválasztott éjszakákra."
 
 #: ../code/application/views/helpfile/pofields.php:201
-#: ../code/application/controllers/chostelbk.php:348
+#: ../code/application/controllers/chostelbk.php:350
 #, php-format
 msgid "No rooms available for this property."
 msgstr "Nincs szabad szoba ebben az ingatlanban."
@@ -7174,115 +7315,57 @@ msgid "Show Less"
 msgstr "Mutasson Kevesebbet"
 
 #: ../code/application/views/helpfile/pofields.php:660
+#: ../code/application/controllers/cmain.php:1665
 #, php-format
 msgid "Not enough parameters"
 msgstr "Nincs elég paraméter"
 
 #: ../code/application/views/helpfile/pofields.php:661
+#: ../code/application/controllers/cmain.php:1669
 #, php-format
 msgid "Fill in the email"
 msgstr "Adja meg az e-mail címet"
 
 #: ../code/application/views/helpfile/pofields.php:662
+#: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Invalid email recipient"
 msgstr "Érvénytelen e-mail tulajdonos"
 
 #: ../code/application/views/helpfile/pofields.php:663
+#: ../code/application/controllers/cmain.php:1677
 #, php-format
 msgid "Fill in the subject"
 msgstr "Írja be a tárgyat"
 
 #: ../code/application/views/helpfile/pofields.php:664
+#: ../code/application/controllers/cmain.php:1680
 #, php-format
 msgid "Fill in the message"
 msgstr "Írja be az üzenetet"
 
 #: ../code/application/views/helpfile/pofields.php:665
+#: ../code/application/controllers/cmain.php:1683
 #, php-format
 msgid "Fill in the \"From\" name"
 msgstr "Írja be a \"Feladó\" nevét"
 
 #: ../code/application/views/helpfile/pofields.php:666
+#: ../code/application/controllers/cmain.php:1686
 #, php-format
 msgid "Fill in the \"From\" email"
 msgstr "Írja be a \"Feladó\" e-mail címét"
 
 #: ../code/application/views/helpfile/pofields.php:667
+#: ../code/application/controllers/cmain.php:1690
 #, php-format
 msgid "Invalid \"From\" email"
 msgstr "Érvénytelen \"Feladó\" e-mail tulajdonos"
-
-#: ../code/application/views/helpfile/pofields.php:668
-#, php-format
-msgid "Your message has been sent to %s"
-msgstr "Az üzenet a %s elküldve"
-
-#: ../code/application/views/helpfile/pofields.php:669
-#, php-format
-msgid "From:"
-msgstr "Feladó:"
-
-#: ../code/application/views/helpfile/pofields.php:670
-#, php-format
-msgid "To:"
-msgstr "Címzett:"
-
-#: ../code/application/views/helpfile/pofields.php:671
-#, php-format
-msgid "Subject:"
-msgstr "Tárgy:"
-
-#: ../code/application/views/helpfile/pofields.php:672
-#, php-format
-msgid "Message:"
-msgstr "Üzenet:"
-
-#: ../code/application/views/helpfile/pofields.php:673
-#, php-format
-msgid "Send another message"
-msgstr "Másik üzenet küldése"
-
-#: ../code/application/views/helpfile/pofields.php:675
-#, php-format
-msgid ""
-"Mail this page to someone you know, or send it to yourself as a reminder."
-msgstr "Küldje el ezt az oldalt egy ismerősének, vagy önmagának emlékeztetőül."
-
-#: ../code/application/views/helpfile/pofields.php:676
-#, php-format
-msgid "To (email)"
-msgstr "To (email)"
-
-#: ../code/application/views/helpfile/pofields.php:677
-#, php-format
-msgid "Subject"
-msgstr "Tárgy "
-
-#: ../code/application/views/helpfile/pofields.php:679
-#, php-format
-msgid "From (name)"
-msgstr "Feladó (név)"
-
-#: ../code/application/views/helpfile/pofields.php:680
-#, php-format
-msgid "From (email)"
-msgstr "Feladó (e-mail)"
 
 #: ../code/application/views/helpfile/pofields.php:681
 #, php-format
 msgid "Yes, I want to subscribe to the newsletter."
 msgstr "Igen, szeretnék feliratkozni a hírlevélre."
-
-#: ../code/application/views/helpfile/pofields.php:682
-#, php-format
-msgid "Send email"
-msgstr "E-mail küldése"
-
-#: ../code/application/views/helpfile/pofields.php:684
-#, php-format
-msgid "Share PDF"
-msgstr "PDF megosztása"
 
 #: ../code/application/views/helpfile/pofields.php:685
 #, php-format
@@ -7318,6 +7401,7 @@ msgid "Search"
 msgstr "Keresés"
 
 #: ../code/application/views/helpfile/pofields.php:691
+#: ../code/application/views/helpfile/pofields.php:723
 #: ../code/application/views/mustache/property_list.php:261
 #: ../code/application/views/mustache/property_list.php:271
 #, php-format
@@ -7330,27 +7414,268 @@ msgid "last %d"
 msgstr "az utolsó %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, php-format
-msgid "Quich View"
+#, fuzzy, php-format
+msgid "Quick View"
 msgstr "Gyorsnézet"
-
-#: ../code/application/views/helpfile/pofields.php:694
-#, php-format
-msgid "Want to receive or send a PDF copy of this quote?"
-msgstr ""
-"Szeretne PDF formátumú másolatot kapni vagy küldeni erről az ajánlatról? "
 
 #: ../code/application/views/helpfile/pofields.php:695
 #, php-format
 msgid "%s has sent you a message: "
 msgstr "%s üzenetet küldött Önnek:"
 
-#: ../code/application/views/helpfile/pofields.php:696
+#: ../code/application/views/helpfile/pofields.php:697
 #, php-format
-msgid "Here is the link to see the prices, description, maps and much more:"
+msgid "Type of dorms"
 msgstr ""
-"Ezen a linken találja az árakat, a leírást, a terképeket és még sok más "
-"hasznos információt:"
+
+#: ../code/application/views/helpfile/pofields.php:698
+#, fuzzy, php-format
+msgid "Dorms for your group only"
+msgstr "Köszönjük csoportos foglalását."
+
+#: ../code/application/views/helpfile/pofields.php:699
+#, php-format
+msgid "Complete dorm only"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:700
+#, php-format
+msgid ""
+"We will only show you dorms you can fully book. You will need to take all "
+"the beds in that particular dorm even if you do not need all of them. This "
+"is often used by groups."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:701
+#, fuzzy, php-format
+msgid "Average per night per person"
+msgstr "Ár / szoba, nem személy"
+
+#: ../code/application/views/helpfile/pofields.php:702
+#, php-format
+msgid "Average Price"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:703
+#, fuzzy, php-format
+msgid ""
+"Average price per night for requested arrival date and length of stay. "
+"Actual day-by-day prices may vary. However, our prices are quaranteed and "
+"you will never pay more."
+msgstr ""
+"A megadott Átlagár / fő / éj a kért időszakra és időtartamra vonatkozik, a "
+"tényleges napi árak ettől eltérhetnek."
+
+#: ../code/application/views/helpfile/pofields.php:704
+#, fuzzy, php-format
+msgid "Price for 7 nights per person"
+msgstr "Ár / szoba, nem személy"
+
+#: ../code/application/views/helpfile/pofields.php:705
+#, php-format
+msgid "Maximum"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:707
+#, fuzzy, php-format
+msgid "Guests"
+msgstr "Vendég"
+
+#: ../code/application/views/helpfile/pofields.php:708
+#: ../code/application/views/helpfile/pofields.php:740
+#, fuzzy, php-format
+msgid "Availability"
+msgstr "Elérhetőség"
+
+#: ../code/application/views/helpfile/pofields.php:709
+#, php-format
+msgid "Bedroom"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:710
+#, fuzzy, php-format
+msgid "Bedrooms"
+msgstr "Szobák"
+
+#: ../code/application/views/helpfile/pofields.php:711
+#, fuzzy, php-format
+msgid "1 guest in 1 Bedroom."
+msgstr "A maximálisan elhelyezhető személyek száma ebben a szobában"
+
+#: ../code/application/views/helpfile/pofields.php:712
+#: ../code/application/views/helpfile/pofields.php:714
+#, fuzzy, php-format
+msgid "7 guests in 1 Bedroom."
+msgstr "A maximálisan elhelyezhető személyek száma ebben a szobában"
+
+#: ../code/application/views/helpfile/pofields.php:713
+#, php-format
+msgid "7 guests in 7 Bedrooms (7 guests in each room)."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:715
+#, php-format
+msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:716
+#, fuzzy, php-format
+msgid "Type of private bedrooms"
+msgstr "Különszobák"
+
+#: ../code/application/views/helpfile/pofields.php:718
+#, fuzzy, php-format
+msgid "Price per Person"
+msgstr "Ár / Fő / Éj"
+
+#: ../code/application/views/helpfile/pofields.php:719
+#, fuzzy, php-format
+msgid "Price per Room"
+msgstr "Ár ágyanként (nem szobánként)"
+
+#: ../code/application/views/helpfile/pofields.php:720
+#, fuzzy, php-format
+msgid "Average per night per room"
+msgstr "Ár ágyanként (nem szobánként)"
+
+#: ../code/application/views/helpfile/pofields.php:721
+#, php-format
+msgid ""
+"You can only book up to 7 guests at a time. You can book more than 7 guests "
+"by going to our group section on top of this page."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:722
+#, fuzzy, php-format
+msgid "Total number of guests selected"
+msgstr "Vendégek maximális száma a kollégiumban. "
+
+#: ../code/application/views/helpfile/pofields.php:724
+#, php-format
+msgid "You will use 1 full dorm."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:725
+#, php-format
+msgid "You will use 7 full dorms."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:726
+#, php-format
+msgid "You will partially use 1 dorm."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:727
+#, php-format
+msgid "You will use 1 full dorm and 1 partially."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:728
+#, php-format
+msgid "You will use 7 full dorms and 1 partially."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:729
+#, fuzzy, php-format
+msgid "Confirmation Email Preview"
+msgstr "E-mail megerősítése"
+
+#: ../code/application/views/helpfile/pofields.php:730
+#, php-format
+msgid ""
+"Your unique booking number will be provided right after your reservation. "
+"Your reservation will be immediate and guaranteed."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:731
+#, fuzzy, php-format
+msgid "Number of guests"
+msgstr "Szoba tipúsa és a vendégek száma"
+
+#: ../code/application/views/helpfile/pofields.php:732
+#, php-format
+msgid "1 fully available dorm."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:733
+#, php-format
+msgid "7 fully available dorms."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:734
+#, php-format
+msgid ""
+"1 fully available dorm and 1 already partially occupied (beds already "
+"occupied: 7)."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:735
+#, php-format
+msgid "This dorm is already partially occupied (beds already occupied: 7)."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:736
+#, php-format
+msgid ""
+"7 dorms fully available and 1 dorm already partially occupied (beds already "
+"occupied: 7)."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:737
+#, fuzzy, php-format
+msgid "No"
+msgstr "Családnév"
+
+#: ../code/application/views/helpfile/pofields.php:738
+#, php-format
+msgid "Bedrooms you will occupy:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:739
+#, php-format
+msgid "Dorms you will occupy:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:741
+#, php-format
+msgid ""
+"We will provide all important information to make sure you really enjoy your "
+"stay."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:742
+#, fuzzy, php-format
+msgid "Important Information"
+msgstr "Extra információ"
+
+#: ../code/application/views/helpfile/pofields.php:743
+#, php-format
+msgid ""
+"When available, we will provide directions on how to get to the property "
+"including public transportation and airport information."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:744
+#, php-format
+msgid ""
+"With full contact information, you will be able to contact the property in "
+"case you have any special requests."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:745
+#, fuzzy, php-format
+msgid "Property name"
+msgstr "Ingatlan szám"
+
+#: ../code/application/views/helpfile/pofields.php:747
+#, fuzzy, php-format
+msgid "Address"
+msgstr "Cím"
+
+#: ../code/application/views/helpfile/pofields.php:748
+#, fuzzy, php-format
+msgid "Please click here to preview your confirmation email"
+msgstr "Egy visszaigazoló e-mailt fog kapni"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -7402,8 +7727,8 @@ msgid "Une mise à jour de votre profil a été effectuée. Merci!"
 msgstr "Az Ön adatait felfrissitettük. Köszönjük!"
 
 #: ../code/application/controllers/cmain.php:457
-#: ../code/application/controllers/chostelbk.php:369
-#: ../code/application/controllers/chostel.php:992
+#: ../code/application/controllers/chostelbk.php:371
+#: ../code/application/controllers/chostel.php:994
 msgid "Données de réservations incomplètes."
 msgstr "Foglalási adatok hiányosak."
 
@@ -7416,52 +7741,52 @@ msgid "Terms and conditions agreement"
 msgstr "Általános szerződési feltételek"
 
 #: ../code/application/controllers/cmain.php:609
-#: ../code/application/controllers/chostelbk.php:664
-#: ../code/application/controllers/chostel.php:1516
+#: ../code/application/controllers/chostelbk.php:666
+#: ../code/application/controllers/chostel.php:1518
 #, php-format
 msgid "Votre réservation sur %s!"
 msgstr "Az Ön foglalása - %s"
 
-#: ../code/application/controllers/cmain.php:1763
+#: ../code/application/controllers/cmain.php:1938
 #: ../code/application/controllers/chostel.php:565
 #: ../code/application/language/multi/tank_auth_lang.php:51
 msgid "Courriel"
 msgstr "E-mail"
 
-#: ../code/application/controllers/cmain.php:1766
+#: ../code/application/controllers/cmain.php:1941
 #: ../code/application/controllers/chostel.php:568
 msgid "Évaluation"
 msgstr "Értékelés"
 
-#: ../code/application/controllers/cmain.php:1767
+#: ../code/application/controllers/cmain.php:1942
 #: ../code/application/controllers/chostel.php:569
 msgid "Mois"
 msgstr "Hónap"
 
-#: ../code/application/controllers/cmain.php:1768
+#: ../code/application/controllers/cmain.php:1943
 #: ../code/application/controllers/chostel.php:570
 msgid "Année"
 msgstr "Év"
 
-#: ../code/application/controllers/cmain.php:1824
+#: ../code/application/controllers/cmain.php:1999
 #: ../code/application/controllers/chostel.php:621
 #, php-format
 msgid "Demande de modération pour la propriété %s"
 msgstr "Kérelem, ez ingatlan megváltoztatására %s"
 
-#: ../code/application/controllers/cmain.php:1917
+#: ../code/application/controllers/cmain.php:2092
 msgid "Accept terms and conditions agreement to proceed"
 msgstr "Fogadd el az általános szerződési feltételeket a folytatáshoz"
 
-#: ../code/application/controllers/chostelbk.php:297
-#: ../code/application/controllers/chostelbk.php:335
-#: ../code/application/controllers/chostel.php:1001
+#: ../code/application/controllers/chostelbk.php:299
+#: ../code/application/controllers/chostelbk.php:337
+#: ../code/application/controllers/chostel.php:1003
 #: ../code/application/libraries/Hw_engine.php:1668
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Szerver nem érhető el. Kérjük, próbálkozzon később."
 
-#: ../code/application/controllers/chostelbk.php:547
-#: ../code/application/controllers/chostel.php:1414
+#: ../code/application/controllers/chostelbk.php:549
+#: ../code/application/controllers/chostel.php:1416
 #: ../code/application/libraries/Hw_engine.php:2011
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Szerver nem érhető el ebben a pillanatban. Kérjük, próbálja újra."
@@ -7478,8 +7803,8 @@ msgstr "Éjszakák száma"
 msgid "Lunch"
 msgstr "Ebéd "
 
-#: ../code/application/controllers/cron.php:647
-#: ../code/application/controllers/cron.php:696
+#: ../code/application/controllers/cron.php:644
+#: ../code/application/controllers/cron.php:693
 msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "Kérjük értékelje tartozkodását!"
 
@@ -7512,7 +7837,7 @@ msgstr ""
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/controllers/chostel.php:1402
+#: ../code/application/controllers/chostel.php:1404
 #: ../code/application/libraries/Hw_engine.php:2001
 msgid "Erreur lors de la réservation"
 msgstr "Hiba történt az Ön foglalása közben"
