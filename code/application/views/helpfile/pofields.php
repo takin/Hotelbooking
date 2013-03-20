@@ -746,3 +746,10 @@
 <?php echo _('Phone number');?>
 <?php echo _('Address');?>
 <?php echo _('Please click here to preview your confirmation email');?>
+<?php echo _('This type of dorm can accommodate up to 1 guest per dorm.');?>
+<?php echo _('This type of dorm can accommodate up to 7 guests per dorm.');?>
+<?php echo _('This type of bedroom can accommodate up to 1 guest per room.');?>
+<?php echo _('This type of bedroom can accommodate up to 7 guests per room.');?>
+<?php echo _('The lowest price per person per night in a dorm in this property:');?>
+<?php echo _('The lowest price per person per night in a private room at this property:');?>
+<?php echo _('Maximum you can book');?>
