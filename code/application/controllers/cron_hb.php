@@ -231,17 +231,28 @@ class Cron_hb extends I18n_site
 
   }
 
-    public function hb_hostels_get() {    
+    public function hb_hostels_get() {
         require_once(APPPATH . "/services/hostelbookers_feed_service.php");
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         ini_set('display_errors', 1);
         error_reporting(E_ALL);
+        ini_set('memory_limit', "2047M");
+        set_time_limit(10000);
         
-        $hbFeedService = new Hostelbookers_feed_service();
-        $hbFeedService->updateAllHbProperties();
-        
-        $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
-        $hbPropertyContentService->updateMonthlyPropertyContent();
+        $this->load->library('custom_log');
+        $this->log_filename.= "_staticfeeds-" . date("Y-m");        
+        try {
+            $hbFeedService = new Hostelbookers_feed_service();
+            $hbFeedService->updateAllHbProperties();
+
+            $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
+            $hbPropertyContentService->updateMonthlyPropertyContent();            
+        } catch (Exception $e) {
+            $msg = sprintf("%s error: inserting/updating hostels. %s \n %s", 
+                    __FUNCTION__, $e->message, $e->getTraceAsString());
+            log_message("error", $msg);
+            $this->custom_log->log($this->log_filename, $msg);
+        }
     }
     
     public function oldHbHostelsGet() {

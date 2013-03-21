@@ -6,7 +6,7 @@ class Hostelbookers_feed_service extends Xml_Service {
     const PROPERTY_VALID = 1;
     const PROPERTY_INVALID = 0;
     
-    private $existingFacilities = array();
+    private $existingFacilitiesCache = array();
     
     public function __construct() {
         parent::__construct();
@@ -14,10 +14,9 @@ class Hostelbookers_feed_service extends Xml_Service {
     
     public function updateAllHbProperties() {
         $startTime = microtime(true);
-        $this->ci->load->model("db_hb_hostel");
         $url = $this->getWebServiceUrl();
-        //$requestData = $this->getDataFromUrl($url);
-        $requestData = $this->getTestUpdateXml();
+        $requestData = $this->getDataFromUrl($url);
+        //$requestData = $this->getTestXml();
         $propertiesData = $this->parseXmlData($requestData);
         $this->insertOrUpdatePropertiesDataInDb($propertiesData);
         $endTime = microtime(true);
@@ -34,8 +33,8 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $url;
     }
     
-    private function parseXmlData(&$xmlData) {
-        $propertiesXml = simplexml_load_string($xmlData);
+    private function parseXmlData($xmlData) {
+        $propertiesXml = $this->getPropertiesXml($xmlData);
         
         $properties = array();
         
@@ -51,6 +50,20 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $properties;
     }
     
+    private function getPropertiesXml($xmlData) {
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument("1.0", "UTF-8");
+        $dom->strictErrorChecking = false;
+        $dom->validateOnParse = false;
+        $dom->recover = true;
+        $dom->loadXML($xmlData);
+        $propertiesXml = simplexml_import_dom($dom);
+        libxml_clear_errors();
+        libxml_use_internal_errors(false);
+                
+        return $propertiesXml;
+    }
+    
     private function parsePropertyXml($propertyXml) {        
         $property = array_merge(
             array(
@@ -61,11 +74,9 @@ class Hostelbookers_feed_service extends Xml_Service {
                 "map_url" => $this->trimCDataTag($propertyXml->map),
                 "property_number" => intval((string) $propertyXml["id"], 10),
                 "property_type" => (string) $propertyXml["type"],
-         //       "checkout" => (string) $propertyXml["checkout"],
-         //       "checkin" => (string) $propertyXml["checkin"],
-                "city_hb_id" => (string) $propertyXml["locationid"],
-                "cancellation_period" => (string) $propertyXml["canc"],
-                "release_unit" => (string) $propertyXml["release"],
+                "city_hb_id" => intval((string) $propertyXml["locationid"], 10),
+                "cancellation_period" => intval((string) $propertyXml["canc"]),
+                "release_unit" => intval((string) $propertyXml["release"], 10),
                 "modified" => date("Y-m-d"),
                 "api_sync_status" => self::PROPERTY_VALID
             ), $this->parsePropertyXmlRatings($propertyXml->ratings),
@@ -75,8 +86,8 @@ class Hostelbookers_feed_service extends Xml_Service {
         $propertyNumber = $property["property_number"];
         $prices = $this->parseXmlPrices($propertyXml->price, $propertyNumber);
         $images = $this->parseXmlImages($propertyXml->img, $propertyNumber);        
-        $extras = $this->parseXmlExtras($propertyXml->facilities, $propertyNumber);
-        $facilities = $this->parseXmlFacilities($propertyXml->facilities, $propertyNumber);
+        $extras = $this->parseXmlExtras($propertyXml->opt, $propertyNumber);
+        $facilities = $this->parseXmlFacilities($propertyXml->fac, $propertyNumber);
         
         return array(
             "property" => $property,
@@ -121,7 +132,10 @@ class Hostelbookers_feed_service extends Xml_Service {
     }
     
     private function parseXmlPriceType($pricesXml, $priceType, $propertyNumber) {
-        /* TODO: Do an empty check? */
+        if (!isset($pricesXml->$priceType) || !isset($pricesXml->$priceType->price)) {
+            return array();
+        }
+        
         $prices = array();
         
         foreach($pricesXml->$priceType->price as $priceNode) {
@@ -139,8 +153,9 @@ class Hostelbookers_feed_service extends Xml_Service {
     }
     
     private function parseXmlImages($imagesXml, $propertyNumber) {
-        $images = array();
+        if (!isset($imagesXml->img)) return array();
         
+        $images = array();
         foreach ($imagesXml->img as $imgNode) {
             $img = array(
                 "hostel_hb_id" => $propertyNumber,
@@ -154,15 +169,15 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $images;
     }
     
-    private function parseXmlExtras($facilitiesXml, $propertyNumber) {
-        $extrasXml = $facilitiesXml->xpath("//extra");
+    private function parseXmlExtras($extrasXml, $propertyNumber) {
+        if (!isset($extrasXml->extra)) return array();
         
         $extras = array();
-        foreach ($extrasXml as $extraNode) {
+        foreach ($extrasXml->extra as $extraNode) {
             $extra = array(
                 "hb_extra_id" => intval((string) $extraNode["id"], 10),
                 "cost" => intval((string) $extraNode["cost"]),
-                "hostel_hb_id" => $propertyNumber,
+                "hostel_hb_id" => intval($propertyNumber, 10),
                 "api_sync_status" => self::PROPERTY_VALID
             );
             
@@ -173,23 +188,20 @@ class Hostelbookers_feed_service extends Xml_Service {
     }
     
     /**
-     * Ignores facilities that aren't in the hb_features table
+     * Ignores features/facilities that aren't in the hb_features table
      */
     private function parseXmlFacilities($facilitiesXml, $propertyNumber) {
-        $facilitiesXml = $facilitiesXml->xpath("//fac");
+        if (!isset($facilitiesXml->fac)) return array();
         
         $facilities = array();
-        foreach($facilitiesXml as $facilityNode) {
+        foreach($facilitiesXml->fac as $facilityNode) {
             $facilityId = intval($facilityNode["id"], 10);
             if (empty($facilityId)) {
                 continue;
-            }
-            
-            if (!isset($this->existingFacilities[$facilityId]) &&
-                    !$this->ci->db_hb_hostel->get_feature_by_id($facilityId)) {
+            } else if (!$this->doesFacilityExist($facilityId)) {
                 continue;
             }  else {
-                $this->existingFacilities[$facilityId] = $facilityId;
+                $this->existingFacilitiesCache[$facilityId] = $facilityId;
             }
             
             $facility = array(
@@ -204,17 +216,30 @@ class Hostelbookers_feed_service extends Xml_Service {
         return $facilities;
     }
     
+    private function doesFacilityExist($facilityId) {
+        if (isset($this->existingFacilitiesCache[$facilityId])) return true;
+        $feature = $this->ci->db_hb_hostel->get_feature_by_id($facilityId);
+        if (empty($feature)) {
+            return false;
+        }
+        else return true;
+    }
+    
     private function insertOrUpdatePropertiesDataInDb($propertiesData) {
         $this->updateSyncStatus(self::PROPERTY_INVALID);
         $startTime = microtime(true);
         foreach($propertiesData as $propertyData) {
             $property = $propertyData["property"];
+ 
+            // Ignore hostels in cities that don't exist
+            $cityId = $property["city_hb_id"];
+            if (! $this->doesCityExist($cityId)) continue;
+            
             $hostelId = $this->ci->db_hb_hostel->get_hostel_id(
                     $property["property_number"]);
-        
-            if (isset($hostelId)) $property["hb_hostel_id"] = $hostelId;
             
-            if (!empty($hostelId)) {
+            if (isset($hostelId) && !empty($hostelId)) {
+                $property["hb_hostel_id"] = $hostelId;
                 $this->updatePropertyDataInDb($propertyData);
             } else {
                 $this->insertPropertyDataInDb($propertyData);
@@ -226,6 +251,15 @@ class Hostelbookers_feed_service extends Xml_Service {
                 $startTime, $endTime);
     }
     
+    private function doesCityExist($cityId) {
+        $this->ci->load->model("db_hb_city");
+        $city = $this->ci->db_hb_city->get_hb_city_from_hbid($cityId);
+        if (empty($city)) {
+            return false;
+        }
+        else return true;
+    }
+    
     private function updateSyncStatus($status) {
         $this->ci->db_hb_hostel->update_sync_status($status);
         $this->ci->db_hb_hostel->update_features_status($status);
@@ -235,63 +269,68 @@ class Hostelbookers_feed_service extends Xml_Service {
     private function updatePropertyDataInDb(array $propertyData) {
         $property = $propertyData["property"];
         $propertyNumber = $property["property_number"];
-            
+        unset($property["city_hb_id"]);
+        
         try {
-            $this->ci->db_hb_hostel->update_hostel($property);
+            $this->ci->db_hb_hostel->update_hostel_from_array($property);
             
-            // Deleting because this is a comprehensive feed and I don't think the pks are ever referenced
             $this->ci->db_hb_hostel->delete_all_prices_for_property($propertyNumber);
-            $this->ci->db_hb_hostel->insert_or_update_hb_prices(
-                    $propertyNumber, $propertyData["prices"]);
+            $this->ci->db_hb_hostel->insert_prices($propertyData["prices"]);
             
             $this->ci->db_hb_hostel->delete_all_images_for_property($propertyNumber);
             $this->ci->db_hb_hostel->insert_hb_images($propertyData["images"]);
             
             $this->ci->db_hb_hostel->delete_all_extras_for_property($propertyNumber);
-            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel($propertyData["extras"]);
+            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel_from_array($propertyData["extras"]);
             
             $this->ci->db_hb_hostel->delete_all_facilities_for_property($propertyNumber);
             $this->ci->db_hb_hostel->insert_hb_facilities($propertyData["facilities"]);
         } catch(Exception $e) {
-            log_message("error", 
-                sprintf("%s error: updating hostel (property_number %s) in database failed. %s", 
-                    __FUNCTION__, $propertyNumber, $e->message));
+            $msg = sprintf("%s error: updating hostel (property_number %s) in database failed. %s \n %s", 
+                    __FUNCTION__, $propertyNumber, $e->getMessage(), $e->getTraceAsString());
+            log_message("error", $msg);
+            $this->ci->custom_log->log($this->log_filename, $msg);
         }
     }
     
     private function insertPropertyDataInDb(array $propertyData) {
         $property = $propertyData["property"];
         $prices = $propertyData["prices"];
-        $propertyNumber = $property["property_number"];
+        $property["added"] = date("Y-m-d");
         
         if (isset($property["hb_hostel_id"])) unset($property["hb_hostel_id"]);
         
         try {
-            $this->ci->db_hb_hostel->insert_hostel($property);
-            $this->ci->db_hb_hostel->insert_or_update_hb_prices($propertyNumber, $prices);
-            $this->ci->db_hb_hostel->insert_or_update_hb_prices(
-                    $propertyNumber, $propertyData["prices"]);
+            $this->ci->db_hb_hostel->insert_hostel_from_array($property);
+            $this->ci->db_hb_hostel->insert_prices($prices);
             $this->ci->db_hb_hostel->insert_hb_images($propertyData["images"]);
-            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel($propertyData["extras"]);
-            $this->ci->db_hb_hostel->insert_or_update_hb_facilities(
-                    $propertyNumber, $propertyData["facilities"]);
+            $this->ci->db_hb_hostel->insert_hb_extras_to_hostel_from_array($propertyData["extras"]);
             $this->ci->db_hb_hostel->insert_hb_facilities($propertyData["facilities"]);
         } catch(Exception $e) {
-            $this->logAudit(sprintf(
-                    "HB XML Service - error inserting hostel: %s", $e->getMessage()),
-                    0, 0);
-            log_message("Error", 
-                sprintf("%s error: inserting hostel (property_number %s) into database failed. %s", 
-                    __FUNCTION__, $property["property_number"], $e->message));
+            $msg = sprintf("%s error: inserting hostel (property_number %s) into database failed. %s \n %s", 
+                    __FUNCTION__, $property["property_number"], $e->getMessage(),
+                    $e->getTraceAsString());
+            log_message("Error", $msg);
+            $this->ci->custom_log->log($this->log_filename, $msg);
         }
     }
     
-    private function getTestUpdateXml() {
-        return '<properties><property type="Hostel" id="1026" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Kyle Clown and Bard Prague</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img><img>/p/1000/1026-20120903030956.JPG</img><img>/p/1000/1026-20120903020928.JPG</img><img>/p/1000/1026-20120903060907.jpg</img><img>/p/1000/1026-20120903050948.jpg</img><img>/p/1000/1026-20120903050952.jpg</img><img>/p/1000/1026-20120903050958.JPG</img><img>/p/1000/1026-20120903050943.JPG</img><img>/p/1000/1026-20120903030909.JPG</img><img>/p/1000/1026-20120903050954.JPG</img></img><fac><fac id="2"/><fac id="6"/><fac id="7"/><fac id="8"/><fac id="10"/><fac id="11"/><fac id="12"/><fac id="15"/><fac id="17"/><fac id="18"/><fac id="20"/><fac id="44"/><fac id="63"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property></properties>';        
-    }
-    
-    private function getTestInsertXml() {
-        return '<properties><property type="Hostel" id="343434" canc="4" locationid="1833" countryid="9" release="24"><name>Kyle Sofia Hostel</name><price><shared><price c="AUD">14.06391900</price><price c="EUR">11.00310900</price><price c="GBP">9.47701500</price><price c="USD">14.37000000</price></shared><private><price c="AUD">0.00000000</price><price c="EUR">0.00000000</price><price c="GBP">0.00000000</price><price c="USD">0.00000000</price></private></price><lat>4.269623800000000e+001</lat><lon>2.331893000000000e+001</lon><rating><totalrating>7</totalrating><total>72.24489</total><atmos>74.29</atmos><staff>85.71</staff><loc>82.86</loc><clean>65.71</clean><facil>65.71</facil><safety>60.00</safety><value>71.43</value></rating><add><add1>16 Pozitano</add1><add2>Sofia 1000</add2><add3/><zip>1000</zip></add><map>http://www.multimap.com/map/browse.cgi?GridE=&amp;GridN=&amp;client=public&amp;lon=23.3319&amp;lat=42.7073&amp;scale=1000000&amp;place=Sofia,+,+Bulgaria&amp;db=w3&amp;local=&amp;type=&amp;start=&amp;coordsys=&amp;limit=&amp;overviewmap=</map><img><img>/p/1000/1004-20120424092015.jpg</img><img>/p/1000/1004-20120518022957.jpg</img></img><fac><fac id="1"/><fac id="5"/><fac id="6"/><fac id="11"/><fac id="12"/><fac id="15"/><fac id="18"/><fac id="21"/></fac><opt><extra id="2" cost="0.0000"/><extra id="3" cost="0.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property></properties>';
+    private function getTestXml() {
+        /*
+         * Cases:
+         *  1. Standard update - property number 1026
+         *  2. Standard insert - property number 353535
+         *  3. Location doesn't exist - property number 363636
+         *  4. No facilities or extras - property number 373737
+         *  5. Facility doesn't exist + no extras - property number 383838
+         */
+        return '<properties>
+                    <property type="Hostel" id="1026" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test Clown and Bard Prague</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="1"/><fac id="6"/><fac id="7"/><fac id="8"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property>
+                    <property type="Hostel" id="353535" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test Clown and Bard Prague</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">8.00</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="1"/><fac id="6"/><fac id="7"/><fac id="8"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property>
+                    <property type="Hostel" id="363636" canc="2" locationid="353535" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test City Doesnt Exist</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="1"/><fac id="6"/><fac id="7"/><fac id="8"/><fac id="10"/><fac id="11"/><fac id="12"/><fac id="15"/><fac id="17"/><fac id="18"/><fac id="20"/><fac id="44"/><fac id="63"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property>
+                    <property type="Hostel" id="373737" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test no extras or facilities</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac></fac><opt></opt></property>
+                    <property type="Hostel" id="383838" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test no extras or facilities</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="2"/></fac><opt></opt></property>
+                </properties>';
     }
 }
 

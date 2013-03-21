@@ -3,16 +3,16 @@
 abstract class Xml_Service {
     
     protected $ci;
+    protected $log_filename;
     
     public function __construct() {
         $this->ci = &get_instance();
+        $this->ci->load->model("db_hb_hostel");
         $this->ci->load->library("custom_log");
+        $this->log_filename = "hb_cache_staticfeeds-" . date("Y-m");
     }
 
-    protected function getDataFromUrl($url) {
-        ini_set('memory_limit', "512M");
-        set_time_limit(2000);
-        
+    protected function getDataFromUrl($url) {        
         $curl = curl_init();
         
         try {
@@ -25,7 +25,6 @@ abstract class Xml_Service {
                     0, 0, 0);
             
             $requestTime = microtime(true);
-            $memoryMeasurements = array("requestMem" => memory_get_usage());
             $result = curl_exec($curl);
             $responseTime = microtime(true);
             
@@ -35,13 +34,12 @@ abstract class Xml_Service {
                         "Error: Request to $url received http status code of $httpStatus");
             }
             
-            $memoryMeasurements["responseMem"] = memory_get_usage();
             $this->logAudit("HB XML Service - XML retrieval from $url", 
-                    $requestTime, $responseTime, $memoryMeasurements);
+                    $requestTime, $responseTime, true);
         } catch (Exception $e) {
             log_message("error", 
-                    sprintf("%s error: retrieving data from %s failed. %s", 
-                        __FUNCTION__, $url, $e->message));
+                    sprintf("%s error: retrieving data from %s failed. %s \n %s", 
+                        __FUNCTION__, $url, $e->getMessage(), $e->getTraceAsString()));
             $result = null;
             curl_close($curl);
         }
@@ -56,10 +54,11 @@ abstract class Xml_Service {
                 "CACHE-CONTROL: max-age=0");
     }
     
-    protected function logAudit($message, $requestTime, $responseTime, $memoryMeasurements = array()) {
-        if (!empty($memoryMeasurements)) {
-            $memoryUsed = $memoryMeasurements["responseMem"] - $memoryMeasurements["requestMem"];
-            $memMsg = sprintf("- memory used is %s bytes", $memoryUsed);
+    protected function logAudit($message, $requestTime, $responseTime, $displayMemUsage=false) {
+        if ($displayMemUsage) {
+            $this->ci->load->helper("memory_helper");
+            $memoryUsed = memory_usage_in_mb();
+            $memMsg = sprintf("- memory used is %s mb", $memoryUsed);
         } else {
             $memMsg = "";
         }
