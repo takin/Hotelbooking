@@ -476,6 +476,26 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->update(self::HOSTEL_PRICE_TABLE);
   }
 
+    public function update_hostel_from_array(array $hostel) {
+        $propertyNumber = $hostel["property_number"];
+        unset($hostel["property_number"]);
+        
+        if (empty($propertyNumber)) {
+            throw new Exception(sprintf(
+                    "Error updating hostel named %s: no property number",
+                    $hostel["property_name"]));
+        }
+        
+        $this->CI->db->where("property_number", $propertyNumber);
+        $isUpdated = $this->CI->db->update(self::HOSTEL_TABLE, $hostel);
+                
+        if (!$isUpdated) {
+            throw new Exception(sprintf(
+                "Hostel with property number %s unable to be updated.",
+                $propertyNumber));
+        }
+    }
+  
   function update_hostel($xml_hostel, $city_id)
   {
     $this->feed_trace(self::FEED_INFO,print_r($xml_hostel,true));
@@ -809,7 +829,64 @@ class Db_hb_hostel extends CI_Model
 
     return $return;
   }
-
+    
+    public function delete_all_images_for_property($propertyNumber) {
+        $isDeleted = $this->CI->db->delete(
+                self::HOSTEL_IMAGE_TABLE, 
+                array('hostel_hb_id' => $propertyNumber));
+        
+        if (!$isDeleted) {
+            throw new Exception(sprintf(
+                "Error occurred while deleting images for hb hostel with property number %s",
+                $propertyNumber));
+        }
+    }
+    
+    public function delete_all_extras_for_property($propertyNumber) {
+        $isDeleted = $this->CI->db->delete(
+                self::HOSTEL_EXTRA_TABLE, 
+                array('hostel_hb_id' => $propertyNumber));
+        
+        if (!$isDeleted) {
+            throw new Exception(sprintf(
+                "Error occurred while deleting extras for hb hostel with property number %s",
+                $propertyNumber));
+        }
+    }
+    
+    public function delete_all_facilities_for_property($propertyNumber) {
+        $isDeleted = $this->CI->db->delete(
+                self::HOSTEL_FEATURE_TABLE, 
+                array('hostel_hb_id' => $propertyNumber));
+        
+        if (!$isDeleted) {
+            throw new Exception(sprintf(
+                "Error occurred while deleting facilities/features for hb hostel with property number %s",
+                $propertyNumber));
+        }
+    }
+    
+    public function delete_all_prices_for_property($propertyNumber) {
+        $isDeleted = $this->CI->db->delete(
+                self::HOSTEL_PRICE_TABLE, 
+                array('hostel_hb_id' => $propertyNumber));
+        
+        if (!$isDeleted) {
+            throw new Exception(sprintf(
+                "Error occurred while deleting prices for hb hostel with property number %s",
+                $propertyNumber));
+        }
+    }
+  
+    public function insert_prices(array $prices) {
+        if (empty($prices)) return true;
+      
+        $isInserted = $this->CI->db->insert_batch(self::HOSTEL_PRICE_TABLE, $prices);
+        if (!$isInserted) {
+            throw new Exception("Error inserting prices into database for hb properties");
+        }
+    }
+  
   function update_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
@@ -968,6 +1045,23 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->delete($table);
   }
 
+  function insert_hostel_from_array(array $hostel) {
+    if (empty($hostel)) return true;
+      
+    $isInserted = $this->CI->db->insert(self::HOSTEL_TABLE, $hostel);
+
+    if (!$isInserted) {
+        die("Error inserting hostel: " . print_r($hostel));
+
+        throw new Exception(sprintf(
+              "Error inserting hostel (property number %s in db", 
+                $hostel["property_number"]));
+    }
+
+    return $this->CI->db->insert_id();
+      
+  }
+  
   function insert_hostel($xml_hostel, $city_id)
   {
 
@@ -1091,6 +1185,13 @@ class Db_hb_hostel extends CI_Model
 
   function insert_hb_short_desc($hostel_id, $langage, $short_description)
   {
+    $hostelId = $this->get_hostel_id($hostel_id);
+            
+    if (!isset($hostelId) || empty($hostelId)) {
+        throw new Exception("Error inserting short description: hostel with property number $hostel_id doesn't exist");
+        return true;
+    }
+      
     $this->CI->db->set('hostel_hb_id', $hostel_id);
     $this->CI->db->set('language', (string)$langage);
     $this->CI->db->set('short_description', (string)$short_description);
@@ -1161,7 +1262,17 @@ class Db_hb_hostel extends CI_Model
 
     return $return;
   }
-
+  
+  public function insert_hb_extras_to_hostel_from_array(array $extras) {
+      if (empty($extras)) return true;
+      
+      $isInserted = $this->CI->db->insert_batch(self::HOSTEL_EXTRA_TABLE, $extras);
+      
+      if (!$isInserted) {
+          throw new Exception("Error inserting hb extras into database");
+      }
+  }
+  
   function insert_hb_extras_to_hostel($hostel_id, $extras)
   {
     $return = true;
@@ -1215,6 +1326,24 @@ class Db_hb_hostel extends CI_Model
     return $return;
   }
 
+  public function insert_hb_images($images) {
+      if (empty($images)) return true;
+      
+      $isInserted = $this->CI->db->insert_batch(self::HOSTEL_IMAGE_TABLE, $images);
+      if (!$isInserted) {
+          throw new Exception("Error inserting images into database for hb properties");
+      }
+  }
+  
+  public function insert_hb_facilities($facilities) {
+      if (empty($facilities)) return true;
+      
+      $isInserted = $this->CI->db->insert_batch(self::HOSTEL_FEATURE_TABLE, $facilities);
+      if (!$isInserted) {
+          throw new Exception("Error inserting facilities/features into database for hb properties");
+      }
+  }
+    
   function insert_hb_images_to_hostel($hostel_id, $images)
   {
     $return = true;
@@ -1235,7 +1364,7 @@ class Db_hb_hostel extends CI_Model
     }
     return $return;
   }
-
+  
   function insert_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
@@ -1666,6 +1795,13 @@ class Db_hb_hostel extends CI_Model
 
   }
 
+  public function get_feature_by_id($featureId) {
+      $this->CI->db->where("hb_feature_id", $featureId);
+      $query = $this->CI->db->get(self::FEATURE_TABLE, 1);
+      
+      return $query->result();
+  }
+  
   function get_feature_id($feature)
   {
     $feature = $this->CI->db->escape_str($feature);
