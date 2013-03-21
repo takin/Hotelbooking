@@ -230,6 +230,8 @@ class Cron_hb extends I18n_site
   }
 
   public function hb_hostels_get() {
+  	return;
+  	
         require_once(APPPATH . "/services/hostelbookers_feed_service.php");
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         ini_set('display_errors', 1);
