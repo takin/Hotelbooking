@@ -18,7 +18,7 @@
 		<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 		<?php }?>
-		<?php $this->load->view('includes/group-booking'); ?>
+		
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<?php //TODO show filter reset;?>
 			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
@@ -110,6 +110,7 @@
 			</div>
 			<?php }?>
 		</div>
+                <?php $this->load->view('includes/group-booking'); ?>
 	</div>
 	<?php }?>
  <?php 
