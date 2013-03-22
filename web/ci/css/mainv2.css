@@ -2550,3 +2550,27 @@ color:#fff !important;
 border:1px solid #666;
 }
 /*next 20 result end*/
+/*quick view start*/
+.quick_view_bg{
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    border: 0 none;
+    bottom: 3px;
+    display: block;
+    height: 34px;
+    position: absolute;
+    width: 100px;
+}
+.quick_view_bg_link{
+float:left; background:linear-gradient(to bottom, #2E69A7 0%, #2E69A7 50%, #16508D 50%, #16508D 100%) repeat scroll 0 0 transparent; color:#fff; border: 1px solid #17528F;box-shadow: 0 0 1px rgba(255, 255, 255, 0.8) inset; padding: 5px; position: absolute;  margin-left: 11px;margin-top: 5px; font-weight: bold; border-radius: 5px 5px 5px 5px;	
+ background-color:#16508D;
+ background-image: -moz-linear-gradient(#2E69A7, #16508D);  
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#2E69A7), to(#16508D)); 
+ background-image: -webkit-linear-gradient(#2E69A7, #16508D); 
+ background-image: -o-linear-gradient(#2E69A7, #16508D); 
+ background-image: -ms-linear-gradient(#2E69A7, #16508D);
+}
+.loading-quick-preview{
+	margin-left: 310px;
+    margin-top: 240px;
+}
+/*quick view end*/
