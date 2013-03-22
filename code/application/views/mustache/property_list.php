@@ -88,10 +88,17 @@
 			<div class="info">
 				<div class="left info_pic">
                     <div class="picture_number" id="{{propertyNumber}}">0</div>
-                    <a href="{{property_page_url}}">
+                    <a href="{{property_page_url}}" style="position:relative;">
                         {{#PropertyImages}}
                         <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
                         {{/PropertyImages}}
+						<?php  $displayQuickPreview =  $this->config->item('displayQuickPreview') ; 
+						if($displayQuickPreview == 1) { ?>
+						<div class="quick_view_bg" id="quick_view_bg_{{propertyNumber}}" style="display:none;">
+							<div id="quick_view_bg_link_{{propertyNumber}}" class="display_preview quick_view_bg_link" href="#quick_preview_div" value="{{propertyNumber}}"><?php echo _('Quick View');?></div>
+						</div>
+						<?php } ?>
+						<input type="hidden" name="propertycur{{propertyNumber}}" id="propertycur_{{propertyNumber}}" value="{{currency_code}}"/>
                     </a>
                     <span class="info_type">{{propertyType}}</span>
 				</div>
