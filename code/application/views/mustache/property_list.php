@@ -114,7 +114,7 @@
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-                    <div class="map_number" id="{{propertyNumber}}">0</div>
+                    <div class="picture_number" id="{{propertyNumber}}">0</div>
                     <a href="{{property_page_url}}">
                         {{#PropertyImages}}
                         <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
@@ -174,7 +174,6 @@
                 {{#has_amenities}}
 					<div class="info_indent"><p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p></div>
 				{{/has_amenities}}
-				<!--missing info with what's include first and than amenities just update it-->
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
 
 					<h2 class="margbot10"><?php echo _("Commodité");?></h2>
@@ -186,14 +185,13 @@
 					{{/amenities}}
 					</ul>
 					</div>
-                    <!--What's included line put here-->
                     {{#extras}}
                         <h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included");?></h2>
                        <a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
                         <div class="group">
                           <ul class="float-list green-li increase1 translated">
                                 {{#extra}}
-                                <li>{{.}} <?php echo ': <strong>'._("Free").'</strong>';?></li>
+                                <li>{{.}} <?php echo ':<strong>'._("Free").'</strong>';?></li>
                                 {{/extra}}
                             </ul>
 				</div>
@@ -284,59 +282,41 @@
 		<div class="city_hostel ui-tabs-hide city_map_tab" id="city_map_{{propertyNumber}}">
 			<h3><a class="city_link_hostel" href="{{property_page_url}}">{{propertyName}}</a>, {{address1}}</h3>
 			<div class="city_mapView_districts" id="frmDistrict_{{propertyNumber}}" name="frmDistrict_{{propertyNumber}}">
-                            <p>
-                               <span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
-                            {{#districts}}
-
-	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
-                         <input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}"
+			<p>
+			<span class="mapView_districtWord"><?php echo _('Districts');?>:</span>
+			{{#districts}}
+				<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
+				<input type="radio" name="distrinct_selection" id="distrinct_{{propertyNumber}}"
                          value="{{um_id}}" onclick="GoogleMap.prototype.changeDistrictLayer($(this).val())">{{district_name}}
-                     {{/districts}}
-                            </p>
-                         </div>
-                        <div class="city_mapView_landmarks" id="divLandmark_{{propertyNumber}}" name="divLandmark_{{propertyNumber}}">
-                            <p>
-                            <span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
-                            {{#landmarks}}
-
-	<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
-                         <input type="radio" name="landmark_selection" id="landmark_{{propertyNumber}}"
+			{{/districts}}
+			</p>
+			</div>
+			<div class="city_mapView_landmarks" id="divLandmark_{{propertyNumber}}" name="divLandmark_{{propertyNumber}}">
+			<p>
+			<span class="mapView_landmarkWord"><?php echo _('Landmarks (within 2km)');?>:</span>
+			{{#landmarks}}
+				<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Select");?></a>
+ 				<input type="radio" name="landmark_selection" id="landmark_{{propertyNumber}}"
                          value="{{geo_latitude}}###{{geo_longitude}}" onclick="GoogleMap.prototype.changeLandmarkLayer($(this).val())">{{translation_name}}
-                     {{/landmarks}}
-                            </p>
-                         </div>
-                        <div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
+			{{/landmarks}}
+			</p>
+			</div>
+			<div class="city_map_view_block" id="city_map_view_{{propertyNumber}}"></div>
 		</div>
 		<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
     </div>
 </div>
-
 {{/properties}}
 
 <script type="text/javascript">
     // Property Ratings Tooltip
-    $(document).ready(function() {
-        $("ul.rating li").bind('mouseover', function(){
-            var container = getPropertyRatingsContainer(this);
-            container.show();
-        });
-
-        $("ul.rating li").bind('mouseout', function(){
-            var container = getPropertyRatingsContainer(this);
-            container.hide();
-        });
-
-        function getPropertyRatingsContainer(that) {
-            var propertyNumber = $(that).attr("data-propertyNumber");
-            return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
-        }
+$(document).ready(function() {
         
-$("#current_page").live("change", function()
-{   
-    GoogleMap.prototype.drawMarkers(); 
-   
-    return false;
-}); 
+    $("#current_page").live("change", function()
+    {   
+        GoogleMap.prototype.drawMarkers(); 
 
-    });
+        return false;
+    }); 
+});
 </script>
