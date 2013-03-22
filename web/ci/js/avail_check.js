@@ -1,4 +1,4 @@
-function checkAvailability(base_url, country, city, propertyNumber, dateId, n, propertyName, currency, dateWarning, avail_table_id)
+function checkAvailability(base_url, country, city, propertyNumber, dateId, n, propertyName, currency, dateWarning, avail_table_id, q_strings)
 {
 	$("#loading_dispo").show();
 	
@@ -35,8 +35,15 @@ function checkAvailability(base_url, country, city, propertyNumber, dateId, n, p
 	else
 	{
 	  closeWarning();
+
+          var params = ''; 
+
+	  if (typeof(q_strings) != 'undefined' && q_strings) {
+              params += q_strings;
+          }
+
 	  $.ajax({type:"post",
-			url:base_url+"/booking_avail/",
+			url:base_url+"/booking_avail/" + params,
 			data: { country_selected: country, city_selected: city, propertyNumber: propertyNumber, dateStart: d, numNights: n, propertyName: propertyName, currency:currency, propertyCards: cards },
 			timeout:60000,
 			error:function(XMLHttpRequest, textStatus, errorThrown)

@@ -690,3 +690,66 @@
 <?php echo _('Search');?>
 <?php echo _('Select');?>
 <?php echo _('last %d');?>
+<?php echo _('Quick View');?>
+<?php echo _('Want to receive or send a PDF copy of this quote?');?>
+<?php echo _('%s has sent you a message: ');?>
+<?php echo _('Here is the link to see the prices, description, maps and much more:');?>
+<?php echo _('Type of dorms');?>
+<?php echo _('Dorms for your group only');?>
+<?php echo _('Complete dorm only');?>
+<?php echo _('We will only show you dorms you can fully book. You will need to take all the beds in that particular dorm even if you do not need all of them. This is often used by groups.');?>
+<?php echo _('Average per night per person');?>
+<?php echo _('Average Price');?>
+<?php echo _('Average price per night for requested arrival date and length of stay. Actual day-by-day prices may vary. However, our prices are quaranteed and you will never pay more.');?>
+<?php echo _('Price for 7 nights per person');?>
+<?php echo _('Maximum');?>
+<?php echo _('Guest');?>
+<?php echo _('Guests');?>
+<?php echo _('Availability');?>
+<?php echo _('Bedroom');?>
+<?php echo _('Bedrooms');?>
+<?php echo _('1 guest in 1 Bedroom.');?>
+<?php echo _('7 guests in 1 Bedroom.');?>
+<?php echo _('7 guests in 7 Bedrooms (7 guests in each room).');?>
+<?php echo _('7 guests in 1 Bedroom.');?>
+<?php echo _('7 guests in 7 Bedrooms ( 1 guest in each room).');?>
+<?php echo _('Type of private bedrooms');?>
+<?php echo _('You must pay for the whole private room, even if you do not need all the beds. The room cannot be shared.');?>
+<?php echo _('Price per Person');?>
+<?php echo _('Price per Room');?>
+<?php echo _('Average per night per room');?>
+<?php echo _('You can only book up to 7 guests at a time. You can book more than 7 guests by going to our group section on top of this page.');?>
+<?php echo _('Total number of guests selected');?>
+<?php echo _('Select');?>
+<?php echo _('You will use 1 full dorm.');?>
+<?php echo _('You will use 7 full dorms.');?>
+<?php echo _('You will partially use 1 dorm.');?>
+<?php echo _('You will use 1 full dorm and 1 partially.');?>
+<?php echo _('You will use 7 full dorms and 1 partially.');?>
+<?php echo _('Confirmation Email Preview');?>
+<?php echo _('Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed.');?>
+<?php echo _('Number of guests');?>
+<?php echo _('1 fully available dorm.');?>
+<?php echo _('7 fully available dorms.');?>
+<?php echo _('1 fully available dorm and 1 already partially occupied (beds already occupied: 7).');?>
+<?php echo _('This dorm is already partially occupied (beds already occupied: 7).');?>
+<?php echo _('7 dorms fully available and 1 dorm already partially occupied (beds already occupied: 7).');?>
+<?php echo _('No');?>
+<?php echo _('Bedrooms you will occupy:');?>
+<?php echo _('Dorms you will occupy:');?>
+<?php echo _('Availability');?>
+<?php echo _('We will provide all important information to make sure you really enjoy your stay.');?>
+<?php echo _('Important Information');?>
+<?php echo _('When available, we will provide directions on how to get to the property including public transportation and airport information.');?>
+<?php echo _('With full contact information, you will be able to contact the property in case you have any special requests.');?>
+<?php echo _('Property name');?>
+<?php echo _('Phone number');?>
+<?php echo _('Address');?>
+<?php echo _('Please click here to preview your confirmation email');?>
+<?php echo _('This type of dorm can accommodate up to 1 guest per dorm.');?>
+<?php echo _('This type of dorm can accommodate up to 7 guests per dorm.');?>
+<?php echo _('This type of bedroom can accommodate up to 1 guest per room.');?>
+<?php echo _('This type of bedroom can accommodate up to 7 guests per room.');?>
+<?php echo _('The lowest price per person per night in a dorm in this property:');?>
+<?php echo _('The lowest price per person per night in a private room at this property:');?>
+<?php echo _('Maximum you can book');?>

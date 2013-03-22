@@ -6,7 +6,7 @@
         if(!empty($_COOKIE['last_review_property']))
     	{ ?>
     <div class="box_content box_round group rating_bars">
-        <span class="title" style="margin-bottom: 12px;"><?php echo _('Recently Viewed')?>&nbsp;(<?php printf(gettext("last %d"), $this->config->item('recent_view_number_cookies'));?>)</span>
+        <span class="title" style="margin-bottom: 12px;"><?php echo _('Recently Viewed')?></span>
         <div class="bar-rating">
         <?php
          $cookieArray = explode(",", $_COOKIE['last_review_property']);

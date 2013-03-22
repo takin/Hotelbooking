@@ -6,6 +6,7 @@
 /logs/bing*
 /logs/audit*
 /logs/districts*
+/logs/last_api_result.xml
 /cache/*
 
 ##########################
@@ -25,8 +26,9 @@
 /web/ci/cache_queries/staticfeeds/!placeholder.txt
 /web/ci/cache_queries/jscitydata/hb/*.xml
 /web/ci/cache_queries/jscitydata/*.xml
-/web/ci/js/cache/*
-/web/ci/js/cache/!placeholder.txt
+/web/ci/cache/*.js
+/web/ci/cache/*.css
+/web/ci/cache/!placeholder.txt
 
 ##########################
 #           OS           #

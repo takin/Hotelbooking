@@ -3,6 +3,10 @@
 /* Valero chat globale variable set false for disable and True for enable chat*/
 $config['displayVelaro'] = FALSE;
 
+/* Display or not the share PDF and Email */
+$config['displayShareEmail'] = FALSE;
+$config['displaySharePDF']   = FALSE;
+
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 
@@ -233,6 +237,13 @@ else
 
 /*
 |--------------------------------------------------------------------------
+| Temp Directory Path
+|--------------------------------------------------------------------------
+*/
+$config['temp_dir'] = sys_get_temp_dir();
+
+/*
+|--------------------------------------------------------------------------
 | Error Logging Directory Path
 |--------------------------------------------------------------------------
 |
@@ -403,7 +414,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Comma-delimited, e.g. '10.0.1.200,10.0.1.201'
 |
 */
-$config['proxy_ips'] = '';
+$config['proxy_ips'] = '92.243.16.182';
 
 /*
 |--------------------------------------------------------------------------
@@ -415,3 +426,19 @@ $config['urbanmapping_key'] = '3e582082263ec602d607b16a3d1b21fb';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+if ( !function_exists('sys_get_temp_dir')) {
+    function sys_get_temp_dir() {
+        if (!empty($_ENV['TMP'])) {
+            return realpath($_ENV['TMP']);
+        }
+        if (!empty($_ENV['TMPDIR'])) {
+            return realpath( $_ENV['TMPDIR']);
+        }
+        if (!empty($_ENV['TEMP'])) {
+            return realpath( $_ENV['TEMP']);
+        }
+
+        return ISWINDOWS ? 'C:\Windows\TEMP' : '/tmp';
+  }
+}

@@ -3,7 +3,10 @@
 </div>
 <div id="main" class="grid_12">
 	<div class="box_content box_round group">
-		<h1 class="content_title"><?php echo _('Votre Compte - Réservation Auberges De Jeunesse');?></h1>   
+		<h1 class="content_title"><?php echo _('Votre Compte - Réservation Auberges De Jeunesse');?></h1> 
+		<?php if(isset($changes_success)){ ?>
+		<div style="color:#80B422;"><?php echo _('Your changes has been saved successfully')?></div></br>
+		<?php } ?>
 		<p><?php echo _("Bienvenue dans votre compte. Vous avez maintenant accès à vos réservations d'Auberges de Jeunesse, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager.");?></p>
          
       

@@ -1248,9 +1248,10 @@ class Hb_engine {
           $data['breakfast_included'] = 1;
         }
         $translation = $this->CI->db_translation_cache->get_translation($service->description,$this->CI->site_lang);
-        if(!empty($translation))
+        if(!empty($translation) && !empty($translation->translation))
         {
-          $data['main_services'][$si]->description = $translation->translation;
+          $data['main_services'][$si]->description =
+          		$translation->translation;
         }
       }
     }

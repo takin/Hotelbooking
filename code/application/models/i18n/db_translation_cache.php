@@ -1,6 +1,5 @@
 <?php
 /**
- * @author Louis-Michel
  *
  */
 class Db_translation_cache extends CI_Model

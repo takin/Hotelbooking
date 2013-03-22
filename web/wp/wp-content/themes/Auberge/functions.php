@@ -277,7 +277,7 @@ function dynamictitles() {
 function register_scripts() {
 // Register jQuery
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_option('aj_api_url').'js/jquery-1.3.2.min.js', '', '1.3.2');
+	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js', '', '1.8.3');
 	wp_register_script('jtools', get_option('aj_api_url').'js/jtools.js',array('jquery'));
 	wp_register_script('translate',get_option('aj_api_url').'js/jquery.translate-1.3.9.js',array('jquery'));
 }
@@ -877,12 +877,28 @@ function get_user_info()
 
   $currencies  = new Db_currencies($aubergedb);
 
-  $current_aj_user = freeGeoFromIP($_SERVER["REMOTE_ADDR"]);
+  $current_aj_user = freeGeoFromIP(getIP());
 
   if(!empty($current_aj_user) && !empty($current_aj_user->CountryCode))
   {
     $current_aj_user->CurrencyCode = $currencies->get_currency_of_country($current_aj_user->CountryCode);
   }
+}
+
+function getIP(){
+	$rem = @$_SERVER["REMOTE_ADDR"];
+	$ff = @$_SERVER["HTTP_X_FORWARDED_FOR"];
+	$ci = @$_SERVER["HTTP_CLIENT_IP"];
+	if(preg_match('/^(?:192\.168|172\.16|10\.|127\.)/', $rem)){
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return $rem;
+	} else {
+		if($rem){ return $rem; }
+		if($ff){ return $ff; }
+		if($ci){ return $ci; }
+		return "UNKNOWN";
+	}
 }
 
 if ( ! function_exists('url_title'))
