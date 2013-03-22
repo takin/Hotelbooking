@@ -58,8 +58,11 @@ PWebFilterMap.prototype.isMapEnable = function() {
 };
 
 //UPDATE map data
-PWebFilterMap.prototype.updateMarkers = function(markers_data) { 
+//PWebFilterMap.prototype.updateMarkers = function(markers_data) { 
+PWebFilterMap.prototype.updateMarkers = function() { 
 	
+	var markers_data = this.gmap.fillMakersArray();
+
     //clear all previous added marker and focus
     //Karim : disable this because it clears side map marker too
 //    this.gmap.clearMap();
@@ -67,13 +70,13 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data) {
     //Add filtered markers to map
     //	for (var i = 0; i < markers_data.length; i++) {
     for (var i in markers_data) {
-        if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
-            parseFloat(markers_data[i].Geo.Longitude) != 0.00)
+        if(parseFloat(markers_data[i].lat) != 0.00 &&
+            parseFloat(markers_data[i].lng) != 0.00)
             {
 //            var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-            var content = $.trim($("#map_InfoWindow_"+markers_data[i].propertyNumber).html());
+            var content = markers_data[i].content;
             
-            this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
+            this.gmap.addMarker(i,markers_data[i].lat,markers_data[i].lng,markers_data[i].propertyName, content);
 			
             if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
             {

@@ -25,7 +25,7 @@ function GoogleMap(map_div_id, lang, default_lat, default_lng, default_zoom) {
     window.cityCircle = null;
     window.markers = Array();
     window.gmarkers = Array();
-    window.gbounds = null;
+    this.gbounds = null;
 
     this.marker_id_to_focus = -1;
 
@@ -51,7 +51,7 @@ GoogleMap.prototype.init = function() {
     this.map_div.style.height = "400px";
 
     window.gmap = new google.maps.Map(this.map_div, myOptions);
-    window.gbounds = new google.maps.LatLngBounds();
+    this.gbounds = new google.maps.LatLngBounds();
 
     //add infowindow to map
     this.initInfoWin();
@@ -60,10 +60,10 @@ GoogleMap.prototype.init = function() {
 
     this.marker_focus();
 
-    if ((this.marker_id_to_focus < 0) && !window.gbounds.isEmpty())
+    if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
     {
-        window.gmap.setCenter(window.gbounds.getCenter());
-        window.gmap.fitBounds(window.gbounds);
+        window.gmap.setCenter(this.gbounds.getCenter());
+        window.gmap.fitBounds(this.gbounds);
     }
 
     // first get the property number
@@ -178,7 +178,7 @@ GoogleMap.prototype.addMarker = function(index, lat, lng, title, content) //, im
 GoogleMap.prototype.clearMap = function() //, image, iconshadow)
 {
     this.clearMarkers();
-    window.gbounds = null;
+    this.gbounds = null;
 };
 GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 {
@@ -196,13 +196,71 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 
 GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 {
+    this.fillMakersArray();
+    
+    // draw markers 
+    this.addMarkersToMap();
+};
+GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
+{
+    var that = this;
+    // number of hostels to show per page
+    var show_per_page = parseInt($('#show_per_page').val());
+    // number of hostels currently shown
+    var page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+
+    // start hostel number like from 1 to 20
+    var start_from = page_num * show_per_page;
+    // end hostel number like from 1 to 20
+    var end_on = start_from + show_per_page;
+
+    return $('#property_list').children().slice(start_from, end_on);
+};
+GoogleMap.prototype.fillMakersArray = function() //, image, iconshadow)
+{
+//    this.clearMarkers();
+
+    var that = this;
+    // clear markers on the map
+    // includes that.clearMarkers();
+    that.clearMap();
+    
+    var property_list = that.getItemsInPage();
+
+    $.each(property_list, function(index, value) {
+// fill the window.markers array to be used to draw markers
+var property_number = $(value).attr("rel");
+    $("#city_map_view_"+property_number).html("")
+
+        GoogleMap.prototype.addMarker(index
+                , $("#input_geo_latitude_"+property_number).val()
+                , $("#input_geo_longitude_"+property_number).val()
+                , $.trim($("#hostel_title_"+property_number).text())
+                , $.trim($("#map_InfoWindow_"+property_number).html())
+                , property_number
+                );
+    });
+
+return window.markers;
+};
+GoogleMap.prototype.addMarkersToMap = function() //, image, iconshadow)
+{
+    if ( window.markers.length < 1 )
+        {
+            window.markers = this.fillMakersArray();
+        }
+//        console.log(window.markers);
     var that = this;
 
     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker.png',
             new google.maps.Size(28, 28),
             new google.maps.Point(0, 0),
             new google.maps.Point(0, 29));
-
+            
+    if (this.gbounds === null)
+    {
+        this.gbounds = new google.maps.LatLngBounds();
+    }
     //TODO support custom image in addMarker function
     for (var i in window.markers) {
 
@@ -245,47 +303,9 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
             that.changeHostelBackground(this, "mouseout");
         });
 
-        window.gbounds.extend(window.gmarkers[i].position);
+        this.gbounds.extend(window.gmarkers[i].position);
 
     }
-
-};
-GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
-{
-    var that = this;
-    // number of hostels to show per page
-    var show_per_page = parseInt($('#show_per_page').val());
-    // number of hostels currently shown
-    var page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
-
-    // start hostel number like from 1 to 20
-    var start_from = page_num * show_per_page;
-    // end hostel number like from 1 to 20
-    var end_on = start_from + show_per_page;
-
-    return $('#property_list').children().slice(start_from, end_on);
-};
-GoogleMap.prototype.reDrawMarkers = function() //, image, iconshadow)
-{
-    var that = this;
-    var property_list = that.getItemsInPage();
-
-    // clear markers on the map
-    GoogleMap.prototype.clearMarkers();
-
-
-    $.each(property_list, function(index, value) {
-// fill the window.markers array to be used to draw markers
-var property_number = $(value).attr("rel");
-        GoogleMap.prototype.addMarker(index
-                , $("#input_geo_latitude_"+property_number).val()
-                , $("#input_geo_longitude_"+property_number).val()
-                , $.trim($("#hostel_title_"+property_number).text())
-                , $.trim($("#map_InfoWindow_"+property_number).html())
-                );
-    });
-
-    that.drawMarkers();
 
 };
 GoogleMap.prototype.removeMap = function() //, image, iconshadow)
