@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-20 18:05+0200\n"
-"PO-Revision-Date: 2013-03-16 21:22+0200\n"
+"PO-Revision-Date: 2013-03-24 22:01+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1169,7 +1169,7 @@ msgstr "Odelat PDF"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "Prosím čekejte…"
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -2644,12 +2644,8 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"Musíte zaplatit za celý pokoj, i když nepoužijete všechny postele v něm. "
-"Pokoj nelze sdílet.<br /><br />Jednolůžkový pokoj = pokoj s 1 lůžkem pro 1 "
-"osobu<br />Dvoulůžkový pokoj = s 1 dvoulůžkem pro 2 osoby<br />Dvoulůžkový "
-"pokoj = pokoj s 2 oddělenými postelemi pro 2 osoby<br />Trojlůžkový pokoj = "
-"v pokoji se vyspí 3 lidé<br />Samostatné WC = Koupelna součástí pokoje<br /"
-">Sdílená Koupelna = koupelna není v místnosti"
+"Musíte zaplatit celý soukromý pokoj, i když nepotřebujete všechna lůžka."
+"Pokoj není možné sdílet."
 
 #: ../code/application/views/property_rooms_avail.php:180
 msgid "Rooms (max)"
@@ -3704,7 +3700,7 @@ msgstr "Datum"
 #: ../code/application/views/helpfile/pofields.php:746
 #, php-format
 msgid "Phone number"
-msgstr "Telefonní číslo"
+msgstr "Telefon"
 
 #: ../code/application/views/hw/booking_end_view.php:288
 #: ../code/application/views/hw/booking_end_view.php:299
@@ -4384,7 +4380,7 @@ msgstr "Vaše uživatelské jméno (emailová adresa): %s"
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
 msgstr "%s vám zaslal zprávu:"
 
@@ -7409,7 +7405,7 @@ msgstr "Vyhledávat"
 #: ../code/application/views/mustache/property_list.php:271
 #, php-format
 msgid "Select"
-msgstr "Vybrat"
+msgstr "Vyberte"
 
 #: ../code/application/views/helpfile/pofields.php:692
 #, php-format
@@ -7417,7 +7413,7 @@ msgid "last %d"
 msgstr "posledních %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, fuzzy, php-format
+#, php-format
 msgid "Quick View"
 msgstr "Rychlé prohlížení"
 
@@ -7429,17 +7425,17 @@ msgstr "%s vám zaslal zprávu:"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "Typy ložnic"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "Děkujeme za vaši skupinovou rezervaci."
+msgstr "Ložnice pouze pro vaši skupinu"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "Pouze celá ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7448,98 +7444,102 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"Ukážeme vám pouze ložnice, které si můžete celé rezervovat. Musíte si vzít "
+"všechna lůžka v této ložnici, i když je nebudete potřebovat. To je často "
+"skupinami využíváno."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "Cena za pokoj (nikoliv za osobu)"
+msgstr "Průměr za osobu a noc"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "Průměrná cena"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"Průměrná cena  za osobu a noc platí pro požadovaný den příjezdu a délku "
-"pobytu.Aktuální ceny se mohou den ode dne lišit."
+"Průměrná cena za noc v požadovaném termínu příjezdu a délce pobytu.Skutečné "
+"ceny se den ode dne mohou lišit.Nicméně vaše ceny jsou zaručeny a nikdy "
+"nebudete platit víc."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for 7 nights per person"
-msgstr "Cena za pokoj (nikoliv za osobu)"
+msgstr "Cena za osobu na 7 nocí"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "Host"
+msgstr "Hosté"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "Zkontroluj dostupnost"
+msgstr "Dosažitelnost"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "Ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "Pokoje"
+msgstr "Ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "Maximální počet osob v tomto pokoji"
+msgstr "1 host v 1 ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "7 guests in 1 Bedroom."
-msgstr "Maximální počet osob v tomto pokoji"
+msgstr "7 hostů v 1 ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgstr "7 hostů v 7 ložnicích(7 hostů v každém pokoji)."
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgstr "7 hostů v 7 ložnicích(1 host v každém pokoji)."
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "Soukromý pokoj"
+msgstr "Typ soukromých ložnic"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "Cena za osobu a noc"
+msgstr "Cena za osobu"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "Cena za lůžko (ne za pokoj) "
+msgstr "Cena za pokoj"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "Cena za lůžko (ne za pokoj) "
+msgstr "Průměr za noc a pokoj"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7547,41 +7547,43 @@ msgid ""
 "You can only book up to 7 guests at a time. You can book more than 7 guests "
 "by going to our group section on top of this page."
 msgstr ""
+"Najednou můžete zarezervovat pouze 7 hostů.Více než 7 hostů můžete "
+"zarezervovat v naší sekci pro skupiny nahoře na této stránce."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "Maximální počet hostů na koleji. "
+msgstr "Celkový vybraný počet hostů"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "Použijete 1 celou ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
 msgid "You will use 7 full dorms."
-msgstr ""
+msgstr "Použijete 7 celých ložnic."
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "Použijete část 1 ložnice."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "Použijete 1 celou ložnici a 1 částečně."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use 7 full dorms and 1 partially."
-msgstr ""
+msgstr "Použijete 7 celých ložnic a 1 částečně."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "Potvrzení e-mailu"
+msgstr "Náhled potvrzujícího emailu"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7589,21 +7591,23 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"Your unique booking number will be provided right after your reservation. "
+"Your reservation will be immediate and guaranteed."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "Typ pokoje a počet hostů"
+msgstr "Počet hostů"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1 celá ložnice k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "7 fully available dorms."
-msgstr ""
+msgstr "7 celých ložnic k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7611,11 +7615,13 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"1 celá ložnice k dispozici a 1 částečně již obsazená (počet obsazených "
+"lůžek:7)."
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: 7)."
-msgstr ""
+msgstr "Tato ložnice je již částečně obsazena (již obsazená lůžka:7)."
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7623,21 +7629,23 @@ msgid ""
 "7 dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"7 celých ložnic k dispozici a 1 částečně již obsazená ložnice (počet "
+"obsazených lůžek:7)."
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "Příjmení"
+msgstr "Ne"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "Pokoje, které obsadíte:"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "Ložnice, které obsadíte:"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
@@ -7645,11 +7653,13 @@ msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
 msgstr ""
+"Poskytneme vám všechny důležité informace, abyste si skutečně užili váš "
+"pobyt."
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "Další informace"
+msgstr "Důležitá informace"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7657,6 +7667,8 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"Bude-li to možné,poskytneme vám pokyny, jak se dostat do ubytovacího "
+"zařízení včetně veřejné dopravy a informaci o letišti."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7664,11 +7676,13 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"S kompletní kontaktní informací se budete moci obrátit na ubytovací "
+"zařízení v případě speciálních požadavků."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "Číslo objektu"
+msgstr "Název ubytovacího zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:747
 #, fuzzy, php-format
@@ -7676,45 +7690,46 @@ msgid "Address"
 msgstr "Adresa"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Obdržíte okamžité potvrzení emailem"
+msgstr "Prosím klikněte pro náhled vašeho potvrzujícího emailu."
 
 #: ../code/application/views/helpfile/pofields.php:749
 #, php-format
 msgid "This type of dorm can accommodate up to 1 guest per dorm."
-msgstr ""
+msgstr "V tomto typu ložnice může být 1 host."
 
 #: ../code/application/views/helpfile/pofields.php:750
 #, php-format
 msgid "This type of dorm can accommodate up to 7 guests per dorm."
-msgstr ""
+msgstr "V tomto typu ložnice může být až 7 hostů."
 
 #: ../code/application/views/helpfile/pofields.php:751
 #, php-format
 msgid "This type of bedroom can accommodate up to 1 guest per room."
-msgstr ""
+msgstr "V tomto typu pokoje může být 1 host."
 
 #: ../code/application/views/helpfile/pofields.php:752
 #, php-format
 msgid "This type of bedroom can accommodate up to 7 guests per room."
-msgstr ""
+msgstr "V tomto typu pokoje může být až 7 hostů."
 
 #: ../code/application/views/helpfile/pofields.php:753
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property:"
-msgstr ""
+msgstr "Nejnižší cena za osobu a noc v ložnici v tomto ubytovacím zařízení:"
 
 #: ../code/application/views/helpfile/pofields.php:754
 #, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property:"
 msgstr ""
+"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení:"
 
 #: ../code/application/views/helpfile/pofields.php:755
 #, php-format
 msgid "Maximum you can book"
-msgstr ""
+msgstr "Maximum, které můžete rezervovat"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
