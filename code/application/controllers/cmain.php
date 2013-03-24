@@ -2498,7 +2498,7 @@ error_log($command, 3, '/tmp/abc.log');
 	 }else{
 	 		$this->load->model('db_hw_hostel');
 			$data['property_facelity']=$this->db_hw_hostel->property_facelity();
-		    $proid=explode("-",$pro_id);
+		    $proid=explode(",",$pro_id);
 			$compare_data=array();
 			for($i=0;$i<count($proid);$i++){
 				$result2='';
