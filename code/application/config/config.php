@@ -5,13 +5,13 @@ $config['displayVelaro'] = FALSE;
 
 /* Display or not the share PDF and Email */
 $config['displayShareEmail'] = FALSE;
-$config['displaySharePDF']   = FALSE;
+$config['displaySharePDF']   = TRUE;
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
-$config['displayQuickPreview'] = FALSE;
+$config['displayQuickPreview'] = TRUE;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = FALSE;
+$config['displayCompareProperty'] = TRUE;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
