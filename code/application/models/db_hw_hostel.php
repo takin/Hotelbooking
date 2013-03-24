@@ -1515,5 +1515,63 @@ class Db_hw_hostel extends CI_Model
     }
     return $return;
   }
+   //compare property function
+  public function compare_cookie_property_hw($property_number)
+  {
+    $this->CI->db->select("hw_hostel.property_name,hw_hostel.property_type,hw_hostel.hw_hostel_id,hw_hostel_price.currency_price,hw_hostel_price.bed_price,hw_rating.rating");
+	$this->CI->db->from("hw_hostel");
+	$this->db->join('hw_hostel_price','hw_hostel_price.hw_hostel_id=hw_hostel.hw_hostel_id','left');
+	$this->db->join('hw_rating','hw_rating.property_number=hw_hostel.property_number','left');
+  	$this->CI->db->where("hw_hostel.property_number",$property_number);
+	$this->CI->db->limit(1);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  }
+  public function compare_property($property_number)
+  {
+    $this->CI->db->select("hw_hostel.*,hw_hostel_price.currency_price,hw_hostel_price.bed_price,hw_rating.rating,currencies.symbol");
+	$this->CI->db->from("hw_hostel");
+	$this->db->join('hw_hostel_price','hw_hostel_price.hw_hostel_id=hw_hostel.hw_hostel_id','left');
+	$this->db->join('hw_rating','hw_rating.property_number=hw_hostel.property_number','left');
+	$this->db->join('currencies','currencies.currency_code=hw_hostel.currency_code','left');
+  	$this->CI->db->where("hw_hostel.property_number",$property_number);
+	$this->CI->db->limit(1);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  } 
+  public function compare_property_facelity($property_number)
+  {
+    $this->CI->db->select("hw_fact.hw_facility_id,hw_facility.description");
+	$this->CI->db->from("hw_hostel_facility as hw_fact");
+	$this->db->join('hw_facility','hw_facility.hw_facility_id=hw_fact.hw_facility_id','left');
+  	$this->CI->db->where("hw_fact.property_number",$property_number);
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+   public function property_facelity()
+  {
+    $this->CI->db->select("hw_facility_id,description");
+	$this->CI->db->from("hw_facility");
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+  public function compare_property_info($property_number)
+  {
+    $this->CI->db->select("property_name,property_type,geo_longitude,geo_latitude");
+	$this->CI->db->from("hw_hostel");
+  	$this->CI->db->where("property_number",$property_number);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  }
+  public function property_detail_review($property_number)
+  {
+  	$this->wpblog_hw = $this->load->database('wpblog_hw', TRUE);
+	$this->wpblog_hw->from("wp_ext_hw_reviews");
+  	$this->wpblog_hw->where("property_number",$property_number);
+	$query=$this->wpblog_hw->get();
+	echo $this->wpblog_hw->last_query();
+	return $query->result();
+  }
+  //compare property function end
 
 }

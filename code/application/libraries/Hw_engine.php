@@ -2037,4 +2037,11 @@ class Hw_engine {
     //update and return status
     return $this->CI->Db_hw_hostel->update_hw_hostel_facilities($property_number, $data["hostel"]->facilities);
   }
+  
+  function propertyimg($prid)
+  {
+  		$this->CI->load->model('Hostel_api_model');
+  		$results = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'),$prid, $this->api_functions_lang);
+		return $results;
+  }
 }

@@ -1517,4 +1517,12 @@ class Hb_engine {
                             );
     return $property_array;
   }
+  
+   function propertyimg($prid)
+  {
+  	
+  		$this->CI->load->model('Hostelbookers_api');
+  		$results = $this->CI->Hostelbookers_api->getPropertyDataByID($prid);
+		return $results;
+  }
 }

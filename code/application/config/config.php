@@ -10,6 +10,9 @@ $config['displaySharePDF']   = FALSE;
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = FALSE;
 
+/* set variable to show property compare feature*/
+$config['displayCompareProperty'] = TRUE;
+
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 
