@@ -212,6 +212,22 @@
                          <span id ="close_map_button"> </span>
                          </a>
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
+					<!--property compare code start-->	
+					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
+						if($displayCompareProperty == 1) { ?>		
+						<div id="property_compare" class="quick-data" style="display:none;">
+							<input type="hidden" name="total_com_property" id="total_com_property" value="0"/>
+							<div class="head123"><p><?php echo _('Quick Compare (5 properties maximum)');?></p>
+							<span id="comparelink" class="comparelink" style="display:none;"><a class="compare_displaypopup" href="#property_compare_data" onclick="property_compare_popup();"><?php echo _('Compare');?></a></span> </div>
+							<div id="compare_data"></div>
+							<div class="remove_div"><a href="#" onclick="remove_pro('');"><?php echo _('Remove All');?></a></div>
+						</div>
+						<div style="display: none;">
+							 <div id="property_compare_data" style="min-height:600px;overflow:auto; width:970px;">
+					   		 </div>
+						</div>
+					<?php } ?>
+					<!--property compare code close-->
 
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
@@ -281,7 +297,41 @@
 			</div>
 
 </div>
-
+<?php 
+if(isset($_COOKIE["compare"]) && $_COOKIE["compare"]!=''){
+	if($this->uri->segment(2)==$_COOKIE["citysearch"]){
+	$cookieproid = $_COOKIE["compare"];
+?>
+	<script type="text/javascript">
+	var compareproperty = '<?php echo $cookieproid; ?>';
+	display_compare_box(compareproperty);
+	</script>
+<?php
+ }
+} 
+else { ?>
+	<script type="text/javascript">
+			$('#total_com_property').val(0);
+	</script>	
+<?php } ?>
+<?php 
+if(isset($_COOKIE["citysearch"]) && $_COOKIE["citysearch"]!=''){
+	if($this->uri->segment(2)!=$_COOKIE["citysearch"]){
+		?>
+		<script> 
+			pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
+			pweb_setCookie("compare","",24);
+		</script>
+		<?php
+	}
+}else{
+?>
+<script>
+pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
+</script>
+<?php
+}	
+?>
 <script id="template-infow" type="text/html">
 <?php
   $this->load->view('mustache/city_map_property_infow');
@@ -298,3 +348,6 @@
 			<div id="quick_preview_div" style="min-height:600px;overflow:auto; width:880px;">
 			</div>
 </div>
+<input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
+<input type= "hidden" name="limit_compare_message" value="<?php echo  _('Only 5 properties can be compared. Please remove a property from list.');?>" id= "limit_compare_message" />
+

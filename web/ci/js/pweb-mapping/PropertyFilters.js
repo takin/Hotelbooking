@@ -1410,6 +1410,17 @@ $(document).ready(function() {
 		},function(){
 		$(this).find('.quick_view_bg').slideUp(300);      
 	    });
+		
+	    var cookie_value = getCookie('compare');
+		var total_property =    cookie_value.split(",");
+		var property_selected = total_property.length;
+				if(property_selected != ''){
+				    for(i=0;i<property_selected;i++){  
+					   $("#pro_compare_"+total_property[i]).attr('checked',true); 
+					   $('#compare_count_'+total_property[i]).html(property_selected);
+				    }
+					 
+				}
     }
   });
 

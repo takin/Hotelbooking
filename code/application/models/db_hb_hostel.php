@@ -2568,4 +2568,76 @@ class Db_hb_hostel extends CI_Model
     }
     return $return;
   }
+  
+  //compare property function
+  public function compare_property($property_number)
+  {
+    $this->CI->db->select("hb_hostel.*,hb_hostel_price.currency_code,hb_hostel_price.bed_price,hb_hostel_price.type,currencies.symbol");
+	$this->CI->db->from("hb_hostel");
+	$this->db->join('hb_hostel_price','hb_hostel_price.hostel_hb_id=hb_hostel.property_number','left');
+	$this->db->join('currencies','currencies.currency_code=hb_hostel.currency','left');
+  	$this->CI->db->where("hb_hostel.property_number",$property_number);
+	$query=$this->CI->db->get();
+	return $query->result();
+  } 
+  public function compare_property_extra($property_number)
+  {
+    $this->CI->db->select("hb_ext.hb_extra_id,hb_extra.description");
+	$this->CI->db->from("hb_hostel_extra as hb_ext");
+	$this->db->join('hb_extra','hb_extra.hb_extra_id=hb_ext.hb_extra_id','left');
+  	$this->CI->db->where("hb_ext.hostel_hb_id",$property_number);
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+  public function compare_property_feature($property_number)
+  {
+    $this->CI->db->select("hb_feat.hb_feature_id,hb_feature.description");
+	$this->CI->db->from("hb_hostel_feature as hb_feat");
+	$this->db->join('hb_feature','hb_feature.hb_feature_id=hb_feat.hb_feature_id','left');
+  	$this->CI->db->where("hb_feat.hostel_hb_id",$property_number);
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+  public function compare_property_image($property_number)
+  {
+    $this->CI->db->select("url");
+	$this->CI->db->from("hb_hostel_image");
+  	$this->CI->db->where("hostel_hb_id",$property_number);
+	$this->CI->db->order_by("url","desc");
+	$this->CI->db->limit(1);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  }
+  public function property_extra()
+  {
+    $this->CI->db->select("hb_extra_id,description");
+	$this->CI->db->from("hb_extra");
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+  public function property_feature()
+  {
+    $this->CI->db->select("hb_feature_id,description");
+	$this->CI->db->from("hb_feature");
+	$query=$this->CI->db->get();
+	return $query->result();
+  }
+  public function compare_cookie_property($property_number)
+  {
+    $this->CI->db->select("hb_hostel.property_name,hb_hostel.property_type,hb_hostel.rating_overall,hb_hostel_price.currency_code,hb_hostel_price.bed_price");
+	$this->CI->db->from("hb_hostel");
+	$this->db->join('hb_hostel_price','hb_hostel_price.hostel_hb_id=hb_hostel.property_number','left');
+  	$this->CI->db->where("hb_hostel.property_number",$property_number);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  }
+  public function compare_property_info($property_number)
+  {
+    $this->CI->db->select("property_name,property_type,geo_latitude,geo_longitude");
+	$this->CI->db->from("hb_hostel");
+  	$this->CI->db->where("property_number",$property_number);
+	$query=$this->CI->db->get();
+	return $query->row_array();
+  }
+  //compare property function end
 }

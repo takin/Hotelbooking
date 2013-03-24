@@ -102,6 +102,7 @@
                     </a>
                     <span class="info_type">{{propertyType}}</span>
 				</div>
+				<div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.');?></div>
 				<div class="info_indent">
 					<h2>
                         <a href="{{property_page_url}}">
@@ -111,6 +112,10 @@
                             </span>
                         </a>
                     </h2>
+					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
+					if($displayCompareProperty == 1) { ?>
+					<div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><?php echo _('Compare');?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of');?> 5)</div>
+					<?php } ?>
 					<p class="address">{{address1}} - {{city_name}}</p>
 
 					{{#isMinNightNeeded}}
