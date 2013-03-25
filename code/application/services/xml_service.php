@@ -1,18 +1,17 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-abstract class Xml_Service {
+class Xml_Service {
     
-    protected $ci;
-    protected $log_filename;
+    public $errors = array();
+    
+    private $auditor;
     
     public function __construct() {
-        $this->ci = &get_instance();
-        $this->ci->load->model("db_hb_hostel");
-        $this->ci->load->library("custom_log");
-        $this->log_filename = "hb_cache_staticfeeds-" . date("Y-m");
+        require_once(APPPATH . "/services/audit_service.php");
+        $this->auditor = new Audit_Service();
     }
 
-    protected function getDataFromUrl($url) {        
+    public function getDataFromUrl($url) {        
         $curl = curl_init();
         
         try {
@@ -21,7 +20,7 @@ abstract class Xml_Service {
                 CURLOPT_URL => $url,
                 CURLOPT_HTTPHEADER, $this->getHttpHeader(),
             ));       
-            $this->logAudit("HB XML Service - requesting data from $url", 
+            $this->auditor->log("HB XML Service - requesting data from $url", 
                     0, 0, 0);
             
             $requestTime = microtime(true);
@@ -30,16 +29,17 @@ abstract class Xml_Service {
             
             $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
             if ($httpStatus != 200) {
-                throw new Exception(
-                        "Error: Request to $url received http status code of $httpStatus");
+                $msg = "Error: Request to $url received http status code of $httpStatus";
+                throw new Exception($msg);
             }
             
-            $this->logAudit("HB XML Service - XML retrieval from $url", 
+            $this->auditor->log("HB XML Service - XML retrieval from $url", 
                     $requestTime, $responseTime, true);
         } catch (Exception $e) {
-            log_message("error", 
-                    sprintf("%s error: retrieving data from %s failed. %s \n %s", 
-                        __FUNCTION__, $url, $e->getMessage(), $e->getTraceAsString()));
+            $msg = sprintf("%s error: retrieving data from %s failed. %s \n %s", 
+                        __FUNCTION__, $url, $e->getMessage(), $e->getTraceAsString());
+            log_message("error", $msg);
+            $this->errors[] = $msg;
             $result = null;
             curl_close($curl);
         }
@@ -54,21 +54,17 @@ abstract class Xml_Service {
                 "CACHE-CONTROL: max-age=0");
     }
     
-    protected function logAudit($message, $requestTime, $responseTime, $displayMemUsage=false) {
-        if ($displayMemUsage) {
-            $this->ci->load->helper("memory_helper");
-            $memoryUsed = memory_usage_in_mb();
-            $memMsg = sprintf("- memory used is %s mb", $memoryUsed);
-        } else {
-            $memMsg = "";
-        }
-        
-        $totalTime = floor(($responseTime - $requestTime) * 1000);
-        $this->ci->custom_log->log("audit", sprintf(
-                "%s - %s ms %s", $message, $totalTime, $memMsg));
+    public function getXmlObject($xmlString) {
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument("1.0", "UTF-8");
+        $dom->strictErrorChecking = false;
+        $dom->validateOnParse = false;
+        $dom->recover = true;
+        $dom->loadXML($xmlString, LIBXML_NOCDATA);
+        $xmlObject = simplexml_import_dom($dom);
+        libxml_clear_errors();
+        libxml_use_internal_errors(false);
+                
+        return $xmlObject;
     }
-    
-    protected function trimCDataTag($propertyXml) {
-        return $this->ci->db->escape((string) trim($propertyXml));
-    }    
 }
