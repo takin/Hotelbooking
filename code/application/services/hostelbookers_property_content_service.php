@@ -9,6 +9,8 @@ class Hostelbookers_Property_Content_Service {
     private $auditor;
     private $xmlService;
     
+    private $supportedLanguages;
+    
     public function __construct() {
         $this->ci = &get_instance();
 
@@ -21,32 +23,36 @@ class Hostelbookers_Property_Content_Service {
         $this->ci->load->model("db_hb_hostel");
         $this->ci->load->library("custom_log");
         $this->log_filename = "hb_cache_staticfeeds-" . date("Y-m");
+        
+        $this->ci->load->model("db_translation_langs");
+        $this->supportedLanguages = $this->ci->db_translation_langs->getSupportedLanguages();
     }
     
     public function updateMonthlyPropertyContent() {
-        $startTime = microtime(true);
-        $updateUrlsAndLanguages = $this->getWebServiceUrls();
-        foreach ($updateUrlsAndLanguages as $urlData) {
-            $url = $urlData["url"];
-            $langCode = $urlData["langCode"];
-            //$requestData = $this->xmlService->getDataFromUrl($url);
-            $requestData = $this->getTestXml();
+        // if date of month < the number of supported languages
+        if ((date("j") - 1) < (count($this->supportedLanguages) - 1)) {
+            $startTime = microtime(true);
+            $urlInfo = $this->getWebServiceUrl();
+            $url = $urlInfo["url"];
+            $langCode = $urlInfo["langCode"];
+            $requestData = $this->xmlService->getDataFromUrl($url);
             $propertiesData = $this->parseXmlData($requestData, $langCode, $url);            
             $this->insertOrUpdatePropertiesInDb($propertiesData);
+
+            $endTime = microtime(true);
+
+            $this->auditor->log("HB XML Service - updated all property descriptions 
+                    for $langCode language", $startTime, $endTime);
+        } else {
+            $this->auditor->log("HB XML Service - no property descriptions to update", 0, 0);
         }
-        $endTime = microtime(true);
-        
-        $this->auditor->log("HB XML Service - updated all property descriptions", 
-                $startTime, $endTime);
     }
     
-    private function getWebServiceUrls() {
-        $this->ci->load->model("db_translation_langs");
-        $supportedLanguages = $this->ci->db_translation_langs->getSupportedLanguages();
+    private function getWebServiceUrl() {
         
         $urlsAndLanguages = array();
         
-        foreach ($supportedLanguages as $langCode => $language) {
+        foreach ($this->supportedLanguages as $langCode => $language) {
             $urlData = array(
                 "url" => sprintf("%s-[%s]-[%s]-[%s].xml",
                             "http://feeds.hostelbookers.com/generic/PropertyContent",
@@ -57,7 +63,9 @@ class Hostelbookers_Property_Content_Service {
             $urlsAndLanguages[] = $urlData;
         }
         
-        return $urlsAndLanguages;
+        $urlIndex = date("j") - 1;
+        
+        return $urlsAndLanguages[$urlIndex];
     }
     
     private function parseXmlData($xmlData, $langCode, $url) {
@@ -125,12 +133,12 @@ class Hostelbookers_Property_Content_Service {
          * Cases:
          *   Update - property number 1391
          *   Hostel Doesn't exist - property number 41536
-         *   Insert - property number 343434
+         *   Insert - property number 353535
          */
         return '<properties>
                     <property ID="1391"><overview><![CDATA[Updating Hostel\'s Description: --- Basel St. Alban enjoys a location near the centre of Basel and is the ideal place to stay to explore this historic city!]]></overview><info><![CDATA[The newly renovated, modern youth hostel provides 234 beds in a variety of room types (double room to six-bed rooms). It is glorious to stay here in this quiet, green, sleepy oasis of Basel, not far from the river Rhine. We have a reception and front desk open 24/7 where our warm and friendly staff is on hand to assist you throughout your stay. Facilities include a common area with a bar, a conference room, games room, kiosk, washing facilities and internet corner. **PLEASE NOTE: There is an extra charge if you are not a member of any Youth Hostel Association of CHF 6.00 per night, payable on arrival**]]></info><desc><![CDATA[Check-in at any time, rooms are ready from 3 pm heck-out until 10 am 21 double rooms with shower/WC 3 rooms with 4 beds (family rooms) and shower/WC 36 rooms with 4 beds and washbasin 6 rooms with 6 beds and washbasin A total of 234 beds. Showers/WC on the floor. Catering Breakfast buffet (incl.) Lunch and evening meal (3-course menu)  Vegetarian meals Special events and meals for groups on request Bar service snacks 24 hours a day Infrastructure Large lobby  Snack bar 1 conference room (22 seats) Extensive seminar equipment (video projector, TV/DVD, etc.) Kiosk with souvenirs (Swatch, Victorinox, Wenger, SYH merchandising, etc.) Bicycle cellar Internet corner WiFi Suitable for wheelchairs]]></desc><location><![CDATA[The youth hostel is situated in the venerable St Alban quarter, the original home of the Basler "Daig", as the old established Basler families are called. Behind the building flows the St Alban Canal, which earlier linked the various factories in the quarter to the Rhine. From the hostel it’s only a 10 minutes walk to the effervescence of Basel’s city life. The optimal starting point from which you can set out to discover Basel and its unique way of life: from the Old Town to the famous museums and the Carnival.]]></location><directions><![CDATA[On foot from the main railway station is a 15 minutes walk via Aeschenplatz. Alternatively you can take tram No. 2 from the station as far as the Kunstmuseum stop, thereafter 5 minutes on foot through the Alban quarter and down the Mühleberg, passing St. Albans Church to the youth hostel (sign). <br><br>Parking possibilities in the vicinity.]]></directions></property>
                     <property ID="41536"><overview><![CDATA[Test Hostel Doesn\'t exist. St. Alban enjoys a location near the centre of Basel and is the ideal place to stay to explore this historic city!]]></overview><info><![CDATA[The newly renovated, modern youth hostel provides 234 beds in a variety of room types (double room to six-bed rooms). It is glorious to stay here in this quiet, green, sleepy oasis of Basel, not far from the river Rhine. We have a reception and front desk open 24/7 where our warm and friendly staff is on hand to assist you throughout your stay. Facilities include a common area with a bar, a conference room, games room, kiosk, washing facilities and internet corner. **PLEASE NOTE: There is an extra charge if you are not a member of any Youth Hostel Association of CHF 6.00 per night, payable on arrival**]]></info><desc><![CDATA[Check-in at any time, rooms are ready from 3 pm heck-out until 10 am 21 double rooms with shower/WC 3 rooms with 4 beds (family rooms) and shower/WC 36 rooms with 4 beds and washbasin 6 rooms with 6 beds and washbasin A total of 234 beds. Showers/WC on the floor. Catering Breakfast buffet (incl.) Lunch and evening meal (3-course menu)  Vegetarian meals Special events and meals for groups on request Bar service snacks 24 hours a day Infrastructure Large lobby  Snack bar 1 conference room (22 seats) Extensive seminar equipment (video projector, TV/DVD, etc.) Kiosk with souvenirs (Swatch, Victorinox, Wenger, SYH merchandising, etc.) Bicycle cellar Internet corner WiFi Suitable for wheelchairs]]></desc><location><![CDATA[The youth hostel is situated in the venerable St Alban quarter, the original home of the Basler "Daig", as the old established Basler families are called. Behind the building flows the St Alban Canal, which earlier linked the various factories in the quarter to the Rhine. From the hostel it’s only a 10 minutes walk to the effervescence of Basel’s city life. The optimal starting point from which you can set out to discover Basel and its unique way of life: from the Old Town to the famous museums and the Carnival.]]></location><directions><![CDATA[On foot from the main railway station is a 15 minutes walk via Aeschenplatz. Alternatively you can take tram No. 2 from the station as far as the Kunstmuseum stop, thereafter 5 minutes on foot through the Alban quarter and down the Mühleberg, passing St. Albans Church to the youth hostel (sign). <br><br>Parking possibilities in the vicinity.]]></directions></property>
-                    <property ID="343434"><overview><![CDATA[Test Hostel insert Basel St. Alban enjoys a location near the centre of Basel and is the ideal place to stay to explore this historic city!]]></overview><info><![CDATA[The newly renovated, modern youth hostel provides 234 beds in a variety of room types (double room to six-bed rooms). It is glorious to stay here in this quiet, green, sleepy oasis of Basel, not far from the river Rhine. We have a reception and front desk open 24/7 where our warm and friendly staff is on hand to assist you throughout your stay. Facilities include a common area with a bar, a conference room, games room, kiosk, washing facilities and internet corner. **PLEASE NOTE: There is an extra charge if you are not a member of any Youth Hostel Association of CHF 6.00 per night, payable on arrival**]]></info><desc><![CDATA[Check-in at any time, rooms are ready from 3 pm heck-out until 10 am 21 double rooms with shower/WC 3 rooms with 4 beds (family rooms) and shower/WC 36 rooms with 4 beds and washbasin 6 rooms with 6 beds and washbasin A total of 234 beds. Showers/WC on the floor. Catering Breakfast buffet (incl.) Lunch and evening meal (3-course menu)  Vegetarian meals Special events and meals for groups on request Bar service snacks 24 hours a day Infrastructure Large lobby  Snack bar 1 conference room (22 seats) Extensive seminar equipment (video projector, TV/DVD, etc.) Kiosk with souvenirs (Swatch, Victorinox, Wenger, SYH merchandising, etc.) Bicycle cellar Internet corner WiFi Suitable for wheelchairs]]></desc><location><![CDATA[The youth hostel is situated in the venerable St Alban quarter, the original home of the Basler "Daig", as the old established Basler families are called. Behind the building flows the St Alban Canal, which earlier linked the various factories in the quarter to the Rhine. From the hostel it’s only a 10 minutes walk to the effervescence of Basel’s city life. The optimal starting point from which you can set out to discover Basel and its unique way of life: from the Old Town to the famous museums and the Carnival.]]></location><directions><![CDATA[On foot from the main railway station is a 15 minutes walk via Aeschenplatz. Alternatively you can take tram No. 2 from the station as far as the Kunstmuseum stop, thereafter 5 minutes on foot through the Alban quarter and down the Mühleberg, passing St. Albans Church to the youth hostel (sign). <br><br>Parking possibilities in the vicinity.]]></directions></property>
+                    <property ID="353535"><overview><![CDATA[Test Hostel insert Basel St. Alban enjoys a location near the centre of Basel and is the ideal place to stay to explore this historic city!]]></overview><info><![CDATA[The newly renovated, modern youth hostel provides 234 beds in a variety of room types (double room to six-bed rooms). It is glorious to stay here in this quiet, green, sleepy oasis of Basel, not far from the river Rhine. We have a reception and front desk open 24/7 where our warm and friendly staff is on hand to assist you throughout your stay. Facilities include a common area with a bar, a conference room, games room, kiosk, washing facilities and internet corner. **PLEASE NOTE: There is an extra charge if you are not a member of any Youth Hostel Association of CHF 6.00 per night, payable on arrival**]]></info><desc><![CDATA[Check-in at any time, rooms are ready from 3 pm heck-out until 10 am 21 double rooms with shower/WC 3 rooms with 4 beds (family rooms) and shower/WC 36 rooms with 4 beds and washbasin 6 rooms with 6 beds and washbasin A total of 234 beds. Showers/WC on the floor. Catering Breakfast buffet (incl.) Lunch and evening meal (3-course menu)  Vegetarian meals Special events and meals for groups on request Bar service snacks 24 hours a day Infrastructure Large lobby  Snack bar 1 conference room (22 seats) Extensive seminar equipment (video projector, TV/DVD, etc.) Kiosk with souvenirs (Swatch, Victorinox, Wenger, SYH merchandising, etc.) Bicycle cellar Internet corner WiFi Suitable for wheelchairs]]></desc><location><![CDATA[The youth hostel is situated in the venerable St Alban quarter, the original home of the Basler "Daig", as the old established Basler families are called. Behind the building flows the St Alban Canal, which earlier linked the various factories in the quarter to the Rhine. From the hostel it’s only a 10 minutes walk to the effervescence of Basel’s city life. The optimal starting point from which you can set out to discover Basel and its unique way of life: from the Old Town to the famous museums and the Carnival.]]></location><directions><![CDATA[On foot from the main railway station is a 15 minutes walk via Aeschenplatz. Alternatively you can take tram No. 2 from the station as far as the Kunstmuseum stop, thereafter 5 minutes on foot through the Alban quarter and down the Mühleberg, passing St. Albans Church to the youth hostel (sign). <br><br>Parking possibilities in the vicinity.]]></directions></property>
                 </properties>';
     }
 }

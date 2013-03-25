@@ -1046,8 +1046,6 @@ class Db_hb_hostel extends CI_Model
   }
 
   public function insert_or_update_hb_hostel_data(array $hostelData) {
-        $this->update_hb_hostel_sync_status(self::PROPERTY_INVALID);
-      
         $hostel = $hostelData["property"];
 
         // Ignore hostels in cities that don't exist
@@ -1066,7 +1064,7 @@ class Db_hb_hostel extends CI_Model
         return true;
   }
   
-  private function update_hb_hostel_sync_status($status) {
+  public function update_hb_hostel_sync_status($status) {
         $this->update_sync_status($status);
         $this->update_features_status($status);
         $this->update_extras_status($status);

@@ -26,8 +26,7 @@ class Hostelbookers_feed_service {
     public function updateAllHbProperties() {
         $startTime = microtime(true);
         $url = $this->getWebServiceUrl();
-        //$requestData = $this->xmlService->getDataFromUrl($url);
-        $requestData = $this->getTestXml();
+        $requestData = $this->xmlService->getDataFromUrl($url);
         $propertiesData = $this->parseXmlData($requestData);
         $this->insertOrUpdatePropertiesDataInDb($propertiesData);
         $endTime = microtime(true);
@@ -75,7 +74,7 @@ class Hostelbookers_feed_service {
                 "cancellation_period" => intval((string) $propertyXml["canc"]),
                 "release_unit" => intval((string) $propertyXml["release"], 10),
                 "modified" => date("Y-m-d"),
-                "api_sync_status" => self::PROPERTY_VALID
+                "api_sync_status" => 1
             ), $this->parsePropertyXmlRatings($propertyXml->ratings),
             $this->parsePropertyXmlAddress($propertyXml->add)
         );
@@ -157,7 +156,7 @@ class Hostelbookers_feed_service {
             $img = array(
                 "hostel_hb_id" => $propertyNumber,
                 "url" => (string) $imgNode,
-                "api_sync_status" => self::PROPERTY_VALID
+                "api_sync_status" => 1
             );
             
             $images[] = $img;
@@ -175,7 +174,7 @@ class Hostelbookers_feed_service {
                 "hb_extra_id" => intval((string) $extraNode["id"], 10),
                 "cost" => intval((string) $extraNode["cost"]),
                 "hostel_hb_id" => intval((string) $propertyNumber, 10),
-                "api_sync_status" => self::PROPERTY_VALID
+                "api_sync_status" => 1
             );
             
             $extras[] = $extra;
@@ -224,6 +223,7 @@ class Hostelbookers_feed_service {
     
     private function insertOrUpdatePropertiesDataInDb($propertiesData) {
         $startTime = microtime(true);
+        $this->ci->db_hb_hostel->update_hb_hostel_sync_status(Db_hb_hostel::PROPERTY_INVALID);
         
         foreach ($propertiesData as $propertyData) {
             try {
@@ -252,8 +252,8 @@ class Hostelbookers_feed_service {
     private function getTestXml() {
         /*
          * Cases:
-         *  1. Standard update - property number 1026
-         *  2. Standard insert - property number 353535
+         *  1. Update - property number 1026
+         *  2. Insert - property number 353535 - hostel just created
          *  3. Location doesn't exist - property number 363636
          *  4. No facilities or extras - property number 373737
          *  5. Facility doesn't exist + no extras - property number 383838

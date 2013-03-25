@@ -246,8 +246,8 @@ class Cron_hb extends I18n_site
     }
     
     public function update_hb_hostel_descriptions() {
-        ini_set('memory_limit', "2047M");
-        set_time_limit(10000);
+        ini_set('memory_limit', "700M");
+        set_time_limit(3000);
         
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
