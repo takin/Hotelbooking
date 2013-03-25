@@ -228,70 +228,63 @@ class Cron_hb extends I18n_site
   }
 
     public function hb_hostels_get() {
-        ini_set('memory_limit', "700M");
-        set_time_limit(3000);
-    
+
         require_once(APPPATH . "/services/hostelbookers_feed_service.php");
         $hbFeedService = new Hostelbookers_feed_service();
         $emailSubject = "Email report for the hostelbookers feed service";
-        
-        $this->runXmlServiceCron($hbFeedService, "updateAllHbProperties", $emailSubject);
-        
+
+        $this->runXmlServiceCron($hbFeedService, "updateAllHbProperties", $emailSubject, "updateallproperties");
+    }
+
+    public function update_hb_hostel_descriptions() {
+
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
         $emailSubject = "Email report for the hostelbookers property content service";
-        
-        $this->runXmlServiceCron($hbPropertyContentService, 
-                "updateMonthlyPropertyContent", $emailSubject);
+
+        $this->runXmlServiceCron($hbPropertyContentService,
+                "updateMonthlyPropertyContent", $emailSubject, "updatepropertycontent");
     }
-    
-    public function update_hb_hostel_descriptions() {
+
+    private function runXmlServiceCron($serviceObject, $method, $emailSubject, $logFilename) {
+
         ini_set('memory_limit', "700M");
         set_time_limit(3000);
-        
-        require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
-        $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
-        $emailSubject = "Email report for the hostelbookers property content service";
-        
-        $this->runXmlServiceCron($hbPropertyContentService, 
-                "updateMonthlyPropertyContent", $emailSubject);
-    }
-    
-    private function runXmlServiceCron($serviceObject, $method, $emailSubject) {
+
         ini_set('display_errors', 1);
         error_reporting(E_ALL);
-        
+
         $this->load->library('custom_log');
-        $this->log_filename.= "_staticfeeds-" . date("Y-m");
-        
+        $this->log_filename.= "_".$logFilename."_staticfeeds-" . date("Y-m");
+
         $errors = array();
         try {
             call_user_func(array($serviceObject, $method));
         } catch (Exception $e) {
-            $msg = sprintf("ERROR: Cron job: %s <br> %s", 
+            $msg = sprintf("ERROR: Cron job: %s <br> %s",
                     $e->getMessage(), $e->getTraceAsString());
             log_message("error", $msg);
             $this->custom_log->log($this->log_filename, $msg);
             $errors[] = $msg;
         }
-        
+
         $errorsToReport = array_merge($errors, $serviceObject->getErrors());
         $this->reportHostelFeedErrors($errorsToReport, $emailSubject);
     }
-    
+
     private function reportHostelFeedErrors(array $errors, $emailSubject) {
         require_once(APPPATH . "/services/mail_service.php");
         $mailService = new Mail_Service();
-        
+
         try {
-            $mailService->mailErrors($errors, $emailSubject);    
+            $mailService->mailErrors($errors, $emailSubject);
         } catch (Exception $e) {
             $msg = sprintf("Unable to email cron errors. %s
                     Stacktrace: %s", $e->getMessage(), $e->getTraceAsString());
             log_message("error", $msg);
             $this->custom_log->log($this->log_filename, $msg);
         }
-        
+
         if ($mailService->isMailSent()) {
             $this->custom_log->log(
                     $this->log_filename,"Report sent to " . $mailService->emailAddress);
@@ -299,7 +292,7 @@ class Cron_hb extends I18n_site
             $this->custom_log->log(
                     $this->log_filename,"Failed to send report to " . $mailService->emailAddress);
         }
-        
+
     }
 
   function cache_exchange_rates()
