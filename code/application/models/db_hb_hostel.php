@@ -1045,6 +1045,74 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->delete($table);
   }
 
+  public function insert_or_update_hb_hostel_data(array $hostelData) {
+        $this->update_hb_hostel_sync_status(self::PROPERTY_INVALID);
+      
+        $hostel = $hostelData["property"];
+
+        // Ignore hostels in cities that don't exist
+        $cityId = $hostel["city_hb_id"];
+        if (! $this->does_city_exist($cityId)) return NULL;
+
+        $hostelId = $this->get_hostel_id($hostel["property_number"]);
+
+        if (isset($hostelId) && !empty($hostelId)) {
+            $hostel["hb_hostel_id"] = $hostelId;
+            $this->update_hostel_data($hostelData);
+        } else {
+            $this->insert_hb_hostel_data($hostelData);
+        }
+
+        return true;
+  }
+  
+  private function update_hb_hostel_sync_status($status) {
+        $this->update_sync_status($status);
+        $this->update_features_status($status);
+        $this->update_extras_status($status);
+  }
+  
+  private function does_city_exist($cityId) {
+        $this->CI->load->model("db_hb_city");
+        $city = $this->CI->db_hb_city->get_hb_city_from_hbid($cityId);
+        if (empty($city)) return false;
+        else return true;
+  }
+  
+  private function update_hostel_data(array $hostelData) {
+        $property = $hostelData["property"];
+        $propertyNumber = $property["property_number"];
+        unset($property["city_hb_id"]);
+        
+        $this->update_hostel_from_array($property);
+
+        $this->delete_all_prices_for_property($propertyNumber);
+        $this->insert_prices($hostelData["prices"]);
+
+        $this->delete_all_images_for_property($propertyNumber);
+        $this->insert_hb_images($hostelData["images"]);
+
+        $this->delete_all_extras_for_property($propertyNumber);
+        $this->insert_hb_extras_to_hostel_from_array($hostelData["extras"]);
+
+        $this->delete_all_facilities_for_property($propertyNumber);
+        $this->insert_hb_facilities($hostelData["facilities"]);
+  }
+  
+  private function insert_hb_hostel_data(array $hostelData) {
+        $hostel = $hostelData["property"];
+        $prices = $hostelData["prices"];
+        $hostel["added"] = date("Y-m-d");
+        
+        if (isset($hostel["hb_hostel_id"])) unset($hostel["hb_hostel_id"]);
+        
+        $this->insert_hostel_from_array($hostel);
+        $this->insert_prices($prices);
+        $this->insert_hb_images($hostelData["images"]);
+        $this->insert_hb_extras_to_hostel_from_array($hostelData["extras"]);
+        $this->insert_hb_facilities($hostelData["facilities"]);
+  }
+  
   function insert_hostel_from_array(array $hostel) {
     if (empty($hostel)) return true;
       
