@@ -1,0 +1,21 @@
+
+<VirtualHost *:80>
+        ServerName      www.youth-hostels.ie
+        ServerAlias     www.youth-hostels.ie
+        ServerAlias     youth-hostels.ie
+        ServerAdmin     technical@mcwebmanagement.com
+
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        CustomLog /opt/logs/youth-hostels.ie-access.log combined
+        ErrorLog /opt/logs/youth-hostels.ie-error.log
+        LogLevel warn
+
+</VirtualHost>
+

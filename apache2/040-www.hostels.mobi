@@ -1,0 +1,21 @@
+
+<VirtualHost *:80>
+        ServerName      www.hostels.mobi
+        ServerAlias     www.hostels.mobi hostels.mobi
+        ServerAdmin     technical@mcwebmanagement.com
+
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        CustomLog /opt/logs/hostels.mobi-access.log combined
+        ErrorLog /opt/logs/hostels.mobi-error.log
+        LogLevel warn
+
+</VirtualHost>
+
+

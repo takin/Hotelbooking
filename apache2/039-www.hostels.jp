@@ -1,0 +1,21 @@
+
+<VirtualHost *:80>
+        ServerName      www.hostels.jp
+        ServerAlias     www.hostels.jp
+        ServerAlias     hostels.jp
+        ServerAdmin     technical@mcwebmanagement.com
+
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        CustomLog /opt/logs/hostels.jp-access.log combined
+        ErrorLog /opt/logs/hostels.jp-error.log
+        LogLevel warn
+
+</VirtualHost>
+

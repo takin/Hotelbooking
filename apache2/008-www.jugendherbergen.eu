@@ -1,0 +1,21 @@
+
+<VirtualHost *:80>
+        ServerName      www.jugendherbergen.eu
+        ServerAlias     www.jugendherbergen.eu
+        ServerAlias     jugendherbergen.eu
+        ServerAdmin     technical@mcwebmanagement.com
+
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        CustomLog /opt/logs/jugendherbergen.eu-access.log combined
+        ErrorLog /opt/logs/jugendherbergen.eu-error.log
+        LogLevel warn
+
+
+</VirtualHost>

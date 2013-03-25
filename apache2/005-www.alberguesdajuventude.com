@@ -1,0 +1,25 @@
+
+<VirtualHost *:80>
+        ServerName      www.alberguesdajuventude.com
+        #ServerAlias     www.alberguesdajuventude.com
+        ServerAlias     alberguesdajuventude.com
+        ServerAdmin     technical@mcwebmanagement.com
+
+        DocumentRoot "/opt/web"
+        <Directory "/opt/web">
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        CustomLog /opt/logs/alberguesdajuventude.com-access.log combined
+        ErrorLog /opt/logs/alberguesdajuventude.com-error.log
+        #LogLevel warn
+        LogLevel debug
+RewriteLogLevel 6
+RewriteLog /tmp/rewrite.log
+
+
+</VirtualHost>
+
