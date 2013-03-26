@@ -8,6 +8,7 @@ class Hostelbookers_feed_service {
     private $ci;
     private $xmlService;
     private $existingFacilitiesCache = array();
+    private $imageUrlPrefix = "http://assets.hb-assets.com";
     
     public function __construct() {
         $this->ci = &get_instance();
@@ -75,7 +76,7 @@ class Hostelbookers_feed_service {
                 "release_unit" => intval((string) $propertyXml["release"], 10),
                 "modified" => date("Y-m-d"),
                 "api_sync_status" => 1
-            ), $this->parsePropertyXmlRatings($propertyXml->ratings),
+            ), $this->parsePropertyXmlRatings($propertyXml->rating),
             $this->parsePropertyXmlAddress($propertyXml->add)
         );
         
@@ -155,7 +156,7 @@ class Hostelbookers_feed_service {
         foreach ($imagesXml->img as $imgNode) {
             $img = array(
                 "hostel_hb_id" => $propertyNumber,
-                "url" => (string) $imgNode,
+                "url" => $this->imageUrlPrefix . (string) $imgNode,
                 "api_sync_status" => 1
             );
             
@@ -267,4 +268,3 @@ class Hostelbookers_feed_service {
                 </properties>';
     }
 }
-
