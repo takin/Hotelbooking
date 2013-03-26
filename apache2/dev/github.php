@@ -11,15 +11,15 @@
    $allowedUsernames = array("jcurlier", "CHRISMORISSEAU");
    $master = "refs/heads/master";
    $deployProdString = "deploy to prod";
-   $deployProdScript = "/srv/source/deploy2prod.sh";
+   $deployProdScript = "/opt/deployment/deploy2prod.sh";
    $deployProdMessage = "deployed to production";
    $deployDevString = "deploy to dev";
-   $deployDevScript = "/srv/source/deploy2dev.sh";
+   $deployDevScript = "/opt/deployment/deploy2dev.sh";
    $deployDevMessage = "deployed to dev";
    $noDeployMessage = "no deployment";
 
    $IP = $_SERVER['REMOTE_ADDR'];
-   if (in_array ($IP, $allowedIPs)) 
+   if (in_array ($IP, $allowedIPs))
    {
       try
       {
@@ -56,7 +56,7 @@
             @file_put_contents($log, date("Y-m-d H:i:s")."\t".$repository."\t".$username."\t".$commit."\t".$noDeployMessage."\n", FILE_APPEND);
          }
      }
-     catch (Exception $e) 
+     catch (Exception $e)
      {
          exit;
      }
