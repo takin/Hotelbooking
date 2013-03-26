@@ -44,14 +44,7 @@
 			      $hostel_image = get_option('aj_api_url').'/images/na_small.jpg';
                   if(!empty($property->image_url))
                   {
-                    if (substr($property->image_url, 0, 4 ) === "http")
-                    {
                       $hostel_image = $property->image_url;
-                    }
-                    else
-                    {
-                      $hostel_image = "http://assets.hb-assets.com".$property->image_url;
-                    }
                   }
 
 			      $counter++;
