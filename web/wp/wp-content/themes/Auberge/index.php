@@ -42,11 +42,17 @@
 			        $display_city = $property->translated_city;
 			      }
 			      $hostel_image = get_option('aj_api_url').'/images/na_small.jpg';
-                  if(!empty($property->image_url))
-                  {
-                      $hostel_image = $property->image_url;
-                  }
-
+			      if(!empty($property->image_url))
+			      {
+			        if (substr($property->image_url, 0, 4 ) === "http")
+			        {
+			          $hostel_image = $property->image_url;
+			        }
+			        else
+			        {
+			          $hostel_image = "http://assets.hb-assets.com".$property->image_url;
+			        }
+			      }
 			      $counter++;
 			      ?>
 						<?php if($counter==1){echo '<div class="post_column">';}elseif($counter==4){echo '<div class="post_column last">';}?>
