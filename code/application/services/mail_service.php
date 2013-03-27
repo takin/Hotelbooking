@@ -10,17 +10,16 @@ class Mail_Service {
     public function __construct() {
         $this->ci = &get_instance();
         $this->ci->load->library("email");
+        $this->emailAddress = "technical@mcwebmanagement.com";
     }
     
-    public function mailErrors(array $errors, $emailSubject) {
-        $this->emailAddress = "technical@mcwebmanagement.com";
-        
-        $emailcontent = $this->createErrorEmailContent($errors);
+    public function mailReport(array $reportInfo) {
+        $emailcontent = $this->createErrorEmailContent($reportInfo);
 
         //Send report to appropriate admin
         $this->ci->email->from($this->ci->config->item('admin_booking_email'),"HB API cron job");
         $this->ci->email->to($this->emailAddress);
-        $this->ci->email->subject($emailSubject);
+        $this->ci->email->subject($reportInfo["subject"]);
         $this->ci->email->message($emailcontent);
         
         if ($this->ci->email->send()) {
@@ -28,11 +27,21 @@ class Mail_Service {
         }        
     }
     
-    private function createErrorEmailContent(array $errors) {
-        $contentBody = $this->getErrorEmailContentBody($errors);
+    private function createErrorEmailContent(array $reportInfo) {
+        $contentBody = $this->getErrorEmailContentBody($reportInfo["errors"]);
+        $cronUrl = $reportInfo["url"];
+        $successCount = $reportInfo["successCount"];
+        $failureCount = $reportInfo["failureCount"];
+        
         $content = "
             <html>
             <body>
+                <h2 align='center'>Cron Report</h2>
+                <ul>
+                    <li>Url: $cronUrl</li>
+                    <li>Success count: $successCount</li>
+                    <li>Failure count: $failureCount</li>
+                </ul>
                 <table border='1' cellpadding='7'>
                     <thead>
                         <tr>
