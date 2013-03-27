@@ -898,6 +898,10 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
     color:rgb(112,146,190);
 }
 
+.city_tabs ul.rating li.noRatings span {
+    color:black;
+}
+
 .city_tabs ul.rating li:hover{
     background-color:white;
 }
