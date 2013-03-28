@@ -176,12 +176,8 @@ class I18n_site extends MY_Controller {
 
         if (!is_null($domain = $this->Db_links->get_domain($host))) {
             $this->config->set_item('base_url', "http://" . $domain->site_domain);
+            $this->config->set_item('secure_base_url', "https://" . $domain->secure_site_domain);
 
-            if (!empty($domain->secure_site_domain)) {
-                $this->config->set_item('secure_base_url', "https://" . $domain->secure_site_domain);
-            } else {
-                $this->config->set_item('secure_base_url', "http://" . $domain->site_domain);
-            }
 
             $this->site_lang = $domain->lang;
             $this->site_domain_id = $domain->site_domain_id;
