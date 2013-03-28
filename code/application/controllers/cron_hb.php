@@ -231,9 +231,12 @@ class Cron_hb extends I18n_site
 
         require_once(APPPATH . "/services/hostelbookers_feed_service.php");
         $hbFeedService = new Hostelbookers_feed_service();
-        $emailSubject = "Email report for the hostelbookers feed service";
+        $serviceCallback = array($hbFeedService, "updateHbHostels");
 
-        $this->runXmlServiceCron($hbFeedService, "updateAllHbProperties", $emailSubject, "updateallproperties");
+        $emailSubject = "Email report for the hostelbookers feed service";
+        $logFilename = "updateallproperties";
+
+        $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename);
     }
 
     public function update_hb_hostel_descriptions() {
@@ -241,12 +244,38 @@ class Cron_hb extends I18n_site
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
         $emailSubject = "Email report for the hostelbookers property content service";
-
-        $this->runXmlServiceCron($hbPropertyContentService,
-                "updateMonthlyPropertyContent", $emailSubject, "updatepropertycontent");
+        $serviceCallback = array($hbPropertyContentService, "updateShortDescriptions");
+        $logFilename = "updatepropertycontent";
+        
+        $urlInfo = $this->getShortDescriptionUrlAndLanguage();
+        if (!empty($urlInfo)) {
+            $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $urlInfo);
+        }
+    }
+    
+    private function getShortDescriptionUrlAndLanguage() {
+        $this->load->model("db_translation_langs");
+        $supportedLanguages = $this->db_translation_langs->getSupportedLanguages();
+        
+        $urlsAndLanguages = array();
+        foreach ($supportedLanguages as $langCode => $language) {
+            $urlData = array(
+                "url" => sprintf("%s-[%s]-[%s]-[%s].xml",
+                            "http://feeds.hostelbookers.com/generic/PropertyContent",
+                            $langCode, date("Y"), date("m")),
+                "langCode" => strtolower($langCode),
+            );
+            
+            $urlsAndLanguages[] = $urlData;
+        }
+        
+        $todaysIndex = date("j") - 1;
+        
+        if ($todaysIndex >= count($supportedLanguages)) return array();
+        else return $urlsAndLanguages[$todaysIndex];
     }
 
-    private function runXmlServiceCron($serviceObject, $method, $emailSubject, $logFilename) {
+    private function runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $params=array()) {
 
         ini_set('memory_limit', "700M");
         set_time_limit(3000);
@@ -259,7 +288,7 @@ class Cron_hb extends I18n_site
 
         $errors = array();
         try {
-            call_user_func(array($serviceObject, $method));
+            call_user_func($serviceCallback, $params);
         } catch (Exception $e) {
             $msg = sprintf("ERROR: Cron job: %s <br> %s",
                     $e->getMessage(), $e->getTraceAsString());
@@ -267,19 +296,27 @@ class Cron_hb extends I18n_site
             $this->custom_log->log($this->log_filename, $msg);
             $errors[] = $msg;
         }
-
-        $errorsToReport = array_merge($errors, $serviceObject->getErrors());
-        $this->reportHostelFeedErrors($errorsToReport, $emailSubject);
+        
+        $serviceObject = $serviceCallback[0];
+        
+        $reportInfo = array(
+            "errors" => array_merge($errors, $serviceObject->getErrors()),
+            "subject" => $emailSubject,
+            "successCount" => $serviceObject->successCount,
+            "failureCount" => $serviceObject->failureCount,
+            "url" => $serviceObject->url
+        );
+        $this->emailCronReport($reportInfo);
     }
 
-    private function reportHostelFeedErrors(array $errors, $emailSubject) {
+    private function emailCronReport(array $reportInfo) {
         require_once(APPPATH . "/services/mail_service.php");
         $mailService = new Mail_Service();
 
         try {
-            $mailService->mailErrors($errors, $emailSubject);
+            $mailService->mailReport($reportInfo);
         } catch (Exception $e) {
-            $msg = sprintf("Unable to email cron errors. %s
+            $msg = sprintf("Unable to email cron report. %s
                     Stacktrace: %s", $e->getMessage(), $e->getTraceAsString());
             log_message("error", $msg);
             $this->custom_log->log($this->log_filename, $msg);

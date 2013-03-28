@@ -4,12 +4,13 @@ require_once(APPPATH . "/services/xml_service.php");
 class Hostelbookers_Property_Content_Service {
     
     public $errors = array();
+    public $successCount = 0;
+    public $failureCount = 0;
+    public $url;
     
     private $ci;
     private $auditor;
     private $xmlService;
-    
-    private $supportedLanguages;
     
     public function __construct() {
         $this->ci = &get_instance();
@@ -23,52 +24,24 @@ class Hostelbookers_Property_Content_Service {
         $this->ci->load->model("db_hb_hostel");
         $this->ci->load->library("custom_log");
         $this->log_filename = "hb_cache_staticfeeds-" . date("Y-m");
-        
-        $this->ci->load->model("db_translation_langs");
-        $this->supportedLanguages = $this->ci->db_translation_langs->getSupportedLanguages();
     }
     
-    public function updateMonthlyPropertyContent() {
-        // if date of month < the number of supported languages
-        if ((date("j") - 1) < (count($this->supportedLanguages) - 1)) {
-            $startTime = microtime(true);
-            $urlInfo = $this->getWebServiceUrl();
-            $url = $urlInfo["url"];
-            $langCode = $urlInfo["langCode"];
-            $requestData = $this->xmlService->getDataFromUrl($url);
-            $propertiesData = $this->parseXmlData($requestData, $langCode, $url);            
-            $this->insertOrUpdatePropertiesInDb($propertiesData);
+    public function updateShortDescriptions($urlInfo) {
+        $this->url = $urlInfo["url"];
+        $langCode = $urlInfo["langCode"];
+        
+        $startTime = microtime(true);
+        $requestData = $this->xmlService->getDataFromUrl($this->url);
+        $propertiesData = $this->parseXmlData($requestData, $langCode);
+        $this->insertOrUpdatePropertiesInDb($propertiesData);
 
-            $endTime = microtime(true);
+        $endTime = microtime(true);
 
-            $this->auditor->log("HB XML Service - updated all property descriptions 
-                    for $langCode language", $startTime, $endTime);
-        } else {
-            $this->auditor->log("HB XML Service - no property descriptions to update", 0, 0);
-        }
+        $this->auditor->log("HB XML Service - updated all property descriptions 
+                for $langCode language", $startTime, $endTime);
     }
     
-    private function getWebServiceUrl() {
-        
-        $urlsAndLanguages = array();
-        
-        foreach ($this->supportedLanguages as $langCode => $language) {
-            $urlData = array(
-                "url" => sprintf("%s-[%s]-[%s]-[%s].xml",
-                            "http://feeds.hostelbookers.com/generic/PropertyContent",
-                            $langCode, date("Y"), date("m")),
-                "langCode" => strtolower($langCode),
-            );
-            
-            $urlsAndLanguages[] = $urlData;
-        }
-        
-        $urlIndex = date("j") - 1;
-        
-        return $urlsAndLanguages[$urlIndex];
-    }
-    
-    private function parseXmlData($xmlData, $langCode, $url) {
+    private function parseXmlData($xmlData, $langCode) {
         if (empty($xmlData)) return array();
         
         $startTime = microtime(true);
@@ -115,12 +88,14 @@ class Hostelbookers_Property_Content_Service {
         try {
             $this->ci->db_hb_hostel->update_hb_short_desc(
                     $propertyNumber, $langCode, $description);
+            $this->successCount++;
         } catch(Exception $e) {
             $msg = sprintf("%s error: inserting/updating hostel description (property_number %s) in database. %s \n %s", 
                     __FUNCTION__, $propertyNumber, $e->getMessage(), $e->getTraceAsString());
             log_message("error", $msg);
             $this->ci->custom_log->log($this->log_filename, $msg);
             $this->errors[] = $msg;
+            $this->failureCount++;
         }
     }
     

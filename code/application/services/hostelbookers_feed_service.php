@@ -3,6 +3,9 @@
 class Hostelbookers_feed_service {
     
     public $errors = array();
+    public $successCount = 0;
+    public $failureCount = 0;
+    public $url;
     
     private $auditor;
     private $ci;
@@ -24,11 +27,11 @@ class Hostelbookers_feed_service {
         $this->log_filename = "hb_cache_staticfeeds-" . date("Y-m");
     }
     
-    public function updateAllHbProperties() {
+    public function updateHbHostels() {
         $startTime = microtime(true);
-        $url = $this->getWebServiceUrl();
-        $requestData = $this->xmlService->getDataFromUrl($url);
-        $propertiesData = $this->parseXmlData($requestData);
+        $this->url = $this->getWebServiceUrl();
+        $requestData = $this->xmlService->getDataFromUrl($this->url);
+        $propertiesData = $this->parseXmlData($requestData);        
         $this->insertOrUpdatePropertiesDataInDb($propertiesData);
         $endTime = microtime(true);
         
@@ -229,6 +232,7 @@ class Hostelbookers_feed_service {
         foreach ($propertiesData as $propertyData) {
             try {
                 $this->ci->db_hb_hostel->insert_or_update_hb_hostel_data($propertyData);
+                $this->successCount++;
             } catch(Exception $e) {
                 $property = $propertyData["property"];
                 $msg = sprintf("%s error: inserting or updating hostel (property_number %s) 
@@ -237,6 +241,7 @@ class Hostelbookers_feed_service {
                 log_message("Error", $msg);
                 $this->ci->custom_log->log($this->log_filename, $msg);
                 $this->errors[] = $msg;
+                $this->failureCount++;
             }
         }
         
