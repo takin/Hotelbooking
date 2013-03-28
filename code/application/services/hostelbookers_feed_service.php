@@ -68,7 +68,6 @@ class Hostelbookers_feed_service {
         $property = array_merge(
             array(
                 "property_name" => (string) $propertyXml->name,
-                "rating_overall" => floatval((string) $propertyXml->total),
                 "geo_latitude" => floatval((string) $propertyXml->lat),
                 "geo_longitude" => floatval((string) $propertyXml->lon),
                 "map_url" => (string) $propertyXml->map,
@@ -99,8 +98,8 @@ class Hostelbookers_feed_service {
     }
     
     private function parsePropertyXmlRatings($ratingsXml) {
-        // ratings_overall is parsed in the calling method
         $ratings = array(
+            "rating_overall" => floatval((string) $ratingsXml->total),
             "rating_atmosphere" => floatval((string) $ratingsXml->atmos),
             "rating_staff" => floatval((string) $ratingsXml->staff),
             "rating_location" => floatval((string) $ratingsXml->loc),
