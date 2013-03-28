@@ -277,7 +277,7 @@ class Cron_hb extends I18n_site
 
     private function runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $params=array()) {
 
-        ini_set('memory_limit', "700M");
+        ini_set('memory_limit', "2000M");
         set_time_limit(3000);
 
         ini_set('display_errors', 1);
