@@ -29,18 +29,24 @@ class Mail_Service {
     
     private function createErrorEmailContent(array $reportInfo) {
         $contentBody = $this->getErrorEmailContentBody($reportInfo["errors"]);
-        $cronUrl = $reportInfo["url"];
+        $cronUrls = $reportInfo["urls"];
         $successCount = $reportInfo["successCount"];
         $failureCount = $reportInfo["failureCount"];
+        $urlSuccessCount = $reportInfo["urlSuccessCount"];
+        $urlFailureCount = $reportInfo["urlFailureCount"];
         
         $content = "
             <html>
             <body>
                 <h2 align='center'>Cron Report</h2>
                 <ul>
-                    <li>Url: $cronUrl</li>
-                    <li>Success count: $successCount</li>
-                    <li>Failure count: $failureCount</li>
+                    <li>Urls: $cronUrls</li>
+                    <ul>
+                        <li>Count of successfully retrieved urls: $urlSuccessCount</li>
+                        <li>Count of url retrieval failures: $urlFailureCount</li>
+                    </ul>
+                    <li>Hostel success count: $successCount</li>
+                    <li>Hostel failure count: $failureCount</li>
                 </ul>
                 <table border='1' cellpadding='7'>
                     <thead>

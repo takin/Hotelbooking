@@ -247,32 +247,20 @@ class Cron_hb extends I18n_site
         $serviceCallback = array($hbPropertyContentService, "updateShortDescriptions");
         $logFilename = "updatepropertycontent";
         
-        $urlInfo = $this->getShortDescriptionUrlAndLanguage();
-        if (!empty($urlInfo)) {
-            $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $urlInfo);
+        $langCodesToUpdate = $this->getLangCodesToUpdate();
+        if (!empty($langCodesToUpdate)) {
+            $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $langCodesToUpdate);
         }
     }
     
-    private function getShortDescriptionUrlAndLanguage() {
+    private function getLangCodesToUpdate() {
         $this->load->model("db_translation_langs");
-        $supportedLanguages = $this->db_translation_langs->getSupportedLanguages();
-        
-        $urlsAndLanguages = array();
-        foreach ($supportedLanguages as $langCode => $language) {
-            $urlData = array(
-                "url" => sprintf("%s-[%s]-[%s]-[%s].xml",
-                            "http://feeds.hostelbookers.com/generic/PropertyContent",
-                            $langCode, date("Y"), date("m")),
-                "langCode" => strtolower($langCode),
-            );
-            
-            $urlsAndLanguages[] = $urlData;
-        }
+        $supportedLanguages = $this->db_translation_langs->getSupportedLangCodes();
         
         $todaysIndex = date("j") - 1;
         
         if ($todaysIndex >= count($supportedLanguages)) return array();
-        else return $urlsAndLanguages[$todaysIndex];
+        else return array($supportedLanguages[$todaysIndex]);
     }
 
     private function runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $params=array()) {
@@ -304,7 +292,9 @@ class Cron_hb extends I18n_site
             "subject" => $emailSubject,
             "successCount" => $serviceObject->successCount,
             "failureCount" => $serviceObject->failureCount,
-            "url" => $serviceObject->url
+            "urlSuccessCount" => $serviceObject->getUrlSuccessCount(),
+            "urlFailureCount" => $serviceObject->getUrlFailureCount(),
+            "urls" => $serviceObject->getUpdatedUrlsString()
         );
         $this->emailCronReport($reportInfo);
     }

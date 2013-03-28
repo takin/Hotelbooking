@@ -3,6 +3,8 @@
 class Xml_Service {
     
     public $errors = array();
+    public $successCount = 0;
+    public $failureCount = 0;
     
     private $auditor;
     
@@ -33,6 +35,10 @@ class Xml_Service {
                 throw new Exception($msg);
             }
             
+            $this->successCount++;
+            
+            die("Success count: " . $this->successCount);
+            
             $this->auditor->log("HB XML Service - XML retrieval from $url", 
                     $requestTime, $responseTime, true);
         } catch (Exception $e) {
@@ -40,6 +46,7 @@ class Xml_Service {
                         __FUNCTION__, $url, $e->getMessage(), $e->getTraceAsString());
             log_message("error", $msg);
             $this->errors[] = $msg;
+            $this->failureCount++;
             $result = null;
             curl_close($curl);
         }
