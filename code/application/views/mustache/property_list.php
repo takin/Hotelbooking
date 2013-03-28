@@ -39,18 +39,25 @@
 		</ul>
 		{{#overall_rating}}
 		<ul class="box_round rating">
-            <li class="first last" data-propertyNumber="{{propertyNumber}}">
-                <span class=""
-                    title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
-                    <strong class="txt-mid green">{{rating}}</strong><strong>{{overall_rating}} %</strong>
-                </span>
-                <span class="averageRatingCaption">
-                    <?php echo _("évaluation moyenne"); ?>
-                </span>
-            </li>
+                    
+                    {{#isRatingsEmpty}}
+                    <li data-propertyNumber="{{propertyNumber}}" class="first last noRatings">
+                    {{/isRatingsEmpty}}
+                    {{^isRatingsEmpty}}
+                    <li data-propertyNumber="{{propertyNumber}}" class="first last">
+                    {{/isRatingsEmpty}}
+                        <span class="">
+                            <strong class="txt-mid green">{{rating}}</strong>
+                            <strong>{{overall_rating}} %</strong>
+                        </span>
+                        <span class="averageRatingCaption">
+                            <?php echo _("évaluation moyenne"); ?>
+                        </span>
+                    </li>
 		</ul>
 		{{/overall_rating}}
         <div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBox">
+        {{^isRatingsEmpty}}    
         {{#Ratings}}
             <div class="propertyRatingsContainer">
                 <h3>
@@ -80,7 +87,9 @@
                         </div>
                    {{/<?php echo $ratingCategory; ?>}}
                 <?php endforeach; ?>
+            </div>
         {{/Ratings}}
+        {{/isRatingsEmpty}}
         </div>
 	</nav>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
