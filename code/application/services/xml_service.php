@@ -37,8 +37,6 @@ class Xml_Service {
             
             $this->successCount++;
             
-            die("Success count: " . $this->successCount);
-            
             $this->auditor->log("HB XML Service - XML retrieval from $url", 
                     $requestTime, $responseTime, true);
         } catch (Exception $e) {
