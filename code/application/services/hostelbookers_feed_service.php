@@ -5,8 +5,8 @@ class Hostelbookers_feed_service {
     public $errors = array();
     public $successCount = 0;
     public $failureCount = 0;
-    public $url;
     
+    private $url;
     private $auditor;
     private $ci;
     private $xmlService;
@@ -68,7 +68,6 @@ class Hostelbookers_feed_service {
         $property = array_merge(
             array(
                 "property_name" => (string) $propertyXml->name,
-                "rating_overall" => floatval((string) $propertyXml->total),
                 "geo_latitude" => floatval((string) $propertyXml->lat),
                 "geo_longitude" => floatval((string) $propertyXml->lon),
                 "map_url" => (string) $propertyXml->map,
@@ -99,8 +98,8 @@ class Hostelbookers_feed_service {
     }
     
     private function parsePropertyXmlRatings($ratingsXml) {
-        // ratings_overall is parsed in the calling method
         $ratings = array(
+            "rating_overall" => floatval((string) $ratingsXml->total),
             "rating_atmosphere" => floatval((string) $ratingsXml->atmos),
             "rating_staff" => floatval((string) $ratingsXml->staff),
             "rating_location" => floatval((string) $ratingsXml->loc),
@@ -255,6 +254,18 @@ class Hostelbookers_feed_service {
         return array_merge($this->errors, $this->xmlService->errors);
     }
     
+    public function getUpdatedUrlsString() {
+        return $this->url;
+    }
+    
+    public function getUrlSuccessCount() {
+        return $this->xmlService->successCount;
+    }
+    
+    public function getUrlFailureCount() {
+        return $this->xmlService->failureCount;
+    }
+    
     private function getTestXml() {
         /*
          * Cases:
@@ -264,6 +275,7 @@ class Hostelbookers_feed_service {
          *  4. No facilities or extras - property number 373737
          *  5. Facility doesn't exist + no extras - property number 383838
          */
+        $this->xmlService->successCount++;
         return '<properties>
                     <property type="Hostel" id="1026" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test Update</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price></shared><private><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="1"/><fac id="6"/><fac id="7"/><fac id="8"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property>
                     <property type="Hostel" id="353535" canc="2" locationid="1014" countryid="13" checkin="11:00" checkout="11:00" release="24"><name>Test Insert</name><price><shared><price c="AUD">6.22453200</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></shared><private><price c="AUD">8.00</price><price c="EUR">4.86985200</price><price c="GBP">4.19442000</price><price c="USD">6.36000000</price></private></price><lat>5.008267380000000e+001</lat><lon>1.444668730000000e+001</lon><rating><totalrating>302</totalrating><total>73.25714</total><atmos>76.00</atmos><staff>84.00</staff><loc>59.20</loc><clean>72.00</clean><facil>64.80</facil><safety>75.20</safety><value>81.60</value></rating><add><add1>Borivojova 102</add1><add2>Prague 3, Zizkov</add2><add3/><zip>13000</zip></add><img><img>/p/1000/1026-20120903040914.jpg</img><img>/p/1000/1026-20120903030934.JPG</img></img><fac><fac id="1"/><fac id="6"/><fac id="7"/><fac id="8"/></fac><opt><extra id="1" cost="-1.0000"/><extra id="2" cost="0.0000"/><extra id="3" cost="50.0000"/><extra id="4" cost="0.0000"/><extra id="5" cost="0.0000"/></opt></property>
