@@ -2,9 +2,9 @@
 <?php get_sidebar(); ?>
 
 <div id="main" class="grid_12">
-	<div class="group">		
-		<?php include (TEMPLATEPATH . '/search_box.php');?>		
-		<?php /*?><div class="home_title">			
+	<div class="group">
+		<?php include (TEMPLATEPATH . '/search_box.php');?>
+		<?php /*?><div class="home_title">
 			<?php // include 'widget/map-search.php';?>
 			<div class="box_content box_round">
 			<img src="<?php echo $apiurl; ?>/images/V2/home_bed.jpg" alt="<?php echo get_option('aj_api_name');?>">
@@ -14,7 +14,7 @@
 	</div>
 	<div class="group top_hostels">
 		<h1 class="border_title"><?php _e('Auberges et logements dernière minute pas chers les plus populaires','auberge');?></h1>
-				
+
 			  <?php
 			  $counter = 0;
 			  $topauberges = get_top_hostels();
@@ -42,11 +42,17 @@
 			        $display_city = $property->translated_city;
 			      }
 			      $hostel_image = get_option('aj_api_url').'/images/na_small.jpg';
-            if(!empty($property->image_url))
-            {
-              $hostel_image = $property->image_url;
-            }
-
+			      if(!empty($property->image_url))
+			      {
+			        if (substr($property->image_url, 0, 4 ) === "http")
+			        {
+			          $hostel_image = $property->image_url;
+			        }
+			        else
+			        {
+			          $hostel_image = "http://assets.hb-assets.com".$property->image_url;
+			        }
+			      }
 			      $counter++;
 			      ?>
 						<?php if($counter==1){echo '<div class="post_column">';}elseif($counter==4){echo '<div class="post_column last">';}?>
@@ -70,12 +76,12 @@
 			  }?>
         </div>
 			</div>
-			
+
 			<h1 class="border_title top_cities"><?php _e('Destinations - Les villes les plus populaires','auberge');?></h1>
-			
+
 			<div class="box_content box_round group">
 				<div class="top_cities">
-        
+
 				<div class="group">
 				<?php
 
@@ -84,7 +90,7 @@
           foreach($posts as $post) :
           $counter++;
         ?>
-				
+
         <div id="post_<?php echo $post->ID; ?>" class="post_home col2 <?php if($counter == 1){?>first<?php }?>">
 					 <?php if(!get_thumb_url($post->ID)==''){?>
 						<a class="city_preview" title="<?php the_title();?>" href="<?php the_permalink(); ?>"><img alt="<?php the_title();?>" src="<?php echo get_bloginfo('template_url') .'/scripts/timthumb.php?zc=1&amp;w=378&amp;h=120&amp;src='.get_thumb_url($post->ID);?>" />
@@ -109,7 +115,7 @@
         <?php endforeach; ?>
 				</div>
       	</div>
-				
+
      </div>
 
   </div>

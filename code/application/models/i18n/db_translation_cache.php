@@ -20,8 +20,8 @@ class Db_translation_cache extends CI_Model
       //reset translation memory cache
       $this->transDB  = $this->load->database('translation', TRUE);
 
-      //$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-      $this->load->driver('cache', array('adapter' => 'file'));
+      $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+      //$this->load->driver('cache', array('adapter' => 'file'));
   }
 
   public function add_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id, $tag)

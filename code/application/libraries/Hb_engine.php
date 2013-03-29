@@ -741,6 +741,7 @@ class Hb_engine {
       if(isset($prop["ratings"]))
       {
 	      $json_data["property_list"][$i]["Ratings"] = $prop["ratings"];
+              $json_data["property_list"][$i]["isRatingsEmpty"] = $this->isRatingsEmpty($prop["ratings"]);
       }
       $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageListURL"]   = $prop["image_list"];
       $json_data["property_list"][$i]["PropertyImages"]["PropertyImage"]["imageURL"]   = $prop["image"];
@@ -949,6 +950,14 @@ class Hb_engine {
 
     $data["json_data"] = json_encode($json_data);
     return $data;
+  }
+  
+  private function isRatingsEmpty($propertyRatings) {     
+      foreach ($propertyRatings as $rating) {
+          if ($rating > 0) return false;
+      }
+      
+      return true;
   }
 
     private function setJsonLocationRatingData(&$json_data, $i) {
@@ -1516,5 +1525,13 @@ class Hb_engine {
                             "campsite_count" => count($campsite),
                             );
     return $property_array;
+  }
+  
+   function propertyimg($prid)
+  {
+  	
+  		$this->CI->load->model('Hostelbookers_api');
+  		$results = $this->CI->Hostelbookers_api->getPropertyDataByID($prid);
+		return $results;
   }
 }

@@ -11,8 +11,6 @@ class Cron_hb extends I18n_site
 
   private $email_to_report_city = "technical@mcwebmanagement.com";
 
-  private $static_feeds_to_keep = 12;
-
   private $lockfile = "lock.txt";
   private $lockfp = NULL;
   public $already_running = FALSE;
@@ -229,487 +227,100 @@ class Cron_hb extends I18n_site
 
   }
 
-  public function hb_hostels_get()
-  {
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+    public function hb_hostels_get() {
 
-    //To force update of feed file and parsing even it the file is the same put this to TRUE
-    $forceupdate = FALSE;
+        require_once(APPPATH . "/services/hostelbookers_feed_service.php");
+        $hbFeedService = new Hostelbookers_feed_service();
+        $serviceCallback = array($hbFeedService, "updateHbHostels");
 
-    $this->wordpress->load_wordpress_db('wpblog_reviews');
+        $emailSubject = "Email report for the hostelbookers feed service";
+        $logFilename = "updateallproperties";
 
-    $latestfeedurl = $this->wordpress->get_option('aj_hb_static_feed_url');
-    $lastfeedindb  = $this->wordpress->get_option('aj_hb_static_feed_url_in_db');
-
-//	$latestfeedurl = "http://feeds.hostelbookers.com/affiliate/mcweb/20121201.zip";
-
-    if(empty($latestfeedurl) ||
-        ((!$forceupdate) && strcasecmp($latestfeedurl,$lastfeedindb)==0))
-    {
-      //parsing not needed if URL is empty or not changed
-      $this->custom_log->log($this->log_filename,"HB API data from static update not needed.");
-      return TRUE;
+        $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename);
     }
 
-    $this->load->library('custom_log');
-    $this->log_filename.= "_staticfeeds".date("Y");
-    $this->custom_log->log($this->log_filename,"Updating HB API data from static feed");
+    public function update_hb_hostel_descriptions() {
 
-    $this->lock();
-    if($this->already_running)
-    {
-      $this->custom_log->log($this->log_filename,__FUNCTION__." already running exitting...");
-      exit;
+        require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
+        $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
+        $emailSubject = "Email report for the hostelbookers property content service";
+        $serviceCallback = array($hbPropertyContentService, "updateShortDescriptions");
+        $logFilename = "updatepropertycontent";
+        
+        $langCodesToUpdate = $this->getLangCodesToUpdate();
+        if (!empty($langCodesToUpdate)) {
+            $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $langCodesToUpdate);
+        }
+    }
+    
+    private function getLangCodesToUpdate() {
+        $this->load->model("db_translation_langs");
+        $supportedLanguages = $this->db_translation_langs->getSupportedLangCodes();
+        
+        $todaysIndex = date("j") - 1;
+        
+        if ($todaysIndex >= count($supportedLanguages)) return array();
+        else return array($supportedLanguages[$todaysIndex]);
     }
 
-    ini_set('memory_limit', '512M');
-//     ini_set('memory_limit', '1024M');
+    private function runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $params=array()) {
 
-    $this->load->helper('memory_helper');
-    $this->load->helper('file');
+        ini_set('memory_limit', "2000M");
+        set_time_limit(3000);
 
-//     $link = 'http://feeds.hostelbookers.com/affiliate/mcweb/20110601.zip';
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
 
-    $localdest = FCPATH.self::DOWNLOAD_DIR;
-    $zipfilename = "staticfeed".date("YMd").".zip";
+        $this->load->library('custom_log');
+        $this->log_filename.= "_".$logFilename."_staticfeeds-" . date("Y-m");
 
-    $this->custom_log->log($this->log_filename,"Downloading feed from ".$latestfeedurl);
-    if(stream_copy($latestfeedurl,$localdest."/".$zipfilename) > 0)
-    {
-      $this->custom_log->log($this->log_filename,"Feed download complete");
-      if ($zip = zip_open($localdest."/".$zipfilename))
-      {
-        $translation_zip_entry = array('en' => null,
-                                       'fr' => null,
-                                       'es' => null,
-                                       'de' => null,
-                                       'it' => null,
-                                       'pt' => null
-                                       );
+        $errors = array();
+        try {
+            call_user_func($serviceCallback, $params);
+        } catch (Exception $e) {
+            $msg = sprintf("ERROR: Cron job: %s <br> %s",
+                    $e->getMessage(), $e->getTraceAsString());
+            log_message("error", $msg);
+            $this->custom_log->log($this->log_filename, $msg);
+            $errors[] = $msg;
+        }
+        
+        $serviceObject = $serviceCallback[0];
+        
+        $reportInfo = array(
+            "errors" => array_merge($errors, $serviceObject->getErrors()),
+            "subject" => $emailSubject,
+            "successCount" => $serviceObject->successCount,
+            "failureCount" => $serviceObject->failureCount,
+            "urlSuccessCount" => $serviceObject->getUrlSuccessCount(),
+            "urlFailureCount" => $serviceObject->getUrlFailureCount(),
+            "urls" => $serviceObject->getUpdatedUrlsString()
+        );
+        $this->emailCronReport($reportInfo);
+    }
 
-        $xml_file = false;
-        //Taking biggest file as static feed to import
-        //and other files as translation files
-        while(($zip_entry = zip_read($zip)) !== false)
-        {
-          if(($xml_file === false) ||
-             (zip_entry_filesize($zip_entry) > zip_entry_filesize($xml_file)))
-          {
-            $xml_file = $zip_entry;
-          }
+    private function emailCronReport(array $reportInfo) {
+        require_once(APPPATH . "/services/mail_service.php");
+        $mailService = new Mail_Service();
 
-          if( preg_match("/EN.xml$/",zip_entry_name($zip_entry)) &&
-              ( is_null($translation_zip_entry['en']) || (zip_entry_filesize($zip_entry) < zip_entry_filesize($translation_zip_entry['en']))) )
-          {
-            $translation_zip_entry['en'] = $zip_entry;
-          }
-          elseif(preg_match("/FR.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['fr'] = $zip_entry;
-          }
-          elseif(preg_match("/ES.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['es'] = $zip_entry;
-          }
-          elseif(preg_match("/DE.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['de'] = $zip_entry;
-          }
-          elseif(preg_match("/IT.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['it'] = $zip_entry;
-          }
-          elseif(preg_match("/PT.xml$/",zip_entry_name($zip_entry)))
-          {
-            $translation_zip_entry['pt'] = $zip_entry;
-          }
+        try {
+            $mailService->mailReport($reportInfo);
+        } catch (Exception $e) {
+            $msg = sprintf("Unable to email cron report. %s
+                    Stacktrace: %s", $e->getMessage(), $e->getTraceAsString());
+            log_message("error", $msg);
+            $this->custom_log->log($this->log_filename, $msg);
         }
 
-//         $this->_import_hb_translations($translation_zip_entry);
-//         exit;
-
-        $xml_file = $translation_zip_entry['en'];
-        if($xml_file)
-        {
-          $this->custom_log->log($this->log_filename,"Parsing as static feed file ".zip_entry_name($xml_file));
-
-          //TONOTICE! the file can be HEAVY and cause memory exceeding limit
-          // Might be nice to consider a methos consuming less memory
-          // Like extracting via command line and reading by step
-          $xml_file = zip_entry_read ($xml_file,zip_entry_filesize($xml_file));
-
-          $this->load->model("Db_hb_hostel");
-          $this->Db_hb_hostel->set_logfile($this->log_filename);
-          $this->Db_hb_hostel->parse_static_feed($xml_file);
-          $this->wordpress->set_option('aj_hb_static_feed_url_in_db',$latestfeedurl);
-        }
-        else
-        {
-          $this->custom_log->log($this->log_filename,"Error reading zip file ".$zipfilename);
+        if ($mailService->isMailSent()) {
+            $this->custom_log->log(
+                    $this->log_filename,"Report sent to " . $mailService->emailAddress);
+        } else {
+            $this->custom_log->log(
+                    $this->log_filename,"Failed to send report to " . $mailService->emailAddress);
         }
 
-        zip_close($zip);
-      }
-      else
-      {
-        $this->custom_log->log($this->log_filename,"Error opening zip file ".$zipfilename);
-      }
-
-      limit_file_count_of_name($localdest,"staticfeed",$this->static_feeds_to_keep);
     }
-    else
-    {
-      $this->custom_log->log($this->log_filename,"Error downloading zip file from ".$latestfeedurl);
-    }
-
-    $this->unlock();
-  }
-
-  function _xml_get_country_node($dom, $xmlobject, $country_id)
-  {
-    $country_node = null;
-
-    while ($xmlobject->name === 'country')
-    {
-      $country_node = simplexml_import_dom($dom->importNode($xmlobject->expand(), true));
-      if((int)$country_node["id"] === (int)$country_id)
-      {
-        return $country_node;
-      }
-
-      $xmlobject->next('country');
-    }
-
-    return $country_node;
-  }
-
-  function _detect_google_source($translation_text)
-  {
-
-    $googletags = array("<strong>Ce texte a été traduit en utilisant Google Translator</strong>",
-                        "<strong>Este texto ha sido traducido mediante Google Translator</strong>",
-                        "<strong>Dieser Text wurde mit Google Translator übersetzt</strong>",
-                        "<strong>Questo testo è stato tradotto con Google Translator</strong>",
-                        "<strong>Este texto foi traduzido usando Google Translator</strong>"
-    );
-
-    foreach($googletags as $googletag)
-    {
-      if(stristr($translation_text,$googletag) !== false)
-      {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function _detect_bing_source($translation_text)
-  {
-
-    $bingtags = array("Ce texte a été traduit en utilisant Bing Translator",
-                        "Este texto ha sido traducido mediante Bing Translator",
-                        "Dieser Text wurde mit Bing Translator übersetzt",
-                        "Questo testo è stato tradotto con Bing Translator",
-                        "Este texto foi traduzido usando Bing Translator"
-    );
-
-    foreach($bingtags as $bingtag)
-    {
-      if(stristr($translation_text,$bingtag) !== false)
-      {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function _strip_bing_tag($translation_text)
-  {
-    $bingtags = array("Ce texte a été traduit en utilisant Bing Translator",
-                      "Este texto ha sido traducido mediante Bing Translator",
-                      "Dieser Text wurde mit Bing Translator übersetzt",
-                      "Questo testo è stato tradotto con Bing Translator",
-                      "Este texto foi traduzido usando Bing Translator"
-    );
-
-    $translation_text = str_replace($bingtags,"",$translation_text);
-    return $translation_text;
-  }
-
-  function _strip_google_tag($translation_text)
-  {
-    $googletags = array("<strong>Ce texte a été traduit en utilisant Google Translator</strong>",
-                        "<strong>Este texto ha sido traducido mediante Google Translator</strong>",
-                        "<strong>Dieser Text wurde mit Google Translator übersetzt</strong>",
-                        "<strong>Questo testo è stato tradotto con Google Translator</strong>",
-                        "<strong>Este texto foi traduzido usando Google Translator</strong>"
-									    );
-
-    $translation_text = str_replace($googletags,"",$translation_text);
-    return $translation_text;
-  }
-
-
-  //Did not fully test probably certain this does not works right
-  function _trim_translation($string)
-  {
-    $string = trim($string);
-    $string = preg_replace('/\<br\>$/i'  , '', $string);
-    $string = preg_replace('/\<br \/\>$/i', '', $string);
-    $string = preg_replace('/\<br\/\>$/i' , '', $string);
-
-    return trim($string);
-  }
-
-  function _cache_field_translation($text, $orig_lang, $trans_lang, $tag)
-  {
-    $text[$orig_lang]  = $this->_trim_translation((string) $text[$orig_lang]);
-    $text[$trans_lang] = $this->_trim_translation((string) $text[$trans_lang]);
-
-//     debug_dump($text);
-    if( !empty($text) &&
-        !empty($text[$orig_lang]) &&
-        !empty($text[$trans_lang]) &&
-        (strcmp($text[$orig_lang],$text[$trans_lang])!=0))
-    {
-      $source_id = 14;
-      if($this->_detect_google_source($text[$trans_lang]))
-      {
-        $text[$trans_lang] = $this->_strip_google_tag($text[$trans_lang]);
-        $text[$trans_lang] = $this->_trim_translation($text[$trans_lang]);
-        $source_id = 15;
-      }
-      elseif($this->_detect_bing_source($text[$trans_lang]))
-      {
-        $text[$trans_lang] = $this->_strip_bing_tag($text[$trans_lang]);
-        $text[$trans_lang] = $this->_trim_translation($text[$trans_lang]);
-        $source_id = 16;
-      }
-
-      if(strcmp(br2nl($text[$orig_lang]),br2nl($text[$trans_lang])) != 0 )
-      {
-        $this->load->model('i18n/db_translation_cache');
-        $this->db_translation_cache->cache_lang_array($text, $orig_lang, $orig_lang, $tag, $source_id);
-      }
-      else
-      {
-//         echo "no translation detected<br>";
-      }
-    }
-  }
-
-  function _cache_hb_property_translation($orig_property, $orig_lang, $trans_property, $trans_lang)
-  {
-    if((int)$orig_property["id"] === (int)$trans_property["id"])
-    {
-
-      debug_dump("-------------------------------------------------");
-      debug_dump($orig_property["id"]." - $trans_lang - ".$orig_property->name);
-
-      $tag = "HB short description";
-      $text[$orig_lang]  = (string) $orig_property->shortdescription;
-      $text[$trans_lang] = (string) $trans_property->shortdescription;
-      $this->_cache_field_translation($text,$orig_lang,$trans_lang,$tag);
-
-      $tag = "HB full description";
-      $text[$orig_lang]  = (string) $orig_property->longdescription;
-      $text[$trans_lang] = (string) $trans_property->longdescription;
-      $this->_cache_field_translation($text,$orig_lang,$trans_lang,$tag);
-
-      $tag = "HB property directions";
-      $text[$orig_lang]  = (string) $orig_property->direction;
-      $text[$trans_lang] = (string) $trans_property->direction;
-      $this->_cache_field_translation($text,$orig_lang,$trans_lang,$tag);
-
-      $tag = "HB location info";  //added custom
-      $text[$orig_lang]  = (string) $orig_property->locationinfo;
-      $text[$trans_lang] = (string) $trans_property->locationinfo;
-      $this->_cache_field_translation($text,$orig_lang,$trans_lang,$tag);
-
-      $tag = "HB accomodation description";
-      $text[$orig_lang]  = (string) $orig_property->accommodationinfo;
-      $text[$trans_lang] = (string) $trans_property->accommodationinfo;
-
-      $tag = "HB property important info";
-      $text[$orig_lang]  = (string) $orig_property->importantinfo;
-      $text[$trans_lang] = (string) $trans_property->importantinfo;
-      $this->_cache_field_translation($text,$orig_lang,$trans_lang,$tag);
-
-      return true;
-    }
-    else
-    {
-      $this->custom_log->log($this->log_filename,"Error inserting translation $trans_lang of property ".$orig_property["id"]);
-      return false;
-    }
-  }
-
-  function _xml_get_property_node_from_country($country_node, $property_number)
-  {
-    $property_node = null;
-    foreach($country_node->location as $city)
-    {
-      foreach($city->property as $property_orig_node)
-      {
-        if((int)$property_orig_node['id'] === (int)$property_number )
-        {
-          return $property_orig_node;
-        }
-      }
-    }
-    return $property_node;
-  }
-
-  function _import_hb_translations($zip_entries)
-  {
-
-    $this->CI->db->save_queries = false;
-
-    ini_set('memory_limit', '512M');
-    set_error_handler(array(&$this, 'my_error_handler'));
-    $this->load->helper('xml');
-
-    //unzip using less mem
-    $localdest = FCPATH.self::DOWNLOAD_DIR;
-    foreach($zip_entries as $lang => $zip_entry)
-    {
-      if(file_exists($localdest."/last_".$lang."_feed.xml")) continue;
-      $unzipped = fopen($localdest."/last_".$lang."_feed.xml",'wb');
-      $size = zip_entry_filesize($zip_entry);
-      while($size > 0){
-        $chunkSize = ($size > 10240) ? 10240 : $size;
-        $size -= $chunkSize;
-        $chunk = zip_entry_read($zip_entry, $chunkSize);
-        if($chunk !== false) fwrite($unzipped, $chunk);
-      }
-
-      fclose($unzipped);
-    }
-//     $en_file_content = zip_entry_read ($zip_entries['en'],zip_entry_filesize($zip_entries['en']));
-    $en_file_content = $localdest."/last_en_feed.xml";
-    $en_file = new XMLReader;
-    if($en_file->open($en_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of EN file");
-      exit;
-    }
-    unset($en_file_content);
-    $doc_en = new DOMDocument;
-    while ($en_file->read() && $en_file->name !== 'country');
-//     while ($en_file->read() && $en_file->name !== 'location');
-
-//     $fr_file_content = zip_entry_read ($zip_entries['fr'],zip_entry_filesize($zip_entries['fr']));
-    $fr_file_content = $localdest."/last_fr_feed.xml";
-    $fr_file = new XMLReader;
-    if($fr_file->open($fr_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of FR file");
-      exit;
-    }
-    unset($fr_file_content);
-    $doc_fr = new DOMDocument;
-    while ($fr_file->read() && $fr_file->name !== 'country');
-
-//     $es_file_content = zip_entry_read ($zip_entries['es'],zip_entry_filesize($zip_entries['es']));
-    $es_file_content = $localdest."/last_es_feed.xml";
-    $es_file = new XMLReader;
-    if($es_file->open($es_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of ES file");
-      exit;
-    }
-    unset($es_file_content);
-    $doc_es = new DOMDocument;
-    while ($es_file->read() && $es_file->name !== 'country');
-
-//     $de_file_content = zip_entry_read ($zip_entries['de'],zip_entry_filesize($zip_entries['de']));
-    $de_file_content = $localdest."/last_de_feed.xml";
-    $de_file = new XMLReader;
-    if($de_file->open($de_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of DE file");
-      exit;
-    }
-    unset($de_file_content);
-    $doc_de = new DOMDocument;
-    while ($de_file->read() && $de_file->name !== 'country');
-
-//     $it_file_content = zip_entry_read ($zip_entries['it'],zip_entry_filesize($zip_entries['it']));
-    $it_file_content = $localdest."/last_it_feed.xml";
-    $it_file = new XMLReader;
-    if($it_file->open($it_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of IT file");
-      exit;
-    }
-    unset($it_file_content);
-    $doc_it = new DOMDocument;
-    while ($it_file->read() && $it_file->name !== 'country');
-
-//     $pt_file_content = zip_entry_read ($zip_entries['pt'],zip_entry_filesize($zip_entries['pt']));
-    $pt_file_content = $localdest."/last_pt_feed.xml";
-    $pt_file = new XMLReader;
-    if($pt_file->open($pt_file_content) === false)
-    {
-      $this->custom_log->log($this->log_filename,"Error getting XML of PT file");
-      exit;
-    }
-    unset($pt_file_content);
-    $doc_pt = new DOMDocument;
-    while ($pt_file->read() && $pt_file->name !== 'country');
-
-    echo "mem: ".memory_usage_in_mb()."<br>";
-    $count = 0;
-    while ($en_file->name === 'country')
-    {
-        $country_node = simplexml_import_dom($doc_en->importNode($en_file->expand(), true));
-
-        $country_fr_node = $this->_xml_get_country_node($doc_fr, $fr_file, (int)$country_node["id"]);
-        $country_es_node = $this->_xml_get_country_node($doc_es, $es_file, (int)$country_node["id"]);
-        $country_de_node = $this->_xml_get_country_node($doc_de, $de_file, (int)$country_node["id"]);
-        $country_it_node = $this->_xml_get_country_node($doc_it, $it_file, (int)$country_node["id"]);
-        $country_pt_node = $this->_xml_get_country_node($doc_pt, $pt_file, (int)$country_node["id"]);
-
-        echo "country: ".memory_usage_in_mb()."<br>";
-        debug_dump("en: ".(string)$country_node->name);
-        debug_dump("fr: ".(string)$country_fr_node->name);
-        debug_dump("es: ".(string)$country_es_node->name);
-        debug_dump("de: ".(string)$country_de_node->name);
-        debug_dump("it: ".(string)$country_it_node->name);
-        debug_dump("pt: ".(string)$country_pt_node->name);
-        foreach($country_node->location as $city)
-        {
-            foreach($city->property as $property_orig_node)
-            {
-              set_time_limit(30);
-              $count++;
-
-              $property_fr_node = $this->_xml_get_property_node_from_country($country_fr_node,(int)$property_orig_node["id"]);
-              $property_es_node = $this->_xml_get_property_node_from_country($country_es_node,(int)$property_orig_node["id"]);
-              $property_de_node = $this->_xml_get_property_node_from_country($country_de_node,(int)$property_orig_node["id"]);
-              $property_it_node = $this->_xml_get_property_node_from_country($country_it_node,(int)$property_orig_node["id"]);
-              $property_pt_node = $this->_xml_get_property_node_from_country($country_pt_node,(int)$property_orig_node["id"]);
-
-              echo "mem: ".memory_usage_in_mb()."<br>";
-              set_time_limit(30);
-              $this->_cache_hb_property_translation($property_orig_node,'en',$property_fr_node,'fr');
-              set_time_limit(30);
-              $this->_cache_hb_property_translation($property_orig_node,'en',$property_es_node,'es');
-              set_time_limit(30);
-              $this->_cache_hb_property_translation($property_orig_node,'en',$property_de_node,'de');
-              set_time_limit(30);
-              $this->_cache_hb_property_translation($property_orig_node,'en',$property_it_node,'it');
-              set_time_limit(30);
-              $this->_cache_hb_property_translation($property_orig_node,'en',$property_pt_node,'pt');
-
-            }
-        }
-
-      $en_file->next('country');
-    }
-    echo "end of xmls $count properties ".memory_usage_in_mb()."<br>";
-  }
 
   function cache_exchange_rates()
   {

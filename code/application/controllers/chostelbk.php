@@ -164,7 +164,7 @@ class CHostelbk extends I18n_site
     $data["city_selected"]    = $this->input->post("city_selected",TRUE);
 
     $data["property_cards"] = $this->input->post("propertyCards",TRUE);
-    
+
     $response = $this->Hostelbookers_api->getPropertyPricingPerDate($propertyNumber,$dateStart->format('d-M-Y'),$numNights, $this->api_functions_lang, $currency);
     $userdata = array(
                    'date_selected'      => $dateStart->format('Y-m-d'),
@@ -328,7 +328,7 @@ class CHostelbk extends I18n_site
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
-   
+
 
       $inputok = true;
       if($response === false)
@@ -821,7 +821,7 @@ class CHostelbk extends I18n_site
                                               5,
                                               2,
                                               "555555555",
-                                              "louimichel@pweb.ca",
+                                              "technical@mcwebmaangement.com",
                                               "CAD",
                                               "bob",
                                               "Mastercard",
@@ -858,7 +858,7 @@ class CHostelbk extends I18n_site
                                               5,
                                               2,
                                               "555555555",
-                                              "louimichel@pweb.ca",
+                                              "technical@mcwebamangement.com",
                                               "CAD",
                                               "bob",
                                               "Mastercard",

@@ -39,18 +39,25 @@
 		</ul>
 		{{#overall_rating}}
 		<ul class="box_round rating">
-            <li class="first last" data-propertyNumber="{{propertyNumber}}">
-                <span class=""
-                    title="<?php echo _("évaluation moyenne");?> - <?php echo _("As rated by bookers like you"); ?>">
-                    <strong class="txt-mid green">{{rating}}</strong><strong>{{overall_rating}} %</strong>
-                </span>
-                <span class="averageRatingCaption">
-                    <?php echo _("évaluation moyenne"); ?>
-                </span>
-            </li>
+                    
+                    {{#isRatingsEmpty}}
+                    <li data-propertyNumber="{{propertyNumber}}" class="first last noRatings">
+                    {{/isRatingsEmpty}}
+                    {{^isRatingsEmpty}}
+                    <li data-propertyNumber="{{propertyNumber}}" class="first last">
+                    {{/isRatingsEmpty}}
+                        <span class="">
+                            <strong class="txt-mid green">{{rating}}</strong>
+                            <strong>{{overall_rating}} %</strong>
+                        </span>
+                        <span class="averageRatingCaption">
+                            <?php echo _("évaluation moyenne"); ?>
+                        </span>
+                    </li>
 		</ul>
 		{{/overall_rating}}
         <div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBox">
+        {{^isRatingsEmpty}}    
         {{#Ratings}}
             <div class="propertyRatingsContainer">
                 <h3>
@@ -80,7 +87,9 @@
                         </div>
                    {{/<?php echo $ratingCategory; ?>}}
                 <?php endforeach; ?>
+            </div>
         {{/Ratings}}
+        {{/isRatingsEmpty}}
         </div>
 	</nav>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
@@ -88,13 +97,21 @@
 			<div class="info">
 				<div class="left info_pic">
                     <div class="picture_number" id="{{propertyNumber}}">0</div>
-                    <a href="{{property_page_url}}">
+                    <a href="{{property_page_url}}" style="position:relative;">
                         {{#PropertyImages}}
                         <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
                         {{/PropertyImages}}
+						<?php  $displayQuickPreview =  $this->config->item('displayQuickPreview') ; 
+						if($displayQuickPreview == 1) { ?>
+						<div class="quick_view_bg" id="quick_view_bg_{{propertyNumber}}" style="display:none;">
+							<div id="quick_view_bg_link_{{propertyNumber}}" class="display_preview quick_view_bg_link" href="#quick_preview_div" value="{{propertyNumber}}"><?php echo _('Quick View');?></div>
+						</div>
+						<?php } ?>
+						<input type="hidden" name="propertycur{{propertyNumber}}" id="propertycur_{{propertyNumber}}" value="{{currency_code}}"/>
                     </a>
                     <span class="info_type">{{propertyType}}</span>
 				</div>
+				<div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.');?></div>
 				<div class="info_indent">
 					<h2>
                         <a href="{{property_page_url}}">
@@ -104,6 +121,10 @@
                             </span>
                         </a>
                     </h2>
+					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
+					if($displayCompareProperty == 1) { ?>
+					<div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><?php echo _('Compare');?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of');?> 5)</div>
+					<?php } ?>
 					<p class="address">{{address1}} - {{city_name}}</p>
 
 					{{#isMinNightNeeded}}
