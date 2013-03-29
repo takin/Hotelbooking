@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 15:12+0200\n"
-"PO-Revision-Date: 2013-03-16 21:35+0200\n"
+"POT-Creation-Date: 2013-03-20 18:05+0200\n"
+"PO-Revision-Date: 2013-03-24 20:03+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1169,7 +1168,7 @@ msgstr "PDFを送信する"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "お待ち下さい…"
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -2630,11 +2629,8 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"あなたはすべてのベッドを必要としない場合でも、全体の個室の料金を支払う必要が"
-"あります。<br /><br />シングル ルーム= シングル ベッド 1 台 1 人 <br />ダブ"
-"ル ルーム 1 ＝ダブル ベッドと 2 人の 人用」<br />ツイン ルーム シングル ベッ"
-"ド 2 台を = 2 人用<br />トリプル ルーム = ルーム眠る 3 人<br />エンスイートの"
-"バスルーム=部屋の中<br />バスルーム =部屋中にははない共用バスルームの"
+"プライベートルーム代金は、全てのベッドは必要ない場合でも一部屋分のお支払いが"
+"必要です。このお部屋はシェアできません。"
 
 #: ../code/application/views/property_rooms_avail.php:180
 msgid "Rooms (max)"
@@ -4324,9 +4320,9 @@ msgstr "あなたのユーザ名（メールアドレス）：%sは"
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
-msgstr "%sさんがメッセージをあなたに送りました。"
+msgstr "%sさんがメッセージをあなたに送りました:"
 
 #: ../code/application/views/email/share_page-txt.php:5
 #: ../code/application/views/email/share_page-html.php:39
@@ -5117,7 +5113,7 @@ msgstr "%sに誰かが会話に参加するまでお待ちください"
 #: ../code/application/views/helpfile/pofields.php:706
 #, php-format
 msgid "Guest"
-msgstr "ゲスト"
+msgstr "宿泊客"
 
 #: ../code/application/views/helpfile/pofields.php:83
 msgid ""
@@ -7335,7 +7331,7 @@ msgid "last %d"
 msgstr "最後の %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, fuzzy, php-format
+#, php-format
 msgid "Quick View"
 msgstr "クイックビュー"
 
@@ -7347,17 +7343,17 @@ msgstr "%sさんがメッセージをあなたに送りました。"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "ドームタイプ"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "ご予約いただきありがとうございます"
+msgstr "お客様専用ドーム"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "ドームのみ入力"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7366,98 +7362,101 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"お客様にフルでご予約いただけるドームのみご案内しています。ドーム内全てのベッ"
+"トは必要ない場合でもその分の料金のお支払いが必要です。こちらはグループ向けの"
+"施設です。"
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "価格一部屋あたり（一人あたりではなく）"
+msgstr "一泊お一人様平均料金"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "平均料金"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"お一人様あたり一泊の平均宿泊代金は到着日からの宿泊数に応じ計算されています。"
-"実際の一泊あたりの料金はご宿泊日により異なります。"
+"到着日と滞在日数による一泊あたりの平均価格。 実際の料金は宿泊日により異なりま"
+"すが、提示料金は確定済みでこの他のお支払いはありません。"
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for 7 nights per person"
-msgstr "価格一部屋あたり（一人あたりではなく）"
+msgstr "お一人様7泊分料金"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "最大"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "ゲスト"
+msgstr "宿泊客"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "空いているかどうかチェック"
+msgstr "空き状況"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "ベッドルーム"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "部屋"
+msgstr "ベッドルーム"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "この部屋の人々の最大数"
+msgstr "1ベッドルームにつきお1人様。"
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "7 guests in 1 Bedroom."
-msgstr "この部屋の人々の最大数"
+msgstr "1ベッドルームにつき7名様。"
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgstr "7ベッドルームに7名様（7名様が各部屋に1名様ずつ入ります）。"
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgstr "7ベッドルームに7名様（各部屋に1名様）。"
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "プライベートルーム"
+msgstr "プライベートベッドルームのタイプ"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "価格一泊一名様あたり（一部屋あたりではなく）"
+msgstr "お一人様料金"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "ベットあたりの価格（一部屋あたりではなく）"
+msgstr "一部屋の料金"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "ベットあたりの価格（一部屋あたりではなく）"
+msgstr "一部屋の一泊平均料金"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7465,63 +7464,65 @@ msgid ""
 "You can only book up to 7 guests at a time. You can book more than 7 guests "
 "by going to our group section on top of this page."
 msgstr ""
+"一度に7名様までのご予約が可能です。このページの上部のグループセクションから7"
+"名様以上のご予約ができます。"
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "寮につき最大のゲスト数"
+msgstr "合計宿泊人数"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "ドーム1部屋のご利用になります。"
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
 msgid "You will use 7 full dorms."
-msgstr ""
+msgstr "ドーム7部屋のご利用になります。"
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "ドーム1部屋の1部分ご利用になります。"
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "ドーム1部屋と、1部分のご利用になります。"
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use 7 full dorms and 1 partially."
-msgstr ""
+msgstr "ドーム7部屋と1部分のご利用になります。"
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "確認メール"
+msgstr "確認Eメールプレビュー"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
 msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
-msgstr ""
+msgstr "ご予約後すぐに予約番号が発行されます。ご予約は即時有効、保証されます。"
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "お客様の部屋の種類と数"
+msgstr "宿泊人数"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1部屋全てご予約可能のドーム。"
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "7 fully available dorms."
-msgstr ""
+msgstr "7部屋全てご利用可能のドーム。"
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7529,11 +7530,13 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"1部屋全てご利用可能のドームと、1部ベッドはご予約が入っているドーム（すでにご"
+"予約ありのベッド数：7）。"
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: 7)."
-msgstr ""
+msgstr "このドームは1部にすでにご予約あり。（すでにご予約ありのベッド数：7）。"
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7541,33 +7544,35 @@ msgid ""
 "7 dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"1部屋全てご利用可能の7ドームと、1部ベッドはご予約が入っている1ドーム（すでに"
+"ご予約ありのベッド数：7）。"
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "名字"
+msgstr "いいえ"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "ご予約しようとしているベッドルーム："
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "ご予約しようとしているドーム："
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
 msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
-msgstr ""
+msgstr "お客様の快適なご滞在のために、重要な情報を全てご提供いたします。"
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "其他信息"
+msgstr "重要なインフォメーション"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7575,6 +7580,8 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"可能な場合、公共交通機関、空港情報を含めた該当施設までのアクセス情報をご提供"
+"します。"
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7582,21 +7589,60 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"表示されている連絡先を通して、特別リクエストがある場合は直接施設にご連絡いた"
+"だけます。"
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "プロパティー番号"
+msgstr "施設名"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "住所"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "直ちに予約の確認のメールが送られます。 "
+msgstr ""
+"ご予約確認メールのプレビューをご覧になるにはこちらをクリックしてください。"
+
+#: ../code/application/views/helpfile/pofields.php:749
+#, php-format
+msgid "This type of dorm can accommodate up to 1 guest per dorm."
+msgstr "このドームタイプの1部屋あたりの定員は1名様です。"
+
+#: ../code/application/views/helpfile/pofields.php:750
+#, php-format
+msgid "This type of dorm can accommodate up to 7 guests per dorm."
+msgstr "このドームタイプの1部屋あたりの定員は7名様です。"
+
+#: ../code/application/views/helpfile/pofields.php:751
+#, php-format
+msgid "This type of bedroom can accommodate up to 1 guest per room."
+msgstr "このベッドルームタイプの1部屋あたりの定員は1名様です。"
+
+#: ../code/application/views/helpfile/pofields.php:752
+#, php-format
+msgid "This type of bedroom can accommodate up to 7 guests per room."
+msgstr "このベッドルームタイプの1部屋あたりの定員は7名様です。"
+
+#: ../code/application/views/helpfile/pofields.php:753
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property:"
+msgstr "この施設のドームお一人様1泊最安値料金:"
+
+#: ../code/application/views/helpfile/pofields.php:754
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property:"
+msgstr "この施設のプライベートルームお一人様1泊最安値料金:"
+
+#: ../code/application/views/helpfile/pofields.php:755
+#, php-format
+msgid "Maximum you can book"
+msgstr "ご予約できる最大可能予約数"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

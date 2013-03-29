@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 15:12+0200\n"
-"PO-Revision-Date: 2013-03-16 21:42+0200\n"
+"POT-Creation-Date: 2013-03-20 18:05+0200\n"
+"PO-Revision-Date: 2013-03-22 20:37+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2632,12 +2631,8 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"Meg kell venned az összes helyet a privat szobában, akkor is ha nics "
-"szükséged rá.<br /><br />Egyágyas szoba = szoba 1 ággyal, 1 személynek<br /"
-">Duplaágyas szoba = szoba, 1 francia ággyal, 2 főre<br />Kétágyas szoba = "
-"szoba, 2 különálló ággyal, 2 főre<br />Háromágyas szoba = szoba, 3 főnek<br /"
-">Szoba fürdőszobával = a fürdőszoba a szobában<br />Közös fürdőszoba = a "
-"fürdőszoba nem a szobában van"
+"A szoba minden férőhelyét ki kell fizetnie, akkor is, ha nincs szüksége "
+"minden férőhelyre. A szobákat nem lehet megosztani."
 
 #: ../code/application/views/property_rooms_avail.php:180
 msgid "Rooms (max)"
@@ -4378,7 +4373,7 @@ msgstr "Felhasználóneve (e-mail címe): %s"
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
 msgstr "%s üzenetet küldött Önnek:"
 
@@ -7406,7 +7401,7 @@ msgstr "Keresés"
 #: ../code/application/views/mustache/property_list.php:271
 #, php-format
 msgid "Select"
-msgstr "Kiválasztás"
+msgstr "Választ"
 
 #: ../code/application/views/helpfile/pofields.php:692
 #, php-format
@@ -7414,7 +7409,7 @@ msgid "last %d"
 msgstr "az utolsó %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, fuzzy, php-format
+#, php-format
 msgid "Quick View"
 msgstr "Gyorsnézet"
 
@@ -7426,17 +7421,17 @@ msgstr "%s üzenetet küldött Önnek:"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "Kollégiumi férőhelyek típusa"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "Köszönjük csoportos foglalását."
+msgstr "Kollégiumi férőhelyek az Ön csoportja számára"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "Kizárólag teljes kollégiumi szoba"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7445,98 +7440,103 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"Kizárólag olyan kollégiumi szobákat mutatunk Önnek, melyeknek minden "
+"férőhelyét le kell foglalni.  A megadott szobában abban az esetben is le "
+"kell foglalni a férőhelyeket, ha mindegyikre nincs szükségük.  Ezt a "
+"lehetőséget gyakran használják csoportok."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "Ár / szoba, nem személy"
+msgstr "Éj / főre vonatkozó átlag"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "Átalgár"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"A megadott Átlagár / fő / éj a kért időszakra és időtartamra vonatkozik, a "
-"tényleges napi árak ettől eltérhetnek."
+"A megadott érkezési időtől a tartózkodás végéig érvényes átalgár / éj.  A "
+"tényleges napi árak ettől eltérhetnek, azonban árainkat garantáljuk, így "
+"magasabb árat nem kell fizetnie."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for 7 nights per person"
-msgstr "Ár / szoba, nem személy"
+msgstr "7 éj / főre vonatkozó ár"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "Vendég"
+msgstr "Vendégek"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "Elérhetőség"
+msgstr "Szabad helyek"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "Hálószoba"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "Szobák"
+msgstr "Hálószobák"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "A maximálisan elhelyezhető személyek száma ebben a szobában"
+msgstr "1 fő / 1 hálószoba."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "7 guests in 1 Bedroom."
-msgstr "A maximálisan elhelyezhető személyek száma ebben a szobában"
+msgstr "7 fő / 1 hálószoba."
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgstr "7 fő / 7 hálószoba (7 vendég szobánként)"
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgstr "7 fő / 7 hálószoba (1 vendég szobánként)"
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "Különszobák"
+msgstr "Magánszobák típusai"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "Ár / Fő / Éj"
+msgstr "1 főre vonatkozó ár"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "Ár ágyanként (nem szobánként)"
+msgstr "1 szobára vonatkozó ár"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "Ár ágyanként (nem szobánként)"
+msgstr "Éj / főre vonatkozó átlag"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7544,41 +7544,46 @@ msgid ""
 "You can only book up to 7 guests at a time. You can book more than 7 guests "
 "by going to our group section on top of this page."
 msgstr ""
+"Egyszerre csak 7 fő számára foglalhat szállást.  Amennyiben 7-nél több főre "
+"szeretne szállást foglalni, kérem használja az oldal tetején található "
+"csoportos foglalás lehetőséget."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "Vendégek maximális száma a kollégiumban. "
+msgstr "Kiválasztott vendégek összlétszáma"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "1 teljes kollégiumi szobát fog használni."
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
 msgid "You will use 7 full dorms."
-msgstr ""
+msgstr "7 teljes kollégiumi szobát fog használni."
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "1 kollégiumi szobát fog részben használni."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
 msgstr ""
+"1 kollégiumi szobát teljes mértékben, 1-et pedig részben fog használni."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use 7 full dorms and 1 partially."
 msgstr ""
+"7 kollégiumi szobát teljes mértékben, 1-et pedig részben fog használni."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "E-mail megerősítése"
+msgstr "Visszaigazoló email előnézete"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7586,21 +7591,23 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"Az egyéni foglalási azonosítóját a foglalást követően egyből elküldjük "
+"Önnek.  Foglalása azonnal érvénybe lép és garantált."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "Szoba tipúsa és a vendégek száma"
+msgstr "Vendégek száma"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1 teljes mértékben szabad kollégiumi szoba."
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "7 fully available dorms."
-msgstr ""
+msgstr "7 teljes mértékben szabad kollégiumi szoba."
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7608,11 +7615,14 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"1 teljes mértékben szabad kollégiumi szoba és 1 részben foglalt (foglalt "
+"ágyak száma:7)."
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: 7)."
 msgstr ""
+"Ezt a kollégiumi szobát már részben lefoglalták (foglalt ágyak száma:7)."
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7620,21 +7630,23 @@ msgid ""
 "7 dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"7 teljes mértékben szabad kollégiumi szoba és 1 részben foglalt (foglalt "
+"ágyak száma:7)."
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "Családnév"
+msgstr "Nem"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "Az Ön által lefoglalt hálószobák száma:"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "Az Ön által lefoglalt kollégiumi szobák száma:"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
@@ -7642,11 +7654,13 @@ msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
 msgstr ""
+"Minden fontos információt el fogunk küldeni Önnek, ezzel is biztosítani "
+"szeretnénk a tartózkodás kellemes eltöltését."
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "Extra információ"
+msgstr "Fontos információ"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7654,28 +7668,68 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"Amennyiben lehetséges, el fogjuk küldeni Önnek a szállásra vezető útvonal "
+"leírását, a tömegközlekedési és reptéri információkkal együtt."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
 msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
-msgstr ""
+msgstr "Kérem ide kattintson a visszaigazoló email megtekintéséhez."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "Ingatlan szám"
+msgstr "Ingatlan neve"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "Cím"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Egy visszaigazoló e-mailt fog kapni"
+msgstr "Kérem ide kattintson a visszaigazoló email megtekintéséhez"
+
+#: ../code/application/views/helpfile/pofields.php:749
+#, php-format
+msgid "This type of dorm can accommodate up to 1 guest per dorm."
+msgstr "Ebben a típusú kollégiumi szobában maximum 1 fő szállásolható el."
+
+#: ../code/application/views/helpfile/pofields.php:750
+#, php-format
+msgid "This type of dorm can accommodate up to 7 guests per dorm."
+msgstr "Ebben a típusú kollégiumi szobában maximum 7 fő szállásolható el."
+
+#: ../code/application/views/helpfile/pofields.php:751
+#, php-format
+msgid "This type of bedroom can accommodate up to 1 guest per room."
+msgstr "Ebben a típusú hálószobában maximum 1 fő szállásolható el."
+
+#: ../code/application/views/helpfile/pofields.php:752
+#, php-format
+msgid "This type of bedroom can accommodate up to 7 guests per room."
+msgstr "Ebben a típusú hálószobában maximum 7 fő szállásolható el."
+
+#: ../code/application/views/helpfile/pofields.php:753
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property:"
+msgstr ""
+"Ebben az ingatlanban a legalacsonyabb kollégiumi szoba ár fő / éjre "
+"vonatkozóan:"
+
+#: ../code/application/views/helpfile/pofields.php:754
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property:"
+msgstr "Ebben az ingatlanban a legalacsonyabb szoba ár fő / éjre vonatkozóan:"
+
+#: ../code/application/views/helpfile/pofields.php:755
+#, php-format
+msgid "Maximum you can book"
+msgstr "Amit maximálisan lefoglalhat"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 15:12+0200\n"
-"PO-Revision-Date: 2013-03-16 22:36+0200\n"
+"POT-Creation-Date: 2013-03-20 18:05+0200\n"
+"PO-Revision-Date: 2013-03-27 23:00+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1182,7 +1181,7 @@ msgstr "Отправить PDF"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "Пожалуйста подождите..."
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -4887,7 +4886,7 @@ msgstr "Общежития %s"
 #: ../code/application/views/mustache/property_list.php:207
 #, php-format
 msgid "Private rooms from %s"
-msgstr "Частных комнаты %s"
+msgstr "Частные комнаты %s"
 
 #: ../code/application/views/helpfile/pofields.php:15
 msgid "Nb Rooms"
@@ -7477,7 +7476,7 @@ msgstr "%s отправил вам сообщение:"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "Тип общежития"
 
 #: ../code/application/views/helpfile/pofields.php:698
 #, fuzzy, php-format
@@ -7487,7 +7486,7 @@ msgstr "Спасибо за групповую бронь."
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "Только полное общежитие"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7496,6 +7495,9 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"Мы покажем вам только общежития, которые вы сможете полностью забронировать. "
+"Вам нужно будет заказать все кровати, даже если они все не будут "
+"использоваться. Эта опция часто используется группами."
 
 #: ../code/application/views/helpfile/pofields.php:701
 #, fuzzy, php-format
@@ -7505,7 +7507,7 @@ msgstr "Стоимость за комнату (не за одного чело�
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "Средняя цена"
 
 #: ../code/application/views/helpfile/pofields.php:703
 #, fuzzy, php-format
@@ -7525,7 +7527,7 @@ msgstr "Стоимость за комнату (не за одного чело�
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "Максимум"
 
 #: ../code/application/views/helpfile/pofields.php:707
 #, fuzzy, php-format
@@ -7541,7 +7543,7 @@ msgstr "Проверить наличие"
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "Спальня"
 
 #: ../code/application/views/helpfile/pofields.php:710
 #, fuzzy, php-format
@@ -7562,7 +7564,7 @@ msgstr "Максимальное количество людей в этой к�
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgstr "7 гостей в 7 Спальнях (7 гостей в каждом номере)."
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
@@ -7727,6 +7729,42 @@ msgstr "адрес"
 #, fuzzy, php-format
 msgid "Please click here to preview your confirmation email"
 msgstr "Вы получите электронное письмо с подтверждением"
+
+#: ../code/application/views/helpfile/pofields.php:749
+#, php-format
+msgid "This type of dorm can accommodate up to 1 guest per dorm."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:750
+#, php-format
+msgid "This type of dorm can accommodate up to 7 guests per dorm."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:751
+#, php-format
+msgid "This type of bedroom can accommodate up to 1 guest per room."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:752
+#, php-format
+msgid "This type of bedroom can accommodate up to 7 guests per room."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:753
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:754
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:755
+#, php-format
+msgid "Maximum you can book"
+msgstr ""
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

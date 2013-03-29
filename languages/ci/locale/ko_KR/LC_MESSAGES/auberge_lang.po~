@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 15:12+0200\n"
-"PO-Revision-Date: 2013-03-16 21:37+0200\n"
+"POT-Creation-Date: 2013-03-20 18:05+0200\n"
+"PO-Revision-Date: 2013-03-24 17:47+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1159,7 +1158,7 @@ msgstr "PDF 보내기"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "기다려 주세요…"
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -2612,11 +2611,8 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"이 객실에 1인이 예약하더라도 전체 요금을 지불하셔야합니다. 이 객실은 공유할 "
-"수 없습니다.<br /><br />싱글 룸 = 1 인 1실 싱글 침대 룸<br />더블 룸 = 2 인 1"
-"개의 더블 침대 룸<br />트윈룸 = 2인  2개의 싱글 침대 룸<br />트리플룸 = 3인"
-"용 객실<br />앙 스위트 = 욕실이 객실 내부에 있음<br />공동 욕실 = 욕실이 객"
-"실 내부에 없음"
+"침대 모두가 필요하지 않아도, 개인 전용 룸의 전체 비용을 지불해야 합니다. 그 "
+"룸은 다른 사람과 공용되지 않습니다."
 
 #: ../code/application/views/property_rooms_avail.php:180
 msgid "Rooms (max)"
@@ -3660,7 +3656,7 @@ msgstr "날짜"
 #: ../code/application/views/helpfile/pofields.php:746
 #, php-format
 msgid "Phone number"
-msgstr "전화번호"
+msgstr "전화 번호"
 
 #: ../code/application/views/hw/booking_end_view.php:288
 #: ../code/application/views/hw/booking_end_view.php:299
@@ -4326,7 +4322,7 @@ msgstr "사용자 이름 (이메일 주소) : %s을"
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
 msgstr "%s  님으로부터 메시지가 왔습니다 :"
 
@@ -7318,7 +7314,7 @@ msgid "last %d"
 msgstr "마지막 %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, fuzzy, php-format
+#, php-format
 msgid "Quick View"
 msgstr "빠른 보기"
 
@@ -7330,17 +7326,17 @@ msgstr "%s  님으로부터 메시지가 왔습니다 :"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "기숙사 유형"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "단체 예약에 감사드립니다."
+msgstr "당신의 단체만을 위한 기숙사"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "완벽한 기숙사만"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7349,98 +7345,101 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"당신이 모두 예약할 수 있는 기숙사만 보여 드릴 것입니다. 특정 기숙사의 모든 침"
+"대는, 필요치 않아도 모두 예약하셔야 합니다. 주로 단체가 사용하고 있습니다."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "1 객실 기준 가격 ( 1인당 가격이 아닙니다.)"
+msgstr "개인당 1 박 평균"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "평균 가격"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"개인당 1박 평균비용은 요청하신 도착 날짜와 체류기간 기준입니다. 실제 일일 가"
-"격은 다를 수 있습니다."
+"요청하신 도착 날짜와 숙박 기간 동안의 1박당 평균 가격. 실제 일 일 가격이 다"
+"를 수 있습니다. 그러나 우리의 가격은 보장된 금액이며, 당신은  더 이상 지불하"
+"지 않으셔도 됩니다."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for 7 nights per person"
-msgstr "1 객실 기준 가격 ( 1인당 가격이 아닙니다.)"
+msgstr "1인당 7박 가격"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "최대"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
 msgstr "손님"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "예약 가능 유무"
+msgstr "가능성"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "베드룸"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "객실"
+msgstr "베드룸"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "객실 최대인원 "
+msgstr "1 베드룸에  손님 1명"
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "7 guests in 1 Bedroom."
-msgstr "객실 최대인원 "
+msgstr "1 베드룸에  손님 7명"
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgstr " 7 베드룸에 손님 7명 ( 각 베드룸 당 손님 7명)"
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgstr " 7 베드룸에 손님 7명 ( 각 베드룸 당 손님 1명)"
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "개인실"
+msgstr "개인 전용 베드룸 유형"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "1 객실 기준 가격 ( 1인당 가격이 아닙니다.)"
+msgstr "개인당 가격"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "1 침대 당 가격 (객실당 가격이 아님)"
+msgstr "룸당 가격"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "1 침대 당 가격 (객실당 가격이 아님)"
+msgstr "룸당 1박 평균"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7448,41 +7447,43 @@ msgid ""
 "You can only book up to 7 guests at a time. You can book more than 7 guests "
 "by going to our group section on top of this page."
 msgstr ""
+"한번에 7명의 손님까지만 예약할 수 있습니다. 7명이 초과될 때는 페이지 상단의 "
+"단체 유형을 통해 예약할 수 있습니다."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "각 도미토리 최대 인원"
+msgstr "선택한 손님의 총 수"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "당신은 1개 전체 기숙사를 사용할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
 msgid "You will use 7 full dorms."
-msgstr ""
+msgstr "당신은 7개 전체 기숙사를 사용할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "당신은 부분적으로 1개 기숙사를 사용할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "당신은 1개 전체 기숙사와 1개 기숙사를 부분적으로 사용할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use 7 full dorms and 1 partially."
-msgstr ""
+msgstr "당신은 7개 전체 기숙사와 1개 기숙사를 부분적으로 사용할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "이메일 확인"
+msgstr "확인 이메일 미리보기"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7490,21 +7491,23 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"예약 완료 후 고유의 예약 번호가 바로 제공됩니다. 당신의 예약은 예약 즉시 보장"
+"됩니다."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "객실 종류, 투숙 인원"
+msgstr "손님 수"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1개 전체를 사용할 수 있는 기숙사"
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "7 fully available dorms."
-msgstr ""
+msgstr "7개 전체를 사용할 수 있는 기숙사"
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7512,11 +7515,14 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"1개 전체 사용하는 기숙사와 1개 기숙사가 이미 부분적으로 예약되었습니다. (침대"
+"는 이미 예약되었습니다.:7)  "
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: 7)."
 msgstr ""
+"이 기숙사는 이미 부분적으로 예약되었습니다. ( 침대는 이미 예약되었습니다.:7)"
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7524,33 +7530,35 @@ msgid ""
 "7 dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: 7)."
 msgstr ""
+"7개 전체 사용가능한 기숙사와 1개 기숙사가 이미 부분적으로 예약되었습니다.( 침"
+"대는 이미 예약되었습니다.:7)"
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "이름"
+msgstr "아니오"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "당신이 빌릴 베드룸"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "당신이 빌릴 기숙사"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
 msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
-msgstr ""
+msgstr "당신의 즐거운 숙박을 위해, 모든 중요한 정보를 제공할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "그 외정보 "
+msgstr "중요한 정보"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7558,6 +7566,7 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"가능한, 대중 교통과 공항 정보를 포함한 호텔로 오는 방법을 제공할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7565,21 +7574,59 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"모든 연락처 정보와 함께, 특별한 요청이 필요한 경우 당신은 호텔에 연락할 수 있"
+"습니다."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "소유 번호"
+msgstr "호텔 이름"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "주소"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "실시간 예약 확인 이메일이 전송됩니다 "
+msgstr "확인 이메일 미리 보기를 하려면 여기를 클릭하십시오."
+
+#: ../code/application/views/helpfile/pofields.php:749
+#, php-format
+msgid "This type of dorm can accommodate up to 1 guest per dorm."
+msgstr "이 기숙사 유형은 기숙사당 1명의 손님만 투숙 가능 합니다."
+
+#: ../code/application/views/helpfile/pofields.php:750
+#, php-format
+msgid "This type of dorm can accommodate up to 7 guests per dorm."
+msgstr "이 기숙사 유형은 기숙사당 7명의 손님까지 투숙 가능 합니다."
+
+#: ../code/application/views/helpfile/pofields.php:751
+#, php-format
+msgid "This type of bedroom can accommodate up to 1 guest per room."
+msgstr "이 베드룸 유형은 기숙사당 1명의 손님만 투숙 가능 합니다."
+
+#: ../code/application/views/helpfile/pofields.php:752
+#, php-format
+msgid "This type of bedroom can accommodate up to 7 guests per room."
+msgstr "이 베드룸 유형은 기숙사당 7명의 손님까지 투숙 가능 합니다."
+
+#: ../code/application/views/helpfile/pofields.php:753
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property:"
+msgstr "이 호텔의 기숙사에 1박당 1명의 최저 가격:"
+
+#: ../code/application/views/helpfile/pofields.php:754
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property:"
+msgstr "이 호텔의 개인 전용 룸에 1박당 1명의 최저 가격:"
+
+#: ../code/application/views/helpfile/pofields.php:755
+#, php-format
+msgid "Maximum you can book"
+msgstr "최대한으로 예약 가능합니다."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
