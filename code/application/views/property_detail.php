@@ -36,8 +36,11 @@
 	<div id="gallery" class="ad-gallery">
       <div class="ad-image-wrapper">
       </div>
+
+<?php if (empty($quick_view)) { ?> 
       <div class="ad-controls">
       </div>
+<?php } ?>
       <div class="ad-nav">
         <div class="ad-thumbs">
           <ul class="ad-thumb-list">
@@ -208,7 +211,8 @@
 		</div>
     </div>
   </div>
-  
+ 
+<?php if (empty($quick_view)) { ?> 
   <div id="city_avail_table_74087" class="booking_table_city" style="margin-top:8px;">
   <?php
 $min_price_shared = 0;
@@ -470,12 +474,20 @@ else
       
     </div>
   </div>
-  
+
    <div class="bottom-table group" id="book-now">
 		<a href="<?php echo $propertyurl; ?>" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
         <span><?php echo _('Best price. We guarantee it.')?></span>
 		<span><?php echo _('It only takes 2 minutes')?></span>
    </div>
+<?php 
+}
+else { ?>
+   <div class="bottom-table group" style="height: 25px" id="book-now">
+      <a href="<?php echo $propertyurl; ?>" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
+   </div>
+<?php } ?> 
+
    <?php if( $this->api_used == HB_API && $hostel['IMPORTANTINFORMATION']!='' ){ ?>
    <div class="readmore readmore-image" id="showmore"><?php echo _('Read more…'); ?></div>
 	  <div class="bottom-feature1" id="bottomfeature1">
@@ -511,7 +523,10 @@ else
 		</div>
 	  </div>
 	<?php }?>
+
+<?php if (empty($quick_view)) { ?> 
 	 <div class="readmore" id="showmorereviews"><?php echo _('Latest Reviews'); ?></div>
+<?php } ?>
 	 <div class="bottom-feature1" id="bottomfeature2">
 	 <?php if(!empty($property_ratings) && $this->api_used == HB_API) { ?>
   	<div class="bottom-feature-data1">

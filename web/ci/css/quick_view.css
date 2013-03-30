@@ -279,8 +279,9 @@ span.free-breakfast {
 	background-color: #fff;
     display: inline-block;
     max-height: 400px;
-    min-height: 400px;
-    overflow-y: scroll;
+    min-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 10px 17px;
     width: 96%;
 }
