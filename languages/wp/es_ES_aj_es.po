@@ -4,16 +4,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-13 13:53-0800\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-Country: CANADA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"Language: fr_CA\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:6
@@ -21,14 +21,17 @@ msgid "Erreur 404 - Page introuvable"
 msgstr "Error 404 - Página no encontrada"
 
 #: 404.php:10
-msgid "Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi effectuer une recherche:"
-msgstr "Lo sentimos, pero no pudimos encontrar la página. Por favor, use el menú superior para navegar por la página web y encontrar la información deseada. También puede buscar:"
+msgid ""
+"Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut "
+"pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi "
+"effectuer une recherche:"
+msgstr ""
+"Lo sentimos, pero no pudimos encontrar la página. Por favor, use el menú "
+"superior para navegar por la página web y encontrar la información deseada. "
+"También puede buscar:"
 
 # This is for the Wordpress tag name keep it one short word
-#: archive.php:6
-#: archive.php:32
-#: canada-page.php:17
-#: functions.php:103
+#: archive.php:6 archive.php:32 canada-page.php:17 functions.php:103
 msgid "ville"
 msgstr "Ciudad"
 
@@ -48,10 +51,7 @@ msgstr "Añada a esta categoría"
 msgid "Archive RSS"
 msgstr "Archivo RSS "
 
-#: archive.php:21
-#: archive.php:24
-#: archive.php:27
-#: functions.php:240
+#: archive.php:21 archive.php:24 archive.php:27 functions.php:240
 #: functions.php:250
 msgid "Archive pour"
 msgstr "Archivo para"
@@ -132,18 +132,15 @@ msgstr "Su nombre"
 msgid "Connecté entant que"
 msgstr "Identificado"
 
-#: comments.php:124
-#: header.php:239
+#: comments.php:124 header.php:239
 msgid "Se déconnecter"
 msgstr "Desconectarse"
 
-#: comments.php:136
-#: contact.php:27
+#: comments.php:136 contact.php:27
 msgid "Nom"
 msgstr "Nombre"
 
-#: comments.php:139
-#: comments.php:150
+#: comments.php:139 comments.php:150
 msgid "(requis)"
 msgstr "(Obligatorio)"
 
@@ -156,8 +153,12 @@ msgid "Site Web"
 msgstr "Página Web"
 
 #: comments.php:171
-msgid "Veuillez noter: la modération est active et ralentira la publication de votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
-msgstr "Por favor notar:  moderacion activa, va a tomar tiempo publicar su comentario.  No necesita re-enviar su comentario."
+msgid ""
+"Veuillez noter: la modération est active et ralentira la publication de "
+"votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
+msgstr ""
+"Por favor notar:  moderacion activa, va a tomar tiempo publicar su "
+"comentario.  No necesita re-enviar su comentario."
 
 #: comments.php:177
 msgid "Soumettre"
@@ -189,15 +190,14 @@ msgstr "Presentar"
 
 #: contact.php:40
 msgid "Merci pour votre commentaire. Nous vous répondrons d'ici peu."
-msgstr "Le agradecemos por sus comentarios. Le responderemos a la brevedad posible."
+msgstr ""
+"Le agradecemos por sus comentarios. Le responderemos a la brevedad posible."
 
 #: contact.php:41
 msgid "Veuillez remplir les champs requis correctement."
 msgstr "Por favor, llene los campos obligatorios correctamente."
 
-#: footer-mobile.php:5
-#: footer.php:39
-#: header-mobile.php:25
+#: footer-mobile.php:5 footer.php:39 header-mobile.php:25
 msgid "Trouver une auberge"
 msgstr "Encontrar un Albergue Juvenil o hotel barato"
 
@@ -205,23 +205,19 @@ msgstr "Encontrar un Albergue Juvenil o hotel barato"
 msgid "View Full Site"
 msgstr "Ver la página web completa"
 
-#: footer-mobile.php:7
-#: footer.php:50
+#: footer-mobile.php:7 footer.php:50
 msgid "About us"
 msgstr "Acerca de nosotros"
 
-#: footer-mobile.php:8
-#: footer.php:47
+#: footer-mobile.php:8 footer.php:47
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Ayuda / FAQ Preguntas frecuentes / Consultas"
 
-#: footer-mobile.php:9
-#: footer.php:48
+#: footer-mobile.php:9 footer.php:48
 msgid "Confidentialité"
 msgstr "Confidencialidad"
 
-#: footer-mobile.php:10
-#: footer.php:49
+#: footer-mobile.php:10 footer.php:49
 msgid "Conditions"
 msgstr "Condiciones"
 
@@ -413,8 +409,7 @@ msgstr "Italia/Milán"
 msgid "Milan"
 msgstr "Milán"
 
-#: footer.php:31
-#: footer.php:32
+#: footer.php:31 footer.php:32
 msgid "Grenade"
 msgstr "Granada"
 
@@ -440,9 +435,7 @@ msgstr "Bruselas"
 msgid "Navigation"
 msgstr "Navegación"
 
-#: footer.php:38
-#: header-mobile.php:24
-#: header.php:294
+#: footer.php:38 header-mobile.php:24 header.php:294
 msgid "Accueil"
 msgstr "Nueva búsqueda"
 
@@ -450,8 +443,7 @@ msgstr "Nueva búsqueda"
 msgid "Guides"
 msgstr "Referencias"
 
-#: footer.php:41
-#: header.php:300
+#: footer.php:41 header.php:300
 msgid "Événements"
 msgstr "Eventos"
 
@@ -461,8 +453,33 @@ msgstr "Información"
 
 # Please leave the <strong> and </strong> in your translation
 #: footer.php:60
-msgid "Vous recherchez une <strong>auberge</strong>, une <strong>auberge de jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse.com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme <strong>Paris</strong> en France, <strong>Londres</strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, <strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, <strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République tchèque ….Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
-msgstr "<strong>© 1997 - 2012 - AlberguesJuveniles.es - Derechos Reservados - Rambla de Catalunya, 38, 8ª planta - 08007 Barcelona - España. </strong> AlberguesJuveniles.es es el portal de Internet N º 1 en España, Perú, Argentina, Chile, Brasil, Ecuador, Venezuela, Panama, Mejico, Bolivia, Paraguay y todos los paises hispánicos para todas las organizaciones que ofrecen alojamiento de bajo costo. AlberguesJuveniles.com ofrece reservas de última hora a muy bajo costo y alojamientos en ciudades como París, Francia, Londres, Inglaterra, Barcelona, España, Nueva York, Estados Unidos, Roma, Italia, Países Bajos, Amsterdam, Dublín, Madrid, España, República Checa, Praga ... Organice su viaje con facilidad - nosotros le ofrecemos información de última hora, guías y opiniones."
+msgid ""
+"Vous recherchez une <strong>auberge</strong>, une <strong>auberge de "
+"jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And "
+"Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre "
+"d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse."
+"com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada "
+"pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com "
+"propose la réservation dernière minute de chambres et logements à bas prix "
+"dans des villes comme <strong>Paris</strong> en France, <strong>Londres</"
+"strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New "
+"York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, "
+"<strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, "
+"<strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République "
+"tchèque ….Préparez votre voyage en toute simplicité, nous proposons "
+"également des informations de dernières minutes, des guides et commentaires."
+msgstr ""
+"<strong>© 1997 - 2013 - AlberguesJuveniles.es - Derechos Reservados - Rambla "
+"de Catalunya, 38, 8ª planta - 08007 Barcelona - España. </strong> "
+"AlberguesJuveniles.es es el portal de Internet N º 1 en España, Perú, "
+"Argentina, Chile, Brasil, Ecuador, Venezuela, Panama, Mejico, Bolivia, "
+"Paraguay y todos los paises hispánicos para todas las organizaciones que "
+"ofrecen alojamiento de bajo costo. AlberguesJuveniles.com ofrece reservas de "
+"última hora a muy bajo costo y alojamientos en ciudades como París, Francia, "
+"Londres, Inglaterra, Barcelona, España, Nueva York, Estados Unidos, Roma, "
+"Italia, Países Bajos, Amsterdam, Dublín, Madrid, España, República Checa, "
+"Praga … Organice su viaje con facilidad - nosotros le ofrecemos información "
+"de última hora, guías y opiniones."
 
 #: functions.php:103
 msgid "Ville"
@@ -495,9 +512,7 @@ msgstr "datos_eventos"
 msgid "Date Événements"
 msgstr "Fechas de Eventos"
 
-#: functions.php:171
-#: index.php:99
-#: index.php:101
+#: functions.php:171 index.php:99 index.php:101
 msgid "Lire la suite"
 msgstr "Más"
 
@@ -533,13 +548,11 @@ msgstr "Respuesta"
 msgid "Vous connecter pour répondre"
 msgstr "Vaya en línea para responder"
 
-#: header-mobile.php:28
-#: header.php:232
+#: header-mobile.php:28 header.php:232
 msgid "Mon Compte"
 msgstr "Mi Cuenta"
 
-#: header-mobile.php:30
-#: header.php:234
+#: header-mobile.php:30 header.php:234
 msgid "Se connecter"
 msgstr "Acceso"
 
@@ -551,8 +564,7 @@ msgstr "Seleccione país"
 msgid "Choisir la ville"
 msgstr "Seleccione la ciudad"
 
-#: header.php:130
-#: header.php:137
+#: header.php:130 header.php:137
 msgid "Chargement..."
 msgstr "Cargando ..."
 
@@ -716,17 +728,11 @@ msgstr "Información general"
 msgid "Coup de Coeur !"
 msgstr "Favorito"
 
-#: lp-page.php:85
-#: lp-page.php:93
-#: lp-page.php:103
-#: lp-page.php:114
+#: lp-page.php:85 lp-page.php:93 lp-page.php:103 lp-page.php:114
 msgid "À partir de"
 msgstr "De"
 
-#: lp-page.php:86
-#: lp-page.php:94
-#: lp-page.php:104
-#: lp-page.php:115
+#: lp-page.php:86 lp-page.php:94 lp-page.php:104 lp-page.php:115
 msgid "Réserver Maintenant"
 msgstr "Reserve ahora"
 
@@ -792,28 +798,26 @@ msgstr "Tipo de artículos:"
 msgid "Désolé aucun résultat ne répond à vos critères."
 msgstr "Disculpa, no hay resultados con sus características"
 
-#: search_box.php:48
-#: search_box.php:87
+#: search_box.php:48 search_box.php:87
 msgid "Enter a city name or hostel name"
 msgstr "Ingresar ciudad o propiedad"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Pays introuvable"
 msgstr "Países encontrados"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Ville introuvable"
 msgstr "Ciudades encontradas"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Date invalide"
 msgstr "Fecha incorrecta"
 
 #: search_box.php:63
-msgid "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and Breakfast, Pensions - Plus de 30000!!"
+msgid ""
+"Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and "
+"Breakfast, Pensions - Plus de 30000!!"
 msgstr "30.000 Albergues Juveniles y alojamiento barato..."
 
 #: search_box.php:69
@@ -852,9 +856,7 @@ msgstr "Todo lo que necesitas saber sobre"
 msgid "Quoi faire à"
 msgstr "¿Qué pasa?"
 
-#: single-page-destination.php:15
-#: single.php:22
-#: subpage-destinations.php:32
+#: single-page-destination.php:15 single.php:22 subpage-destinations.php:32
 #: subpage-destinations.php:46
 msgid "Plus sur"
 msgstr "Sobre"
@@ -863,8 +865,7 @@ msgstr "Sobre"
 msgid "Auberges de Jeunesse à"
 msgstr "Albergues Juveniles en"
 
-#: single-page-destination.php:52
-#: subpage-destinations.php:85
+#: single-page-destination.php:52 subpage-destinations.php:85
 msgid "Nos suggestions pour"
 msgstr "Albergue Juvenil - Nuestras propuestas"
 
@@ -880,13 +881,11 @@ msgstr "No se pierda:"
 msgid "Auberges Populaires"
 msgstr "Albergues Juveniles populares"
 
-#: admin/widgets.php:150
-#: admin/widgets.php:167
+#: admin/widgets.php:150 admin/widgets.php:167
 msgid "Choisir un pays"
 msgstr "Elige un país"
 
-#: admin/widgets.php:151
-#: admin/widgets.php:174
+#: admin/widgets.php:151 admin/widgets.php:174
 msgid "Choisir une ville"
 msgstr "Elige la ciudad"
 
@@ -958,8 +957,7 @@ msgstr "Sobre"
 msgid "Back to results"
 msgstr "Regresar a los resultados"
 
-#: tools/pofield.php:12
-#: tools/pofield.php:37
+#: tools/pofield.php:12 tools/pofield.php:37
 msgid "View Mobile Site"
 msgstr "Ver la versión móvil"
 
@@ -1023,15 +1021,17 @@ msgstr "Fotos"
 msgid "Phone (please include the country code)"
 msgstr "Teléfono (por favor incluya el código del país)"
 
-#: tools/pofield.php:28
-#: widget/sideinfo.php:14
-#: widget/sideinfo.php:35
+#: tools/pofield.php:28 widget/sideinfo.php:14 widget/sideinfo.php:35
 msgid "Text/SMS (Free)"
 msgstr "Texto / SMS (gratis)"
 
 #: tools/pofield.php:29
-msgid "Please make sure you have included the country code in your phone number above"
-msgstr "Por favor asegurarse de haber incluido arriba el código del pais con su teléfono "
+msgid ""
+"Please make sure you have included the country code in your phone number "
+"above"
+msgstr ""
+"Por favor asegurarse de haber incluido arriba el código del pais con su "
+"teléfono "
 
 #: tools/pofield.php:31
 msgid "Mobile version"
@@ -1077,8 +1077,7 @@ msgstr "Apartamento"
 msgid "Guesthouse - B&B"
 msgstr "Pensión"
 
-#: widget/citywidget.php:11
-#: widget/citywidget.php:12
+#: widget/citywidget.php:11 widget/citywidget.php:12
 msgid "Best Offers"
 msgstr "Las mejores ofertas"
 
@@ -1110,61 +1109,51 @@ msgstr "Oceanía"
 msgid "Map Search"
 msgstr "Buscar Mapa"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:20 widget/sideinfo.php:30
 #: widget/sideinfo.php:41
 msgid "AubergesDeJeunesse.com"
 msgstr "AlberguesJuveniles.es"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:30
 msgid "est réglementé par l'Union Européenne."
 msgstr "auspicia las labores humanitarias de UNICEF."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 #, php-format
 msgid "100%% sécurisé."
 msgstr "100%% seguro."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 msgid "Paiements sécurisés et encryptés pour votre sécurité."
 msgstr "Pagos seguros y encriptados para su seguridad."
 
-#: widget/sideinfo.php:11
-#: widget/sideinfo.php:32
+#: widget/sideinfo.php:11 widget/sideinfo.php:32
 msgid "Seulement 10% pour garantir votre réservation."
 msgstr "Sólo el 10% para garantizar su reserva."
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "Un service clientèle de qualité disponible"
 msgstr "Hay un servicio de calidad al cliente disponible"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "24h/24, 7j/7"
 msgstr "24/24, 7 / 7"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "prêt à vous guider à tout moment."
 msgstr "preparado para guiarlo en todo momento."
 
-#: widget/sideinfo.php:16
-#: widget/sideinfo.php:37
+#: widget/sideinfo.php:16 widget/sideinfo.php:37
 msgid "Pour tous les ages: ni maximum ni minimum."
 msgstr "Para todas las edades: no hay máximo o mínimo."
 
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:41
+#: widget/sideinfo.php:20 widget/sideinfo.php:41
 msgid "Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."
-msgstr "No hay necesidad de una tarjeta de membresía para recibir los mejores precios en la red."
+msgstr ""
+"No hay necesidad de una tarjeta de membresía para recibir los mejores "
+"precios en la red."
 
-#: widget/testimonial.php:5
-#: widget/testimonial.php:8
+#: widget/testimonial.php:5 widget/testimonial.php:8
 msgid "Yasmine M, Rio De Janeiro"
 msgstr "M Yasmine, Río de Janeiro"
 
@@ -1172,8 +1161,7 @@ msgstr "M Yasmine, Río de Janeiro"
 msgid "Merci pour votre aide."
 msgstr "Gracias"
 
-#: widget/testimonial.php:14
-#: widget/testimonial.php:16
+#: widget/testimonial.php:14 widget/testimonial.php:16
 msgid "Diego R, Mexico"
 msgstr "Diego R, México"
 
@@ -1181,65 +1169,74 @@ msgstr "Diego R, México"
 msgid "Génial le site. Et les prix sont imbattables. Merci !"
 msgstr "sitio impresionante. Y los precios son inmejorables. ¡Gracias!"
 
-#: widget/testimonial.php:22
-#: widget/testimonial.php:24
+#: widget/testimonial.php:22 widget/testimonial.php:24
 msgid "Lesley F, Boston"
 msgstr "Lesley M, Boston"
 
 #: widget/testimonial.php:23
-msgid "Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
-msgstr "Mis vacaciones son éxito gracias a usted. Los Albergues fueron tal como se prometió."
+msgid ""
+"Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
+msgstr ""
+"Mis vacaciones son éxito gracias a usted. Los Albergues fueron tal como se "
+"prometió."
 
 #: widget/testimonial.php:30
 msgid "Jérome H, Marseille"
 msgstr "Jerome H, Marsella"
 
 #: widget/testimonial.php:31
-msgid "Notre école a réservé pour 35 personnes sur votre site et pas de surprise. Parfait !!! "
-msgstr "Nuestra escuela tiene reservado para 35 personas en su sitio y sin sorpresas. ¡Perfecto!"
+msgid ""
+"Notre école a réservé pour 35 personnes sur votre site et pas de surprise. "
+"Parfait !!! "
+msgstr ""
+"Nuestra escuela tiene reservado para 35 personas en su sitio y sin "
+"sorpresas. ¡Perfecto!"
 
 #: widget/testimonial.php:32
 msgid "Jérome H, Marseille "
 msgstr "Jerome H, Marsella"
 
-#: widget/testimonial.php:38
-#: widget/testimonial.php:40
+#: widget/testimonial.php:38 widget/testimonial.php:40
 msgid "Carmen J, Lima"
 msgstr "Carmen J, Lima"
 
 #: widget/testimonial.php:39
 msgid "Choix, prix, sécurité, confirmation. Rien a dire : site super ! "
-msgstr "Selección, precio, seguridad, confirmación... Nada más que decir: gran sitio!"
+msgstr ""
+"Selección, precio, seguridad, confirmación... Nada más que decir: gran sitio!"
 
-#: widget/testimonial.php:46
-#: widget/testimonial.php:48
+#: widget/testimonial.php:46 widget/testimonial.php:48
 msgid "Jowar, New Dehli"
 msgstr "Jowar, Nueva Delhi"
 
 #: widget/testimonial.php:47
-msgid "Les directions étaient bonnes et les prix des plus bas… Voyage réussie. Encore Merci."
-msgstr "La ubicación estuvo buena y los precios lo más bajos... el viaje fue todo con éxito. Gracias de nuevo."
+msgid ""
+"Les directions étaient bonnes et les prix des plus bas… Voyage réussie. "
+"Encore Merci."
+msgstr ""
+"La ubicación estuvo buena y los precios lo más bajos... el viaje fue todo "
+"con éxito. Gracias de nuevo."
 
-#: widget/testimonial.php:54
-#: widget/testimonial.php:56
+#: widget/testimonial.php:54 widget/testimonial.php:56
 msgid "Olivia S, Londres"
 msgstr "Olivia S, Londres"
 
 #: widget/testimonial.php:55
 msgid "Les cartes et les guides m'ont aidée. Votre site est facile a naviguer."
-msgstr "Los mapas y las guías me ayudaron mucho. Su sitio web también es fácil de navegar."
+msgstr ""
+"Los mapas y las guías me ayudaron mucho. Su sitio web también es fácil de "
+"navegar."
 
-#: widget/testimonial.php:62
-#: widget/testimonial.php:64
+#: widget/testimonial.php:62 widget/testimonial.php:64
 msgid "Michal E, Varsovie"
 msgstr "Michal E, Varsovia"
 
 #: widget/testimonial.php:63
-msgid "Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
+msgid ""
+"Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
 msgstr "Mi novia y yo pasamos unas buenas vacaciones reservando en su sitio."
 
-#: widget/testimonial.php:70
-#: widget/testimonial.php:72
+#: widget/testimonial.php:70 widget/testimonial.php:72
 msgid "Hiroto V, Seoul"
 msgstr "V Hiroto, Seúl"
 
@@ -1247,8 +1244,7 @@ msgstr "V Hiroto, Seúl"
 msgid "Très content de vos services."
 msgstr "Muy satisfecho con sus servicios."
 
-#: widget/testimonial.php:78
-#: widget/testimonial.php:80
+#: widget/testimonial.php:78 widget/testimonial.php:80
 msgid "Ali S, Casablanca"
 msgstr "Ali S, Casablanca"
 
