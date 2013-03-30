@@ -1,5 +1,5 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" rel="{{propertyNumber}}">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}">
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
 		<ul class="box_round ui-tabs-nav">
@@ -9,7 +9,7 @@
                     <?php echo _("Info");?>
                 </a>
             </li>
-			<li>
+			<li id="tryingFancyBox">
                 <a class="tab_pic" href="#city_pictures_{{propertyNumber}}"
                    onClick='display_property_pics("{{propertyNumber}}","{{propertyName}}","property_pics_{{propertyNumber}}");return false;'>
                     <?php echo _('Pictures'); ?>
