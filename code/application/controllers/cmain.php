@@ -2347,6 +2347,7 @@ error_log($command, 3, '/tmp/abc.log');
 		$filter_array = $this->get_property_details($allproids);
 	}
 
+		// mark that is a quick view
 		$data['quick_view'] = true;
 
 		$jsondata = array();
