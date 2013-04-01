@@ -93,11 +93,11 @@
 
         <div id="post_<?php echo $post->ID; ?>" class="post_home col2 <?php if($counter == 1){?>first<?php }?>">
 					 <?php if(!get_thumb_url($post->ID)==''){?>
-						<a class="city_preview" title="<?php the_title();?>" href="<?php the_permalink(); ?>"><img alt="<?php the_title();?>" src="<?php echo get_bloginfo('template_url') .'/scripts/timthumb.php?zc=1&amp;w=378&amp;h=120&amp;src='.get_thumb_url($post->ID);?>" />
+						<a class="city_preview" title="<?php the_title();?>" href="<?php the_permalink(); ?>"><img alt="<?php the_title();?>" src="<?php echo get_bloginfo('template_url') .'/scripts/t.php?zc=1&amp;w=378&amp;h=120&amp;src='.get_thumb_url($post->ID);?>" />
 						<h2><?php the_title();?></h2>
 						</a>
 					 <?php }else{?>
-						<a class="city_preview" title="<?php the_title();?>" href="<?php the_permalink(); ?>"><img alt="<?php the_title();?>" src="<?php echo get_bloginfo('template_url') .'/scripts/timthumb.php?zc=1&amp;w=378&amp;h=120&amp;src='.get_bloginfo('template_url').'/images/na.jpg';?>" />
+						<a class="city_preview" title="<?php the_title();?>" href="<?php the_permalink(); ?>"><img alt="<?php the_title();?>" src="<?php echo get_bloginfo('template_url') .'/scripts/t.php?zc=1&amp;w=378&amp;h=120&amp;src='.get_bloginfo('template_url').'/images/na.jpg';?>" />
 						<h2><?php the_title();?></h2>
 						</a>
 					 <?php }?>
