@@ -7,12 +7,13 @@
 /logs/audit*
 /logs/districts*
 /logs/last_api_result.xml
-/cache/*
 
 ##########################
 #      Application       #
 ##########################
 
+/cache/fr*
+/cache/en*
 /web/ci/cache_queries/aj_ci/model/+*
 /web/ci/cache_queries/azure/*
 /web/ci/cache_queries/azure/!placeholder.txt

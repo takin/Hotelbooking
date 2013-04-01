@@ -904,6 +904,10 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
     color:rgb(112,146,190);
 }
 
+.city_tabs ul.rating li.noRatings span {
+    color:black;
+}
+
 .city_tabs ul.rating li:hover{
     background-color:white;
 }
@@ -1835,8 +1839,8 @@ padding:10px 15px 10px 10px;	color:#ffffff;	text-shadow:1px 1px 1px #000000;font
 .box_content.map_button_box{padding:0px; border:1px solid #80B422;}
 .map_button_box a{display:block;}
 .map_button_box a:hover{text-decoration:none;}
-.map_button_box span{padding:10px 15px 10px 10px; color:#ffffff; text-shadow:1px 1px 1px #000000;font-size:1.2em;	display:block;	position:absolute;	bottom:0px;right:0px;background:url("../images/V2/menu-back.png") repeat-x scroll left center #082747; margin-left: 60px;}
-.map_button_box span strong{margin-left: 60px; padding-left:23px;}
+.map_button_box span{padding:10px 15px 10px 10px;	color:#ffffff;	text-shadow:1px 1px 1px #000000;font-size:1.2em;	display:block;	position:absolute;	bottom:0px;right:0px;background:url("../images/V2/menu-back.png") repeat-x scroll left center #082747; }
+.map_button_box span strong{background:url("../images/V2/icon_view_map_white.png") no-repeat scroll center left; padding-left:23px;}
 .map_button_view{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
 	border-bottom:1px solid #80B422;
 	background-image:url("../images/V2/icon_view_map_green.png");
@@ -2556,6 +2560,130 @@ color:#fff !important;
 border:1px solid #666;
 }
 /*next 20 result end*/
+/*quick view start*/
+.quick_view_bg{
+    background:none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    border: 0 none;
+    bottom: 3px;
+    display: block;
+    height: 34px;
+    position: absolute;
+    width: 100px;
+}
+.quick_view_bg_link{
+float:left; background:linear-gradient(to bottom, #2E69A7 0%, #2E69A7 50%, #16508D 50%, #16508D 100%) repeat scroll 0 0 transparent; color:#fff; border: 1px solid #17528F;box-shadow: 0 0 1px rgba(255, 255, 255, 0.8) inset; padding: 5px; position: absolute;  margin-left: 11px;margin-top: 5px; font-weight: bold; border-radius: 5px 5px 5px 5px;	
+ background-color:#16508D;
+ background-image: -moz-linear-gradient(#2E69A7, #16508D);  
+ background-image: -webkit-gradient(linear, left top, left bottom, from(#2E69A7), to(#16508D)); 
+ background-image: -webkit-linear-gradient(#2E69A7, #16508D); 
+ background-image: -o-linear-gradient(#2E69A7, #16508D); 
+ background-image: -ms-linear-gradient(#2E69A7, #16508D);
+}
+.loading-quick-preview{
+	margin-left: 310px;
+    margin-top: 240px;
+}
+/*quick view end*/
+
+/*compare property css start*/
+.propertyselectmsg{
+	margin: 0 0 5px 126px;
+	color:#f20000;
+	display: none;
+}
+.hb_frame .propertyselectmsg{
+	margin: 0 0 5px 126px;
+	color:#f20000;
+	display: none;
+}
+.quick-data{
+    background-color: #F6F6F6;
+    border: 2px solid #CCCCCC;
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    min-height: 30px;
+    padding: 10px;
+}
+.head123{
+padding:0px 0px 10px;
+border-bottom: 1px dotted #CCCCCC;
+}
+.head123 p{
+display: inline-block;
+margin: 0;
+width: 91.5%;
+text-align: center;
+}
+.head123 a{
+color:#227BBD;
+}
+.show-data{
+border-bottom: 1px solid #CCCCCC;
+display: inline-block;
+padding: 6px 0;
+width: 100%;
+}
+.show-data .show-data-first-colum{
+width:76%;
+float: left;
+}
+.show-data .show-data-first-colum a{
+width:76%;
+float: left;
+text-decoration: none;
+}
+.show-data .show-data-second-colum{
+width:17%;
+float:left;
+}
+.show-data .show-data-third-colum{
+width:5%;
+float:left;
+color:#227BBD;
+}
+.show-data .show-data-last-colum{
+float:right;	
+padding-right:10px;
+}
+.com_div{
+float: right;
+}
+.info_indent h2{
+display: inline;
+}
+.propertycompare
+{
+ margin-right: 4px;
+ margin-top: 0;
+ vertical-align: middle;
+}
+.comparelink{
+float: right;
+background-color: #6DA903;
+background-image: linear-gradient(to bottom, #96C249, #6DA903);
+border: 1px solid #5EC841;
+box-shadow: 0 0 2px rgba(255, 255, 255, 0.8) inset;
+color: #FFFFFF;
+display: block;
+font-weight: bold;
+text-shadow: 1px 1px 1px #416305;
+border-top-right-radius: 10px;
+margin: -11px -11px 0 0;
+padding: 10px 15px;
+}
+.comparelink a{
+color:#fff;
+text-decoration: none;
+}
+.remove_div{
+padding-top: 6px;
+text-align: right;
+}
+.remove_div a{
+text-decoration:none;
+}
+/*compare property css end*/
+
 
 /*#city_map_filter{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
         text-align: right;

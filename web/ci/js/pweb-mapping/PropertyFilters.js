@@ -51,6 +51,7 @@ function PWebFilterApp()
 	this.guesthouseCount = 0;
 	this.hotelCount = 0;
 	this.campCount = 0;
+	this.allproids;
 }
 
 //init after document ready
@@ -1482,6 +1483,30 @@ $(document).ready(function() {
       $('#city_results_count').show();
       $('#city_load').hide();
       $('#wrap').show();
+	  
+	   $(".display_preview").fancybox({
+			'titlePosition' : 'inside',
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none'
+	  });
+	
+	  $(".box_content").hover(
+	  	function(){   
+	  	$(this).find('.quick_view_bg').slideDown(500);   
+		},function(){
+		$(this).find('.quick_view_bg').slideUp(300);      
+	    });
+		
+	    var cookie_value = getCookie('compare');
+		var total_property =    cookie_value.split(",");
+		var property_selected = total_property.length;
+				if(property_selected != ''){
+				    for(i=0;i<property_selected;i++){  
+					   $("#pro_compare_"+total_property[i]).attr('checked',true); 
+					   $('#compare_count_'+total_property[i]).html(property_selected);
+				    }
+					 
+				}
     }
   });
 
@@ -1492,3 +1517,80 @@ $(document).ready(function() {
   });
   
 });
+/*code by deep*/
+
+$(".quick_view_bg_link,.pre_next_arrows").live('click', function(){
+
+	pweb_filter = new PWebFilterApp();
+	pweb_filter.pweb_maps = new Array();
+    pweb_filter.property_compare_detail(this);
+	pweb_map = new GoogleMap();
+});
+  
+PWebFilterApp.prototype.getAllPropertyIds = function() {
+var allproids = '';
+   $("div[id^='prop_tab_box_']").each(function() {	
+		allproids += $(this).attr('rel')+',';
+	});
+	pweb_filter.allproids = allproids.slice(0,-1);
+    return pweb_filter.allproids;
+};
+  
+PWebFilterApp.prototype.property_compare_detail = function(that) {
+var proid      =   $(that).attr('value');
+var wait_message = $('#wait_message').val();
+var nextid     =   $('#prop_tab_box_'+proid ).next().attr('rel');
+var preid      =   $('#prop_tab_box_'+proid ).prev().attr('rel');
+var numnight   =   $('#city_results_numnights_selected').html();
+var procur     =   $('#propertycur_'+proid ).val();
+var allproid   =   pweb_filter.getAllPropertyIds();
+ 
+	if(preid!='' && preid!=null)
+	{
+		var preurl='<a href="javascript:void(0)" value="'+preid+'" class="pre_next_arrows"><img src="http://'+window.location.host+'/images/left.png"/></a>'
+	}
+	else{
+		var preurl='';
+	}
+	if(nextid!='' && nextid!=null)
+	{
+		var nexturl='<a href="javascript:void(0)" value="'+nextid+'" class="pre_next_arrows"><img src="http://'+window.location.host+'/images/right.png"/></a>'
+	}else{
+		var nexturl='';
+	}
+	var text =  '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>'+wait_message+'</p></div>';	
+	$('#quick_preview_div').empty().append(text);
+
+var ajaxrequest =  $.ajax({
+		type:'GET',
+		dataType: "json",
+		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
+		success:function(data){ 
+		   
+			$('#quick_preview_div').empty().html(data['html']);
+			$('#preurl').html(preurl);
+			$('#nexturl').html(nexturl);
+			pweb_filter.addFilterMap('city', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			pweb_filter.addFilterMap('property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			
+			pweb_filter.pweb_maps['city'].prop_number_to_focus = proid;
+			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
+			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
+			pweb_filter.pweb_maps['city'].enableMap();
+
+			if($("#distrinct:radio:checked").length > 0)
+           { 
+            pweb_map.changeDistrictLayer($("#distrinct:radio:checked").val());
+           }
+             if($("#landmark:radio:checked").length > 0)
+           { 
+            pweb_map.changeLandmarkLayer($("#landmark:radio:checked").val());
+           }
+		}
+	});
+	
+		$('.fancybox-close,.fancybox-overlay').live('click', function(){ 
+			ajaxrequest.abort();
+		});
+	
+};

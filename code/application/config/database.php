@@ -112,14 +112,9 @@ $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = FALSE;
 $db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = FCPATH."cache_queries/aj_ci";
+$db['default']['cachedir'] = "";
 $db['default']['char_set'] = "utf8";
 $db['default']['dbcollat'] = "utf8_general_ci";
-$db['default']['ssl_enable'] = FALSE;
-$db['default']['ssl_ca']   = "/srv/d_mcweb1/mysql-ssl/ca-cert.pem";
-$db['default']['ssl_cert'] = "/srv/d_mcweb1/mysql-ssl/client-cert.pem";
-$db['default']['ssl_key']  = "/srv/d_mcweb1/mysql-ssl/client-key.pem";
-
 
 //Database for cache translation
 $db['translation']['hostname'] = $translationDBHost;
@@ -131,7 +126,7 @@ $db['translation']['dbprefix'] = "";
 $db['translation']['pconnect'] = FALSE;
 $db['translation']['db_debug'] = FALSE;
 $db['translation']['cache_on'] = FALSE;
-$db['translation']['cachedir'] = FCPATH."cache";
+$db['translation']['cachedir'] = "";
 $db['translation']['char_set'] = "utf8";
 $db['translation']['dbcollat'] = "utf8_general_ci";
 

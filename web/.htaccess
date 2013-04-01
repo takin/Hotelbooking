@@ -4,16 +4,6 @@ AddDefaultCharset UTF-8
 RewriteEngine on
 RewriteBase /
 
-
-#-------------------- Maintenance ------------------
-
-# All the webites
-#RewriteRule .* maintenance.html [L]
-
-# only for HW websites
-#RewriteCond %{HTTP_HOST}   ^(www\.)?(alberguesjuveniles\.com|youth-hostel\.com|aubergesdejeunesse\.com|alberguesdajuventude\.com|ostellidellagioventu\.com|youth-hostels\.jp|jugendherbergen\.eu|youth-hostels\.kr|pousadasdejuventude\.com|alberguesjuveniles\.es|youth-hostels\.co\.uk|youth-hostels\.ca|aubergesdejeunesse\.ca|youth-hostels\.hk|youth-hostels\.ru|schroniskamlodziezowe\.com|retkeilymajoja\.com|ifjusagiszallasok\.com|mladeznickeubytovny\.com|youth-hostels\.ie|youth-hostels\.co\.nz|youth-hostels\.co\.nz|youth-hostels\.eu|youth-hostels\.asia|youth-hostels\.cn|hostels\.mobi|hwsitetest\.com) [NC]
-#RewriteRule .* maintenance.html [L]
-
 #-------------------- Redirection ------------------
 
 RewriteCond %{HTTP_HOST} ^www\.youth-hostel\.hk$ [NC]
@@ -560,5 +550,5 @@ RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 
 #-------------------  ALL SITES -------------------
 #Everything else is directed to CI folder, if it is not a real folder name or robot
-RewriteCond $1 !^(test\.php|robots\.txt)
+RewriteCond $1 !^(maintenance\.html|test\.php|robots\.txt)
 RewriteRule ^(.*)$ ci/$1 [QSA,L]

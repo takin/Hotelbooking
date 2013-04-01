@@ -1003,7 +1003,7 @@ class Hostel_api_model extends CI_Model {
       try
       {
         $xml_api_file = $this->log_path.'last_api_result.xml';
-        $fp = fopen($xml_api_file, 'w');
+        $fp = fopen($xml_api_file, 'a');
         if (!$fp) {
 
             throw new Exception("Problem with opening of $xml_api_file");

@@ -1099,6 +1099,8 @@ class CMain extends I18n_site
           $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
           $this->carabiner->js('pweb-mapping/PropertyFilters.js');
           $this->carabiner->js('pweb/libs/GoogleMap.js');
+		   $this->carabiner->js('properties_compare.js');
+		   $this->carabiner->js('compare_property.js');
 
           $this->load->view('includes/template',$data);
         }
@@ -1168,6 +1170,8 @@ class CMain extends I18n_site
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
             $this->carabiner->js('pweb-mapping/PropertyFilters.js');
             $this->carabiner->js('pweb/libs/GoogleMap.js');
+			$this->carabiner->js('properties_compare.js');
+		    $this->carabiner->js('compare_property.js');
 
             $this->load->view('includes/template',$data);
           }
@@ -2201,4 +2205,344 @@ error_log($command, 3, '/tmp/abc.log');
 
     return $filters;
   }
+  
+  
+  //property detail page start
+ function ajax_property_detail($property_number,$numnight,$allproids,$currency)
+ {	
+    $this->_currency_init();	
+ 	$this->layout= null;
+ 	$data = array();
+    $alldata = array();
+	// create an empty to avoid notice when no landmarks are found
+    $locationdata['landmarks'] = array();
+
+    // create an empty to avoid notice when no districts are found
+    $locationdata['district_info'] = array();
+	
+	$data['property_number'] = $property_number;
+	$data['currency'] = $currency;
+   
+    $this->load->model('i18n/db_translation_cache');
+
+          if($this->api_used == HB_API)
+	    {
+	       $this->load->model('Db_hb_hostel');
+
+	      //get District details
+	       $locationdata['district_info'] = $this->Db_hb_hostel->get_property_districts( $property_number );
+
+	       // Second parameter is a range in KM
+	       $locationdata['landmarks'] = $this->Db_hb_hostel->get_property_landmarks_for_filter($property_number, 2);
+
+	    }
+    	else
+        {
+           $this->load->model('Db_hw_hostel');
+
+      //get District details
+       $locationdata['district_info'] = $this->Db_hw_hostel->get_property_districts( $property_number );
+
+       // Second parameter is a range in KM
+       $locationdata['landmarks'] = $this->Db_hw_hostel->get_property_landmarks_for_filter($property_number, 2);
+
+        }
+            // get district if exist and translate them
+            if (!empty($locationdata['district_info']))
+              {
+              foreach ($locationdata['district_info'] as $i => $district)
+                  {
+                  $locationdata['district_info'][$i]->original_name = $district->district_name;
+                  $locationdata['district_info'][$i]->um_id = $district->um_id;
+
+                  $translation = $this->db_translation_cache->get_translation($district->district_name, $this->site_lang);
+
+                  if (!empty($translation))
+                    {
+                      $locationdata['district_info'][$i]->district_name = $translation->translation;
+                    }
+                    else
+                    {
+                      $locationdata['district_info'][$i]->district_name = $district->district_name;
+                    }
+                  }
+              }
+
+              // get landmarks if exist and translate them
+             if (!empty($locationdata['landmarks']))
+              {
+
+              foreach ($locationdata['landmarks'] as $i => $landmark)
+                  {
+                  $locationdata['landmarks'][$i]->original_name = $landmark->landmark_name;
+
+                  $translation = $this->db_translation_cache->get_translation($landmark->landmark_name, $this->site_lang);
+
+                  if (!empty($translation))
+                    {
+                      $locationdata['landmarks'][$i]->landmark_name = $translation->translation;
+                    }
+                    else
+                    {
+                      $locationdata['landmarks'][$i]->landmark_name = $landmark->landmark_name;
+                    }
+                  }
+              }
+   	$dateStart = '';
+	if($this->api_used == HB_API)
+    {   
+        $this->load->library('hb_engine');
+	    $data['current_view_dir'] = $this->api_view_dir;
+		$this->load->model('db_hb_hostel');
+		if(isset($_COOKIE['date_selected'])){
+		$dateStart=  $_COOKIE['date_selected'];		
+		}	
+		$dateStart1 = new DateTime($dateStart);
+        $alldata = $this->hb_engine->property_info($data,$property_number);
+		$details['hostel'] = $alldata['hostel'];
+		$details['property_ratings'] = $alldata['hostel']['RATING'];
+      	$details['propertyextras_included'] = $alldata['hostel']['PROPERTYEXTRAS_included'];
+		$details['propertyextras_included_translated'] = $alldata['hostel']['PROPERTYEXTRAS_included_translated'];
+		$details['features_translated'] = $alldata['hostel']['FEATURES_translated'];
+		$details['hostel_min_price'] = $alldata['hostel_min_price'];
+		$data = $this->hb_engine->property_avail_check('',$property_number,$dateStart1,$numnight,$currency);
+		$data['property_rooms'] = $this->hb_engine->prepare_rooms($data['booking_rooms'],$numnight);	    
+		$data['propertyurl'] =$this->next_property_url($alldata['hostel']['TYPE'],$alldata['hostel']['NAME'],$property_number,$this->site_lang) ;
+		$data['user_reviews']=$this->hb_engine->property_reviews($property_number);
+		$data['numNights']=$numnight;
+		$data['dateStart']=$dateStart1;
+		 
+		if(!empty($locationdata)) {
+			$data = array_merge($data,$locationdata);
+		}		
+		if(!empty($details)) {
+			$data = array_merge($data,$details);
+		}	
+		 $filter_array = $this->get_property_details($allproids);
+	}else{
+		$this->load->model('db_hw_hostel');
+		$this->load->library('hw_engine');
+		if(isset($_COOKIE['date_selected'])){
+		$dateStart=  $_COOKIE['date_selected'];
+		}
+		$dateStart1 = new DateTime($dateStart);
+		$alldata = $this->hw_engine->property_info($data,$property_number);
+		$details['hostel'] = $alldata['hostel'];
+		$details['property_ratings'] = $alldata['hostel']->rating;
+		$details['hostel_min_price'] = $alldata['hostel_min_price'];
+		$data = $this->hw_engine->property_avail_check('',$property_number,$dateStart,$numnight,$currency);
+				
+		$data["property_rooms"] = $this->hw_engine->prepare_distinct_rooms($data['booking_info'], $data['distinctRoomTypes'], $numnight, FALSE);
+		$data['propertyurl'] =$this->next_property_url($details['hostel']->property_type,$details['hostel']->property_name,$property_number,$this->site_lang) ;
+		$data['user_reviews1']=$this->hw_engine->property_reviews($property_number);
+		$data['numNights']=$numnight;
+		$data['dateStart']=$dateStart1;
+		if(!empty($locationdata)) {
+			$data = array_merge($data,$locationdata);
+		}	
+		if(!empty($details)) {
+			$data = array_merge($data,$details);
+		}
+		// set data to add to marker
+		$filter_array = $this->get_property_details($allproids);
+	}
+		$jsondata = array();
+		$jsondata['map_data'] = $filter_array ;
+		$jsondata['html'] = $this->load->view("property_detail",$data,true);
+		
+		echo json_encode($jsondata);
+ }
+ //property detail page end
+ 
+ //next property url function
+  function next_property_url($propertytype,$propertyname,$propertyid,$site_lag)
+  {
+  	$this->load->model('db_links');
+	$nextpropertyurl = $this->Db_links->build_property_page_link($propertytype,$propertyname,$propertyid,$site_lag);
+	return $nextpropertyurl;
+  }
+  
+  // Get data for add marker popup to be used with google map.
+ function get_property_details($proids)
+ {
+ 	$proid=explode(",",$proids);
+	$data = array();
+	$filter_array = array();
+	$images = array();
+	if($this->api_used == HB_API)
+    	{   
+		 	$this->load->model('db_hb_hostel');
+			$this->load->library('hb_engine');
+		 	foreach($proid as $key=>$property_number)
+			{   $data['property_number'] = $property_number;
+				$data = $this->hb_engine->property_info($data,$property_number);
+				$images = $this->hb_engine->property_images($property_number);
+				$data['propertyurl'] = $this->next_property_url($data['hostel']['TYPE'],$data['hostel']['NAME'],$property_number,$this->site_lang) ;
+				$filter_array[$key]["Geo"]["Latitude"] = $data['hostel']['GPS']['LAT'];
+				 $filter_array[$key]["Geo"]["Longitude"] = $data['hostel']['GPS']['LON'];
+				 $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = $images['thumbnails']['0'];
+				 $filter_array[$key]["property_page_url"] = $data['propertyurl'];
+				 $filter_array[$key]["display_price_formatted"]  = $data['hostel_min_price'];
+				 $filter_array[$key]["propertyNumber"]  = $property_number;
+				 $filter_array[$key]["propertyName"]  = $data['hostel']['NAME'];
+				 $filter_array[$key]["overall_rating"]  = str_replace('%','',$data['hostel']['RATING']);				
+			}
+        }else{
+        	
+			$this->load->model('db_hw_hostel');
+			$this->load->library('hw_engine');
+			foreach($proid as $key=>$property_number)
+			{    $data = $this->hw_engine->property_info($data,$property_number);
+				 $images = $this->hw_engine->property_images($property_number);
+			     $data['propertyurl'] =$this->next_property_url($data['hostel']->property_type,$data['hostel']->property_name,$property_number,$this->site_lang);
+      			 $filter_array[$key]["Geo"]["Latitude"] = $data['hostel']->geolatitude;
+				 $filter_array[$key]["Geo"]["Longitude"] = $data['hostel']->geolongitude;
+				 $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = $images['thumbnails']['0'];
+				 $filter_array[$key]["property_page_url"] = $data['propertyurl'];
+				 $filter_array[$key]["display_price_formatted"]  = $data['hostel_min_price'];
+				 $filter_array[$key]["propertyNumber"]  = $property_number;
+				 $filter_array[$key]["propertyName"]  = $data['hostel']->property_name;
+				 $filter_array[$key]["overall_rating"]  = $data['hostel']->rating;
+			}
+	   }
+	   
+	return $filter_array;
+ }
+ 
+ function ajax_compare_property_data($proid)
+ {
+	 if($this->api_used == HB_API)
+    	{
+		 	$this->load->model('db_hb_hostel');
+			$result=$this->db_hb_hostel->compare_property_info($proid);
+			$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid,$this->site_lang);
+			$propertydata="<a href='".$propertylink."'>".$result['property_name']."<strong> ("._($result['property_type']).")<strong></a>";
+        }else{
+			$this->load->model('db_hw_hostel');
+  			$result=$this->db_hw_hostel->compare_property_info($proid);
+			$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid,$this->site_lang);
+			$propertydata="<a href='".$propertylink."'>".$result['property_name']."<strong> ("._($result['property_type']).")<strong></a>";	
+	    }	
+	echo $propertydata;
+ }
+ 
+ function ajax_property_compare($proid)
+ {
+	$proid1=explode(",",$proid);
+	$cookiepropertydata='';
+	if($this->api_used == HB_API)
+    	{
+		 	$this->load->model('db_hb_hostel');
+		 	for($i=0;$i<count($proid1);$i++)
+			{
+				$result=$this->db_hb_hostel->compare_cookie_property($proid1[$i]);
+				$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid1[$i],$this->site_lang);
+				$protype=_($result["property_type"]);
+				$propertydata="<a href='".$propertylink."'>".$result['property_name']. " <strong>(".$protype.")</strong></a>";
+				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('._($proid1[$i]).');">X</a></div><input type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
+			}
+        }else{ 
+			$this->load->model('db_hw_hostel');
+			for($i=0;$i<count($proid1);$i++)
+			{
+      			$result=$this->db_hw_hostel->compare_cookie_property_hw($proid1[$i]);
+				$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid1[$i],$this->site_lang);
+				$protype=_($result["property_type"]);
+				$propertydata="<a href='".$propertylink."'>".$result['property_name']. " <strong>(".$protype.")</strong></a>";
+				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('.$proid1[$i].');">X</a></div><input type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
+			}
+	    }
+	echo $cookiepropertydata;
+ }
+ 
+ //compare property function
+  function ajax_compare_property($pro_id)
+  {
+	$data=array();
+	if($this->api_used == HB_API)
+    {
+			$this->load->model('db_hb_hostel');
+			$data['property_extra']=$this->db_hb_hostel->property_extra();
+			$data['property_feature']=$this->db_hb_hostel->property_feature();
+		    $proid=explode(",",$pro_id);
+			$compare_data=array();
+			for($i=0;$i<count($proid);$i++){
+				$result2='';
+				$result4='';
+				$result6='';
+				$result=$this->db_hb_hostel->compare_property($proid[$i]);
+				$result1=$this->db_hb_hostel->compare_property_extra($result[0]->property_number);
+				$result3=$this->db_hb_hostel->compare_property_feature($result[0]->property_number);
+				$result5=$this->db_hb_hostel->compare_property_image($result[0]->property_number);
+				$property_url=$this->next_property_url($result[0]->property_type,$result[0]->property_name,$result[0]->property_number,$this->site_lang);
+				foreach($result[0] as $key => $value)
+				{
+					$result6[$key]=$value;
+				}
+				foreach($result1 as $extra)
+				{
+					$result2[]=$extra->hb_extra_id;
+				}
+				foreach($result3 as $feat)
+				{
+					$result4[]=$feat->hb_feature_id;
+				}
+				$propertyimg=$this->property_image($result[0]->property_number);
+				$compare_data[$i]=$result6;
+				$compare_data[$i]['extra']=$result2;
+				$compare_data[$i]['feature']=$result4;
+				$compare_data[$i]['images']=$propertyimg;
+				$compare_data[$i]['property_url']=$property_url;
+			}
+			$data['compare_data']=$compare_data;
+	 }else{
+	 		$this->load->model('db_hw_hostel');
+			$data['property_facelity']=$this->db_hw_hostel->property_facelity();
+		    $proid=explode(",",$pro_id);
+			$compare_data=array();
+			for($i=0;$i<count($proid);$i++){
+				$result2='';
+				$result4='';
+				$result=$this->db_hw_hostel->compare_property($proid[$i]);
+				$result1=$this->db_hw_hostel->compare_property_facelity($result['property_number']);
+				$property_url=$this->next_property_url($result['property_type'],$result['property_name'],$result['property_number'],$this->site_lang);
+				foreach($result1 as $facelty)
+				{
+					$result2[]=$facelty->hw_facility_id;
+				}
+				$propertyimg=$this->property_image($proid[$i]);
+				$compare_data[$i]=$result;
+				$compare_data[$i]['facelity']=$result2;
+				$compare_data[$i]['images']=$propertyimg;
+				$compare_data[$i]['property_url']=$property_url;
+			}
+			$this->carabiner->js('compare_property.js');
+			$data['compare_data']=$compare_data;
+			
+	   }	
+	    $filter_array = $this->get_property_details($pro_id);
+		$jsondata = array();
+		$jsondata['map_data'] = $filter_array ;
+		$jsondata['html'] = $this->load->view("compare_property",$data,true);
+		
+		echo json_encode($jsondata);
+ }
+ 
+  function property_image($pro_id)
+ {
+ 	if($this->api_used == HB_API)
+    {
+ 		$this->load->library('hb_engine');
+   		$data = $this->hb_engine->propertyimg($pro_id);
+		$propertyimg=$data['RESPONSE']['BIGIMAGES'][0];
+		return $propertyimg;
+	}
+	else
+	{
+		$this->load->library('hw_engine');
+   		$data = $this->hw_engine->propertyimg($pro_id);
+		$propertyimg=$data[1][0]->PropertyImages->PropertyImage->imageURL;
+		return $propertyimg;
+	}	
+ }
 }

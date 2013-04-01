@@ -10,16 +10,15 @@ class Db_Translation_langs extends CI_Model {
         $this->ci = &get_instance();
     }
     
-    public function getSupportedLanguages() {
+    public function getSupportedLangCodes() {
         $languagesQuery = $this->ci->db->get(self::LANG_TABLE);
         $languages = $languagesQuery->result();
         
-        $languagesArray = array();
+        $langCodes = array();
         foreach ($languages as $language) {
-            $langCode = $language->code_lang;
-            $languagesArray[$langCode] = $language->description;
+            $langCodes[] = $language->code_lang;
         }
 
-        return $languagesArray;
+        return $langCodes;
     }
 }

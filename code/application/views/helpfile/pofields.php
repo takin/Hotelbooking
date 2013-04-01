@@ -701,7 +701,7 @@
 <?php echo _('Average per night per person');?>
 <?php echo _('Average Price');?>
 <?php echo _('Average price per night for requested arrival date and length of stay. Actual day-by-day prices may vary. However, our prices are quaranteed and you will never pay more.');?>
-<?php echo _('Price for 7 nights per person');?>
+<?php echo _('Price for %d nights per person');?>
 <?php echo _('Maximum');?>
 <?php echo _('Guest');?>
 <?php echo _('Guests');?>
@@ -709,31 +709,31 @@
 <?php echo _('Bedroom');?>
 <?php echo _('Bedrooms');?>
 <?php echo _('1 guest in 1 Bedroom.');?>
-<?php echo _('7 guests in 1 Bedroom.');?>
-<?php echo _('7 guests in 7 Bedrooms (7 guests in each room).');?>
-<?php echo _('7 guests in 1 Bedroom.');?>
-<?php echo _('7 guests in 7 Bedrooms ( 1 guest in each room).');?>
+<?php echo _('%d guests in 1 Bedroom.');?>
+<?php echo _('%d guests in %d Bedrooms (%d guests in each room).');?>
+<?php echo _('%d guests in 1 Bedroom.');?>
+<?php echo _('%d guests in %d Bedrooms ( 1 guest in each room).');?>
 <?php echo _('Type of private bedrooms');?>
 <?php echo _('You must pay for the whole private room, even if you do not need all the beds. The room cannot be shared.');?>
 <?php echo _('Price per Person');?>
 <?php echo _('Price per Room');?>
 <?php echo _('Average per night per room');?>
-<?php echo _('You can only book up to 7 guests at a time. You can book more than 7 guests by going to our group section on top of this page.');?>
+<?php echo _('You can only book up to %d guests at a time. You can book more than %d guests by going to our group section on top of this page.');?>
 <?php echo _('Total number of guests selected');?>
 <?php echo _('Select');?>
 <?php echo _('You will use 1 full dorm.');?>
-<?php echo _('You will use 7 full dorms.');?>
+<?php echo _('You will use %d full dorms.');?>
 <?php echo _('You will partially use 1 dorm.');?>
 <?php echo _('You will use 1 full dorm and 1 partially.');?>
-<?php echo _('You will use 7 full dorms and 1 partially.');?>
+<?php echo _('You will use %d full dorms and 1 partially.');?>
 <?php echo _('Confirmation Email Preview');?>
 <?php echo _('Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed.');?>
 <?php echo _('Number of guests');?>
 <?php echo _('1 fully available dorm.');?>
-<?php echo _('7 fully available dorms.');?>
-<?php echo _('1 fully available dorm and 1 already partially occupied (beds already occupied: 7).');?>
-<?php echo _('This dorm is already partially occupied (beds already occupied: 7).');?>
-<?php echo _('7 dorms fully available and 1 dorm already partially occupied (beds already occupied: 7).');?>
+<?php echo _('%d fully available dorms.');?>
+<?php echo _('1 fully available dorm and 1 already partially occupied (beds already occupied: %d).');?>
+<?php echo _('This dorm is already partially occupied (beds already occupied: %d).');?>
+<?php echo _('%d dorms fully available and 1 dorm already partially occupied (beds already occupied: %d).');?>
 <?php echo _('No');?>
 <?php echo _('Bedrooms you will occupy:');?>
 <?php echo _('Dorms you will occupy:');?>
@@ -747,9 +747,15 @@
 <?php echo _('Address');?>
 <?php echo _('Please click here to preview your confirmation email');?>
 <?php echo _('This type of dorm can accommodate up to 1 guest per dorm.');?>
-<?php echo _('This type of dorm can accommodate up to 7 guests per dorm.');?>
+<?php echo _('This type of dorm can accommodate up to %d guests per dorm.');?>
 <?php echo _('This type of bedroom can accommodate up to 1 guest per room.');?>
-<?php echo _('This type of bedroom can accommodate up to 7 guests per room.');?>
+<?php echo _('This type of bedroom can accommodate up to %d guests per room.');?>
 <?php echo _('The lowest price per person per night in a dorm in this property:');?>
 <?php echo _('The lowest price per person per night in a private room at this property:');?>
 <?php echo _('Maximum you can book');?>
+<?php echo _('Please wait…');?>
+<?php echo _('The lowest price per person per night in a dorm in this property: %s');?>
+<?php echo _('The lowest price per person per night in a private room at this property: %s');?>
+<?php echo _('Lowest night:');?>
+<?php echo _('Number of guests for %d nights');?>
+<?php echo _('Provided after reservation');?>

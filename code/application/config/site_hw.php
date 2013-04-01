@@ -155,7 +155,7 @@ $config['hostelworld_userID'] = "aubergesdejeunesse.com";
 */
 if(ISDEVELOPMENT)
 {
-	$config['hostelworld_API_url'] = "http://www.mcdev1.com:8080/proxy.php/";
+	$config['hostelworld_API_url'] = "http://217.70.188.197:8080/proxy.php/";
 }
 else
 {
@@ -173,7 +173,7 @@ else
 */
 if (ISWINDOWS)
 {
-  $config['hostelworld_API_url_secure_booking'] = "https://www.mcdev1.com:8443/proxy.php/";
+  $config['hostelworld_API_url_secure_booking'] = "https://217.70.188.197:8443/proxy.php/";
 }
 else
 {
