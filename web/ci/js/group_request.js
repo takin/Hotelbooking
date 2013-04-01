@@ -1,7 +1,5 @@
 function submit_group_request()
 {
-    alert($("input[type='hidden'][name='personsmessage']").val());
-    alert('working');
     
     var nstaff = parseInt($("#nb_person_staff option:selected").val());  
     var nmale = parseInt($("select#nb-male-gp option:selected").val());
@@ -11,63 +9,41 @@ function submit_group_request()
     
     if(npersons == 0) {
         
-        alert(npersons);
-        
         $().toastmessage({
-            text     : '',
+            text     : $("input[type='hidden'][name='personsmessage']").val(),
             sticky   : false,
             position : 'middle-center',
-            type     : 'showNoticeToast',
+            type     : 'notice',
             close    : function () {
                 console.log("toast is closed ...");
             }
-        });
-        
+        });        
                 
-        $().toastmessage('showToast', {
-            text     : $("input[type='hidden'][name='personsmessage']").val(),
-            sticky   : false,
-            type     : 'notice'
-        });
+        $().toastmessage('showNoticeToast', $("input[type='hidden'][name='personsmessage']").val());
             
-    }
+    } else {
         
-    $('#group_request_success').hide();
-    $('#submit-button').hide();
-    $('#loading_message').show();
+        $('#group_request_success').hide();
+        $('#submit-button').hide();
+        $('#loading_message').show();
 	
-    var formdata = jQuery("#group_request").serialize()+'&datecal='+siteDateString($('#datepick').datepicker( "getDate" ));
-    jQuery.ajax({
-        type: "POST",
-        url:"http://"+window.location.host+"/ax/group_request",
-        //	    dataType: 'xml',
-        data: formdata,
-        success: function(data){
-            $('#loading_message').hide();
-            $('#group_request_success').show();
-        }
-    });
+        var formdata = jQuery("#group_request").serialize()+'&datecal='+siteDateString($('#datepick').datepicker( "getDate" ));
+        jQuery.ajax({
+            type: "POST",
+            url:"http://"+window.location.host+"/ax/group_request",
+            //	    dataType: 'xml',
+            data: formdata,
+            success: function(data){
+                $('#loading_message').hide();
+                $('#group_request_success').show();
+            }
+        });
+        
+    }       
     
 }
 function check_error(){
-    
-    $().toastmessage({
-        text     : '',
-        sticky   : false,
-        position : 'middle-center',
-        type     : 'showNoticeToast',
-        close    : function () {
-            console.log("toast is closed ...");
-        }
-    });
-        
-                
-    $().toastmessage('showToast', {
-        text     : $("input[type='hidden'][name='persons_text']").val(),
-        sticky   : false,
-        type     : 'notice'
-    });
-        
+            
     var nstaff,rm_type;
     $('#check_error').hide();
 	

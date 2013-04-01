@@ -1,5 +1,5 @@
 <?php
-echo form_hidden('personsmessage', _('Please select the number of male, female and staff members of your group before you submit. '));
+echo form_hidden('personsmessage', _('Please select the number of male, female and staff members of your group before sending your booking request.'));
 ?>
 <div id="sidebar" class="grid_6">
     <?php $this->load->view('includes/video-popup'); ?>
