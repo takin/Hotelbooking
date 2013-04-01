@@ -61,9 +61,10 @@
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-        $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
-		$this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('jquery.toastmessage.css', 'screen', 'jquery.toastmessage.css', FALSE, FALSE, "full_site_global");
         }
 
 	if($this->api_used == HB_API)
@@ -823,6 +824,7 @@ var citymap = {
 	  $this->carabiner->js('search-sort.js');
 	  $this->carabiner->js('paginateview.js');
   }
+  $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
   <?php
