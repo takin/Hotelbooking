@@ -313,4 +313,52 @@ var citymap = {
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
   
-  }
+  };
+  
+  PWebFilterMap.prototype.showManyDistrictsBorder = function(pDistricts_umIds) 
+{   
+        // working with mapinfulence
+    // Initialize Mapfluence with your API key.
+    MF.initialize({
+        apiKey: urbanmapping_key 
+    });
+
+      // remove any old districts
+window.gmap.overlayMapTypes.setAt( 0, null); 
+
+// loop through districts um_ids
+var counter;
+for (counter = 0; counter < pDistricts_umIds.length; ++counter) {
+    // do something with `pDistricts_umIds[counter]`
+ 
+    var filter = MF.filter.Data({
+        column: 'umi.neighborhoods.attributes.hood_id', 
+        operator: '=', 
+        value: parseInt(pDistricts_umIds[counter])
+
+    });
+    
+        var hoodsLayer = MF.layer.tile.Simple({
+            from : 'umi.neighborhoods.geometry',
+            style: {
+                color: 'feba02'
+            },
+            border: {
+                color: 'black',
+                size: 1.0
+            },
+            where: filter,
+            opacity: .40
+        });
+                        
+ // Create the Mapfluence adapter for Google Maps
+    var googleAdapter = MF.map.google.Adapter();
+
+    // Adapt a Mapfluence layer for use with the Google Maps API
+    var adaptedLayer = googleAdapter.adaptLayer(hoodsLayer);
+
+    // Overlay the Mapfluence layer
+//    map.overlayMapTypes.insertAt(0, adaptedLayer);
+       window.gmap.overlayMapTypes.setAt((counter+1), adaptedLayer); 
+    }
+};

@@ -19,7 +19,7 @@
             $district_count = 0;
             $total_dsitrict = count($city_districts);
             ?>
-            <?php if (!empty($city_districts)) { ?>
+            <?php if (!empty($city_districts)) {    ?>
             <div id="filter_content_districts_popup" class="filter_content">
                     <ul id="cb_group_districts_filter">
                         <?php
@@ -30,7 +30,7 @@
                                 <li><a id="show_more_district" class="right show_choices" href="#">+ <?php echo _('More Options') ?></a></li>
                                 <div id="more_district" class="more_choice_filter">
                                 <?php } ?>
-                                <li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id; ?>" value="<?php echo $district->district_id; ?>" name="districts" /> <?php echo $district->district_name; ?> <?php ?>(<span id="district-count-<?php echo $district->district_id; ?>">0</span>)<?php ?></li>
+                                <li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->um_id; ?>" value="<?php echo $district->district_id; ?>" name="districts" /> <?php echo $district->district_name; ?> <?php ?>(<span id="district-count-<?php echo $district->district_id; ?>">0</span>)<?php ?></li>
                                 <?php if ($district_count >= 11 && $district_count == $total_dsitrict) { ?>
                                     <li><a id="show_less_district" class="right less_choices" href="#">- <?php echo _('Less Options') ?></a></li>
                                 </div>
@@ -48,6 +48,7 @@
                         <ul id="cb_group_landmarks_filter">
                         <?php
                         foreach ($city_landmarks as $landmark) {
+//                            var_dump($landmark);
                             $land_count++;
                             ?>
                             <?php if ($land_count == 11) { ?>
