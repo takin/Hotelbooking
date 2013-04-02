@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-29 17:54+0200\n"
-"PO-Revision-Date: 2013-03-30 21:06+0200\n"
+"PO-Revision-Date: 2013-04-02 21:55+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -2833,7 +2833,7 @@ msgstr "迄今为止，您还没有发表任何评价。"
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
-msgstr ""
+msgstr "您的個性化團體預訂報價 - 這裡是给您的報價！"
 
 #: ../code/application/views/restricted/user_group_quote.php:66
 #: ../code/application/views/helpfile/pofields.php:205
@@ -2851,25 +2851,27 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"下面的一些住宿例子供您参考。如果您能回答以下幾個問題，我們將盡我們所能找到满"
+"足您要求的住处："
 
 #: ../code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "您喜欢下面这些为您推荐的房间吗？"
 
 #: ../code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "您的預算是多少？"
 
 #: ../code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr ""
+msgstr "日期和人數是确定的，还是会有变化？"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
 #, php-format
 msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
-msgstr ""
+msgstr "您何时能预付20%%订金来确保您的预定？"
 
 #: ../code/application/views/restricted/user_group_quote.php:150
 #, fuzzy
@@ -2884,19 +2886,19 @@ msgstr "团体预订申请表"
 #: ../code/application/views/email/share_page-txt.php:27
 #: ../code/application/views/email/share_page-html.php:62
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "請注意这个预定还没有确认"
 
 #: ../code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
-msgstr ""
+msgstr "請看下面的報價，並查看我們的網站以了解住处的更多信息。"
 
 #: ../code/application/views/restricted/user_group_quote.php:160
 #: ../code/application/views/helpfile/pofields.php:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "床位已于下列日期前为您的团队预留："
 
 #: ../code/application/views/restricted/user_group_quote.php:165
 #: ../code/application/views/helpfile/pofields.php:598
@@ -2904,7 +2906,7 @@ msgstr ""
 msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
-msgstr ""
+msgstr "在此日期之後，這些床位將安排给别的团队，请尽早预定！"
 
 #: ../code/application/views/restricted/user_group_quote.php:174
 #, fuzzy
@@ -2920,7 +2922,7 @@ msgstr "所包含"
 
 #: ../code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "客房描述"
 
 #: ../code/application/views/restricted/user_group_quote.php:211
 #, fuzzy
@@ -2929,20 +2931,20 @@ msgstr "价位/每间"
 
 #: ../code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "报价失效日"
 
 #: ../code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
-msgstr ""
+msgstr "预定的订金不可退還，不可轉讓"
 
 #: ../code/application/views/restricted/user_group_quote.php:287
 #, php-format
 msgid "If the offer is accepted, the balance must be paid on %s"
-msgstr ""
+msgstr "如果接受报价，余额须于%s天内支付"
 
 #: ../code/application/views/restricted/user_group_quote.php:299
 msgid "Special Notes"
-msgstr ""
+msgstr "特別注意事項"
 
 #: ../code/application/views/restricted/user_group_quote.php:303
 #, fuzzy
@@ -3027,9 +3029,9 @@ msgstr "您的帐户"
 
 #: ../code/application/views/restricted/user_view.php:8
 #: ../code/application/views/helpfile/pofields.php:608
-#, fuzzy, php-format
+#, php-format
 msgid "Your changes has been saved successfully"
-msgstr "您的请求已成功发送"
+msgstr "您的更改已成功保存"
 
 #: ../code/application/views/restricted/user_view.php:10
 msgid ""
@@ -3296,7 +3298,7 @@ msgstr "%s的旅舍"
 msgid ""
 "To view all available properties on the map, please enter your dates in the "
 "box on the top right."
-msgstr ""
+msgstr "要在地圖上查看所有可选的住处，請在右上角的方框里輸入您的停留日期。"
 
 #: ../code/application/views/city_lp.php:149
 #, php-format
@@ -3462,7 +3464,7 @@ msgstr "很好"
 #: ../code/application/libraries/Hw_engine.php:710
 #, php-format
 msgid "Great"
-msgstr ""
+msgstr "很棒"
 
 #: ../code/application/views/property_detail.php:620
 #: ../code/application/views/hw/hostel_view.php:419
@@ -3472,7 +3474,7 @@ msgstr ""
 #: ../code/application/libraries/Hw_engine.php:713
 #, php-format
 msgid "Fantastic"
-msgstr ""
+msgstr "太棒了"
 
 #: ../code/application/views/country_view.php:18
 msgid "Hébergement"
@@ -3640,9 +3642,9 @@ msgstr "只有免费早餐"
 
 #: ../code/application/views/city_view.php:248
 #: ../code/application/views/helpfile/pofields.php:604
-#, fuzzy, php-format
+#, php-format
 msgid "Selected filters:"
-msgstr "重置筛选条件"
+msgstr "篩選："
 
 #: ../code/application/views/city_view.php:346
 msgid "Please Wait"
@@ -4779,7 +4781,7 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:568
 #, php-format
 msgid "Total Number of people in your group: %s"
-msgstr ""
+msgstr "您組中的成員總數: %s"
 
 #: ../code/application/views/group_request.php:206
 #: ../code/application/views/group_request.php:212
@@ -7062,7 +7064,7 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:606
 #, php-format
 msgid "If the offer is accepted, the balance must be paid by %s"
-msgstr ""
+msgstr "如果接受报价，餘額需在此日期前支付 %s"
 
 #: ../code/application/views/helpfile/pofields.php:609
 #, fuzzy, php-format
