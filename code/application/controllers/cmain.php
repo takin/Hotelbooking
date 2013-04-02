@@ -2298,10 +2298,10 @@ error_log($command, 3, '/tmp/abc.log');
 		$dateStart=  $_COOKIE['date_selected'];		
 		}	
 		$dateStart1 = new DateTime($dateStart);
-        $alldata = $this->hb_engine->property_info($data,$property_number);
+        	$alldata = $this->hb_engine->property_info($data,$property_number);
 		$details['hostel'] = $alldata['hostel'];
 		$details['property_ratings'] = $alldata['hostel']['RATING'];
-      	$details['propertyextras_included'] = $alldata['hostel']['PROPERTYEXTRAS_included'];
+      		$details['propertyextras_included'] = $alldata['hostel']['PROPERTYEXTRAS_included'];
 		$details['propertyextras_included_translated'] = $alldata['hostel']['PROPERTYEXTRAS_included_translated'];
 		$details['features_translated'] = $alldata['hostel']['FEATURES_translated'];
 		$details['hostel_min_price'] = $alldata['hostel_min_price'];
@@ -2317,8 +2317,9 @@ error_log($command, 3, '/tmp/abc.log');
 		}		
 		if(!empty($details)) {
 			$data = array_merge($data,$details);
-		}	
-		 $filter_array = $this->get_property_details($allproids);
+		}
+		 //$filter_array = $this->get_property_details($allproids);
+		 $filter_array = $this->get_property_details($property_number);
 	}else{
 		$this->load->model('db_hw_hostel');
 		$this->load->library('hw_engine');
@@ -2344,7 +2345,8 @@ error_log($command, 3, '/tmp/abc.log');
 			$data = array_merge($data,$details);
 		}
 		// set data to add to marker
-		$filter_array = $this->get_property_details($allproids);
+		//$filter_array = $this->get_property_details($allproids);
+		$filter_array = $this->get_property_details($property_number);
 	}
 
 		// mark that is a quick view
