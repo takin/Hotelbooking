@@ -550,5 +550,5 @@ RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 
 #-------------------  ALL SITES -------------------
 #Everything else is directed to CI folder, if it is not a real folder name or robot
-RewriteCond $1 !^(maintenance\.html|test\.php|robots\.txt)
+RewriteCond $1 !^(test\.php|robots\.txt)
 RewriteRule ^(.*)$ ci/$1 [QSA,L]
