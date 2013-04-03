@@ -295,6 +295,10 @@ span.free-breakfast {
     margin-top:1em;
     padding: 0;
 }
+#hostel_info_direction .content_block {
+	width: 100%;
+}
+
 .content_block {
    position: relative;
 	display: inline-block;
@@ -513,6 +517,7 @@ a.reserve {
     padding: 7px 10px;
     text-shadow: 1px 1px 1px #416305;
 }
+.hostel_mapView_landmarks b,
 .hostel_mapView_districts b{
 	display: block;
     padding: 6px 0;

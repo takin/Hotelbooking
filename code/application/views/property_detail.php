@@ -1,5 +1,10 @@
 <div class="main-cotainer"  id="main-div" >
 <div>
+	<div style="float: left;margin: 10px 0;width: 48px;">
+		<div id="preurl" style="display: inline;float: left;"></div>
+		<div id="nexturl" style="display: inline;float: right;"></div>
+	</div>
+
 	<div style="float: left;margin: 10px 10px;">
 	<h2 style="display:inline-block; margin:0;"><a style="text-decoration:none; color: #3087C9; font-size:18px;" href="<?php echo $propertyurl;?>"><?php if($this->api_used == HB_API){ echo $hostel['NAME']; }else{ echo $hostel->property_name;  } ?></a></h2>
 	<?php if ( $this->api_used == HB_API && !empty($hostel['ADDRESS']) ){?>
@@ -22,10 +27,8 @@
 					</div>
 					<?php } ?>
 	</div>
-	<div style="float: right;margin: 10px 0;width: 48px;">
-		<div id="preurl" style="display: inline;float: left;"></div>
-		<div id="nexturl" style="display: inline;float: right;"></div>
-	</div>
+
+	<a href="<?php echo $propertyurl; ?>" style="height: 25px; float: right; position: relative; line-height: 25px; padding: 9px 45px" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
 </div>	
   <div class="top-map">
     <div class="top-map-left">
@@ -176,7 +179,11 @@
                                             <?php  }//end Foreach  ?>
                                        
                                              </div>
-                                              <?php   }// end if ?>
+                                              <?php   }// end if 
+							else {
+                                                		echo '<div id="hostel_mapView_districts" class="hostel_mapView_districts"></div>';
+							}
+						?>
 
                                                     <?php // start showing landmarks checkboxes
                                              if (is_array($landmarks) && !empty($landmarks))
@@ -202,6 +209,9 @@
                                              </div>
                                               <?php   }// end if
                                               // end showing landmarks checkboxes
+						else {
+                                                	echo '<div id="hostel_mapView_landmarks" class="hostel_mapView_landmarks"></div>';
+						}
                                               ?>
 						
 					</div>
@@ -483,17 +493,17 @@ else
 <?php 
 }
 else { ?>
-   <div class="bottom-table group" style="height: 25px" id="book-now">
+<!--   <div class="bottom-table group" style="height: 25px" id="book-now">
       <a href="<?php echo $propertyurl; ?>" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
-   </div>
+   </div> -->
 <?php } ?> 
 
    <?php if( $this->api_used == HB_API && $hostel['IMPORTANTINFORMATION']!='' ){ ?>
-   <div class="readmore readmore-image" id="showmore"><?php echo _('Read more…'); ?></div>
+   <div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?></div>
 	  <div class="bottom-feature1" id="bottomfeature1">
 	  <div class="bottom-feature-data1">
 			<div class="content_block">
-			<h2><?php echo _("Informations Importantes");?></h2>
+			<!--  h2><?php echo _("Informations Importantes");?></h2> -->
 				<div class="group">
 					<p><?php echo $hostel['IMPORTANTINFORMATION'];?></p>
 				</div>
@@ -503,11 +513,11 @@ else { ?>
 	<?php }  ?>
 	 
 	<?php if (!empty($hostel->conditions)){ ?>  
-	<div class="readmore readmore-image" id="showmore"><?php echo _('Read more…'); ?></div>
+	<div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?></div>
 	  <div class="bottom-feature1" id="bottomfeature1">
 	  	<div class="bottom-feature-data1">
 				<div class="group">
-					<h2><?php echo _("Informations Importantes");?></h2>
+					<!-- <h2><?php echo _("Informations Importantes");?></h2> -->
 					<?php
 					if(!empty($hostel->conditionsTranslated))
 					{

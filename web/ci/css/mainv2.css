@@ -2344,7 +2344,15 @@ text-align: -webkit-center;
 .hostel_mapView_districts , .city_mapView_districts{
      display: block;
      overflow: hidden;
-     clear:both;
+	width: 48%;
+}
+
+.hostel_mapView_districts {
+	float: left;
+}
+
+.city_mapView_districts {
+	float: right;
 }
 
 .share-email {
@@ -2497,7 +2505,10 @@ text-align: -webkit-center;
 .hostel_mapView_landmarks , .city_mapView_landmarks{
      display: block;
      overflow: hidden;
-     clear:both;
+}
+
+.hostel_mapView_landmarks {
+	width: 48%;
 }
 
 .hostel_mapView_landmarks input {

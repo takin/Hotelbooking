@@ -1753,7 +1753,7 @@ class CMain extends I18n_site
 	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
 
 	log_message('debug', $command);
-error_log($command, 3, '/tmp/abc.log');
+
         // create PDF
 	system($command);
 
@@ -2331,11 +2331,12 @@ error_log($command, 3, '/tmp/abc.log');
 		$details['hostel'] = $alldata['hostel'];
 		$details['property_ratings'] = $alldata['hostel']->rating;
 		$details['hostel_min_price'] = $alldata['hostel_min_price'];
-		$data = $this->hw_engine->property_avail_check('',$property_number,$dateStart,$numnight,$currency);
+	//	$data = $this->hw_engine->property_avail_check('',$property_number,$dateStart,$numnight,$currency);
+		$data = $alldata;
 				
-		$data["property_rooms"] = $this->hw_engine->prepare_distinct_rooms($data['booking_info'], $data['distinctRoomTypes'], $numnight, FALSE);
+		$data["property_rooms"] = @$this->hw_engine->prepare_distinct_rooms($data['booking_info'], $data['distinctRoomTypes'], $numnight, FALSE);
 		$data['propertyurl'] =$this->next_property_url($details['hostel']->property_type,$details['hostel']->property_name,$property_number,$this->site_lang) ;
-		$data['user_reviews1']=$this->hw_engine->property_reviews($property_number);
+		$data['user_reviews1']= array(); //$this->hw_engine->property_reviews($property_number);
 		$data['numNights']=$numnight;
 		$data['dateStart']=$dateStart1;
 		if(!empty($locationdata)) {
@@ -2346,7 +2347,7 @@ error_log($command, 3, '/tmp/abc.log');
 		}
 		// set data to add to marker
 		//$filter_array = $this->get_property_details($allproids);
-		$filter_array = $this->get_property_details($property_number);
+		$filter_array = $this->get_property_details($property_number, $data);
 	}
 
 		// mark that is a quick view
@@ -2355,7 +2356,15 @@ error_log($command, 3, '/tmp/abc.log');
 		$jsondata = array();
 		$jsondata['map_data'] = $filter_array ;
 		$jsondata['html'] = $this->load->view("property_detail",$data,true);
-		
+
+
+		$seconds_to_cache = 3600 * 24 * 10;
+		$ts = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
+
+		header("Expires: $ts");
+		header("Pragma: cache");
+		header("Cache-Control: max-age=$seconds_to_cache");
+
 		echo json_encode($jsondata);
  }
  //property detail page end
@@ -2369,7 +2378,7 @@ error_log($command, 3, '/tmp/abc.log');
   }
   
   // Get data for add marker popup to be used with google map.
- function get_property_details($proids)
+ function get_property_details($proids, $propdata = null)
  {
  	$proid=explode(",",$proids);
 	$data = array();
@@ -2398,7 +2407,7 @@ error_log($command, 3, '/tmp/abc.log');
 			$this->load->model('db_hw_hostel');
 			$this->load->library('hw_engine');
 			foreach($proid as $key=>$property_number)
-			{    $data = $this->hw_engine->property_info($data,$property_number);
+			{    $data = $propdata == null ? $this->hw_engine->property_info($data,$property_number) : $propdata;
 				 $images = $this->hw_engine->property_images($property_number);
 			     $data['propertyurl'] =$this->next_property_url($data['hostel']->property_type,$data['hostel']->property_name,$property_number,$this->site_lang);
       			 $filter_array[$key]["Geo"]["Latitude"] = $data['hostel']->geolatitude;

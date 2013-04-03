@@ -1479,9 +1479,9 @@ var ajaxrequest =  $.ajax({
 		type:'GET',
 		dataType: "json",
                 cache: true,
-		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
+		//url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
+		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/allproid/'+procur,
 		success:function(data){ 
-		   
 			$('#quick_preview_div').empty().html(data['html']);
 			$('#preurl').html(preurl);
 			$('#nexturl').html(nexturl);
@@ -1493,14 +1493,19 @@ var ajaxrequest =  $.ajax({
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
 
-			if($("#distrinct:radio:checked").length > 0)
-           { 
-            pweb_map.changeDistrictLayer($("#distrinct:radio:checked").val());
-           }
-             if($("#landmark:radio:checked").length > 0)
-           { 
-            pweb_map.changeLandmarkLayer($("#landmark:radio:checked").val());
-           }
+
+
+			function autoselect() {
+				if($("#distrinct:radio:checked").length > 0) { 
+					pweb_map.changeDistrictLayer($("#distrinct:radio:checked").val());
+				}
+
+				if($("#landmark:radio:checked").length > 0) { 
+					pweb_map.changeLandmarkLayer($("#landmark:radio:checked").val());
+				}
+			}
+
+			window.setTimeout(function() { autoselect(); }, 1200);
 		}
 	});
 	
