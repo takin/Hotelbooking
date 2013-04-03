@@ -547,6 +547,15 @@ RewriteCond %{HTTP_HOST}   ^www\.hwsitetest\.com [NC]
 RewriteRule   ^auberges/(.*)$   ci/$1  [QSA,L]
 RewriteRule   ^info/(.*)$   wp/$1  [QSA,L]
 
+#-------------------  ASSETS -------------------
+
+#Existing: /info/wp-content/themes/Auberge/scripts/t.php?zc=1&w=100&h=100&src=http://assets.hb-assets.com/p/55000/55658-20120520132504.jpg
+#New URL:  /assets/hb/100/100/p/55000/55658-20120520132504.jpg
+RewriteRule ^assets/hb/([0-9]+)/([0-9]+)/(.*)$ /info/wp-content/themes/Auberge/scripts/t.php?zc=1&w=$1&h=$2&src=http://assets.hb-assets.com/$3 [L]
+
+#Existing: /info/wp-content/themes/Auberge/scripts/t.php?zc=1&w=100&h=100&src=http://images.webresint.com/images/hostels/26375_1.jpg
+#New URL:  /assets/hw/100/100/images/hostels/26375_1.jpg
+RewriteRule ^assets/hw/([0-9]+)/([0-9]+)/(.*)$ /info/wp-content/themes/Auberge/scripts/t.php?zc=1&w=$1&h=$2&src=http://images.webresint.com/$3 [L]
 
 #-------------------  ALL SITES -------------------
 #Everything else is directed to CI folder, if it is not a real folder name or robot
