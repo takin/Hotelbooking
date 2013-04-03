@@ -1478,6 +1478,7 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 var ajaxrequest =  $.ajax({
 		type:'GET',
 		dataType: "json",
+                cache: true,
 		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
 		success:function(data){ 
 		   

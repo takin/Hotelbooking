@@ -618,7 +618,7 @@ class Hw_engine {
 		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
 		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
 		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
-			  base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+			  base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
 	  }
 
 	   // -------Translate the propertyType----------------------------------//
@@ -2037,7 +2037,7 @@ class Hw_engine {
     //update and return status
     return $this->CI->Db_hw_hostel->update_hw_hostel_facilities($property_number, $data["hostel"]->facilities);
   }
-  
+
   function propertyimg($prid)
   {
   		$this->CI->load->model('Hostel_api_model');

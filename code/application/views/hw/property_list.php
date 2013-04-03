@@ -7,7 +7,7 @@
 			<div class="info">
 				<div class="left info_pic">
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>">
-				<img alt="" src="<?php echo base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.str_replace("mini_",'',$hostel->PropertyImages->PropertyImage->imageURL); ?>" />
+				<img alt="" src="<?php echo base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.str_replace("mini_",'',$hostel->PropertyImages->PropertyImage->imageURL); ?>" />
 				</a>
 				</div>
 				<div class="info_indent">

@@ -322,7 +322,7 @@ function get_thumb_url ($post_id) {
 
 /*
 To retrieve a post image and resize it with TimThumb:
-<?php echo get_post_image (get_the_id(), '', '', '' .get_bloginfo('template_url') .'/scripts/timthumb.php?zc=1&amp;w=105&amp;h=85&amp;src='); ?></a>
+<?php echo get_post_image (get_the_id(), '', '', '' .get_bloginfo('template_url') .'/scripts/t.php?zc=1&amp;w=105&amp;h=85&amp;src='); ?></a>
 */
 
 
