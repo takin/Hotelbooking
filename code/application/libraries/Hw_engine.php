@@ -615,10 +615,22 @@ class Hw_engine {
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
       {
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
-			  base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+        $original_image_url = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+        $image_thumbnail_url = $original_image_url;
+        $image_url = str_replace("mini_",'',$original_image_url);
+    	if (strpos($image_url,'http://images.webresint.com') !== false)
+	    {
+	      $image_list_url = base_url().'assets/hw/100/100'.str_replace("http://images.webresint.com", "", $image_url);
+	    }
+	    else
+	    {
+          $image_list_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+        }
+
+
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $image_thumbnail_url;
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = $image_url;
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] = $image_list_url;
 	  }
 
 	   // -------Translate the propertyType----------------------------------//
