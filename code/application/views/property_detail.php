@@ -85,6 +85,26 @@
     </div>
 
 	      <div class="bottom-feature">
+
+					<div class="amenities no-indent">
+					<?php
+					if (!empty($main_services)) {
+						foreach($main_services as $service) {
+							if ($service->service_type == 'facility') { ?>
+								<span class="icon_facility icon_facility_<?php echo $service->service_id; ?> group">
+									<span><?php echo$service->description; ?></span>
+								</span>
+
+								<?php
+							} else { ?>
+								<span class="icon_facility icon_landmark group">
+									<span><?php echo $service->description; ?></span>
+								</span>
+							<?php }
+						}
+					} ?>
+					</div>
+
 		  <?php if (!empty($propertyextras_included)){?>
 						
 							<div class="bottom-feature-data">
@@ -112,7 +132,7 @@
 							</div>
 					
 					<?php }?>
-		  
+	  
         <div class="bottom-feature-data">
           <p><b><?php echo _("Commodité");?></b></p>
           <div class="list-left">

@@ -2288,14 +2288,15 @@ class CMain extends I18n_site
                     }
                   }
               }
+
+	$this->load->model('i18n/db_translation_cache');
    	$dateStart = '';
-	if($this->api_used == HB_API)
-    {   
-        $this->load->library('hb_engine');
-	    $data['current_view_dir'] = $this->api_view_dir;
+	if($this->api_used == HB_API) {   
+	        $this->load->library('hb_engine');
+		$data['current_view_dir'] = $this->api_view_dir;
 		$this->load->model('db_hb_hostel');
 		if(isset($_COOKIE['date_selected'])){
-		$dateStart=  $_COOKIE['date_selected'];		
+			$dateStart=  $_COOKIE['date_selected'];		
 		}	
 		$dateStart1 = new DateTime($dateStart);
         	$alldata = $this->hb_engine->property_info($data,$property_number);
@@ -2311,6 +2312,7 @@ class CMain extends I18n_site
 		$data['user_reviews']=$this->hb_engine->property_reviews($property_number);
 		$data['numNights']=$numnight;
 		$data['dateStart']=$dateStart1;
+		$data['main_services'] = $this->db_hb_hostel->get_hostel_main_services($property_number);
 		 
 		if(!empty($locationdata)) {
 			$data = array_merge($data,$locationdata);
@@ -2339,6 +2341,8 @@ class CMain extends I18n_site
 		$data['user_reviews1']= array(); //$this->hw_engine->property_reviews($property_number);
 		$data['numNights']=$numnight;
 		$data['dateStart']=$dateStart1;
+		$data['main_services'] = $this->db_hw_hostel->get_hostel_main_services($property_number);
+
 		if(!empty($locationdata)) {
 			$data = array_merge($data,$locationdata);
 		}	
@@ -2349,6 +2353,22 @@ class CMain extends I18n_site
 		//$filter_array = $this->get_property_details($allproids);
 		$filter_array = $this->get_property_details($property_number, $data);
 	}
+
+		$data['breakfast_included'] = 0;
+		if(!empty($data['main_services'])) {
+			foreach($data['main_services'] as $si => $service) {
+				if (is_object($service) && $service->service_id == 26) {
+					$data['breakfast_included'] = 1;
+				}
+
+				$translation = $this->db_translation_cache->get_translation($service->description,$this->site_lang);
+				if (!empty($translation) && is_object($translation)) {
+					$data['main_services'][$si]->description = $translation->translation;
+				}
+			}
+
+			$data['main_services'] = array_values($data['main_services']);
+		}
 
 		// mark that is a quick view
 		$data['quick_view'] = true;
