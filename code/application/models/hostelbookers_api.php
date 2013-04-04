@@ -788,19 +788,32 @@ class Hostelbookers_api extends CI_Model {
     return false;
   }
 
-  //adding s before extension returns thumbnail of image per HB server
-  //No doc on this just happen to be this way could change....
-  //possible .jpeg, .jpg
-  // fix to use timthumb
+
   function build_thumb_url($image_url)
   {
-    return base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=50&h=50&src='.$image_url;
+    if (strpos($image_url,'http://assets.hb-assets.com') !== false)
+    {
+      $return = base_url().'assets/hb/50/50'.str_replace("http://assets.hb-assets.com", "", $image_url);
+    }
+    else
+    {
+      $return = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=50&h=50&src='.$image_url;
+    }
+    return  $return;
   }
 
   function build_list_url($image_url)
+  {
+    if (strpos($image_url,'http://assets.hb-assets.com') !== false)
     {
-    return base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+      $return = base_url().'assets/hb/100/100'.str_replace("http://assets.hb-assets.com", "", $image_url);
     }
+    else
+    {
+      $return = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+    }
+    return  $return;
+  }
 
   function is_thumb_url($image_url)
   {
