@@ -1212,6 +1212,8 @@ class Db_hw_hostel extends CI_Model
 
     $sql = "SELECT `".self::LANDMARKS_TABLE."`.`landmark_id`,
                    `".self::LANDMARKS_TABLE."`.`landmark_name`,
+                   `".self::LANDMARKS_TABLE."`.`geo_latitude`,
+                   `".self::LANDMARKS_TABLE."`.`geo_longitude`,
                    SUM(if( distance <= $range_km,1,0)) as landmark_count
             FROM ".self::HW_HOSTEL_TABLE."
             RIGHT JOIN `".self::HW_HOSTEL_LANDMARK_TABLE."` ON `".self::HW_HOSTEL_LANDMARK_TABLE."`.`property_number` = `".self::HW_HOSTEL_TABLE."`.`property_number`

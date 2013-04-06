@@ -82,9 +82,9 @@ GoogleMap.prototype.init = function() {
         // if yes call the district function to show district boundries
         if($("#frmDistrict_"+property_number+" input:radio:checked").length > 0)
             {
-              var district_um_id =   $("#frmDistrict_"+property_number+" input:radio:checked").val();
+              var district_um_ids =   $("#frmDistrict_"+property_number+" input:radio:checked").val();
               // call the function to show the district
-             this.changeDistrictLayer(district_um_id);
+             this.changeDistrictLayer(district_um_ids);
             }
            else
             {
@@ -241,38 +241,54 @@ GoogleMap.prototype.initInfoWin = function() {
 	});
 	google.maps.event.addListener(window.gmap, 'click', function () {window.gInfoWin.close();});
 };
-GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
+GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     // working with mapinfulence
     // Initialize Mapfluence with your API key.
     MF.initialize({
-        apiKey: urbanmapping_key 
+        apiKey: urbanmapping_key
     });
-        // remove any old districts
-        //map.overlayMapTypes.push(null);
-   window.gmap.overlayMapTypes.setAt(1, null); 
+    // remove any old districts
+    window.gmap.overlayMapTypes.setAt(0, null);
+
+    if ($.isArray(district_um_ids)) {
+
+        // loop through districts um_ids
+        var counter;
+        for (counter = 0; counter < district_um_ids.length; ++counter) {
+            this.addDistrictsBorder(MF, district_um_ids[counter], counter);
+        }
+    }
+    else {
+        this.addDistrictsBorder(MF, district_um_ids, 0);
+    }
+
+};
+GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
+{
+    // do something with `pDistricts_umIds[counter]`
 
     var filter = MF.filter.Data({
-        column: 'umi.neighborhoods.attributes.hood_id', 
-        operator: '=', 
-        value: parseInt(district_um_id)
+        column: 'umi.neighborhoods.attributes.hood_id',
+        operator: '=',
+        value: parseInt(pDistricts_umIds)
 
     });
-    
-        var hoodsLayer = MF.layer.tile.Simple({
-            from : 'umi.neighborhoods.geometry',
-            style: {
-                color: 'feba02'
-            },
-            border: {
-                color: 'black',
-                size: 1.0
-            },
-            where: filter,
-            opacity: .40
-        });
-                        
- // Create the Mapfluence adapter for Google Maps
+
+    var hoodsLayer = MF.layer.tile.Simple({
+        from: 'umi.neighborhoods.geometry',
+        style: {
+            color: 'feba02'
+        },
+        border: {
+            color: 'black',
+            size: 1.0
+        },
+        where: filter,
+        opacity: .40
+    });
+
+    // Create the Mapfluence adapter for Google Maps
     var googleAdapter = MF.map.google.Adapter();
 
     // Adapt a Mapfluence layer for use with the Google Maps API
@@ -280,85 +296,53 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
 
     // Overlay the Mapfluence layer
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
-       window.gmap.overlayMapTypes.setAt(1, adaptedLayer); 
+    window.gmap.overlayMapTypes.setAt((counter + 1), adaptedLayer);
+
 };
+GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 
-GoogleMap.prototype.changeLandmarkLayer = function (landmark_LatLng){
+    if (window.cityCircle !== null)
+    {
+        window.cityCircle.setMap(null);
+    }
 
-if(window.cityCircle != null)
-{
-    window.cityCircle.setMap(null);
-}
-var point = landmark_LatLng.split("###");
-var lat = point[0];
-var Lng = point[1];
+    if ($.isArray(landmark_LatLng)) {
+
+        // loop through districts um_ids
+        var counter;
+        for (counter = 0; counter < landmark_LatLng.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng[counter]);
+        }
+    }
+    else {
+        this.addLandmarkLayer(landmark_LatLng);
+    }
+
+};
+GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
+
+    var point = landmark_LatLng.split("###");
+    var lat = point[0];
+    var Lng = point[1];
 
 //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
-var citymap = {
+    var citymap = {
 //  center: new google.maps.LatLng(53.477001,-2.230000)
-  center: new google.maps.LatLng( lat, Lng )
-};
+        center: new google.maps.LatLng(lat, Lng)
+    };
 
     var LandmarkOptions = {
-      strokeColor: "#4E89C9",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
+        strokeColor: "#4E89C9",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
 //      fillColor: "#FF0000",
-      fillColor: "#4E89C9",
-      fillOpacity: 0.35,
-      map: window.gmap,
-      center: citymap.center,
-      radius:  2000
+        fillColor: "#4E89C9",
+        fillOpacity: 0.35,
+        map: window.gmap,
+        center: citymap.center,
+        radius: 2000
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
-  
-  };
-  
-  PWebFilterMap.prototype.showManyDistrictsBorder = function(pDistricts_umIds) 
-{   
-        // working with mapinfulence
-    // Initialize Mapfluence with your API key.
-    MF.initialize({
-        apiKey: urbanmapping_key 
-    });
 
-      // remove any old districts
-window.gmap.overlayMapTypes.setAt( 0, null); 
-
-// loop through districts um_ids
-var counter;
-for (counter = 0; counter < pDistricts_umIds.length; ++counter) {
-    // do something with `pDistricts_umIds[counter]`
- 
-    var filter = MF.filter.Data({
-        column: 'umi.neighborhoods.attributes.hood_id', 
-        operator: '=', 
-        value: parseInt(pDistricts_umIds[counter])
-
-    });
-    
-        var hoodsLayer = MF.layer.tile.Simple({
-            from : 'umi.neighborhoods.geometry',
-            style: {
-                color: 'feba02'
-            },
-            border: {
-                color: 'black',
-                size: 1.0
-            },
-            where: filter,
-            opacity: .40
-        });
-                        
- // Create the Mapfluence adapter for Google Maps
-    var googleAdapter = MF.map.google.Adapter();
-
-    // Adapt a Mapfluence layer for use with the Google Maps API
-    var adaptedLayer = googleAdapter.adaptLayer(hoodsLayer);
-
-    // Overlay the Mapfluence layer
-//    map.overlayMapTypes.insertAt(0, adaptedLayer);
-       window.gmap.overlayMapTypes.setAt((counter+1), adaptedLayer); 
-    }
 };
