@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-03 13:18+0300\n"
-"PO-Revision-Date: 2013-04-03 13:54+0200\n"
+"PO-Revision-Date: 2013-04-06 22:41+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1264,11 +1264,10 @@ msgstr ""
 "напоминание."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
 msgstr ""
-"Отправьте ссылку на эту страницу своему знакомому или переслать себе, как "
-"напоминание."
+"Отправьте эту информацию в PDF файле своим друзьям и близким, или отправить "
+"ее себе."
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1302,11 +1301,12 @@ msgid "From (email)"
 msgstr "От (электронный адрес)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "Да, я хочу подписаться на рассылку новостей."
+msgstr ""
+"Да, я хочу подписаться на рассылку новостей. (Вы можете отказаться в любой "
+"момент)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -1315,7 +1315,6 @@ msgid "Send email"
 msgstr "Отправить письмо"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Отправить PDF"
 
@@ -3568,9 +3567,9 @@ msgstr "Комментарии и оценки путешественников"
 
 #: ../code/application/views/property_detail.php:609
 #: ../code/application/views/property_detail.php:652
-#, fuzzy, php-format
+#, php-format
 msgid "Par %s"
-msgstr "%s |%s"
+msgstr "По %s"
 
 #: ../code/application/views/property_detail.php:623
 #: ../code/application/views/hw/hostel_view.php:407
@@ -3783,19 +3782,18 @@ msgid "Selected filters:"
 msgstr "Выбранные фильтры:"
 
 #: ../code/application/views/city_view.php:346
-#, fuzzy
 msgid "Please Wait"
-msgstr "Пожалуйста подождите..."
+msgstr "Пожалуйста подождите"
 
 #: ../code/application/views/city_view.php:351
-#, fuzzy
 msgid "From"
-msgstr "От:"
+msgstr "От"
 
 #: ../code/application/views/city_view.php:352
-#, fuzzy
 msgid "Only 5 properties can be compared. Please remove a property from list."
-msgstr "Пожалуйста, удалите свойство из списка."
+msgstr ""
+"Только 5 свойств могут быть сопоставлены. Пожалуйста, удалите свойство из "
+"списка."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -4599,7 +4597,7 @@ msgstr "Пользователь (адрес Вашей электронной �
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
 msgstr "%s отправил вам сообщение:"
 
@@ -7589,7 +7587,7 @@ msgstr "последние %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
 #: ../code/application/views/mustache/property_list.php:107
-#, fuzzy, php-format
+#, php-format
 msgid "Quick View"
 msgstr "Быстрый просмотр"
 
@@ -7604,9 +7602,9 @@ msgid "Type of dorms"
 msgstr "Тип общежития"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "Спасибо за групповую бронь."
+msgstr "Общежития только для вашей группы"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
@@ -7625,9 +7623,9 @@ msgstr ""
 "использоваться. Эта опция часто используется группами."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "Стоимость за комнату (не за одного человека)"
+msgstr "Стоимость за комнату (за одного человека)"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
@@ -7635,19 +7633,20 @@ msgid "Average Price"
 msgstr "Средняя цена"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"Средняя цена на человека в ночь расчитана на указанную дату приезда и "
-"продолжительность пребывания, цены за один день могут отличаться."
+"Средняя цена на человека в ночь, расчитана на указанную дату приезда и "
+"продолжительность пребывания, цены за один день могут отличаться. Тем не "
+"менее, наши цены гарантированы и вы никогда не будете платить больше."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for %d nights per person"
-msgstr "Стоимость за комнату (не за одного человека)"
+msgstr "Стоимость за %d ночей (за одного человека)"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
@@ -7655,15 +7654,15 @@ msgid "Maximum"
 msgstr "Максимум"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "Гость"
+msgstr "Гости"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "Проверить наличие"
+msgstr "Наличие"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
@@ -7671,25 +7670,25 @@ msgid "Bedroom"
 msgstr "Спальня"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
 msgstr "Комнаты"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "Максимальное количество людей в этой комнате"
+msgstr "1 гость в 1 комнате."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in 1 Bedroom."
-msgstr "Максимальное количество людей в этой комнате"
+msgstr "%d гостей в 1 комнате."
 
 #: ../code/application/views/helpfile/pofields.php:713
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guests in each room)."
-msgstr "7 гостей в 7 Спальнях (7 гостей в каждом номере)."
+msgstr "%d гостей в %d Комнатах (%d гостей в каждой комнате)."
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
@@ -7697,24 +7696,24 @@ msgid "%d guests in %d Bedrooms ( 1 guest in each room)."
 msgstr "%d гостей в %d Спальнях (1 гость в каждом номере)."
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "Отдельные номера"
+msgstr "Тип приватных комнат"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "Стоимость за комнату (за одного человека)"
+msgstr "Стоимость за одного человека"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "Цена за кровать (не за номер)"
+msgstr "Стоимость за комнату"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "Цена за кровать (не за номер)"
+msgstr "Средняя цена за ночь за номер"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7726,9 +7725,9 @@ msgstr ""
 "%d гостей, зайдя в наш групповой раздел в верхней части этой страницы."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "Максимальное количество гостей в общежитии"
+msgstr "Общее количество гостей"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
@@ -7743,22 +7742,22 @@ msgstr "Вы будете использовать %d полных общежи�
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "Вы будете частично использовать 1 общежитие."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "Вы будете использовать 1 общежитие полностью и 1 частично."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use %d full dorms and 1 partially."
-msgstr ""
+msgstr "Вы будете использовать %d общежитий полностью и 1 частично."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "Введите адрес электронной почты ещё раз"
+msgstr "Предварительный просмотр электронного письма"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7766,21 +7765,23 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"Ваш единый номер бронирования будет предоставлен сразу после бронирования. "
+"Ваш заказ будет немедленным и гарантированным."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "Тип комнаты и количество гостей"
+msgstr "Количество гостей"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1 полностью доступное общежитие."
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "%d fully available dorms."
-msgstr ""
+msgstr "%d полностью доступных общежития."
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7788,11 +7789,13 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
+"1 полностью доступное общежитие и 1 уже частично занятое (занятых кроватей: "
+"%d)."
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: %d)."
-msgstr ""
+msgstr "Это общежитие уже частично занято (занятых кроватей: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7800,21 +7803,23 @@ msgid ""
 "%d dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
+"%d полностью доступных общежитий и 1 уже частично занятое (занятых кроватей: "
+"%d)."
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "Фамилия"
+msgstr "Нет"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "Спальня, которую вы будете занимать:"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "Общежития, которые вы будете занимать:"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
@@ -7822,11 +7827,13 @@ msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
 msgstr ""
+"Мы предоставим всю необходимую информацию, чтобы убедиться, что вы "
+"действительно наслаждаться своим отдыхом."
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "Дополнительная информация"
+msgstr "Важная информация"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7834,6 +7841,8 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"Когда это возможно, мы будем предоставлять информацию о том, как добраться "
+"до отеля, включая общественный транспорт и аэропорт."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7841,93 +7850,98 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"С полной контактной информацией, вы сможете связаться с отелем, в случае, "
+"если у вас есть какие-то особые пожелания."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "Номер места проживания"
+msgstr "Название объекта"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
-msgstr "адрес"
+msgstr "Адрес"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Вы получите электронное письмо с подтверждением"
+msgstr ""
+"Пожалуйста, нажмите здесь, чтобы просмотреть подтверждение по электронной "
+"почте"
 
 #: ../code/application/views/helpfile/pofields.php:749
 #, php-format
 msgid "This type of dorm can accommodate up to 1 guest per dorm."
-msgstr ""
+msgstr "Этот тип общежития расчитан на 1 гостя."
 
 #: ../code/application/views/helpfile/pofields.php:750
 #, php-format
 msgid "This type of dorm can accommodate up to %d guests per dorm."
-msgstr ""
+msgstr "Этот тип общежития расчитан на %d гостей."
 
 #: ../code/application/views/helpfile/pofields.php:751
 #, php-format
 msgid "This type of bedroom can accommodate up to 1 guest per room."
-msgstr ""
+msgstr "Этот тип комнаты расчитан на 1 гостя."
 
 #: ../code/application/views/helpfile/pofields.php:752
 #, php-format
 msgid "This type of bedroom can accommodate up to %d guests per room."
-msgstr ""
+msgstr "Этот тип комнаты расчитан на %d гостей."
 
 #: ../code/application/views/helpfile/pofields.php:753
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property:"
-msgstr ""
+msgstr "Самая низкая цена на человека за ночь в общежитии в этом отеле:"
 
 #: ../code/application/views/helpfile/pofields.php:754
 #, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property:"
-msgstr ""
+msgstr "Самая низкая цена на человека за ночь в отдельной комнате этого отеля:"
 
 #: ../code/application/views/helpfile/pofields.php:755
 #, php-format
 msgid "Maximum you can book"
-msgstr ""
+msgstr "Максимально вы можете забронировать"
 
 #: ../code/application/views/helpfile/pofields.php:756
-#, fuzzy, php-format
+#, php-format
 msgid "Please wait…"
-msgstr "Пожалуйста подождите..."
+msgstr "Пожалуйста подождите…"
 
 #: ../code/application/views/helpfile/pofields.php:757
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property: %s"
-msgstr ""
+msgstr "Самая низкая цена на человека за ночь в общежитии в этом отеле: %s"
 
 #: ../code/application/views/helpfile/pofields.php:758
 #, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property: %s"
 msgstr ""
+"Самая низкая цена на человека за ночь в отдельной комнате этого отеля: %s"
 
 #: ../code/application/views/helpfile/pofields.php:759
 #, php-format
 msgid "Lowest night:"
-msgstr ""
+msgstr "Самая низкая цена за ночь:"
 
 #: ../code/application/views/helpfile/pofields.php:760
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests for %d nights"
-msgstr "Тип комнаты и количество гостей"
+msgstr "Количество гостей для %d ночей"
 
 #: ../code/application/views/helpfile/pofields.php:761
-#, fuzzy, php-format
+#, php-format
 msgid "Provided after reservation"
-msgstr "Написать обзор"
+msgstr "Предоставляется с момента оформления заказа"
 
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Отдельная спальня для %d человек с общей ванной комнатой"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
