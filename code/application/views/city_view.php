@@ -2,7 +2,7 @@
     <input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
     <input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
     <div id="filter_map_leftSide">
-        <nav id="city_map_filter_tabs" class="city_filter_tabs group popup_leftSide">
+        <nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
             <ul id="ul_map_filter_tabs" class="box_round ui-tabs-nav popup_filter_tabs">
                 <li id="li_popup_filter_districts" class="first ui-tabs-selected">
                     <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
@@ -15,12 +15,13 @@
                     </a>
                 </li>
             </ul>
+         </nav>
             <?php
             $district_count = 0;
             $total_dsitrict = count($city_districts);
             ?>
             <?php if (!empty($city_districts)) {    ?>
-            <div id="filter_content_districts_popup" class="filter_content">
+            <div id="filter_content_districts_popup" class="filter_content box_content box_round ui-tabs">
                     <ul id="cb_group_districts_filter">
                         <?php
                         foreach ($city_districts as $district) {
@@ -44,7 +45,7 @@
                 $land_count = 0;
                 $total_land = count($city_landmarks);
                 ?>
-                <div id="filter_content_landmarks_popup" class="filter_content">
+                <div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
                         <ul id="cb_group_landmarks_filter">
                         <?php
                         foreach ($city_landmarks as $landmark) {
@@ -54,7 +55,7 @@
                                 <li><a id="show_more_land" class="right show_choices" href="#">+ <?php echo _('More Options') ?></a></li>
                                 <div id="more_land" class="more_choice_filter">
                                 <?php } ?>
-                                <li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo $landmark->landmark_name; ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
+                                <li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo preg_replace('/\W\w+\s*(\W*)$/', '$1', $landmark->landmark_name ); ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
                                     <input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>###<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" /></li>
                                 <?php if ($land_count >= 11 && $land_count == $total_land) { ?>
                                     <li><a id="show_less_land" class="right less_choices" href="#">- <?php echo _('Less Options') ?></a></li>
@@ -64,7 +65,7 @@
                     </ul>
                 </div>
             <?php } ?>
-        </nav>
+
     </div>
     <div id="filter_map_rightSide"></div>
 </div>

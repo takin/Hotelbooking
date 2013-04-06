@@ -51,6 +51,9 @@ GoogleMap.prototype.init = function() {
 	this.map_div.style.width = "100%";
 	this.map_div.style.height = "400px";
 
+    if (this.map_div.id === "filter_map_rightSide"){
+        this.map_div.style.height = "100%";
+    }
 	window.gmap    = new google.maps.Map(this.map_div, myOptions);
 	this.gbounds = new google.maps.LatLngBounds();
 	

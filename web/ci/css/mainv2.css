@@ -2703,7 +2703,7 @@ width: 275px;}
 #filter_map_rightSide{
     width: 60% !important;
     float: right;    
-    height: 450px;
+    height: 100%;
 }
 
 #map_filter_popup{
@@ -2714,11 +2714,15 @@ width: 275px;}
 #ul_map_filter_tabs .city_filter_tabs ul li a{
     padding: 10px 30px 20px;
 }
-#filter_content_districts_popup, #filter_content_landmarks_popup{
+/*#filter_content_districts_popup , #filter_content_landmarks_popup{
     height: 400px;
+}*/
+
+.ui-tabs-hide{
+    display: none;
 }
 
-#city_map_filter_tabs div ul, #cb_group_landmarks_filter {
+#cb_group_districts_filter, #cb_group_landmarks_filter {
     height:95%;
     overflow-y: scroll;
     margin-top: 2px;
@@ -2727,18 +2731,16 @@ width: 275px;}
     margin-left: -10px;
     display: block;
 }
-#city_map_filter_tabs div ul li, #cb_group_landmarks_filter li{
+#cb_group_landmarks_filter li{
     width: 14em;
-    /*display: inline;*/
+    /*dispay: inline;*/
     float:left;
     /*height: 15px;
     overflow: hidden;*/
 }
-#city_map_filter_tabs div ul li a{
+#cb_group_districts_filter li a, #cb_group_landmarks_filter li a{
     float: left;
     padding: 7px;
 }
 /*#filter_content_landmarks_popup { display: none;}*/
-/*#city_map_filter_tabs div ul#cb_group_landmarks_filter{display: none; margin-left: 92px;}*/
-#filter_content_landmarks_popup{display: none; }
-#city_map_filter_tabs div ul li{border: none; cursor: pointer;  }
+#cb_group_districts_filter li, #cb_group_landmarks_filter li{border: none; cursor: pointer;  }

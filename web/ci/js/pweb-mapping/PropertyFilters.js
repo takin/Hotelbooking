@@ -1104,7 +1104,11 @@ PWebFilterApp.prototype.setup = function(data)
 	this.init_action_filters();
 
     $('#city_map_filter').click(function() {
-        $("#map_filter_popup").tabs();
+//        $("#map_filter_popup").tabs();
+//$('ul.ui-tabs-nav').tabs();
+$('#filter_map_leftSide').tabs();
+
+//
         $("#map_filter_popup").fancybox({
             'transitionIn': 'elastic',
             'transitionOut': 'elastic',
@@ -1125,27 +1129,27 @@ PWebFilterApp.prototype.setup = function(data)
     });
 
 
-    $("#ul_map_filter_tabs").find("li").click(function() {
-
-        var divToShow = "filter_content_districts_popup";
-        var divToHide = "filter_content_landmarks_popup";
-        var li_selected = "li_popup_filter_districts";
-        var li_unselected = "li_popup_filter_landmarks";
-        
-        if (this.id !== "li_popup_filter_districts") {
-            divToShow = "filter_content_landmarks_popup";
-            divToHide = "filter_content_districts_popup";
-            li_selected = "li_popup_filter_landmarks";
-            li_unselected = "li_popup_filter_districts";
-        
-        }
-        
-        $("#" + divToShow).show();
-        $("#" + divToHide).hide();
-        $("#" + li_selected).addClass("ui-tabs-selected");
-        $("#" + li_unselected).removeClass("ui-tabs-selected");
-        
-    });
+//    $("#ul_map_filter_tabs").find("li").click(function() {
+//
+//        var divToShow = "filter_content_districts_popup";
+//        var divToHide = "filter_content_landmarks_popup";
+//        var li_selected = "li_popup_filter_districts";
+//        var li_unselected = "li_popup_filter_landmarks";
+//        
+//        if (this.id !== "li_popup_filter_districts") {
+//            divToShow = "filter_content_landmarks_popup";
+//            divToHide = "filter_content_districts_popup";
+//            li_selected = "li_popup_filter_landmarks";
+//            li_unselected = "li_popup_filter_districts";
+//        
+//        }
+//        
+//        $("#" + divToShow).show();
+//        $("#" + divToHide).hide();
+//        $("#" + li_selected).addClass("ui-tabs-selected");
+//        $("#" + li_unselected).removeClass("ui-tabs-selected");
+//        
+//    });
     
 //    $("#cb_group_districts_filter").find(':input').click(function() {
 //        alert("checked");
