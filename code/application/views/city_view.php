@@ -332,6 +332,9 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <?php
 }	
 ?>
+
+<script type="text/javascript" src="<?php echo base_url();?>js/ad-gallery.js"></script>
+
 <script id="template-infow" type="text/html">
 <?php
   $this->load->view('mustache/city_map_property_infow');
@@ -340,6 +343,11 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <script id="template" type="text/html">
 <?php
   $this->load->view('mustache/property_list');
+?>
+</script>
+<script id="template-property-quick-view" type="text/html">
+<?php
+  $this->load->view('mustache/property_quick_view');
 ?>
 </script>
 

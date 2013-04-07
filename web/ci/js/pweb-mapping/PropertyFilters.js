@@ -1074,6 +1074,22 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 PWebFilterApp.prototype.setup = function(data) 
 {
 	data = jQuery.parseJSON(data);
+
+	// right about here load the QuickView
+	if (typeof(data.property_list) != 'undefined') {
+		if (typeof(data.property_list) == 'object') {
+			for (var i in data.property_list) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+
+		if (data.property_list.length) {
+			for (var i = 0; i < data.property_list.length; i++) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+	}
+
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
 	
@@ -1433,12 +1449,14 @@ $(document).ready(function() {
 });
 /*code by deep*/
 
-$(".quick_view_bg_link,.pre_next_arrows").live('click', function(){
+//$(".quick_view_bg_link,.pre_next_arrows").live('click', function(event){
+$(".quick_view_bg_link").live('click', function(event){
+	event.preventDefault();
 
-	pweb_filter = new PWebFilterApp();
-	pweb_filter.pweb_maps = new Array();
-    pweb_filter.property_compare_detail(this);
-	pweb_map = new GoogleMap();
+//	pweb_filter = new PWebFilterApp();
+//	pweb_filter.pweb_maps = new Array();
+	pweb_filter.showQuickView(this);
+//	pweb_map = new GoogleMap();
 });
   
 PWebFilterApp.prototype.getAllPropertyIds = function() {
@@ -1450,6 +1468,26 @@ var allproids = '';
     return pweb_filter.allproids;
 };
   
+PWebFilterApp.prototype.showQuickView = function(that) {
+	var proid      =   $(that).attr('value');
+
+	var wait_message = $('#wait_message').val();
+	var nextid     =   $('#prop_tab_box_'+proid ).next().attr('rel');
+	var preid      =   $('#prop_tab_box_'+proid ).prev().attr('rel');
+	var numnight   =   $('#city_results_numnights_selected').html();
+	var procur     =   $('#propertycur_'+proid ).val();
+
+	var quickView = QuickView.getObject(proid);
+
+	if (!quickView) {
+		this.property_compare_detail(that);
+
+		return;
+	}
+
+	quickView.getContent();
+}
+
 PWebFilterApp.prototype.property_compare_detail = function(that) {
 var proid      =   $(that).attr('value');
 var wait_message = $('#wait_message').val();
@@ -1458,7 +1496,7 @@ var preid      =   $('#prop_tab_box_'+proid ).prev().attr('rel');
 var numnight   =   $('#city_results_numnights_selected').html();
 var procur     =   $('#propertycur_'+proid ).val();
 var allproid   =   pweb_filter.getAllPropertyIds();
- 
+
 	if(preid!='' && preid!=null)
 	{
 		var preurl='<a href="javascript:void(0)" value="'+preid+'" class="pre_next_arrows"><img src="http://'+window.location.host+'/images/left.png"/></a>'

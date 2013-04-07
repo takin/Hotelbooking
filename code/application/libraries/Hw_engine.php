@@ -577,266 +577,229 @@ class Hw_engine {
    */
   //TODO Get rid of call by reference &data
   // Not compatible with PHP 5.4
-  function location_json_format(&$data)
-  {
-    $wp_date_format = $this->CI->wordpress->get_option('aj_date_format_city_search');
+  function location_json_format(&$data) {
+	$wp_date_format = $this->CI->wordpress->get_option('aj_date_format_city_search');
 
-    //Ensure that Numeric values are cast to a numeric type
-    //because JSON encoding turn non numeric value into JS string
-    //Also if not in an array everything is turn into strings, yeah really! array needed! for json_encode
-    $json_data["property_list"] = xmlobj2arr($data["property_list"]);
+	//Ensure that Numeric values are cast to a numeric type
+	//because JSON encoding turn non numeric value into JS string
+	//Also if not in an array everything is turn into strings, yeah really! array needed! for json_encode
+	$json_data["property_list"] = xmlobj2arr($data["property_list"]);
 
-    $json_data["request"] = array(
-                                  'date_selected'      => $data["date_selected"],
-                                  'numnights_selected' => $data["numnights_selected"],
-                                  'display_currency' => $this->CI->site_currency
-                                 );
+	$json_data["request"] = array(
+		'date_selected'      => $data["date_selected"],
+		'numnights_selected' => $data["numnights_selected"],
+		'display_currency' => $this->CI->site_currency
+	);
 
-    $json_data["city_info"] = $data["city_info"];
-    $json_data['api_error_msg'] = false;
-    if(!empty($data['api_error_msg']))
-    {
-//       $json_data['api_error_msg'] = $data['api_error_msg'];
-      $json_data['api_error_msg'] = true;
-      $json_data["property_list"] = array();
-    }
-//     debug_dump($data);exit;
-//     debug_dump($json_data);
+	$json_data["city_info"] = $data["city_info"];
+	$json_data['api_error_msg'] = false;
+	if(!empty($data['api_error_msg'])) {
+		//       $json_data['api_error_msg'] = $data['api_error_msg'];
+		$json_data['api_error_msg'] = true;
+		$json_data["property_list"] = array();
+	}
+	//     debug_dump($data);exit;
+	//     debug_dump($json_data);
 
-    //TODO manage API error!
-    $deal_property = array(0 => null,
-                           1 => null);
+	//TODO manage API error!
+	$deal_property = array(0 => null, 1 => null);
 
-    foreach($json_data["property_list"] as $i => $prop)
-    {
-      //TODO insert this into HW and HB lib
+	foreach($json_data["property_list"] as $i => $prop) {
+		//TODO insert this into HW and HB lib
 
-      $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
-      $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
-      if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
-      {
-        $original_image_url = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-        $image_thumbnail_url = $original_image_url;
-        $image_url = str_replace("mini_",'',$original_image_url);
-    	if (strpos($image_url,'http://images.webresint.com') !== false)
-	    {
-	      $image_list_url = base_url().'assets/hw/100/100'.str_replace("http://images.webresint.com", "", $image_url);
-	    }
-	    else
-	    {
-          $image_list_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
-        }
+		$json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
+		$json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
+		if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'])) {
+			$original_image_url = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+			$image_thumbnail_url = $original_image_url;
+			$image_url = str_replace("mini_",'',$original_image_url);
+			if (strpos($image_url,'http://images.webresint.com') !== false) {
+				$image_list_url = base_url().'assets/hw/100/100'.str_replace("http://images.webresint.com", "", $image_url);
+			}
+			else {
+				$image_list_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+			}
 
+			$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $image_thumbnail_url;
+			$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = $image_url;
+			$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] = $image_list_url;
+		}
 
-		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $image_thumbnail_url;
-		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = $image_url;
-		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] = $image_list_url;
-	  }
+		// -------Translate the propertyType----------------------------------//
+		$this->CI->load->model('Db_term_translate');
+		$json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
+		// $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
+		$json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
+		foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity) {
 
-	   // -------Translate the propertyType----------------------------------//
-	    $this->CI->load->model('Db_term_translate');
-	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
-	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
-       $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
-	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
-      {
+			if(($amenity->description == 'Breakfast Included')|| ($amenity->description == 'Breakfast')) {
+				$json_data["property_list"][$i]['amenities'][$a]->slug = "free-breakfast";
+			}
+			else {
+				$json_data["property_list"][$i]['amenities'][$a]->slug = "";
+			}
 
-        if(($amenity->description == 'Breakfast Included')||
-           ($amenity->description == 'Breakfast'))
-        {
-          $json_data["property_list"][$i]['amenities'][$a]->slug = "free-breakfast";
-        }
-        else
-        {
-          $json_data["property_list"][$i]['amenities'][$a]->slug = "";
-        }
+			$translation = $this->CI->db_translation_cache->get_translation($amenity->description,$this->CI->site_lang);
+			if(!empty($translation)) {
+				$json_data["property_list"][$i]['amenities'][$a]->description = $translation->translation;
+			}
+		}
 
-        $translation = $this->CI->db_translation_cache->get_translation($amenity->description,$this->CI->site_lang);
-        if(!empty($translation))
-        {
-          $json_data["property_list"][$i]['amenities'][$a]->description = $translation->translation;
-        }
-      }
+		$json_data["property_list"][$i]["has_amenities"] = 0;
+		if(!empty($json_data["property_list"][$i]['amenities'])) {
+			$json_data["property_list"][$i]["has_amenities"] = 1;
+		}
 
-      $json_data["property_list"][$i]["has_amenities"] = 0;
-      if(!empty($json_data["property_list"][$i]['amenities']))
-      {
-        $json_data["property_list"][$i]["has_amenities"] = 1;
-      }
+		$json_data["property_list"][$i]['districts'] = $data['districts'][$prop["propertyNumber"]];
+		$json_data["property_list"][$i]["landmarks"] = $data['landmarks'][$prop["propertyNumber"]];
 
-      $json_data["property_list"][$i]['districts'] = $data['districts'][$prop["propertyNumber"]];
-      $json_data["property_list"][$i]["landmarks"] = $data['landmarks'][$prop["propertyNumber"]];
-
-    foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark)
-      {
-        $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
+		foreach($json_data["property_list"][$i]["landmarks"] as $pl => $prop_landmark) {
+			$json_data["property_list"][$i]["landmarks"][$pl]->to_display = 0;
 
 
-          $json_data["property_list"][$i]["landmarks"][$pl]->original_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
-          $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
+			$json_data["property_list"][$i]["landmarks"][$pl]->original_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
+			$json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name;
 
-          $translation = $this->CI->db_translation_cache->get_translation($prop_landmark->landmark_name,$this->CI->site_lang);
-          if(!empty($translation))
-          {
-           $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
-           $json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $translation->translation;
-          }
+			$translation = $this->CI->db_translation_cache->get_translation($prop_landmark->landmark_name,$this->CI->site_lang);
+			if(!empty($translation)) {
+				$json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = $translation->translation;
+				$json_data["property_list"][$i]["landmarks"][$pl]->translation_name = $translation->translation;
+			}
 
-          if($prop_landmark->slug === 'City-Center')
-        {
-              $json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
-        }
-        else
-        {
-          //delete useless data to save on bandwith
-          $json_data["property_list"][$i]["landmarks"][$pl]->slug = "";
-          $json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = "";
-        }
-      }
+			if($prop_landmark->slug === 'City-Center') {
+				$json_data["property_list"][$i]["landmarks"][$pl]->to_display = 1;
+			}
+			else {
+				//delete useless data to save on bandwith
+				$json_data["property_list"][$i]["landmarks"][$pl]->slug = "";
+				$json_data["property_list"][$i]["landmarks"][$pl]->landmark_name = "";
+			}
+		}
 
-      if(!empty($json_data["property_list"][$i]["shortDescriptionTranslated"]))
-      {
-        $json_data["property_list"][$i]["shortDescription"] = strip_tags(word_limiter($json_data["property_list"][$i]["shortDescriptionTranslated"], 30,"..."));
-      }
-      else
-      {
-        $json_data["property_list"][$i]["shortDescription"] = strip_tags(word_limiter($json_data["property_list"][$i]["shortDescription"], 30,"..."));
-      }
+		if(!empty($json_data["property_list"][$i]["shortDescriptionTranslated"])) {
+			$json_data["property_list"][$i]["shortDescription"] = strip_tags(word_limiter($json_data["property_list"][$i]["shortDescriptionTranslated"], 30,"..."));
+		}
+		else {
+			$json_data["property_list"][$i]["shortDescription"] = strip_tags(word_limiter($json_data["property_list"][$i]["shortDescription"], 30,"..."));
+		}
 
-      $json_data["property_list"][$i]["overall_rating"] = $json_data["property_list"][$i]["overallHWRating"];
-      settype($json_data["property_list"][$i]["overall_rating"],"integer");
-      $json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overallHWRating"]);
-        $json_data["property_list"][$i]["rating"]='';
+		$json_data["property_list"][$i]["overall_rating"] = $json_data["property_list"][$i]["overallHWRating"];
+		settype($json_data["property_list"][$i]["overall_rating"],"integer");
+		$json_data["property_list"][$i]["overall_rating"] = sprintf($json_data["property_list"][$i]["overallHWRating"]);
+		$json_data["property_list"][$i]["rating"]='';
 
-        if(($json_data["property_list"][$i]["overall_rating"]>59) &&
-            ($json_data["property_list"][$i]["overall_rating"]<70) ) {
+		if(($json_data["property_list"][$i]["overall_rating"]>59) && ($json_data["property_list"][$i]["overall_rating"]<70) ) {
 
-            $json_data["property_list"][$i]["rating"] = _("Good");
-        }
-        else if(($json_data["property_list"][$i]["overall_rating"]>69) &&
-                ($json_data["property_list"][$i]["overall_rating"]<80) ) {
-            $json_data["property_list"][$i]["rating"] = _("Very good");
-        }
-        else if(($json_data["property_list"][$i]["overall_rating"]>79) &&
-                ($json_data["property_list"][$i]["overall_rating"]<90) ) {
-            $json_data["property_list"][$i]["rating"] = _("Great");
-        }
-        else if($json_data["property_list"][$i]["overall_rating"]>89) {
-            $json_data["property_list"][$i]["rating"] = _("Fantastic");
-        }
-        else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
-            $json_data["property_list"][$i]["overall_rating"] = '';
-        }
+			$json_data["property_list"][$i]["rating"] = _("Good");
+		}
+		else if(($json_data["property_list"][$i]["overall_rating"]>69) && ($json_data["property_list"][$i]["overall_rating"]<80) ) {
+			$json_data["property_list"][$i]["rating"] = _("Very good");
+		}
+		else if(($json_data["property_list"][$i]["overall_rating"]>79) && ($json_data["property_list"][$i]["overall_rating"]<90) ) {
+			$json_data["property_list"][$i]["rating"] = _("Great");
+		}
+		else if($json_data["property_list"][$i]["overall_rating"]>89) {
+			$json_data["property_list"][$i]["rating"] = _("Fantastic");
+		}
+		else if ($json_data["property_list"][$i]["overall_rating"] == 0) {
+			$json_data["property_list"][$i]["overall_rating"] = '';
+		}
 
-      $json_data["property_list"][$i]["isMinNightNeeded"] = false;
-      if(isset($prop["minNights"]))
-      {
-        settype($json_data["property_list"][$i]["minNights"],"integer");
-        if($prop["minNights"]>0)
-        {
-          $json_data["property_list"][$i]["isMinNightNeeded"] = true;
-          $json_data["property_list"][$i]["minNightsMessage"] = sprintf(ngettext("This property requires a minimum stay of %d night", "This property requires a minimum stay of %d nights", $prop["minNights"]), $prop["minNights"]);
+		$json_data["property_list"][$i]["isMinNightNeeded"] = false;
+		if(isset($prop["minNights"])) {
+			settype($json_data["property_list"][$i]["minNights"],"integer");
+			if($prop["minNights"]>0) {
+				$json_data["property_list"][$i]["isMinNightNeeded"] = true;
+				$json_data["property_list"][$i]["minNightsMessage"] = sprintf(ngettext("This property requires a minimum stay of %d night", "This property requires a minimum stay of %d nights", $prop["minNights"]), $prop["minNights"]);
 
-        }
-      }
-      else
-      {
-        $json_data["property_list"][$i]["minNights"] = 0;
-        settype($json_data["property_list"][$i]["minNights"],"integer");
-      }
-      settype($json_data["property_list"][$i]["maxNights"],"integer");
+			}
+		}
+		else {
+			$json_data["property_list"][$i]["minNights"] = 0;
+			settype($json_data["property_list"][$i]["minNights"],"integer");
+		}
+		settype($json_data["property_list"][$i]["maxNights"],"integer");
 
-      settype($json_data["property_list"][$i]["maxPax"],"integer");
-      $prices = $this->property_cheapest_prices($json_data["property_list"][$i]);
-	  // validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
-	  if(empty($prices['min_price']))
-	  {
-		  unset($json_data["property_list"][$i]); // just remove the record from the list
-		  continue; //
-	  }
-      $json_data["property_list"][$i]["dual_price"]            = 1;
-      $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
-      $json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
-      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_price']);
-      $json_data["property_list"][$i]["display_private_people"] = intval($prices['min_room_people']);
+		settype($json_data["property_list"][$i]["maxPax"],"integer");
+		$prices = $this->property_cheapest_prices($json_data["property_list"][$i]);
+		// validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
+		if(empty($prices['min_price'])) {
+			unset($json_data["property_list"][$i]); // just remove the record from the list
+			continue; //
+		}
+		$json_data["property_list"][$i]["dual_price"]            = 1;
+		$json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
+		$json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
+		$json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_price']);
+		$json_data["property_list"][$i]["display_private_people"] = intval($prices['min_room_people']);
 
-      $json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"];
-      $json_data["property_list"][$i]["display_currency"] = currency_symbol($json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"]);
-      $json_data["property_list"][$i]["original_price"] = null;
-      settype($json_data["property_list"][$i]["display_price"],"float");
-      $json_data["property_list"][$i]["display_price_formatted"]        = number_format($json_data["property_list"][$i]["display_price"], 2, '.', '');
-      $json_data["property_list"][$i]["display_shared_price_formatted"] = number_format($json_data["property_list"][$i]["display_shared_price"], 2, '.', '');
-      $json_data["property_list"][$i]["display_private_formatted"]      = number_format($json_data["property_list"][$i]["display_private_price"], 2, '.', '');
+		$json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"];
+		$json_data["property_list"][$i]["display_currency"] = currency_symbol($json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"]);
+		$json_data["property_list"][$i]["original_price"] = null;
+		settype($json_data["property_list"][$i]["display_price"],"float");
+		$json_data["property_list"][$i]["display_price_formatted"]        = number_format($json_data["property_list"][$i]["display_price"], 2, '.', '');
+		$json_data["property_list"][$i]["display_shared_price_formatted"] = number_format($json_data["property_list"][$i]["display_shared_price"], 2, '.', '');
+		$json_data["property_list"][$i]["display_private_formatted"]      = number_format($json_data["property_list"][$i]["display_private_price"], 2, '.', '');
 
-      //Compute deal properties
-      if(empty($deal_property[0]))
-      {
-      	$deal_property[0] = new stdClass();
-        $deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
-        $deal_property[0]->index = $i;
-      }
-      elseif(empty($deal_property[1]))
-      {
-      	$deal_property[1] = new stdClass();
-        $deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
-        $deal_property[1]->index = $i;
-      }
-      elseif($json_data["property_list"][$i]["display_price"] < $deal_property[0]->display_price)
-      {
-      	$deal_property[1] = new stdClass();
-        $deal_property[1]->display_price = $deal_property[0]->display_price;
-        $deal_property[1]->index = $deal_property[0]->index;
+		//Compute deal properties
+		if(empty($deal_property[0])) {
+			$deal_property[0] = new stdClass();
+			$deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
+			$deal_property[0]->index = $i;
+		}
+		elseif(empty($deal_property[1])) {
+			$deal_property[1] = new stdClass();
+			$deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
+			$deal_property[1]->index = $i;
+		}
+		elseif($json_data["property_list"][$i]["display_price"] < $deal_property[0]->display_price) {
+			$deal_property[1] = new stdClass();
+			$deal_property[1]->display_price = $deal_property[0]->display_price;
+			$deal_property[1]->index = $deal_property[0]->index;
 
-	$deal_property[0] = new stdClass();
-        $deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
-        $deal_property[0]->index = $i;
-      }
-      elseif($json_data["property_list"][$i]["display_price"] < $deal_property[1]->display_price)
-      {
-      	$deal_property[1] = new stdClass();
-        $deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
-        $deal_property[1]->index = $i;
-      }
+			$deal_property[0] = new stdClass();
+			$deal_property[0]->display_price = $json_data["property_list"][$i]["display_price"];
+			$deal_property[0]->index = $i;
+		}
+		elseif($json_data["property_list"][$i]["display_price"] < $deal_property[1]->display_price) {
+			$deal_property[1] = new stdClass();
+			$deal_property[1]->display_price = $json_data["property_list"][$i]["display_price"];
+			$deal_property[1]->index = $i;
+		}
 
-      $json_data["property_list"][$i]["isGeoValid"] = false;
-      if(($prop["Geo"]["Latitude"] != 0)&&($prop["Geo"]["Longitude"] != 0))
-      {
-        $json_data["property_list"][$i]["isGeoValid"] = true;
-      }
-      if(!is_array($prop["AvailableDates"]["availableDate"]))
-      {
-        $json_data["property_list"][$i]["AvailableDates"]["availableDate"] = array($prop["AvailableDates"]["availableDate"]);
-      }
+		$json_data["property_list"][$i]["isGeoValid"] = false;
+		if(($prop["Geo"]["Latitude"] != 0)&&($prop["Geo"]["Longitude"] != 0)) {
+			$json_data["property_list"][$i]["isGeoValid"] = true;
+		}
+		if(!is_array($prop["AvailableDates"]["availableDate"])) {
+			$json_data["property_list"][$i]["AvailableDates"]["availableDate"] = array($prop["AvailableDates"]["availableDate"]);
+		}
 
-      //date format
-      foreach($json_data["property_list"][$i]["AvailableDates"]["availableDate"] as $d => $avail_date)
-      {
-        if(!empty($wp_date_format))
-        {
-          $json_data["property_list"][$i]["AvailableDates"]["availableDate"][$d] = date_conv($avail_date, $wp_date_format);
-        }
-      }
+		//date format
+		foreach($json_data["property_list"][$i]["AvailableDates"]["availableDate"] as $d => $avail_date) {
+			if(!empty($wp_date_format)) {
+				$json_data["property_list"][$i]["AvailableDates"]["availableDate"][$d] = date_conv($avail_date, $wp_date_format);
+			}
+		}
 
-      //Unset useless data to keep JSON object as small as possible
-      unset($json_data["property_list"][$i]["BedPrices"]);
-      unset($json_data["property_list"][$i]["@attributes"]);
-    }
+		//Unset useless data to keep JSON object as small as possible
+		unset($json_data["property_list"][$i]["BedPrices"]);
+		unset($json_data["property_list"][$i]["@attributes"]);
+	}
 
-    //set deals prices
-    if(!empty($deal_property[0]))
-    {
-      $json_data["property_list"][$deal_property[0]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[0]->index]["display_price"]*1.25, 2, '.', '');;
-    }
+	//set deals prices
+	if(!empty($deal_property[0])) {
+		$json_data["property_list"][$deal_property[0]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[0]->index]["display_price"]*1.25, 2, '.', '');;
+	}
 
-    if(!empty($deal_property[1]))
-    {
-      $json_data["property_list"][$deal_property[1]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[1]->index]["display_price"]*1.25, 2, '.', '');;
-    }
+	if(!empty($deal_property[1])) {
+		$json_data["property_list"][$deal_property[1]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[1]->index]["display_price"]*1.25, 2, '.', '');;
+	}
 
-//     debug_dump($json_data,"67.68.71.139");
-    $data["json_data"] = json_encode($json_data);
+	//     debug_dump($json_data,"67.68.71.139");
+	$data["json_data"] = json_encode($json_data);
 
-    return $data;
+	return $data;
   }
 
   function property_images($property_number)

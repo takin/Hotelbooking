@@ -250,7 +250,9 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
     });
         // remove any old districts
         //map.overlayMapTypes.push(null);
-   window.gmap.overlayMapTypes.setAt(1, null); 
+   if (window.gmap && window.gmap.overlayMapTypes) {
+      window.gmap.overlayMapTypes.setAt(1, null); 
+   }
 
     var filter = MF.filter.Data({
         column: 'umi.neighborhoods.attributes.hood_id', 
