@@ -278,10 +278,10 @@ span.free-breakfast {
 .bottom-feature-data1 {
 	background-color: #fff;
     display: inline-block;
-    max-height: 400px;
+ /*   max-height: 400px;
     min-height: 100px;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden;*/
     padding: 10px 17px;
     width: 96%;
 }
@@ -316,6 +316,7 @@ h2 {
     float: left;
     margin: 7px 0 8px 9px;
     padding: 10px 10px 10px 40px;
+    font-size: 1.5em;
 }
 .readmore {
     background-image: url("../images/V2/icon_tab_reviews.png");
@@ -499,7 +500,7 @@ span.rating-value{font-size:0.9em;font-weight:bold;display:block; position:absol
 
 
 a.reserve {
-    border-bottom-right-radius: 5px;
+    border-radius: 7px;
     bottom: 0;
     font-size: 1em;
     padding: 12px 15px;

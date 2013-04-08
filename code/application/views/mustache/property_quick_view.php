@@ -21,7 +21,7 @@
 			<div class="content_block"><p>{{address1}} - {{city_name}}</p></div>
 		</div>
 
-		<a href="{{propertyUrl}}" style="height: 25px; float: right; position: relative; line-height: 25px; padding: 9px 45px" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
+		<a href="{{propertyUrl}}" style="height: 25px; float: right; position: relative; line-height: 25px; padding: 9px 45px" class="reserve reserve-round button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
 	</div>
 
 	<div class="top-map">
@@ -79,7 +79,7 @@
 						<div class="group">
 							<ul class="green-li increase1 translated">
 								{{#includes}}
-									<li>{{description}}: <?php echo '<strong>' . _("Free") . '</strong>'; ?></li>
+									<li>{{description}}{{#isHB}}: <?php echo '<strong>' . _("Free") . '</strong>'; ?>{{/isHB}}</li>
 								{{/includes}}
 							</ul>
 						</div>

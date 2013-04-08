@@ -19,7 +19,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 	
 	this.default_lat   = default_lat || 0;
 	this.default_lng   = default_lng || 0;
-	this.default_zoom  = default_zoom || 8;
+	this.default_zoom  = default_zoom || 6;
 	
 	window.gmap       = null;
         window.cityCircle = null;

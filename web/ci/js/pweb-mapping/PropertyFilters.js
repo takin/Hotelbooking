@@ -1367,8 +1367,8 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data)
 		if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
 		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
 		{
-			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
+//			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, '');
 			
 			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
 			{

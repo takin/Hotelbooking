@@ -1,8 +1,5 @@
-function QuickView(data, prevPropertyNumber, nextPropertyNumber) {
+function QuickView(data) {
 	this.data = data;
-
-	this.prevPropertyNumber = prevPropertyNumber;
-	this.nextPropertyNumber = nextPropertyNumber;
 }
 
 QuickView.gmap                  = null;
@@ -12,28 +9,24 @@ QuickView.propertyList          = [];
 QuickView.currentProperty       = null;
 QuickView.propertyNumberToIndex = {};
 
-QuickView.initMap = function() {
-/*
-var myOptions = {
-              zoom:      0,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-
-        map_div.style.display = "block";
-        map_div.style.width = "100%";
-        map_div.style.height = "400px";
-
-        QuickView.gmap  = new google.maps.Map(map_div, myOptions);
-*/
-}
-
 QuickView.addProperty = function(data) {
 	var currentIndex = QuickView.propertyList.length;
 
-	var prevPropertyNumber = currentIndex == 0 ? null : currentIndex - 1;
-	var nextPropertyNumber = currentIndex + 1;
-
-	QuickView.propertyList.push(new QuickView(data, prevPropertyNumber, nextPropertyNumber));
+	QuickView.propertyList.push(new QuickView(
+		{
+			propertyNumber: data.propertyNumber,
+			amenities: data.amenities,
+			propertyTypeTranslate: data.propertyTypeTranslate,
+			propertyName: data.propertyName,
+			address1: data.address1,
+			city_name: data.city_name,
+			property_page_url: data.property_page_url,
+			districts: data.districts,
+			landmarks: data.landmarks,
+			Geo: data.Geo,
+			isHW: data.hasOwnProperty('overallHWRating') ? true : false
+		}
+	));
 
 	QuickView.propertyNumberToIndex[data.propertyNumber.toString()] = currentIndex;
 }
@@ -88,27 +81,6 @@ QuickView.prototype.getContent = function() {
 	var self = this;
 
 
-	var decodeEntities = (function() {
-		// this prevents any overhead from creating the object each time
-		var element = document.createElement('div');
-
-		function decodeHTMLEntities (str) {
-			if (str && typeof str === 'string') {
-				// strip script/html tags
-				str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
-				str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
-				element.innerHTML = str;
-				str = element.textContent;
-				element.textContent = '';
-			}
-
-			return str;
-		}
-
-		return decodeHTMLEntities;
-	})();
-
-
 	$.ajax({
 		type     : 'GET',
 		dataType : 'json',
@@ -122,10 +94,11 @@ QuickView.prototype.getContent = function() {
 				city_name: self.data.city_name,
 				propertyUrl: self.data.property_page_url,
 
-				PropertyImages: self.data.PropertyImages,
-				image: self.data.image,
-				image_list: self.data.image_list,
-				shortImages: [],
+//				PropertyImages: self.data.PropertyImages,
+//				image: self.data.image,
+//				image_list: self.data.image_list,
+//				shortImages: [],
+
 				IMAGES: data.hostel.BIGIMAGES,
 				HW_IMAGES: data.hostel['PropertyImages'],
 
@@ -152,10 +125,12 @@ QuickView.prototype.getContent = function() {
 				propertyConditions: data.hostel.conditions,
 
 				hasPropertyInfo: data.hostel.IMPORTANTINFORMATION ? true : false,
-				propertyInfo:  decodeEntities(data.hostel.IMPORTANTINFORMATION),
+				propertyInfo:  data.hostel.IMPORTANTINFORMATION,
 
 				prevIndex: preid ? QuickView.propertyNumberToIndex[preid] : undefined,
-				nextIndex: nextid ? QuickView.propertyNumberToIndex[nextid] : undefined
+				nextIndex: nextid ? QuickView.propertyNumberToIndex[nextid] : undefined,
+
+				isHB: self.data.isHW ? false : true
 			});
 
 			$('#map_canvas').remove();
@@ -175,8 +150,9 @@ QuickView.prototype.getContent = function() {
 
 			$('.ad-gallery').adGallery();
 			$('#showmore').toggle(  
-	        		function() {  
+	        		function() {
 					$("#bottomfeature1").fadeIn("slow");
+					$('.fancybox-inner').scrollTop(900);
 				},
 			        function(){
 					$("#bottomfeature1").fadeOut("slow");
