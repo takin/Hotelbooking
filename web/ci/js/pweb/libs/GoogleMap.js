@@ -40,12 +40,6 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 // return N/A 
 // 
 GoogleMap.prototype.init = function() { 
-
-	var myOptions = {
-	      zoom:      this.default_zoom,
-	      center:    new google.maps.LatLng(this.default_lat, this.default_lng),
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
 	
 	this.map_div.style.display = "block";
 	this.map_div.style.width = "100%";
@@ -53,8 +47,16 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "filter_map_rightSide"){
         this.map_div.style.height = "100%";
+        this.default_zoom = 12;
     }
-	window.gmap    = new google.maps.Map(this.map_div, myOptions);
+        	
+    var myOptions = {
+	      zoom:      this.default_zoom,
+	      center:    new google.maps.LatLng(this.default_lat, this.default_lng),
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+    
+        window.gmap    = new google.maps.Map(this.map_div, myOptions);
 	this.gbounds = new google.maps.LatLngBounds();
 	
 	//add infowindow to map
@@ -192,7 +194,7 @@ GoogleMap.prototype.clearMarkers = function () //, image, iconshadow)
 GoogleMap.prototype.drawMarkers = function () //, image, iconshadow)
 {
 	var that = this;
-	
+
 	//TODO support custom image in addMarker function
 	for (var i in this.markers) {
 		//initialize icon of marker
@@ -331,7 +333,6 @@ GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
 //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
-//  center: new google.maps.LatLng(53.477001,-2.230000)
         center: new google.maps.LatLng(lat, Lng)
     };
 
@@ -348,4 +349,17 @@ GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
 
+//landmark_marker_blue.png
+var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
+			        new google.maps.Size(28, 28),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(0, 29));
+                                
+	var gmarker = new google.maps.Marker({
+	        position: new google.maps.LatLng(lat, Lng), 
+	        map: window.gmap,
+//	        title:this.markers[i].title,
+	        icon: image	        
+	    }); 
+            
 };

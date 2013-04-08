@@ -153,7 +153,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	this.init_counts();
 	
 	this.jtable_hits = this.jtable.filter(this.get_filters());
-	
+             
 	if(this.count_st==0) {
 		this.compute_counts();
 		this.update_counts();
@@ -297,7 +297,7 @@ PWebFilterApp.prototype.update = function() {
 		this.$sort_controls_div.hide();
 		this.$data_div.html("");
 		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(':input').each(function(){
+		$('#cb_group_type_filter li').find(":input[type='checkbox']").each(function(){
 		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'type_all') && (type_val == true)){
@@ -323,7 +323,7 @@ PWebFilterApp.prototype.update = function() {
 		//Init jquery UI tabs
 		$('ul.ui-tabs-nav').tabs();
 
-		$('#cb_group_type_filter li').find(':input').each(function(){
+		$('#cb_group_type_filter li').find(":input[type='checkbox']").each(function(){
 		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'type_all') && (type_val == true)){
@@ -1099,77 +1099,29 @@ PWebFilterApp.prototype.setup = function(data)
 
 	this.apply_filters();
 
-	this.set_init_filters_value();
+//	this.set_init_filters_value();
 	
 	this.init_action_filters();
 
     $('#city_map_filter').click(function() {
-//        $("#map_filter_popup").tabs();
-//$('ul.ui-tabs-nav').tabs();
-$('#filter_map_leftSide').tabs();
 
-//
+        $('#filter_map_leftSide').tabs();
+
         $("#map_filter_popup").fancybox({
             'transitionIn': 'elastic',
             'transitionOut': 'elastic',
             beforeShow: function() {
-
-//       var cityFilterMap  = new PWebFilterMap();       
-       pweb_filter.toggleMap('cityFilterMap');
-//(default_div, lang, default_lat, default_lng)
+  
+                pweb_filter.toggleMap('cityFilterMap');
 
             },
             beforeClose: function() {
                 pweb_filter.toggleMap('cityFilterMap');
             }
         });
-//        $( "#filter_map_leftSide" ).tabs({ active: 1 });
         $('#map_filter_popup').trigger('click');
         return false;
     });
-
-
-//    $("#ul_map_filter_tabs").find("li").click(function() {
-//
-//        var divToShow = "filter_content_districts_popup";
-//        var divToHide = "filter_content_landmarks_popup";
-//        var li_selected = "li_popup_filter_districts";
-//        var li_unselected = "li_popup_filter_landmarks";
-//        
-//        if (this.id !== "li_popup_filter_districts") {
-//            divToShow = "filter_content_landmarks_popup";
-//            divToHide = "filter_content_districts_popup";
-//            li_selected = "li_popup_filter_landmarks";
-//            li_unselected = "li_popup_filter_districts";
-//        
-//        }
-//        
-//        $("#" + divToShow).show();
-//        $("#" + divToHide).hide();
-//        $("#" + li_selected).addClass("ui-tabs-selected");
-//        $("#" + li_unselected).removeClass("ui-tabs-selected");
-//        
-//    });
-    
-//    $("#cb_group_districts_filter").find(':input').click(function() {
-//        alert("checked");
-//        var values = [];
-//        $("#cb_group_districts_filter li").each(function() {
-//
-//
-//            var inputcheck = $(this).find('input');
-//            if (inputcheck.is(':checked')) {
-//                var input_id = inputcheck.attr('id');
-//                var input_id = input_id.split('-')[1];
-//                values.push(input_id);
-//            }
-//
-//        });
-//        console.info(values);
-////       PWebFilterMap.prototype.showDistrictsBorder(values);
-//       this.showDistrictsBorder(values);
-//
-//    });
 
     $('#city_map_show_2').click(function()
     {
@@ -1464,7 +1416,6 @@ PWebFilterMap.prototype.showfilteredLandmark = function() {
             }
 
      });
-            console.info(values);
        this.gmap.changeLandmarkLayer(values);
        	
 };
@@ -1596,6 +1547,9 @@ var ajaxrequest =  $.ajax({
 			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
+                        
+                        pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
+			pweb_filter.pweb_maps['cityFilterMap'].enableMap();
 
 	if($("#distrinct:radio:checked").length > 0)
            { 
