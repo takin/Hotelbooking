@@ -18,7 +18,8 @@
 				<a style="text-decoration:none; color: #3087C9; font-size:18px;" href="{{propertyUrl}}">{{propertyNmae}}</a>
 			</h2>
 
-			<div class="content_block"><p>{{address1}} - {{city_name}}</p></div>
+			<br style="clear: both" /> 
+			<div class="content_block">{{address1}} - {{city_name}}</div>
 		</div>
 
 		<a href="{{propertyUrl}}" style="height: 25px; float: right; position: relative; line-height: 25px; padding: 9px 45px" class="reserve reserve-round button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>

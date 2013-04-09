@@ -423,7 +423,30 @@ class Hw_engine {
 
         foreach($data['property_list'] as $hostel_id => $hostel)
         {
+/*
+                  $api = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'), (int)$hostel->propertyNumber, $this->api_functions_lang);
+                  $propInfoData = $api[0]==true ? array() : $this->CI->Hw_api_translate->translate_PropertyInformation($api[1][0]);
+       
+                  $PropertyImages = empty($propInfoData) ? array() : $propInfoData->PropertyImages;
+                  if (!empty($PropertyImages)) {
+                      $PropertyImages = xmlobj2arr($PropertyImages);
 
+                      $PropertyImages = $PropertyImages["PropertyImage"];
+                      foreach ($PropertyImages as $key => $image) {
+                          $PropertyImages[$key] = (object) $image;
+                          //PATCH to cover HW API wrong URLs
+                          $PropertyImages[$key]->imageURL = str_replace("http://images.webresint.com", "", $PropertyImages[$key]->imageURL);
+                      }
+                  }
+
+		  $data['propertyInfo'][(int)$hostel->propertyNumber] = empty($propInfoData)
+                      ? array()
+                      : array(
+                          'PropertyImages'       => $PropertyImages,
+                          'conditions'           => empty($propInfoData) ? '' : (string) domain_name_replace($propInfoData->conditions),
+                          'conditionsTranslated' => empty($propInfoData) ? '' : (string) domain_name_replace($propInfoData->conditionsTranslated)
+                      );
+*/
 		  $data['propertyType'][(int)$hostel->propertyNumber] = $hostel->propertyType;
 		  $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
           if($prop_reviews === TRUE)

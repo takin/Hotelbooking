@@ -19,7 +19,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 	
 	this.default_lat   = default_lat || 0;
 	this.default_lng   = default_lng || 0;
-	this.default_zoom  = default_zoom || 6;
+	this.default_zoom  = default_zoom || 10;
 	
 	window.gmap       = null;
         window.cityCircle = null;
@@ -49,7 +49,7 @@ GoogleMap.prototype.init = function() {
 	
 	this.map_div.style.display = "block";
 	this.map_div.style.width = "100%";
-	this.map_div.style.height = "400px";
+	this.map_div.style.height = "285px";
 
 	window.gmap    = new google.maps.Map(this.map_div, myOptions);
 	this.gbounds = new google.maps.LatLngBounds();

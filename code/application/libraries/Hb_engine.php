@@ -525,8 +525,23 @@ class Hb_engine {
           $data['property_list'] = $this->CI->Db_hb_hostel->appendAdditionalPropertyData($results["response"]);
           $data['property_list'] = $this->properties_avail_prepare($data['property_list']);
 
+          // load the info
+          $this->CI->Hb_api_translate->setLanguage($this->CI->site_lang,"en");
+	  $this->CI->load->helper('domain_replace');
+          $this->CI->load->model('Db_hb_country');
+
           foreach($data['property_list'] as $property_id => $property)
           {
+            $propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
+            $this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
+
+            $data['property_list'][$property_id]["propertyInfo"] = !empty($propInfoData) && !empty($propInfoData['RESPONSE'])
+                ? array(
+                    'BIGIMAGES'            => $propInfoData['RESPONSE']['BIGIMAGES'],
+                    'IMPORTANTINFORMATION' => domain_name_replace($propInfoData['RESPONSE']['IMPORTANTINFORMATION'])
+                )
+                : array();
+
             $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link(
                 $property["type"],$property["name"],$property["id"],$this->CI->site_lang);
             $data['amenities'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities($property["id"]);
@@ -915,6 +930,7 @@ function location_json_format(&$data) {
 	}
 
 	$data["json_data"] = json_encode($json_data);
+
 	return $data;
 }
   

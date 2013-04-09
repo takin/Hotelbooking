@@ -24,6 +24,13 @@ QuickView.addProperty = function(data) {
 			districts: data.districts,
 			landmarks: data.landmarks,
 			Geo: data.Geo,
+
+			BIGIMAGES: data.propertyInfo ? data.propertyInfo.BIGIMAGES : [],
+			HW_IMAGES: data.propertyInfo ? data.propertyInfo.PropertyImages : [],
+			IMPORTANTINFORMATION:  data.propertyInfo ? data.propertyInfo.IMPORTANTINFORMATION : '',
+			conditionsTranslated: data.propertyInfo ? data.propertyInfo.conditionsTranslated : '',
+			conditions: data.propertyInfo ? data.propertyInfo.conditions : '',
+
 			isHW: data.hasOwnProperty('overallHWRating') ? true : false
 		}
 	));
@@ -56,8 +63,10 @@ QuickView.getObject = function(propertyNumber) {
 QuickView.prototype.getContent = function() {
 	var wait_message = $('#wait_message').val();
 
-	var text =  '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>'+wait_message+'</p></div>';
-        $('#quick_preview_div').empty().append(text);
+	if (this.data.isHW) {
+		var text =  '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>'+wait_message+'</p></div>';
+	        $('#quick_preview_div').empty().append(text);
+	}
 
 	QuickView.currentPropertyIndex = QuickView.propertyNumberToIndex[ this.data.propertyNumber.toString() ];
 
@@ -80,81 +89,165 @@ QuickView.prototype.getContent = function() {
 
 	var self = this;
 
+	if (self.data.isHW) {
+		$.ajax({
+			type     : 'GET',
+			dataType : 'json',
+			cache    : true,
+			url      : 'http://' + window.location.host + '/cmain/ajax_property_details/' + this.data.propertyNumber,
+			success  : function(data) {
+				// now load the info
+				var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
+					propertyNmae: self.data.propertyName + propertyTypeTranslate,
+					address1: self.data.address1,
+					city_name: self.data.city_name,
+					propertyUrl: self.data.property_page_url,
 
-	$.ajax({
-		type     : 'GET',
-		dataType : 'json',
-		cache    : true,
-		url      : 'http://' + window.location.host + '/cmain/ajax_property_details/' + this.data.propertyNumber,
-		success  : function(data) {
-			// now load the info
-			var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
-				propertyNmae: self.data.propertyName + propertyTypeTranslate,
-				address1: self.data.address1,
-				city_name: self.data.city_name,
-				propertyUrl: self.data.property_page_url,
+	//				PropertyImages: self.data.PropertyImages,
+	//				image: self.data.image,
+	//				image_list: self.data.image_list,
+	//				shortImages: [],
+
+					IMAGES: data.hostel.BIGIMAGES,
+					HW_IMAGES: data.hostel['PropertyImages'],
+
+					hasIncludes  : includes.length,
+					hasAmenities : amenities.length,
+					includes     : includes,
+					amenities    : amenities,
+					allAmenities : self.data.amenities,
+
+					hasDistricts: self.data.districts.length ? true : false,
+					noDistricts: self.data.districts.length ? false : true,
+					districts: self.data.districts,
+
+					hasLandmarks: self.data.landmarks.length ? true : false,
+					noLandmarks: self.data.landmarks.length ? false : true,
+					landmarks: self.data.landmarks,
+
+					propertyHasImportantInfo: data.hostel.IMPORTANTINFORMATION || data.hostel.conditions ? true : false,
+
+					propertyConditionsTranslated: data.hostel.conditionsTranslated ? true : false,
+					propertyConditionsTranslatedText: data.hostel.conditionsTranslated,
+					propertyConditionsOriginal: data.hostel.conditions,
+					hasPropertyConditions: data.hostel.conditions && !data.hostel.conditionsTranslated ? true : false,
+					propertyConditions: data.hostel.conditions,
+
+					hasPropertyInfo: data.hostel.IMPORTANTINFORMATION ? true : false,
+					propertyInfo:  data.hostel.IMPORTANTINFORMATION,
+
+					prevIndex: preid ? QuickView.propertyNumberToIndex[preid] : undefined,
+					nextIndex: nextid ? QuickView.propertyNumberToIndex[nextid] : undefined,
+
+					isHB: self.data.isHW ? false : true
+				});
+
+				$('#map_canvas').remove();
+
+				$('#quick_preview_div').empty().html(content);
+
+				// seems like Mustache encodes HTML entities
+				if (data.hostel.IMPORTANTINFORMATION) {
+					$('#bottomfeature1 .bottom-feature-data1 .group').html(data.hostel.IMPORTANTINFORMATION);
+				}
+				else {
+					if (data.hostel.conditionsTranslated) {
+						$('#bottomfeature1 .bottom-feature-data1 .group .translated').html(data.hostel.conditionsTranslated);
+						$('#bottomfeature1 .bottom-feature-data1 .group .original').html(data.hostel.conditions);
+					}
+				}
+
+				$('.ad-gallery').adGallery();
+				$('#showmore').toggle(  
+					function() {
+						$("#bottomfeature1").fadeIn("slow");
+						$('.fancybox-inner').scrollTop(900);
+					},
+					function(){
+						$("#bottomfeature1").fadeOut("slow");
+					}		
+				);
+
+
+				// set first items selected
+				$('#hostel_mapView_districts input[type="radio"]').eq(0).attr('checked', true);
+				$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
+
+
+				self.setMap();
+			}
+		});
+	}
+	else {
+		var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
+			propertyNmae: self.data.propertyName + propertyTypeTranslate,
+			address1: self.data.address1,
+			city_name: self.data.city_name,
+			propertyUrl: self.data.property_page_url,
 
 //				PropertyImages: self.data.PropertyImages,
 //				image: self.data.image,
 //				image_list: self.data.image_list,
 //				shortImages: [],
 
-				IMAGES: data.hostel.BIGIMAGES,
-				HW_IMAGES: data.hostel['PropertyImages'],
+			IMAGES: self.data.BIGIMAGES,
+			HW_IMAGES: self.data.PropertyImages,
 
-				hasIncludes  : includes.length,
-				hasAmenities : amenities.length,
-				includes     : includes,
-				amenities    : amenities,
-				allAmenities : self.data.amenities,
+			hasIncludes  : includes.length,
+			hasAmenities : amenities.length,
+			includes     : includes,
+			amenities    : amenities,
+			allAmenities : self.data.amenities,
 
-				hasDistricts: self.data.districts.length ? true : false,
-				noDistricts: self.data.districts.length ? false : true,
-				districts: self.data.districts,
+			hasDistricts: self.data.districts.length ? true : false,
+			noDistricts: self.data.districts.length ? false : true,
+			districts: self.data.districts,
 
-				hasLandmarks: self.data.landmarks.length ? true : false,
-				noLandmarks: self.data.landmarks.length ? false : true,
-				landmarks: self.data.landmarks,
+			hasLandmarks: self.data.landmarks.length ? true : false,
+			noLandmarks: self.data.landmarks.length ? false : true,
+			landmarks: self.data.landmarks,
 
-				propertyHasImportantInfo: data.hostel.IMPORTANTINFORMATION || data.hostel.conditions ? true : false,
+			propertyHasImportantInfo: self.data.IMPORTANTINFORMATION || self.data.conditions ? true : false,
 
-				propertyConditionsTranslated: data.hostel.conditionsTranslated ? true : false,
-				propertyConditionsTranslatedText: data.hostel.conditionsTranslated,
-				propertyConditionsOriginal: data.hostel.conditions,
-				hasPropertyConditions: data.hostel.conditions && !data.hostel.conditionsTranslated ? true : false,
-				propertyConditions: data.hostel.conditions,
+			propertyConditionsTranslated: self.data.conditionsTranslated ? true : false,
+			propertyConditionsTranslatedText: self.data.conditionsTranslated,
+			propertyConditionsOriginal: self.data.conditions,
+			hasPropertyConditions: self.data.conditions && !self.data.conditionsTranslated ? true : false,
+			propertyConditions: self.data.conditions,
 
-				hasPropertyInfo: data.hostel.IMPORTANTINFORMATION ? true : false,
-				propertyInfo:  data.hostel.IMPORTANTINFORMATION,
+			hasPropertyInfo: self.data.IMPORTANTINFORMATION ? true : false,
+			propertyInfo:  self.data.IMPORTANTINFORMATION,
 
-				prevIndex: preid ? QuickView.propertyNumberToIndex[preid] : undefined,
-				nextIndex: nextid ? QuickView.propertyNumberToIndex[nextid] : undefined,
+			prevIndex: preid ? QuickView.propertyNumberToIndex[preid] : undefined,
+			nextIndex: nextid ? QuickView.propertyNumberToIndex[nextid] : undefined,
 
-				isHB: self.data.isHW ? false : true
-			});
+			isHB: self.data.isHW ? false : true
+		});
 
-			$('#map_canvas').remove();
 
+		$('#map_canvas').remove();
+
+		window.setTimeout(function() {
 			$('#quick_preview_div').empty().html(content);
 
 			// seems like Mustache encodes HTML entities
-			if (data.hostel.IMPORTANTINFORMATION) {
-				$('#bottomfeature1 .bottom-feature-data1 .group').html(data.hostel.IMPORTANTINFORMATION);
+			if (self.data.IMPORTANTINFORMATION) {
+				$('#bottomfeature1 .bottom-feature-data1 .group').html(self.data.IMPORTANTINFORMATION);
 			}
 			else {
-				if (data.hostel.conditionsTranslated) {
-					$('#bottomfeature1 .bottom-feature-data1 .group .translated').html(data.hostel.conditionsTranslated);
-					$('#bottomfeature1 .bottom-feature-data1 .group .original').html(data.hostel.conditions);
+				if (self.data.conditionsTranslated) {
+					$('#bottomfeature1 .bottom-feature-data1 .group .translated').html(self.data.conditionsTranslated);
+					$('#bottomfeature1 .bottom-feature-data1 .group .original').html(self.data.conditions);
 				}
 			}
 
 			$('.ad-gallery').adGallery();
 			$('#showmore').toggle(  
-	        		function() {
+				function() {
 					$("#bottomfeature1").fadeIn("slow");
 					$('.fancybox-inner').scrollTop(900);
 				},
-			        function(){
+				function(){
 					$("#bottomfeature1").fadeOut("slow");
 				}		
 			);
@@ -164,11 +257,9 @@ QuickView.prototype.getContent = function() {
 			$('#hostel_mapView_districts input[type="radio"]').eq(0).attr('checked', true);
 			$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
 
-
 			self.setMap();
-		}
-	});
-
+		}, 200);
+	}
 }
 
 QuickView.prototype.setMap = function() {
@@ -231,6 +322,8 @@ QuickView.prototype.setMap = function() {
 				QuickView.pweb_map.changeLandmarkLayer( $('#hostel_mapView_landmarks input[type="radio"]:checked').val() );
 			} catch(err) {}
 		}
+
+		$('#map_canvas').css('height', '285px !important');
 	}
 
 	window.setTimeout(function() { autoselect(); }, 1200);
