@@ -1033,12 +1033,29 @@ PWebFilterApp.prototype.init_action_filters = function() {
 	this.FacilitiesFilterCheckBoxes.clickAction(function (){
 		that.apply_filters();
 	});
-	this.DistrictsCheckBoxes.clickAction(function (){
-		that.apply_filters();
-	});
-	this.LandmarksCheckBoxes.clickAction(function (){
-		that.apply_filters();
-	});
+    this.DistrictsCheckBoxes.clickAction(function() {
+        // clear all landmarks options before applying filter
+        $("#cb_group_landmarks_filter li").each(function() {
+            var inputcheck = $(this).find("input[type='checkbox']");
+            if (inputcheck.is(':checked')) {
+                var landmark_id = inputcheck.attr("id");
+                $('#' + landmark_id).prop('checked', false);
+            }
+        });
+        that.apply_filters();
+    });
+    
+    this.LandmarksCheckBoxes.clickAction(function() {
+        // clear all Districts options before applying filter
+        $("#cb_group_districts_filter li").each(function() {
+            var inputcheck = $(this).find("input[type='checkbox']");
+            if (inputcheck.is(':checked')) {
+                var district_id = inputcheck.attr("id");
+                $('#' + district_id).prop('checked', false);
+            }
+        });
+        that.apply_filters();
+    });
 };
 PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 	var that = this;

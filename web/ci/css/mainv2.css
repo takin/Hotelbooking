@@ -2689,17 +2689,18 @@ text-decoration:none;
         text-align: right;
         margin-left: 60 px Tmportant;
 }*/
-
 #map_filter_button{float:right;font-weight:normal;
 color:#3087C9;
 width: 275px;}
 
 #filter_map_leftSide{
-    width: 40%;
+    width: 370px;
     float: left;  
     height: 450px;
 }
-
+#filter_map_leftSide .box_content{
+    padding: 0;
+}
 #filter_map_rightSide{
     width: 60% !important;
     float: right;    
@@ -2708,7 +2709,7 @@ width: 275px;}
 
 #map_filter_popup{
     display: none;
-    width: 950px;
+    width: 935px;
     height: 450px;
 }
 #ul_map_filter_tabs .city_filter_tabs ul li a{
@@ -2723,16 +2724,18 @@ width: 275px;}
 }
 
 #cb_group_districts_filter, #cb_group_landmarks_filter {
-    height:95%;
-    overflow-y: scroll;
-    margin-top: 2px;
-    padding: 13px 13px 13px 0;
-    width: 30em;
-    margin-left: -10px;
+    min-height:192px;
+    max-height: 380px;
+    overflow: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 0 0 5px;
+    width: 364px;
+    margin-left: -3px;
     display: block;
 }
-#cb_group_landmarks_filter li{
-    width: 14em;
+#cb_group_landmarks_filter li, #cb_group_districts_filter li{
+    width: 172px;
     /*dispay: inline;*/
     float:left;
     /*height: 15px;
