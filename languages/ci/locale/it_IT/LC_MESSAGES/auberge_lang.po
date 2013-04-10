@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-04 20:42+0200\n"
+"PO-Revision-Date: 2013-04-10 21:03+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1332,7 +1331,6 @@ msgid "Send email"
 msgstr "Manda un'email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Manda PDF"
 
@@ -8008,22 +8006,22 @@ msgstr "Fornito dopo la prenotazione"
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Stanza privata per %d persone con bagno in comune"
 
 #: ../code/application/views/helpfile/pofields.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Partially Available"
-msgstr "Parcheggio Auto Disponibile"
+msgstr "Disponibile parzialmente"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Camera privata standard per una persona con bagno in comune"
 
 #: ../code/application/views/helpfile/pofields.php:766
-#, fuzzy, php-format
+#, php-format
 msgid "Show fully available only"
-msgstr "1 dormitorio intero disponibile."
+msgstr "Visualizza solo disponibilità complete"
 
 #: ../code/application/views/helpfile/pofields.php:767
 #, php-format
@@ -8032,6 +8030,9 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"State visualizzando camere con disponibilità sia parziale che completa per "
+"le date richieste. Potete selezionare questo filtro per visualizzare "
+"soltanto camere con disponibilità completa per il vostro soggiorno."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

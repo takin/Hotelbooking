@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-03 13:43+0200\n"
+"PO-Revision-Date: 2013-04-10 20:51+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1321,7 +1320,6 @@ msgid "Send email"
 msgstr "Email senden"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "PDF senden"
 
@@ -3774,9 +3772,9 @@ msgstr "Karte schließen"
 
 #: ../code/application/views/city_view.php:220
 #: ../code/application/views/helpfile/pofields.php:649
-#, fuzzy, php-format
+#, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Schnellvergleich"
+msgstr "Schnellvergleich (maximal 5 Immobilien)"
 
 #: ../code/application/views/city_view.php:221
 #: ../code/application/views/helpfile/pofields.php:626
@@ -8006,22 +8004,22 @@ msgstr "Wird nach der Reservation angegeben"
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "%d private Schlafzimmer für 7 Personen mit einem geteilten Badezimmer"
 
 #: ../code/application/views/helpfile/pofields.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Partially Available"
-msgstr "Parkplatz verfügbar"
+msgstr "Teilweise verfügbar"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Standard privates Schlafzimmer für 1 Person mit geteilten Badezimmer"
 
 #: ../code/application/views/helpfile/pofields.php:766
-#, fuzzy, php-format
+#, php-format
 msgid "Show fully available only"
-msgstr "1 ganzes Schlafzimmer verfügbar."
+msgstr "Nur die komplett verfügbaren anzeigen"
 
 #: ../code/application/views/helpfile/pofields.php:767
 #, php-format
@@ -8030,6 +8028,9 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"Wir bieten Zimmer mit ganzer oder teilweiser Verfügbarkeit für Ihre Daten "
+"an. Sie können diesen Filter auswählen um nur Zimmer mit kompletter "
+"Verfügbarkeit für ihren Aufenthalt angezeigt zu bekommen."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

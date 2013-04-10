@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-04 20:42+0200\n"
+"PO-Revision-Date: 2013-04-10 20:42+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1303,7 +1303,6 @@ msgid "Send email"
 msgstr "Odeslat email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Odelat PDF"
 
@@ -3757,14 +3756,12 @@ msgid "Selected filters:"
 msgstr "Vybrané filtry:"
 
 #: ../code/application/views/city_view.php:346
-#, fuzzy
 msgid "Please Wait"
-msgstr "Prosím čekejte…"
+msgstr "Prosím čekejte"
 
 #: ../code/application/views/city_view.php:351
-#, fuzzy
 msgid "From"
-msgstr "Od:"
+msgstr "Od"
 
 #: ../code/application/views/city_view.php:352
 #, fuzzy
@@ -7810,7 +7807,7 @@ msgid "Property name"
 msgstr "Název ubytovacího zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "Adresa"
 
@@ -7885,29 +7882,29 @@ msgid "Number of guests for %d nights"
 msgstr "Počet hostů na %d nocí"
 
 #: ../code/application/views/helpfile/pofields.php:761
-#, fuzzy, php-format
+#, php-format
 msgid "Provided after reservation"
-msgstr "Napište hodnocení"
+msgstr "Poskytneme po rezervaci"
 
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Soukromá ložnice pro %d osob, sdílená koupelna"
 
 #: ../code/application/views/helpfile/pofields.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Partially Available"
-msgstr "Parkování k dispozici"
+msgstr "Částečně k dispozici"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:766
-#, fuzzy, php-format
+#, php-format
 msgid "Show fully available only"
-msgstr "1 celá ložnice k dispozici."
+msgstr "Ukažte pouze pokoj,který je celý k dispozici"
 
 #: ../code/application/views/helpfile/pofields.php:767
 #, php-format
@@ -7916,6 +7913,9 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"Ukazujeme pokoje jak celé tak zčásti k dispozici pro vaše datum.Můžete "
+"vybrat tento filtr pro znázornění pouze těch pokojů, které jsou celé k "
+"dispozici pro váš pobyt."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

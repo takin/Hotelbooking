@@ -1315,7 +1315,6 @@ msgid "Send email"
 msgstr "Envoyez un email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Envoyez PDF"
 
@@ -3806,9 +3805,10 @@ msgid "From"
 msgstr "De"
 
 #: ../code/application/views/city_view.php:352
-#, fuzzy
 msgid "Only 5 properties can be compared. Please remove a property from list."
-msgstr "S'il vous plaît veuillez supprimer un établissement de la liste."
+msgstr ""
+"Seulement 5 établissements peuvent être comparés. S'il vous plaît veuillez "
+"supprimer un établissement de la liste."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -8015,22 +8015,22 @@ msgstr "Information fournie juste après réservation"
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Chambre privée pour %d personnes avec salle de bains partagée"
 
 #: ../code/application/views/helpfile/pofields.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Partially Available"
-msgstr "Stationnement disponible"
+msgstr "Disponible partiellement"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
 
 #: ../code/application/views/helpfile/pofields.php:766
-#, fuzzy, php-format
+#, php-format
 msgid "Show fully available only"
-msgstr "1 dortoir complètement disponible."
+msgstr "Afficher disponibilité complete uniquement"
 
 #: ../code/application/views/helpfile/pofields.php:767
 #, php-format
@@ -8039,6 +8039,9 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"Nous affichons les dortoirs et chambres avec une disponibilité complete et "
+"partielle pour vos dates. Vous pouvez choisir ce filtre pour voir uniquement "
+"les dortoirs et chambres avec une disponibilité complete pour votre séjour."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
