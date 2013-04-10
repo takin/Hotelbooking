@@ -761,3 +761,7 @@
 <?php echo _('Provided after reservation');?>
 <?php echo _('Please select the number of male, female and staff members of your group before sending your booking request.');?>
 <?php echo _('%d Bed Private Shared Bathroom');?>
+<?php echo _('Partially Available');?>
+<?php echo _('Standard Single Private Shared Bathroom');?>
+<?php echo _('Show fully available only');?>
+<?php echo _('We are displaying rooms with both full and partial availability for your dates. You can select this filter to only see rooms with full availability for your stay.');?>
