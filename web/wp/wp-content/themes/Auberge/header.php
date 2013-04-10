@@ -24,8 +24,9 @@ echo '<meta name="robots" content="noindex,follow" />';
 }?>
 <?php
 $apiurl = get_option('aj_api_url');
-// if https protocol set https
+// if https protocol set https for dev HTTPS should be set, with the proxy HTTP_HTTPS
 $apiurl = isset($_SERVER['HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl;
+$apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$apiurl;
 ?>
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/reset.css" type="text/css" media="screen,projection" />
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/mainv2.css" type="text/css" media="screen,projection" />

@@ -759,3 +759,5 @@
 <?php echo _('Lowest night:');?>
 <?php echo _('Number of guests for %d nights');?>
 <?php echo _('Provided after reservation');?>
+<?php echo _('Please select the number of male, female and staff members of your group before sending your booking request.');?>
+<?php echo _('%d Bed Private Shared Bathroom');?>
