@@ -162,9 +162,16 @@ QuickView.prototype.getContent = function() {
 					function() {
 						$("#bottomfeature1").fadeIn("slow");
 						$('.fancybox-inner').scrollTop(900);
+
+						$('#showmore .showmore_plus_sign').hide();
+						$('#showmore .showmore_minus_sign').show();
+
 					},
 					function(){
 						$("#bottomfeature1").fadeOut("slow");
+
+						$('#showmore .showmore_plus_sign').show();
+						$('#showmore .showmore_minus_sign').hide();
 					}		
 				);
 
@@ -230,6 +237,12 @@ QuickView.prototype.getContent = function() {
 		window.setTimeout(function() {
 			$('#quick_preview_div').empty().html(content);
 
+			$('.ad-gallery').adGallery({
+				loader_image: '/images/loading-round.gif',
+				width: 400,
+				height: 300
+			});
+
 			// seems like Mustache encodes HTML entities
 			if (self.data.IMPORTANTINFORMATION) {
 				$('#bottomfeature1 .bottom-feature-data1 .group').html(self.data.IMPORTANTINFORMATION);
@@ -241,14 +254,19 @@ QuickView.prototype.getContent = function() {
 				}
 			}
 
-			$('.ad-gallery').adGallery();
 			$('#showmore').toggle(  
 				function() {
 					$("#bottomfeature1").fadeIn("slow");
 					$('.fancybox-inner').scrollTop(900);
+
+					$('#showmore .showmore_plus_sign').hide();
+					$('#showmore .showmore_minus_sign').show();
 				},
 				function(){
 					$("#bottomfeature1").fadeOut("slow");
+
+					$('#showmore .showmore_plus_sign').show();
+					$('#showmore .showmore_minus_sign').hide();
 				}		
 			);
 
@@ -358,11 +376,17 @@ QuickViewHelper.prototype.bind = function() {
 	});
 
 	$('#showmore').toggle(  
-	        function() {  
+	        function() {
+			$('#showmore .showmore_plus_sign').hide();
+			$('#showmore .showmore_minus_sign').show();
+
 			$("#bottomfeature1").fadeIn("slow");
 		},
 	        function(){
-		    $("#bottomfeature1").fadeOut("slow");
+			$('#showmore .showmore_plus_sign').show();
+			$('#showmore .showmore_minus_sign').hide();
+
+			$("#bottomfeature1").fadeOut("slow");
 		}
 	);
 

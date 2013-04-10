@@ -1420,12 +1420,14 @@ $(document).ready(function() {
 			'transitionOut'	: 'none'
 	  });
 	
-	  $(".box_content").hover(
-	  	function(){   
-	  	$(this).find('.quick_view_bg').slideDown(500);   
-		},function(){
-		$(this).find('.quick_view_bg').slideUp(300);      
-	    });
+	  $(".box_content").live({
+		mouseenter: function(){   
+	    	    $(this).find('.quick_view_bg').slideDown(500);   
+		},
+		mouseleave: function(){
+		    $(this).find('.quick_view_bg').slideUp(300);      
+	        }
+	   });
 		
 	    var cookie_value = getCookie('compare');
 		var total_property =    cookie_value.split(",");

@@ -39,7 +39,7 @@
 							{{#IMAGES}}
 							<li>
 								<a href="{{.}}">
-									<img src="{{.}}" class="image0" height="53" width="74">
+									<img src="{{.}}" height="53" width="74">
 								</a>
 							</li>
 							{{/IMAGES}}
@@ -47,7 +47,7 @@
 							{{#HW_IMAGES}}
 							<li>
 								<a href="{{imageURL}}">
-									<img src="{{imageURL}}" class="image0" height="53" width="74">
+									<img src="{{imageURL}}" height="53" width="74">
 								</a>
 							</li>
 							{{/HW_IMAGES}}
@@ -147,28 +147,28 @@
 					</div>
 				</div>
 			</div>
+
+			{{#propertyHasImportantInfo}}
+				<div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?> <span class="showmore_plus_sign"><strong>+</strong></span> <span class="showmore_minus_sign" style="display:none"><strong>-</strong></span></div>
+				<div class="bottom-feature1" id="bottomfeature1">
+					<div class="bottom-feature-data1">
+						<div class="group">
+							{{#propertyConditionsTranslated}}
+								<div class="translated">{{propertyConditionsTranslatedText}}</div>
+								<div class="original" style="display:none;">{{propertyConditionsOriginal}}</div>
+							{{/propertyConditionsTranslated}}
+
+							{{#hasPropertyConditions}}
+								{{propertyConditions}}
+							{{/hasPropertyConditions}}
+
+							{{#hasPropertyInfo}}
+								{{propertyInfo}}
+							{{/hasPropertyInfo}}
+						</div>
+					</div>
+				</div>
+			{{/propertyHasImportantInfo}}
 		</div>
 	</div>
-
-	{{#propertyHasImportantInfo}}
-		<div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?></div>
-		<div class="bottom-feature1" id="bottomfeature1">
-			<div class="bottom-feature-data1">
-				<div class="group">
-					{{#propertyConditionsTranslated}}
-						<div class="translated">{{propertyConditionsTranslatedText}}</div>
-						<div class="original" style="display:none;">{{propertyConditionsOriginal}}</div>
-					{{/propertyConditionsTranslated}}
-
-					{{#hasPropertyConditions}}
-						{{propertyConditions}}
-					{{/hasPropertyConditions}}
-
-					{{#hasPropertyInfo}}
-						{{propertyInfo}}
-					{{/hasPropertyInfo}}
-				</div>
-			</div>
-		</div>
-	{{/propertyHasImportantInfo}}
 </div>

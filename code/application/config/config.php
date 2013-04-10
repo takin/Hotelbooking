@@ -8,7 +8,7 @@ $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
-$config['displayQuickPreview'] = FALSE;
+$config['displayQuickPreview'] = true;
 
 /* set variable to show property compare feature*/
 $config['displayCompareProperty'] = FALSE;
