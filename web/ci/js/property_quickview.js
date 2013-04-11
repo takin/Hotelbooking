@@ -89,6 +89,8 @@ QuickView.prototype.getContent = function() {
 
 	var self = this;
 
+	var images = [];
+
 	if (self.data.isHW) {
 		$.ajax({
 			type     : 'GET',
@@ -96,6 +98,8 @@ QuickView.prototype.getContent = function() {
 			cache    : true,
 			url      : 'http://' + window.location.host + '/cmain/ajax_property_details/' + this.data.propertyNumber,
 			success  : function(data) {
+				images = data.hostel.BIGIMAGES ? data.hostel.BIGIMAGES : data.hostel['PropertyImages'];
+
 				// now load the info
 				var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
 					propertyNmae: self.data.propertyName + propertyTypeTranslate,
@@ -186,6 +190,8 @@ QuickView.prototype.getContent = function() {
 		});
 	}
 	else {
+		images = self.data.BIGIMAGES ? self.data.BIGIMAGES : self.data.PropertyImages;
+
 		var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
 			propertyNmae: self.data.propertyName + propertyTypeTranslate,
 			address1: self.data.address1,
@@ -237,7 +243,28 @@ QuickView.prototype.getContent = function() {
 		window.setTimeout(function() {
 			$('#quick_preview_div').empty().html(content);
 
+			// remove the not found images
+			var imageList = [];
+			for (var i = 0; i < images.length; i++) {
+				imageList[i] = new Image();
+
+				imageList[i].onerror = function() {
+					var current = $(this);
+					$('img[src="' + current.attr('src') + '"]').remove();
+				};
+
+				imageList[i].onabort = function() {
+					var current = $(this);
+					$('img[src="' + current.attr('src') + '"]').remove();
+				};
+
+				imageList[i].src = images[i];
+			}
+
+			var imagesNo = parseInt($('.ad-thumb-list li').length, 10);
+
 			$('.ad-gallery').adGallery({
+				start_at_index: parseInt(imagesNo / 2, 10),
 				loader_image: '/images/loading-round.gif',
 				width: 400,
 				height: 300
