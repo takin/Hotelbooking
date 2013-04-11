@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2012-10-11 15:59-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-04-11 22:33+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -448,9 +447,9 @@ msgstr ""
 #: ../code/application/views/compare_property.php:353
 #: ../code/application/views/property_detail.php:146
 #: ../code/application/views/helpfile/pofields.php:623
-#, fuzzy, php-format
+#, php-format
 msgid "Map"
-msgstr "%s"
+msgstr "Kartta"
 
 #: ../code/application/views/search_results.php:6
 #: ../code/application/views/helpfile/pofields.php:227
@@ -2790,12 +2789,8 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"Koko yksityishuoneesta on maksettava, vaikket käyttäisi kaikkia vuoteita. "
-"Huonetta ei voi jakaa.<br /><br />Yhden hengen huone = huone 1 hengelle, 1 "
-"vuode<br />Parihuone = huone 2 hengelle, 1 parivuode<br />Kahden hengen "
-"huone = huone 2 hengelle, 2 sänkyä<br />Kolmen hengen huone = 3 "
-"vuodepaikkaa<br />Ensuite = kylpyhuone asuinhuoneessa<br />Jaettu kylpyhuone "
-"= ei kylpyhuonetta huoneessa"
+"Sinun täytyy maksaa koko yksityismajoituksesta, vaikka et käyttäisi kaikkia "
+"sänkyjä. Huonetta ei voi jakaa."
 
 #: ../code/application/views/property_rooms_avail.php:180
 #: ../code/application/views/property_detail.php:377
@@ -3716,7 +3711,7 @@ msgstr "Vertaile kaikkia hostelleja kohteessa %s"
 #: ../code/application/views/mustache/property_list.php:126
 #, php-format
 msgid "Compare"
-msgstr ""
+msgstr "Vertaus"
 
 #: ../code/application/views/city_view.php:223
 #: ../code/application/views/helpfile/pofields.php:650
@@ -7258,74 +7253,74 @@ msgid "Next available property"
 msgstr "Ei vapaita huoneita tässä majoituspaikassa."
 
 #: ../code/application/views/helpfile/pofields.php:610
-#, fuzzy, php-format
+#, php-format
 msgid "Group Type:"
-msgstr "Ryhmät"
+msgstr "Ryhmä Tyyppi:"
 
 #: ../code/application/views/helpfile/pofields.php:611
-#, fuzzy, php-format
+#, php-format
 msgid "Age Ranges:"
-msgstr "Hintaluokka:"
+msgstr "Ikä Rajat:"
 
 #: ../code/application/views/helpfile/pofields.php:612
 #, php-format
 msgid "Choose one..."
-msgstr ""
+msgstr "Valitse Yksi…"
 
 #: ../code/application/views/helpfile/pofields.php:613
 #, php-format
 msgid "Holidays with friends"
-msgstr ""
+msgstr "Loma ystävien kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:614
 #, php-format
 msgid "Junior/Primary school"
-msgstr ""
+msgstr "Ala asteen koulu"
 
 #: ../code/application/views/helpfile/pofields.php:615
 #, php-format
 msgid "High/Secondary school"
-msgstr ""
+msgstr "Ylä asteen koulu"
 
 #: ../code/application/views/helpfile/pofields.php:616
 #, php-format
 msgid "College / University"
-msgstr ""
+msgstr "Yliopisto"
 
 #: ../code/application/views/helpfile/pofields.php:617
-#, fuzzy, php-format
+#, php-format
 msgid "Business trip"
-msgstr "Liikematkat"
+msgstr "Liiketoiminta matka"
 
 #: ../code/application/views/helpfile/pofields.php:618
 #, php-format
 msgid "Stag/Hen/Bachelor party"
-msgstr ""
+msgstr "Polttarit"
 
 #: ../code/application/views/helpfile/pofields.php:619
-#, fuzzy, php-format
+#, php-format
 msgid "Sports group"
-msgstr "Urheiluryhmät"
+msgstr "Urheilu ryhmä"
 
 #: ../code/application/views/helpfile/pofields.php:620
 #, php-format
 msgid "Cultural group"
-msgstr ""
+msgstr "Kultuuri ryhmä"
 
 #: ../code/application/views/helpfile/pofields.php:621
 #, php-format
 msgid "Please specify a type of group."
-msgstr ""
+msgstr "Ole hyvä ja määrittele ryhmä."
 
 #: ../code/application/views/helpfile/pofields.php:622
 #, php-format
 msgid "Please specify an age range for your group."
-msgstr ""
+msgstr "Ole hyvä ja määrittele ryhmän ikä rajat."
 
 #: ../code/application/views/helpfile/pofields.php:625
-#, fuzzy, php-format
+#, php-format
 msgid "Reviews"
-msgstr "Arvostelu"
+msgstr "Arvostelut"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
@@ -7468,9 +7463,9 @@ msgstr "Hae nyt"
 #: ../code/application/views/helpfile/pofields.php:723
 #: ../code/application/views/mustache/property_list.php:282
 #: ../code/application/views/mustache/property_list.php:292
-#, fuzzy, php-format
+#, php-format
 msgid "Select"
-msgstr "Valitse kortti"
+msgstr "Valitse"
 
 #: ../code/application/views/helpfile/pofields.php:692
 #, php-format
@@ -7491,17 +7486,17 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "Ylioppilasasuntojen vaihtoehdot"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "Kiitos kysymyksestäsi."
+msgstr "Ylioppilasasunnot vain sinun ryhmälle"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "Ainoastaan ylioppilasasunto"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7510,16 +7505,19 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"Näytämme vain täysin vapaat ylioppilasasuntolat.Sinun täytyy varata kaikki "
+"asuntolan sängyt vaikka et käyttäisi niitä kaikkia.Tätä vaihtoehtoa "
+"käytetään usein ryhmämatkoilla."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "Hinta per huone (ei per henkilö)"
+msgstr "Keskimäärin per yö per ihminen"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "Keskimääräinen hinta"
 
 #: ../code/application/views/helpfile/pofields.php:703
 #, php-format
@@ -7528,78 +7526,81 @@ msgid ""
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
+"Keskimäärä hinta per yö saapumis päivänä ja oleskelun ajaksi.Yksi päivä "
+"kerralla hinnat voivat vaihdella. Meidän hinnat ovat kuitenkin varmat, eikä "
+"tarvitse maksaa enemmän kun sovittu."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for %d nights per person"
-msgstr "Hinta per huone (ei per henkilö)"
+msgstr "Hinta %d yötä per ihminen"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "Maksimi"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "Vieras"
+msgstr "Vieraat"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "Tarkista saatavuus"
+msgstr "Saatavuus"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "Makuhuone"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "Huoneet"
+msgstr "Makuhuoneet"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "Vieraiden enimmäismäärä huoneessa"
+msgstr "1 vieras 1 Makuhuoneessa."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in 1 Bedroom."
-msgstr "Vieraiden enimmäismäärä huoneessa"
+msgstr "%d guests in 1 Bedroom."
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "%d guests in %d Bedrooms (%d guests in each room)."
-msgstr ""
+msgstr "%d vierasta %d Makuhuoneessa ( %d vierasta per huone)."
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "%d guests in %d Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgstr "%d vierasta %d Makuhuoneessa ( 1 vieras per huone)."
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "Yksityiset huoneet"
+msgstr "Yksityis makuhuoneen vaihtoehdot"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "Hinta per huone (ei per henkilö)"
+msgstr "Hinta per Ihiminen"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "Hinta per vuode (ei per henkilö)"
+msgstr "Hinta per Huone"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "Hinta per vuode (ei per henkilö)"
+msgstr "Keskimäärin per yö per huone"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
@@ -7607,41 +7608,43 @@ msgid ""
 "You can only book up to %d guests at a time. You can book more than %d "
 "guests by going to our group section on top of this page."
 msgstr ""
+"Pystyt varamaan kerralla vain %d vierasta.On mahdollista varata enemmän kun "
+"%d:lle jos valit ryhmämatkat sivun yläreunasta."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "Vieraiden enimmäismäärä makuusalissa"
+msgstr "Valittujen vieraitten kokonaismäärä"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "Käytät 1 kokonaisen ylioppilasasunnon."
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
 msgid "You will use %d full dorms."
-msgstr ""
+msgstr "Käytät %d kokonaista ylioppilasasuntoa."
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "Käytät osittain 1 ylioppilasasuntoa."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "Käytät 1 kokonaan ja 1 ylioppilasasuntoa osittain."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
 msgid "You will use %d full dorms and 1 partially."
-msgstr ""
+msgstr "Käytät %d kokonaista ylioppilasasuntoa ja 1 osittain."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "Sähköpostivahvistus"
+msgstr "Sähköposti Esikatselun Vahvistus"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7649,21 +7652,23 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"Saat varaus numeron heti varauksen jälkeen. Sinun varaus on varma ja "
+"tapahtuu hetkessä."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "Huoneen tyyppi ja vieraiden määrä"
+msgstr "Vieraitten määrä"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1 täysin vapaa ylioppilasasunto."
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
 msgid "%d fully available dorms."
-msgstr ""
+msgstr "%d täysin vapaata ylioppilasasuntoa."
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
@@ -7671,11 +7676,12 @@ msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
+"1 täysin vapaa ylioppilasasunto ja 1 osittain varattu (sängyt on varattu: %d)"
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
 msgid "This dorm is already partially occupied (beds already occupied: %d)."
-msgstr ""
+msgstr "Tämä ylioppilasasunto on osittain varattu (sängyt on varattu: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
@@ -7683,21 +7689,23 @@ msgid ""
 "%d dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
+"%d ylioppilasasuntoa täysin vapaana ja 1 asunto on osittain varattu (sängyt "
+"varattu: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "Nimi"
+msgstr "Ei"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "Makuhuoneet jota varaat:"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "Ylioppilasasunnot jota varaat:"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
@@ -7705,6 +7713,8 @@ msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
 msgstr ""
+"Lähetämme sinulle kaikki tarvitsemasi tiedot että voisit viihtyä "
+"majoituksessa."
 
 #: ../code/application/views/helpfile/pofields.php:742
 #, fuzzy, php-format
@@ -7717,6 +7727,8 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"Heti kun mahdollista lähetämme kulkuneuvot majoitus paikkaan ja myös "
+"lentokenttätiedot."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7724,11 +7736,13 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"Yhteistiedolla pystyt ottamaan yhteyttä majoitukseen jos on erikois "
+"toivomuksia."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "Kohdenumero"
+msgstr "Kiinteistön nimi"
 
 #: ../code/application/views/helpfile/pofields.php:747
 #, fuzzy, php-format
@@ -7736,45 +7750,46 @@ msgid "Address"
 msgstr "Osoite"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Tulet saamaan varausvahvistusviestin"
+msgstr "Paina tähän saadakseen vahvistuksen sähköpostille"
 
 #: ../code/application/views/helpfile/pofields.php:749
 #, php-format
 msgid "This type of dorm can accommodate up to 1 guest per dorm."
-msgstr ""
+msgstr "Tähän ylioppilasasuntolaan mahtuu 1 vieras."
 
 #: ../code/application/views/helpfile/pofields.php:750
 #, php-format
 msgid "This type of dorm can accommodate up to %d guests per dorm."
-msgstr ""
+msgstr "Tähän ylioppilasasuntolaan mahtu %d vierasta."
 
 #: ../code/application/views/helpfile/pofields.php:751
 #, php-format
 msgid "This type of bedroom can accommodate up to 1 guest per room."
-msgstr ""
+msgstr "Tähän makuhuoneeseen mahtuu 1 vieras."
 
 #: ../code/application/views/helpfile/pofields.php:752
 #, php-format
 msgid "This type of bedroom can accommodate up to %d guests per room."
-msgstr ""
+msgstr "Tähän makuhuoneeseen mahtuu %d vierasta."
 
 #: ../code/application/views/helpfile/pofields.php:753
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property:"
-msgstr ""
+msgstr "Matalain hinta per ihminen per yö tässä majoituksessa:"
 
 #: ../code/application/views/helpfile/pofields.php:754
 #, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property:"
 msgstr ""
+"Matalain hinta per ihminen per yö yksiyishuoneessa tässä majoituksessa:"
 
 #: ../code/application/views/helpfile/pofields.php:755
 #, php-format
 msgid "Maximum you can book"
-msgstr ""
+msgstr "Maksimi mitä voit varata"
 
 #: ../code/application/views/helpfile/pofields.php:756
 #, php-format
@@ -7785,27 +7800,31 @@ msgstr ""
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property: %s"
 msgstr ""
+"Alhaisin hinta per ihminen per yö ylioppilasasuntolassa tällä kiinteistöllä: "
+"%s"
 
 #: ../code/application/views/helpfile/pofields.php:758
 #, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property: %s"
 msgstr ""
+"Alhaisin hinta per ihminen per yö yksityis majoituksessa tässä "
+"kiinteistössä: %s"
 
 #: ../code/application/views/helpfile/pofields.php:759
 #, php-format
 msgid "Lowest night:"
-msgstr ""
+msgstr "Alhaisin hinta per yö:"
 
 #: ../code/application/views/helpfile/pofields.php:760
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests for %d nights"
-msgstr "Huoneen tyyppi ja vieraiden määrä"
+msgstr "Näin monelle ihmiselle %d yöksi"
 
 #: ../code/application/views/helpfile/pofields.php:761
-#, fuzzy, php-format
+#, php-format
 msgid "Provided after reservation"
-msgstr "Lähetä arvostelu"
+msgstr "Saatavilla varauksen tehtyä"
 
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
