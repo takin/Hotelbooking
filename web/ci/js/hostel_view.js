@@ -261,8 +261,8 @@ function handleShareEmailPDF() {
 				trySubmit('to_email');
 			}
 		});
-		to_email.add(Validate.Email, {failureMessage: '  '});
-		to_email.add(Validate.Presence, {failureMessage: '  '});
+		to_email.add(Validate.Email, {failureMessage: $('#invalidEmailError').html()});
+		to_email.add(Validate.Presence, {failureMessage: $('#missingEmailError').html()});
 
 		var subject = new LiveValidation('subject', {
 			onlyOnSubmit : true,
@@ -272,7 +272,7 @@ function handleShareEmailPDF() {
 				trySubmit('subject');
 			}
 		});
-		subject.add(Validate.Presence, {failureMessage: '  '});
+		subject.add(Validate.Presence, {failureMessage: $('#missingSubjectError').html()});
 
 		var message = new LiveValidation('message', {
 			onlyOnSubmit : true,
@@ -282,7 +282,7 @@ function handleShareEmailPDF() {
 				trySubmit('message');
 			}
 		});
-		message.add(Validate.Presence, {failureMessage: '  '});
+		message.add(Validate.Presence, {failureMessage: $('#missingMessageError').html()});
 
 		var from_name = new LiveValidation('from_name', {
 			onlyOnSubmit : true,
@@ -292,7 +292,7 @@ function handleShareEmailPDF() {
 				trySubmit('from_name');
 			}
 		});
-		from_name.add(Validate.Presence, {failureMessage: '  '});
+		from_name.add(Validate.Presence, {failureMessage: $('#missingNameError').html()});
 
 		var from_email = new LiveValidation('from_email', {
 			onlyOnSubmit : true,
@@ -302,8 +302,8 @@ function handleShareEmailPDF() {
 				trySubmit('from_email');
 			}
 		});
-		from_email.add(Validate.Email, {failureMessage: '  '});
-		from_email.add(Validate.Presence, {failureMessage: '  '});
+		from_email.add(Validate.Email, {failureMessage: $('#invalidEmailError').html()});
+		from_email.add(Validate.Presence, {failureMessage: $('#missingEmailError').html()});
 	}
 
 	function clearValues(to_fields) {

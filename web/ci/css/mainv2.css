@@ -2351,6 +2351,15 @@ text-align: -webkit-center;
 	margin-top: 2px;
 }
 
+#share-email img {
+	height: 19px;
+	margin-top: 8px;
+}
+
+#share-pdf img {
+	height: 23px;
+}
+
 #share-overlay {
 	position: fixed;
 	top: 0;
@@ -2681,3 +2690,7 @@ text-align: right;
 text-decoration:none;
 }
 /*compare property css end*/
+
+#share_email_form .LV_validation_message {
+	clear: both;
+}

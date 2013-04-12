@@ -664,7 +664,7 @@ else
 					<?php if ($showPDF) { ?>
 					<div class="content_block" id="share_pdf_container">
 						<strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?");?></strong>
-						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px;" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 20px" /></a>
+						<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px;" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 10px" /></a>
 						<br style="clear: both" />
 					</div>
 					<?php } ?>
