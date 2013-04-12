@@ -98,6 +98,11 @@ QuickView.prototype.getContent = function() {
 			cache    : true,
 			url      : 'http://' + window.location.host + '/cmain/ajax_property_details/' + this.data.propertyNumber,
 			success  : function(data) {
+				self.data.Geo = {
+					Latitude: data.hostel.geolatitude,
+					Longitude: data.hostel.geolongitude
+				};
+
 				images = data.hostel.BIGIMAGES ? data.hostel.BIGIMAGES : data.hostel['PropertyImages'];
 
 				// now load the info
@@ -150,6 +155,33 @@ QuickView.prototype.getContent = function() {
 
 				$('#quick_preview_div').empty().html(content);
 
+				// remove the not found images
+				var imageList = [];
+				for (var i = 0; i < images.length; i++) {
+					imageList[i] = new Image();
+
+					imageList[i].onerror = function() {
+						var current = $(this);
+						$('img[src="' + current.attr('src') + '"]').remove();
+					};
+
+					imageList[i].onabort = function() {
+						var current = $(this);
+						$('img[src="' + current.attr('src') + '"]').remove();
+					};
+
+					imageList[i].src = images[i];
+				}
+	
+				var imagesNo = parseInt($('.ad-thumb-list li').length, 10);
+
+				$('.ad-gallery').adGallery({
+					start_at_index: parseInt(imagesNo / 2, 10),
+					loader_image: '/images/loading-round.gif',
+					width: 400,
+					height: 300
+				});
+
 				// seems like Mustache encodes HTML entities
 				if (data.hostel.IMPORTANTINFORMATION) {
 					$('#bottomfeature1 .bottom-feature-data1 .group').html(data.hostel.IMPORTANTINFORMATION);
@@ -161,7 +193,6 @@ QuickView.prototype.getContent = function() {
 					}
 				}
 
-				$('.ad-gallery').adGallery();
 				$('#showmore').toggle(  
 					function() {
 						$("#bottomfeature1").fadeIn("slow");
@@ -308,24 +339,16 @@ QuickView.prototype.getContent = function() {
 }
 
 QuickView.prototype.setMap = function() {
+	QuickView.pweb_map = new GoogleMap('map_canvas');
 	QuickView.pweb_filter = new PWebFilterApp();
 	QuickView.pweb_filter.pweb_maps = new Array();
 
-	QuickView.pweb_map = new GoogleMap('map_canvas');
 
         QuickView.pweb_filter.pweb_maps = new Array();
 
-	var lat = null;
-	var lng = null;
-
-	if (this.data.Geo['@attributes']) {
-		lat = this.data.Geo['@attributes'].Latitude;
-		lng = this.data.Geo['@attributes'].Longitude;
-	}
-	else {
-		lat = this.data.Geo.Latitude;
-		lng = this.data.Geo.Longitude;
-	}
+	
+	var lat = this.data.Geo.Latitude;
+	var lng = this.data.Geo.Longitude;
 
 	QuickView.pweb_filter.addFilterMap('city', 'map_canvas', 'en', lat, lng);
 	QuickView.pweb_filter.addFilterMap('property', 'map_canvas', 'en', lat, lng);
