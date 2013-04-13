@@ -147,32 +147,34 @@ GoogleMap.prototype.marker_focus = function()
 };
 GoogleMap.prototype.drawMap = function()
 {
-	var script = document.createElement("script"),
-	    that   = this;
+	  var  that   = this;
 	
-	if(this.glib_loaded === false)
-	{
-		script.type = "text/javascript";
-		script.src = "https://maps.google.com/maps/api/js?sensor=false&language="+this.map_lang+"&callback=gmap_start";
-		
-		//Create callback function that must be global
-		window.gmap_start = function(){
-			 that.glib_loaded = true;
-			 that.init();
-		   };
-		   
-		document.body.appendChild(script);
-	}
-	else
-	{
-		this.init();
-	}
+  var script_id = "google_map_api_script";
+    
+    if ($("#" + script_id).length <= 0)
+    {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = script_id;
+        script.src = "https://maps.google.com/maps/api/js?sensor=false&language=" + this.map_lang + "&callback=gmap_start";
+
+        //Create callback function that must be global
+        window.gmap_start = function() {
+            that.init();
+        };
+
+        document.body.appendChild(script);
+    }
+    else
+    {
+        this.init();
+    }
 };
 
 GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, image, iconshadow)
 {
 	var marker = {
-			  title: title,
+                      title: title,
 		      lat: lat,
 		      lng: lng,
 		      content: content,

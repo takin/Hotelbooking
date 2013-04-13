@@ -1122,22 +1122,31 @@ PWebFilterApp.prototype.setup = function(data)
 
     $('#city_map_filter').click(function() {
 
-        $('#filter_map_leftSide').tabs();
-
-        $("#map_filter_popup").fancybox({
-            'transitionIn': 'elastic',
-            'transitionOut': 'elastic',
-            beforeShow: function() {
-  
-                pweb_filter.toggleMap('cityFilterMap');
-
-            },
-            beforeClose: function() {
-                pweb_filter.toggleMap('cityFilterMap');
-            }
-        });
         $('#map_filter_popup').trigger('click');
-        return false;
+//        return false;
+    });
+    $('#map_filter_popup').click(function() {
+        // for some reason div reloads when ckicked inside it
+        if ($('#map_filter_popup').is(":visible")) {
+            return false;
+        }
+        else {
+            $('#city_map_filter_tabs').tabs();
+            $("#map_filter_popup").fancybox({
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+//                closeClick: false, // prevents closing when clicking INSIDE fancybox
+//                helpers: {
+//                    overlay: {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
+//                },
+                beforeShow: function() {
+                    pweb_filter.toggleMap('cityFilterMap');
+                },
+                beforeClose: function() {
+                    pweb_filter.toggleMap('cityFilterMap');
+                }
+            });
+        }
     });
 
     $('#city_map_show_2').click(function()
