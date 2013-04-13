@@ -37,8 +37,8 @@ $config['HW_no_confirmation_email'] = 1;
 | Ad words cookie expiration time
 |--------------------------------------------------------------------------
 |
-| default adwords cookies last 30 days = 60*60*24*30 = 2592000 
-| 
+| default adwords cookies last 30 days = 60*60*24*30 = 2592000
+|
 | Set to zero for no expiration as long as the browser is open
 |
 |
@@ -49,7 +49,7 @@ $config['adword_cookie_expiration'] = 2592000;
 | Ad words cookie prefix
 |--------------------------------------------------------------------------
 |
-| prefix for adword cookie 
+| prefix for adword cookie
 |
 */
 $config['adword_cookie_prefix'] = "adword_";
@@ -63,7 +63,7 @@ $config['adword_cookie_prefix'] = "adword_";
 | Contact email used for emails sent by authentication library.
 |
 */
-$config['email_users_admin'] = "info@hostels.ru.com";
+$config['email_users_admin'] = "info@youth-hostels.ru";
 /*
 |--------------------------------------------------------------------------
 | Information email address
@@ -73,7 +73,7 @@ $config['email_users_admin'] = "info@hostels.ru.com";
 |
 |
 */
-$config['contact_info_email'] = "info@hostels.ru.com";
+$config['contact_info_email'] = "info@youth-hostels.ru";
 /*
 |--------------------------------------------------------------------------
 | Booking email address from
@@ -83,7 +83,7 @@ $config['contact_info_email'] = "info@hostels.ru.com";
 |
 |
 */
-$config['admin_booking_email'] = "info@hostels.ru.com";
+$config['admin_booking_email'] = "info@youth-hostels.ru";
 /*
 |--------------------------------------------------------------------------
 | Booking confirmation email to admin
@@ -96,13 +96,13 @@ $config['admin_booking_email'] = "info@hostels.ru.com";
 $config['admin_booking_conf'] = 1;
 /*
 |--------------------------------------------------------------------------
-| admin email for booking confirmation 
+| admin email for booking confirmation
 |--------------------------------------------------------------------------
 |
 | Admin email address to send a new bookings confirmations
 |
 */
-$config['admin_booking_conf_email'] = "info@hostels.ru.com";
+$config['admin_booking_conf_email'] = "info@youth-hostels.ru";
 /*
 |--------------------------------------------------------------------------
 | Review alert to admin
@@ -121,7 +121,7 @@ $config['admin_review_conf'] = 1;
 | Admin email address to send new review alerts
 |
 */
-$config['admin_review_conf_email'] = "info@hostels.ru.com";
+$config['admin_review_conf_email'] = "info@youth-hostels.ru";
 /*
 |--------------------------------------------------------------------------
 | Default site currency

@@ -8,7 +8,7 @@ if (strpos($image_url,'http://images.webresint.com') !== false)
 }
 else
 {
-  $image_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.image_url;
+  $image_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
 }
 ?>
 <div class="hostel_list search_list">

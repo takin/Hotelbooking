@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-03 13:18+0300\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
@@ -1315,7 +1315,6 @@ msgid "Send email"
 msgstr "Envoyez un email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Envoyez PDF"
 
@@ -1372,7 +1371,7 @@ msgstr "Evaluation moyenne"
 #: ../code/application/views/includes/header.php:471
 #: ../code/application/views/includes/header.php:517
 #: ../code/application/views/mobile/property_list.php:13
-#: ../code/application/views/hw/property_list.php:66
+#: ../code/application/views/hw/property_list.php:76
 #: ../code/application/views/hb/property_list.php:122
 #: ../code/application/views/city_ajax_view.php:72
 #: ../code/application/views/city_ajax_view.php:118
@@ -1711,7 +1710,7 @@ msgstr "Prix"
 #: ../code/application/views/mobile/city_view.php:45
 #: ../code/application/views/mobile/hw/hostel_view.php:21
 #: ../code/application/views/city_view.php:237
-#: ../code/application/views/hw/property_list.php:92
+#: ../code/application/views/hw/property_list.php:102
 #: ../code/application/views/hb/property_list.php:151
 #: ../code/application/views/city_ajax_view.php:351
 #: ../code/application/views/city_ajax_view.php:451
@@ -3549,7 +3548,7 @@ msgid "Read more…"
 msgstr "Plus d'info…"
 
 #: ../code/application/views/property_detail.php:528
-#: ../code/application/views/hw/property_list.php:72
+#: ../code/application/views/hw/property_list.php:82
 #: ../code/application/views/hb/property_list.php:129
 #: ../code/application/views/helpfile/pofields.php:256
 #: ../code/application/views/mustache/property_list.php:36
@@ -3594,7 +3593,7 @@ msgstr "Par %s | Le %s"
 #: ../code/application/views/hb/hostel_view.php:503
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/libraries/Hb_engine.php:972
-#: ../code/application/libraries/Hw_engine.php:702
+#: ../code/application/libraries/Hw_engine.php:714
 #, php-format
 msgid "Good"
 msgstr "Bon"
@@ -3604,7 +3603,7 @@ msgstr "Bon"
 #: ../code/application/views/hb/hostel_view.php:507
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/libraries/Hb_engine.php:976
-#: ../code/application/libraries/Hw_engine.php:706
+#: ../code/application/libraries/Hw_engine.php:718
 #, php-format
 msgid "Very good"
 msgstr "Très bon"
@@ -3614,7 +3613,7 @@ msgstr "Très bon"
 #: ../code/application/views/hb/hostel_view.php:511
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/libraries/Hb_engine.php:980
-#: ../code/application/libraries/Hw_engine.php:710
+#: ../code/application/libraries/Hw_engine.php:722
 #, php-format
 msgid "Great"
 msgstr "Très bien"
@@ -3624,7 +3623,7 @@ msgstr "Très bien"
 #: ../code/application/views/hb/hostel_view.php:515
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/libraries/Hb_engine.php:983
-#: ../code/application/libraries/Hw_engine.php:713
+#: ../code/application/libraries/Hw_engine.php:725
 #, php-format
 msgid "Fantastic"
 msgstr "Fantastique"
@@ -3808,9 +3807,10 @@ msgid "From"
 msgstr "De"
 
 #: ../code/application/views/city_view.php:352
-#, fuzzy
 msgid "Only 5 properties can be compared. Please remove a property from list."
-msgstr "S'il vous plaît veuillez supprimer un établissement de la liste."
+msgstr ""
+"Seulement 5 établissements peuvent être comparés. S'il vous plaît veuillez "
+"supprimer un établissement de la liste."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -4092,7 +4092,7 @@ msgstr "sécurisé"
 msgid "Search for more properties in %s"
 msgstr "Rechercher davantage d'établissements à %s"
 
-#: ../code/application/views/hw/property_list.php:79
+#: ../code/application/views/hw/property_list.php:89
 #: ../code/application/views/hb/property_list.php:137
 #: ../code/application/views/mustache/property_list.php:174
 #: ../code/application/views/mustache/property_list.php:184
@@ -5853,8 +5853,8 @@ msgstr "Version pour téléphone portable"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/libraries/Hb_engine.php:853
-#: ../code/application/libraries/Hw_engine.php:726
-#: ../code/application/libraries/Hw_engine.php:1281
+#: ../code/application/libraries/Hw_engine.php:738
+#: ../code/application/libraries/Hw_engine.php:1293
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -5898,7 +5898,7 @@ msgstr ""
 "Web."
 
 #: ../code/application/views/helpfile/pofields.php:198
-#: ../code/application/libraries/Hw_engine.php:1280
+#: ../code/application/libraries/Hw_engine.php:1292
 #, php-format
 msgid "Property availability error"
 msgstr "Erreur sur les disponibilités de cet établissement"
@@ -8016,7 +8016,33 @@ msgstr "Information fournie juste après réservation"
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
+msgstr "Chambre privée pour %d personnes avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:764
+#, php-format
+msgid "Partially Available"
+msgstr "Disponible partiellement"
+
+#: ../code/application/views/helpfile/pofields.php:765
+#, php-format
+msgid "Standard Single Private Shared Bathroom"
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:766
+#, php-format
+msgid "Show fully available only"
+msgstr "Afficher disponibilité complete uniquement"
+
+#: ../code/application/views/helpfile/pofields.php:767
+#, php-format
+msgid ""
+"We are displaying rooms with both full and partial availability for your "
+"dates. You can select this filter to only see rooms with full availability "
+"for your stay."
 msgstr ""
+"Nous affichons les dortoirs et chambres avec une disponibilité complete et "
+"partielle pour vos dates. Vous pouvez choisir ce filtre pour voir uniquement "
+"les dortoirs et chambres avec une disponibilité complete pour votre séjour."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -8111,13 +8137,13 @@ msgstr "Acceptez les termes et conditions pour continuer"
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
 #: ../code/application/controllers/chostel.php:356
-#: ../code/application/libraries/Hw_engine.php:1668
+#: ../code/application/libraries/Hw_engine.php:1680
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Serveur inaccessible. Veuillez réessayer plus tard."
 
 #: ../code/application/controllers/chostelbk.php:549
 #: ../code/application/controllers/chostel.php:769
-#: ../code/application/libraries/Hw_engine.php:2011
+#: ../code/application/libraries/Hw_engine.php:2023
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 
@@ -8139,7 +8165,7 @@ msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "Donnez nous des nouvelles de votre séjour !"
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2001
+#: ../code/application/libraries/Hw_engine.php:2013
 msgid "Erreur lors de la réservation"
 msgstr "Erreur lors de la réservation"
 
@@ -8161,12 +8187,12 @@ msgstr ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 
 #: ../code/application/libraries/Hb_engine.php:1227
-#: ../code/application/libraries/Hw_engine.php:1048
+#: ../code/application/libraries/Hw_engine.php:1060
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:1960
+#: ../code/application/libraries/Hw_engine.php:1972
 msgid "Card not supported please choose another card"
 msgstr "Carte non acceptée - veuillez utiliser une autre carte"
 

@@ -1,8 +1,16 @@
-
 AddDefaultCharset UTF-8
 
 RewriteEngine on
 RewriteBase /
+
+#-------------------- Maintenance ------------------
+
+# All the webites
+#RewriteRule .* maintenance.html [L]
+
+# only for HW websites
+#RewriteCond %{HTTP_HOST} ^(www\.)?(alberguesjuveniles\.com|youth-hostel\.com|aubergesdejeunesse\.com|alberguesdajuventude\.com|ostellidellagioventu\.com|youth-hostels\.jp|jugendherbergen\.eu|youth-hostels\.kr|pousadasdejuventude\.com|alberguesjuveniles\.es|youth-hostels\.co\.uk|youth-hostels\.ca|aubergesdejeunesse\.ca|youth-hostels\.hk|youth-hostels\.ru|schroniskamlodziezowe\.com|retkeilymajoja\.com|ifjusagiszallasok\.com|mladeznickeubytovny\.com|youth-hostels\.ie|youth-hostels\.co\.nz|youth-hostels\.co\.nz|youth-hostels\.eu|youth-hostels\.asia|youth-hostels\.cn|hostels\.mobi|hwsitetest\.com) [NC]
+#RewriteRule .* maintenance.html [L]
 
 #-------------------- Redirection ------------------
 
