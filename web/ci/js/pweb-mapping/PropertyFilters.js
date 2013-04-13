@@ -1034,7 +1034,7 @@ PWebFilterApp.prototype.init_action_filters = function() {
 		that.apply_filters();
 	});
     this.DistrictsCheckBoxes.clickAction(function() {
-        // clear all landmarks options before applying filter
+        // clear all landmarks options before applying filter on Districts
         $("#cb_group_landmarks_filter li").each(function() {
             var inputcheck = $(this).find("input[type='checkbox']");
             if (inputcheck.is(':checked')) {
@@ -1046,7 +1046,7 @@ PWebFilterApp.prototype.init_action_filters = function() {
     });
     
     this.LandmarksCheckBoxes.clickAction(function() {
-        // clear all Districts options before applying filter
+        // clear all Districts options before applying filter on Landmark
         $("#cb_group_districts_filter li").each(function() {
             var inputcheck = $(this).find("input[type='checkbox']");
             if (inputcheck.is(':checked')) {
@@ -1099,6 +1099,7 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 
 PWebFilterApp.prototype.setup = function(data) 
 {
+    var that = this;
 	data = jQuery.parseJSON(data);
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
@@ -1121,31 +1122,32 @@ PWebFilterApp.prototype.setup = function(data)
 	this.init_action_filters();
 
     $('#city_map_filter').click(function() {
-
+        // click on filter by Districts and Landmarks will trigger fancy box 
+        // on div map_filter_popup
         $('#map_filter_popup').trigger('click');
-//        return false;
     });
+
     $('#map_filter_popup').click(function() {
         // for some reason div reloads when ckicked inside it
         if ($('#map_filter_popup').is(":visible")) {
             return false;
         }
         else {
+            // clear landmark and districts filter
+            pweb_filter.closeFilter('landmarks');
+            pweb_filter.closeFilter('districts');
+
             $('#city_map_filter_tabs').tabs();
             $("#map_filter_popup").fancybox({
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',
-//                closeClick: false, // prevents closing when clicking INSIDE fancybox
-//                helpers: {
-//                    overlay: {closeClick: false} // prevents closing when clicking OUTSIDE fancybox
-//                },
                 beforeShow: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                 },
                 beforeClose: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                 }
-            });
+            });//fancybox
         }
     });
 
@@ -1451,7 +1453,7 @@ $(document).ready(function() {
 
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
-  
+    
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();
