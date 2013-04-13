@@ -44,7 +44,7 @@ if(getenv('ENVIRONMENT_APPLICATION_ROOT_PATH')=='')
 {
 	if(ISWINDOWS)
 	{
-			define('APPLICATIONROOTPATH',"C:/GitHub/source");
+			define('APPLICATIONROOTPATH',getcwd().'/../../');
 	}
 	else
 	{
