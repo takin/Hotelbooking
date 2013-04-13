@@ -167,7 +167,20 @@ PWebFilterApp.prototype.apply_filters = function() {
         this.update();
 
         this.updateMap();
-        
+
+	// apply compare checkboxes
+	if ($('.selectedPropertyForCompare').length) {
+		$('.selectedPropertyForCompare').each(function() {
+			var elem = $(this);
+
+			if (elem.val()) {
+				var checkbox = $('#pro_compare_' + elem.val());
+				if (checkbox.length) {
+					checkbox.attr('checked', 'checked');
+				}
+			}
+		});
+	}
 };
 
 PWebFilterApp.prototype.set_init_filters_value = function() {

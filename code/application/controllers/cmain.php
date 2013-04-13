@@ -2445,7 +2445,7 @@ error_log($command, 3, '/tmp/abc.log');
 				$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid1[$i],$this->site_lang);
 				$protype=_($result["property_type"]);
 				$propertydata="<a href='".$propertylink."'>".$result['property_name']. " <strong>(".$protype.")</strong></a>";
-				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('._($proid1[$i]).');">X</a></div><input type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
+				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('._($proid1[$i]).');">X</a></div><input class="selectedPropertyForCompare" type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
 			}
         }else{ 
 			$this->load->model('db_hw_hostel');
@@ -2455,7 +2455,7 @@ error_log($command, 3, '/tmp/abc.log');
 				$propertylink=$this->next_property_url($result['property_type'],$result['property_name'],$proid1[$i],$this->site_lang);
 				$protype=_($result["property_type"]);
 				$propertydata="<a href='".$propertylink."'>".$result['property_name']. " <strong>(".$protype.")</strong></a>";
-				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('.$proid1[$i].');">X</a></div><input type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
+				$cookiepropertydata.='<div id=property_'.$proid1[$i].' class="show-data"><div class="show-data-first-colum">'.$propertydata.'</div><div class="show-data-last-colum"><a href="javascript:void(0)" onclick="remove_pro('.$proid1[$i].');">X</a></div><input class="selectedPropertyForCompare" type="hidden" name="property_id[]" id="property_id_'.$proid1[$i].'" value="'.$proid1[$i].'"/></div>';
 			}
 	    }
 	echo $cookiepropertydata;

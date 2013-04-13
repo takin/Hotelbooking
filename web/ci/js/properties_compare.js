@@ -204,6 +204,12 @@ function property_compare_popup()
 				pro_id=pro_id+','+chks[i].value;		
 			}
 	}
+
+	// show throbber
+	var wait_message = $('#wait_message').val();
+	var text = '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>' + wait_message + '</p></div>';
+	$('#property_compare_data').empty().append(text);
+
 	var ajaxrequest =
 	$.ajax({
 		type:'GET',

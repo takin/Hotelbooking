@@ -5,8 +5,9 @@
 }
 .quick_compare_scroll{
 	min-height:600px;
-	max-height:600px;
+/*	max-height:600px;
 	overflow-y:scroll;
+*/
 }
 div.quick_compare_head {
 	margin-left: auto;
@@ -212,4 +213,8 @@ color:#f00000;
 }
 .head_remove_button{
 float: left;
+}
+
+.com_div {
+	margin-top: 5px;
 }
