@@ -131,8 +131,8 @@ echo form_hidden('personsmessage', _('Please select the number of male, female a
                         </script>
                     </div>
                 </div>
-                <h3 class="">2. <?php echo _('Group details'); ?></h3>
-                <div class="group">
+                <h3 class="">2. <?php echo _('Group details'); ?></h3>                
+                <div class="group">                    
                     <div class="three_col">
                         <label for="nb-male-gp"><?php echo _("Male:"); ?> <span class="mandatory">*</span></label>
                         <select name="nb_male_gp" id="nb-male-gp">
@@ -168,6 +168,7 @@ echo form_hidden('personsmessage', _('Please select the number of male, female a
                         </script>
                     </div>
                 </div>
+                <div class="groupmessage"></div>
                 <h3 class="">3. <?php echo _('Staff/teachers/Coaches/Bus drivers Details'); ?></h3>
                 <div class="group">
                     <div class="three_col">
