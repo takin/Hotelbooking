@@ -2742,6 +2742,7 @@ width: 275px;}
     width: 172px;
     /*dispay: inline;*/
     float:left;
+    font-size:10px;
     /*height: 15px;
     overflow: hidden;*/
 }
@@ -2751,3 +2752,6 @@ width: 275px;}
 }
 /*#filter_content_landmarks_popup { display: none;}*/
 #cb_group_districts_filter li, #cb_group_landmarks_filter li{border: none; cursor: pointer;  }
+/*.filter_popup_content_text{
+    font-size:10px;
+}*/
