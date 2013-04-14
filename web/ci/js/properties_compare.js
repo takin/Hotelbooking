@@ -23,7 +23,7 @@ var total_pro1= total_pro.length;
 }
 
 function compare_property(value,proname,protype)
-{  
+{ 
    this.total_com_property = $('#total_com_property');
    this.property_compare = $('#property_compare');
    this.comparelink = $('#comparelink');
@@ -130,6 +130,8 @@ function compare_property(value,proname,protype)
 		this.comparelink.css("display","none");
 		this.class_head.css("width","91.5%");
 	}
+
+	$(document).scrollTop(10);
 }
 
 

@@ -172,7 +172,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 		<div class="quick_compare_scroll" id="quick_compare_scroll">
 			<div class="quick_compare_head"> 
 				<span class="head_remove_button"></span>
-				<span class="printpage" id="printpage" onClick="printdiv('div_print');"><?php echo  _('Print');?></span>
+				<!-- <span class="printpage" id="printpage" onClick="printdiv('div_print');"><?php echo  _('Print');?></span> -->
 				<!--<span class="restore" id="restore"><?php //echo  _('Restore Everything');?></span>-->
 
 				<h4><?php echo _('Quick Compare');?></h4>
