@@ -1242,8 +1242,11 @@ class CMain extends I18n_site
 
 		// --- check we have already number of cookies set------////
 		if (count($cookieArray) >= $this->config->item('recent_view_number_cookies')) {
-			//-- unset the first cookie and set the last one viewd----//
-			$cookieArray[0]   = $property_id;
+			// remove the last one
+			array_pop($cookieArray);
+			// insert the new one at the beginning
+			array_unshift($cookieArray, $property_id);
+
 			$new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
 
 			$property_cookie = array(
@@ -1260,7 +1263,7 @@ class CMain extends I18n_site
 
 			$property_cookie = array(
 				'name'   => 'last_review_property',
-				'value'  => $get_last_cookie . ',' . $property_id, // set it by comma seperated
+				'value'  => $property_id . ',' . $get_last_cookie, // set it by comma seperated
 				'expire' => time() + 1209600,
 				'path'   => '/'
 			);

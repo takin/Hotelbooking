@@ -26,13 +26,13 @@ if($this->config->item('recent_view_number_cookies') > 0 ) {
 						?>
 						<div class="bar-back group" id="remove_property_<?php echo $value;?>">
 							<div class="bar-top"></div>
-								<a href="javascript:void(0);" title="<?php echo $value;?>" rel="remove_it_property">
-									<img src="<?php echo base_url();?>images/na-book.png" alt=""/>
-								</a>
-								<span class="rating-cat">
-									<a href="<?php echo $property_url_link;?>"><?php echo $hostel_db_info->property_name;?></a>
-								</span>
-							</div>
+							<a href="javascript:void(0);" title="<?php echo $value;?>" rel="remove_it_property" class="rem_prop_link">
+								<img src="<?php echo base_url();?>images/na-book.png" alt=""/>
+							</a>
+							<span class="rating-cat">
+								<a href="<?php echo $property_url_link;?>"><?php echo $hostel_db_info->property_name;?></a>
+							</span>
+						</div>
 					<?php } //---- end of if statement
 				} ?>
 			</div>
@@ -49,10 +49,10 @@ if($this->config->item('recent_view_number_cookies') > 0 ) {
 							dataType : 'json',
 							success  : function(response) {
 								if (response.status) {
-									$('#remove_property_' + $property_id).parent().remove();
+									$('#remove_property_' + $property_id).remove();
 
 									// remove this block if no entries
-									if (!$('#recently_viewed_properties .bar-rating').length) {
+									if (!$('#recently_viewed_properties .rem_prop_link').length) {
 										$('#recently_viewed_properties').remove();
 									}
 								}
