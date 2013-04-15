@@ -17,6 +17,8 @@
                         </a>
 		</div>
 		<?php }?>
+
+	<?php $this->load->view('includes/recently_viewed_properties'); ?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/widget-qr-code'); ?>
