@@ -207,7 +207,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<?php echo $maplink; ?>
 					</tr>
 					<?php  if ($this->api_used == HB_API) { ?>
-					<tr class="quick_compare_grey row_white" id="row-1">
+<!-- 					<tr class="quick_compare_grey row_white" id="row-1">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Dorms From')?></td>
 						<?php echo $dorms; ?>
 					</tr>
@@ -215,6 +215,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a> <?php echo _('Privates From')?></td>
 						<?php echo $Privates; ?>
 					</tr>
+-->
 					<tr class="quick_compare_grey rating row_white" id="row-3">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Rating Overall')?></td>
 						<?php echo $rating_over; ?>
