@@ -22,7 +22,7 @@ $maplink        = '';
 $question_alert = '????';
  
 for ($i = 0; $i < count($compare_data); $i++) {
-	$protype=$compare_data[$i]['property_type'];
+	$protype = $compare_data[$i]['property_type'];
 
 	if ($compare_data[$i]['symbol'] != '' && $compare_data[$i]['symbol'] != 'NULL') {
 		$symbol = $compare_data[$i]['symbol'];
