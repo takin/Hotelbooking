@@ -3,7 +3,7 @@
     <input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
     <div id="filter_map_leftSide">
         <nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
-            <ul id="ul_map_filter_tabs" class="box_round ui-tabs-nav popup_filter_tabs">
+            <ul id="ul_map_filter_tabs" class="box_round popup_filter_tabs">
                 <li id="li_popup_filter_districts" class="first ui-tabs-selected">
                     <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
                            <?php echo _("Districts"); ?>

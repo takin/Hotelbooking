@@ -47,7 +47,7 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "filter_map_rightSide"){
         this.map_div.style.height = "100%";
-        this.default_zoom = 12;
+//        this.default_zoom = 10;
     }
         	
     var myOptions = {

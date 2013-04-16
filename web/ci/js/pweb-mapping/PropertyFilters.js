@@ -1034,26 +1034,10 @@ PWebFilterApp.prototype.init_action_filters = function() {
 		that.apply_filters();
 	});
     this.DistrictsCheckBoxes.clickAction(function() {
-        // clear all landmarks options before applying filter on Districts
-        $("#cb_group_landmarks_filter li").each(function() {
-            var inputcheck = $(this).find("input[type='checkbox']");
-            if (inputcheck.is(':checked')) {
-                var landmark_id = inputcheck.attr("id");
-                $('#' + landmark_id).prop('checked', false);
-            }
-        });
         that.apply_filters();
     });
     
     this.LandmarksCheckBoxes.clickAction(function() {
-        // clear all Districts options before applying filter on Landmark
-        $("#cb_group_districts_filter li").each(function() {
-            var inputcheck = $(this).find("input[type='checkbox']");
-            if (inputcheck.is(':checked')) {
-                var district_id = inputcheck.attr("id");
-                $('#' + district_id).prop('checked', false);
-            }
-        });
         that.apply_filters();
     });
 };
@@ -1121,6 +1105,37 @@ PWebFilterApp.prototype.setup = function(data)
 	
 	this.init_action_filters();
 
+      $('#ul_map_filter_tabs').tabs();
+    $('#ul_map_filter_tabs').bind('tabsselect', function(event, ui) {
+
+        $('#ul_map_filter_tabs li').each(function() {
+
+            if ($(this).hasClass("ui-tabs-selected")) {
+                // li that holds the tabs
+                var li_id = $(this).find("a").attr("href");
+                li_id = li_id.split('#')[1];
+                // ul that holds checkboxes
+                var ul_id = "cb_group_landmarks_filter";
+
+                if (li_id === "filter_content_districts_popup") {
+                    ul_id = "cb_group_districts_filter";
+                }
+
+//                 clear all Districts options before applying filter on Landmark
+                $("#" + ul_id + " li").each(function() {
+                    var inputcheck = $(this).find("input[type='checkbox']");
+                    if (inputcheck.is(':checked')) {
+                        var checkbox_id = inputcheck.attr("id");
+                        $('#' + checkbox_id).prop('checked', false);
+                    }
+                });
+                // apply filter again to rest the map
+                that.apply_filters();
+
+            }
+        });
+    });
+ 
     $('#city_map_filter').click(function() {
         // click on filter by Districts and Landmarks will trigger fancy box 
         // on div map_filter_popup
@@ -1137,7 +1152,6 @@ PWebFilterApp.prototype.setup = function(data)
             pweb_filter.closeFilter('landmarks');
             pweb_filter.closeFilter('districts');
 
-            $('#city_map_filter_tabs').tabs();
             $("#map_filter_popup").fancybox({
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',
@@ -1151,6 +1165,30 @@ PWebFilterApp.prototype.setup = function(data)
         }
     });
 
+//   $('#filter_content_landmarks_popup').change(function()
+//    {
+//        // clear all Districts options before applying filter on Landmark
+//        $("#cb_group_districts_filter li").each(function() {
+//            var inputcheck = $(this).find("input[type='checkbox']");
+//            if (inputcheck.is(':checked')) {
+//                var district_id = inputcheck.attr("id");
+//                $('#' + district_id).prop('checked', false);
+//            }
+//        });
+//    });
+//    
+//       $('#filter_content_districts_popup').change(function()
+//    {
+//               // clear all landmarks options before applying filter on Districts
+//        $("#cb_group_landmarks_filter li").each(function() {
+//            var inputcheck = $(this).find("input[type='checkbox']");
+//            if (inputcheck.is(':checked')) {
+//                var landmark_id = inputcheck.attr("id");
+//                $('#' + landmark_id).prop('checked', false);
+//            }
+//        });
+//    });
+    
     $('#city_map_show_2').click(function()
     {
         pweb_filter.toggleMap('city');
