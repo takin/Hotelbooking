@@ -1757,7 +1757,14 @@ class CMain extends I18n_site
 		$commandAuth .= ' --password ' . escapeshellarg($this->config->item('httpAuthPassword')) . '  ';
 	}
 
-	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandAuth . ' ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
+	$headers = function_exists('apache_request_headers') ? apache_request_headers() : array();
+
+	$customHeaders = '';
+	if (!empty($headers['Authorization'])) {
+		$customHeaders .= ' --custom-header Authorization ' . $headers['Authorization'];
+	}
+
+	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandAuth . ' ' . $customHeaders . ' ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
 
 	log_message('debug', $command);
 
