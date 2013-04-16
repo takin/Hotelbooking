@@ -123,7 +123,7 @@
                     </h2>
 					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
 					if($displayCompareProperty == 1) { ?>
-					<div class="com_div"><label for="pro_compare_{{propertyNumber}}"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><?php echo _('Compare');?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of');?> 5)</label></div>
+					<div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><label for="pro_compare_{{propertyNumber}}"><?php echo _('Compare');?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of');?> 5)</label></div>
 					<?php } ?>
 					<p class="address">{{address1}} - {{city_name}}</p>
 

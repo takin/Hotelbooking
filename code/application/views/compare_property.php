@@ -50,8 +50,12 @@ for ($i = 0; $i < count($compare_data); $i++) {
 			$Privates .= '<td  class="control_button">' . _('Not available') . '</td>';
 	 	}
 	 	else {
-			$dorms    .= '<td  class="control_button">' . _('Not available') . '</td>';
-			$Privates .= '<td  class="control_button">' . _('Not available') . '</td>';
+//			$dorms    .= '<td  class="control_button">' . _('Not available') . '</td>';
+//			$Privates .= '<td  class="control_button">' . _('Not available') . '</td>';
+
+			$dorms    .= '';
+			$Privates .= '';
+
 	 	}
 	}
 	else {
@@ -68,7 +72,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 					  </div></td>';
 	 	}
 		else {
-			$rating_over .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$rating_over .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$rating_over .= '';
 	 	}
 	}
 	else {
@@ -80,7 +85,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 	 	}
 		else {
-			$rating_over .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$rating_over .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$rating_over .= '';
 	 	}
 	}
 
@@ -93,7 +99,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Atmosphere .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Atmosphere .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Atmosphere .= '';
 		}
 
 		if ($compare_data[$i]['rating_staff'] != '') {
@@ -104,7 +111,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Staff .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Staff .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Staff .= '';
 		}
 
 		if ($compare_data[$i]['rating_location'] != '') { 
@@ -115,7 +123,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Site .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Site .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Site .= '';
 		}
 
 		if ($compare_data[$i]['rating_cleanliness'] != '') { 
@@ -126,7 +135,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Cleanliness.= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Cleanliness.= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Cleanliness.= '';
 		}
 
 		if ($compare_data[$i]['rating_facilities'] != '') {
@@ -137,7 +147,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Services .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Services .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Services .= '';
 		}
 
 		if ($compare_data[$i]['rating_safety'] != '') {
@@ -148,7 +159,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Security .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Security .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Security .= '';
 		}
 
 		if ($compare_data[$i]['rating_value'] != '') {
@@ -159,7 +171,8 @@ for ($i = 0; $i < count($compare_data); $i++) {
 				  </div></td>';
 		}
 		else {
-			$Value .= '<td  class="control_button">' . _('Not available') . '</td>';
+			//$Value .= '<td  class="control_button">' . _('Not available') . '</td>';
+			$Value .= '';
 		}
 	}
 
@@ -216,38 +229,55 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<?php echo $Privates; ?>
 					</tr>
 -->
+					<?php if ($rating_over) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-3">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Rating Overall')?></td>
 						<?php echo $rating_over; ?>
 					</tr>
+					<?php }
+
+					if ($Atmosphere) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-4">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Atmosphere')?></td>
 						<?php echo $Atmosphere; ?>
 					</tr>
+					<?php } 
+					if ($Staff) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-5">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Staff')?></td>
 						<?php echo $Staff; ?>
 					</tr>
+					<?php }
+					if ($Site) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-6">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Site')?></td>
 						<?php echo $Site; ?>
 					</tr>
+					<?php } 
+					if ($Cleanliness) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-7">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Cleanliness')?></td>
 						<?php echo $Cleanliness; ?>
 					</tr>
+					<?php }
+					if ($Services) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-8">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Services')?></td>
 						<?php echo $Services; ?>
 					</tr>
+					<?php } 
+					if ($Security) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-9">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Safety')?></td>
 						<?php echo $Security; ?>
 					</tr>
+					<?php }
+					if ($Value) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-10">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Value')?></td>
 						<?php echo $Value; ?>
 					</tr>
+					<?php } ?>
 					<!--<tr class="quick_compare_grey row_white">
 						<td class="heading" ><?php echo _('Facilities')?> ( <span class="show_facilities" id="showmore"><?php echo _('Show More')?></span> )</td>
 						<?php echo $Facilities; ?>
@@ -310,10 +340,10 @@ for ($i = 0; $i < count($compare_data); $i++) {
 					}
 				 }
 				else { ?> 
-					<tr class="quick_compare_grey row_white" id="row-2">
+<!--					<tr class="quick_compare_grey row_white" id="row-2">
 						<td class="heading" ><a  class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Privates From')?></td>
 						<?php echo $Privates; ?>
-					</tr>
+					</tr> -->
 					<tr class="quick_compare_grey rating row_white" id="row-3">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Rating Overall')?></td>
 						<?php echo $rating_over; ?>

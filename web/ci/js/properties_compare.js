@@ -29,7 +29,7 @@ function compare_property(value,proname,protype) {
 	this.class_head = $('.head123 p');
 	this.limit_compare_message = $('#limit_compare_message').val();
 	this.compare_count = $('.compare_count');
-   
+
 	if ($('#pro_compare_' + value).is(':checked')) {
 		if (this.total_com_property.val() == 5) {
 			$('#pro_compare_'+value).attr('checked', false);
@@ -86,12 +86,6 @@ function compare_property(value,proname,protype) {
 					url:'http://'+window.location.host+'/cmain/ajax_compare_property_data/'+value,
 					success:function(propertydata){
 						$('#compare_data').append('<div id=property_'+value+' class="show-data"><div class="show-data-first-colum">'+propertydata+'</div><div class="show-data-last-colum"><a href="#" onclick="remove_pro('+value+');">X</a></div><input type="hidden" name="property_id[]" id="property_id_'+value+'" value="'+value+'"/></div>');
-
-						var compareLink = $('#comparelink');
-
-						if (compareLink.css('display') != 'none') {
-							compareLink.find('a').trigger('click');
-						}
 				   	}
 				});
 
@@ -121,12 +115,6 @@ function compare_property(value,proname,protype) {
 		this.total_com_property.val(parseInt(this.total_com_property.val()) - 1);
 
 		$('#property_' + value).remove();
-
-		var compareLink = $('#comparelink');
-
-		if (compareLink.css('display') != 'none') {
-			compareLink.find('a').trigger('click');
-		}
 	}
 
 	if(this.total_com_property.val()>0) {
@@ -206,12 +194,6 @@ function remove_pro(value) {
 		this.total_com_property.val(0);
 		this.property_compare.css("display", "none");
 	}
-
-	var compareLink = $('#comparelink');
-
-	if (compareLink.css('display') != 'none') {
-		compareLink.find('a').trigger('click');
-	}
 }
 
 function property_compare_popup() {
@@ -256,6 +238,19 @@ function property_compare_popup() {
 }
 
 $(document).ready(function() {
+	// click on label will trigger compare
+	$('.com_div label').live('click', function(event) {
+		var obj = $(this);
+
+		if (!obj.parent().find('input').is(':checked')) {
+			setTimeout(function() {
+				if ($('#compare_data .show-data a').length > 1) {
+					$('#comparelink a').trigger('click');
+				}
+			}, 500);
+		}
+	});
+
 	$(".compare_displaypopup").fancybox({
 		'titlePosition'		: 'inside',
 		'transitionIn'		: 'none',
