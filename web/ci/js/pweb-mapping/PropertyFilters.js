@@ -1074,10 +1074,19 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 PWebFilterApp.prototype.setup = function(data) 
 {
 	data = jQuery.parseJSON(data);
+
+	totalRecords = data.property_list.length;
+
+	// remove from search list
+	for (var i = 0; i < totalRecords; i++) {
+		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
+			data.property_list.splice(i, 1);
+		}
+	}
+
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
 	
-	totalRecords = data.property_list.length;
 
 	this.addFilterMap('city', 'city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
@@ -1124,7 +1133,9 @@ PWebFilterApp.prototype.setup = function(data)
 				pweb_filter.apply_filters();
 				return false;
 			});
-			
+
+	// handle the delete links
+	this.handle_delete();
 }
 
 PWebFilterApp.prototype.closeFilter = function(type)
@@ -1509,3 +1520,38 @@ var ajaxrequest =  $.ajax({
 		});
 	
 };
+
+PWebFilterApp.prototype.handle_delete = function() {
+	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
+		event.preventDefault();
+
+		var obj = $(this);
+		var id = obj.attr('id');
+
+		if (obj.hasClass('remove_property_permanentely')) {
+			var number = id.replace('remove_property_permanentely_', '');
+
+			pweb_setCookie('remove_' + number, number, 8765);
+
+			$('#prop_tab_box_' + number).remove();
+		}
+		else {
+			if (obj.hasClass('remove_property_one_day')) {
+				var number = id.replace('remove_property_one_day_', '');
+
+				pweb_setCookie('remove_' + number, number, 24);
+
+				$('#prop_tab_box_' + number).remove();
+			}
+			else {
+				if (obj.hasClass('remove_property_one_week')) {
+					var number = id.replace('remove_property_one_week_', '');
+
+					pweb_setCookie('remove_' + number, number, 168);
+
+					$('#prop_tab_box_' + number).remove();
+				}
+			}
+		}
+	});
+}

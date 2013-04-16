@@ -130,19 +130,19 @@
 				<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">
                                     <ul>
                                         <li>
-						<a href="javascript:void(0);" class="remove_from_search" id="remove_property_permanentely_{{propertyNumber}}">
+						<a href="javascript:void(0);" class="remove_from_search remove_property_permanentely" id="remove_property_permanentely_{{propertyNumber}}">
 							<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" />
 							<?php echo _('Remove from this search'); ?>
 						</a>
 					</li>
                                         <li>
-						<a href="javascript:void(0);" class="remove_from_search" id="remove_property_one_day_{{propertyNumber}}">
+						<a href="javascript:void(0);" class="remove_from_search remove_property_one_day" id="remove_property_one_day_{{propertyNumber}}">
 							<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
 							<?php echo _('Remove from any searches for next 24 hours'); ?>
 						</a>
 					</li>
                                         <li>
-						<a href="javascript:void(0);" class="remove_from_search" id="remove_property_one_week_{{propertyNumber}}">
+						<a href="javascript:void(0);" class="remove_from_search remove_property_one_week" id="remove_property_one_week_{{propertyNumber}}">
 							<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
 							<?php echo _('Remove from any searches for 1 week'); ?>
 						</a>
