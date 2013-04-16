@@ -13,6 +13,9 @@ $config['displayQuickPreview'] = FALSE;
 /* set variable to show property compare feature*/
 $config['displayCompareProperty'] = FALSE;
 
+/* set variable to show remove from search */
+$config['displayRemoveFromSearch'] = true;
+
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
 
