@@ -4,8 +4,12 @@
 $config['displayVelaro'] = TRUE;
 
 /* Display or not the share PDF and Email */
-$config['displayShareEmail'] = FALSE;
-$config['displaySharePDF']   = FALSE;
+$config['displayShareEmail'] = true;
+$config['displaySharePDF']   = true;
+// HTTP basic auth credentials
+$config['httpAuthUsername']  = '';
+$config['httpAuthPassword']  = '';
+
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = FALSE;
