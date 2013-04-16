@@ -7,6 +7,7 @@ $config['displayVelaro'] = TRUE;
 $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
 
+
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = FALSE;
 
