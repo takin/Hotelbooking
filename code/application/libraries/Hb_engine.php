@@ -381,7 +381,9 @@ class Hb_engine {
       if($include_availdata !== true)
       {
         //Add district landmark of city
-        $data['city_amenities'] = $this->CI->Db_hb_hostel->get_amenities_city_for_filter();
+        $amenityGroups = $this->CI->Db_hb_hostel->get_amenities_city_for_filter();
+        $data["most_popular_amenities"] = $amenityGroups["mostPopularAmenities"];
+        $data['city_amenities'] = $amenityGroups["amenities"];
         $data['city_districts'] = $this->CI->Db_hb_hostel->get_districts_by_city_id($city->hb_id);
         $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_landmarks_by_city_id($city->hb_id,2);
         //translate city landmarks

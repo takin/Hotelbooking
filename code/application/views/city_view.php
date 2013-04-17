@@ -1,3 +1,19 @@
+<style>
+    .mostPopular {
+        border: 2px #FDCA37 solid;
+        margin-bottom: 5px;;
+    }
+    
+    .mostPopular > span {
+        background-color: #FDCA37;
+        margin-bottom: 5px;
+        width: 100%;
+        position: relative;
+        display: block;
+        line-height: 200%;
+    }
+</style>
+
 <div id="sidebar" class="grid_4 city_view_search">
 	<?php if($searchmode > 0){?>
 	<?php if(!isset($date_selected))      $date_selected = NULL;
@@ -42,8 +58,10 @@
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
-					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["all"]; ?> name="prop_types" value="type_all" id="type_all" /> <?php echo _("All")?> (<span id="prop-types-count-0">0</span>)</li>
+                                    <div class="mostPopular">
+                                        <span><?php echo _("Most Popular"); ?></span>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hostels"]; ?> name="prop_types" value="type_hostels" id="type_hostels" /> <?php echo _("Auberges de jeunesse")?> (<span id="prop-types-count-1">0</span>)</li>
+                                    </div>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hotels"]; ?> name="prop_types" value="type_hotels" id="type_hotels" /> <?php echo _("Hôtels pas chers")?> (<span id="prop-types-count-2">0</span>)</li>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["apartments"]; ?> name="prop_types" value="type_apartments" id="type_apartments"/> <?php echo _("Appartements")?> (<span id="prop-types-count-3">0</span>)</li>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["bbs"]; ?> name="prop_types" value="type_bbs" id="type_bbs" /> <?php echo _("Chambres - B&B - Pensions")?> (<span id="prop-types-count-4">0</span>)</li>
@@ -61,13 +79,38 @@
 					<li><input type="checkbox" class="checkbox" id="" name="amenities" /> <?php echo _("Bar")?></li>
 				</ul>
 			</div><?php */?>
-			<?php if(!empty($city_amenities)){?>
+			<?php if(!empty($city_amenities) && !empty($most_popular_amenities)) {?>
 			<span class="filter_title box_round"><strong><?php echo _('Facilities')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
-					<?php foreach ($city_amenities as $amenity){?>
-					<li><input type="checkbox" class="checkbox" id="facility-<?php echo ( ($amenity->original_name == 'Breakfast Included'|| $amenity->original_name == 'Breakfast') ) ? 'free-breakfast' : $amenity->facility_id;?>" value="<?php echo $amenity->facility_id;?>" name="facilities" /> <?php echo $amenity->facility_name;?> <?php ?>(<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)<?php ?></li>
-					<?php }?>
+                                    <div class="mostPopular">
+                                        <span><?php echo _("Most Popular"); ?></span>
+                                        
+                                        <?php foreach ($most_popular_amenities as $amenity): ?>
+                                            <li>
+                                                <input type="checkbox" class="checkbox" 
+                                                       id="facility-<?php echo $amenity->facility_id; ?>"
+                                                       value="<?php echo $amenity->facility_id;?>" 
+                                                       name="facilities" /> 
+
+                                                        <?php echo $amenity->facility_name;?> 
+                                                        (<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)
+                                            </li>
+                                        <?php endforeach; ?>
+                                        
+                                    </div>
+                                    
+					<?php foreach ($city_amenities as $amenity): ?>
+                                            <li>
+                                                <input type="checkbox" class="checkbox" 
+                                                       id="facility-<?php echo $amenity->id_to_display; ?>"
+                                                       value="<?php echo $amenity->facility_id;?>" 
+                                                       name="facilities" /> 
+
+                                                        <?php echo $amenity->facility_name;?> 
+                                                        (<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)
+                                            </li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 			<?php }$district_count=0;$total_dsitrict = count($city_districts);?>
