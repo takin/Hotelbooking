@@ -1236,6 +1236,7 @@ class CMain extends I18n_site
 	}
 	else {
 		$cookieArray = explode(",", $_COOKIE['last_review_property']);//-- the propery id is already in cookie
+
 		if (in_array($property_id,  $cookieArray)) {
 			return TRUE; // property is already in cookie string
 		}
@@ -1291,9 +1292,11 @@ class CMain extends I18n_site
 	if (in_array($this->input->post('property_id'), $cookieArray)) {
 		foreach($cookieArray as $key => $value) { // loop to remove the proper property from cooki
 			if ($value == $this->input->post('property_id')) { // propery id match in the cookies
-				$cookieArray[$key] = '';
+				unset($cookieArray[$key]);
 			}
 		}
+
+		$cookieArray = array_values($cookieArray);
 
 		$new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
 
