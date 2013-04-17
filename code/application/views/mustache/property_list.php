@@ -114,9 +114,9 @@
 				<div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.');?></div>
 				<div class="info_indent">
 					<h2>
-                        <a href="{{property_page_url}}">
+                        <a href="{{property_page_url}}" style="vertical-align: middle">
                             {{propertyName}}
-                            <span style="color: #3087C9; font-size:0.7em;">
+                            <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">
                                 ({{propertyTypeTranslate}})
                             </span>
                         </a>
@@ -124,7 +124,7 @@
                         <?php
                             if ($this->config->item('displayRemoveFromSearch')) { ?>
                                 <a href="javascript:void(0);" id="remove_from_search_{{propertyNumber}}" onclick="$('#remove_from_search_options_{{propertyNumber}}').toggle();">
-					<img src="<?php echo site_url(); ?>/images/cls_button.png" alt="remove" />
+					<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" />
 				</a>
 
 				<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">

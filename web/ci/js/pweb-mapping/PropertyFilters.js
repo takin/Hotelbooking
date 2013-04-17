@@ -1533,7 +1533,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 			pweb_setCookie('remove_' + number, number, 8765);
 
-			$('#prop_tab_box_' + number).remove();
+			$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
@@ -1541,7 +1541,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 				pweb_setCookie('remove_' + number, number, 24);
 
-				$('#prop_tab_box_' + number).remove();
+				$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
@@ -1549,7 +1549,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 					pweb_setCookie('remove_' + number, number, 168);
 
-					$('#prop_tab_box_' + number).remove();
+					$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
 				}
 			}
 		}
