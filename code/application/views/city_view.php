@@ -133,32 +133,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 		</div>
 	</div>
 	<?php }?>
- <?php
-        //------------check to display the box or not
-    if($this->config->item('recent_view_number_cookies') > 0 )
-    {
-	// if cookies set show Recent viewed widget///
-	if($this->api_used == HB_API)
-    {?>
-    <div id="recently_viewed_properties" style="display: none;"></div>
-	<script type="text/javascript">
-			$(document).ready(function(){
-				$.ajax({
-						type:"POST",
-                        cache: false,
-						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
-						success:function(retdata)
-						{
-							$('#recently_viewed_properties').show();
-							$('#recently_viewed_properties').html(retdata);
 
-						}
-				});
-
-			});
-    </script>
-    <?php }
-    }?>
+	<?php $this->load->view('includes/recently_viewed_properties'); ?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/siteinfo'); ?>

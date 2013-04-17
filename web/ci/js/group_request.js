@@ -9,19 +9,15 @@ function submit_group_request()
     
     if(npersons == 0) {
         
-        $().toastmessage({
-            text     : $("input[type='hidden'][name='personsmessage']").val(),
-            sticky   : false,
-            position : 'middle-center',
-            type     : 'notice',
-            close    : function () {
-                console.log("toast is closed ...");
-            }
-        });        
-                
-        $().toastmessage('showNoticeToast', $("input[type='hidden'][name='personsmessage']").val());
-            
+        $("select[name='nb_male_gp']").addClass("LV_invalid_field");
+        $("select[name='nb_female_gp']").addClass("LV_invalid_field");
+        $("div.groupmessage").html($("input[type='hidden'][name='personsmessage']").val()).css( "color", "red" ).css( "padding-bottom", "10px" );
+       
     } else {
+        
+        $("select[name='nb_male_gp']").removeClass("LV_invalid_field");
+        $("select[name='nb_female_gp']").removeClass("LV_invalid_field");
+        $("div.groupmessage").html('').css( "padding", "0px" );
         
         $('#group_request_success').hide();
         $('#submit-button').hide();
