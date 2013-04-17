@@ -1,19 +1,26 @@
 <div id="map_filter_popup" style="display: none;">
     <input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
     <input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
+<?php
+if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
     <div id="filter_map_leftSide">
         <nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
             <ul id="ul_map_filter_tabs" class="box_round popup_filter_tabs">
+                 <?php if (!empty($city_districts)) {    ?>
                 <li id="li_popup_filter_districts" class="first ui-tabs-selected">
                     <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
                            <?php echo _("Districts"); ?>
                     </a>
                 </li>
+                 <?php }   ?>
+                <?php
+            if (!empty($city_landmarks)) { ?>
                 <li id="li_popup_filter_landmarks">
                     <a id="tab_map_filter_landmarks" href="#filter_content_landmarks_popup">
                            <?php echo _('Landmarks (within 2km)'); ?>
                     </a>
                 </li>
+                <?php }   ?>
             </ul>
          </nav>
             <?php
@@ -52,6 +59,7 @@
             <?php } ?>
 
     </div>
+ <?php } ?>
     <div id="filter_map_rightSide"></div>
 </div>
 <div id="sidebar" class="grid_4 city_view_search">
@@ -211,8 +219,7 @@
 <!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
 				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
                     <?php if(isset($city_info->city_geo_lat)) { ?>
-                        <div class="box_content map_button_box box_round" id="map_filter_button">
-                            <?php
+                        <?php
                             $filterBy_flag = "both";
                             $span_style = null;
                              if ( empty($city_landmarks) && empty($city_districts) ) {
@@ -226,32 +233,31 @@
                              elseif ( empty($city_districts) ) {
                                   $filterBy_flag = "landmarks";
                                    $span_style = "margin-left: 0px; padding-left: 30px;";
-                             }
-                            
+                             } 
                              if ($filterBy_flag !== "none") {
                                     ?>
-                                         
-                            <a id="city_map_filter" href="#">
-                                <span><strong style="<?php echo $span_style; ?>">
-                                        <?php
-                                    switch ($filterBy_flag) {
-                                        case "districts":
-                                            echo _("Filter by Districts");
+                    <div class="box_content map_button_box box_round" id="map_filter_button">
+                                <a id="city_map_filter" href="#">
+                                    <span><strong style="<?php echo $span_style; ?>">
+                                            <?php
+                                            switch ($filterBy_flag) {
+                                                case "districts":
+                                                    echo _("Filter by Districts");
 
-                                            break;
-                                        case "landmarks":
-                                            echo _("Filter by Landmarks");
+                                                    break;
+                                                case "landmarks":
+                                                    echo _("Filter by Landmarks");
 
-                                            break;
-                                        default:
-                                            echo _("Filter by Districts or Landmarks");
-                                            break;
-                                    }
-                                    ?></strong></span>
-                                        <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
-                                    </a>
-                                <?php } ?>
-                        </div>
+                                                    break;
+                                                default:
+                                                    echo _("Filter by Districts or Landmarks");
+                                                    break;
+                                            }
+                                            ?></strong></span>
+                                    <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
+                                </a>
+                            </div>
+                        <?php } ?>
                     <?php } ?>
 			</div>
 
