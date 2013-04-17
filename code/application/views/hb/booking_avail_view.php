@@ -317,7 +317,7 @@ foreach ($booking_rooms as $hostel_room) {
                     if (floor($p / $nb_guest_per_room) == 1) {
                         $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm and 1 partially.'));
                     } else {
-                        $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 dorm partially.'), (int) floor($p / $nb_guest_per_room));
+                        $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 partially.'), (int) floor($p / $nb_guest_per_room));
                     }
                 }
 
