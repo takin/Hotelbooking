@@ -236,7 +236,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                              } 
                              if ($filterBy_flag !== "none") {
                                     ?>
-                    <div class="box_content map_button_box box_round" id="map_filter_button">
+                    <div id="map_filter_button" class="box_content map_button_box box_round">
                                 <a id="city_map_filter" href="#">
                                     <span><strong style="<?php echo $span_style; ?>">
                                             <?php
