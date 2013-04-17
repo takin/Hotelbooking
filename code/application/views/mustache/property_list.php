@@ -224,7 +224,7 @@
   					{{/display_shared_price}}
   					{{#display_private_price}}
   					  <div class="group">
-							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span>
+							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople nbpeople-1">1 x</span>
 							<span class="nbpeople-text"><?php printf( gettext('Private rooms from %s'),'');?></span>
 							<span class="display-currrency">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
 							</span>

@@ -757,7 +757,7 @@ class Hw_engine {
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
       $json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
-      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_price']);
+      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_per_person_price']);
       $json_data["property_list"][$i]["display_private_people"] = intval($prices['min_room_people']);
 
       $json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"];
@@ -1311,6 +1311,7 @@ class Hw_engine {
     $cheapest_prices['min_price']      = "";
     $cheapest_prices['min_dorm_price'] = "";
     $cheapest_prices['min_room_price'] = "";
+    $cheapest_prices['min_room_per_person_price'] = "";
     $cheapest_prices['min_room_people'] = "";
 
     $maxPersons = 10;
@@ -1363,7 +1364,15 @@ class Hw_engine {
           $cheapest_prices['min_room_price'] = (float)$cheapest_room_date['price']*$bedsincrement;
           $cheapest_prices['min_room_people'] = $bedsincrement;
         }
-
+        
+        if(empty($cheapest_prices['min_room_per_person_price']))
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
+        elseif(( (float)$cheapest_room_date['price']) < $cheapest_prices['min_room_per_person_price'] )
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
 
       }
     }
