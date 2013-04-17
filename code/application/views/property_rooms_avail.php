@@ -259,7 +259,7 @@ if (!empty($property_rooms["privateRooms"])) {
                                 <?php
                                 echo '<a class="sharedTable" href="#sharedTable' . $sharedRoomsID . $randProperty . '" rel="#sharedTable' . $sharedRoomsID . $randProperty . '" style="display : block; padding : 5px;" title="' . $dormTitle . '"><span style="font-weight: 600;">' . $display_currency . ' ' . number_format(($subtotal / $availableDays), 2, '.', '') . '</span>';
                                 if ($lowest_night != '') {
-                                    echo '<p style="display: inline-block; font-size: 11px; clear: both;">' . $lowest_night . '</p>';
+                                    echo '<br /><p style="display: inline-block; font-size: 11px; clear: both;">' . $lowest_night . '</p>';
                                 }
                                 echo ( $availableDays != $numNights ) ? '<div>' . _('Partially Available') . '</div>' : '';
                                 echo '</a>';
@@ -459,7 +459,7 @@ if (!empty($property_rooms["privateRooms"])) {
                             <span class="private" style="font-weight: 600;" per_person="<?php echo number_format(round((float) ($subtotal / $availableDays) / $room['max_guest_per_unity'], 2), 2); ?>" per_room="<?php echo number_format(round((float) ($subtotal / $availableDays), 2), 2); ?>"><?php echo number_format(($subtotal / $availableDays), 2, '.', ''); ?></span>
                             <?php
                             if ($lowest_night != '') {
-                                echo '<span class="lowest_night" style="display: inline-block; margin: 3px; clear: both;">' . $lowest_night . '</span>';
+                                echo '<br /><span class="lowest_night" style="display: inline-block; margin: 3px; clear: both;">' . $lowest_night . '</span>';
                             }
                             echo ( $numNights != $availableDays ) ? '<div>' . _('Partially Available') . '</div>' : '';
                             echo '</a>';
