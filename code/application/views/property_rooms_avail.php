@@ -214,11 +214,11 @@ if (!empty($property_rooms["privateRooms"])) {
                     }
                 } else {
                     if (floor($room["availableBeds"] / $nb_guest_per_room) == 1) {
-                        $dormText .= sprintf(gettext('1 dorm fully available and 1 already partially occupied (beds already occupied: %d).'), (int) ( $nb_guest_per_room - ($room["availableBeds"] % $nb_guest_per_room)));
+                        $dormText .= sprintf(gettext('1 fully available dorm and 1 already partially occupied (beds already occupied: %d).'), (int) ( $nb_guest_per_room - ($room["availableBeds"] % $nb_guest_per_room)));
                     } else if (floor($room["availableBeds"] / $nb_guest_per_room) < 1) {
                         $dormText .= sprintf(gettext('This dorm is already partially occupied (beds already occupied: %d).'), (int) ( $nb_guest_per_room - ($room["availableBeds"] % $nb_guest_per_room)));
                     } else {
-                        $dormText .= sprintf(gettext('%s dorms fully available and 1 dorm already partially occupied (beds already occupied: %d).'), ( floor($room["availableBeds"] / $nb_guest_per_room) != 0 ? floor($room["availableBeds"] / $nb_guest_per_room) : _('No')), (int) ( $nb_guest_per_room - ($room["availableBeds"] % $nb_guest_per_room)));
+                        $dormText .= sprintf(gettext('%d dorms fully available and 1 dorm already partially occupied (beds already occupied: %d).'), floor($room["availableBeds"] / $nb_guest_per_room), (int) ( $nb_guest_per_room - ($room["availableBeds"] % $nb_guest_per_room)));
                     }
                 }
                 $datetop = date_conv($dateStart->format('Y-m-d'), $this->wordpress->get_option('aj_date_format'));
