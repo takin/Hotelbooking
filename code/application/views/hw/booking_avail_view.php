@@ -1,5 +1,6 @@
 <?php
 $maximum_guests = 8;
+echo form_hidden('deposit_percent', ($booking_info->depositPercent / 100));
 echo form_hidden('partially_available', _('Partially Available'));
 echo form_hidden('total_guests', _('Total number of guests selected'));
 echo form_hidden('maximum_guests', $maximum_guests);
