@@ -211,22 +211,22 @@
 						{{#display_shared_price}}
   						<div class="group">
 							<span class="nbpeople">
-							<span class="icon-nbpeople nbpeople-1" title="<?php echo _('Bed in a dorm. 1 person per bed maximum')?>"><?php printf( gettext('Dorms from %s'),'');?></span>
+							<span class="icon-nbpeople nbpeople-1" title=""><?php printf( gettext('Dorms from %s'),'');?></span>
 							</span>
 							</div>
 							{{#original_price}}
-							<span class="rebate-price">{{display_currency}} {{original_price}}</span>
+							<span class="rebate-price"> {{display_currency}} {{original_price}}</span>
 							{{/original_price}}
-							{{display_currency}} <strong>{{display_shared_price_formatted}}</strong>
+							{{display_currency}} <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>">{{display_shared_price_formatted}}</strong>
 							{{#original_price}}
 							<div class="group deal"><p class="deal"><?php echo _('Deal of the Day');?></p></div>
 							{{/original_price}}
   					{{/display_shared_price}}
   					{{#display_private_price}}
   					  <div class="group">
-							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span>
+							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople nbpeople-1">1 x</span>
 							<span class="nbpeople-text"><?php printf( gettext('Private rooms from %s'),'');?></span>
-							<span class="display-currrency">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
+							<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
 							</span>
 							</div>
   					{{/display_private_price}}

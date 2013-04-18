@@ -1868,6 +1868,7 @@ error_log($command, 3, '/tmp/abc.log');
       if(empty($data['error_msg']))
       {
         $data["property_rooms"] = $this->hb_engine->prepare_rooms($data['booking_rooms'],$numNights);
+        $data["property_api"] = 'HB';
         unset($data['booking_rooms']);
       }
       $this->load->view('property_rooms_avail',$data);
@@ -1880,7 +1881,8 @@ error_log($command, 3, '/tmp/abc.log');
       if($data['api_error']==FALSE)
       {
         $data["property_rooms"] = $this->hw_engine->prepare_distinct_rooms($data['booking_info'], $data['distinctRoomTypes'], $numNights, FALSE);
-//         unset($data['distinctRoomTypes']);
+        $data["property_api"] = 'HW';
+        //unset($data['distinctRoomTypes']);
         unset($data['booking_info']->Rooms);
       }
       $this->load->view('property_rooms_avail',$data);
