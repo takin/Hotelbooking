@@ -123,15 +123,15 @@
 
                         <?php
                             if ($this->config->item('displayRemoveFromSearch')) { ?>
-                                <a href="javascript:void(0);" id="remove_from_search_{{propertyNumber}}" onclick="$('#remove_from_search_options_{{propertyNumber}}').toggle();">
-					<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" />
+                                <a href="javascript:void(0);" class="remove_from_search_trigger" id="remove_from_search_{{propertyNumber}}" onclick="$('.remove_from_search_options').hide(); $('#remove_from_search_options_{{propertyNumber}}').toggle();">
+					<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
 				</a>
 
 				<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">
-                                    <ul>
-                                        <li>
+                                    <ul class="remove_from_search_option">
+                                        <li class="remove_from_search_option">
 						<a href="javascript:void(0);" class="remove_from_search remove_property_permanentely" id="remove_property_permanentely_{{propertyNumber}}">
-							<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" />
+							<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" class="remove_from_search_icon" />
 							<?php echo _('Remove from this search'); ?>
 						</a>
 					</li>

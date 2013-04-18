@@ -1078,9 +1078,12 @@ PWebFilterApp.prototype.setup = function(data)
 	totalRecords = data.property_list.length;
 
 	// remove from search list
-	for (var i = 0; i < totalRecords; i++) {
+	for (var i = 0; i < data.property_list.length; i++) {
 		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
 			data.property_list.splice(i, 1);
+
+			// go back one element
+			i -= 1;
 		}
 	}
 
@@ -1522,18 +1525,43 @@ var ajaxrequest =  $.ajax({
 };
 
 PWebFilterApp.prototype.handle_delete = function() {
+	$(document).click(function(e) { 
+		var clickedElement = $(event.target);
+
+		if (
+			clickedElement.attr('class') != 'remove_from_search_options'
+			&& clickedElement.attr('class') != 'remove_from_search_option'
+			&& clickedElement.attr('class') != 'remove_from_search'
+			&& clickedElement.attr('class') != 'remove_from_search_icon'
+			&& clickedElement.attr('class') != 'remove_from_search_trigger'
+			&& clickedElement.attr('class') != 'remove_from_search_trigger_icon'
+		) {
+			$('.remove_from_search_options').hide();
+		}
+	});
+
 	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
 		event.preventDefault();
 
 		var obj = $(this);
 		var id = obj.attr('id');
 
+		var css = {
+			position  : 'absolute',
+			'z-index' : 300
+		};
+
+		var animate = {bottom: '-=350', marginLeft: '-=140'};
+		var timer   = 1000;
+
 		if (obj.hasClass('remove_property_permanentely')) {
 			var number = id.replace('remove_property_permanentely_', '');
 
 			pweb_setCookie('remove_' + number, number, 8765);
 
-			$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
+			css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+
+			$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
@@ -1541,7 +1569,8 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 				pweb_setCookie('remove_' + number, number, 24);
 
-				$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
+				css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+				$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
@@ -1549,7 +1578,8 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 					pweb_setCookie('remove_' + number, number, 168);
 
-					$('#prop_tab_box_' + number).css('position', 'absolute').css('z-index', 300).animate({bottom: '-=750', marginLeft: '-=140'}, 1000, this.remove);
+					css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+					$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
 				}
 			}
 		}
