@@ -757,11 +757,11 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
             <table style="border: none;">
                 <tr>
                     <td style="border: none; background: none;">
-                        <div class="confirmationEmail" style="width: 400px; text-align: center;">
+                        <div class="confirmationEmail" style="width: 450px; text-align: center;">
                             <a href='#' class='basic-modal' style="font-weight: bold; text-decoration: none;">
                                 <img src="<?php echo site_url(); ?>images/send-to-friend.png" alt="<?php echo _("Confirmation Email Preview"); ?>" style="float: left;" />
                                 <p style="float: left; margin-top: 10px;">
-                                    <?php echo _("Please click here to preview confirmation email"); ?>
+                                    <?php echo _("Please click here to preview your confirmation email"); ?>
                                 </p>
                             </a>
                         </div>
