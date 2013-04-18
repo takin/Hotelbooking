@@ -229,7 +229,7 @@ $(document).ready(function(){
                 current_totals += parseInt($(this).html());
             }
         });
-
+        
         if((current_totals+ parseInt(nbsel)) <= parseInt($("input[type='hidden'][name='maximum_guests']").val())) {
                 
             if (theclass == 'privatesel_'){
@@ -253,8 +253,8 @@ $(document).ready(function(){
                         function ($this){
                             var sum = $this.sum();
                             $("#bigTotal").text($(".calc_sum").sum().toFixed(2));			
-                            $("#depositTotal").text((parseFloat($("#bigTotal").text()) / 10).toFixed(2));
-                            $("span#totaldeposit_email").text((parseFloat($("#bigTotal").text()) / 10).toFixed(2));
+                            $("#depositTotal").text((parseFloat($("#bigTotal").text()) * parseFloat($("input[type='hidden'][name='deposit_percent']").val())).toFixed(2));
+                            $("span#totaldeposit_email").text((parseFloat($("#bigTotal").text()) * parseFloat($("input[type='hidden'][name='deposit_percent']").val())).toFixed(2));
                             $("span#totalarrival_email").text(parseFloat($(".calc_sum").sum()).toFixed(2));
                         }
                         );
@@ -324,8 +324,8 @@ $(document).ready(function(){
                         function ($this){
                             var sum = $this.sum();	
                             $("#bigTotal").text($(".calc_sum").sum().toFixed(2));	
-                            $("#depositTotal").text((parseFloat($("#bigTotal").text()) / 10).toFixed(2));
-                            $("span#totaldeposit_email").text((parseFloat($("#bigTotal").text()) / 10).toFixed(2));
+                            $("#depositTotal").text((parseFloat($("#bigTotal").text()) * parseFloat($("input[type='hidden'][name='deposit_percent']").val())).toFixed(2));
+                            $("span#totaldeposit_email").text((parseFloat($("#bigTotal").text()) * parseFloat($("input[type='hidden'][name='deposit_percent']").val())).toFixed(2));
                             $("span#totalarrival_email").text(parseFloat($(".calc_sum").sum()).toFixed(2));
                         }
                         );
