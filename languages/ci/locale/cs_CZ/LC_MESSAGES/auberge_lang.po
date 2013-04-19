@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-19 22:31+0200\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"PO-Revision-Date: 2013-04-10 20:42+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -4414,8 +4414,6 @@ msgstr "(Potvrzeno na %s)"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
-#: ../code/application/views/helpfile/pofields.php:795
-#, php-format
 msgid "Total:"
 msgstr "Celkem:"
 
@@ -7445,7 +7443,6 @@ msgid "Not enough parameters"
 msgstr "Nedostatek parametrů"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7458,14 +7455,12 @@ msgid "Invalid email recipient"
 msgstr "Neplatný emailový adresát"
 
 #: ../code/application/views/helpfile/pofields.php:663
-#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "Vyplňte předmět"
 
 #: ../code/application/views/helpfile/pofields.php:664
-#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7922,155 +7917,6 @@ msgstr ""
 "vybrat tento filtr pro znázornění pouze těch pokojů, které jsou celé k "
 "dispozici pro váš pobyt."
 
-#: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
-msgid "Email is not valid"
-msgstr "Neplatná země"
-
-#: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
-msgid "Fill in the from name"
-msgstr "Vyplňte \"od\" jménem"
-
-#: ../code/application/views/helpfile/pofields.php:773
-#, php-format
-msgid "Remove from this search"
-msgstr "Odeberte z tohoto vyhledávání"
-
-#: ../code/application/views/helpfile/pofields.php:774
-#, php-format
-msgid "Remove from any searches for next 24 hours"
-msgstr "Odeberte ze všech výsledků vyhledávání na dalších 24 hodin"
-
-#: ../code/application/views/helpfile/pofields.php:775
-#, php-format
-msgid "Remove from any searches for 1 week"
-msgstr "Odeberte ze všech výsledků vyhledávání na 1 týden"
-
-#: ../code/application/views/helpfile/pofields.php:776
-#, fuzzy, php-format
-msgid "Standard Single Private Ensuite"
-msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
-
-#: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
-msgid "Standard Twin Private Ensuite"
-msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
-
-#: ../code/application/views/helpfile/pofields.php:778
-#, php-format
-msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:779
-#, php-format
-msgid "1 Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:780
-#, fuzzy, php-format
-msgid "%d Bed Private Ensuite"
-msgstr "Soukromá ložnice pro %d osob, sdílená koupelna"
-
-#: ../code/application/views/helpfile/pofields.php:781
-#, php-format
-msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:782
-#, php-format
-msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
-msgid "Filter by districts"
-msgstr "Filtruj:"
-
-#: ../code/application/views/helpfile/pofields.php:784
-#, php-format
-msgid "Filter by landmarks (-2kms)"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a dorm"
-msgstr "Průměr za osobu a noc"
-
-#: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a private room"
-msgstr ""
-"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení:"
-
-#: ../code/application/views/helpfile/pofields.php:787
-#, php-format
-msgid "Deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:788
-#, php-format
-msgid "Deposit to be paid now:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
-msgid "Deposit already paid:"
-msgstr "Platba již byla udělána"
-
-#: ../code/application/views/helpfile/pofields.php:790
-#, php-format
-msgid "Amount already charged in %s:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:791
-#, php-format
-msgid "Currency for the deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:792
-#, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:793
-#, php-format
-msgid "Amount to be paid on arrival:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:794
-#, php-format
-msgid "Amount to be paid when you arrive at the property"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
-msgid "Membership card (not required):"
-msgstr "Členská karta nutná"
-
-#: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
-msgid "Membership card:"
-msgstr "Členská karta nutná"
-
-#: ../code/application/views/helpfile/pofields.php:798
-#, php-format
-msgid "The deposit is non refundable and non transferable."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival. You will find the property"
-msgstr ""
-"Nám zaplatíte pouze zálohu (10%% z celé částky) pro zabezpečení vaší "
-"rezervace. Zbytek (90%%) je splatný po příjezdu na místo. Informace o vašem "
-"ubytování (email, adresu, telefonní číslo, ...) najdete ve vašem "
-"potvrzovacím emailu poté co si uděláte rezervaci.  "
-
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30 000 hostelů a levného ubytování "
@@ -8478,6 +8324,9 @@ msgstr "Potvrzovací kód"
 
 #~ msgid "Articles Récents"
 #~ msgstr "Nedávné články"
+
+#~ msgid "Pays non valide"
+#~ msgstr "Neplatná země"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "Server nebyl nalezen. Zkuste to prosím později."

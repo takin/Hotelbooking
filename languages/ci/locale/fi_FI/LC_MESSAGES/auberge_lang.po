@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-19 22:14+0200\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"PO-Revision-Date: 2013-04-11 22:33+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -317,7 +317,7 @@ msgstr ""
 #: ../code/application/views/mustache/property_list.php:29
 #, php-format
 msgid "See Map"
-msgstr "Katso Karttaa"
+msgstr "Katso kartta"
 
 #: ../code/application/views/compare_property.php:41
 #: ../code/application/views/compare_property.php:45
@@ -334,41 +334,41 @@ msgstr "Katso Karttaa"
 #: ../code/application/views/compare_property.php:130
 #: ../code/application/views/compare_property.php:139
 #: ../code/application/views/helpfile/pofields.php:631
-#, php-format
+#, fuzzy, php-format
 msgid "Not available"
-msgstr "Ei ole saatavilla"
+msgstr "Ei vapaita yhteishuoneita"
 
 #: ../code/application/views/compare_property.php:154
 #: ../code/application/views/helpfile/pofields.php:633
-#, php-format
+#, fuzzy, php-format
 msgid "Print"
-msgstr "Tulosta"
+msgstr "Tulosta nyt"
 
 #: ../code/application/views/compare_property.php:156
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
-msgstr "Nopea Vertaus"
+msgstr ""
 
 #: ../code/application/views/compare_property.php:186
 #: ../code/application/views/helpfile/pofields.php:635
-#, php-format
+#, fuzzy, php-format
 msgid "Dorms From"
-msgstr "Ylioppilasasuntolat alkaen"
+msgstr "Makuusalit alkaen %s"
 
 #: ../code/application/views/compare_property.php:191
 #: ../code/application/views/compare_property.php:303
 #: ../code/application/views/helpfile/pofields.php:636
-#, php-format
+#, fuzzy, php-format
 msgid "Privates From"
-msgstr "Yksityis majoitus alkaen"
+msgstr "Yksityiset huoneet"
 
 #: ../code/application/views/compare_property.php:196
 #: ../code/application/views/compare_property.php:309
 #: ../code/application/views/helpfile/pofields.php:637
-#, php-format
+#, fuzzy, php-format
 msgid "Rating Overall"
-msgstr "Yleinen Luokitus"
+msgstr "Kokonaisuus"
 
 #: ../code/application/views/compare_property.php:201
 #: ../code/application/views/property_detail.php:558
@@ -376,7 +376,7 @@ msgstr "Yleinen Luokitus"
 #: ../code/application/views/helpfile/pofields.php:638
 #, php-format
 msgid "Atmosphere"
-msgstr "Tunnelma"
+msgstr "Ilmapiiri"
 
 #: ../code/application/views/compare_property.php:206
 #: ../code/application/views/property_detail.php:561
@@ -384,13 +384,13 @@ msgstr "Tunnelma"
 #: ../code/application/views/helpfile/pofields.php:639
 #, php-format
 msgid "Staff"
-msgstr "Henkilöstö"
+msgstr "Henkilökunta"
 
 #: ../code/application/views/compare_property.php:211
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
-msgstr "Paikka"
+msgstr ""
 
 #: ../code/application/views/compare_property.php:216
 #: ../code/application/views/property_detail.php:567
@@ -398,13 +398,13 @@ msgstr "Paikka"
 #: ../code/application/views/helpfile/pofields.php:641
 #, php-format
 msgid "Cleanliness"
-msgstr "Puhtaus"
+msgstr "Siisteys"
 
 #: ../code/application/views/compare_property.php:221
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Services"
-msgstr "Palvelut"
+msgstr ""
 
 #: ../code/application/views/compare_property.php:226
 #: ../code/application/views/property_detail.php:573
@@ -1395,7 +1395,7 @@ msgstr "Ole hyvä ja odota, etsimme parhaat tarjoukset..."
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
 msgid "Loading"
-msgstr "Lataa"
+msgstr "Latautuu"
 
 #: ../code/application/views/includes/help.php:3
 #: ../code/application/views/restricted/user_view.php:21
@@ -3610,7 +3610,7 @@ msgstr "Hintaluokka:"
 #: ../code/application/views/helpfile/pofields.php:655
 #, php-format
 msgid "Rating"
-msgstr "Luokitus"
+msgstr "Arvosanat"
 
 #: ../code/application/views/city_view.php:36
 #: ../code/application/views/helpfile/pofields.php:458
@@ -3684,7 +3684,7 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:645
 #, php-format
 msgid "Results"
-msgstr "Tulokset"
+msgstr ""
 
 #: ../code/application/views/city_view.php:196
 #: ../code/application/views/hw/booking_end_view.php:35
@@ -3702,9 +3702,9 @@ msgstr "Sulje kartta"
 
 #: ../code/application/views/city_view.php:220
 #: ../code/application/views/helpfile/pofields.php:649
-#, php-format
+#, fuzzy, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Nopea Vertaus ( 5 kiinteistöä max)"
+msgstr "Vertaile kaikkia retkeilymajoja kohteessa %s"
 
 #: ../code/application/views/city_view.php:221
 #: ../code/application/views/helpfile/pofields.php:626
@@ -3715,9 +3715,9 @@ msgstr "Vertaus"
 
 #: ../code/application/views/city_view.php:223
 #: ../code/application/views/helpfile/pofields.php:650
-#, php-format
+#, fuzzy, php-format
 msgid "Remove All"
-msgstr "Poista Kaikki"
+msgstr "poista"
 
 #: ../code/application/views/city_view.php:239
 #: ../code/application/views/helpfile/pofields.php:555
@@ -3743,8 +3743,6 @@ msgstr ""
 #: ../code/application/views/city_view.php:352
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr ""
-"Vain 5 kiinteistöä kerralla verrattavana. Ole hyvä ja poista kiinteistö "
-"listalta."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -4391,8 +4389,6 @@ msgstr "(Voimassa %s)"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
-#: ../code/application/views/helpfile/pofields.php:795
-#, php-format
 msgid "Total:"
 msgstr "Yhteensä:"
 
@@ -4878,7 +4874,7 @@ msgid ""
 "businesses ..."
 msgstr ""
 "Yhdistykset, kauppakamarit, koulut, yliopistot, päiväleirit, urheiluleirit, "
-"nuorisopalveluyhteisöt, turismivirastot, liitot, monitoimitalot, yritykset…"
+"nuorisopalveluyhteisöt, turismivirastot, liitot, monitoimitalot, yritykset..."
 
 #: ../code/application/views/group_request.php:66
 msgid "Group Booking Request Form"
@@ -5594,7 +5590,7 @@ msgid ""
 "businesses…"
 msgstr ""
 "Yhdistykset, kauppakamarit, koulut, yliopistot, päiväleirit, urheiluleirit, "
-"nuorisopalveluyhteisöt, turismivirastot, liitot, monitoimitalot, yritykset…"
+"nuorisopalveluyhteisöt, turismivirastot, liitot, monitoimitalot, yritykset..."
 
 #: ../code/application/views/helpfile/pofields.php:159
 #, php-format
@@ -7335,12 +7331,11 @@ msgstr ""
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
 msgstr ""
-"Ole hyvä ja katso valitut kiinteistöt verratakseen niitä yläreunassa oleviin."
 
 #: ../code/application/views/helpfile/pofields.php:646
 #, php-format
 msgid "Result"
-msgstr "Tulos"
+msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
@@ -7361,22 +7356,22 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:652
 #, php-format
 msgid "%d Results"
-msgstr "%d Tulosta"
+msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:653
-#, php-format
+#, fuzzy, php-format
 msgid "Home"
-msgstr "Koti"
+msgstr "Kotisivu"
 
 #: ../code/application/views/helpfile/pofields.php:654
 #, php-format
 msgid "Restore Everything"
-msgstr "Palauta Kaikki"
+msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:656
 #, php-format
 msgid "Compare (%d out of 5)"
-msgstr "Vertaa (%d viidestä)"
+msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
@@ -7390,7 +7385,6 @@ msgid "Not enough parameters"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:661
-#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, fuzzy, php-format
 msgid "Fill in the email"
@@ -7403,14 +7397,12 @@ msgid "Invalid email recipient"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:663
-#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:664
-#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7862,155 +7854,6 @@ msgid ""
 "for your stay."
 msgstr ""
 
-#: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
-msgid "Email is not valid"
-msgstr "Virheellinen Maa"
-
-#: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
-msgid "Fill in the from name"
-msgstr "Tulosta kartta"
-
-#: ../code/application/views/helpfile/pofields.php:773
-#, php-format
-msgid "Remove from this search"
-msgstr "Poista listalta tämä etsintäsana"
-
-#: ../code/application/views/helpfile/pofields.php:774
-#, php-format
-msgid "Remove from any searches for next 24 hours"
-msgstr "Poista listalta tämä etsintäsana seuraavat 24 tuntia"
-
-#: ../code/application/views/helpfile/pofields.php:775
-#, php-format
-msgid "Remove from any searches for 1 week"
-msgstr "Poista listalta tämä etsintäsana 1 viikoksi"
-
-#: ../code/application/views/helpfile/pofields.php:776
-#, php-format
-msgid "Standard Single Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:777
-#, php-format
-msgid "Standard Twin Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:778
-#, php-format
-msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:779
-#, php-format
-msgid "1 Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:780
-#, php-format
-msgid "%d Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:781
-#, php-format
-msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:782
-#, php-format
-msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
-msgid "Filter by districts"
-msgstr "Haun rajoitus:"
-
-#: ../code/application/views/helpfile/pofields.php:784
-#, php-format
-msgid "Filter by landmarks (-2kms)"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a dorm"
-msgstr "Keskimäärin per yö per ihminen"
-
-#: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a private room"
-msgstr ""
-"Matalain hinta per ihminen per yö yksiyishuoneessa tässä majoituksessa:"
-
-#: ../code/application/views/helpfile/pofields.php:787
-#, php-format
-msgid "Deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:788
-#, php-format
-msgid "Deposit to be paid now:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
-msgid "Deposit already paid:"
-msgstr "Maksu jo suoritettu"
-
-#: ../code/application/views/helpfile/pofields.php:790
-#, php-format
-msgid "Amount already charged in %s:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:791
-#, php-format
-msgid "Currency for the deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:792
-#, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:793
-#, php-format
-msgid "Amount to be paid on arrival:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:794
-#, php-format
-msgid "Amount to be paid when you arrive at the property"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
-msgid "Membership card (not required):"
-msgstr "Vaatii jäsenkortin"
-
-#: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
-msgid "Membership card:"
-msgstr "Vaatii jäsenkortin"
-
-#: ../code/application/views/helpfile/pofields.php:798
-#, php-format
-msgid "The deposit is non refundable and non transferable."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival. You will find the property"
-msgstr ""
-"Maksat vain takuumaksun (10%% kokonaishinnasta) vahvistaaksesi varauksesi "
-"toistaiseksi. Loput laskusta (90%%) on maksettava saapumisen yhteydessä. "
-"Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero ...) näkyvät "
-"vahvistussähköpostissa kun olet tehnyt varauksesi."
-
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30 000 Retkeilymajaa ja edullista majapaikkaa"
@@ -8420,6 +8263,9 @@ msgstr "Vahvistuskoodi"
 
 #~ msgid "Articles Récents"
 #~ msgstr "Viimeisimmät artikkelit"
+
+#~ msgid "Pays non valide"
+#~ msgstr "Virheellinen Maa"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "Palvelimen ei ole  saatavilla. Yritä myöhemmin uudelleen."

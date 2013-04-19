@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-19 22:40+0200\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"PO-Revision-Date: 2013-04-10 21:17+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -4283,8 +4283,6 @@ msgstr "（验证%s）"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
-#: ../code/application/views/helpfile/pofields.php:795
-#, php-format
 msgid "Total:"
 msgstr "总计："
 
@@ -7225,7 +7223,6 @@ msgid "Not enough parameters"
 msgstr "参数不够"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7238,14 +7235,12 @@ msgid "Invalid email recipient"
 msgstr "无效的邮件接收人"
 
 #: ../code/application/views/helpfile/pofields.php:663
-#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "写在主题里"
 
 #: ../code/application/views/helpfile/pofields.php:664
-#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7681,152 +7676,6 @@ msgid ""
 msgstr ""
 "显示的房间是在您停留期间完全和部分空闲的，您可以通过筛选显示完全空闲的房间。"
 
-#: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
-msgid "Email is not valid"
-msgstr "输入国名无效"
-
-#: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
-msgid "Fill in the from name"
-msgstr "写在“发件人”名字里"
-
-#: ../code/application/views/helpfile/pofields.php:773
-#, php-format
-msgid "Remove from this search"
-msgstr "从搜索列表中去除"
-
-#: ../code/application/views/helpfile/pofields.php:774
-#, php-format
-msgid "Remove from any searches for next 24 hours"
-msgstr "从接下来24小时的搜索列表中去除"
-
-#: ../code/application/views/helpfile/pofields.php:775
-#, php-format
-msgid "Remove from any searches for 1 week"
-msgstr "从1周内的搜索列表中去除"
-
-#: ../code/application/views/helpfile/pofields.php:776
-#, fuzzy, php-format
-msgid "Standard Single Private Ensuite"
-msgstr "标准单人间共用浴室"
-
-#: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
-msgid "Standard Twin Private Ensuite"
-msgstr "标准单人间共用浴室"
-
-#: ../code/application/views/helpfile/pofields.php:778
-#, php-format
-msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:779
-#, php-format
-msgid "1 Bed Private Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:780
-#, fuzzy, php-format
-msgid "%d Bed Private Ensuite"
-msgstr "%d人用的私人房间共用浴室 "
-
-#: ../code/application/views/helpfile/pofields.php:781
-#, php-format
-msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:782
-#, php-format
-msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
-msgid "Filter by districts"
-msgstr "筛选："
-
-#: ../code/application/views/helpfile/pofields.php:784
-#, php-format
-msgid "Filter by landmarks (-2kms)"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a dorm"
-msgstr "每夜每人平均"
-
-#: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
-msgid "Lowest price per night per person in a private room"
-msgstr "这个住处一个私人房间每夜每人的最低价："
-
-#: ../code/application/views/helpfile/pofields.php:787
-#, php-format
-msgid "Deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:788
-#, php-format
-msgid "Deposit to be paid now:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
-msgid "Deposit already paid:"
-msgstr "费用已支付"
-
-#: ../code/application/views/helpfile/pofields.php:790
-#, php-format
-msgid "Amount already charged in %s:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:791
-#, php-format
-msgid "Currency for the deposit:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:792
-#, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:793
-#, php-format
-msgid "Amount to be paid on arrival:"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:794
-#, php-format
-msgid "Amount to be paid when you arrive at the property"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
-msgid "Membership card (not required):"
-msgstr "需要会员卡"
-
-#: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
-msgid "Membership card:"
-msgstr "需要会员卡"
-
-#: ../code/application/views/helpfile/pofields.php:798
-#, php-format
-msgid "The deposit is non refundable and non transferable."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
-msgid ""
-"You only pay the deposit to confirm and secure your reservation now. The "
-"remaining amount is payable upon arrival. You will find the property"
-msgstr ""
-"您只需支付房费的10%%即可确保房间预订，剩余的90%%余款抵达旅舍后支付。完成在线"
-"预订后，我们会在其邮件确认回函中向您提供邮件、地址、电话号码等具体联系方式。 "
-
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30,000家超低价旅舍"
@@ -8214,6 +8063,9 @@ msgstr "验证码"
 
 #~ msgid "Articles Récents"
 #~ msgstr "最新文章"
+
+#~ msgid "Pays non valide"
+#~ msgstr "输入国名无效"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "找不到服务器，请稍后再试。"
