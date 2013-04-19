@@ -131,11 +131,8 @@ if ($api_error == false) {
             $date = clone $dateStart;
             $subtotal = 0;
             $num_nights_available_of_room = 0;
-
-            $_available_sum = 0;
-            $_available_cnt = 0;
-            $_available_cur = '';
-            $_price = null;
+            $sum_available = 0;
+            $currency_formin = '';
             $lowest_night = '';
             $lowest_style = '';
 
@@ -160,11 +157,8 @@ if ($api_error == false) {
 
                         $subtotal = $subtotal + $price;
 
-                        $_available_cur = currency_symbol($date_ok['currency']);
-                        $_available_sum += $price;
-                        $_price = number_format($price, 2, '.', '');
-
                         $currency_formin = currency_symbol($date_ok['currency']);
+                        $sum_available += $price;
 
                         $sharedreservationTable.= '<tr class="sreservation sreservation_' . $nbRoomType . '">
                             <td class="first">' . date_conv($date_ok['date'], $this->wordpress->get_option('aj_date_format')) . '</td>
@@ -179,13 +173,12 @@ if ($api_error == false) {
                             $lowest_night = _('Lowest night:') . ' ' . $currency_formin . ' ' . number_format($min_price_shared, 2, '.', '');
                             $lowest_style = 'style="color: #6DA903;"';
 
-                            $dormTitle = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $_available_cur . ' ' . $min_price_shared;
+                            $dormTitle = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $currency_formin . ' ' . $min_price_shared;
                         } else {
                             $lowest_style = '';
                         }
 
                         $date_msg = currency_symbol($date_ok['currency']) . ' <span class="price" ' . $lowest_style . '>' . number_format($price, 2, '.', '') . '</span>';
-                        $_available_cnt++;
                     }
                 }
 
@@ -267,7 +260,7 @@ if ($api_error == false) {
             if ($numNights != 1) {
                 $sharedRoomsTable.= '<td align="center" title="">';
                 $sharedRoomsTable.= '<a class="ajaxTable" href="#sajaxTable' . $ajaxTableID . '" rel="#sajaxTable' . $ajaxTableID . '" style="display : block;" title="' . $dormTitle . '">';
-                $sharedRoomsTable.= '<span style="font-weight: bold;">' . $_available_cur . ' ' . number_format(($_available_sum / $_available_cnt), 2, '.', '') . '</span>';
+                $sharedRoomsTable.= '<span style="font-weight: bold;">' . $currency_formin . ' ' . number_format(($sum_available / $num_nights_available_of_room), 2, '.', '') . '</span>';
                 if ($lowest_night != '') {
                     $lowest_title = sprintf(gettext('The lowest price per person per night in a dorm in this property: %s'), $display_currency . ' ' . $min_price_shared);
                     $sharedRoomsTable.= '<span style="display: block; float: none;">' . $lowest_night . '</span>';
@@ -276,7 +269,7 @@ if ($api_error == false) {
                 $sharedRoomsTable.= '</td>';
             } else {
                 $sharedRoomsTable.= '<td align="center" style="font-weight: bold;" title="' . _('Price') . '">';
-                $sharedRoomsTable.= $_available_cur . ' ' . number_format(($_available_sum / $_available_cnt), 2, '.', '');
+                $sharedRoomsTable.= $currency_formin . ' ' . number_format(($sum_available / $num_nights_available_of_room), 2, '.', '');
                 $sharedRoomsTable.= '</td>';
             }
 
@@ -310,46 +303,41 @@ if ($api_error == false) {
 
                 $sharedRoomsAvailable++;
 
-                if ($_available_cnt == $numNights) {
+                $sharedRoomsTable.= "<select id=\"sharedsel_" . $nbRoomType . "\" class=\"sharedsel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
 
-                    $sharedRoomsTable.= "<select id=\"sharedsel_" . $nbRoomType . "\" class=\"sharedsel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
+                $sharedRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
+                $sharedRoomsTable.= "<option value=\"0\">0</option>\n";
 
-                    $sharedRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
-                    $sharedRoomsTable.= "<option value=\"0\">0</option>\n";
+                for ($p = 1; $p <= $availableBeds; $p++) {
 
-                    for ($p = 1; $p <= $availableBeds; $p++) {
+                    $selection_title = '';
 
-                        $selection_title = '';
+                    if ($p % $nb_guest_per_room == 0) {
 
-                        if ($p % $nb_guest_per_room == 0) {
-
-                            if (($p / $nb_guest_per_room) == 1) {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm.'));
-                            } else {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms.'), (int) ($p / $nb_guest_per_room));
-                            }
-                            $sharedRoomsTable.= "<option value=\"$p\" complete=\"true\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $_available_cur . ( $subtotal * $p )) . "</option>\n";
+                        if (($p / $nb_guest_per_room) == 1) {
+                            $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm.'));
                         } else {
-
-                            if (floor($p / $nb_guest_per_room) < 1) {
-                                $selection_title = _('Availability') . ' | ' . _('You will partially use 1 dorm.');
-                            } else {
-                                if (floor($p / $nb_guest_per_room) == 1) {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm and 1 partially.'));
-                                } else {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 partially.'), (int) floor($p / $nb_guest_per_room));
-                                }
-                            }
-
-                            $sharedRoomsTable.= "<option value=\"$p\" complete=\"false\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $_available_cur . ( $subtotal * $p )) . "</option>\n";
+                            $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms.'), (int) ($p / $nb_guest_per_room));
                         }
+                        $sharedRoomsTable.= "<option value=\"$p\" complete=\"true\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
+                    } else {
+
+                        if (floor($p / $nb_guest_per_room) < 1) {
+                            $selection_title = _('Availability') . ' | ' . _('You will partially use 1 dorm.');
+                        } else {
+                            if (floor($p / $nb_guest_per_room) == 1) {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm and 1 partially.'));
+                            } else {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 partially.'), (int) floor($p / $nb_guest_per_room));
+                            }
+                        }
+
+                        $sharedRoomsTable.= "<option value=\"$p\" complete=\"false\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
                     }
-                    $sharedRoomsTable.= "</select>";
-                } else {
-                    $sharedRoomsTable.= '<a class="ajaxTable" href="#sajaxTable' . $ajaxTableID . '" rel="#sajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $dormTitle . '">' . _('Partially Available') . '</a>';
                 }
+                $sharedRoomsTable.= "</select>";
             } else {
-                
+                $sharedRoomsTable.= '<a class="ajaxTable" href="#sajaxTable' . $ajaxTableID . '" rel="#sajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $dormTitle . '">' . _('Partially Available') . '</a>';
             }
 
             $sharedRoomsTable.= "</td>";
@@ -412,16 +400,13 @@ if ($api_error == false) {
 
             $privateRoomsCluetipTable .= "</tr><tr>";
 
-            $_available_sum = 0;
-            $_available_cnt = 0;
-            $_available_cur = '';
-            $_price = null;
-
             $date = clone $dateStart;
             $subtotal = 0;
             $num_nights_available_of_room = 0;
             $lowest_night = '';
             $lowest_style = '';
+            $sum_available = 0;
+            $currency_formin = '';
 
             $roomTitle_PP = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Person') . ' )';
             $roomTitle_PR = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Room') . ' )';
@@ -434,7 +419,6 @@ if ($api_error == false) {
                 foreach ($hostel_room_type['AvailableDates']['AvailableDate'] as $date_ok) {
                     if ($date_ok['date'] == $date->format("Y-m-d")) {
 
-                        $num_nights_available_of_room++;
                         $price_array = explode(' ', $date_ok['price']);
 
                         if ($price_array[0] == 'From') {
@@ -442,13 +426,11 @@ if ($api_error == false) {
                         } else {
                             $price = $price_array[0];
                         }
+
                         $subtotal = $subtotal + $price;
 
-                        $_available_cur = currency_symbol($date_ok['currency']) . " ";
-                        $_available_sum += $price * (int) $hostel_room_type['bedsIncrement'];
-                        $_price = number_format(($price * (int) $hostel_room_type['bedsIncrement']), 2, '.', '');
-
-                        $currency_formin = currency_symbol($date_ok['currency']);
+                        $currency_formin = currency_symbol($date_ok['currency']) . " ";
+                        $sum_available += $price * (int) $hostel_room_type['bedsIncrement'];
 
                         $privatereservationTable.= '<tr class="preservation preservation_' . $nbRoomType . '">
                             <td class="first">' . date_conv($date_ok['date'], $this->wordpress->get_option('aj_date_format')) . '</td>
@@ -463,7 +445,7 @@ if ($api_error == false) {
                             $lowest_night = _('Lowest night:') . ' ' . $currency_formin . ' ' . number_format($min_price_private, 2, '.', '');
                             $lowest_style = 'style="color: #6DA903;"';
 
-                            $roomTitle_PP = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Person') . ' )' . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $_available_cur . ' ' . $min_price_private;
+                            $roomTitle_PP = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Person') . ' )' . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $currency_formin . ' ' . $min_price_private;
                             $roomTitle_PR = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Room') . ' )';
                         } else {
 
@@ -472,7 +454,7 @@ if ($api_error == false) {
 
                         $date_msg = currency_symbol($date_ok['currency']) . ' <span class="price private" per_person="' . number_format($price, 2, '.', '') . '" per_room="' . number_format($price * (int) $hostel_room_type['bedsIncrement'], 2, '.', '') . '"  ' . $lowest_style . '>' . number_format($price * (int) $hostel_room_type['bedsIncrement'], 2, '.', '') . '</span>';
 
-                        $_available_cnt++;
+                        $num_nights_available_of_room++;
                     }
                 }
 
@@ -549,7 +531,7 @@ if ($api_error == false) {
             if ($numNights != 1) {
                 $privateRoomsTable.= '<td align="center" title="">';
                 $privateRoomsTable.= '<a class="ajaxTable per_tooltip" href="#pajaxTable' . $ajaxTableID . '" rel="#pajaxTable' . $ajaxTableID . '" style="display : block;" title="' . $roomTitle_PP . '"  per_person="' . $roomTitle_PP . '"  per_room="' . $roomTitle_PR . '">';
-                $privateRoomsTable.= '<strong>' . $_available_cur . '</strong> <span class="private" style="font-weight: bold;" per_person="' . number_format(round((float) ($_available_sum / $_available_cnt) / $hostel_room_type["bedsIncrement"], 2), 2) . '" per_room="' . number_format(round((float) ($_available_sum / $_available_cnt), 2), 2) . '">' . number_format(($_available_sum / $_available_cnt), 2, '.', '') . '</span>';
+                $privateRoomsTable.= '<strong>' . $currency_formin . '</strong> <span class="private" style="font-weight: bold;" per_person="' . number_format(round((float) ($sum_available / $num_nights_available_of_room) / $hostel_room_type["bedsIncrement"], 2), 2) . '" per_room="' . number_format(round((float) ($sum_available / $num_nights_available_of_room), 2), 2) . '">' . number_format(($sum_available / $num_nights_available_of_room), 2, '.', '') . '</span>';
                 if ($lowest_night != '') {
                     $lowest_title = sprintf(gettext('The lowest price per person per night in a private room at this property: %s'), $display_currency . ' ' . $min_price_private);
                     $privateRoomsTable.= '<span class="lowest_night" style="display: block; float: none;">' . $lowest_night . '</span>';
@@ -558,7 +540,7 @@ if ($api_error == false) {
                 $privateRoomsTable.= '</td>';
             } else {
                 $privateRoomsTable.= '<td align="center" style="font-weight: bold;" title="">';
-                $privateRoomsTable.= $_available_cur . ' <span class="private" per_person="' . number_format(round((float) ($_available_sum / $_available_cnt) / $hostel_room_type["bedsIncrement"], 2), 2) . '" per_room="' . number_format(round((float) ($_available_sum / $_available_cnt), 2), 2) . '">' . number_format(($_available_sum / $_available_cnt), 2, '.', '') . '</span>';
+                $privateRoomsTable.= $currency_formin . ' <span class="private" per_person="' . number_format(round((float) ($sum_available / $num_nights_available_of_room) / $hostel_room_type["bedsIncrement"], 2), 2) . '" per_room="' . number_format(round((float) ($sum_available / $num_nights_available_of_room), 2), 2) . '">' . number_format(($sum_available / $num_nights_available_of_room), 2, '.', '') . '</span>';
                 $privateRoomsTable.= '</td>';
             }
 
@@ -591,37 +573,34 @@ if ($api_error == false) {
 
                 $privateRoomsAvailable++;
 
-                if ($numNights == $_available_cnt) {
+                $privateRoomsTable.= "<select id=\"privatesel_" . $nbRoomType . "\" class=\"privatesel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
+                $privateRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
+                $privateRoomsTable.= "<option value=\"0\">0</option>\n";
 
-                    $privateRoomsTable.= "<select id=\"privatesel_" . $nbRoomType . "\" class=\"privatesel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
-                    $privateRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
-                    $privateRoomsTable.= "<option value=\"0\">0</option>\n";
+                for ($p = 1; $p <= $availableRooms; $p++) {
+                    if ($p * $hostel_room_type['bedsIncrement'] <= $maxPersons) {
 
-                    for ($p = 1; $p <= $availableRooms; $p++) {
-                        if ($p * $hostel_room_type['bedsIncrement'] <= $maxPersons) {
-
-                            if ($p == 1) {
-                                if (($p * $hostel_room_type['bedsIncrement']) == 1) {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('1 guest in 1 Bedroom.'));
-                                } else {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in 1 Bedroom.'), (int) $p * $hostel_room_type['bedsIncrement']);
-                                }
+                        if ($p == 1) {
+                            if (($p * $hostel_room_type['bedsIncrement']) == 1) {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('1 guest in 1 Bedroom.'));
                             } else {
-                                if (($hostel_room_type['bedsIncrement']) == 1) {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (1 guest in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p);
-                                } else {
-                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (%d guests in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p, (int) $hostel_room_type['bedsIncrement']);
-                                }
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in 1 Bedroom.'), (int) $p * $hostel_room_type['bedsIncrement']);
                             }
-
-                            $privateRoomsTable.= "<option value=\"" . $p * $hostel_room_type['bedsIncrement'] . "\" selection_title=\"" . $selection_title . "\">" . sprintf(gettext('%d %s ( %s )'), ( $p * (int) $hostel_room_type['bedsIncrement']), ( ($p * (int) $hostel_room_type['bedsIncrement']) == 1 ? _('Guest') : _('Guests')), $_available_cur . ( $_available_sum * $p )) . "</option>\n";
+                        } else {
+                            if (($hostel_room_type['bedsIncrement']) == 1) {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (1 guest in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p);
+                            } else {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (%d guests in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p, (int) $hostel_room_type['bedsIncrement']);
+                            }
                         }
-                    }
 
-                    $privateRoomsTable.= "</select>";
-                } else {
-                    $privateRoomsTable.= '<a class="ajaxTable per_tooltip" href="#pajaxTable' . $ajaxTableID . '" rel="#pajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $roomTitle_PP . '"  per_person="' . $roomTitle_PP . '"  per_room="' . $roomTitle_PR . '">' . _('Partially Available') . '</a>';
+                        $privateRoomsTable.= "<option value=\"" . $p * $hostel_room_type['bedsIncrement'] . "\" selection_title=\"" . $selection_title . "\">" . sprintf(gettext('%d %s ( %s )'), ( $p * (int) $hostel_room_type['bedsIncrement']), ( ($p * (int) $hostel_room_type['bedsIncrement']) == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $sum_available * $p )) . "</option>\n";
+                    }
                 }
+
+                $privateRoomsTable.= "</select>";
+            } else {
+                $privateRoomsTable.= '<a class="ajaxTable per_tooltip" href="#pajaxTable' . $ajaxTableID . '" rel="#pajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $roomTitle_PP . '"  per_person="' . $roomTitle_PP . '"  per_room="' . $roomTitle_PR . '">' . _('Partially Available') . '</a>';
             }
 
             $privateRoomsTable.= "</td>";
