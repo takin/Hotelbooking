@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-03 13:18+0300\n"
-"PO-Revision-Date: 2013-03-22 20:58+0200\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"PO-Revision-Date: 2013-04-14 22:50+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1302,13 +1301,12 @@ msgid "Send email"
 msgstr "Wyślij email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Wyślij PDF"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "Proszę czekać …"
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -1363,7 +1361,7 @@ msgstr "średnia ocena"
 #: ../code/application/views/includes/header.php:471
 #: ../code/application/views/includes/header.php:517
 #: ../code/application/views/mobile/property_list.php:13
-#: ../code/application/views/hw/property_list.php:66
+#: ../code/application/views/hw/property_list.php:76
 #: ../code/application/views/hb/property_list.php:122
 #: ../code/application/views/city_ajax_view.php:72
 #: ../code/application/views/city_ajax_view.php:118
@@ -1703,7 +1701,7 @@ msgstr "Cena"
 #: ../code/application/views/mobile/city_view.php:45
 #: ../code/application/views/mobile/hw/hostel_view.php:21
 #: ../code/application/views/city_view.php:237
-#: ../code/application/views/hw/property_list.php:92
+#: ../code/application/views/hw/property_list.php:102
 #: ../code/application/views/hb/property_list.php:151
 #: ../code/application/views/city_ajax_view.php:351
 #: ../code/application/views/city_ajax_view.php:451
@@ -3517,7 +3515,7 @@ msgid "Read more…"
 msgstr "Czytaj dalej..."
 
 #: ../code/application/views/property_detail.php:528
-#: ../code/application/views/hw/property_list.php:72
+#: ../code/application/views/hw/property_list.php:82
 #: ../code/application/views/hb/property_list.php:129
 #: ../code/application/views/helpfile/pofields.php:256
 #: ../code/application/views/mustache/property_list.php:36
@@ -3562,7 +3560,7 @@ msgstr "Przez %s |%s"
 #: ../code/application/views/hb/hostel_view.php:503
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/libraries/Hb_engine.php:972
-#: ../code/application/libraries/Hw_engine.php:702
+#: ../code/application/libraries/Hw_engine.php:714
 #, php-format
 msgid "Good"
 msgstr "Dobry"
@@ -3572,7 +3570,7 @@ msgstr "Dobry"
 #: ../code/application/views/hb/hostel_view.php:507
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/libraries/Hb_engine.php:976
-#: ../code/application/libraries/Hw_engine.php:706
+#: ../code/application/libraries/Hw_engine.php:718
 #, php-format
 msgid "Very good"
 msgstr "Bardzo dobry"
@@ -3582,7 +3580,7 @@ msgstr "Bardzo dobry"
 #: ../code/application/views/hb/hostel_view.php:511
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/libraries/Hb_engine.php:980
-#: ../code/application/libraries/Hw_engine.php:710
+#: ../code/application/libraries/Hw_engine.php:722
 #, php-format
 msgid "Great"
 msgstr "Świetnie"
@@ -3592,7 +3590,7 @@ msgstr "Świetnie"
 #: ../code/application/views/hb/hostel_view.php:515
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/libraries/Hb_engine.php:983
-#: ../code/application/libraries/Hw_engine.php:713
+#: ../code/application/libraries/Hw_engine.php:725
 #, php-format
 msgid "Fantastic"
 msgstr "Fantastycznie"
@@ -3768,19 +3766,16 @@ msgid "Selected filters:"
 msgstr "Wybrane filtry:"
 
 #: ../code/application/views/city_view.php:346
-#, fuzzy
 msgid "Please Wait"
-msgstr "Proszę wybrać"
+msgstr "Proszę czekać"
 
 #: ../code/application/views/city_view.php:351
-#, fuzzy
 msgid "From"
-msgstr "Od:"
+msgstr "Od"
 
 #: ../code/application/views/city_view.php:352
-#, fuzzy
 msgid "Only 5 properties can be compared. Please remove a property from list."
-msgstr "Usuń kwaterę z listy."
+msgstr "Można porównać tylko 5 kwater. Usuń kwaterę z listy."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -4063,7 +4058,7 @@ msgstr "Bezpieczny"
 msgid "Search for more properties in %s"
 msgstr "Szukaj więcej obiektów w %s"
 
-#: ../code/application/views/hw/property_list.php:79
+#: ../code/application/views/hw/property_list.php:89
 #: ../code/application/views/hb/property_list.php:137
 #: ../code/application/views/mustache/property_list.php:174
 #: ../code/application/views/mustache/property_list.php:184
@@ -4806,6 +4801,8 @@ msgid ""
 "Please select the number of male, female and staff members of your group "
 "before sending your booking request."
 msgstr ""
+"Wybierz liczbę mężczyzn, kobiet i pracowników członków grupy Przed wysłaniem "
+"żądania rezerwacja."
 
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
@@ -5773,8 +5770,8 @@ msgstr "Wersja na komórkę"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/libraries/Hb_engine.php:853
-#: ../code/application/libraries/Hw_engine.php:726
-#: ../code/application/libraries/Hw_engine.php:1281
+#: ../code/application/libraries/Hw_engine.php:738
+#: ../code/application/libraries/Hw_engine.php:1293
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -5818,7 +5815,7 @@ msgstr ""
 "stronie."
 
 #: ../code/application/views/helpfile/pofields.php:198
-#: ../code/application/libraries/Hw_engine.php:1280
+#: ../code/application/libraries/Hw_engine.php:1292
 #, php-format
 msgid "Property availability error"
 msgstr "Błąd w dotępności obiektu"
@@ -7611,9 +7608,9 @@ msgstr ""
 "gwarantowane, więc nigdy nie będziesz zmuszony do dopłacania."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
+#, php-format
 msgid "Price for %d nights per person"
-msgstr "Cena za 7 noclegów za osobę"
+msgstr "Cena za %d noclegów za osobę"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
@@ -7648,19 +7645,19 @@ msgstr "1 gość w 1 Pokoju."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in 1 Bedroom."
-msgstr "7 gości w 1 Pokoju."
+msgstr "%d gości w 1 Pokoju."
 
 #: ../code/application/views/helpfile/pofields.php:713
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guests in each room)."
-msgstr "7 gości w 7 Pokojach (7 gości w każdym pokoju)."
+msgstr "%d gości w %d Pokojach (%d gości w każdym pokoju)."
 
 #: ../code/application/views/helpfile/pofields.php:715
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms ( 1 guest in each room)."
-msgstr "7 gości w 7 Pokojach (1 gość w każdym pokoju)."
+msgstr "%d gości w %d Pokojach (1 gość w każdym pokoju)."
 
 #: ../code/application/views/helpfile/pofields.php:716
 #, php-format
@@ -7683,13 +7680,13 @@ msgid "Average per night per room"
 msgstr "Średnia cena za noc za pokój"
 
 #: ../code/application/views/helpfile/pofields.php:721
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You can only book up to %d guests at a time. You can book more than %d "
 "guests by going to our group section on top of this page."
 msgstr ""
-"Możesz zarezerwować miejsca maksymalnie dla 7 gości za jednym razem. "
-"Możesz rezerwować miejsca dla więcej niż 7 gości wchodząc do naszej sekcji "
+"Możesz zarezerwować miejsca maksymalnie dla %d gości za jednym razem. "
+"Możesz rezerwować miejsca dla więcej niż %d gości wchodząc do naszej sekcji "
 "grupowej, znajdującej się na górze tej strony. "
 
 #: ../code/application/views/helpfile/pofields.php:722
@@ -7703,9 +7700,9 @@ msgid "You will use 1 full dorm."
 msgstr "Będziesz korzystać z 1 pełnego akademika. "
 
 #: ../code/application/views/helpfile/pofields.php:725
-#, fuzzy, php-format
+#, php-format
 msgid "You will use %d full dorms."
-msgstr "Będziesz korzystać z 7 pełnych akademików. "
+msgstr "Będziesz korzystać z %d pełnych akademików. "
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
@@ -7718,9 +7715,9 @@ msgid "You will use 1 full dorm and 1 partially."
 msgstr "Będziesz korzystać z 1 akademika w całości i 1 akademika częściowo."
 
 #: ../code/application/views/helpfile/pofields.php:728
-#, fuzzy, php-format
+#, php-format
 msgid "You will use %d full dorms and 1 partially."
-msgstr "Będziesz korzystać z 7 akademików w całości i z 1 częściowo."
+msgstr "Będziesz korzystać z %d akademików w całości i z 1 częściowo."
 
 #: ../code/application/views/helpfile/pofields.php:729
 #, php-format
@@ -7747,31 +7744,31 @@ msgid "1 fully available dorm."
 msgstr "1 w pełni dostępny akademik."
 
 #: ../code/application/views/helpfile/pofields.php:733
-#, fuzzy, php-format
+#, php-format
 msgid "%d fully available dorms."
-msgstr "7 w pełni dostępnych akademików."
+msgstr "%d w pełni dostępnych akademików."
 
 #: ../code/application/views/helpfile/pofields.php:734
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
-"1 w pełni dostępny akademik i 1 częściowo zajęty (łóżka już zajęte: 7)."
+"1 w pełni dostępny akademik i 1 częściowo zajęty (łóżka już zajęte: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:735
-#, fuzzy, php-format
+#, php-format
 msgid "This dorm is already partially occupied (beds already occupied: %d)."
-msgstr "Ten akademik jest już częścio zajęty (łóżka już zajęte: 7)."
+msgstr "Ten akademik jest już częścio zajęty (łóżka już zajęte: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:736
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%d dorms fully available and 1 dorm already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
-"7 akademików w całości dostępnych i 1 akademik juz częściowo zajęty (łóżka "
-"już zajęte: 7)."
+"%d akademików w całości dostępnych i 1 akademik juz częściowo zajęty (łóżka "
+"już zajęte: %d)."
 
 #: ../code/application/views/helpfile/pofields.php:737
 #, php-format
@@ -7841,9 +7838,9 @@ msgid "This type of dorm can accommodate up to 1 guest per dorm."
 msgstr "Ten rodzaj akademika może pomieścić 1 gościa. "
 
 #: ../code/application/views/helpfile/pofields.php:750
-#, fuzzy, php-format
+#, php-format
 msgid "This type of dorm can accommodate up to %d guests per dorm."
-msgstr "Ten rodzaj akademika może pomieścić do 7 gości."
+msgstr "Ten rodzaj akademika może pomieścić do %d gości."
 
 #: ../code/application/views/helpfile/pofields.php:751
 #, php-format
@@ -7851,9 +7848,9 @@ msgid "This type of bedroom can accommodate up to 1 guest per room."
 msgstr "Ten rodzaj pokoju może pomieścić 1 gościa w pokoju."
 
 #: ../code/application/views/helpfile/pofields.php:752
-#, fuzzy, php-format
+#, php-format
 msgid "This type of bedroom can accommodate up to %d guests per room."
-msgstr "Ten rodzaj pokoju może pomieścić do 7 gości w pokoju."
+msgstr "Ten rodzaj pokoju może pomieścić do %d gości w pokoju."
 
 #: ../code/application/views/helpfile/pofields.php:753
 #, php-format
@@ -7874,37 +7871,60 @@ msgstr "Maksymalna liczna, którą możesz zarezerwować"
 #: ../code/application/views/helpfile/pofields.php:756
 #, php-format
 msgid "Please wait…"
-msgstr ""
+msgstr "Proszę czekać …"
 
 #: ../code/application/views/helpfile/pofields.php:757
-#, fuzzy, php-format
+#, php-format
 msgid "The lowest price per person per night in a dorm in this property: %s"
-msgstr "Najniższa cena za osobę za noc w danej kwaterze:"
+msgstr "Najniższa cena za osobę za 1 noc w tym akademiku: %s"
 
 #: ../code/application/views/helpfile/pofields.php:758
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The lowest price per person per night in a private room at this property: %s"
-msgstr "Najniższa cena za osobę za noc w prywatnym pokoju w danej kwaterze:"
+msgstr "Najniższa cena za osobę za noc w prywatnym pokoju w danej kwaterze: %s"
 
 #: ../code/application/views/helpfile/pofields.php:759
 #, php-format
 msgid "Lowest night:"
-msgstr ""
+msgstr "Najtańsza noc:"
 
 #: ../code/application/views/helpfile/pofields.php:760
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests for %d nights"
-msgstr "Liczba gości"
+msgstr "Liczba gości na %d nocy"
 
 #: ../code/application/views/helpfile/pofields.php:761
-#, fuzzy, php-format
+#, php-format
 msgid "Provided after reservation"
-msgstr "Oceń"
+msgstr "Zapewnione po dokonaniu rezerwacji"
 
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:764
+#, php-format
+msgid "Partially Available"
+msgstr "Częściowo dostępne"
+
+#: ../code/application/views/helpfile/pofields.php:765
+#, php-format
+msgid "Standard Single Private Shared Bathroom"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:766
+#, php-format
+msgid "Show fully available only"
+msgstr "1 w pełni dostępny akademik"
+
+#: ../code/application/views/helpfile/pofields.php:767
+#, php-format
+msgid ""
+"We are displaying rooms with both full and partial availability for your "
+"dates. You can select this filter to only see rooms with full availability "
+"for your stay."
 msgstr ""
 
 #: ../code/application/views/home_view.php:15
@@ -7998,13 +8018,13 @@ msgstr "Zaakceptuj regulamin i warunki umowy aby kontunuować"
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
 #: ../code/application/controllers/chostel.php:356
-#: ../code/application/libraries/Hw_engine.php:1668
+#: ../code/application/libraries/Hw_engine.php:1680
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Serwer nieosiągalny. Spróbuj ponownie później."
 
 #: ../code/application/controllers/chostelbk.php:549
 #: ../code/application/controllers/chostel.php:769
-#: ../code/application/libraries/Hw_engine.php:2011
+#: ../code/application/libraries/Hw_engine.php:2023
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Serwer w tej chwili niedostępny. Prosimy spróbować ponownie."
 
@@ -8026,7 +8046,7 @@ msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "Daj nam znać o twoim pobycie!"
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2001
+#: ../code/application/libraries/Hw_engine.php:2013
 msgid "Erreur lors de la réservation"
 msgstr "Błąd podczas rezerwacji"
 
@@ -8049,12 +8069,12 @@ msgstr ""
 "wyszukiwania."
 
 #: ../code/application/libraries/Hb_engine.php:1227
-#: ../code/application/libraries/Hw_engine.php:1048
+#: ../code/application/libraries/Hw_engine.php:1060
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:1960
+#: ../code/application/libraries/Hw_engine.php:1972
 msgid "Card not supported please choose another card"
 msgstr "Karta nie jest obsługiwana, wybierz inną kartę"
 
