@@ -1,5 +1,6 @@
 <?php
 $maximum_guests = 1000000;
+echo form_hidden('deposit_percent', 0.1);
 echo form_hidden('total_guests', _('Total number of guests selected'));
 echo form_hidden('maximum_guests', $maximum_guests);
 echo form_hidden('maximum_guests_message', sprintf(gettext('You can only book up to %d guests at a time. You can book more than %d guests by going to our group section on top of this page.'), (int) $maximum_guests, (int) $maximum_guests));
