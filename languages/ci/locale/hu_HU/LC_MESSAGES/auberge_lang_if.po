@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-10 20:48+0200\n"
+"POT-Creation-Date: 2013-04-19 16:10+0300\n"
+"PO-Revision-Date: 2013-04-19 21:23+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -4409,6 +4409,8 @@ msgstr "(Validált %s)"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
+#: ../code/application/views/helpfile/pofields.php:795
+#, php-format
 msgid "Total:"
 msgstr "Összesen:"
 
@@ -7439,6 +7441,7 @@ msgid "Not enough parameters"
 msgstr "Nincs elég paraméter"
 
 #: ../code/application/views/helpfile/pofields.php:661
+#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7451,12 +7454,14 @@ msgid "Invalid email recipient"
 msgstr "Érvénytelen e-mail tulajdonos"
 
 #: ../code/application/views/helpfile/pofields.php:663
+#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "Írja be a tárgyat"
 
 #: ../code/application/views/helpfile/pofields.php:664
+#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7917,6 +7922,159 @@ msgstr ""
 "állnak.  Ezzel a szűrővel tudja beállítani, hogy csak a teljes mértékben "
 "szabad szobák jelenjenek meg."
 
+#: ../code/application/views/helpfile/pofields.php:768
+#, fuzzy, php-format
+msgid "Email is not valid"
+msgstr "Érvénytelen ország"
+
+#: ../code/application/views/helpfile/pofields.php:772
+#, fuzzy, php-format
+msgid "Fill in the from name"
+msgstr "Írja be a \"Feladó\" nevét"
+
+#: ../code/application/views/helpfile/pofields.php:773
+#, php-format
+msgid "Remove from this search"
+msgstr "Keresési eredmény eltávolítása"
+
+#: ../code/application/views/helpfile/pofields.php:774
+#, php-format
+msgid "Remove from any searches for next 24 hours"
+msgstr ""
+"Keresési eredmény eltávolítása az elkövetkező 24 órán belüli minden "
+"keresésből"
+
+#: ../code/application/views/helpfile/pofields.php:775
+#, php-format
+msgid "Remove from any searches for 1 week"
+msgstr ""
+"Keresési eredmény eltávolítása az elkövetkező 1 héten belüli minden "
+"keresésből"
+
+#: ../code/application/views/helpfile/pofields.php:776
+#, fuzzy, php-format
+msgid "Standard Single Private Ensuite"
+msgstr "Standard egyéni szállás közös fürdőszobával"
+
+#: ../code/application/views/helpfile/pofields.php:777
+#, fuzzy, php-format
+msgid "Standard Twin Private Ensuite"
+msgstr "Standard egyéni szállás közös fürdőszobával"
+
+#: ../code/application/views/helpfile/pofields.php:778
+#, php-format
+msgid "Deluxe Double Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:779
+#, php-format
+msgid "1 Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:780
+#, fuzzy, php-format
+msgid "%d Bed Private Ensuite"
+msgstr "%d egyéni szállás közös fürdőszobával"
+
+#: ../code/application/views/helpfile/pofields.php:781
+#, php-format
+msgid "Deluxe 1 Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:782
+#, php-format
+msgid "Deluxe %d Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:783
+#, fuzzy, php-format
+msgid "Filter by districts"
+msgstr "Szűrés:"
+
+#: ../code/application/views/helpfile/pofields.php:784
+#, php-format
+msgid "Filter by landmarks (-2kms)"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:785
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a dorm"
+msgstr "Éj / főre vonatkozó átlag"
+
+#: ../code/application/views/helpfile/pofields.php:786
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a private room"
+msgstr "Ebben az ingatlanban a legalacsonyabb szoba ár fő / éjre vonatkozóan:"
+
+#: ../code/application/views/helpfile/pofields.php:787
+#, php-format
+msgid "Deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:788
+#, php-format
+msgid "Deposit to be paid now:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:789
+#, fuzzy, php-format
+msgid "Deposit already paid:"
+msgstr "A fizetés már megtörtént"
+
+#: ../code/application/views/helpfile/pofields.php:790
+#, php-format
+msgid "Amount already charged in %s:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:791
+#, php-format
+msgid "Currency for the deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:792
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:793
+#, php-format
+msgid "Amount to be paid on arrival:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:794
+#, php-format
+msgid "Amount to be paid when you arrive at the property"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:796
+#, fuzzy, php-format
+msgid "Membership card (not required):"
+msgstr "Tagsági kártya kötelező"
+
+#: ../code/application/views/helpfile/pofields.php:797
+#, fuzzy, php-format
+msgid "Membership card:"
+msgstr "Tagsági kártya kötelező"
+
+#: ../code/application/views/helpfile/pofields.php:798
+#, php-format
+msgid "The deposit is non refundable and non transferable."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:799
+#, fuzzy, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival. You will find the property"
+msgstr ""
+" Önnek most csak a letétet kell befizetnie (a teljes összeg10%%-át), hogy "
+"megerősítse és biztosítsa a foglalást. A fennmaradó összeg (a maradék 90%%) "
+"érkezéskor fizetendő. Az ingatlan elérhetőségeit  (e-mail, cím, "
+"telefonszám ...) a visszaigazoló e-mailben találja meg, amit a foglalás után "
+"kapott."
+
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30000 hostel és olcsó szállás lehetőség"
@@ -8318,9 +8476,6 @@ msgstr "Igazoló kód"
 
 #~ msgid "Articles Récents"
 #~ msgstr "Friss cikkek"
-
-#~ msgid "Pays non valide"
-#~ msgstr "Érvénytelen ország"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "Szerver nem található. Kérjük, próbálkozzon később."
