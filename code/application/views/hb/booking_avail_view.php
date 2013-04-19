@@ -157,7 +157,7 @@ foreach ($booking_rooms as $hostel_room) {
 
                 if ($min_price_shared == $room_night["CUSTOMER"]["MINPRICE"]) {
 
-                    $lowest_night = _('Lowest night:') . ' ' . $display_currency . ' ' . number_format($min_price_shared, 2, '.', '');
+                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
                     $lowest_style = 'style="color: #6DA903;"';
 
                     $dormTitle = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $display_currency . ' ' . $min_price_shared;
@@ -431,7 +431,7 @@ foreach ($booking_rooms as $hostel_room) {
 
                 if ($min_price_private == $room_night["CUSTOMER"]["MINPRICE"]) {
 
-                    $lowest_night = _('Lowest night:') . ' ' . $display_currency . ' ' . number_format($min_price_private, 2, '.', '');
+                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
                     $lowest_style = 'style="color: #6DA903;"';
 
                     $roomTitle_PR = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Room') . ' )';
@@ -711,39 +711,32 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
             <tbody>
                 <tr>
                     <th class="title" colspan="3" width="240"> 
-            <div class="room-type" style="float: left;"> 
-                <a class="show-room-info" href="#"><?php echo _('Your Selection'); ?></a>
-                <div class="room-type-info">
-                    <h5><?php echo _("Notes Importantes"); ?></h5>
-                    <p><?php printf(gettext("You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone  number…) in your confirmation email after you have made your reservation."), $this->config->item('site_name')); ?></p>
-                    <span class="room-info-arrow"></span> 
-                </div>
-            </div>
-            <span style="float: right; margin-right: 20px;">
-                <?php echo _('Arrivée'); ?> : <b><?php echo $datetop; ?> </b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?> : <b><?php echo $numNights; ?> </b>
-            </span>
-            </th>
-            <th><?php echo _("Number of guests selected"); ?></th>
-            <th class="last"> <?php echo _("Price"); ?> </th>
-            </tr>
-            <?php
-            if ($sharedRoomCount > 0) {
-                echo $sharedRoomsTableSelect;
-            }
+                        <?php echo anchor('#', _('Your Selection'), array('class' => 'title', 'style' => 'display: block; float: left;', 'title' => _('Notes Importantes') . ' | ' . sprintf(gettext("You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), $this->config->item('site_name')))); ?>
+                        <span style="float: right; margin-right: 20px;">
+                            <?php echo _('Arrivée'); ?> : <b><?php echo $datetop; ?> </b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?> : <b><?php echo $numNights; ?> </b>
+                        </span>
+                    </th>
+                    <th><?php echo _("Number of guests selected"); ?></th>
+                    <th class="last"> <?php echo _("Price"); ?> </th>
+                </tr>
+                <?php
+                if ($sharedRoomCount > 0) {
+                    echo $sharedRoomsTableSelect;
+                }
 
-            if ($privateRoomCount > 0) {
-                echo $privateRoomsTableSelect;
-            }
-            ?>
-            <tr>
-                <td class="first" align="right" colspan="3"><strong><?php echo _('Total'); ?></strong></td>
-                <td class="total_people" align="center" colspan="" style="font-size: 14px; padding: 10px;"><strong></strong> x <span  class="nbpeople-table icon-nbpeople nbpeople-1"></span></td>
-                <td align="center"><?php echo $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
-            </tr>
-            <tr>
-                <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?> </span><strong class="right deposit_bottom"><?php echo _('10% Arrhes / Dépôt sera facturé en'); ?></strong></td>
-                <td align="center"><?php echo $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
-            </tr>
+                if ($privateRoomCount > 0) {
+                    echo $privateRoomsTableSelect;
+                }
+                ?>
+                <tr>
+                    <td class="first" align="right" colspan="3"><strong><?php echo _('Total'); ?></strong></td>
+                    <td class="total_people" align="center" colspan="" style="font-size: 14px; padding: 10px;"><strong></strong> x <span  class="nbpeople-table icon-nbpeople nbpeople-1"></span></td>
+                    <td align="center"><?php echo $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
+                </tr>
+                <tr>
+                    <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?> </span><strong class="right deposit_bottom"><?php echo _('10% Arrhes / Dépôt sera facturé en'); ?></strong></td>
+                    <td align="center"><?php echo $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
+                </tr>
             </tbody>
         </table>
 
