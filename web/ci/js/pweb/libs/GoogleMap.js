@@ -63,7 +63,7 @@ GoogleMap.prototype.init = function() {
 	this.initInfoWin();
 
 	this.drawMarkers();
-	
+    
 	this.marker_focus();
 	
 	if((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
@@ -273,6 +273,9 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 };
 GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
 {
+    // change map Zoom 
+    window.gmap.setZoom(13);
+    
     // do something with `pDistricts_umIds[counter]`
 
     var filter = MF.filter.Data({
@@ -328,6 +331,9 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 };
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
 
+    // change map Zoom 
+    window.gmap.setZoom(13);
+    
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];

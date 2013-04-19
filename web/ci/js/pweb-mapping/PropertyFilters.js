@@ -1152,6 +1152,8 @@ PWebFilterApp.prototype.setup = function(data)
             pweb_filter.closeFilter('landmarks');
             pweb_filter.closeFilter('districts');
 
+            // apply filter again to rest the map
+            that.apply_filters();
             $("#map_filter_popup").fancybox({
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',

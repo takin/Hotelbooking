@@ -9,7 +9,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                  <?php if (!empty($city_districts)) {    ?>
                 <li id="li_popup_filter_districts" class="first ui-tabs-selected">
                     <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
-                           <?php echo _("Districts"); ?>
+                           <?php echo _("Filter by Districts"); ?>
                     </a>
                 </li>
                  <?php }   ?>
@@ -17,7 +17,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
             if (!empty($city_landmarks)) { ?>
                 <li id="li_popup_filter_landmarks">
                     <a id="tab_map_filter_landmarks" href="#filter_content_landmarks_popup">
-                           <?php echo _('Landmarks (within 2km)'); ?>
+                           <?php echo _('Filter by Landmarks (within 2km)'); ?>
                     </a>
                 </li>
                 <?php }   ?>

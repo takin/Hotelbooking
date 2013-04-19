@@ -2698,7 +2698,7 @@ color:#3087C9;
 width: 275px;}
 
 #filter_map_leftSide{
-    width: 370px;
+    width: 400px;
     float: left;  
     height: 450px;
 }
@@ -2706,7 +2706,7 @@ width: 275px;}
     padding: 0;
 }
 #filter_map_rightSide_container{
-    width: 60% !important;
+    width: 58% !important;
     float: right;    
     height: 100%;
     overflow: hidden;
@@ -2719,11 +2719,12 @@ width: 275px;}
 
 #map_filter_popup{
     display: none;
-    width: 935px;
+    width: 965px;
     height: 450px;
 }
-#ul_map_filter_tabs .city_filter_tabs ul li a{
+#ul_map_filter_tabs li a{
     padding: 10px 30px 20px;
+    margin-left: -20px;
 }
 /*#filter_content_districts_popup , #filter_content_landmarks_popup{
     height: 400px;
@@ -2740,7 +2741,7 @@ width: 275px;}
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px 0 0 5px;
-    width: 364px;
+    width: 400px;
     margin-left: -3px;
     display: block;
 }
@@ -2749,6 +2750,8 @@ width: 275px;}
     /*dispay: inline;*/
     float:left;
     font-size:10px;
+    border: none; 
+    cursor: pointer;
     /*height: 15px;
     overflow: hidden;*/
 }
@@ -2756,11 +2759,6 @@ width: 275px;}
     float: left;
     padding: 7px;
 }
-/*#filter_content_landmarks_popup { display: none;}*/
-#cb_group_districts_filter li, #cb_group_landmarks_filter li{border: none; cursor: pointer;  }
-/*.filter_popup_content_text{
-    font-size:10px;
-}*/
 
 #filter_map_showProperties{
    background: -moz-linear-gradient(center top , #8FC800 0%, #7DB619 100%) repeat scroll 0 0 transparent;
