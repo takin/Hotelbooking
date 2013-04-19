@@ -2696,3 +2696,31 @@ text-align: right;
 text-decoration:none;
 }
 /*compare property css end*/
+
+.remove_from_search_options {
+	position: absolute;
+	margin-left: 340px;
+	background-color: #fff;
+	border: 1px solid #ccccc7;
+	padding: 10px;
+	margin-top: -33px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	display: none;
+}
+
+.remove_from_search_options ul li img {
+	vertical-align: middle;
+}
+
+.remove_from_search_options ul li {
+	font-size: 90%;
+	vertical-align: middle !important;
+}
+
+.remove_from_search_options ul li a {
+	font-weight: normal;
+	text-decoration: none;
+	color: #000 !important;
+	line-height: 24px;
+}
