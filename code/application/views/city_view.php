@@ -319,6 +319,12 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 ?>
 </script>
 
+<script id="template-save-favorite" type="text/html">
+<?php
+  $this->load->view('mustache/save_property_dialog');
+?>
+</script>
+
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">
 			<div id="quick_preview_div" style="min-height:600px;overflow:auto; width:880px;">

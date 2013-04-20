@@ -1097,6 +1097,7 @@ class CMain extends I18n_site
           $this->carabiner->js('pweb/includes/mustache.js');
 
           $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+          $this->carabiner->js('save_property.js');
           $this->carabiner->js('pweb-mapping/PropertyFilters.js');
           $this->carabiner->js('pweb/libs/GoogleMap.js');
 		   $this->carabiner->js('properties_compare.js');
@@ -1168,6 +1169,7 @@ class CMain extends I18n_site
             $this->carabiner->js('pweb/includes/mustache.js');
 
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+            $this->carabiner->js('save_property.js');
             $this->carabiner->js('pweb-mapping/PropertyFilters.js');
             $this->carabiner->js('pweb/libs/GoogleMap.js');
 			$this->carabiner->js('properties_compare.js');

@@ -397,13 +397,28 @@ else
 		</div>
 		<div class="group hostel-meta">
 			<div class="fblike">
-					<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
+				<script src="https://connect.facebook.net/<?php echo $code;?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
 			</div>
 
 			<?php if ($showEmail) { ?>
 			<div class="share-email">
 				<a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
 			</div>
+			<?php } ?>
+
+			<?php if ($this->config->item('displaySaveProperty')) { ?>
+				<div class="save_to_favorites_options">
+					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel["ID"]?>" style="vertical-align: middle">
+						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
+						<?php echo _('Add to my favorites'); ?>
+					</a>
+
+					<a href="#" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel["ID"]?>" style="vertical-align: middle; display: none">
+						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
+						<?php echo _('Saved to my favorites'); ?>
+					</a>
+
+				</div>
 			<?php } ?>
 
 			<div class="amenities no-indent">
@@ -1010,3 +1025,8 @@ if ($this->uri->segment(4, 0)) {
 ?>
 
 <?php $this->load->view('includes/template-share-email-popup'); ?>
+<script id="template-save-favorite" type="text/html">
+<?php
+  $this->load->view('mustache/save_property_dialog');
+?>
+</script>

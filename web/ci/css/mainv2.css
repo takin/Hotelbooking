@@ -2362,6 +2362,10 @@ text-align: -webkit-center;
      clear:both;
 }
 
+.save_to_favorites_options {
+	margin-top: 11px;
+}
+
 .share-email {
 	margin-top: 2px;
 }
@@ -2723,4 +2727,17 @@ text-decoration:none;
 	text-decoration: none;
 	color: #000 !important;
 	line-height: 24px;
+}
+
+.save_to_favorites,
+.save_to_favorites:hover,
+.saved_to_favorites,
+.saved_to_favorites:hover {
+
+	text-decoration: none;
+}
+
+.saved_to_favorites img,
+.save_to_favorites img {
+	border: none;
 }
