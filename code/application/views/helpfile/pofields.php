@@ -765,3 +765,35 @@
 <?php echo _('Standard Single Private Shared Bathroom');?>
 <?php echo _('Show fully available only');?>
 <?php echo _('We are displaying rooms with both full and partial availability for your dates. You can select this filter to only see rooms with full availability for your stay.');?>
+<?php echo _('Email is not valid');?>
+<?php echo _('Fill in the email');?>
+<?php echo _('Fill in the subject');?>
+<?php echo _('Fill in the message');?>
+<?php echo _('Fill in the from name');?>
+<?php echo _('Remove from this search');?>
+<?php echo _('Remove from any searches for next 24 hours');?>
+<?php echo _('Remove from any searches for 1 week');?>
+<?php echo _('Standard Single Private Ensuite');?>
+<?php echo _('Standard Twin Private Ensuite');?>
+<?php echo _('Deluxe Double Bed Private Ensuite');?>
+<?php echo _('1 Bed Private Ensuite');?>
+<?php echo _('%d Bed Private Ensuite');?>
+<?php echo _('Deluxe 1 Bed Family Room Ensuite');?>
+<?php echo _('Deluxe %d Bed Family Room Ensuite');?>
+<?php echo _('Filter by districts');?>
+<?php echo _('Filter by landmarks (-2kms)');?>
+<?php echo _('Lowest price per night per person in a dorm');?>
+<?php echo _('Lowest price per night per person in a private room');?>
+<?php echo _('Deposit:');?>
+<?php echo _('Deposit to be paid now:');?>
+<?php echo _('Deposit already paid:');?>
+<?php echo _('Amount already charged in %s:');?>
+<?php echo _('Currency for the deposit:');?>
+<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival.');?>
+<?php echo _('Amount to be paid on arrival:');?>
+<?php echo _('Amount to be paid when you arrive at the property');?>
+<?php echo _('Total:');?>
+<?php echo _('Membership card (not required):');?>
+<?php echo _('Membership card:');?>
+<?php echo _('The deposit is non refundable and non transferable.');?>
+<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>

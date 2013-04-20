@@ -1303,9 +1303,13 @@ msgstr "De (email)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
 #, fuzzy
+<<<<<<< HEAD
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
+=======
+msgid "Yes, I want to subscribe to the newsletter to get great deals. (You can unsubscribe anytime)"
+>>>>>>> French translated
 msgstr "Oui, je souhaite m'abonner à la newsletter."
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
@@ -2306,6 +2310,7 @@ msgstr "Notes Importantes"
 #: ../code/application/views/mobile/hw/booking_confirm.php:335
 #: ../code/application/views/hw/booking_view.php:1073
 #, php-format
+<<<<<<< HEAD
 msgid ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais "
 "de service minimum et non remboursables afin de confirmer et garantir votre "
@@ -2314,6 +2319,10 @@ msgstr ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais "
 "de service minimum et non remboursables afin de confirmer et garantir votre "
 "réservation. Le montant restant vous sera demandé à votre arrivée."
+=======
+msgid "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
+msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
+>>>>>>> French translated
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:8
 #: ../code/application/views/mobile/hw/booking_confirm.php:365
@@ -4055,6 +4064,7 @@ msgstr "Votre Sélection"
 #: ../code/application/views/hb/booking_avail_view.php:429
 #: ../code/application/views/hb/booking_view.php:96
 #, php-format
+<<<<<<< HEAD
 msgid ""
 "You only pay the deposit (10%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (90%%) is payable upon arrival. You "
@@ -4066,6 +4076,10 @@ msgstr ""
 "arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, "
 "numéro de téléphone ...) dans votre courriel de confirmation après avoir "
 "effectué votre réservation."
+=======
+msgid "You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
+msgstr "Vous ne payez que le dépôt (10%% du montant total) pour confirmer et garantir votre réservation. Le montant restant (90%%) est payable à votre arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, numéro de téléphone ...) dans votre courriel de confirmation après avoir effectué votre réservation."
+>>>>>>> French translated
 
 #: ../code/application/views/hw/booking_avail_view.php:554
 #: ../code/application/views/hb/booking_avail_view.php:457
@@ -4402,6 +4416,7 @@ msgstr ""
 
 #: ../code/application/views/hb/booking_view.php:867
 #, php-format
+<<<<<<< HEAD
 msgid ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) afin de "
 "confirmer et garantir votre réservation. Le montant restant vous sera "
@@ -4410,6 +4425,10 @@ msgstr ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais "
 "de service minimum et non remboursables afin de confirmer et garantir votre "
 "réservation. Le montant restant vous sera demandé à votre arrivée. "
+=======
+msgid "Sur %s, vous payez seulement les arrhes (10%% du montant total) afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."
+msgstr "Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée. "
+>>>>>>> French translated
 
 #: ../code/application/views/email/new_transaction.php:228
 #: ../code/application/views/email/new_transaction_hb.php:63
@@ -8010,7 +8029,7 @@ msgstr "La nuit la moins chère :"
 #: ../code/application/views/helpfile/pofields.php:760
 #, php-format
 msgid "Number of guests for %d nights"
-msgstr "Nombre de personnes pour %d nuits"
+msgstr "Nombre de personnes for %d nuits"
 
 #: ../code/application/views/helpfile/pofields.php:761
 #, php-format
@@ -8198,6 +8217,146 @@ msgstr ""
 "arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, "
 "numéro de téléphone ...) dans votre courriel de confirmation après avoir "
 "effectué votre réservation."
+
+#: ../code/application/views/helpfile/pofields.php:768
+#, fuzzy, php-format
+msgid "Email is not valid"
+msgstr "Pays non valide"
+
+#: ../code/application/views/helpfile/pofields.php:772
+#, fuzzy, php-format
+msgid "Fill in the from name"
+msgstr "Remplissez le nom dans le champ \"De\""
+
+#: ../code/application/views/helpfile/pofields.php:773
+#, php-format
+msgid "Remove from this search"
+msgstr "Retirer de cette recherche"
+
+#: ../code/application/views/helpfile/pofields.php:774
+#, php-format
+msgid "Remove from any searches for next 24 hours"
+msgstr "Retirer de toutes les recherches pour les prochaines 24 heures"
+
+#: ../code/application/views/helpfile/pofields.php:775
+#, php-format
+msgid "Remove from any searches for 1 week"
+msgstr "Retirer de toutes les recherches pour 1 semaine"
+
+#: ../code/application/views/helpfile/pofields.php:776
+#, fuzzy, php-format
+msgid "Standard Single Private Ensuite"
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:777
+#, fuzzy, php-format
+msgid "Standard Twin Private Ensuite"
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:778
+#, php-format
+msgid "Deluxe Double Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:779
+#, php-format
+msgid "1 Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:780
+#, fuzzy, php-format
+msgid "%d Bed Private Ensuite"
+msgstr "Chambre privée pour %d personnes avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:781
+#, php-format
+msgid "Deluxe 1 Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:782
+#, php-format
+msgid "Deluxe %d Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:783
+#, fuzzy, php-format
+msgid "Filter by districts"
+msgstr "Filtrer par : "
+
+#: ../code/application/views/helpfile/pofields.php:784
+#, php-format
+msgid "Filter by landmarks (-2kms)"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:785
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a dorm"
+msgstr "Prix moyen par nuit et par personne"
+
+#: ../code/application/views/helpfile/pofields.php:786
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a private room"
+msgstr "Le prix le plus bas par personne et par nuit dans une chambre privée dans cet établissement :"
+
+#: ../code/application/views/helpfile/pofields.php:787
+#, php-format
+msgid "Deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:788
+#, php-format
+msgid "Deposit to be paid now:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:789
+#, fuzzy, php-format
+msgid "Deposit already paid:"
+msgstr "Paiement déjà effectué"
+
+#: ../code/application/views/helpfile/pofields.php:790
+#, php-format
+msgid "Amount already charged in %s:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:791
+#, php-format
+msgid "Currency for the deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:792
+#, php-format
+msgid "You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:793
+#, php-format
+msgid "Amount to be paid on arrival:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:794
+#, php-format
+msgid "Amount to be paid when you arrive at the property"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:796
+#, fuzzy, php-format
+msgid "Membership card (not required):"
+msgstr "Carte de membre requise"
+
+#: ../code/application/views/helpfile/pofields.php:797
+#, fuzzy, php-format
+msgid "Membership card:"
+msgstr "Carte de membre requise"
+
+#: ../code/application/views/helpfile/pofields.php:798
+#, php-format
+msgid "The deposit is non refundable and non transferable."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:799
+#, fuzzy, php-format
+msgid "You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property"
+msgstr "Vous ne payez que le dépôt (10%% du montant total) pour confirmer et garantir votre réservation. Le montant restant (90%%) est payable à votre arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, numéro de téléphone ...) dans votre courriel de confirmation après avoir effectué votre réservation."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
