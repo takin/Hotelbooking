@@ -150,7 +150,7 @@
 
 
 	<div id="city_search_title_bar">
-		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
+		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'), '<span class="city_selected">' . $city_selected . '</span>');?> - <?php echo '<span class="country_selected">' . $country_selected . '</span>';?></h1>
 		<span id="city_results_counter">
 			<!-- top city result counter-->
 			<div id="resu" class="left_pagi" style="display:none;">
@@ -319,11 +319,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 ?>
 </script>
 
-<script id="template-save-favorite" type="text/html">
-<?php
-  $this->load->view('mustache/save_property_dialog');
-?>
-</script>
+<?php $this->load->view('includes/save_property'); ?>
 
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">

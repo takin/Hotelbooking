@@ -1,13 +1,25 @@
 var SaveProperty = function() {
 	var dialogTemplate = null;
 	var maxCharacters  = 75;
+	var dialog         = null;
 
 	function init() {
+		dialog = $('#save_property_dialog');
+
 		dialogTemplate = document.getElementById('template-save-favorite')
 			? document.getElementById('template-save-favorite').innerHTML
 			: '';
 
 		bindAddToFav();
+		bindCloseDialog();
+	}
+
+	function bindCloseDialog() {
+		dialog.find('.close a').live('click', function(event) {
+			event.preventDefault();
+
+			dialog.hide();
+		});
 	}
 
 	function bindAddToFav() {
@@ -21,26 +33,42 @@ var SaveProperty = function() {
 			showSaveDialog({
 				favoriteId     : '',
 				propertyNumber : propertyNumber,
-				imageURL       : $('#info_pic img').attr('src'),
+				imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img').attr('src'),
 				propertyName   : obj.attr('title'),
-				'location'     : obj.attr('rel'),
+				city           : $('.city_selected').html(),
+				country        : $('.country_selected').html(),
 				date           : $('#city_results_arrive_date').html(),
 				nights         : $('#city_results_numnights_selected').html(),
 				notes          : '',
-				characters     : 0
+				characters     : 0,
+				isUpdate       : false,
+				isNew          : true
 			});
 		});
 	}
 
 	function showSaveDialog(data) {
 		var output = Mustache.to_html(dialogTemplate, data);
+
+		dialog.find('.content').html(output);
+		countRemainingChars(dialog.find('.notes'), dialog.find('.characters .num'));
+		dialog.find('.date').datepicker({
+			dateFormat: 'd MM yy',
+			showOn: 'button',
+			altField: "#date",
+			altFormat:'yy-mm-d',
+			onSelect: function() {
+			}
+		});
+		dialog.find('.ui-datepicker').hide();
+		dialog.show();
 	}
 
 	function handleSaveForm() {
 	}
 
 	function countRemainingChars(currentElem, counterContainer) {
-		var obj       = $(elem);
+		var obj       = $(currentElem);
 		var remaining = maxCharacters - obj.val().length;
 
 		if (remaining < 0) {
@@ -51,6 +79,17 @@ var SaveProperty = function() {
 
 		$(counterContainer).html(remaining);
 
+		// plural/singular
+		if (remaining == 1) {
+			$(counterContainer).parent().find('.plural').hide();
+			$(counterContainer).parent().find('.singular').show();
+		}
+		else {
+			$(counterContainer).parent().find('.plural').show();
+			$(counterContainer).parent().find('.singular').hide();
+		}
+
+		// no new chars
 		if (remaining == 0) {
 			return false;
 		}

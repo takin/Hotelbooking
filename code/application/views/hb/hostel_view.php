@@ -1025,8 +1025,4 @@ if ($this->uri->segment(4, 0)) {
 ?>
 
 <?php $this->load->view('includes/template-share-email-popup'); ?>
-<script id="template-save-favorite" type="text/html">
-<?php
-  $this->load->view('mustache/save_property_dialog');
-?>
-</script>
+<?php $this->load->view('includes/save_property'); ?>

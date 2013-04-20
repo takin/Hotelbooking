@@ -2370,6 +2370,7 @@ text-align: -webkit-center;
 	margin-top: 2px;
 }
 
+#save_property_dialog,
 #share-overlay {
 	position: fixed;
 	top: 0;
@@ -2383,6 +2384,22 @@ text-align: -webkit-center;
 	opacity: 1;
 	z-index: 10000;
 	display: none;
+}
+
+#save_property_dialog .content_container {
+	margin: 0 auto;
+	height: 450px;
+	width: 618px;
+	margin-top: 90px;
+	color: #00359f;
+	background-color: #fff;
+	opacity: 1;
+	border: 1px solid #b3b3b3;
+}
+
+#save_property_dialog .close {
+	float: right;
+	width: 50px;
 }
 
 #share-overlay .content {
@@ -2740,4 +2757,33 @@ text-decoration:none;
 .saved_to_favorites img,
 .save_to_favorites img {
 	border: none;
+}
+
+#save_property_dialog .title {
+	padding: 10px 5px;
+}
+
+#save_property_dialog .property_details .image {
+	float: left;
+	width: 120px;
+}
+
+#save_property_dialog .schedule_details,
+#save_property_dialog .actions,
+#save_property_dialog .fav_details {
+	clear: both;
+}
+
+#save_property_dialog .schedule_details .date,
+#save_property_dialog .schedule_details .nights {
+	float: left;
+	margin-right: 15px;
+}
+
+#save_property_dialog .fav_details label {
+	display: block;
+}
+
+#save_property_dialog .fav_details .characters {
+	text-align: right;
 }
