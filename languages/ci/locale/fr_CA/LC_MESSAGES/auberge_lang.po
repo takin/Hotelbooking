@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"POT-Creation-Date: 2013-04-19 16:10+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
@@ -4468,6 +4468,8 @@ msgstr "(validé le %s)"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
+#: ../code/application/views/helpfile/pofields.php:795
+#, php-format
 msgid "Total:"
 msgstr "Total :"
 
@@ -7541,6 +7543,7 @@ msgid "Not enough parameters"
 msgstr "Pas assez de paramètres"
 
 #: ../code/application/views/helpfile/pofields.php:661
+#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7553,12 +7556,14 @@ msgid "Invalid email recipient"
 msgstr "Email du destinataire invalide"
 
 #: ../code/application/views/helpfile/pofields.php:663
+#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "Remplissez le sujet"
 
 #: ../code/application/views/helpfile/pofields.php:664
+#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7987,7 +7992,7 @@ msgstr "La nuit la moins chère :"
 #: ../code/application/views/helpfile/pofields.php:760
 #, php-format
 msgid "Number of guests for %d nights"
-msgstr "Nombre de personnes for %d nuits"
+msgstr "Nombre de personnes pour %d nuits"
 
 #: ../code/application/views/helpfile/pofields.php:761
 #, php-format
@@ -8024,6 +8029,157 @@ msgstr ""
 "Nous affichons les dortoirs et chambres avec une disponibilité complete et "
 "partielle pour vos dates. Vous pouvez choisir ce filtre pour voir uniquement "
 "les dortoirs et chambres avec une disponibilité complete pour votre séjour."
+
+#: ../code/application/views/helpfile/pofields.php:768
+#, fuzzy, php-format
+msgid "Email is not valid"
+msgstr "Pays non valide"
+
+#: ../code/application/views/helpfile/pofields.php:772
+#, fuzzy, php-format
+msgid "Fill in the from name"
+msgstr "Remplissez le nom dans le champ \"De\""
+
+#: ../code/application/views/helpfile/pofields.php:773
+#, php-format
+msgid "Remove from this search"
+msgstr "Retirer de cette recherche"
+
+#: ../code/application/views/helpfile/pofields.php:774
+#, php-format
+msgid "Remove from any searches for next 24 hours"
+msgstr "Retirer de toutes les recherches pour les prochaines 24 heures"
+
+#: ../code/application/views/helpfile/pofields.php:775
+#, php-format
+msgid "Remove from any searches for 1 week"
+msgstr "Retirer de toutes les recherches pour 1 semaine"
+
+#: ../code/application/views/helpfile/pofields.php:776
+#, fuzzy, php-format
+msgid "Standard Single Private Ensuite"
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:777
+#, fuzzy, php-format
+msgid "Standard Twin Private Ensuite"
+msgstr "Chambre privée standard pour 1 personne avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:778
+#, php-format
+msgid "Deluxe Double Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:779
+#, php-format
+msgid "1 Bed Private Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:780
+#, fuzzy, php-format
+msgid "%d Bed Private Ensuite"
+msgstr "Chambre privée pour %d personnes avec salle de bains partagée"
+
+#: ../code/application/views/helpfile/pofields.php:781
+#, php-format
+msgid "Deluxe 1 Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:782
+#, php-format
+msgid "Deluxe %d Bed Family Room Ensuite"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:783
+#, fuzzy, php-format
+msgid "Filter by districts"
+msgstr "Filtrer par : "
+
+#: ../code/application/views/helpfile/pofields.php:784
+#, php-format
+msgid "Filter by landmarks (-2kms)"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:785
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a dorm"
+msgstr "Prix moyen par nuit et par personne"
+
+#: ../code/application/views/helpfile/pofields.php:786
+#, fuzzy, php-format
+msgid "Lowest price per night per person in a private room"
+msgstr ""
+"Le prix le plus bas par personne et par nuit dans une chambre privée dans "
+"cet établissement :"
+
+#: ../code/application/views/helpfile/pofields.php:787
+#, php-format
+msgid "Deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:788
+#, php-format
+msgid "Deposit to be paid now:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:789
+#, fuzzy, php-format
+msgid "Deposit already paid:"
+msgstr "Paiement déjà effectué"
+
+#: ../code/application/views/helpfile/pofields.php:790
+#, php-format
+msgid "Amount already charged in %s:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:791
+#, php-format
+msgid "Currency for the deposit:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:792
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:793
+#, php-format
+msgid "Amount to be paid on arrival:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:794
+#, php-format
+msgid "Amount to be paid when you arrive at the property"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:796
+#, fuzzy, php-format
+msgid "Membership card (not required):"
+msgstr "Carte de membre requise"
+
+#: ../code/application/views/helpfile/pofields.php:797
+#, fuzzy, php-format
+msgid "Membership card:"
+msgstr "Carte de membre requise"
+
+#: ../code/application/views/helpfile/pofields.php:798
+#, php-format
+msgid "The deposit is non refundable and non transferable."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:799
+#, fuzzy, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival. You will find the property"
+msgstr ""
+"Vous ne payez que le dépôt (10%% du montant total) pour confirmer et "
+"garantir votre réservation. Le montant restant (90%%) est payable à votre "
+"arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, "
+"numéro de téléphone ...) dans votre courriel de confirmation après avoir "
+"effectué votre réservation."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -8460,9 +8616,6 @@ msgstr "Code de confirmation"
 
 #~ msgid "Articles Récents"
 #~ msgstr "Articles Récents"
-
-#~ msgid "Pays non valide"
-#~ msgstr "Pays non valide"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "Serveur indisponible pour le moment. Veuillez réessayer plus tard."

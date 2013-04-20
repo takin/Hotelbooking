@@ -1151,11 +1151,26 @@ p.deal {
 	clear:both;
 }
 .icon-nbpeople{
-	padding-right:15px;
-	background: url(../images/V2/icon_nbpeople1.png) no-repeat scroll center right transparent;	
-	float:left;
-	margin-top:0px !important;
-	margin-right:7px;
+	padding-left:15px;
+        float:left;
+        margin-top:0px !important;
+        margin-right:17px;
+        background-attachment: scroll;
+        background-color: transparent;
+        background-image: url(../images/V2/icon_nbpeople1.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+}
+.icon-nbpeople span {
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+        width: 20px;
+        display: inline-block;
+        background-color: #227BBD;
+        color: #FFFFFF;
+        padding-bottom: 2px;
+        padding-top: 1px;
 }
 .nbpeople-table.icon-nbpeople{
 	float:none;
@@ -1171,7 +1186,7 @@ p.deal {
 .nbpeople-table.nbpeople-1, .private-people.nbpeople-1{
 	background: url(../images/V2/icon_nbpeople.png) no-repeat scroll center left transparent;
 	padding:0px 0px 0px 0px;
-	display:block;
+	display:inline-block;
 	text-indent:-99999px;
 	margin-right:0px;
 	width:10px;
@@ -2780,4 +2795,34 @@ width: 275px;}
     padding: 10px 18px;
     text-decoration: none;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/*compare property css end*/
+
+.remove_from_search_options {
+	position: absolute;
+	margin-left: 340px;
+	background-color: #fff;
+	border: 1px solid #ccccc7;
+	padding: 10px;
+	margin-top: -33px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	display: none;
+}
+
+.remove_from_search_options ul li img {
+	vertical-align: middle;
+}
+
+.remove_from_search_options ul li {
+	font-size: 90%;
+	vertical-align: middle !important;
+}
+
+.remove_from_search_options ul li a {
+	font-weight: normal;
+	text-decoration: none;
+	color: #000 !important;
+	line-height: 24px;
 }

@@ -114,12 +114,43 @@
 				<div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.');?></div>
 				<div class="info_indent">
 					<h2>
-                        <a href="{{property_page_url}}">
+                        <a href="{{property_page_url}}" style="vertical-align: middle">
                             {{propertyName}}
-                            <span style="color: #3087C9; font-size:0.7em;">
+                            <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">
                                 ({{propertyTypeTranslate}})
                             </span>
                         </a>
+
+                        <?php
+                            if ($this->config->item('displayRemoveFromSearch')) { ?>
+                                <a href="javascript:void(0);" class="remove_from_search_trigger" id="remove_from_search_{{propertyNumber}}" onclick="$('.remove_from_search_options').hide(); $('#remove_from_search_options_{{propertyNumber}}').toggle();">
+					<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
+				</a>
+
+				<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">
+                                    <ul class="remove_from_search_option">
+                                        <li class="remove_from_search_option">
+						<a href="javascript:void(0);" class="remove_from_search remove_property_permanentely" id="remove_property_permanentely_{{propertyNumber}}">
+							<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" class="remove_from_search_icon" />
+							<?php echo _('Remove from this search'); ?>
+						</a>
+					</li>
+                                        <li>
+						<a href="javascript:void(0);" class="remove_from_search remove_property_one_day" id="remove_property_one_day_{{propertyNumber}}">
+							<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
+							<?php echo _('Remove from any searches for next 24 hours'); ?>
+						</a>
+					</li>
+                                        <li>
+						<a href="javascript:void(0);" class="remove_from_search remove_property_one_week" id="remove_property_one_week_{{propertyNumber}}">
+							<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
+							<?php echo _('Remove from any searches for 1 week'); ?>
+						</a>
+					</li>
+                                    </ul>
+                                </div>
+                            <?php }
+                        ?>
                     </h2>
 					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
 					if($displayCompareProperty == 1) { ?>
@@ -211,22 +242,22 @@
 						{{#display_shared_price}}
   						<div class="group">
 							<span class="nbpeople">
-							<span class="icon-nbpeople nbpeople-1" title="<?php echo _('Bed in a dorm. 1 person per bed maximum')?>"><?php printf( gettext('Dorms from %s'),'');?></span>
+							<span class="icon-nbpeople nbpeople-1" title=""><?php printf( gettext('Dorms from %s'),'');?></span>
 							</span>
 							</div>
 							{{#original_price}}
-							<span class="rebate-price">{{display_currency}} {{original_price}}</span>
+							<span class="rebate-price"> {{display_currency}} {{original_price}}</span>
 							{{/original_price}}
-							{{display_currency}} <strong>{{display_shared_price_formatted}}</strong>
+							{{display_currency}} <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>">{{display_shared_price_formatted}}</strong>
 							{{#original_price}}
 							<div class="group deal"><p class="deal"><?php echo _('Deal of the Day');?></p></div>
 							{{/original_price}}
   					{{/display_shared_price}}
   					{{#display_private_price}}
   					  <div class="group">
-							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople{{#display_private_people}} nbpeople-{{display_private_people}}{{/display_private_people}}">{{#display_private_people}}{{display_private_people}} x{{/display_private_people}}</span>
+							<span class="nbpeople" title="<?php echo _('Maximum number of guests in the room')?>"><span class="private-people icon-nbpeople nbpeople-1">1 x</span>
 							<span class="nbpeople-text"><?php printf( gettext('Private rooms from %s'),'');?></span>
-							<span class="display-currrency">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
+							<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
 							</span>
 							</div>
   					{{/display_private_price}}

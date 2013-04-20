@@ -1236,6 +1236,7 @@ class CMain extends I18n_site
 	}
 	else {
 		$cookieArray = explode(",", $_COOKIE['last_review_property']);//-- the propery id is already in cookie
+
 		if (in_array($property_id,  $cookieArray)) {
 			return TRUE; // property is already in cookie string
 		}
@@ -1291,9 +1292,11 @@ class CMain extends I18n_site
 	if (in_array($this->input->post('property_id'), $cookieArray)) {
 		foreach($cookieArray as $key => $value) { // loop to remove the proper property from cooki
 			if ($value == $this->input->post('property_id')) { // propery id match in the cookies
-				$cookieArray[$key] = '';
+				unset($cookieArray[$key]);
 			}
 		}
+
+		$cookieArray = array_values($cookieArray);
 
 		$new_cookie_array = implode(',', $cookieArray); // make the array as comma seperated string
 
@@ -1865,6 +1868,7 @@ error_log($command, 3, '/tmp/abc.log');
       if(empty($data['error_msg']))
       {
         $data["property_rooms"] = $this->hb_engine->prepare_rooms($data['booking_rooms'],$numNights);
+        $data["property_api"] = 'HB';
         unset($data['booking_rooms']);
       }
       $this->load->view('property_rooms_avail',$data);
@@ -1877,7 +1881,8 @@ error_log($command, 3, '/tmp/abc.log');
       if($data['api_error']==FALSE)
       {
         $data["property_rooms"] = $this->hw_engine->prepare_distinct_rooms($data['booking_info'], $data['distinctRoomTypes'], $numNights, FALSE);
-//         unset($data['distinctRoomTypes']);
+        $data["property_api"] = 'HW';
+        //unset($data['distinctRoomTypes']);
         unset($data['booking_info']->Rooms);
       }
       $this->load->view('property_rooms_avail',$data);
