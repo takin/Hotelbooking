@@ -2692,6 +2692,7 @@ text-decoration:none;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	display: none;
+	z-index: 30;
 }
 
 .remove_from_search_options ul li img {
@@ -2699,7 +2700,7 @@ text-decoration:none;
 }
 
 .remove_from_search_options ul li {
-	font-size: 90%;
+	font-size: 0.7em;
 	vertical-align: middle !important;
 }
 
