@@ -207,17 +207,17 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                              }
                              elseif ( empty($city_landmarks) ) {
                                   $filterBy_flag = "districts";
-                                  $span_style = "margin-left: 0px; padding-left: 30px;";
+                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
                              }
                              elseif ( empty($city_districts) ) {
                                   $filterBy_flag = "landmarks";
-                                   $span_style = "margin-left: 0px; padding-left: 30px;";
+                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
                              } 
                              if ($filterBy_flag !== "none") {
                                     ?>
                     <div id="map_filter_button" class="box_content map_button_box box_round">
                                 <a id="city_map_filter" href="#">
-                                    <span><strong style="<?php echo $span_style; ?>">
+                                    <span><strong <?php echo $span_style; ?>>
                                             <?php
                                             switch ($filterBy_flag) {
                                                 case "districts":
