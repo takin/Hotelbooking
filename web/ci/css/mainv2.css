@@ -763,7 +763,8 @@ div.mapbubble p.price span{ color:red; display:inline;}
 
 #city_search_title_bar{width: 100%;height:22px;margin-bottom:15px;padding-bottom:5px;border-bottom:1px dashed #AAAAAA;}
 #city_search_title_bar h1{float:left;border:0px;}
-#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none;}
+#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none; height: 86px;}
+.top_search_result{line-height: 65px;}
 #city_results_count .view_map{float:right;font-weight:normal;
 color:#3087C9;
 background:url(../images/V2/icon_view_map_green.png) no-repeat center left;
@@ -1855,7 +1856,7 @@ padding:10px 15px 10px 10px;	color:#ffffff;	text-shadow:1px 1px 1px #000000;font
 .map_button_box a{display:block;}
 .map_button_box a:hover{text-decoration:none;}
 .map_button_box span{padding:10px 15px 10px 10px; color:#ffffff; text-shadow:1px 1px 1px #000000;font-size:1.2em;	display:block;	position:absolute;	bottom:0px;right:0px;background:url("../images/V2/menu-back.png") repeat-x scroll left center #082747; margin-left: 60px;}
-.map_button_box span strong{margin-left: 24px; padding-left:23px; float: right;}
+.map_button_box span strong{margin-left: 24px; padding-left:23px; float: right; font-size: 12.5px;}
 .map_button_view{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
 	border-bottom:1px solid #80B422;
 	background-image:url("../images/V2/icon_view_map_green.png");
