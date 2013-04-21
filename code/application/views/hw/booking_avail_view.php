@@ -763,11 +763,11 @@ if ($api_error == false) {
                     <tr>
                         <td class="first" align="right" colspan="3"><strong><?php echo _('Total'); ?></strong></td>
                         <td class="total_people" align="center" colspan="" style="font-size: 14px; padding: 10px;"><strong></strong> x <span  class="nbpeople-table icon-nbpeople nbpeople-1"></span></td>
-                        <td align="center"><?php echo $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
+                        <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
                     </tr>
                     <tr>
                         <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?></span><strong class="right deposit_bottom"><?php echo _('10% Arrhes / Dépôt sera facturé en'); ?></strong></td>
-                        <td align="center"><?php echo $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
+                        <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
                     </tr>
                 </tbody>
             </table>
