@@ -190,14 +190,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
 
 		  <div id="city_results_count" class="group">
-                    <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
-                    <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
-                    <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
-                    <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
+                    <span id="city_results_arrive" class="top_search_result"><?php echo _('Arrivée');?>:</span>
+                    <span id="city_results_arrive_date" class="top_search_result"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
+                    <?php printf( '<span id="city_results_numnights" class="top_search_result">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
+                    <a id="change-dates" href="#" class="top_search_result">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 <!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
 				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
-                    <?php if(isset($city_info->city_geo_lat)) { ?>
+                       <?php if(isset($city_info->city_geo_lat)) { ?>
                         <?php
                             $filterBy_flag = "both";
                             $span_style = null;
@@ -233,12 +233,13 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                                     break;
                                             }
                                             ?></strong></span>
-                                    <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
+                                    <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
                             </div>
                         <?php } ?>
                     <?php } ?>
 			</div>
+ 
 
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
