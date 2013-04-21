@@ -1804,29 +1804,42 @@ error_log($command, 3, '/tmp/abc.log');
   /*
    * ajax_location_avail function to update location available properties list by ajax
    */
-  function ajax_location_avail($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL)
-  {
-    if(empty($country)||empty($city)||empty($dateStart)||empty($numNights))
-    {
+  function ajax_location_avail($country = NULL, $city = NULL, $dateStart = NULL, $numNights = NULL) {
+    if (empty($country)||empty($city)||empty($dateStart)||empty($numNights)) {
       return false;
     }
 
-	$this->_currency_init();
+    $this->_currency_init();
 
-    if($this->api_used == HB_API)
-    {
+    $this->load->model('Db_favorite_hostels');
+    $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers(13);
+
+    if ($this->api_used == HB_API) {
       $this->load->library('hb_engine');
+
       $data = $this->hb_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
+      if (!empty($data['property_list']) && is_array($data['property_list'])) {
+          foreach ($data['property_list'] as $index => $property) {
+              $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+          }
+      }
+
       $data = $this->hb_engine->location_json_format($data);
     }
-    else
-    {
+    else {
       $this->load->library('hw_engine');
+
       $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
+      if (!empty($data['property_list']) && is_array($data['property_list'])) {
+          foreach ($data['property_list'] as $index => $property) {
+              $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+          }
+      }
+
       $data = $this->hw_engine->location_json_format($data);
     }
 
-    $this->load->view('includes/template-json',$data);
+    $this->load->view('includes/template-json', $data);
   }
 
    /*

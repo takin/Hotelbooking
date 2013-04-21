@@ -3,7 +3,7 @@
 	<input type="hidden" name="propertyNumber" value="{{propertyNumber}}" />
 
 	<input type="hidden" name="nights" value="{{nights}}" />
-	<input type="hidden" name="date" value="{{date}}" id="date" />
+	<input type="hidden" name="date" value="{{dateVal}}" id="date" />
 
 	<div class="property_details">
 		<div class="image">
@@ -17,14 +17,14 @@
 	<div class="schedule_details">
 		<div class="date">
 			<span><?php echo _('Arrival:'); ?></span>
-			<input type="text" name="date_show" class="date" value="{{date}}" />
 			<span class="num">{{date}}</span>
+			<input type="text" name="date_show" class="date_show" id="date_show" readonly="readonly" value="{{date}}" />
 		</div>
 
 		<div class="nights">
 			<span><?php echo _('Number of nights:'); ?></span>
 			<span class="num">{{nights}}</span>
-			<a href="">[<?php echo _('Change Dates'); ?>]</a>
+			<a href="#" onclick="SaveProperty.changeDate('#save_fav .schedule_details .date .num', '#date_show'); return false;">[<?php echo _('Change Dates'); ?>]</a>
 		</div>
 	</div>
 

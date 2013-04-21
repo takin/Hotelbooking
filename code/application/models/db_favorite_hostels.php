@@ -33,4 +33,16 @@ class Db_favorite_hostels extends CI_Model {
 
 		return $this->db->count_all_results();
 	}
+
+	public function savedPropertiesNumbers($userId) {
+		$numbers = array();
+
+		$data = $this->db->get(self::FAVORITE_TABLE);
+
+		foreach ($data->result() as $row) {
+			$numbers["{$row->hostel_hb_id}"] = $row->hostel_hb_id;
+		}
+
+		return $numbers;
+	}
 }

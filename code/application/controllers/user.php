@@ -148,6 +148,12 @@ class User extends UserRestricted
     }
   }
 
+  function favorite_properties() {
+      $data['current_view'] = "restricted/user_favorite_properties";
+
+      $this->load->view('includes/template', $data);
+  }
+
   function bookings()
   {
 

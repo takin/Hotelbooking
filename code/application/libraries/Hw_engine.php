@@ -611,6 +611,8 @@ class Hw_engine {
     {
       //TODO insert this into HW and HB lib
 
+      $json_data["property_list"][$i]['savedToFavorites']   = $prop["savedToFavorites"];
+      $json_data["property_list"][$i]['saveToFavorites']    = !$prop["saveToFavorites"];
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))

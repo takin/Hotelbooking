@@ -200,16 +200,15 @@
 					<div class="info_indent">
 						<?php if ($this->config->item('displaySaveProperty')) { ?>	
 							<p>
-								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle" rel="{{city_name}}" title="{{propertyName}}">
+								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{city_name}}" title="{{propertyName}}">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 									<?php echo _('Add to my favorites'); ?>
 								</a>
 
-								<a href="#" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="display: none; vertical-align: middle">
+								<a href="#" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 									<?php echo _('Saved to my favorites'); ?>
 								</a>
-
 							</p>
 						<?php } ?>
 						<p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
