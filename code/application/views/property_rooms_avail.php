@@ -184,7 +184,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_shared == $room["availableDates"][$date->format("Y-m-d")]["price"]) {
-                            $lowest_night = _('Lowest night:') . ' ' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '');
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';
@@ -379,7 +379,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_private == ($room["availableDates"][$date->format("Y-m-d")]["price"] / $room['max_guest_per_unity'])) {
-                            $lowest_night = _('Lowest night:') . ' ' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '');
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';
