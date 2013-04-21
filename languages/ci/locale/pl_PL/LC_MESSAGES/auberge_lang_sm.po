@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-14 22:52+0200\n"
+"PO-Revision-Date: 2013-04-21 21:52+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7913,7 +7912,7 @@ msgstr "Zapewnione po dokonaniu rezerwacji"
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Prywatna sypialnia dla %d osób ze wspólną łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:764
 #, php-format
@@ -7923,7 +7922,7 @@ msgstr "Częściowo dostępne"
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Pokój Pojedynczy Standard Prywatny dla 1 osoby z Dzieloną Łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:766
 #, php-format
@@ -7937,111 +7936,113 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"Pokazujemy pokoje w całkowice oraz częściowo dostępne w podanych datach. "
+"Możesz zaznaczyć opcję pokazywania pokoi całkowicie dostępnych. "
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "Kraj niedostępny"
+msgstr "Adres email nieistnieje"
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "Wypełnij pole \"Od\""
+msgstr "Wpisz swoje imię"
 
 #: ../code/application/views/helpfile/pofields.php:773
-#, fuzzy, php-format
+#, php-format
 msgid "Remove from this search"
-msgstr "Usuń ten obiekt"
+msgstr "Usuń z listy wyszukiwania"
 
 #: ../code/application/views/helpfile/pofields.php:774
 #, php-format
 msgid "Remove from any searches for next 24 hours"
-msgstr ""
+msgstr "Usuń z list wyszukiwania na 24 godziny"
 
 #: ../code/application/views/helpfile/pofields.php:775
 #, php-format
 msgid "Remove from any searches for 1 week"
-msgstr ""
+msgstr "Usuń z listy wyszukiwania na okres tygodnia"
 
 #: ../code/application/views/helpfile/pofields.php:776
 #, php-format
 msgid "Standard Single Private Ensuite"
-msgstr ""
+msgstr "Pokój Standard z pojedynczym łóżkiem i łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:777
 #, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr ""
+msgstr "Pokój Standard z 2 pojedynczymi łóżkami i łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "Pokój Deluxe z podwójnym łóżkiem i prywatną łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "Prywatny pokój z pojedynczym łóżkiem i prywatną łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:780
 #, php-format
 msgid "%d Bed Private Ensuite"
-msgstr ""
+msgstr "Prywatny pokój dla %d osób z prywatną łazienką "
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "Pokój Deluxe Rodzinny z 1 pojedynczym łóżkiem i łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:782
 #, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "Pokój Deluxe Rodzinny dla %d osób z łazienką"
 
 #: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by districts"
-msgstr "Filtruj przez"
+msgstr "Wyszukaj przez region"
 
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "Wyszukaj przez punkty orientacyjne"
 
 #: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "Średnia cena za noc za osobę "
+msgstr "Najniższa cena za noc za osobę w akademiku"
 
 #: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr "Najniższa cena za osobę za noc w prywatnym pokoju w danej kwaterze:"
+msgstr "Najniższa cena za noc za osobę w prywatnym pokoju"
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "Depozyt:"
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "Depozyt do zapłacenia teraz:"
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "Płatność została już dokonana"
+msgstr "Depozyt już zapłacony:"
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "Kwota już zapłacona w %s:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "Waluta depozytu:"
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
@@ -8049,42 +8050,44 @@ msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
 msgstr ""
+"Depozyt opłacany jest w celu potwierdzenia rezerwacji. Pozostałą kwotę "
+"uiszcza się po dotarciu na miejsce."
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "Kwota to zapłacenia po przybyciu: "
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "Kwota to zapłacenia po przybyciu do kwatery: "
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "Karta członkowska jest wmagana"
+msgstr "Karta członkowska (dobrowolna):"
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "Karta członkowska jest wmagana"
+msgstr "Karta członkowska:"
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
-msgstr ""
+msgstr "Depozyt nie podlega zwrotowi ani transferowi."
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property"
 msgstr ""
-"Teraz płacisz tylko depozyt (10%% całej sumy), aby potwierdzić i "
-"zabezpieczyć rezerwację. Pozostałą kwotę (90%%) muszisz zapłacić zaraz po "
-"przyjeździe. Dane adresowe obiektu ( email, adres, numer telefonu…) możesz "
-"znaleźć w emailu potwierdzającym Twoją rezerwację. "
+"Depozyt opłacany jest w celu potwierdzenia rezerwacji. Pozostałą kwotę "
+"uiszcza się po dotarciu na miejsce. Po dokonaniu rezerwacji otrzymasz "
+"wszystkie dane kontaktowe do danej kwatery (email, adres, numer telefonu…) w "
+"mailu potwierdzającym."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
