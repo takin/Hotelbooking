@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-19 21:23+0200\n"
+"PO-Revision-Date: 2013-04-21 20:52+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -7923,14 +7923,14 @@ msgstr ""
 "szabad szobák jelenjenek meg."
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "Érvénytelen ország"
+msgstr "Érvénytelen email"
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "Írja be a \"Feladó\" nevét"
+msgstr "Adja meg a feladó nevét"
 
 #: ../code/application/views/helpfile/pofields.php:773
 #, php-format
@@ -7952,84 +7952,84 @@ msgstr ""
 "keresésből"
 
 #: ../code/application/views/helpfile/pofields.php:776
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Single Private Ensuite"
-msgstr "Standard egyéni szállás közös fürdőszobával"
+msgstr "Standard egyéni privát fürdőszobával ellátott szoba"
 
 #: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr "Standard egyéni szállás közös fürdőszobával"
+msgstr "Standard iker privát fürdőszobával ellátott szoba"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "Deluxe franciaágyas privát fürdőszobával ellátott szoba"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "Egyágyas privát fürdőszobával ellátott szoba"
 
 #: ../code/application/views/helpfile/pofields.php:780
 #, fuzzy, php-format
 msgid "%d Bed Private Ensuite"
-msgstr "%d egyéni szállás közös fürdőszobával"
+msgstr "Hétágyas privát fürdőszobával ellátott szoba"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "Deluxe egyágyas, fürdőszobával ellátott családi szoba"
 
 #: ../code/application/views/helpfile/pofields.php:782
-#, php-format
+#, fuzzy, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "Deluxe hétágyas, fürdőszobával ellátott családi szoba"
 
 #: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by districts"
-msgstr "Szűrés:"
+msgstr "Szűrés körzetek szerint"
 
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "Szűrés mérföldkövek szerint (-2 km)"
 
 #: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "Éj / főre vonatkozó átlag"
+msgstr "Legolcsóbb kollégiumi szoba ár / éj / fő "
 
 #: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr "Ebben az ingatlanban a legalacsonyabb szoba ár fő / éjre vonatkozóan:"
+msgstr "Legolcsóbb egyéni szoba ár / éj / fő "
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "Előleg:"
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "Ma napig befizetendő előleg:"
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "A fizetés már megtörtént"
+msgstr "Már befizetett előleg:"
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "Eddig felszámolt összeg %s-ben megadva:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "Előleg pénzneme:"
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
@@ -8037,43 +8037,45 @@ msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
 msgstr ""
+"Az előleget a szobafoglalás visszaigazolása és biztosítása érdekében kell "
+"befizetnie.  A fennmaradó összeget érkezéskor kell fizetni."
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "Érkezéskor fizetendő összeg:"
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "Az ingatlanra érkezéskor fizetendő összeg"
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "Tagsági kártya kötelező"
+msgstr "Tagsági kártya (nem kötelező):"
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "Tagsági kártya kötelező"
+msgstr "Tagsági kártya:"
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
 msgstr ""
+"Az előleg nem kerül visszafizetésre és más foglalásnál nem használható fel."
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property"
 msgstr ""
-" Önnek most csak a letétet kell befizetnie (a teljes összeg10%%-át), hogy "
-"megerősítse és biztosítsa a foglalást. A fennmaradó összeg (a maradék 90%%) "
-"érkezéskor fizetendő. Az ingatlan elérhetőségeit  (e-mail, cím, "
-"telefonszám ...) a visszaigazoló e-mailben találja meg, amit a foglalás után "
-"kapott."
+"Az előleget a szobafoglalás visszaigazolása és biztosítása érdekében kell "
+"befizetnie.  A fennmaradó összeget érkezéskor kell fizetni.  Az ingatlan "
+"elérhetőségeit (email, cím, telefonszám…) a foglalást követően emailben "
+"fogja megkapni."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
