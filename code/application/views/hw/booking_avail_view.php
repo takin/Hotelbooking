@@ -170,7 +170,7 @@ if ($api_error == false) {
 
                         if ($min_price_shared == $price) {
 
-                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $currency_formin . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $currency_formin . ' ' . number_format($min_price_shared, 2, '.', '') . '</span>';
                             $lowest_style = 'style="color: #6DA903;"';
 
                             $dormTitle = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $currency_formin . ' ' . $min_price_shared;
@@ -274,7 +274,7 @@ if ($api_error == false) {
             }
 
             $sharedRoomsTable.= '<td align="center" id="snbroom_' . $nbRoomType . '" roombeds="' . $nb_guest_per_room . '">
-                <div title="' . _('Maximum number of guests per dorm') . '" style="font-weight : 600;">
+                <div title="" style="font-weight : 600;">
                 <span class="complete" complete="' . ($nb_guest_per_room * floor($availableBeds / $nb_guest_per_room)) . '" not_complete="' . $availableBeds . '">' . $availableBeds . '</span> 
                 ' . ($availableBeds == 1 ? _('Guest') : _('Guests') ) . ' 
                 </div>
@@ -442,7 +442,7 @@ if ($api_error == false) {
 
                         if ($min_price_private == $price) {
 
-                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $currency_formin . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $currency_formin . ' ' . number_format($min_price_private, 2, '.', '') . '</span>';
                             $lowest_style = 'style="color: #6DA903;"';
 
                             $roomTitle_PP = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Person') . ' )' . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $currency_formin . ' ' . $min_price_private;
