@@ -58,11 +58,20 @@
 	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
 	    $this->carabiner->css('pdf.css');
+            
+            $this->carabiner->css('jquery.cluetip.css', 'screen', 'jquery.cluetip.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.toastmessage.css', 'screen', 'jquery.toastmessage.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.simplemodal.css', 'screen', 'jquery.simplemodal.css', FALSE, FALSE, "full_site_global");
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
             $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
+            
+            $this->carabiner->css('jquery.cluetip.css', 'screen', 'jquery.cluetip.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.toastmessage.css', 'screen', 'jquery.toastmessage.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.simplemodal.css', 'screen', 'jquery.simplemodal.css', FALSE, FALSE, "full_site_global");
         }
 
 	if($this->api_used == HB_API)
@@ -816,12 +825,16 @@ var citymap = {
     $this->carabiner->js('jquery.jscrollpane.min.js','jquery.jscrollpane.min.js',TRUE);
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
     $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
+    $this->carabiner->js('jquery.tablesorter.js', 'jquery.tablesorter.js', TRUE);
   }
   elseif($current_view == "search_results")
   {
 	  $this->carabiner->js('search-sort.js');
 	  $this->carabiner->js('paginateview.js');
   }
+  $this->carabiner->js('jquery.cluetip.all.js', 'jquery.cluetip.all.js', TRUE);
+  $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
+  $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
   <?php

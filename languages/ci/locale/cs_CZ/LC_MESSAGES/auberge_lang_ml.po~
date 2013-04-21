@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-19 15:12+0200\n"
-"PO-Revision-Date: 2013-03-16 21:22+0200\n"
+"POT-Creation-Date: 2013-04-08 17:43+0300\n"
+"PO-Revision-Date: 2013-04-10 20:42+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -78,7 +78,7 @@ msgstr "Získat nové heslo"
 #: ../code/application/views/auth/login_form.php:111
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:961
+#: ../code/application/views/includes/header.php:964
 #: ../code/application/views/mobile/auth/forgot_password_form.php:33
 #: ../code/application/views/mobile/auth/login_form.php:69
 #: ../code/application/views/mobile/includes/footer.php:12
@@ -205,7 +205,7 @@ msgstr "Zadejte kód přesně tak, jak ho vidíte: "
 #: ../code/application/views/auth/register_form.php:115
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:965
+#: ../code/application/views/includes/header.php:968
 #: ../code/application/views/mobile/auth/register_form.php:83
 msgid "S'enregistrer"
 msgstr "Registrovat"
@@ -314,6 +314,146 @@ msgstr ""
 msgid "Offer only valid for deposits made by 08/31/2011 on %s."
 msgstr "Nabídka platí pouze pro zálohy zaplacené do 08/31/2011 na stránkách %s"
 
+#: ../code/application/views/compare_property.php:38
+#: ../code/application/views/helpfile/pofields.php:460
+#: ../code/application/views/helpfile/pofields.php:632
+#: ../code/application/views/mustache/property_list.php:29
+#, php-format
+msgid "See Map"
+msgstr "Podívejte se do mapy"
+
+#: ../code/application/views/compare_property.php:41
+#: ../code/application/views/compare_property.php:45
+#: ../code/application/views/compare_property.php:48
+#: ../code/application/views/compare_property.php:49
+#: ../code/application/views/compare_property.php:52
+#: ../code/application/views/compare_property.php:63
+#: ../code/application/views/compare_property.php:73
+#: ../code/application/views/compare_property.php:85
+#: ../code/application/views/compare_property.php:94
+#: ../code/application/views/compare_property.php:103
+#: ../code/application/views/compare_property.php:112
+#: ../code/application/views/compare_property.php:121
+#: ../code/application/views/compare_property.php:130
+#: ../code/application/views/compare_property.php:139
+#: ../code/application/views/helpfile/pofields.php:631
+#, php-format
+msgid "Not available"
+msgstr "Není k dispozici"
+
+#: ../code/application/views/compare_property.php:154
+#: ../code/application/views/helpfile/pofields.php:633
+#, php-format
+msgid "Print"
+msgstr "Tisk"
+
+#: ../code/application/views/compare_property.php:156
+#: ../code/application/views/helpfile/pofields.php:634
+#, php-format
+msgid "Quick Compare"
+msgstr "Rychlé porovnání"
+
+#: ../code/application/views/compare_property.php:186
+#: ../code/application/views/helpfile/pofields.php:635
+#, php-format
+msgid "Dorms From"
+msgstr "Studentské koleje od"
+
+#: ../code/application/views/compare_property.php:191
+#: ../code/application/views/compare_property.php:303
+#: ../code/application/views/helpfile/pofields.php:636
+#, php-format
+msgid "Privates From"
+msgstr "Soukromé pokoje od"
+
+#: ../code/application/views/compare_property.php:196
+#: ../code/application/views/compare_property.php:309
+#: ../code/application/views/helpfile/pofields.php:637
+#, php-format
+msgid "Rating Overall"
+msgstr "Celková klasifikace"
+
+#: ../code/application/views/compare_property.php:201
+#: ../code/application/views/property_detail.php:558
+#: ../code/application/views/hb/hostel_view.php:44
+#: ../code/application/views/helpfile/pofields.php:638
+#, php-format
+msgid "Atmosphere"
+msgstr "Prostředí"
+
+#: ../code/application/views/compare_property.php:206
+#: ../code/application/views/property_detail.php:561
+#: ../code/application/views/hb/hostel_view.php:47
+#: ../code/application/views/helpfile/pofields.php:639
+#, php-format
+msgid "Staff"
+msgstr "Personál"
+
+#: ../code/application/views/compare_property.php:211
+#: ../code/application/views/helpfile/pofields.php:640
+#, php-format
+msgid "Site"
+msgstr "Budova"
+
+#: ../code/application/views/compare_property.php:216
+#: ../code/application/views/property_detail.php:567
+#: ../code/application/views/hb/hostel_view.php:53
+#: ../code/application/views/helpfile/pofields.php:641
+#, php-format
+msgid "Cleanliness"
+msgstr "Čistota"
+
+#: ../code/application/views/compare_property.php:221
+#: ../code/application/views/helpfile/pofields.php:642
+#, php-format
+msgid "Services"
+msgstr "Služby"
+
+#: ../code/application/views/compare_property.php:226
+#: ../code/application/views/property_detail.php:573
+#: ../code/application/views/hb/hostel_view.php:59
+#: ../code/application/views/hb/hostel_view.php:458
+#: ../code/application/views/hb/property_list.php:104
+#: ../code/application/views/helpfile/pofields.php:643
+#: ../code/application/views/mustache/property_list.php:165
+#: ../code/application/views/mustache/property_list.php:263
+#, php-format
+msgid "Safety"
+msgstr "Bezpečnost"
+
+#: ../code/application/views/compare_property.php:231
+#: ../code/application/views/property_detail.php:576
+#: ../code/application/views/hb/hostel_view.php:62
+#: ../code/application/views/helpfile/pofields.php:644
+#, php-format
+msgid "Value"
+msgstr "Hodnota"
+
+#: ../code/application/views/compare_property.php:235
+#: ../code/application/views/property_detail.php:570
+#: ../code/application/views/city_view.php:65
+#: ../code/application/views/city_view.php:263
+#: ../code/application/views/hb/hostel_view.php:56
+#: ../code/application/views/helpfile/pofields.php:448
+#: ../code/application/views/helpfile/pofields.php:657
+#, php-format
+msgid "Facilities"
+msgstr "Vybavení"
+
+#: ../code/application/views/compare_property.php:235
+#: ../code/application/views/helpfile/pofields.php:658
+#, php-format
+msgid "Show More"
+msgstr "Ukaž víc"
+
+#: ../code/application/views/compare_property.php:350
+#: ../code/application/views/compare_property.php:353
+#: ../code/application/views/property_detail.php:146
+#: ../code/application/views/helpfile/pofields.php:623
+#, php-format
+msgid "Map"
+msgstr "Mapa"
+
 #: ../code/application/views/search_results.php:6
 #: ../code/application/views/helpfile/pofields.php:227
 #, php-format
@@ -418,7 +558,7 @@ msgstr "Další"
 #: ../code/application/views/search_results.php:120
 #: ../code/application/views/search_results.php:146
 #: ../code/application/views/search_results.php:171
-#: ../code/application/views/city_view.php:218
+#: ../code/application/views/city_view.php:234
 #: ../code/application/views/city_ajax_view.php:348
 #: ../code/application/views/city_ajax_view.php:448
 #: ../code/application/views/city_ajax_view.php:537
@@ -431,7 +571,7 @@ msgstr "Třídit podle:"
 #: ../code/application/views/search_results.php:147
 #: ../code/application/views/search_results.php:172
 #: ../code/application/views/mobile/city_view.php:43
-#: ../code/application/views/city_view.php:219
+#: ../code/application/views/city_view.php:235
 #: ../code/application/views/city_ajax_view.php:349
 #: ../code/application/views/city_ajax_view.php:449
 #: ../code/application/views/city_ajax_view.php:538
@@ -488,7 +628,7 @@ msgstr "Omlouváme se, ale nenašli jsme žádný výsledek. Prosím zkuste to z
 
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:961
+#: ../code/application/views/includes/header.php:964
 #: ../code/application/views/mobile/includes/header.php:40
 #: ../code/application/views/mobile/user/user_view.php:4
 #: ../code/application/views/mobile/home_view.php:5
@@ -497,20 +637,20 @@ msgstr "Můj účet"
 
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:965
+#: ../code/application/views/includes/header.php:968
 #: ../code/application/views/mobile/includes/footer.php:12
 msgid "Se déconnecter"
 msgstr "Odhlásit"
 
 #: ../code/application/views/includes/top_box.php:23
 #: ../code/application/views/includes/header_book.php:157
-#: ../code/application/views/includes/header.php:979
+#: ../code/application/views/includes/header.php:982
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
 msgstr "Více než 30 000 ubytoven online"
 
 #: ../code/application/views/includes/top_box.php:28
 #: ../code/application/views/includes/header_book.php:161
-#: ../code/application/views/includes/header.php:985
+#: ../code/application/views/includes/header.php:988
 #: ../code/application/views/helpfile/pofields.php:275
 #, php-format
 msgid "Free SMS"
@@ -518,7 +658,7 @@ msgstr "SMS zdarma"
 
 #: ../code/application/views/includes/top_box.php:37
 #: ../code/application/views/includes/header_book.php:167
-#: ../code/application/views/includes/header.php:991
+#: ../code/application/views/includes/header.php:994
 #: ../code/application/views/includes/siteinfo.php:23
 #: ../code/application/views/hb/booking_view.php:51
 #: ../code/application/views/hb/booking_view.php:239
@@ -528,7 +668,7 @@ msgstr "žádné rezervační poplatky"
 
 #: ../code/application/views/includes/top_box.php:39
 #: ../code/application/views/includes/header_book.php:167
-#: ../code/application/views/includes/header.php:991
+#: ../code/application/views/includes/header.php:994
 #: ../code/application/views/helpfile/pofields.php:43
 #: ../code/application/views/helpfile/pofields.php:188
 #, php-format
@@ -543,19 +683,19 @@ msgstr "30 000 ubytoven a levných hotelů."
 
 #: ../code/application/views/includes/top_box.php:53
 #: ../code/application/views/includes/footer.php:36
-#: ../code/application/views/includes/header.php:1000
+#: ../code/application/views/includes/header.php:1003
 msgid "Accueil"
 msgstr "Vítejte"
 
 #: ../code/application/views/includes/top_box.php:54
 #: ../code/application/views/includes/footer.php:47
-#: ../code/application/views/includes/header.php:1001
+#: ../code/application/views/includes/header.php:1004
 msgid "Auberges et logements pas chers"
 msgstr "Mládežnické Ubytovny"
 
 #: ../code/application/views/includes/top_box.php:57
 #: ../code/application/views/includes/footer.php:52
-#: ../code/application/views/includes/header.php:1003
+#: ../code/application/views/includes/header.php:1006
 msgid "Réservation d'auberges de jeunesse pour les groupes"
 msgstr "Rezervace ubytoven pro skupiny"
 
@@ -563,19 +703,19 @@ msgstr "Rezervace ubytoven pro skupiny"
 #: ../code/application/views/includes/group-booking.php:10
 #: ../code/application/views/includes/group-booking.php:11
 #: ../code/application/views/includes/footer.php:60
-#: ../code/application/views/includes/header.php:1003
+#: ../code/application/views/includes/header.php:1006
 msgid "Groupes 10+"
 msgstr "Skupiny 10 +"
 
 #: ../code/application/views/includes/top_box.php:60
 #: ../code/application/views/includes/footer.php:68
-#: ../code/application/views/includes/header.php:1006
+#: ../code/application/views/includes/header.php:1009
 msgid "Événements"
 msgstr "Události"
 
 #: ../code/application/views/includes/top_box.php:63
 #: ../code/application/views/includes/footer.php:75
-#: ../code/application/views/includes/header.php:1009
+#: ../code/application/views/includes/header.php:1012
 msgid "Destinations"
 msgstr "Průvodce"
 
@@ -592,7 +732,7 @@ msgid "Free Breakfast"
 msgstr "Snídaně Zdarma"
 
 #: ../code/application/views/includes/top_filter.php:28
-#: ../code/application/views/city_view.php:225
+#: ../code/application/views/city_view.php:241
 #: ../code/application/views/helpfile/pofields.php:556
 #, php-format
 msgid "Only downtown"
@@ -664,9 +804,9 @@ msgstr "Vyhledej"
 #: ../code/application/views/includes/search_box.php:9
 #: ../code/application/views/includes/city_search_box.php:9
 #: ../code/application/views/restricted/admin/group_quote.php:53
+#: ../code/application/views/group_request.php:57
+#: ../code/application/views/group_request.php:59
 #: ../code/application/views/group_request.php:61
-#: ../code/application/views/group_request.php:63
-#: ../code/application/views/group_request.php:65
 msgid "Chargement..."
 msgstr "Načítání..."
 
@@ -682,16 +822,16 @@ msgstr "Načítání..."
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/includes/header.php:860
 #: ../code/application/views/includes/header.php:863
+#: ../code/application/views/includes/header.php:866
 #: ../code/application/views/mobile/hw/booking_view.php:34
 #: ../code/application/views/restricted/admin/group_quote.php:59
 #: ../code/application/views/hw/hostel_view.php:152
 #: ../code/application/views/hw/booking_view.php:501
 #: ../code/application/views/hb/hostel_view.php:221
 #: ../code/application/views/hb/booking_view.php:334
+#: ../code/application/views/group_request.php:75
 #: ../code/application/views/group_request.php:80
-#: ../code/application/views/group_request.php:85
 msgid "Choisir le pays"
 msgstr "Vyberte zemi"
 
@@ -722,15 +862,15 @@ msgstr "Stránka nenalezena "
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/includes/header.php:861
-#: ../code/application/views/includes/header.php:863
+#: ../code/application/views/includes/header.php:864
+#: ../code/application/views/includes/header.php:866
 #: ../code/application/views/mobile/search_view.php:43
 #: ../code/application/views/restricted/admin/group_quote.php:58
 #: ../code/application/views/restricted/admin/group_quote.php:64
 #: ../code/application/views/hw/citylist_view.php:26
-#: ../code/application/views/group_request.php:79
+#: ../code/application/views/group_request.php:74
+#: ../code/application/views/group_request.php:86
 #: ../code/application/views/group_request.php:91
-#: ../code/application/views/group_request.php:96
 #: ../code/application/models/db_country.php:606
 msgid "Choisir la ville"
 msgstr "Vyberte město"
@@ -773,14 +913,14 @@ msgstr "Hledejte podle města nebo jména objektu:"
 #: ../code/application/views/includes/side_search_box.php:168
 #: ../code/application/views/includes/city_lp_search_box.php:113
 #: ../code/application/views/includes/search_box.php:24
-#: ../code/application/views/group_request.php:78
+#: ../code/application/views/group_request.php:73
 msgid "Spécifier le pays"
 msgstr "Uveďte zemi"
 
 #: ../code/application/views/includes/side_search_box.php:173
 #: ../code/application/views/includes/city_lp_search_box.php:119
 #: ../code/application/views/includes/search_box.php:30
-#: ../code/application/views/group_request.php:89
+#: ../code/application/views/group_request.php:84
 msgid "Spécifier la ville"
 msgstr "Upřesněte města"
 
@@ -802,7 +942,7 @@ msgstr "Hledej městem nebo jménem"
 #: ../code/application/views/mobile/search_view.php:16
 #: ../code/application/views/hw/hostel_view.php:520
 #: ../code/application/views/hb/hostel_view.php:618
-#: ../code/application/views/group_request.php:102
+#: ../code/application/views/group_request.php:97
 msgid "Arrivée le:"
 msgstr "Příjezd:"
 
@@ -818,7 +958,7 @@ msgstr "Příjezd:"
 #: ../code/application/views/hw/hostel_view.php:531
 #: ../code/application/views/hb/hostel_view.php:629
 #: ../code/application/views/email/admin/new_group_request.php:24
-#: ../code/application/views/group_request.php:111
+#: ../code/application/views/group_request.php:106
 msgid "Nuits:"
 msgstr "Noci:"
 
@@ -891,7 +1031,7 @@ msgstr "Informace"
 
 #: ../code/application/views/includes/footer.php:86
 #: ../code/application/views/includes/header_book.php:144
-#: ../code/application/views/includes/header.php:958
+#: ../code/application/views/includes/header.php:961
 #: ../code/application/views/mobile/includes/footer.php:9
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Nápověda / časté otázky / Kontakt"
@@ -919,7 +1059,7 @@ msgid "Confidentialité"
 msgstr "Ochrana dat"
 
 #: ../code/application/views/includes/footer.php:93
-#: ../code/application/views/includes/header.php:956
+#: ../code/application/views/includes/header.php:959
 #: ../code/application/views/mobile/includes/footer.php:8
 msgid "About us"
 msgstr "O nás"
@@ -1163,13 +1303,12 @@ msgid "Send email"
 msgstr "Odeslat email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
-#, fuzzy
 msgid "Send PDF quote"
 msgstr "Odelat PDF"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "Prosím čekejte…"
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -1201,40 +1340,41 @@ msgid ""
 msgstr ""
 "Okamžitá rezervace %s - %s. Bezkonkurenční ceny %s, fotky a recenze na %s."
 
-#: ../code/application/views/includes/header.php:364
+#: ../code/application/views/includes/header.php:366
 msgid "Localisation invalide sur Google Map"
 msgstr "Neplatné umístění na Google Mapě"
 
-#: ../code/application/views/includes/header.php:446
-#: ../code/application/views/includes/header.php:501
+#: ../code/application/views/includes/header.php:448
+#: ../code/application/views/includes/header.php:503
+#: ../code/application/views/property_detail.php:536
+#: ../code/application/views/property_detail.php:639
 #: ../code/application/views/hw/hostel_view.php:423
 #: ../code/application/views/hb/hostel_view.php:22
 #: ../code/application/views/hb/hostel_view.php:519
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
-#: ../code/application/views/mustache/property_list.php:44
-#: ../code/application/views/mustache/property_list.php:48
-#: ../code/application/views/mustache/property_list.php:57
+#: ../code/application/views/mustache/property_list.php:54
+#: ../code/application/views/mustache/property_list.php:64
 #: ../code/application/views/mustache/city_map_property_infow.php:12
 msgid "évaluation moyenne"
 msgstr "průměrné hodnocení "
 
-#: ../code/application/views/includes/header.php:469
-#: ../code/application/views/includes/header.php:515
+#: ../code/application/views/includes/header.php:471
+#: ../code/application/views/includes/header.php:517
 #: ../code/application/views/mobile/property_list.php:13
-#: ../code/application/views/hw/property_list.php:66
+#: ../code/application/views/hw/property_list.php:76
 #: ../code/application/views/hb/property_list.php:122
 #: ../code/application/views/city_ajax_view.php:72
 #: ../code/application/views/city_ajax_view.php:118
-#: ../code/application/views/mustache/property_list.php:178
+#: ../code/application/views/mustache/property_list.php:199
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 msgid "à partir de"
 msgstr "od"
 
-#: ../code/application/views/includes/header.php:470
-#: ../code/application/views/includes/header.php:485
-#: ../code/application/views/includes/header.php:516
-#: ../code/application/views/includes/header.php:531
+#: ../code/application/views/includes/header.php:472
+#: ../code/application/views/includes/header.php:487
+#: ../code/application/views/includes/header.php:518
+#: ../code/application/views/includes/header.php:533
 #: ../code/application/views/city_ajax_view.php:73
 #: ../code/application/views/city_ajax_view.php:88
 #: ../code/application/views/city_ajax_view.php:119
@@ -1243,16 +1383,16 @@ msgstr "od"
 msgid "Plus d'information"
 msgstr "Více informací"
 
-#: ../code/application/views/includes/header.php:931
+#: ../code/application/views/includes/header.php:934
 #, php-format
 msgid "Searching for %s"
 msgstr "Vyhledej %s"
 
-#: ../code/application/views/includes/header.php:933
+#: ../code/application/views/includes/header.php:936
 msgid "Please wait while we are finding the best deals for you ..."
 msgstr "Prosím čekejte, zatímco pro vás hledáme nejlepší cenu... "
 
-#: ../code/application/views/includes/header.php:934
+#: ../code/application/views/includes/header.php:937
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
 msgid "Loading"
@@ -1363,11 +1503,10 @@ msgstr "Aktualizujte svůj profil"
 #: ../code/application/views/hw/booking_view.php:481
 #: ../code/application/views/hb/booking_view.php:313
 #: ../code/application/views/email/admin/new_group_request.php:41
-#: ../code/application/views/group_request.php:223
+#: ../code/application/views/group_request.php:218
 #: ../code/application/controllers/user.php:77
 #: ../code/application/controllers/cmain.php:533
-#: ../code/application/controllers/cmain.php:1936
-#: ../code/application/controllers/chostel.php:563
+#: ../code/application/controllers/cmain.php:1940
 msgid "Prénom"
 msgstr "Jméno"
 
@@ -1377,11 +1516,10 @@ msgstr "Jméno"
 #: ../code/application/views/hw/booking_view.php:489
 #: ../code/application/views/hb/booking_view.php:321
 #: ../code/application/views/email/admin/new_group_request.php:42
-#: ../code/application/views/group_request.php:231
+#: ../code/application/views/group_request.php:226
 #: ../code/application/controllers/user.php:78
 #: ../code/application/controllers/cmain.php:534
-#: ../code/application/controllers/cmain.php:1937
-#: ../code/application/controllers/chostel.php:564
+#: ../code/application/controllers/cmain.php:1941
 msgid "Nom"
 msgstr "Příjmení"
 
@@ -1390,8 +1528,7 @@ msgstr "Příjmení"
 #: ../code/application/views/hw/booking_view.php:500
 #: ../code/application/views/hb/booking_view.php:332
 #: ../code/application/controllers/user.php:79
-#: ../code/application/controllers/cmain.php:1939
-#: ../code/application/controllers/chostel.php:566
+#: ../code/application/controllers/cmain.php:1943
 msgid "Nationalité"
 msgstr "Národnost"
 
@@ -1549,7 +1686,7 @@ msgid "Enter Dates"
 msgstr "Zadejte datum."
 
 #: ../code/application/views/mobile/city_view.php:44
-#: ../code/application/views/city_view.php:220
+#: ../code/application/views/city_view.php:236
 #: ../code/application/views/hw/booking_end_view.php:54
 #: ../code/application/views/hw/booking_end_view.php:112
 #: ../code/application/views/hw/booking_view.php:233
@@ -1564,8 +1701,8 @@ msgstr "Cena"
 
 #: ../code/application/views/mobile/city_view.php:45
 #: ../code/application/views/mobile/hw/hostel_view.php:21
-#: ../code/application/views/city_view.php:221
-#: ../code/application/views/hw/property_list.php:92
+#: ../code/application/views/city_view.php:237
+#: ../code/application/views/hw/property_list.php:102
 #: ../code/application/views/hb/property_list.php:151
 #: ../code/application/views/city_ajax_view.php:351
 #: ../code/application/views/city_ajax_view.php:451
@@ -1576,7 +1713,7 @@ msgstr "Hodnocení"
 
 #: ../code/application/views/mobile/city_view.php:84
 #: ../code/application/views/city_lp.php:228
-#: ../code/application/views/city_view.php:262
+#: ../code/application/views/city_view.php:278
 #: ../code/application/views/city_ajax_view.php:238
 #: ../code/application/views/city_ajax_view.php:400
 #: ../code/application/views/city_ajax_view.php:491
@@ -1609,7 +1746,7 @@ msgstr "Detaily"
 #: ../code/application/views/mobile/hw/hostel_view.php:77
 #: ../code/application/views/helpfile/pofields.php:268
 #: ../code/application/views/mustache/property_list.php:15
-#: ../code/application/views/mustache/property_list.php:221
+#: ../code/application/views/mustache/property_list.php:242
 #, php-format
 msgid "Pictures"
 msgstr "Fotografie"
@@ -1621,9 +1758,10 @@ msgid "About"
 msgstr "Informace o objektu"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:114
+#: ../code/application/views/property_detail.php:114
 #: ../code/application/views/hw/hostel_view.php:571
 #: ../code/application/views/hb/hostel_view.php:674
-#: ../code/application/views/mustache/property_list.php:152
+#: ../code/application/views/mustache/property_list.php:173
 msgid "Commodité"
 msgstr "Vybavení "
 
@@ -1631,12 +1769,13 @@ msgstr "Vybavení "
 #: ../code/application/views/hw/hostel_view.php:401
 #: ../code/application/views/hw/reviews.php:44
 #: ../code/application/views/hb/hostel_view.php:496
-#: ../code/application/controllers/cmain.php:1940
-#: ../code/application/controllers/chostel.php:567
+#: ../code/application/controllers/cmain.php:1944
 msgid "Commentaires"
 msgstr "Komentáře"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:197
+#: ../code/application/views/property_detail.php:609
+#: ../code/application/views/property_detail.php:652
 #: ../code/application/views/hw/review_list.php:32
 #: ../code/application/views/hb/review_list.php:28
 #, php-format
@@ -1658,6 +1797,8 @@ msgid "Cartes et Directions"
 msgstr "Mapy a trasy"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:244
+#: ../code/application/views/property_detail.php:496
+#: ../code/application/views/property_detail.php:510
 #: ../code/application/views/hw/hostel_view.php:638
 #: ../code/application/views/hw/booking_end_view.php:19
 #: ../code/application/views/hb/hostel_view.php:851
@@ -1728,6 +1869,8 @@ msgstr "Typ pokoje a počet hostů"
 #: ../code/application/views/mobile/hw/booking_confirm.php:68
 #: ../code/application/views/property_rooms_avail.php:30
 #: ../code/application/views/property_rooms_avail.php:32
+#: ../code/application/views/property_detail.php:233
+#: ../code/application/views/property_detail.php:235
 #: ../code/application/views/hw/booking_end_view.php:53
 #: ../code/application/views/hw/booking_avail_view.php:408
 #: ../code/application/views/hw/booking_avail_view.php:410
@@ -1741,6 +1884,7 @@ msgstr "Koleje - Cena za osobu"
 #: ../code/application/views/mobile/hw/booking_end_view.php:52
 #: ../code/application/views/mobile/hw/booking_avail_view.php:137
 #: ../code/application/views/property_rooms_avail.php:33
+#: ../code/application/views/property_detail.php:236
 #: ../code/application/views/hw/booking_avail_view.php:411
 #: ../code/application/views/hb/booking_avail_view.php:319
 msgid "Price per person (Dorm shared with others)."
@@ -1751,6 +1895,8 @@ msgstr "Cena za osobu (sdílený pokoj s ostaními) za celý pobyt."
 #: ../code/application/views/mobile/hw/booking_confirm.php:123
 #: ../code/application/views/property_rooms_avail.php:157
 #: ../code/application/views/property_rooms_avail.php:159
+#: ../code/application/views/property_detail.php:355
+#: ../code/application/views/property_detail.php:357
 #: ../code/application/views/hw/booking_end_view.php:111
 #: ../code/application/views/hw/booking_avail_view.php:463
 #: ../code/application/views/hw/booking_avail_view.php:465
@@ -1764,6 +1910,7 @@ msgstr "Soukromý pokoj - Cena za pokoj"
 #: ../code/application/views/mobile/hw/booking_end_view.php:96
 #: ../code/application/views/mobile/hw/booking_avail_view.php:175
 #: ../code/application/views/property_rooms_avail.php:160
+#: ../code/application/views/property_detail.php:358
 #: ../code/application/views/hw/booking_avail_view.php:466
 #: ../code/application/views/hb/booking_avail_view.php:372
 msgid "Price per room (not per person)."
@@ -2040,7 +2187,7 @@ msgstr "Zpátky"
 #: ../code/application/views/hw/booking_avail_view.php:1
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:1
-#: ../code/application/views/mustache/property_list.php:229
+#: ../code/application/views/mustache/property_list.php:250
 msgid "Disponibilités"
 msgstr "Dostupnost"
 
@@ -2061,7 +2208,7 @@ msgstr ""
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:610
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1264
+#: ../code/application/libraries/Hb_engine.php:1273
 msgid "Serveur inaccessible en ce moment."
 msgstr "Server právě nefunguje."
 
@@ -2294,7 +2441,7 @@ msgstr "Čas příchodu"
 #: ../code/application/views/mobile/hw/booking_view.php:76
 #: ../code/application/views/hw/booking_view.php:519
 #: ../code/application/views/hb/booking_view.php:398
-#: ../code/application/views/group_request.php:241
+#: ../code/application/views/group_request.php:236
 #: ../code/application/controllers/cmain.php:538
 msgid "Adresse Email"
 msgstr "E-mailová adresa"
@@ -2302,7 +2449,7 @@ msgstr "E-mailová adresa"
 #: ../code/application/views/mobile/hw/booking_view.php:81
 #: ../code/application/views/hw/booking_view.php:530
 #: ../code/application/views/hb/booking_view.php:408
-#: ../code/application/views/group_request.php:250
+#: ../code/application/views/group_request.php:245
 #: ../code/application/controllers/cmain.php:539
 msgid "Confirmation Email"
 msgstr "Potvrzení e-mailu"
@@ -2314,7 +2461,7 @@ msgstr "Telefonní číslo (prosím uveďte kód pro vaši oblast)"
 #: ../code/application/views/mobile/hw/booking_view.php:88
 #: ../code/application/views/hw/booking_view.php:545
 #: ../code/application/views/hb/booking_view.php:423
-#: ../code/application/views/group_request.php:263
+#: ../code/application/views/group_request.php:258
 msgid ""
 "Country code, Area code (without first 0) and mobile number; no spaces, "
 "brackets or dashes."
@@ -2465,22 +2612,22 @@ msgstr ""
 #: ../code/application/views/hb/booking_view.php:685
 #: ../code/application/views/hb/booking_view.php:686
 #: ../code/application/views/hb/booking_view.php:687
-#: ../code/application/views/group_request.php:84
-#: ../code/application/views/group_request.php:85
-#: ../code/application/views/group_request.php:95
-#: ../code/application/views/group_request.php:96
-#: ../code/application/views/group_request.php:106
-#: ../code/application/views/group_request.php:135
-#: ../code/application/views/group_request.php:149
-#: ../code/application/views/group_request.php:160
-#: ../code/application/views/group_request.php:172
-#: ../code/application/views/group_request.php:195
-#: ../code/application/views/group_request.php:227
-#: ../code/application/views/group_request.php:235
-#: ../code/application/views/group_request.php:245
-#: ../code/application/views/group_request.php:254
-#: ../code/application/views/group_request.php:271
-#: ../code/application/views/group_request.php:286
+#: ../code/application/views/group_request.php:79
+#: ../code/application/views/group_request.php:80
+#: ../code/application/views/group_request.php:90
+#: ../code/application/views/group_request.php:91
+#: ../code/application/views/group_request.php:101
+#: ../code/application/views/group_request.php:130
+#: ../code/application/views/group_request.php:144
+#: ../code/application/views/group_request.php:155
+#: ../code/application/views/group_request.php:167
+#: ../code/application/views/group_request.php:190
+#: ../code/application/views/group_request.php:222
+#: ../code/application/views/group_request.php:230
+#: ../code/application/views/group_request.php:240
+#: ../code/application/views/group_request.php:249
+#: ../code/application/views/group_request.php:266
+#: ../code/application/views/group_request.php:281
 msgid "Champ obligatoire"
 msgstr "Povinné pole"
 
@@ -2492,15 +2639,15 @@ msgstr "Povinné pole"
 #: ../code/application/views/hb/hostel_view.php:213
 #: ../code/application/views/hb/booking_view.php:404
 #: ../code/application/views/hb/booking_view.php:413
-#: ../code/application/views/group_request.php:246
-#: ../code/application/views/group_request.php:255
+#: ../code/application/views/group_request.php:241
+#: ../code/application/views/group_request.php:250
 msgid "Insérer un courriel valide"
 msgstr "Zadejte platnou e-mailovou adresu"
 
 #: ../code/application/views/mobile/hw/booking_view.php:405
 #: ../code/application/views/hw/booking_view.php:549
 #: ../code/application/views/hb/booking_view.php:427
-#: ../code/application/views/group_request.php:272
+#: ../code/application/views/group_request.php:267
 msgid "Invalid phone number format"
 msgstr "Neplatný formát telefonního čisla."
 
@@ -2513,7 +2660,7 @@ msgstr "Potvrdit"
 #: ../code/application/views/mobile/hw/booking_view.php:450
 #: ../code/application/views/hw/booking_view.php:1006
 #: ../code/application/views/hb/booking_view.php:769
-#: ../code/application/views/group_request.php:302
+#: ../code/application/views/group_request.php:297
 msgid "Traitement de la demande..."
 msgstr "Zpracování žádosti ..."
 
@@ -2522,13 +2669,14 @@ msgid "Not Rated Yet!"
 msgstr "Zatím neohodnoceno!"
 
 #: ../code/application/views/mobile/property_list.php:28
-#: ../code/application/views/mustache/property_list.php:44
-#: ../code/application/views/mustache/property_list.php:58
+#: ../code/application/views/mustache/property_list.php:65
 msgid "As rated by bookers like you"
 msgstr "Podle hodnocení zákazníku jako jste vy"
 
 #: ../code/application/views/mobile/property_list.php:40
-#: ../code/application/views/mustache/property_list.php:279
+#: ../code/application/views/property_detail.php:479
+#: ../code/application/views/property_detail.php:487
+#: ../code/application/views/mustache/property_list.php:300
 msgid "Réserver"
 msgstr "Rezervujte"
 
@@ -2564,6 +2712,7 @@ msgid "Merci"
 msgstr "Děkuji"
 
 #: ../code/application/views/property_rooms_avail.php:33
+#: ../code/application/views/property_detail.php:236
 #: ../code/application/views/hw/booking_avail_view.php:411
 #: ../code/application/views/hb/booking_avail_view.php:319
 #: ../code/application/views/helpfile/pofields.php:167
@@ -2575,12 +2724,15 @@ msgstr ""
 "Koupelna uvnitř pokoje<br />Sdílená Koupelna = koupelna není v pokoji"
 
 #: ../code/application/views/property_rooms_avail.php:54
+#: ../code/application/views/property_detail.php:253
 msgid "Beds (max)"
 msgstr "Dostupná lůžka"
 
 #: ../code/application/views/property_rooms_avail.php:69
 #: ../code/application/views/property_rooms_avail.php:193
 #: ../code/application/views/restricted/user_group_quote.php:216
+#: ../code/application/views/property_detail.php:267
+#: ../code/application/views/property_detail.php:390
 #: ../code/application/views/hw/booking_avail_view.php:55
 #: ../code/application/views/hw/booking_avail_view.php:56
 #: ../code/application/views/hw/booking_avail_view.php:230
@@ -2596,6 +2748,8 @@ msgstr "PŮVODNÍ VERZE:"
 
 #: ../code/application/views/property_rooms_avail.php:77
 #: ../code/application/views/property_rooms_avail.php:201
+#: ../code/application/views/property_detail.php:275
+#: ../code/application/views/property_detail.php:398
 #: ../code/application/views/hw/booking_end_view.php:79
 #: ../code/application/views/hw/booking_end_view.php:136
 #: ../code/application/views/hw/booking_avail_view.php:66
@@ -2618,17 +2772,19 @@ msgid "Breakfast Included"
 msgstr "Snídaně v Ceně"
 
 #: ../code/application/views/property_rooms_avail.php:82
+#: ../code/application/views/property_detail.php:280
 #: ../code/application/views/hw/booking_avail_view.php:83
 #: ../code/application/views/hw/booking_avail_view.php:84
 #: ../code/application/views/hb/booking_avail_view.php:62
 #: ../code/application/views/hb/booking_avail_view.php:63
 #: ../code/application/views/helpfile/pofields.php:562
-#: ../code/application/views/mustache/property_list.php:193
+#: ../code/application/views/mustache/property_list.php:214
 #, php-format
 msgid "Bed in a dorm. 1 person per bed maximum"
 msgstr "Lůžko na koleji.  Maximum 1 osoba na lůžku"
 
 #: ../code/application/views/property_rooms_avail.php:148
+#: ../code/application/views/property_detail.php:346
 #: ../code/application/views/hw/booking_avail_view.php:95
 #: ../code/application/views/hw/booking_avail_view.php:454
 #: ../code/application/views/hb/booking_avail_view.php:360
@@ -2636,6 +2792,7 @@ msgid "No dorms available"
 msgstr "Žádné ubytování kolejového typu není k dispozici. "
 
 #: ../code/application/views/property_rooms_avail.php:160
+#: ../code/application/views/property_detail.php:358
 #: ../code/application/views/hw/booking_avail_view.php:466
 #: ../code/application/views/hb/booking_avail_view.php:372
 #: ../code/application/views/helpfile/pofields.php:717
@@ -2644,29 +2801,28 @@ msgid ""
 "You must pay for the whole private room, even if you do not need all the "
 "beds. The room cannot be shared."
 msgstr ""
-"Musíte zaplatit za celý pokoj, i když nepoužijete všechny postele v něm. "
-"Pokoj nelze sdílet.<br /><br />Jednolůžkový pokoj = pokoj s 1 lůžkem pro 1 "
-"osobu<br />Dvoulůžkový pokoj = s 1 dvoulůžkem pro 2 osoby<br />Dvoulůžkový "
-"pokoj = pokoj s 2 oddělenými postelemi pro 2 osoby<br />Trojlůžkový pokoj = "
-"v pokoji se vyspí 3 lidé<br />Samostatné WC = Koupelna součástí pokoje<br /"
-">Sdílená Koupelna = koupelna není v místnosti"
+"Musíte zaplatit celý soukromý pokoj, i když nepotřebujete všechna lůžka."
+"Pokoj není možné sdílet."
 
 #: ../code/application/views/property_rooms_avail.php:180
+#: ../code/application/views/property_detail.php:377
 msgid "Rooms (max)"
 msgstr "Dostupné pokoje"
 
 #: ../code/application/views/property_rooms_avail.php:205
+#: ../code/application/views/property_detail.php:402
 #: ../code/application/views/hw/booking_avail_view.php:257
 #: ../code/application/views/hw/booking_avail_view.php:258
 #: ../code/application/views/hb/booking_avail_view.php:200
 #: ../code/application/views/hb/booking_avail_view.php:201
 #: ../code/application/views/helpfile/pofields.php:539
-#: ../code/application/views/mustache/property_list.php:206
+#: ../code/application/views/mustache/property_list.php:227
 #, php-format
 msgid "Maximum number of guests in the room"
 msgstr "Maximální počet osob v tomto pokoji"
 
 #: ../code/application/views/property_rooms_avail.php:269
+#: ../code/application/views/property_detail.php:466
 #: ../code/application/views/hw/booking_avail_view.php:269
 #: ../code/application/views/hw/booking_avail_view.php:508
 #: ../code/application/views/hb/booking_avail_view.php:411
@@ -2674,6 +2830,7 @@ msgid "No private room available"
 msgstr "Žádné soukromé pokoje nejsou k dispozici."
 
 #: ../code/application/views/property_rooms_avail.php:278
+#: ../code/application/views/property_detail.php:480
 #: ../code/application/views/hw/booking_avail_view.php:580
 #: ../code/application/views/hb/booking_avail_view.php:477
 #: ../code/application/views/helpfile/pofields.php:289
@@ -2682,6 +2839,7 @@ msgid "Best price. We guarantee it."
 msgstr "Nejlepší cena. Garantováno."
 
 #: ../code/application/views/property_rooms_avail.php:279
+#: ../code/application/views/property_detail.php:481
 #: ../code/application/views/hw/booking_avail_view.php:581
 #: ../code/application/views/hb/booking_avail_view.php:478
 #: ../code/application/views/helpfile/pofields.php:290
@@ -2814,8 +2972,9 @@ msgid "Your offers"
 msgstr "Vaše nabídky"
 
 #: ../code/application/views/restricted/user_group_quote.php:196
+#: ../code/application/views/property_detail.php:88
 #: ../code/application/views/hb/hostel_view.php:744
-#: ../code/application/views/mustache/property_list.php:162
+#: ../code/application/views/mustache/property_list.php:183
 msgid "What's Included"
 msgstr "co je v ceně"
 
@@ -3292,6 +3451,142 @@ msgstr "Chyba 404 - Stránka nenalezena"
 msgid "The request cannot be fulfilled due to bad syntax"
 msgstr "Požadavek nemůže být splněn kvůli vadné syntaxi"
 
+#: ../code/application/views/property_detail.php:93
+#: ../code/application/views/property_detail.php:98
+#: ../code/application/views/property_detail.php:104
+#: ../code/application/views/hb/hostel_view.php:755
+#: ../code/application/views/hb/hostel_view.php:760
+#: ../code/application/views/hb/hostel_view.php:766
+#: ../code/application/views/hb/booking_view.php:240
+#: ../code/application/views/mustache/property_list.php:188
+msgid "Free"
+msgstr "zdarma"
+
+#: ../code/application/views/property_detail.php:161
+#: ../code/application/views/city_view.php:75
+#: ../code/application/views/city_view.php:267
+#: ../code/application/views/hw/hostel_view.php:249
+#: ../code/application/views/hw/hostel_view.php:677
+#: ../code/application/views/hb/hostel_view.php:327
+#: ../code/application/views/hb/hostel_view.php:901
+#: ../code/application/views/helpfile/pofields.php:447
+#: ../code/application/views/mustache/property_list.php:137
+#: ../code/application/views/mustache/property_list.php:280
+#, php-format
+msgid "Districts"
+msgstr "Čtvrtě"
+
+#: ../code/application/views/property_detail.php:186
+#: ../code/application/views/city_view.php:93
+#: ../code/application/views/city_view.php:271
+#: ../code/application/views/hw/hostel_view.php:274
+#: ../code/application/views/hw/hostel_view.php:703
+#: ../code/application/views/hb/hostel_view.php:352
+#: ../code/application/views/hb/hostel_view.php:926
+#: ../code/application/views/mustache/property_list.php:145
+#: ../code/application/views/mustache/property_list.php:290
+msgid "Landmarks (within 2km)"
+msgstr "Význačné body (do 2 km)"
+
+#: ../code/application/views/property_detail.php:479
+#: ../code/application/views/property_detail.php:487
+#: ../code/application/views/mustache/property_list.php:282
+#: ../code/application/views/mustache/property_list.php:292
+#: ../code/application/views/mustache/property_list.php:300
+msgid "Plus sur ce logement"
+msgstr "Více informací o tomto zařízení"
+
+#: ../code/application/views/property_detail.php:492
+#: ../code/application/views/property_detail.php:506
+#: ../code/application/views/hw/hostel_view.php:325
+#: ../code/application/views/hb/hostel_view.php:404
+#: ../code/application/views/helpfile/pofields.php:262
+#: ../code/application/views/mustache/property_list.php:169
+#, php-format
+msgid "Read more…"
+msgstr "Čti více...."
+
+#: ../code/application/views/property_detail.php:528
+#: ../code/application/views/hw/property_list.php:82
+#: ../code/application/views/hb/property_list.php:129
+#: ../code/application/views/helpfile/pofields.php:256
+#: ../code/application/views/mustache/property_list.php:36
+#: ../code/application/views/mustache/property_list.php:272
+#, php-format
+msgid "Latest Reviews"
+msgstr "Poslední recenze"
+
+#: ../code/application/views/property_detail.php:564
+#: ../code/application/views/hb/hostel_view.php:50
+#: ../code/application/views/group_request.php:213
+#: ../code/application/views/helpfile/pofields.php:193
+#: ../code/application/views/helpfile/pofields.php:630
+#, php-format
+msgid "Location"
+msgstr "Umístění"
+
+#: ../code/application/views/property_detail.php:586
+#: ../code/application/views/hb/hostel_view.php:72
+msgid "N/A"
+msgstr "Není k dispozici"
+
+#: ../code/application/views/property_detail.php:598
+#: ../code/application/views/property_detail.php:642
+#: ../code/application/views/hw/reviews.php:5
+#: ../code/application/views/hb/hostel_view.php:991
+#: ../code/application/views/hb/reviews.php:1
+#: ../code/application/views/review_empty.php:1
+#: ../code/application/views/city_ajax_view.php:194
+#: ../code/application/views/city_ajax_view.php:209
+msgid "Commentaires et évaluations de voyageurs"
+msgstr "Komentáře a hodnocení cestovatele"
+
+#: ../code/application/views/property_detail.php:609
+#: ../code/application/views/property_detail.php:652
+#, fuzzy, php-format
+msgid "Par %s"
+msgstr "%s |%s"
+
+#: ../code/application/views/property_detail.php:623
+#: ../code/application/views/hw/hostel_view.php:407
+#: ../code/application/views/hb/hostel_view.php:503
+#: ../code/application/views/helpfile/pofields.php:418
+#: ../code/application/libraries/Hb_engine.php:972
+#: ../code/application/libraries/Hw_engine.php:714
+#, php-format
+msgid "Good"
+msgstr "Dobrý "
+
+#: ../code/application/views/property_detail.php:627
+#: ../code/application/views/hw/hostel_view.php:411
+#: ../code/application/views/hb/hostel_view.php:507
+#: ../code/application/views/helpfile/pofields.php:417
+#: ../code/application/libraries/Hb_engine.php:976
+#: ../code/application/libraries/Hw_engine.php:718
+#, php-format
+msgid "Very good"
+msgstr "Velmi dobře"
+
+#: ../code/application/views/property_detail.php:631
+#: ../code/application/views/hw/hostel_view.php:415
+#: ../code/application/views/hb/hostel_view.php:511
+#: ../code/application/views/helpfile/pofields.php:601
+#: ../code/application/libraries/Hb_engine.php:980
+#: ../code/application/libraries/Hw_engine.php:722
+#, php-format
+msgid "Great"
+msgstr "Výborně"
+
+#: ../code/application/views/property_detail.php:635
+#: ../code/application/views/hw/hostel_view.php:419
+#: ../code/application/views/hb/hostel_view.php:515
+#: ../code/application/views/helpfile/pofields.php:602
+#: ../code/application/libraries/Hb_engine.php:983
+#: ../code/application/libraries/Hw_engine.php:725
+#, php-format
+msgid "Fantastic"
+msgstr "Skvělé"
+
 #: ../code/application/views/country_view.php:18
 msgid "Hébergement"
 msgstr "Všechny levné ubytovny "
@@ -3324,8 +3619,8 @@ msgid "Reset filters"
 msgstr "Přenastav filtry"
 
 #: ../code/application/views/city_view.php:24
-#: ../code/application/views/city_view.php:235
-#: ../code/application/views/group_request.php:217
+#: ../code/application/views/city_view.php:251
+#: ../code/application/views/group_request.php:212
 msgid "Price"
 msgstr "Cena "
 
@@ -3336,7 +3631,7 @@ msgid "Price Range:"
 msgstr "Cena od do: "
 
 #: ../code/application/views/city_view.php:33
-#: ../code/application/views/city_view.php:239
+#: ../code/application/views/city_view.php:255
 #: ../code/application/views/helpfile/pofields.php:443
 #: ../code/application/views/helpfile/pofields.php:655
 #, php-format
@@ -3350,7 +3645,7 @@ msgid "Rating Range:"
 msgstr "Škála hodnocení: "
 
 #: ../code/application/views/city_view.php:42
-#: ../code/application/views/city_view.php:243
+#: ../code/application/views/city_view.php:259
 #: ../code/application/views/helpfile/pofields.php:444
 #, php-format
 msgid "Property type"
@@ -3384,28 +3679,6 @@ msgstr "Pokoje - B & B - Penzion"
 msgid "Camping"
 msgstr "Kempování "
 
-#: ../code/application/views/city_view.php:65
-#: ../code/application/views/city_view.php:247
-#: ../code/application/views/hb/hostel_view.php:56
-#: ../code/application/views/helpfile/pofields.php:448
-#: ../code/application/views/helpfile/pofields.php:657
-#, php-format
-msgid "Facilities"
-msgstr "Vybavení"
-
-#: ../code/application/views/city_view.php:75
-#: ../code/application/views/city_view.php:251
-#: ../code/application/views/hw/hostel_view.php:249
-#: ../code/application/views/hw/hostel_view.php:677
-#: ../code/application/views/hb/hostel_view.php:327
-#: ../code/application/views/hb/hostel_view.php:901
-#: ../code/application/views/helpfile/pofields.php:447
-#: ../code/application/views/mustache/property_list.php:116
-#: ../code/application/views/mustache/property_list.php:259
-#, php-format
-msgid "Districts"
-msgstr "Čtvrtě"
-
 #: ../code/application/views/city_view.php:80
 #: ../code/application/views/city_view.php:98
 #: ../code/application/views/helpfile/pofields.php:523
@@ -3420,17 +3693,6 @@ msgstr "Více možností "
 msgid "Less Options"
 msgstr "Méně možností "
 
-#: ../code/application/views/city_view.php:93
-#: ../code/application/views/city_view.php:255
-#: ../code/application/views/hw/hostel_view.php:274
-#: ../code/application/views/hw/hostel_view.php:703
-#: ../code/application/views/hb/hostel_view.php:352
-#: ../code/application/views/hb/hostel_view.php:926
-#: ../code/application/views/mustache/property_list.php:124
-#: ../code/application/views/mustache/property_list.php:269
-msgid "Landmarks (within 2km)"
-msgstr "Význačné body (do 2 km)"
-
 #: ../code/application/views/city_view.php:177
 #: ../code/application/views/city_ajax_view.php:222
 #, php-format
@@ -3438,12 +3700,13 @@ msgid "Liste des logements pas chers à %s"
 msgstr "Výsledky hledání - %s "
 
 #: ../code/application/views/city_view.php:182
-#: ../code/application/views/city_view.php:276
+#: ../code/application/views/city_view.php:292
+#: ../code/application/views/mustache/property_list.php:126
 msgid "of"
 msgstr " s "
 
 #: ../code/application/views/city_view.php:184
-#: ../code/application/views/city_view.php:278
+#: ../code/application/views/city_view.php:294
 #: ../code/application/views/helpfile/pofields.php:645
 #, php-format
 msgid "Results"
@@ -3463,17 +3726,49 @@ msgstr "Počet nocí: %s"
 msgid "Close Map"
 msgstr "Zavři mapu"
 
+#: ../code/application/views/city_view.php:220
+#: ../code/application/views/helpfile/pofields.php:649
+#, php-format
+msgid "Quick Compare (5 properties maximum)"
+msgstr "Rychlé porovnání (maximálně 5 ubytovacích zařízení)"
+
+#: ../code/application/views/city_view.php:221
+#: ../code/application/views/helpfile/pofields.php:626
+#: ../code/application/views/mustache/property_list.php:126
+#, php-format
+msgid "Compare"
+msgstr "Porovnejte"
+
 #: ../code/application/views/city_view.php:223
+#: ../code/application/views/helpfile/pofields.php:650
+#, php-format
+msgid "Remove All"
+msgstr "Zrušit všechny"
+
+#: ../code/application/views/city_view.php:239
 #: ../code/application/views/helpfile/pofields.php:555
 #, php-format
 msgid "Only free breakfast"
 msgstr "Pouze snídaně zdarma"
 
-#: ../code/application/views/city_view.php:232
+#: ../code/application/views/city_view.php:248
 #: ../code/application/views/helpfile/pofields.php:604
 #, php-format
 msgid "Selected filters:"
 msgstr "Vybrané filtry:"
+
+#: ../code/application/views/city_view.php:346
+msgid "Please Wait"
+msgstr "Prosím čekejte"
+
+#: ../code/application/views/city_view.php:351
+msgid "From"
+msgstr "Od"
+
+#: ../code/application/views/city_view.php:352
+#, fuzzy
+msgid "Only 5 properties can be compared. Please remove a property from list."
+msgstr "Prosím vyjměte 1 ubytovací zařízení ze seznamu."
 
 #: ../code/application/views/hw/hostel_view.php:3
 #: ../code/application/views/hb/hostel_view.php:2
@@ -3490,8 +3785,7 @@ msgstr "Chyba aplikace"
 
 #: ../code/application/views/hw/hostel_view.php:99
 #: ../code/application/views/hb/hostel_view.php:169
-#: ../code/application/controllers/cmain.php:2020
-#: ../code/application/controllers/chostel.php:643
+#: ../code/application/controllers/cmain.php:2024
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "Váš komentář byl odeslán našemu týmu ke schválení. Děkujeme vám!"
 
@@ -3531,14 +3825,6 @@ msgstr "Váš komentář na %s:"
 #: ../code/application/views/hb/hostel_view.php:263
 msgid "La date de votre dernier séjour à cet endroit :"
 msgstr "Datum vašeho posledního pobytu v této lokalitě:"
-
-#: ../code/application/views/hw/hostel_view.php:325
-#: ../code/application/views/hb/hostel_view.php:404
-#: ../code/application/views/helpfile/pofields.php:262
-#: ../code/application/views/mustache/property_list.php:148
-#, php-format
-msgid "Read more…"
-msgstr "Čti více...."
 
 #: ../code/application/views/hw/hostel_view.php:330
 #: ../code/application/views/hw/hostel_view.php:574
@@ -3591,42 +3877,6 @@ msgstr "Zobrazit původní"
 msgid "Info & Prix"
 msgstr "Info & ceny"
 
-#: ../code/application/views/hw/hostel_view.php:407
-#: ../code/application/views/hb/hostel_view.php:503
-#: ../code/application/views/helpfile/pofields.php:418
-#: ../code/application/libraries/Hb_engine.php:963
-#: ../code/application/libraries/Hw_engine.php:702
-#, php-format
-msgid "Good"
-msgstr "Dobrý "
-
-#: ../code/application/views/hw/hostel_view.php:411
-#: ../code/application/views/hb/hostel_view.php:507
-#: ../code/application/views/helpfile/pofields.php:417
-#: ../code/application/libraries/Hb_engine.php:967
-#: ../code/application/libraries/Hw_engine.php:706
-#, php-format
-msgid "Very good"
-msgstr "Velmi dobře"
-
-#: ../code/application/views/hw/hostel_view.php:415
-#: ../code/application/views/hb/hostel_view.php:511
-#: ../code/application/views/helpfile/pofields.php:601
-#: ../code/application/libraries/Hb_engine.php:971
-#: ../code/application/libraries/Hw_engine.php:710
-#, php-format
-msgid "Great"
-msgstr "Výborně"
-
-#: ../code/application/views/hw/hostel_view.php:419
-#: ../code/application/views/hb/hostel_view.php:515
-#: ../code/application/views/helpfile/pofields.php:602
-#: ../code/application/libraries/Hb_engine.php:974
-#: ../code/application/libraries/Hw_engine.php:713
-#, php-format
-msgid "Fantastic"
-msgstr "Skvělé"
-
 #: ../code/application/views/hw/hostel_view.php:546
 #: ../code/application/views/hb/hostel_view.php:643
 msgid "Rechercher"
@@ -3634,7 +3884,7 @@ msgstr "Hledat"
 
 #: ../code/application/views/hw/hostel_view.php:552
 #: ../code/application/views/hb/hostel_view.php:653
-#: ../code/application/views/mustache/property_list.php:246
+#: ../code/application/views/mustache/property_list.php:267
 msgid "Recherche de disponibilités..."
 msgstr "Hledat dostupnost ..."
 
@@ -3706,7 +3956,7 @@ msgstr "Datum"
 #: ../code/application/views/helpfile/pofields.php:746
 #, php-format
 msgid "Phone number"
-msgstr "Telefonní číslo"
+msgstr "Telefon"
 
 #: ../code/application/views/hw/booking_end_view.php:288
 #: ../code/application/views/hw/booking_end_view.php:299
@@ -3718,15 +3968,6 @@ msgstr "Telefonní číslo"
 #: ../code/application/views/email/new_transaction_hb.php:844
 msgid "Le montant restant (après déduction du dépôt) est dû à votre arrivée."
 msgstr "Zbývající částka (po odečtení vkladu) je splatná při příjezdu."
-
-#: ../code/application/views/hw/reviews.php:5
-#: ../code/application/views/hb/hostel_view.php:991
-#: ../code/application/views/hb/reviews.php:1
-#: ../code/application/views/review_empty.php:1
-#: ../code/application/views/city_ajax_view.php:194
-#: ../code/application/views/city_ajax_view.php:209
-msgid "Commentaires et évaluations de voyageurs"
-msgstr "Komentáře a hodnocení cestovatele"
 
 #: ../code/application/views/hw/booking_avail_view.php:128
 #: ../code/application/views/hw/booking_view.php:161
@@ -3781,8 +4022,8 @@ msgid ""
 msgstr ""
 "Nám zaplatíte pouze zálohu (10%% z celé částky) pro zabezpečení vaší "
 "rezervace. Zbytek (90%%) je splatný po příjezdu na místo. Informace o vašem "
-"ubytování (email, adresu, telefonní číslo, ...) najdete ve vašem "
-"potvrzovacím emailu poté co si uděláte rezervaci.  "
+"ubytování (email, adresu, telefonní číslo, …) najdete ve vašem potvrzovacím "
+"emailu poté co si uděláte rezervaci.  "
 
 #: ../code/application/views/hw/booking_avail_view.php:554
 #: ../code/application/views/hb/booking_avail_view.php:457
@@ -3807,19 +4048,10 @@ msgstr "Bezpečný"
 msgid "Search for more properties in %s"
 msgstr "Hledej více ubytoven v %s "
 
-#: ../code/application/views/hw/property_list.php:72
-#: ../code/application/views/hb/property_list.php:129
-#: ../code/application/views/helpfile/pofields.php:256
-#: ../code/application/views/mustache/property_list.php:36
-#: ../code/application/views/mustache/property_list.php:251
-#, php-format
-msgid "Latest Reviews"
-msgstr "Poslední recenze"
-
-#: ../code/application/views/hw/property_list.php:79
+#: ../code/application/views/hw/property_list.php:89
 #: ../code/application/views/hb/property_list.php:137
-#: ../code/application/views/mustache/property_list.php:153
-#: ../code/application/views/mustache/property_list.php:163
+#: ../code/application/views/mustache/property_list.php:174
+#: ../code/application/views/mustache/property_list.php:184
 msgid "close"
 msgstr "Zavřít"
 
@@ -3958,13 +4190,13 @@ msgid "You will receive a confirmation email"
 msgstr "Obdržíte okamžité potvrzení emailem"
 
 #: ../code/application/views/hw/booking_view.php:536
-#: ../code/application/views/group_request.php:256
+#: ../code/application/views/group_request.php:251
 msgid "Both emails must be the same"
 msgstr "Oba emaily musí být stejné"
 
 #: ../code/application/views/hw/booking_view.php:545
 #: ../code/application/views/hb/booking_view.php:423
-#: ../code/application/views/group_request.php:263
+#: ../code/application/views/group_request.php:258
 msgid "UK Example: 442012341234"
 msgstr "Příklad čísla: 420601654321"
 
@@ -4043,63 +4275,9 @@ msgstr "Transakce 100%% bezpečné a zašifrované "
 
 #: ../code/application/views/hw/booking_view.php:1001
 #: ../code/application/views/hb/booking_view.php:766
-#: ../code/application/views/group_request.php:304
+#: ../code/application/views/group_request.php:299
 msgid "Please make sure all required fields are filled out correctly"
 msgstr "Prosím ujistěte se, že všechny požadovaná pole jsou vyplněny správně"
-
-#: ../code/application/views/hb/hostel_view.php:44
-#: ../code/application/views/helpfile/pofields.php:638
-#, php-format
-msgid "Atmosphere"
-msgstr "Prostředí"
-
-#: ../code/application/views/hb/hostel_view.php:47
-#: ../code/application/views/helpfile/pofields.php:639
-#, php-format
-msgid "Staff"
-msgstr "Personál"
-
-#: ../code/application/views/hb/hostel_view.php:50
-#: ../code/application/views/group_request.php:218
-#: ../code/application/views/helpfile/pofields.php:193
-#: ../code/application/views/helpfile/pofields.php:630
-#, php-format
-msgid "Location"
-msgstr "Umístění"
-
-#: ../code/application/views/hb/hostel_view.php:53
-#: ../code/application/views/helpfile/pofields.php:641
-#, php-format
-msgid "Cleanliness"
-msgstr "Čistota"
-
-#: ../code/application/views/hb/hostel_view.php:59
-#: ../code/application/views/hb/hostel_view.php:458
-#: ../code/application/views/hb/property_list.php:104
-#: ../code/application/views/helpfile/pofields.php:643
-#: ../code/application/views/mustache/property_list.php:144
-#: ../code/application/views/mustache/property_list.php:242
-#, php-format
-msgid "Safety"
-msgstr "Bezpečnost"
-
-#: ../code/application/views/hb/hostel_view.php:62
-#: ../code/application/views/helpfile/pofields.php:644
-#, php-format
-msgid "Value"
-msgstr "Hodnota"
-
-#: ../code/application/views/hb/hostel_view.php:72
-msgid "N/A"
-msgstr "Není k dispozici"
-
-#: ../code/application/views/hb/hostel_view.php:755
-#: ../code/application/views/hb/hostel_view.php:760
-#: ../code/application/views/hb/hostel_view.php:766
-#: ../code/application/views/hb/booking_view.php:240
-#: ../code/application/views/mustache/property_list.php:167
-msgid "Free"
-msgstr "zdarma"
 
 #: ../code/application/views/hb/hostel_view.php:776
 msgid "Purchasable Extras"
@@ -4156,13 +4334,13 @@ msgstr "lidé"
 
 #: ../code/application/views/hb/booking_view.php:347
 #: ../code/application/views/email/admin/new_group_request.php:28
-#: ../code/application/views/group_request.php:153
+#: ../code/application/views/group_request.php:148
 msgid "Female:"
 msgstr "žena"
 
 #: ../code/application/views/hb/booking_view.php:354
 #: ../code/application/views/email/admin/new_group_request.php:27
-#: ../code/application/views/group_request.php:142
+#: ../code/application/views/group_request.php:137
 msgid "Male:"
 msgstr "muž"
 
@@ -4387,7 +4565,7 @@ msgstr "Vaše uživatelské jméno (emailová adresa): %s"
 
 #: ../code/application/views/email/share_page-txt.php:1
 #: ../code/application/views/email/share_page-html.php:35
-#, fuzzy, php-format
+#, php-format
 msgid "%s has sent you a message:"
 msgstr "%s vám zaslal zprávu:"
 
@@ -4503,42 +4681,42 @@ msgid "Customer Service."
 msgstr "Zákaznický servis."
 
 #: ../code/application/views/email/admin/new_group_request.php:20
-#: ../code/application/views/group_request.php:75
+#: ../code/application/views/group_request.php:70
 msgid "Travel details"
 msgstr "Cestovní detaily "
 
 #: ../code/application/views/email/admin/new_group_request.php:26
-#: ../code/application/views/group_request.php:139
+#: ../code/application/views/group_request.php:134
 msgid "Group details"
 msgstr "Detaily Skupiny"
 
 #: ../code/application/views/email/admin/new_group_request.php:29
-#: ../code/application/views/group_request.php:165
+#: ../code/application/views/group_request.php:160
 msgid "Youngest age"
 msgstr "Nejnižší věk "
 
 #: ../code/application/views/email/admin/new_group_request.php:31
-#: ../code/application/views/group_request.php:176
+#: ../code/application/views/group_request.php:171
 msgid "Staff/teachers/Coaches/Bus drivers Details"
 msgstr "Personál/učitelé/autokary/řidiči autobusů/detaily"
 
 #: ../code/application/views/email/admin/new_group_request.php:32
-#: ../code/application/views/group_request.php:179
+#: ../code/application/views/group_request.php:174
 msgid "Persons"
 msgstr "Osoby"
 
 #: ../code/application/views/email/admin/new_group_request.php:33
-#: ../code/application/views/group_request.php:186
+#: ../code/application/views/group_request.php:181
 msgid "Room type requested"
 msgstr "Požadovaný typ pokoje "
 
 #: ../code/application/views/email/admin/new_group_request.php:35
-#: ../code/application/views/group_request.php:202
+#: ../code/application/views/group_request.php:197
 msgid "Requirements"
 msgstr "Požadavky "
 
 #: ../code/application/views/email/admin/new_group_request.php:36
-#: ../code/application/views/group_request.php:205
+#: ../code/application/views/group_request.php:200
 #: ../code/application/views/helpfile/pofields.php:284
 #: ../code/application/views/helpfile/pofields.php:402
 #: ../code/application/controllers/cadmin.php:157
@@ -4547,18 +4725,18 @@ msgid "Breakfast"
 msgstr "Snídaně"
 
 #: ../code/application/views/email/admin/new_group_request.php:37
-#: ../code/application/views/group_request.php:211
+#: ../code/application/views/group_request.php:206
 #: ../code/application/controllers/cadmin.php:166
 msgid "Dinner"
 msgstr "Večeře "
 
 #: ../code/application/views/email/admin/new_group_request.php:38
-#: ../code/application/views/group_request.php:216
+#: ../code/application/views/group_request.php:211
 msgid "Most Important"
 msgstr "Nejdůležitější "
 
 #: ../code/application/views/email/admin/new_group_request.php:40
-#: ../code/application/views/group_request.php:220
+#: ../code/application/views/group_request.php:215
 msgid "Your details"
 msgstr "Vaše podrobnosti"
 
@@ -4567,7 +4745,7 @@ msgid "Addresse Email"
 msgstr "Emailová Adresa"
 
 #: ../code/application/views/email/admin/new_group_request.php:46
-#: ../code/application/views/group_request.php:291
+#: ../code/application/views/group_request.php:286
 msgid "Additional information/requests"
 msgstr "Dodatečné informace/požadavky"
 
@@ -4607,32 +4785,42 @@ msgstr ""
 msgid "Il n'y a aucun commentaire. Soyez le premier à évaluer cette auberge!"
 msgstr "Bez komentáře. "
 
-#: ../code/application/views/group_request.php:16
+#: ../code/application/views/group_request.php:2
+#: ../code/application/views/helpfile/pofields.php:762
+#, php-format
+msgid ""
+"Please select the number of male, female and staff members of your group "
+"before sending your booking request."
+msgstr ""
+"Prosím vyberte počet mužů, žen a členů personálu vaší skupiny před tím než "
+"odešlete žádost o rezervaci."
+
+#: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
-#: ../code/application/controllers/cform_ajax.php:60
+#: ../code/application/controllers/cform_ajax.php:75
 #: ../code/application/controllers/cmain.php:951
 #: ../code/application/controllers/cmain.php:967
 #, php-format
 msgid "Group Booking"
 msgstr "Skupinová rezervace"
 
-#: ../code/application/views/group_request.php:32
+#: ../code/application/views/group_request.php:28
 msgid "Free service - Best price guaranteed!"
 msgstr "Servis zdarma - Nejlepší cena garantována! "
 
-#: ../code/application/views/group_request.php:33
+#: ../code/application/views/group_request.php:29
 #: ../code/application/views/helpfile/pofields.php:145
 #, php-format
 msgid "We are your dedicated Group Booking specialist."
 msgstr "Jsme váš vyhrazený specialista pro skupinové rezervace."
 
-#: ../code/application/views/group_request.php:34
+#: ../code/application/views/group_request.php:30
 #: ../code/application/views/helpfile/pofields.php:146
 #, php-format
 msgid "Up to 80 people per reservation!"
 msgstr "Až 500 lidí na jednu rezervaci."
 
-#: ../code/application/views/group_request.php:35
+#: ../code/application/views/group_request.php:31
 #: ../code/application/views/helpfile/pofields.php:147
 #: ../code/application/controllers/cmain.php:960
 #, php-format
@@ -4643,7 +4831,7 @@ msgstr ""
 "Jestliže hledáte hostel, mládežnickou ubytovnu, hotel, B&B, nebo levné "
 "ubytování, jsme vám k dispozici. "
 
-#: ../code/application/views/group_request.php:36
+#: ../code/application/views/group_request.php:32
 msgid ""
 "Send a free request now using the form below and we will get back to you in "
 "few hours."
@@ -4651,65 +4839,65 @@ msgstr ""
 "Zašlete nyní nezávaznou poptávku prostřednictvím formuláře níže a my se vám "
 "ozveme během několika hodin."
 
-#: ../code/application/views/group_request.php:41
+#: ../code/application/views/group_request.php:37
 #: ../code/application/views/helpfile/pofields.php:149
 #, php-format
 msgid "Sports groups"
 msgstr "Sportovní skupiny."
 
-#: ../code/application/views/group_request.php:42
+#: ../code/application/views/group_request.php:38
 #: ../code/application/views/helpfile/pofields.php:150
 #, php-format
 msgid "Trips cultural, linguistic, thematic groups"
 msgstr "Kulturní, tématické, jazykové skupiny."
 
-#: ../code/application/views/group_request.php:43
+#: ../code/application/views/group_request.php:39
 #: ../code/application/views/helpfile/pofields.php:151
 #, php-format
 msgid "Bachelor party / Stag / Stagette groups"
 msgstr "Loučení se svobodou skupiny."
 
-#: ../code/application/views/group_request.php:44
+#: ../code/application/views/group_request.php:40
 #: ../code/application/views/helpfile/pofields.php:152
 #, php-format
 msgid "Schools groups"
 msgstr "Školní výlety."
 
-#: ../code/application/views/group_request.php:45
+#: ../code/application/views/group_request.php:41
 #: ../code/application/views/helpfile/pofields.php:153
 #, php-format
 msgid "Students groups"
 msgstr "Studentské skupiny."
 
-#: ../code/application/views/group_request.php:46
+#: ../code/application/views/group_request.php:42
 #: ../code/application/views/helpfile/pofields.php:154
 #, php-format
 msgid "Family Reunion"
 msgstr "Rodinná setkání."
 
-#: ../code/application/views/group_request.php:47
+#: ../code/application/views/group_request.php:43
 #: ../code/application/views/helpfile/pofields.php:155
 #, php-format
 msgid "Marriage"
 msgstr "Svatby."
 
-#: ../code/application/views/group_request.php:48
+#: ../code/application/views/group_request.php:44
 #: ../code/application/views/helpfile/pofields.php:156
 #, php-format
 msgid "Business Trips"
 msgstr "Obchodní cesty"
 
-#: ../code/application/views/group_request.php:49
+#: ../code/application/views/group_request.php:45
 #: ../code/application/views/helpfile/pofields.php:157
 #, php-format
 msgid "Pilgrimage"
 msgstr "Poutnictví"
 
-#: ../code/application/views/group_request.php:50
+#: ../code/application/views/group_request.php:46
 msgid "Schools"
 msgstr "Školy "
 
-#: ../code/application/views/group_request.php:51
+#: ../code/application/views/group_request.php:47
 msgid ""
 "Associations, chambers of commerce, schools, universities, day camps, sports "
 "camps, youth service towns, tourist offices, unions, community centers, "
@@ -4719,66 +4907,66 @@ msgstr ""
 "služby pro mládež, turistické kanceláře, unie, společenská centra, "
 "obchody.....  "
 
-#: ../code/application/views/group_request.php:71
+#: ../code/application/views/group_request.php:66
 msgid "Group Booking Request Form"
 msgstr "Formulář pro skupinovou rezervaci "
 
-#: ../code/application/views/group_request.php:113
-#: ../code/application/views/group_request.php:144
-#: ../code/application/views/group_request.php:155
-#: ../code/application/views/group_request.php:167
-#: ../code/application/views/group_request.php:181
-#: ../code/application/views/group_request.php:188
-#: ../code/application/views/group_request.php:281
+#: ../code/application/views/group_request.php:108
+#: ../code/application/views/group_request.php:139
+#: ../code/application/views/group_request.php:150
+#: ../code/application/views/group_request.php:162
+#: ../code/application/views/group_request.php:176
+#: ../code/application/views/group_request.php:183
+#: ../code/application/views/group_request.php:276
 msgid "Please Select"
 msgstr "Prosím vyberte "
 
-#: ../code/application/views/group_request.php:189
+#: ../code/application/views/group_request.php:184
 msgid "Single rooms"
 msgstr "Pokoje pro jednotlivce"
 
-#: ../code/application/views/group_request.php:190
+#: ../code/application/views/group_request.php:185
 msgid "Twin rooms"
 msgstr "Dvoulůžkové pokoje"
 
-#: ../code/application/views/group_request.php:191
+#: ../code/application/views/group_request.php:186
 msgid "Double rooms"
 msgstr "Pokoje pro dva"
 
-#: ../code/application/views/group_request.php:192
+#: ../code/application/views/group_request.php:187
 msgid "Triple rooms"
 msgstr "Pokoje pro tři"
 
-#: ../code/application/views/group_request.php:193
+#: ../code/application/views/group_request.php:188
 msgid "In the dormss with the group"
 msgstr "Skupinové ubytování na koleji/v hostelu"
 
-#: ../code/application/views/group_request.php:200
+#: ../code/application/views/group_request.php:195
 #: ../code/application/views/helpfile/pofields.php:568
 #, php-format
 msgid "Total Number of people in your group: %s"
 msgstr "Celkový počet lidí ve vaší skupině: %s"
 
-#: ../code/application/views/group_request.php:206
-#: ../code/application/views/group_request.php:212
+#: ../code/application/views/group_request.php:201
+#: ../code/application/views/group_request.php:207
 #: ../code/application/views/helpfile/pofields.php:102
 msgid "yes"
 msgstr "Ano"
 
-#: ../code/application/views/group_request.php:207
-#: ../code/application/views/group_request.php:213
+#: ../code/application/views/group_request.php:202
+#: ../code/application/views/group_request.php:208
 #: ../code/application/views/helpfile/pofields.php:103
 msgid "no"
 msgstr "Ne"
 
-#: ../code/application/views/group_request.php:262
+#: ../code/application/views/group_request.php:257
 msgid ""
 "Please provide a phone number where we can reach you from 4:00 pm to 9:00 pm."
 msgstr ""
 "Prosím poskytněte nám vaše telefonní číslo, abychom vám mohli zavolat mezi "
 "16.00 a 19.00 hod."
 
-#: ../code/application/views/group_request.php:279
+#: ../code/application/views/group_request.php:274
 #: ../code/application/views/helpfile/pofields.php:564
 #, php-format
 msgid ""
@@ -4789,24 +4977,24 @@ msgstr ""
 "Pro velkou poptávku a časové omezení, kdy může být hostel k dispozici "
 "potřebujeme vědět, kdy budeme moci rezervovat."
 
-#: ../code/application/views/group_request.php:282
+#: ../code/application/views/group_request.php:277
 #: ../code/application/views/helpfile/pofields.php:565
 #, php-format
 msgid "I just want an idea of the price and property"
 msgstr "Chci si jen udělat představu o ceně a ubytovacím zařízení."
 
-#: ../code/application/views/group_request.php:283
+#: ../code/application/views/group_request.php:278
 #: ../code/application/views/helpfile/pofields.php:566
 #, php-format
 msgid "Within 1 week or less"
 msgstr "Maximálně do týdne"
 
-#: ../code/application/views/group_request.php:296
+#: ../code/application/views/group_request.php:291
 #: ../code/application/views/helpfile/pofields.php:88
 msgid "Submit"
 msgstr "Podat"
 
-#: ../code/application/views/group_request.php:305
+#: ../code/application/views/group_request.php:300
 msgid "Thank you. Our team will contact you within few hours"
 msgstr "Děkujeme.Naši pracovníci vás budou kontaktovat během několika hodin"
 
@@ -4848,13 +5036,13 @@ msgid "View all %s properties"
 msgstr "Podívat se na všechny %s objekty"
 
 #: ../code/application/views/helpfile/pofields.php:13
-#: ../code/application/views/mustache/property_list.php:193
+#: ../code/application/views/mustache/property_list.php:214
 #, php-format
 msgid "Dorms from %s"
 msgstr "Pokoje od %s"
 
 #: ../code/application/views/helpfile/pofields.php:14
-#: ../code/application/views/mustache/property_list.php:207
+#: ../code/application/views/mustache/property_list.php:228
 #, php-format
 msgid "Private rooms from %s"
 msgstr "Soukromé pokoje od %s"
@@ -5568,9 +5756,9 @@ msgid "Mobile version"
 msgstr "Mobilní verze"
 
 #: ../code/application/views/helpfile/pofields.php:190
-#: ../code/application/libraries/Hb_engine.php:852
-#: ../code/application/libraries/Hw_engine.php:726
-#: ../code/application/libraries/Hw_engine.php:1281
+#: ../code/application/libraries/Hb_engine.php:853
+#: ../code/application/libraries/Hw_engine.php:738
+#: ../code/application/libraries/Hw_engine.php:1293
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -5615,21 +5803,21 @@ msgstr ""
 "stránce."
 
 #: ../code/application/views/helpfile/pofields.php:198
-#: ../code/application/libraries/Hw_engine.php:1280
+#: ../code/application/libraries/Hw_engine.php:1292
 #, php-format
 msgid "Property availability error"
 msgstr "Chyba v ubytovně k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/libraries/Hb_engine.php:510
-#: ../code/application/libraries/Hb_engine.php:1018
+#: ../code/application/libraries/Hb_engine.php:1027
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "Data nejsou k dispozici. Prosím zkuste to později."
 
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1274
+#: ../code/application/libraries/Hb_engine.php:1283
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "Žádné pokoje nejsou k dispozici pro vámi požadované noci."
@@ -5865,8 +6053,8 @@ msgid "Free Internet"
 msgstr "Internet Zdarma"
 
 #: ../code/application/views/helpfile/pofields.php:287
-#: ../code/application/views/mustache/property_list.php:184
-#: ../code/application/views/mustache/property_list.php:201
+#: ../code/application/views/mustache/property_list.php:205
+#: ../code/application/views/mustache/property_list.php:222
 #, php-format
 msgid "Deal of the Day"
 msgstr "Cena Dne"
@@ -6676,13 +6864,6 @@ msgstr ""
 msgid "For all ages"
 msgstr "Pro všechny věkové skupiny "
 
-#: ../code/application/views/helpfile/pofields.php:460
-#: ../code/application/views/helpfile/pofields.php:632
-#: ../code/application/views/mustache/property_list.php:29
-#, php-format
-msgid "See Map"
-msgstr "Podívejte se do mapy"
-
 #: ../code/application/views/helpfile/pofields.php:461
 #, php-format
 msgid "This property has wireless acess on site. "
@@ -6784,7 +6965,7 @@ msgid "Réservation sécurisée"
 msgstr "Bezpečná rezervace "
 
 #: ../code/application/views/helpfile/pofields.php:517
-#: ../code/application/controllers/cform_ajax.php:60
+#: ../code/application/controllers/cform_ajax.php:75
 #, php-format
 msgid "People:"
 msgstr "lidé:"
@@ -7193,20 +7374,10 @@ msgstr "Prosím upřesněte typ skupiny."
 msgid "Please specify an age range for your group."
 msgstr "Prosím upřesněte věkový rozsah skupiny."
 
-#: ../code/application/views/helpfile/pofields.php:623
-#, php-format
-msgid "Map"
-msgstr "Mapa"
-
 #: ../code/application/views/helpfile/pofields.php:625
 #, php-format
 msgid "Reviews"
 msgstr "Komentáře"
-
-#: ../code/application/views/helpfile/pofields.php:626
-#, php-format
-msgid "Compare"
-msgstr "Porovnejte"
 
 #: ../code/application/views/helpfile/pofields.php:627
 #, php-format
@@ -7219,46 +7390,6 @@ msgid "Please see selected properties to compare on top of the page."
 msgstr ""
 "Prosím prohlédněte si porovnání vybraných ubytovacích zařízení nahoře na "
 "stránce."
-
-#: ../code/application/views/helpfile/pofields.php:631
-#, php-format
-msgid "Not available"
-msgstr "Není k dispozici"
-
-#: ../code/application/views/helpfile/pofields.php:633
-#, php-format
-msgid "Print"
-msgstr "Tisk"
-
-#: ../code/application/views/helpfile/pofields.php:634
-#, php-format
-msgid "Quick Compare"
-msgstr "Rychlé porovnání"
-
-#: ../code/application/views/helpfile/pofields.php:635
-#, php-format
-msgid "Dorms From"
-msgstr "Studentské koleje od"
-
-#: ../code/application/views/helpfile/pofields.php:636
-#, php-format
-msgid "Privates From"
-msgstr "Soukromé pokoje od"
-
-#: ../code/application/views/helpfile/pofields.php:637
-#, php-format
-msgid "Rating Overall"
-msgstr "Celková klasifikace"
-
-#: ../code/application/views/helpfile/pofields.php:640
-#, php-format
-msgid "Site"
-msgstr "Budova"
-
-#: ../code/application/views/helpfile/pofields.php:642
-#, php-format
-msgid "Services"
-msgstr "Služby"
 
 #: ../code/application/views/helpfile/pofields.php:646
 #, php-format
@@ -7275,17 +7406,8 @@ msgstr "Může být porovnáno jen 5 ubytovacích zařízení"
 msgid "Please remove a property from list."
 msgstr "Prosím vyjměte 1 ubytovací zařízení ze seznamu."
 
-#: ../code/application/views/helpfile/pofields.php:649
-#, php-format
-msgid "Quick Compare (5 properties maximum)"
-msgstr "Rychlé porovnání (maximálně 5 ubytovacích zařízení)"
-
-#: ../code/application/views/helpfile/pofields.php:650
-#, php-format
-msgid "Remove All"
-msgstr "Zrušit všechny"
-
 #: ../code/application/views/helpfile/pofields.php:651
+#: ../code/application/views/mustache/property_list.php:114
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
 msgstr ""
@@ -7312,60 +7434,55 @@ msgstr "Obnovit vše"
 msgid "Compare (%d out of 5)"
 msgstr "Porovnej (%d z 5)"
 
-#: ../code/application/views/helpfile/pofields.php:658
-#, php-format
-msgid "Show More"
-msgstr "Ukaž víc"
-
 #: ../code/application/views/helpfile/pofields.php:659
 #, php-format
 msgid "Show Less"
 msgstr "Ukaž méně"
 
 #: ../code/application/views/helpfile/pofields.php:660
-#: ../code/application/controllers/cmain.php:1665
+#: ../code/application/controllers/cmain.php:1669
 #, php-format
 msgid "Not enough parameters"
 msgstr "Nedostatek parametrů"
 
 #: ../code/application/views/helpfile/pofields.php:661
-#: ../code/application/controllers/cmain.php:1669
+#: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
 msgstr "Vyplňte email"
 
 #: ../code/application/views/helpfile/pofields.php:662
-#: ../code/application/controllers/cmain.php:1673
+#: ../code/application/controllers/cmain.php:1677
 #, php-format
 msgid "Invalid email recipient"
 msgstr "Neplatný emailový adresát"
 
 #: ../code/application/views/helpfile/pofields.php:663
-#: ../code/application/controllers/cmain.php:1677
+#: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "Vyplňte předmět"
 
 #: ../code/application/views/helpfile/pofields.php:664
-#: ../code/application/controllers/cmain.php:1680
+#: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
 msgstr "Vyplňte zprávu"
 
 #: ../code/application/views/helpfile/pofields.php:665
-#: ../code/application/controllers/cmain.php:1683
+#: ../code/application/controllers/cmain.php:1687
 #, php-format
 msgid "Fill in the \"From\" name"
 msgstr "Vyplňte \"od\" jménem"
 
 #: ../code/application/views/helpfile/pofields.php:666
-#: ../code/application/controllers/cmain.php:1686
+#: ../code/application/controllers/cmain.php:1690
 #, php-format
 msgid "Fill in the \"From\" email"
 msgstr "Vyplňte \"od\" emailem"
 
 #: ../code/application/views/helpfile/pofields.php:667
-#: ../code/application/controllers/cmain.php:1690
+#: ../code/application/controllers/cmain.php:1694
 #, php-format
 msgid "Invalid \"From\" email"
 msgstr "Neplatný email \"od\""
@@ -7408,11 +7525,11 @@ msgstr "Vyhledávat"
 
 #: ../code/application/views/helpfile/pofields.php:691
 #: ../code/application/views/helpfile/pofields.php:723
-#: ../code/application/views/mustache/property_list.php:261
-#: ../code/application/views/mustache/property_list.php:271
+#: ../code/application/views/mustache/property_list.php:282
+#: ../code/application/views/mustache/property_list.php:292
 #, php-format
 msgid "Select"
-msgstr "Vybrat"
+msgstr "Vyberte"
 
 #: ../code/application/views/helpfile/pofields.php:692
 #, php-format
@@ -7420,7 +7537,8 @@ msgid "last %d"
 msgstr "posledních %d"
 
 #: ../code/application/views/helpfile/pofields.php:693
-#, fuzzy, php-format
+#: ../code/application/views/mustache/property_list.php:107
+#, php-format
 msgid "Quick View"
 msgstr "Rychlé prohlížení"
 
@@ -7432,17 +7550,17 @@ msgstr "%s vám zaslal zprávu:"
 #: ../code/application/views/helpfile/pofields.php:697
 #, php-format
 msgid "Type of dorms"
-msgstr ""
+msgstr "Typy ložnic"
 
 #: ../code/application/views/helpfile/pofields.php:698
-#, fuzzy, php-format
+#, php-format
 msgid "Dorms for your group only"
-msgstr "Děkujeme za vaši skupinovou rezervaci."
+msgstr "Ložnice pouze pro vaši skupinu"
 
 #: ../code/application/views/helpfile/pofields.php:699
 #, php-format
 msgid "Complete dorm only"
-msgstr ""
+msgstr "Pouze celá ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
@@ -7451,140 +7569,146 @@ msgid ""
 "the beds in that particular dorm even if you do not need all of them. This "
 "is often used by groups."
 msgstr ""
+"Ukážeme vám pouze ložnice, které si můžete celé rezervovat. Musíte si vzít "
+"všechna lůžka v této ložnici, i když je nebudete potřebovat. To je často "
+"skupinami využíváno."
 
 #: ../code/application/views/helpfile/pofields.php:701
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per person"
-msgstr "Cena za pokoj (nikoliv za osobu)"
+msgstr "Průměr za osobu a noc"
 
 #: ../code/application/views/helpfile/pofields.php:702
 #, php-format
 msgid "Average Price"
-msgstr ""
+msgstr "Průměrná cena"
 
 #: ../code/application/views/helpfile/pofields.php:703
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Average price per night for requested arrival date and length of stay. "
 "Actual day-by-day prices may vary. However, our prices are quaranteed and "
 "you will never pay more."
 msgstr ""
-"Průměrná cena  za osobu a noc platí pro požadovaný den příjezdu a délku "
-"pobytu.Aktuální ceny se mohou den ode dne lišit."
+"Průměrná cena za noc v požadovaném termínu příjezdu a délce pobytu.Skutečné "
+"ceny se den ode dne mohou lišit.Nicméně vaše ceny jsou zaručeny a nikdy "
+"nebudete platit víc."
 
 #: ../code/application/views/helpfile/pofields.php:704
-#, fuzzy, php-format
-msgid "Price for 7 nights per person"
-msgstr "Cena za pokoj (nikoliv za osobu)"
+#, php-format
+msgid "Price for %d nights per person"
+msgstr "Cena za osobu na %d nocí"
 
 #: ../code/application/views/helpfile/pofields.php:705
 #, php-format
 msgid "Maximum"
-msgstr ""
+msgstr "Maximum"
 
 #: ../code/application/views/helpfile/pofields.php:707
-#, fuzzy, php-format
+#, php-format
 msgid "Guests"
-msgstr "Host"
+msgstr "Hosté"
 
 #: ../code/application/views/helpfile/pofields.php:708
 #: ../code/application/views/helpfile/pofields.php:740
-#, fuzzy, php-format
+#, php-format
 msgid "Availability"
-msgstr "Zkontroluj dostupnost"
+msgstr "Dosažitelnost"
 
 #: ../code/application/views/helpfile/pofields.php:709
 #, php-format
 msgid "Bedroom"
-msgstr ""
+msgstr "Ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:710
-#, fuzzy, php-format
+#, php-format
 msgid "Bedrooms"
-msgstr "Pokoje"
+msgstr "Ložnice"
 
 #: ../code/application/views/helpfile/pofields.php:711
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in 1 Bedroom."
-msgstr "Maximální počet osob v tomto pokoji"
+msgstr "1 host v 1 ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:712
 #: ../code/application/views/helpfile/pofields.php:714
-#, fuzzy, php-format
-msgid "7 guests in 1 Bedroom."
-msgstr "Maximální počet osob v tomto pokoji"
+#, php-format
+msgid "%d guests in 1 Bedroom."
+msgstr "%d hostů v 1 ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
-msgid "7 guests in 7 Bedrooms (7 guests in each room)."
-msgstr ""
+msgid "%d guests in %d Bedrooms (%d guests in each room)."
+msgstr "%d hostů v %d ložnicích(%d hostů v každém pokoji)."
 
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
-msgid "7 guests in 7 Bedrooms ( 1 guest in each room)."
-msgstr ""
+msgid "%d guests in %d Bedrooms ( 1 guest in each room)."
+msgstr "%d hostů v %d ložnicích(1 host v každém pokoji)."
 
 #: ../code/application/views/helpfile/pofields.php:716
-#, fuzzy, php-format
+#, php-format
 msgid "Type of private bedrooms"
-msgstr "Soukromý pokoj"
+msgstr "Typ soukromých ložnic"
 
 #: ../code/application/views/helpfile/pofields.php:718
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Person"
-msgstr "Cena za osobu a noc"
+msgstr "Cena za osobu"
 
 #: ../code/application/views/helpfile/pofields.php:719
-#, fuzzy, php-format
+#, php-format
 msgid "Price per Room"
-msgstr "Cena za lůžko (ne za pokoj)"
+msgstr "Cena za pokoj"
 
 #: ../code/application/views/helpfile/pofields.php:720
-#, fuzzy, php-format
+#, php-format
 msgid "Average per night per room"
-msgstr "Cena za lůžko (ne za pokoj)"
+msgstr "Průměr za noc a pokoj"
 
 #: ../code/application/views/helpfile/pofields.php:721
 #, php-format
 msgid ""
-"You can only book up to 7 guests at a time. You can book more than 7 guests "
-"by going to our group section on top of this page."
+"You can only book up to %d guests at a time. You can book more than %d "
+"guests by going to our group section on top of this page."
 msgstr ""
+"Najednou můžete zarezervovat pouze %d hostů.Více než %d hostů můžete "
+"zarezervovat v naší sekci pro skupiny nahoře na této stránce."
 
 #: ../code/application/views/helpfile/pofields.php:722
-#, fuzzy, php-format
+#, php-format
 msgid "Total number of guests selected"
-msgstr "Maximální počet hostů na koleji.  "
+msgstr "Celkový vybraný počet hostů"
 
 #: ../code/application/views/helpfile/pofields.php:724
 #, php-format
 msgid "You will use 1 full dorm."
-msgstr ""
+msgstr "Použijete 1 celou ložnici."
 
 #: ../code/application/views/helpfile/pofields.php:725
 #, php-format
-msgid "You will use 7 full dorms."
-msgstr ""
+msgid "You will use %d full dorms."
+msgstr "Použijete %d celých ložnic."
 
 #: ../code/application/views/helpfile/pofields.php:726
 #, php-format
 msgid "You will partially use 1 dorm."
-msgstr ""
+msgstr "Použijete část 1 ložnice."
 
 #: ../code/application/views/helpfile/pofields.php:727
 #, php-format
 msgid "You will use 1 full dorm and 1 partially."
-msgstr ""
+msgstr "Použijete 1 celou ložnici a 1 částečně."
 
 #: ../code/application/views/helpfile/pofields.php:728
 #, php-format
-msgid "You will use 7 full dorms and 1 partially."
-msgstr ""
+msgid "You will use %d full dorms and 1 partially."
+msgstr "Použijete %d celých ložnic a 1 částečně."
 
 #: ../code/application/views/helpfile/pofields.php:729
-#, fuzzy, php-format
+#, php-format
 msgid "Confirmation Email Preview"
-msgstr "Potvrzení e-mailu"
+msgstr "Náhled potvrzujícího emailu"
 
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
@@ -7592,55 +7716,61 @@ msgid ""
 "Your unique booking number will be provided right after your reservation. "
 "Your reservation will be immediate and guaranteed."
 msgstr ""
+"Vaše speciální rezervační číslo vám poskytneme ihned po rezervaci.Vaše "
+"rezervace bude okamžitá a zaručená."
 
 #: ../code/application/views/helpfile/pofields.php:731
-#, fuzzy, php-format
+#, php-format
 msgid "Number of guests"
-msgstr "Typ pokoje a počet hostů"
+msgstr "Počet hostů"
 
 #: ../code/application/views/helpfile/pofields.php:732
 #, php-format
 msgid "1 fully available dorm."
-msgstr ""
+msgstr "1 celá ložnice k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:733
 #, php-format
-msgid "7 fully available dorms."
-msgstr ""
+msgid "%d fully available dorms."
+msgstr "%d celých ložnic k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:734
 #, php-format
 msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
-"occupied: 7)."
+"occupied: %d)."
 msgstr ""
+"1 celá ložnice k dispozici a 1 částečně již obsazená (počet obsazených lůžek:"
+"%d)."
 
 #: ../code/application/views/helpfile/pofields.php:735
 #, php-format
-msgid "This dorm is already partially occupied (beds already occupied: 7)."
-msgstr ""
+msgid "This dorm is already partially occupied (beds already occupied: %d)."
+msgstr "Tato ložnice je již částečně obsazena (již obsazená lůžka:%d)."
 
 #: ../code/application/views/helpfile/pofields.php:736
 #, php-format
 msgid ""
-"7 dorms fully available and 1 dorm already partially occupied (beds already "
-"occupied: 7)."
+"%d dorms fully available and 1 dorm already partially occupied (beds already "
+"occupied: %d)."
 msgstr ""
+"%d celých ložnic k dispozici a 1 částečně již obsazená ložnice (počet "
+"obsazených lůžek:%d)."
 
 #: ../code/application/views/helpfile/pofields.php:737
-#, fuzzy, php-format
+#, php-format
 msgid "No"
-msgstr "Příjmení"
+msgstr "Ne"
 
 #: ../code/application/views/helpfile/pofields.php:738
 #, php-format
 msgid "Bedrooms you will occupy:"
-msgstr ""
+msgstr "Pokoje, které obsadíte:"
 
 #: ../code/application/views/helpfile/pofields.php:739
 #, php-format
 msgid "Dorms you will occupy:"
-msgstr ""
+msgstr "Ložnice, které obsadíte:"
 
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
@@ -7648,11 +7778,13 @@ msgid ""
 "We will provide all important information to make sure you really enjoy your "
 "stay."
 msgstr ""
+"Poskytneme vám všechny důležité informace, abyste si skutečně užili váš "
+"pobyt."
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "Další informace"
+msgstr "Důležitá informace"
 
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
@@ -7660,6 +7792,8 @@ msgid ""
 "When available, we will provide directions on how to get to the property "
 "including public transportation and airport information."
 msgstr ""
+"Bude-li to možné,poskytneme vám pokyny, jak se dostat do ubytovacího "
+"zařízení včetně veřejné dopravy a informaci o letišti."
 
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
@@ -7667,21 +7801,124 @@ msgid ""
 "With full contact information, you will be able to contact the property in "
 "case you have any special requests."
 msgstr ""
+"S kompletní kontaktní informací se budete moci obrátit na ubytovací "
+"zařízení v případě speciálních požadavků."
 
 #: ../code/application/views/helpfile/pofields.php:745
-#, fuzzy, php-format
+#, php-format
 msgid "Property name"
-msgstr "Číslo objektu"
+msgstr "Název ubytovacího zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "Adresa"
 
 #: ../code/application/views/helpfile/pofields.php:748
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Obdržíte okamžité potvrzení emailem"
+msgstr "Prosím klikněte pro náhled vašeho potvrzujícího emailu."
+
+#: ../code/application/views/helpfile/pofields.php:749
+#, php-format
+msgid "This type of dorm can accommodate up to 1 guest per dorm."
+msgstr "V tomto typu ložnice může být 1 host."
+
+#: ../code/application/views/helpfile/pofields.php:750
+#, php-format
+msgid "This type of dorm can accommodate up to %d guests per dorm."
+msgstr "V tomto typu ložnice může být až %d hostů."
+
+#: ../code/application/views/helpfile/pofields.php:751
+#, php-format
+msgid "This type of bedroom can accommodate up to 1 guest per room."
+msgstr "V tomto typu pokoje může být 1 host."
+
+#: ../code/application/views/helpfile/pofields.php:752
+#, php-format
+msgid "This type of bedroom can accommodate up to %d guests per room."
+msgstr "V tomto typu pokoje může být až %d hostů."
+
+#: ../code/application/views/helpfile/pofields.php:753
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property:"
+msgstr "Nejnižší cena za osobu a noc v ložnici v tomto ubytovacím zařízení:"
+
+#: ../code/application/views/helpfile/pofields.php:754
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property:"
+msgstr ""
+"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení:"
+
+#: ../code/application/views/helpfile/pofields.php:755
+#, php-format
+msgid "Maximum you can book"
+msgstr "Maximum, které můžete rezervovat"
+
+#: ../code/application/views/helpfile/pofields.php:756
+#, php-format
+msgid "Please wait…"
+msgstr "Prosím čekejte..."
+
+#: ../code/application/views/helpfile/pofields.php:757
+#, php-format
+msgid "The lowest price per person per night in a dorm in this property: %s"
+msgstr "Nejnižší cena za osobu a noc v ložnici v tomto ubytovacím zařízení: %s"
+
+#: ../code/application/views/helpfile/pofields.php:758
+#, php-format
+msgid ""
+"The lowest price per person per night in a private room at this property: %s"
+msgstr ""
+"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení: "
+"%s"
+
+#: ../code/application/views/helpfile/pofields.php:759
+#, php-format
+msgid "Lowest night:"
+msgstr "Nejlevnější nocleh:"
+
+#: ../code/application/views/helpfile/pofields.php:760
+#, php-format
+msgid "Number of guests for %d nights"
+msgstr "Počet hostů na %d nocí"
+
+#: ../code/application/views/helpfile/pofields.php:761
+#, php-format
+msgid "Provided after reservation"
+msgstr "Poskytneme po rezervaci"
+
+#: ../code/application/views/helpfile/pofields.php:763
+#, php-format
+msgid "%d Bed Private Shared Bathroom"
+msgstr "Soukromá ložnice pro %d osob, sdílená koupelna"
+
+#: ../code/application/views/helpfile/pofields.php:764
+#, php-format
+msgid "Partially Available"
+msgstr "Částečně k dispozici"
+
+#: ../code/application/views/helpfile/pofields.php:765
+#, php-format
+msgid "Standard Single Private Shared Bathroom"
+msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
+
+#: ../code/application/views/helpfile/pofields.php:766
+#, php-format
+msgid "Show fully available only"
+msgstr "Ukažte pouze pokoj,který je celý k dispozici"
+
+#: ../code/application/views/helpfile/pofields.php:767
+#, php-format
+msgid ""
+"We are displaying rooms with both full and partial availability for your "
+"dates. You can select this filter to only see rooms with full availability "
+"for your stay."
+msgstr ""
+"Ukazujeme pokoje jak celé tak zčásti k dispozici pro vaše datum.Můžete "
+"vybrat tento filtr pro znázornění pouze těch pokojů, které jsou celé k "
+"dispozici pro váš pobyt."
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -7716,12 +7953,6 @@ msgstr "Informace"
 msgid "Disponibility and Price"
 msgstr "Dostupnost a cena"
 
-#: ../code/application/views/mustache/property_list.php:261
-#: ../code/application/views/mustache/property_list.php:271
-#: ../code/application/views/mustache/property_list.php:279
-msgid "Plus sur ce logement"
-msgstr "Více informací o tomto zařízení"
-
 #: ../code/application/controllers/user.php:105
 msgid "Erreur lors de la mise à jour de votre profil."
 msgstr "Chyba při aktualizaci vašeho profilu."
@@ -7732,7 +7963,7 @@ msgstr "Váš profil byl aktualizován. Děkujeme vám!"
 
 #: ../code/application/controllers/cmain.php:457
 #: ../code/application/controllers/chostelbk.php:371
-#: ../code/application/controllers/chostel.php:994
+#: ../code/application/controllers/chostel.php:347
 msgid "Données de réservations incomplètes."
 msgstr " Neúplná rezervace dat."
 
@@ -7746,52 +7977,47 @@ msgstr "Smluvní podmínky"
 
 #: ../code/application/controllers/cmain.php:609
 #: ../code/application/controllers/chostelbk.php:666
-#: ../code/application/controllers/chostel.php:1518
+#: ../code/application/controllers/chostel.php:871
 #, php-format
 msgid "Votre réservation sur %s!"
 msgstr "Vaše rezervace s %s!"
 
-#: ../code/application/controllers/cmain.php:1938
-#: ../code/application/controllers/chostel.php:565
+#: ../code/application/controllers/cmain.php:1942
 #: ../code/application/language/multi/tank_auth_lang.php:51
 msgid "Courriel"
 msgstr "Email"
 
-#: ../code/application/controllers/cmain.php:1941
-#: ../code/application/controllers/chostel.php:568
+#: ../code/application/controllers/cmain.php:1945
 msgid "Évaluation"
 msgstr "Hodnocení "
 
-#: ../code/application/controllers/cmain.php:1942
-#: ../code/application/controllers/chostel.php:569
+#: ../code/application/controllers/cmain.php:1946
 msgid "Mois"
 msgstr "Měsíc"
 
-#: ../code/application/controllers/cmain.php:1943
-#: ../code/application/controllers/chostel.php:570
+#: ../code/application/controllers/cmain.php:1947
 msgid "Année"
 msgstr "Rok"
 
-#: ../code/application/controllers/cmain.php:1999
-#: ../code/application/controllers/chostel.php:621
+#: ../code/application/controllers/cmain.php:2003
 #, php-format
 msgid "Demande de modération pour la propriété %s"
 msgstr "Omezení poptávky na majetku %s"
 
-#: ../code/application/controllers/cmain.php:2092
+#: ../code/application/controllers/cmain.php:2096
 msgid "Accept terms and conditions agreement to proceed"
 msgstr "K dalšímu pokračování prosím akceptujte smluvni podminky. "
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
-#: ../code/application/controllers/chostel.php:1003
-#: ../code/application/libraries/Hw_engine.php:1668
+#: ../code/application/controllers/chostel.php:356
+#: ../code/application/libraries/Hw_engine.php:1680
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Server nedosažitelný. Zkuste to prosím později."
 
 #: ../code/application/controllers/chostelbk.php:549
-#: ../code/application/controllers/chostel.php:1416
-#: ../code/application/libraries/Hw_engine.php:2011
+#: ../code/application/controllers/chostel.php:769
+#: ../code/application/libraries/Hw_engine.php:2023
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Server je pro tuto chvíli nedosažitelný. Prosím zkuste to znovu."
 
@@ -7812,9 +8038,11 @@ msgstr "Oběd"
 msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "Dejte nám vědět, jak se vám líbilo vaše ubytování!"
 
-#: ../code/application/controllers/chostel.php:186
-#: ../code/application/controllers/chostel.php:214
-#: ../code/application/controllers/chostel.php:486
+#: ../code/application/controllers/chostel.php:757
+#: ../code/application/libraries/Hw_engine.php:2013
+msgid "Erreur lors de la réservation"
+msgstr "Chyba při rezervaci "
+
 #: ../code/application/libraries/Hb_engine.php:189
 #: ../code/application/libraries/Hb_engine.php:216
 #: ../code/application/libraries/Hb_engine.php:653
@@ -7825,26 +8053,19 @@ msgstr "Dejte nám vědět, jak se vám líbilo vaše ubytování!"
 msgid "Hostels in %s - %s"
 msgstr "Ubytovny v %s - %s"
 
-#: ../code/application/controllers/chostel.php:324
 #: ../code/application/libraries/Hb_engine.php:285
 #: ../code/application/libraries/Hw_engine.php:216
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr "Neplatný datum a počet nocí. Hodnoty ignorovány při vyhledávání."
 
-#: ../code/application/controllers/chostel.php:835
-#: ../code/application/libraries/Hb_engine.php:1218
-#: ../code/application/libraries/Hw_engine.php:1048
+#: ../code/application/libraries/Hb_engine.php:1227
+#: ../code/application/libraries/Hw_engine.php:1060
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/controllers/chostel.php:1404
-#: ../code/application/libraries/Hw_engine.php:2001
-msgid "Erreur lors de la réservation"
-msgstr "Chyba při rezervaci "
-
-#: ../code/application/libraries/Hw_engine.php:1960
+#: ../code/application/libraries/Hw_engine.php:1972
 msgid "Card not supported please choose another card"
 msgstr "Tuto kreditní kartu nepřijímáme prosím zvolte jinou. "
 

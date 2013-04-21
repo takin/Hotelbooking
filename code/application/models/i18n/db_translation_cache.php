@@ -20,8 +20,8 @@ class Db_translation_cache extends CI_Model
       //reset translation memory cache
       $this->transDB  = $this->load->database('translation', TRUE);
 
-      //$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-      $this->load->driver('cache', array('adapter' => 'file'));
+      $this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+      //$this->load->driver('cache', array('adapter' => 'file'));
   }
 
   public function add_translation($orig_text, $translation, $lang_code, $orig_lang_code, $source_id, $tag)
@@ -67,7 +67,7 @@ class Db_translation_cache extends CI_Model
 
     if(is_numeric($orig_text)) return $orig_text;
 
-    if (ISWINDOWS || strlen($orig_text) < 20)
+    if (ISWINDOWS || strlen($orig_text) < 30)
     {
 		$cacheKey = $lang_code.'-'.md5($orig_text);
 		if ($cache = $this->cache->get($cacheKey))
@@ -101,7 +101,7 @@ class Db_translation_cache extends CI_Model
     {
       log_message('debug', 'Translation Found '.$query->row()->translation);
 
-      if($memcached === true && (ISWINDOWS || strlen($orig_text) < 20))
+      if($memcached === true && (ISWINDOWS || strlen($orig_text) < 30))
       {
       	$this->cache->save($cacheKey, $query->row(), 60000);
         return $query->row();

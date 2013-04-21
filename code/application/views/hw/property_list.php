@@ -1,13 +1,23 @@
 <?php
 // Link to hostel page below if needed
-// echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang); ?>
+// echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);
+$image_url = str_replace("mini_",'',$hostel->PropertyImages->PropertyImage->imageURL);
+if (strpos($image_url,'http://images.webresint.com') !== false)
+{
+  $image_url = base_url().'assets/hw/100/100'.str_replace("http://images.webresint.com", "", $image_url);
+}
+else
+{
+  $image_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+}
+?>
 <div class="hostel_list search_list">
 	<div class="box_content box_round">
 		<div class="city_hostel group" id="city_info_<?php echo $hostel->propertyNumber; ?>">
 			<div class="info">
 				<div class="left info_pic">
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>">
-				<img alt="" src="<?php echo base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.str_replace("mini_",'',$hostel->PropertyImages->PropertyImage->imageURL); ?>" />
+				<img alt="" src="<?php echo $image_url ?>" />
 				</a>
 				</div>
 				<div class="info_indent">

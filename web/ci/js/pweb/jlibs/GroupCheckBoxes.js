@@ -60,7 +60,7 @@ GroupCheckBoxes.prototype.init = function() {
   var that = this; 
 
   this.$checkboxes_li.each(function() {   
-    if ($(this).find('input').is(':checked')) { 
+    if ($(this).find("input[type='checkbox']").is(':checked')) { 
       that.adjCheckedCount(true); 
     } 
   }); 
@@ -77,7 +77,7 @@ GroupCheckBoxes.prototype.getCheckedValues = function() {
   var values = []; 
 
   this.$checkboxes_li.each(function() {   
-    var inputcheck = $(this).find('input');    
+    var inputcheck = $(this).find("input[type='checkbox']");    
     if (inputcheck.is(':checked')) { 
       values.push( inputcheck.attr('value'));
     } 
@@ -108,7 +108,7 @@ GroupCheckBoxes.prototype.bindHandlers = function() {
   }
 
   /////////// Bind checkbox handlers //////////////// 
-  this.$checkboxes_li.find('input').click(function(e) { 
+  this.$checkboxes_li.find("input[type='checkbox']").click(function(e) { 
     var ret = that.handleCheckboxClick($(this), e);
     that.clickaction();
     return ret; 
@@ -189,7 +189,7 @@ GroupCheckBoxes.prototype.handleGroupboxClick = function($id, e) {
       // check the group 
       // check all the checkboxes in the group 
       this.$checkboxes_li.each(function() { 
-        that.setBoxState($(this).find('input'), that.checked); 
+        that.setBoxState($(this).find("input[type='checkbox']"), that.checked); 
       }); 
       // set the checked count 
       this.checkedCount = this.$checkboxes_li.length; 
@@ -202,7 +202,7 @@ GroupCheckBoxes.prototype.handleGroupboxClick = function($id, e) {
       // uncheck the group 
       // clear all the checkboxes in the group 
       this.$checkboxes_li.each(function() { 
-        that.setBoxState($(this).find('input'), that.unchecked); 
+        that.setBoxState($(this).find("input[type='checkbox']"), that.unchecked); 
       }); 
 
       // reset the checked count 

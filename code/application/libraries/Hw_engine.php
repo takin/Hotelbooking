@@ -615,10 +615,22 @@ class Hw_engine {
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
       {
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = str_replace("mini_",'',$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']);
-		  $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] =
-			  base_url().'info/wp-content/themes/Auberge/scripts/timthumb.php?zc=1&amp;w=100&h=100&src='.$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+        $original_image_url = $json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'];
+        $image_thumbnail_url = $original_image_url;
+        $image_url = str_replace("mini_",'',$original_image_url);
+    	if (strpos($image_url,'http://images.webresint.com') !== false)
+	    {
+	      $image_list_url = base_url().'assets/hw/100/100'.str_replace("http://images.webresint.com", "", $image_url);
+	    }
+	    else
+	    {
+          $image_list_url = base_url().'info/wp-content/themes/Auberge/scripts/t.php?zc=1&amp;w=100&h=100&src='.$image_url;
+        }
+
+
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageThumbnailURL'] = $image_thumbnail_url;
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL'] = $image_url;
+		$json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageListURL'] = $image_list_url;
 	  }
 
 	   // -------Translate the propertyType----------------------------------//
@@ -745,7 +757,7 @@ class Hw_engine {
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
       $json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
-      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_price']);
+      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_per_person_price']);
       $json_data["property_list"][$i]["display_private_people"] = intval($prices['min_room_people']);
 
       $json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"];
@@ -1299,6 +1311,7 @@ class Hw_engine {
     $cheapest_prices['min_price']      = "";
     $cheapest_prices['min_dorm_price'] = "";
     $cheapest_prices['min_room_price'] = "";
+    $cheapest_prices['min_room_per_person_price'] = "";
     $cheapest_prices['min_room_people'] = "";
 
     $maxPersons = 10;
@@ -1351,7 +1364,15 @@ class Hw_engine {
           $cheapest_prices['min_room_price'] = (float)$cheapest_room_date['price']*$bedsincrement;
           $cheapest_prices['min_room_people'] = $bedsincrement;
         }
-
+        
+        if(empty($cheapest_prices['min_room_per_person_price']))
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
+        elseif(( (float)$cheapest_room_date['price']) < $cheapest_prices['min_room_per_person_price'] )
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
 
       }
     }
@@ -2036,5 +2057,12 @@ class Hw_engine {
 
     //update and return status
     return $this->CI->Db_hw_hostel->update_hw_hostel_facilities($property_number, $data["hostel"]->facilities);
+  }
+
+  function propertyimg($prid)
+  {
+  		$this->CI->load->model('Hostel_api_model');
+  		$results = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'),$prid, $this->api_functions_lang);
+		return $results;
   }
 }

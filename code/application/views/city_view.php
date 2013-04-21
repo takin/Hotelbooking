@@ -1,3 +1,70 @@
+<div id="map_filter_popup" style="display: none;">
+    <input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
+    <input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
+<?php
+if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
+    <div id="filter_map_leftSide">
+        <nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
+            <ul id="ul_map_filter_tabs" class="box_round popup_filter_tabs">
+                 <?php if (!empty($city_districts)) {    ?>
+                <li id="li_popup_filter_districts" class="first ui-tabs-selected">
+                    <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
+                           <?php echo _("Filter by Districts"); ?>
+                    </a>
+                </li>
+                 <?php }   ?>
+                <?php
+            if (!empty($city_landmarks)) { ?>
+                <li id="li_popup_filter_landmarks">
+                    <a id="tab_map_filter_landmarks" href="#filter_content_landmarks_popup">
+                           <?php echo _('Filter by Landmarks (within 2km)'); ?>
+                    </a>
+                </li>
+                <?php }   ?>
+            </ul>
+         </nav>
+            <?php
+            $district_count = 0;
+            $total_dsitrict = count($city_districts);
+            ?>
+            <?php if (!empty($city_districts)) {    ?>
+            <div id="filter_content_districts_popup" class="filter_content box_content box_round ui-tabs">
+                    <ul id="cb_group_districts_filter">
+                        <?php
+                        foreach ($city_districts as $district) {
+                            $district_count++;
+                            ?>
+                                <li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->um_id; ?>" value="<?php echo $district->district_id; ?>" name="districts" /> <?php echo $district->district_name; ?> <?php ?>(<span id="district-count-<?php echo $district->district_id; ?>">0</span>)<?php ?><input type="hidden" id="hidden_district_<?php echo $district->district_id; ?>" value="<?php echo $district->um_id; ?>" name="hidden_districts_<?php echo $district->district_id; ?>" /></li>
+
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+            <?php
+            if (!empty($city_landmarks)) {
+                $land_count = 0;
+                $total_land = count($city_landmarks);
+                ?>
+                <div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
+                        <ul id="cb_group_landmarks_filter">
+                        <?php
+                        foreach ($city_landmarks as $landmark) {
+                            $land_count++;
+                            ?>
+                                <li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo $landmark->landmark_name; ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
+                                    <input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>###<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" /></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+
+    </div>
+ <?php } ?>
+    <div id="filter_map_rightSide_container">
+        <div id="filter_map_rightSide"></div>
+        <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();">Show properties</button>
+    </div>
+</div>
 <div id="sidebar" class="grid_4 city_view_search">
 	<?php if($searchmode > 0){?>
 	<?php if(!isset($date_selected))      $date_selected = NULL;
@@ -66,72 +133,12 @@
 				</ul>
 			</div>
 			<?php }$district_count=0;$total_dsitrict = count($city_districts);?>
-			<?php if(!empty($city_districts)){?>
-			<span class="filter_title box_round expand"><strong><?php echo _('Districts')?></strong></span>
-			<div class="filter_content">
-				<ul id="cb_group_districts_filter">
-					<?php foreach ($city_districts as $district){$district_count++;?>
-					<?php if ($district_count == 11){?>
-					<li><a id="show_more_district" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
-					<div id="more_district" class="more_choice_filter">
-					<?php }?>
-					<li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->district_id;?>" value="<?php echo $district->district_id;?>" name="districts" /> <?php echo $district->district_name;?> <?php ?>(<span id="district-count-<?php echo $district->district_id;?>">0</span>)<?php ?></li>
-					<?php if ($district_count >= 11 && $district_count == $total_dsitrict){?>
-					<li><a id="show_less_district" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
-					</div>
-					<?php }?>
-					<?php }?>
-				</ul>
-			</div>
-			<?php }?>
-			<?php if(!empty($city_landmarks)){$land_count=0;$total_land = count($city_landmarks);?>
-			<span class="filter_title box_round expand"><strong><?php echo _('Landmarks (within 2km)')?></strong></span>
-			<div class="filter_content">
-				<ul id="cb_group_landmarks_filter">
-					<?php foreach ($city_landmarks as $landmark){$land_count++;?>
-					<?php if ($land_count == 11){?>
-					<li><a id="show_more_land" class="right show_choices" href="#">+ <?php echo _('More Options')?></a></li>
-					<div id="more_land" class="more_choice_filter">
-					<?php }?>
-					<li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id;?>" value="<?php echo $landmark->landmark_id;?>" name="landmarks" /> <?php echo $landmark->landmark_name;?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id;?>">0</span>)<?php ?></li>
-					<?php if ($land_count >= 11 && $land_count == $total_land){?>
-					<li><a id="show_less_land" class="right less_choices" href="#">- <?php echo _('Less Options')?></a></li>
-					</div>
-					<?php }?>
-					<?php }?>
-				</ul>
-			</div>
-			<?php }?>
 		</div>
                 <?php $this->load->view('includes/group-booking'); ?>
 	</div>
 	<?php }?>
- <?php
-        //------------check to display the box or not
-    if($this->config->item('recent_view_number_cookies') > 0 )
-    {
-	// if cookies set show Recent viewed widget///
-	if($this->api_used == HB_API)
-    {?>
-    <div id="recently_viewed_properties" style="display: none;"></div>
-	<script type="text/javascript">
-			$(document).ready(function(){
-				$.ajax({
-						type:"POST",
-                        cache: false,
-						url:'<?php echo site_url("cmain/ajax_recently_viewed_property/");?>',
-						success:function(retdata)
-						{
-							$('#recently_viewed_properties').show();
-							$('#recently_viewed_properties').html(retdata);
 
-						}
-				});
-
-			});
-    </script>
-    <?php }
-    }?>
+	<?php $this->load->view('includes/recently_viewed_properties'); ?>
 	<?php $this->load->view('includes/video-popup'); ?>
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/siteinfo'); ?>
@@ -187,14 +194,56 @@
 
 
 		  <div id="city_results_count" class="group">
-                    <span id="city_results_arrive"><?php echo _('Arrivée');?>:</span>
-                    <span id="city_results_arrive_date"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
-                    <?php printf( '<span id="city_results_numnights">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
-                    <a id="change-dates" href="#">[<?php echo _('Change Dates'); ?>]</a>
+                    <span id="city_results_arrive" class="top_search_result"><?php echo _('Arrivée');?>:</span>
+                    <span id="city_results_arrive_date" class="top_search_result"><?php echo date_conv($date_selected, $this->wordpress->get_option('aj_date_format')); ?></span>
+                    <?php printf( '<span id="city_results_numnights" class="top_search_result">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
+                    <a id="change-dates" href="#" class="top_search_result">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
-<!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>
-				<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
+<!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
+				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
+                       <?php if(isset($city_info->city_geo_lat)) { ?>
+                        <?php
+                            $filterBy_flag = "both";
+                            $span_style = null;
+                             if ( empty($city_landmarks) && empty($city_districts) ) {
+                                 
+                                 $filterBy_flag = "none";
+                             }
+                             elseif ( empty($city_landmarks) ) {
+                                  $filterBy_flag = "districts";
+                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+                             }
+                             elseif ( empty($city_districts) ) {
+                                  $filterBy_flag = "landmarks";
+                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+                             } 
+                             if ($filterBy_flag !== "none") {
+                                    ?>
+                    <div id="map_filter_button" class="box_content map_button_box box_round">
+                                <a id="city_map_filter" href="#">
+                                    <span><strong <?php echo $span_style; ?>>
+                                            <?php
+                                            switch ($filterBy_flag) {
+                                                case "districts":
+                                                    echo _("Filter by Districts");
+
+                                                    break;
+                                                case "landmarks":
+                                                    echo _("Filter by Landmarks");
+
+                                                    break;
+                                                default:
+                                                    echo _("Filter by Districts or Landmarks");
+                                                    break;
+                                            }
+                                            ?></strong></span>
+                                    <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
+                                </a>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
 			</div>
+ 
 
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
@@ -208,6 +257,22 @@
                          <span id ="close_map_button"> </span>
                          </a>
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
+					<!--property compare code start-->	
+					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
+						if($displayCompareProperty == 1) { ?>		
+						<div id="property_compare" class="quick-data" style="display:none;">
+							<input type="hidden" name="total_com_property" id="total_com_property" value="0"/>
+							<div class="head123"><p><?php echo _('Quick Compare (5 properties maximum)');?></p>
+							<span id="comparelink" class="comparelink" style="display:none;"><a class="compare_displaypopup" href="#property_compare_data" onclick="property_compare_popup();"><?php echo _('Compare');?></a></span> </div>
+							<div id="compare_data"></div>
+							<div class="remove_div"><a href="#" onclick="remove_pro('');"><?php echo _('Remove All');?></a></div>
+						</div>
+						<div style="display: none;">
+							 <div id="property_compare_data" style="min-height:600px;overflow:auto; width:970px;">
+					   		 </div>
+						</div>
+					<?php } ?>
+					<!--property compare code close-->
 
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
@@ -277,7 +342,41 @@
 			</div>
 
 </div>
-
+<?php 
+if(isset($_COOKIE["compare"]) && $_COOKIE["compare"]!=''){
+	if($this->uri->segment(2)==$_COOKIE["citysearch"]){
+	$cookieproid = $_COOKIE["compare"];
+?>
+	<script type="text/javascript">
+	var compareproperty = '<?php echo $cookieproid; ?>';
+	display_compare_box(compareproperty);
+	</script>
+<?php
+ }
+} 
+else { ?>
+	<script type="text/javascript">
+			$('#total_com_property').val(0);
+	</script>	
+<?php } ?>
+<?php 
+if(isset($_COOKIE["citysearch"]) && $_COOKIE["citysearch"]!=''){
+	if($this->uri->segment(2)!=$_COOKIE["citysearch"]){
+		?>
+		<script> 
+			pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
+			pweb_setCookie("compare","",24);
+		</script>
+		<?php
+	}
+}else{
+?>
+<script>
+pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
+</script>
+<?php
+}	
+?>
 <script id="template-infow" type="text/html">
 <?php
   $this->load->view('mustache/city_map_property_infow');
@@ -288,3 +387,13 @@
   $this->load->view('mustache/property_list');
 ?>
 </script>
+
+<input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
+<div style="display:none;">
+			<div id="quick_preview_div" style="min-height:600px;overflow:auto; width:880px;">
+			</div>
+</div>
+<input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
+<input type= "hidden" name="limit_compare_message" value="<?php echo  _('Only 5 properties can be compared. Please remove a property from list.');?>" id= "limit_compare_message" />
+
+

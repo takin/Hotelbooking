@@ -4,16 +4,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-17 20:06-0800\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-Country: CANADA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"Language: fr_CA\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:6
@@ -21,14 +21,17 @@ msgid "Erreur 404 - Page introuvable"
 msgstr "Erreur 404 - Page introuvable"
 
 #: 404.php:10
-msgid "Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi effectuer une recherche:"
-msgstr "Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi effectuer une recherche :"
+msgid ""
+"Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut "
+"pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi "
+"effectuer une recherche:"
+msgstr ""
+"Désolé nous ne pouvons trouver cette page. Veuillez utiliser le menu du haut "
+"pour naviguer sur le site et trouver l'information désiré. Vous pouvez aussi "
+"effectuer une recherche :"
 
 # This is for the Wordpress tag name keep it one short word
-#: archive.php:6
-#: archive.php:32
-#: canada-page.php:17
-#: functions.php:103
+#: archive.php:6 archive.php:32 canada-page.php:17 functions.php:103
 msgid "ville"
 msgstr "ville"
 
@@ -48,10 +51,7 @@ msgstr "Suivre cette catégorie"
 msgid "Archive RSS"
 msgstr "Archive RSS"
 
-#: archive.php:21
-#: archive.php:24
-#: archive.php:27
-#: functions.php:240
+#: archive.php:21 archive.php:24 archive.php:27 functions.php:240
 #: functions.php:250
 msgid "Archive pour"
 msgstr "Archive pour"
@@ -132,18 +132,15 @@ msgstr "Votre Nom"
 msgid "Connecté entant que"
 msgstr "Connecté entant que "
 
-#: comments.php:124
-#: header.php:231
+#: comments.php:124 header.php:231
 msgid "Se déconnecter"
 msgstr "Se déconnecter"
 
-#: comments.php:136
-#: contact.php:27
+#: comments.php:136 contact.php:27
 msgid "Nom"
 msgstr "Nom"
 
-#: comments.php:139
-#: comments.php:150
+#: comments.php:139 comments.php:150
 msgid "(requis)"
 msgstr "(requis)"
 
@@ -156,8 +153,12 @@ msgid "Site Web"
 msgstr "Site Web"
 
 #: comments.php:171
-msgid "Veuillez noter: la modération est active et ralentira la publication de votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
-msgstr "Veuillez noter : la modération est active et ralentira la publication de votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
+msgid ""
+"Veuillez noter: la modération est active et ralentira la publication de "
+"votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
+msgstr ""
+"Veuillez noter : la modération est active et ralentira la publication de "
+"votre commentaire. Nul besoin de soumettre à nouveau votre commentaire."
 
 #: comments.php:177
 msgid "Soumettre"
@@ -195,9 +196,7 @@ msgstr "Merci pour votre commentaire. Nous vous répondrons d'ici peu."
 msgid "Veuillez remplir les champs requis correctement."
 msgstr "Veuillez remplir les champs requis correctement."
 
-#: footer-mobile.php:5
-#: footer.php:39
-#: header-mobile.php:25
+#: footer-mobile.php:5 footer.php:39 header-mobile.php:25
 msgid "Trouver une auberge"
 msgstr "Trouver une auberge"
 
@@ -205,24 +204,19 @@ msgstr "Trouver une auberge"
 msgid "View Full Site"
 msgstr "Voir site normal"
 
-#: footer-mobile.php:7
-#: footer.php:50
+#: footer-mobile.php:7 footer.php:50
 msgid "About us"
 msgstr "Qui sommes-nous ?"
 
-#: footer-mobile.php:8
-#: footer.php:47
-#: header.php:221
+#: footer-mobile.php:8 footer.php:47 header.php:221
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Aide / FAQ / Nous Joindre"
 
-#: footer-mobile.php:9
-#: footer.php:48
+#: footer-mobile.php:9 footer.php:48
 msgid "Confidentialité"
 msgstr "Confidentialité"
 
-#: footer-mobile.php:10
-#: footer.php:49
+#: footer-mobile.php:10 footer.php:49
 msgid "Conditions"
 msgstr "Conditions"
 
@@ -394,8 +388,7 @@ msgstr "Italie/milan"
 msgid "Milan"
 msgstr "Milan"
 
-#: footer.php:31
-#: footer.php:32
+#: footer.php:31 footer.php:32
 msgid "Grenade"
 msgstr "Grenade"
 
@@ -419,9 +412,7 @@ msgstr "Bruxelles"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: footer.php:38
-#: header-mobile.php:24
-#: header.php:286
+#: footer.php:38 header-mobile.php:24 header.php:286
 msgid "Accueil"
 msgstr "Accueil"
 
@@ -429,8 +420,7 @@ msgstr "Accueil"
 msgid "Guides"
 msgstr "Guides"
 
-#: footer.php:41
-#: header.php:292
+#: footer.php:41 header.php:292
 msgid "Événements"
 msgstr "Événements"
 
@@ -440,8 +430,33 @@ msgstr "Information"
 
 # Please leave the <strong> and </strong> in your translation
 #: footer.php:60
-msgid "Vous recherchez une <strong>auberge</strong>, une <strong>auberge de jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse.com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme <strong>Paris</strong> en France, <strong>Londres</strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, <strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, <strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République tchèque ….Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
-msgstr "<strong>© 1997 - 2012 AubergesDeJeunesse.com ® | Site Officiel | Tous droits réservés | 3 Villa Fleurie, 75019 Paris, France. </strong>  AubergesDeJeunesse.com est le site en ligne n°1 in France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com propose la réservation dernière minute d'auberges et de logements à bas prix dans des villes comme Paris en France, Londres en Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie,  Amsterdam en Hollande, Dublin en Irlande,  Madrid en Espagne, Prague en République Tchèque… Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
+msgid ""
+"Vous recherchez une <strong>auberge</strong>, une <strong>auberge de "
+"jeunesse</strong>, un <strong>appartement</strong>, un <strong>Bed And "
+"Breakfast B&B</strong>, une<strong> pension</strong>, une <strong>chambre "
+"d’hôtes</strong>, une <strong>Hostel</strong> ? <strong>AubergesDeJeunesse."
+"com</strong> est le site en ligne n°1 en France, Belgique, Suisse et Canada "
+"pour tous les logements à bas prix dernière minute. AubergesDeJeunesse.com "
+"propose la réservation dernière minute de chambres et logements à bas prix "
+"dans des villes comme <strong>Paris</strong> en France, <strong>Londres</"
+"strong> en Angleterre, <strong>Barcelone </strong>en Espagne, <strong>New "
+"York</strong> aux Etats-Unis, <strong>Rome</strong> en Italie, "
+"<strong>Amsterdam</strong> en Hollande, <strong>Dublin</strong> en Irlande, "
+"<strong>Madrid</strong> en Espagne, <strong>Prague</strong> en République "
+"tchèque ….Préparez votre voyage en toute simplicité, nous proposons "
+"également des informations de dernières minutes, des guides et commentaires."
+msgstr ""
+"<strong>© 1997 - 2013 AubergesDeJeunesse.com ® | Site Officiel | Tous droits "
+"réservés | 3 Villa Fleurie, 75019 Paris, France. </strong>  "
+"AubergesDeJeunesse.com est le site en ligne n°1 in France, Belgique, Suisse "
+"et Canada pour tous les logements à bas prix dernière minute. "
+"AubergesDeJeunesse.com propose la réservation dernière minute d'auberges et "
+"de logements à bas prix dans des villes comme Paris en France, Londres en "
+"Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie,  "
+"Amsterdam en Hollande, Dublin en Irlande,  Madrid en Espagne, Prague en "
+"République Tchèque… Préparez votre voyage en toute simplicité, nous "
+"proposons également des informations de dernières minutes, des guides et "
+"commentaires."
 
 #: functions.php:103
 msgid "Ville"
@@ -474,9 +489,7 @@ msgstr "date_evenements"
 msgid "Date Événements"
 msgstr "Date Événements"
 
-#: functions.php:171
-#: index.php:99
-#: index.php:101
+#: functions.php:171 index.php:99 index.php:101
 msgid "Lire la suite"
 msgstr "Lire la suite"
 
@@ -512,13 +525,11 @@ msgstr "Répondre"
 msgid "Vous connecter pour répondre"
 msgstr "Vous connecter pour répondre"
 
-#: header-mobile.php:28
-#: header.php:224
+#: header-mobile.php:28 header.php:224
 msgid "Mon Compte"
 msgstr "Mon Compte"
 
-#: header-mobile.php:30
-#: header.php:226
+#: header-mobile.php:30 header.php:226
 msgid "Se connecter"
 msgstr "Se connecter"
 
@@ -530,8 +541,7 @@ msgstr "Choisir le pays"
 msgid "Choisir la ville"
 msgstr "Choisir la ville"
 
-#: header.php:121
-#: header.php:128
+#: header.php:121 header.php:128
 msgid "Chargement..."
 msgstr "Chargement..."
 
@@ -695,17 +705,11 @@ msgstr "Informations générales sur "
 msgid "Coup de Coeur !"
 msgstr "Coup de Coeur !"
 
-#: lp-page.php:85
-#: lp-page.php:93
-#: lp-page.php:103
-#: lp-page.php:114
+#: lp-page.php:85 lp-page.php:93 lp-page.php:103 lp-page.php:114
 msgid "À partir de"
 msgstr "À partir de "
 
-#: lp-page.php:86
-#: lp-page.php:94
-#: lp-page.php:104
-#: lp-page.php:115
+#: lp-page.php:86 lp-page.php:94 lp-page.php:104 lp-page.php:115
 msgid "Réserver Maintenant"
 msgstr "Réserver maintanant"
 
@@ -771,28 +775,26 @@ msgstr "Type d'articles :"
 msgid "Désolé aucun résultat ne répond à vos critères."
 msgstr "Désolé aucun résultat ne répond à vos critères."
 
-#: search_box.php:48
-#: search_box.php:87
+#: search_box.php:48 search_box.php:87
 msgid "Enter a city name or hostel name"
 msgstr "Entrez la ville ou le nom de l'établissement"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Pays introuvable"
 msgstr "Pays introuvable"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Ville introuvable"
 msgstr "Ville introuvable"
 
-#: search_box.php:57
-#: search_box.php:62
+#: search_box.php:57 search_box.php:62
 msgid "Date invalide"
 msgstr "Date invalide"
 
 #: search_box.php:63
-msgid "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and Breakfast, Pensions - Plus de 30000!!"
+msgid ""
+"Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and "
+"Breakfast, Pensions - Plus de 30000!!"
 msgstr "30 000 Auberges De Jeunesse et chambres à très bon prix !"
 
 #: search_box.php:69
@@ -831,9 +833,7 @@ msgstr "Tout ce que vous devez savoir sur "
 msgid "Quoi faire à"
 msgstr "Quoi faire à "
 
-#: single-page-destination.php:15
-#: single.php:22
-#: subpage-destinations.php:32
+#: single-page-destination.php:15 single.php:22 subpage-destinations.php:32
 #: subpage-destinations.php:46
 msgid "Plus sur"
 msgstr "Plus sur "
@@ -842,8 +842,7 @@ msgstr "Plus sur "
 msgid "Auberges de Jeunesse à"
 msgstr "Auberges de Jeunesse à "
 
-#: single-page-destination.php:52
-#: subpage-destinations.php:84
+#: single-page-destination.php:52 subpage-destinations.php:84
 msgid "Nos suggestions pour"
 msgstr "Auberge - Nos suggestions pour"
 
@@ -859,13 +858,11 @@ msgstr "Auberge - À ne pas manquer :"
 msgid "Auberges Populaires"
 msgstr "Auberges Populaires"
 
-#: admin/widgets.php:150
-#: admin/widgets.php:167
+#: admin/widgets.php:150 admin/widgets.php:167
 msgid "Choisir un pays"
 msgstr "Choisir un pays"
 
-#: admin/widgets.php:151
-#: admin/widgets.php:174
+#: admin/widgets.php:151 admin/widgets.php:174
 msgid "Choisir une ville"
 msgstr "Choisir une ville"
 
@@ -937,8 +934,7 @@ msgstr "Info sur "
 msgid "Back to results"
 msgstr "Retour aux résultats"
 
-#: tools/pofield.php:12
-#: tools/pofield.php:37
+#: tools/pofield.php:12 tools/pofield.php:37
 msgid "View Mobile Site"
 msgstr "Voir site mobile"
 
@@ -1002,14 +998,14 @@ msgstr "Photos"
 msgid "Phone (please include the country code)"
 msgstr "Téléphone (veuillez inclure l'indicatif du pays)"
 
-#: tools/pofield.php:28
-#: widget/sideinfo.php:14
-#: widget/sideinfo.php:35
+#: tools/pofield.php:28 widget/sideinfo.php:14 widget/sideinfo.php:35
 msgid "Text/SMS (Free)"
 msgstr "SMS (GRATUIT)"
 
 #: tools/pofield.php:29
-msgid "Please make sure you have included the country code in your phone number above"
+msgid ""
+"Please make sure you have included the country code in your phone number "
+"above"
 msgstr "Veuillez vérifier que l'indicatif du pays est dans le numéro ci-dessus"
 
 #: tools/pofield.php:31
@@ -1056,8 +1052,7 @@ msgstr "Appartement"
 msgid "Guesthouse - B&B"
 msgstr "Chambre d'hôtes"
 
-#: widget/citywidget.php:11
-#: widget/citywidget.php:12
+#: widget/citywidget.php:11 widget/citywidget.php:12
 msgid "Best Offers"
 msgstr "Meilleurs Offres"
 
@@ -1089,61 +1084,49 @@ msgstr "Océanie"
 msgid "Map Search"
 msgstr "Recherche - Cartes"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:20 widget/sideinfo.php:30
 #: widget/sideinfo.php:41
 msgid "AubergesDeJeunesse.com"
 msgstr "AubergesDeJeunesse.com"
 
-#: widget/sideinfo.php:9
-#: widget/sideinfo.php:30
+#: widget/sideinfo.php:9 widget/sideinfo.php:30
 msgid "est réglementé par l'Union Européenne."
 msgstr "est réglementé par l'Union Européenne."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 #, php-format
 msgid "100%% sécurisé."
 msgstr "100%% sécurisé."
 
-#: widget/sideinfo.php:10
-#: widget/sideinfo.php:31
+#: widget/sideinfo.php:10 widget/sideinfo.php:31
 msgid "Paiements sécurisés et encryptés pour votre sécurité."
 msgstr "Paiements sécurisés et encryptés pour votre sécurité."
 
-#: widget/sideinfo.php:11
-#: widget/sideinfo.php:32
+#: widget/sideinfo.php:11 widget/sideinfo.php:32
 msgid "Seulement 10% pour garantir votre réservation."
 msgstr "Seulement 10% pour garantir votre réservation."
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "Un service clientèle de qualité disponible"
 msgstr "Un service clientèle de qualité disponible"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "24h/24, 7j/7"
 msgstr "24h/24, 7j/7"
 
-#: widget/sideinfo.php:12
-#: widget/sideinfo.php:33
+#: widget/sideinfo.php:12 widget/sideinfo.php:33
 msgid "prêt à vous guider à tout moment."
 msgstr "prêt à vous guider à tout moment."
 
-#: widget/sideinfo.php:16
-#: widget/sideinfo.php:37
+#: widget/sideinfo.php:16 widget/sideinfo.php:37
 msgid "Pour tous les ages: ni maximum ni minimum."
 msgstr "Pour tous les ages : ni maximum ni minimum."
 
-#: widget/sideinfo.php:20
-#: widget/sideinfo.php:41
+#: widget/sideinfo.php:20 widget/sideinfo.php:41
 msgid "Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."
 msgstr "Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."
 
-#: widget/testimonial.php:5
-#: widget/testimonial.php:8
+#: widget/testimonial.php:5 widget/testimonial.php:8
 msgid "Yasmine M, Rio De Janeiro"
 msgstr "Yasmine M, Rio De Janeiro"
 
@@ -1151,8 +1134,7 @@ msgstr "Yasmine M, Rio De Janeiro"
 msgid "Merci pour votre aide."
 msgstr "Merci pour votre aide."
 
-#: widget/testimonial.php:14
-#: widget/testimonial.php:16
+#: widget/testimonial.php:14 widget/testimonial.php:16
 msgid "Diego R, Mexico"
 msgstr "Diego R, Mexico"
 
@@ -1160,29 +1142,33 @@ msgstr "Diego R, Mexico"
 msgid "Génial le site. Et les prix sont imbattables. Merci !"
 msgstr "Génial le site. Et les prix sont imbattables. Merci !"
 
-#: widget/testimonial.php:22
-#: widget/testimonial.php:24
+#: widget/testimonial.php:22 widget/testimonial.php:24
 msgid "Lesley F, Boston"
 msgstr "Lesley F, Boston"
 
 #: widget/testimonial.php:23
-msgid "Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
-msgstr "Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
+msgid ""
+"Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
+msgstr ""
+"Mes Vacances sont réussies grâce à vous. Les Auberges étaient comme promises."
 
 #: widget/testimonial.php:30
 msgid "Jérome H, Marseille"
 msgstr "Jérome H, Marseille"
 
 #: widget/testimonial.php:31
-msgid "Notre école a réservé pour 35 personnes sur votre site et pas de surprise. Parfait !!! "
-msgstr "Notre école a réservé pour 35 personnes sur votre site et pas de surprise. Parfait !!! "
+msgid ""
+"Notre école a réservé pour 35 personnes sur votre site et pas de surprise. "
+"Parfait !!! "
+msgstr ""
+"Notre école a réservé pour 35 personnes sur votre site et pas de surprise. "
+"Parfait !!! "
 
 #: widget/testimonial.php:32
 msgid "Jérome H, Marseille "
 msgstr "Jérome H, Marseille "
 
-#: widget/testimonial.php:38
-#: widget/testimonial.php:40
+#: widget/testimonial.php:38 widget/testimonial.php:40
 msgid "Carmen J, Lima"
 msgstr "Carmen J, Lima"
 
@@ -1190,35 +1176,38 @@ msgstr "Carmen J, Lima"
 msgid "Choix, prix, sécurité, confirmation. Rien a dire : site super ! "
 msgstr "Choix, prix, sécurité, confirmation. Rien a dire : site super ! "
 
-#: widget/testimonial.php:46
-#: widget/testimonial.php:48
+#: widget/testimonial.php:46 widget/testimonial.php:48
 msgid "Jowar, New Dehli"
 msgstr "Jowar, New Dehli"
 
 #: widget/testimonial.php:47
-msgid "Les directions étaient bonnes et les prix des plus bas… Voyage réussie. Encore Merci."
-msgstr "Les directions étaient bonnes et les prix des plus bas… Voyage réussie. Encore Merci."
+msgid ""
+"Les directions étaient bonnes et les prix des plus bas… Voyage réussie. "
+"Encore Merci."
+msgstr ""
+"Les directions étaient bonnes et les prix des plus bas… Voyage réussie. "
+"Encore Merci."
 
-#: widget/testimonial.php:54
-#: widget/testimonial.php:56
+#: widget/testimonial.php:54 widget/testimonial.php:56
 msgid "Olivia S, Londres"
 msgstr "Olivia S, Londres"
 
 #: widget/testimonial.php:55
 msgid "Les cartes et les guides m'ont aidée. Votre site est facile a naviguer."
-msgstr "Les cartes et les guides m'ont aidée. Votre site est facile a naviguer."
+msgstr ""
+"Les cartes et les guides m'ont aidée. Votre site est facile a naviguer."
 
-#: widget/testimonial.php:62
-#: widget/testimonial.php:64
+#: widget/testimonial.php:62 widget/testimonial.php:64
 msgid "Michal E, Varsovie"
 msgstr "Michal E, Varsovie"
 
 #: widget/testimonial.php:63
-msgid "Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
-msgstr "Ma fiancée et moi ont passé des supers vacances en réservant sur votre site."
+msgid ""
+"Ma fiancée et moi ont passe des supers vacances en réservant sur votre site."
+msgstr ""
+"Ma fiancée et moi ont passé des supers vacances en réservant sur votre site."
 
-#: widget/testimonial.php:70
-#: widget/testimonial.php:72
+#: widget/testimonial.php:70 widget/testimonial.php:72
 msgid "Hiroto V, Seoul"
 msgstr "Hiroto V, Seoul"
 
@@ -1226,8 +1215,7 @@ msgstr "Hiroto V, Seoul"
 msgid "Très content de vos services."
 msgstr "Très content de vos services."
 
-#: widget/testimonial.php:78
-#: widget/testimonial.php:80
+#: widget/testimonial.php:78 widget/testimonial.php:80
 msgid "Ali S, Casablanca"
 msgstr "Ali S, Casablanca"
 

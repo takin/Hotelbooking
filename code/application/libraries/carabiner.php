@@ -316,10 +316,6 @@ class Carabiner {
 		  {
 		    $this->https = TRUE;
 		    $this->base_uri = $this->CI->config->item('secure_base_url');
-		    if(empty($this->base_uri))
-		    {
-		      $this->base_uri = $this->CI->config->item('base_url');
-		    }
 		  }
 		  else
 		  {

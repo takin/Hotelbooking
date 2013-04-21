@@ -1,11 +1,20 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /* Valero chat globale variable set false for disable and True for enable chat*/
-$config['displayVelaro'] = FALSE;
+$config['displayVelaro'] = TRUE;
 
 /* Display or not the share PDF and Email */
 $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
+
+/* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
+$config['displayQuickPreview'] = FALSE;
+
+/* set variable to show property compare feature*/
+$config['displayCompareProperty'] = FALSE;
+
+/* set variable to show remove from search */
+$config['displayRemoveFromSearch'] = true;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
@@ -414,7 +423,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Comma-delimited, e.g. '10.0.1.200,10.0.1.201'
 |
 */
-$config['proxy_ips'] = '92.243.16.182';
+$config['proxy_ips'] = '92.243.16.182,95.142.170.59,95.142.170.9';
 
 /*
 |--------------------------------------------------------------------------

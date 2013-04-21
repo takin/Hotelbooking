@@ -996,14 +996,14 @@ class Hostel_api_model extends CI_Model {
   function _log_xml_debug($xml_file)
   {
     //if debug messages are enabled copy API XML to file
-    if(($this->_threshold <= 2)&&($xml_file!==false))
+    if(($this->_threshold >= 2)&&($xml_file!==false))
     {
       log_message('debug', 'XML API return. See last_api_result.xml');
 
       try
       {
         $xml_api_file = $this->log_path.'last_api_result.xml';
-        $fp = fopen($xml_api_file, 'w');
+        $fp = fopen($xml_api_file, 'a');
         if (!$fp) {
 
             throw new Exception("Problem with opening of $xml_api_file");

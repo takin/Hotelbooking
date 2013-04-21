@@ -1,0 +1,218 @@
+.quick_compare {
+	width:970px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.quick_compare_scroll{
+	min-height:600px;
+	max-height:600px;
+	overflow-y:scroll;
+}
+div.quick_compare_head {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -15px;
+	/*width: 900px;*/
+}
+.printpage {
+	color: #227BBD;
+	cursor: pointer;
+	display: block;
+	float: right;
+	margin-right: 10px;
+	margin-top: 18px;
+	padding-left: 15px;
+}
+span.restore {
+	color: #227BBD;
+	cursor: pointer;
+	display: block;
+	float: right;
+	margin-top: 18px;
+}
+div.quick_compare_head h4 {
+	padding: 10px 0;
+	text-align: center;
+	font-size:18px;
+}
+.quick_compare_data {
+	border-collapse: collapse;
+	border: 1px solid #BEBEBE;
+}
+.quick_compare_grey1 .heading {
+	background-color: #F6F6F6;
+	z-index:-1;
+}
+.quick_compare_grey .heading {
+	background-color: #F6F6F6;
+	z-index:-1;
+}
+.quick_compare_data th {
+	background-color: #FFFFFF;
+	border-bottom: 1px dotted #DCDCDC;
+	border-left: 1px solid #BEBEBE;
+	border-right: 1px solid #BEBEBE;
+	color: #D9D9D9;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+}
+.quick_compare_data td {
+	border-bottom: 1px dotted #DCDCDC;
+	border-left: 1px solid #BEBEBE;
+	border-right: 1px solid #BEBEBE;
+	padding: 5px;
+	text-align: center;
+}
+a.micro_site_Link {
+	color: #227BBD;
+	text-decoration: none;
+	font-size:15px;
+}
+.close_btn {
+	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 16px;
+}
+.quick_compare_image {
+	background-position: -137px -165px;
+	background-repeat: no-repeat;
+	display: block;
+	height: 105px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 4px;
+	width: 136px;
+}
+.quick_compare_image img {
+	height: 80px;
+	margin-left: 0;
+	margin-top: 2px;
+}
+.quick_compare_image span {
+	color: #FF6600;
+	display: block;
+	font-size: 11px;
+	line-height: 10px;
+	margin-left: 5px;
+	margin-top: 5px;
+	overflow: visible;
+	padding-right: 4px;
+	padding-top: 0;
+	text-align: center;
+	text-indent: 0;
+	width: 130px;
+}
+.facility a, .heading a {
+	color: #999999;
+	float: left;
+	font-size: 11px !important;
+	font-weight: normal !important;
+	text-decoration: none;
+}
+
+.heading {
+	background-color: #F6F6F6;
+	color: #333333;
+	font-size: 12px !important;
+	font-weight: bold;
+	text-align: right !important;
+	vertical-align: middle;
+	white-space: nowrap;
+	z-index:-1;
+}
+.show_facilities {
+	color: #FF6600;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: normal;
+}
+.facility {
+	background-color: #F6F6F6;
+	color: #333333;
+	cursor: move;
+	font-size: 11px;
+	text-align: right !important;
+	z-index:-1;
+}
+.row_white:hover{
+	background-color:#e5f6fd !important ;
+	z-index:999;
+}
+.row_white1:hover{
+	background-color:#e5f6fd !important ;
+	z-index:999;
+}
+.bar-back1 {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    height: 20px;
+	margin: auto;
+    position: relative;
+}
+.bar-top1.green {
+	background-color:#ffc90e;
+    border: 1px solid #e0ae03;
+}
+.bar-top1 {
+    border-radius: 4px 4px 4px 4px;
+    height: 20px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 0;
+}
+span.rating-cat {
+    display: block;
+    font-size: 0.9em;
+    left: 7px;
+    position: absolute;
+    top: 5px;
+    width: 194px;
+    overflow: hidden;
+    height: 1em;
+}
+span.rating-value {
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    position: absolute;
+    right: 3px;
+    top: 5px;
+	font-style:normal;
+	
+}	
+.hiddencolumn {
+    display: none;
+}
+.aRight {
+    background-position: -502px -216px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: right;
+    height: 13px;
+    margin-top: 2px;
+    width: 13px;
+}
+.aLeft {
+    background-position: -503px -196px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: 13px;
+    margin-top: 2px;
+    width: 13px;
+}
+.link_color a{
+color:#227BBD;
+text-decoration:none;
+}
+.question_alert{
+color:#f00000;
+}
+.head_remove_button{
+float: left;
+}

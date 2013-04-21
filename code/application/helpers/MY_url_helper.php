@@ -147,9 +147,12 @@ if ( ! function_exists('mb_url_title'))
 
   function is_https()
   {
-    if(!empty($_SERVER["HTTPS"])&&(strcasecmp($_SERVER["HTTPS"],'on')==0))
+    foreach (getallheaders() as $name => $value)
     {
-      return TRUE;
+      if((strcasecmp($name,'HTTPS')==0)&&(strcasecmp($value,'on')==0))
+      {
+        return TRUE;
+      }
     }
     return FALSE;
   }
