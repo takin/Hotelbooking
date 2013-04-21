@@ -1,4 +1,4 @@
-<form action="/cmain/save_favorite_property" method="post" id="save_fav">
+<form action="<?php echo site_url(); ?>cmain/ajax_save_favorite_property" method="post" id="save_fav" onsubmit="SaveProperty.handleSaveForm(this); return false;">
 	<input type="hidden" name="id" value="{{favoriteId}}" />
 	<input type="hidden" name="propertyNumber" value="{{propertyNumber}}" />
 

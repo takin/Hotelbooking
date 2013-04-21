@@ -64,7 +64,31 @@ var SaveProperty = function() {
 		dialog.show();
 	}
 
-	function handleSaveForm() {
+	function handleSaveForm(formElem) {
+		var form = $(formElem);
+
+		form.find('.actions').hide();
+
+		$.ajax({
+			url: form.attr('action'),
+			type: 'POST',
+			data: {
+				id             : form.find('input[name="id"]').val(),
+				propertyNumber : form.find('input[name="propertyNumber"]').val(),
+				nights         : form.find('input[name="nights"]').val(),
+				date           : form.find('input[name="date"]').val(),
+				notes          : form.find('textarea[name="notes"]').val()
+			},
+			dataType: 'json',
+			success: function() {
+				form.find('.actions').show();
+				dialog.hide();
+			}
+		}).fail(function() {
+			form.find('.actions').show();
+		});
+
+		return false;
 	}
 
 	function countRemainingChars(currentElem, counterContainer) {

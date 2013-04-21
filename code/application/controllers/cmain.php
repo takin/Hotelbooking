@@ -2544,6 +2544,115 @@ error_log($command, 3, '/tmp/abc.log');
 		
 		echo json_encode($jsondata);
  }
+
+  function ajax_save_favorite_property() {
+      $id             = $this->input->post('id', true);
+      $propertyNumber = $this->input->post('propertyNumber', true);
+      $nights         = $this->input->post('nights', true);
+      $date           = $this->input->post('date', true);
+      $notes          = $this->input->post('notes', true);
+
+      $this->load->model('Db_favorite_hostels');
+
+      $errors = array();
+
+      if (empty($propertyNumber) || !preg_match('/^\d+$/', $propertyNumber)) {
+          $errors[] = array(
+              'field'   => 'propertyNumber',
+              'message' => _('Invalid property')
+          );
+      }
+      else {
+          $hostelData = array();
+
+          // search for property
+          if ($this->api_used == HB_API) {
+              $this->load->model('Db_hb_hostel');
+
+              $hostelData = $this->Db_hb_hostel->get_hostel_data($propertyNumber);
+          }
+          else {
+              $this->load->model('Db_hw_hostel');
+
+              $hostelData = $this->Db_hw_hostel->get_hostel_data_from_number($propertyNumber);
+          }
+
+          if (empty($hostelData)) {
+             $errors[] = array(
+                 'field'   => 'propertyNumber',
+                 'message' => _('Property not found')
+             );
+          }
+          else {
+             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($propertyNumber);
+
+             if (!empty($favHostelNo)) {
+                 $errors[] = array(
+                     'field'   => 'propertyNumber',
+                     'message' => _('Property is favorite already')
+                 );
+             }
+          }
+      }
+
+      if (empty($nights) || !preg_match('/^\d+$/', $nights) || $nights <= 0) {
+          $errors[] = array(
+              'field'   => 'nights',
+              'message' => _('Invalid number of nights')
+          );
+      }
+
+      $dateIsValid = true;
+      if (empty($date) || !preg_match('/^\d{4}\-\d{2}\-\d{2}$/', $date)) {
+          $dateIsValid = false;
+      }
+      else {
+          $parsedDate = date_parse($date);
+
+          $dateIsValid = empty($parsedDate) ? false : !(bool)$parsedDate['error_count'];
+      }
+
+      if (!$dateIsValid) {
+          $errors[] = array(
+              'field'   => 'date',
+              'message' => _('Invalid date')
+          );
+      }
+
+      if (!empty($notes) && mb_strlen($notes) > 75) {
+          $errors[] = array(
+              'field'   => 'date',
+              'message' => sprintf(_('Notes are exceeding maximum of %d chars'), 75)
+          );
+      }
+
+      if (!empty($errors)) {
+          echo json_encode(array(
+              'hasErrors' => 1,
+              'errors'    => $errors
+          ));
+
+          exit();
+      }
+
+      // save the entry
+
+      $this->Db_favorite_hostels->saveFav(array(
+          'id'             => $id,
+          'propertyNumber' => $propertyNumber,
+          'nights'         => $nights,
+          'date'           => $date,
+          'notes'          => $notes,
+          'userId'         => 14
+      ));
+
+      echo json_encode(array(
+          'hasErrors' => 0
+      ));
+
+      exit();
+  }
+
  
   function property_image($pro_id)
  {
