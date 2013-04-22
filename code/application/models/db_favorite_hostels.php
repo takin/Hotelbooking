@@ -37,6 +37,8 @@ class Db_favorite_hostels extends CI_Model {
 	public function savedPropertiesNumbers($userId) {
 		$numbers = array();
 
+		$this->db->where('id', (int)$userId);
+
 		$data = $this->db->get(self::FAVORITE_TABLE);
 
 		foreach ($data->result() as $row) {
@@ -44,5 +46,61 @@ class Db_favorite_hostels extends CI_Model {
 		}
 
 		return $numbers;
+	}
+
+	public function getAll($userId) {
+		$allData = array();
+
+		// HB
+		$data = $this->db->query("
+			select favorite_hostels.*, hb_hostel.*, hb_city.lname_en, hb_country.lname_en as country
+			from favorite_hostels
+			join hb_hostel on (hb_hostel.property_number = favorite_hostels.hostel_hb_id)
+			join hb_city on (hb_city.hb_id = hb_hostel.city_hb_id)
+			join hb_country on (hb_city.hb_country_id = hb_country.hb_country_id)
+			where favorite_hostels.user_id = $userId
+		");
+
+		foreach ($data->result() as $row) {
+			$allData[] = array(
+				'id'              => $row->id,
+				'hostel_hb_id'    => $row->hostel_hb_id,
+				'name'            => $row->property_name,
+				'property_number' => $row->property_number,
+				'arrival_date'    => $row->arrival_date,
+				'nights'          => $row->nights,
+				'notes'           => $row->notes,
+				'city'            => $row->lname_en,
+				'country'         => $row->country
+			);
+		}
+
+		$this->db->flush_cache();
+//		$this->db->_reset_write();
+
+		// HW
+		$data = $this->db->query("
+			select favorite_hostels.*, hw_hostel.*, hw_city.hw_city, hw_country.hw_country
+			from favorite_hostels
+			join hw_hostel on (hw_hostel.property_number = favorite_hostels.hostel_hb_id)
+			join hw_city on (hw_city.hw_city_id = hw_hostel.hw_city_id)
+			join hw_country on (hw_city.hw_country_id = hw_country.hw_country_id)
+			where favorite_hostels.user_id = $userId
+		");
+
+		foreach ($data->result() as $row) {
+			$allData[] = array(
+				'id'             => $row->id,
+				'propertyName'   => $row->property_name,
+				'propertyNumber' => $row->property_number,
+				'arrivalDate'    => $row->arrival_date,
+				'nights'         => $row->nights,
+				'notes'          => $row->notes,
+				'city'           => $row->hw_city,
+				'country'        => $row->hw_country
+			);
+		}
+
+		return $allData;
 	}
 }

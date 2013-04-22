@@ -154,6 +154,15 @@ class User extends UserRestricted
       $this->load->view('includes/template', $data);
   }
 
+  function favorite_properties_list() {
+      $data = array();
+
+      $this->load->model('Db_favorite_hostels');
+
+      header('Content-type: application/json');
+      $this->load->view('includes/template-json', array('json_data' => json_encode($this->Db_favorite_hostels->getAll(13)), true));
+  }
+
   function bookings()
   {
 

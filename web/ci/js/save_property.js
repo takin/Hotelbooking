@@ -5,37 +5,33 @@ function SavedProperty() {
         this.jtable_hits;
         this.jtable_hits_sorted;
         this.results_limit;
+	this.FiltersCounts = {};
 
-        this.template;
+        this.template = document.getElementById('template-saved_property_item').innerHTML;
 };
 
-SavedProperty.property.setup = function(data) {
-	data = jQuery.parseJSON(data);
+SavedProperty.prototype.setup = function(data) {
+	//data = jQuery.parseJSON(data);
 
-	var totalRecords = data.property_list.length;
+	var totalRecords = data.length;
 
-	this.setRequestData(data.request);
-	this.setData(data.property_list);
+	this.setData(data);
 
 	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
-        this.setClickSort('data_sort_controls','sortprice-tous','display_price');
-        this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
+        this.setClickSort('data_sort_controls','sortdate-tous','arrivalDate');
+        this.setClickSort('data_sort_controls','sortcity-tous','city');
 
 	$('#data_sort_controls').show();
+
 	this.apply_filters();
 	this.set_init_filters_value();
-};
-
-SavedProperty.prototype.setRequestData = function(json_request_data) {
-        this.request = json_request_data;
 };
 
 SavedProperty.prototype.setData = function(json_data) {
         jOrder.logging = null;
 
-	this.jtable = jOrder(json_data)
-		.index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
-		.index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
+	this.jtable = jOrder(json_data);
+		//.index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number });
 
 	this.FiltersCounts['city_results_count_total'] = json_data.length;
 };
@@ -43,47 +39,77 @@ SavedProperty.prototype.setData = function(json_data) {
 SavedProperty.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
         var that = this;
 
-        $('#'+DOMNodeID).click(function(){
-
-                $('#'+divID+' .sorting').removeClass('activesort');
+        $('#' + DOMNodeID).click(function() {
+                $('#' + divID + ' .sorting').removeClass('activesort');
                 $(this).addClass('activesort');
 
-                if($(this).children().hasClass('asc'))
-        {
+                if ($(this).children().hasClass('asc')) {
                         $(this).children().removeClass('asc');
                         $(this).children().addClass('desc');
                         that.sort_hits(rowname,jOrder.desc,true);
-        }
-                else
-                {
+		}
+                else {
                         $(this).children().removeClass('desc');
                         $(this).children().addClass('asc');
 
-                        that.sort_hits(rowname,jOrder.asc,true);
+                        that.sort_hits(rowname, jOrder.asc, true);
                 }
+
                 return false;
         });
 };
 
+SavedProperty.prototype.sort_hits = function(indexname,dir,update) {
+//        this.actual_sort_index = this.fetch_index(indexname);
+  //      this.actual_sort_order = dir;
+
+   //     if(this.actual_sort_index === false)
+     //   {
+                //log error in console
+         //       return false;
+       // }
+
+        this.jtable_hits_sorted = jOrder( this.jtable_hits );
+
+            //.index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
+            //.index(this.actual_sort_index.row, [this.actual_sort_index.row], {grouped: true, ordered: true, type: this.actual_sort_index.type})
+            //.orderby([this.actual_sort_index.row], this.actual_sort_order,{ indexName: this.actual_sort_index.row});
+
+        if(update !== undefined)
+        {
+          //      this.update();
+        }
+
+};// end sort_hits
+
+
+SavedProperty.prototype.init_counts = function() {
+	this.FiltersCounts['city_results_count_current']    = 0;
+	this.FiltersCounts['city_results_count_total_temp'] = 0;
+	this.FiltersCounts['city_results_filtered_temp']    = 0;
+};
+
 SavedProperty.prototype.apply_filters = function() {
-        this.$data_empty_msg.hide();
-        this.$sort_controls_div.hide();
-        this.$data_div.html("");
-        this.$data_loading_msg.show();
+//        this.$data_empty_msg.hide();
+ //       this.$sort_controls_div.hide();
+   //     this.$data_div.html("");
+     //   this.$data_loading_msg.show();
 
         this.init_counts();
 
-        this.jtable_hits = this.jtable.filter(this.get_filters());
+        //this.jtable_hits = this.jtable.filter(this.get_filters());
+        this.jtable_hits = this.data; //this.jtable.filter(function() {});
 
         if(this.count_st==0) {
                 this.compute_counts();
-                this.update_counts();
+//                this.update_counts();
                 this.count_st++;
         }
 
-        this.update_counts();
+  //      this.update_counts();
 
-        this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
+  //      this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
+        this.sort_hits();
 
         this.update();
 };
@@ -95,31 +121,12 @@ SavedProperty.prototype.set_init_filters_value = function() {
         {
                 this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
         }
-
-        for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
-        {
-                this.FiltersInitValues[this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
-        }
-        for (var i = 0; i < this.DistrictsCheckBoxes.$checkboxes_li.length; i++)
-        {
-                this.FiltersInitValues[this.DistrictsCheckBoxes.$checkboxes_li[i].firstChild.id] = this.DistrictsCheckBoxes.$checkboxes_li[i].firstChild.checked;
-        }
-        for (var i = 0; i < this.LandmarksCheckBoxes.$checkboxes_li.length; i++)
-        {
-                this.FiltersInitValues[this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.id] = this.LandmarksCheckBoxes.$checkboxes_li[i].firstChild.checked;
-        }
-
-        this.FiltersInitValues['breakfast_2nd_filter'] = false;
-        this.FiltersInitValues['downtown_2nd_filter'] = false;
 };
 
 SavedProperty.prototype.update = function() {
         var that = this;
 
-        //Re initiatilize prop_number_to_focus of property map
-        this.pweb_maps['property'].prop_number_to_focus = -1;
-
-        if(this.jtable_hits_sorted.length <= 0)
+        if(0 && this.jtable_hits_sorted.length <= 0)
         {
                 this.$data_loading_msg.hide();
                 this.$data_empty_msg.show();
@@ -140,14 +147,15 @@ SavedProperty.prototype.update = function() {
 
                                 });
         }
-        else
-        {
-                var output = Mustache.to_html(this.template, { "properties": this.jtable_hits_sorted});
+        else {
+                var output = Mustache.to_html(this.template, this.jtable_hits_sorted);
 
-                this.$data_loading_msg.hide();
-                this.$sort_controls_div.show();
+//                this.$data_loading_msg.hide();
+  //              this.$sort_controls_div.show();
 
-                this.$data_div.html(output);
+                $('#favorite_properties').html(output);
+return;
+    //            this.$data_div.html(output);
 
                 //Init jquery UI tabs
                 $('ul.ui-tabs-nav').tabs();
@@ -193,34 +201,6 @@ SavedProperty.prototype.update = function() {
         {
                 $('#show_more_results').hide();
         }
-       //Review tab events
-        $('a[name=review_show_property]').click(function()
-        {
-                var prop_number = this.rel;
-
-                $("#city_comments_"+prop_number).html('<p><img src="http://'+window.location.host+'/images/V2/loading-squares.gif" alt="" /></p>');
-                $.ajax(
-                        {
-                                type:"POST",
-                                url:"http://"+window.location.host+"/reviews_map/"+prop_number+"/2",
-                                success:function(data)
-                                                {
-                                                        $("#city_comments_"+prop_number).html(data);
-                                                }
-                        });
-        });
-
-        $("a.prop_more_info").click(function (){
-                var ID = $(this).attr('rel');
-                $("#prop_more_info_wrap_"+ID).toggle();
-                return false;
-        });
-
-        $("a.prop_more_info_close").click(function (){
-                var ID = $(this).attr('rel');
-                $("#prop_more_info_wrap_"+ID).toggle();
-                return false;
-        });
 
         this.cleanupDistrcitsAndLandmarks();
 
@@ -258,46 +238,31 @@ var SaveProperty = function() {
 
 		bindAddToFav();
 		bindCloseDialog();
+
+		loadSavedPropertyList();
 	}
 
-	function loadSavedPropertiesPage() {
-		$.ajax({
-			type:"GET",
-			url:availibility_url,
-			success:function(data) {
-				pweb_filter.setup(data);
+	function loadSavedPropertyList() {
+		if (typeof(favorite_properties_url) == 'undefined') {
+			return;
+		}
 
+		var savedProperty = new SavedProperty();
+
+		$.ajax({
+			type    : "GET",
+			url     : favorite_properties_url,
+			success : function(data) {
+				savedProperty.setup(data);
+/*
 				$('#search_load').show();
 				$('#city_results_count').show();
 				$('#city_load').hide();
 				$('#wrap').show();
-
-				$(".display_preview").fancybox({
-					'titlePosition' : 'inside',
-					'transitionIn'  : 'none',
-					'transitionOut' : 'none'
-				});
-
-				$(".box_content").hover(
-					function(){
-						$(this).find('.quick_view_bg').slideDown(500);
-					},function(){
-						$(this).find('.quick_view_bg').slideUp(300);
-					}
-				);
-
-				var cookie_value = getCookie('compare');
-				var total_property =    cookie_value.split(",");
-				var property_selected = total_property.length;
-
-				if(property_selected != ''){
-					for(i=0;i<property_selected;i++){
-						$("#pro_compare_"+total_property[i]).attr('checked',true);
-						$('#compare_count_'+total_property[i]).html(property_selected);
-					}
-				}
+*/
 			}
 		});
+
 	}
 
 	function bindCloseDialog() {
