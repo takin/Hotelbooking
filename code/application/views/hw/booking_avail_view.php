@@ -741,7 +741,7 @@ if ($api_error == false) {
                 <tbody>
                     <tr>
                         <th class="title" colspan="3" width="275">
-                            <?php echo anchor('#', _('Your Selection'), array('class' => 'title', 'style' => 'display: block; float: left;', 'title' => _('Notes Importantes') . ' | ' . sprintf(gettext("You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), $this->config->item('site_name')))); ?>
+                            <?php echo anchor('#', _('Your Selection'), array('class' => 'title', 'style' => 'display: block; float: left;', 'title' => _('Notes Importantes') . ' | ' . sprintf(gettext("You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), (int) $booking_info->depositPercent, (int) 100 - $booking_info->depositPercent))); ?>
                             <span style="float: right; margin-right: 20px;">
                                 <?php echo _('Arrivée'); ?> : <b><?php echo $datetop; ?> </b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?> : <b><?php echo $numNights; ?> </b>
                             </span>
@@ -766,7 +766,7 @@ if ($api_error == false) {
                         <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
                     </tr>
                     <tr>
-                        <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?></span><strong class="right deposit_bottom"><?php echo _('10% Arrhes / Dépôt sera facturé en'); ?></strong></td>
+                        <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?></span><strong class="right deposit_bottom"><?php echo sprintf(gettext('Deposit to be paid now (%d%%)'), (int) $booking_info->depositPercent); ?>: </strong></td>
                         <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
                     </tr>
                 </tbody>
@@ -957,7 +957,7 @@ if (empty($csspath)) {
             <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
                 <p align=right style="text-align:right;line-height:18px; font-size:13px;">
                     <strong>
-                        <?php echo _('Total'); ?> (<?php echo $currency; ?>):
+                        <?php echo _('Total'); ?>:
                     </strong>
                 </p>
             </td>
@@ -975,7 +975,7 @@ if (empty($csspath)) {
             <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
                 <p align=right style="text-align:right;line-height:18px">
                     <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
-                        <?php echo _('10% Arrhes / Dépôt sera facturé en'); ?> <strong><?php echo $currency; ?></strong>:
+                        <?php echo sprintf(gettext('Deposit (%d%%)'), (int) $booking_info->depositPercent); ?>:
                     </span>
                 </p>
             </td>
