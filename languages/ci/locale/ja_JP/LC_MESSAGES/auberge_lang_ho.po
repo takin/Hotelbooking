@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-19 16:10+0300\n"
-"PO-Revision-Date: 2013-04-19 22:07+0200\n"
+"PO-Revision-Date: 2013-04-23 20:53+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -7833,14 +7833,14 @@ msgstr ""
 "全体が空室のものを選択できます。"
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "無効な国"
+msgstr "無効なEメールアドレスです。"
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "発信者名を記入"
+msgstr "お客様のお名前を入力してください"
 
 #: ../code/application/views/helpfile/pofields.php:773
 #, php-format
@@ -7858,84 +7858,84 @@ msgid "Remove from any searches for 1 week"
 msgstr "今後1週間の間、検索結果をリストから外す"
 
 #: ../code/application/views/helpfile/pofields.php:776
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Single Private Ensuite"
-msgstr "お１人様用スタンダードベッドルーム　共用バスルーム"
+msgstr "スタンダードシングルベッドルームバスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr "お１人様用スタンダードベッドルーム　共用バスルーム"
+msgstr "スタンダードツインベッドルームバスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "デラックスダブルベッドルームバスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "プライベートシングルベッドルームバスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:780
-#, fuzzy, php-format
+#, php-format
 msgid "%d Bed Private Ensuite"
-msgstr "%d名様用プライベートベッドルーム　共用バスルーム"
+msgstr "プライベートルーム%d名様用バスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "デラックスファミリープライベートルーム　1シングルベッドバスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:782
 #, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "デラックスファミリープライベートルーム%d名様用バスルーム付き"
 
 #: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by districts"
-msgstr "フィルタリング："
+msgstr "地区別に検索する"
 
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "ランドマークから検索する（2キロ以内）"
 
 #: ../code/application/views/helpfile/pofields.php:785
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "一泊お一人様平均料金"
+msgstr "ドームでのお1人様一泊最安値料金"
 
 #: ../code/application/views/helpfile/pofields.php:786
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr "この施設のプライベートルームお一人様1泊最安値料金:"
+msgstr "プライベートルームでのお1人様一泊最安値料金"
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "預かり金:"
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "預かり金は今お支払いが必要です:"
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "お支払いは終えられました"
+msgstr "預かり金はお支払い済みです:"
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "すでに請求されている金額%s:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "預かり金の通貨:"
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
@@ -7943,41 +7943,43 @@ msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
 msgstr ""
+"ご予約確定のために預かり金のお支払いが今必要になります。残金はホテル到着時に"
+"お支払い下さい。"
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "到着時のお支払額:"
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "宿泊施設到着時のお支払額"
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "年間会員カードを持っている必要はない："
+msgstr "メンバーシップカード（必須ではありません）:"
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "年間会員カードを持っている必要はない："
+msgstr "メンバーシップカード:"
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
-msgstr ""
+msgstr "預かり金は返金、譲渡不可です。"
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property"
 msgstr ""
-"予約の確認を取る為に（総額の10%%）入金をしてください。残り（総額の90%%）は到"
-"着時に払ってもらって構いません。予約した際に確認のメールが送られます。その中"
-"にプロパティー主の情報が記入されています。（Eメール、住所、電話番号など） "
+"ご予約確定のために預かり金のお支払いが今必要になります。残金はホテル到着時に"
+"お支払い下さい。ご予約後に送信される確認メールにホテルの連絡先が含まれていま"
+"す。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
