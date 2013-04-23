@@ -57,7 +57,7 @@ $SPACE = '&nbsp;';
                 <li id="bestprice"><img height="38px" src="<?php echo secure_site_url(); ?>images/sideinfo-10percent.png" alt="" /><span><?php echo _("Seulement 10% pour garantir votre réservation."); ?></span></li>
                 <?php /* ?><li id="support"><img height="38px" src="<?php echo secure_site_url();?>images/sideinfo-support.png" alt="" /><br /><span><?php printf(gettext("Un service clientèle de qualité disponible %s prêt à vous guider à tout moment."),"<b>"._("24h/24, 7j/7")."</b>");?></span></li><?php */ ?>
                 <li id="support"><img height="38px" src="<?php echo secure_site_url(); ?>images/sideinfo-support.png" alt="" /><br /><span><?php echo _('Text/SMS (FREE)') ?></span></li>
-    <?php /* ?><li id="forall"><img height="38px" src="<?php echo secure_site_url();?>images/sideinfo-forall.png" alt="" /><br /><span><?php echo _("Pour tous les âges: ni maximum ni minimum.");?></span></li><?php */ ?>
+                <?php /* ?><li id="forall"><img height="38px" src="<?php echo secure_site_url();?>images/sideinfo-forall.png" alt="" /><br /><span><?php echo _("Pour tous les âges: ni maximum ni minimum.");?></span></li><?php */ ?>
                 <li id="forall"><img height="38px" src="<?php echo secure_site_url(); ?>images/sideinfo-forall.png" alt="" /><span><?php echo _('Check your reservation on your Mobile') ?></span></li>
                 <li class="last" id="member"><img height="38px" src="<?php echo secure_site_url(); ?>images/sideinfo-member.png" alt="" /><span><?php printf(gettext("%s Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."), "<strong>" . $this->config->item('site_name') . "</strong>"); ?></span></li>
             </ul>
@@ -65,7 +65,7 @@ $SPACE = '&nbsp;';
     </div>
 
     <div id="main" class="grid_12">
-<?php endif; ?>
+    <?php endif; ?>
 
     <div class="box_content box_round group booking"> 
 
@@ -76,8 +76,8 @@ $SPACE = '&nbsp;';
               <?php }else{?>
               <a onclick="this.newWindow = window.open('https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;" target="OnlineChatSoftware" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue"><img border="0" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&amp;showwhen=inqueue" alt="OnlineChatSoftware" class="chat-top"></a>
               <?php } */ ?>
-    <?php /* ?><a target="_blank" title="<?php echo _("Transaction 100% sécurisée et encryptée");?>" href="<?php echo $this->wordpress->get_option('aj_ssl_url');?>"><img class="ssl-image-top" src="<?php echo secure_site_url();?>images/GandiSSL2.png" alt="<?php echo _("sécurisé");?>" /></a><?php */ ?>
-<?php } else { ?>
+            <?php /* ?><a target="_blank" title="<?php echo _("Transaction 100% sécurisée et encryptée");?>" href="<?php echo $this->wordpress->get_option('aj_ssl_url');?>"><img class="ssl-image-top" src="<?php echo secure_site_url();?>images/GandiSSL2.png" alt="<?php echo _("sécurisé");?>" /></a><?php */ ?>
+        <?php } else { ?>
             <h1 class="content_title"><?php echo _('Erreur lors du traitement de votre demande'); ?></h1>
 
             <div class="entry margtop10">
@@ -95,7 +95,7 @@ $SPACE = '&nbsp;';
             }
             ?>
 
-    <?php if ($api_booking_error == "api_msg"): ?>	
+            <?php if ($api_booking_error == "api_msg"): ?>	
                 <div class="booking_section">  
                     <div class="transaction_error api_error">
                         <p><?php printf(gettext("Il y a eu une erreur lors du traitement de votre demande, veuillez vous assurer que vos informations sur la méthode de paiement sont exactes. Si le problème persiste, veuillez communiquer avec nous à l'adresse suivante : %s"), '<a target="_blank" href="' . $this->wordpress->get_option('aj_page_faq') . '">' . $this->wordpress->get_option('aj_page_faq') . '</a>'); ?></p>
@@ -109,14 +109,14 @@ $SPACE = '&nbsp;';
                                     echo $error->message;
                                 }
                                 ?>							
-        <?php endforeach; ?>
-        <?php if ($api_booking_error == "api_out"): ?>
+                            <?php endforeach; ?>
+                            <?php if ($api_booking_error == "api_out"): ?>
                                 <li class="api_error"><?php echo $api_booking_error_msg[0]; ?></li>
-                <?php endif; ?>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>			
-    <?php endif; ?>
+            <?php endif; ?>
             <div class="booking_section">  
                 <div class="popup-info-wrap">
                     <h2 id="step1-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>1. <?php echo _('Détails de la réservation'); ?></span></h2>
@@ -132,7 +132,7 @@ $SPACE = '&nbsp;';
                         <?php echo _("Nom de l'établissement"); ?> : <strong><?php echo stripslashes($booking_hostel_name); ?></strong><br />
                         <?php echo _('Arrivée'); ?>: <b><?php echo date_conv($dateStart_calculated, $this->wordpress->get_option('aj_date_format')); ?></b> &nbsp; &nbsp; <?php echo _('Nombre de Nuits'); ?>: <b><?php echo $numNights_calculated; ?></b>
                     </p>    
-                        <?php if (isset($booking_request->Message->messageText)) { ?>
+                    <?php if (isset($booking_request->Message->messageText)) { ?>
                         <p class="message-booking">
                             <?php
                             if (!empty($booking_request->Message->messageTextTranslated)) {
@@ -143,7 +143,7 @@ $SPACE = '&nbsp;';
                             }
                             ?>
                         </p>
-                        <?php } ?>
+                    <?php } ?>
                     <table class="review" cellpadding="0" cellspacing="0">
                         <?php
                         if ($api_error == false):
@@ -173,10 +173,10 @@ $SPACE = '&nbsp;';
                                         </tr>
                                         </thead>
                                         <tbody>
-                    <?php
-                }
-                $dormroomcount++;
-                ?>
+                                            <?php
+                                        }
+                                        $dormroomcount++;
+                                        ?>
                                         <tr>
                                             <td class="first-cell"><?php echo date_conv($room->date, $this->wordpress->get_option('aj_date_format')); ?></td>
                                             <td>
@@ -197,19 +197,19 @@ $SPACE = '&nbsp;';
                                             <td>
 
                                                 <?php if ($isCustomCurrency): ?>
-                    <?php echo $bookCurSymbol . $SPACE . $room->$bookRoomPriceField; ?>
-                <?php else: ?>
-                    <?php echo $cur . $SPACE; ?><?php echo $room->priceSettle; ?>
+                                                    <?php echo $bookCurSymbol . $SPACE . $room->$bookRoomPriceField; ?>
+                                                <?php else: ?>
+                                                    <?php echo $cur . $SPACE; ?><?php echo $room->priceSettle; ?>
                                                 <?php endif; ?>
                                             </td>
                                             <td><?php echo $room->beds; ?></td>
                                             <td class="value">
 
                                                 <?php if ($isCustomCurrency): ?>
-                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
-                                        <?php else: ?>
-                                            <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
-                                        <?php endif; ?>
+                                                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
+                                                <?php else: ?>
+                                                    <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
                                         <?php
@@ -241,10 +241,10 @@ $SPACE = '&nbsp;';
                                         </tr>
                                         </thead>
                                         <tbody>
-                    <?php
-                }
-                $privateroomcount++;
-                ?>
+                                            <?php
+                                        }
+                                        $privateroomcount++;
+                                        ?>
                                         <tr>
                                             <td class="first-cell"><?php echo date_conv($room->date, $this->wordpress->get_option('aj_date_format')); ?></td>
                                             <td>
@@ -265,25 +265,25 @@ $SPACE = '&nbsp;';
                                             <td>
 
                                                 <?php if ($isCustomCurrency): ?>
-                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
-                <?php else: ?>
-                    <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
+                                                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
+                                                <?php else: ?>
+                                                    <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
                                                 <?php endif; ?>
                                             </td>
-                                            <td>1<?php //echo $room->beds; ?></td>
+                                            <td>1<?php //echo $room->beds;  ?></td>
                                             <td class="value">
 
                                                 <?php if ($isCustomCurrency): ?>
-                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
-                                        <?php else: ?>
-                                            <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
-                                        <?php endif; ?>
+                                                    <?php echo $bookCurSymbol . $SPACE . number_format((float) ($room->$bookRoomPriceField) * ($room->beds), 2, '.', ''); ?>
+                                                <?php else: ?>
+                                                    <?php echo $cur . $SPACE; ?><?php echo number_format((float) ($room->priceSettle) * ($room->beds), 2, '.', ''); ?>
+                                                <?php endif; ?>
                                             </td>
                                         </tr>
-                <?php
-            }
-        }
-        ?>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <table class="review-end" cellpadding="0" cellspacing="0">
@@ -293,16 +293,16 @@ $SPACE = '&nbsp;';
                                     <td class="first" align="right"><?php echo _('Total'); ?>:</td>
                                     <td class="total-value">
                                         <?php if ($isCustomCurrency): ?>
-            <?php echo $bookCurSymbol . $SPACE . $booking_request->$bookTotalPriceField->value; ?>
-        <?php else: ?>
-            <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBedsTotal->value; ?>
-        <?php endif; ?>                  
+                                            <?php echo $bookCurSymbol . $SPACE . $booking_request->$bookTotalPriceField->value; ?>
+                                        <?php else: ?>
+                                            <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBedsTotal->value; ?>
+                                        <?php endif; ?>                  
                                     </td>
                                 </tr>
                                 <tr class="light">
                                     <td class="first" align="right"><?php echo sprintf(gettext('Deposit to be paid now (%d%%)'), (int) $booking_request->depositPercent); ?>:</td>
                                     <td>
-        <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleDeposit->value; ?>
+                                        <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleDeposit->value; ?>
                                     </td>
                                 </tr>
 
@@ -312,10 +312,10 @@ $SPACE = '&nbsp;';
                                         <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
                                     <td>
                                         <span style="display: inline;">
-        <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBookingFee->value; ?>
-        <?php /* if($isCustomCurrency):?>
-          <span class="totaluser-currency">(<?php echo '~'.$booking_request->$bookBookFeeField->value. ''.$bookCurSymbol;?>)</span>
-          <?php endif; */ ?>
+                                            <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBookingFee->value; ?>
+                                            <?php /* if($isCustomCurrency):?>
+                                              <span class="totaluser-currency">(<?php echo '~'.$booking_request->$bookBookFeeField->value. ''.$bookCurSymbol;?>)</span>
+                                              <?php endif; */ ?>
                                         </span>
 
                                     </td>
@@ -348,10 +348,10 @@ $SPACE = '&nbsp;';
                                             <?php printf(gettext("%s yearly membership card - waived:"), $member); ?></span></td>
                                     <td>
                                         <span style="display: inline;">
-        <?php echo $cur . $SPACE; ?>0.00
-        <?php /* if($isCustomCurrency):?>
-          <span class="totaluser-currency">(0.00<?php echo $bookCurSymbol;?>)</span>
-          <?php endif; */ ?>
+                                            <?php echo $cur . $SPACE; ?>0.00
+                                            <?php /* if($isCustomCurrency):?>
+                                              <span class="totaluser-currency">(0.00<?php echo $bookCurSymbol;?>)</span>
+                                              <?php endif; */ ?>
                                         </span>
 
                                     </td>
@@ -364,10 +364,10 @@ $SPACE = '&nbsp;';
                                         <span style="display: inline;">
                                             <b>
 
-        <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBillTotal->value; ?>
-        <?php /* if($isCustomCurrency):?>
-          <span class="totaluser-currency">(<?php echo '~ '.$booking_request->$bookBillTotalField->value. ''.$bookCurSymbol;?>)</span>
-          <?php endif; */ ?>
+                                                <?php echo $cur . $SPACE; ?><?php echo $booking_request->SettleBillTotal->value; ?>
+                                                <?php /* if($isCustomCurrency):?>
+                                                  <span class="totaluser-currency">(<?php echo '~ '.$booking_request->$bookBillTotalField->value. ''.$bookCurSymbol;?>)</span>
+                                                  <?php endif; */ ?>
                                             </b>
                                         </span>
 
@@ -389,7 +389,7 @@ $SPACE = '&nbsp;';
                                           <option <?php if(strcmp($settleCurrency,"USD")==0) echo "selected=\"selected\""; ?> value="USD"><?php echo _("Dollar US");?></option>
                                           </select><?php */ ?>
                                         <span id="loading_message_cur" class="loading_cur" style="display: none;">
-        <?php echo _('Updating...'); ?>
+                                            <?php echo _('Updating...'); ?>
                                         </span>
 
                                     </td>
@@ -407,13 +407,13 @@ $SPACE = '&nbsp;';
                                                 <?php endif; ?>
 
                                             <?php else : ?>
-            <?php if (strcasecmp($booking_request->PropertyCurrency->value, $settleCurrency) != 0): ?>
+                                                <?php if (strcasecmp($booking_request->PropertyCurrency->value, $settleCurrency) != 0): ?>
                                                     (<?php echo $booking_request->SettleAmountDue->value; ?> <?php echo $cur; ?>)
+                                                <?php endif; ?>
                                             <?php endif; ?>
-        <?php endif; ?>
                                         </span>
 
-        <?php echo _('est le montant total à payer à votre arrivée'); ?>
+                                        <?php echo _('est le montant total à payer à votre arrivée'); ?>
                                     </td>
                                 </tr>
 
@@ -424,13 +424,13 @@ $SPACE = '&nbsp;';
                                 </tr>
                             </tfoot>
 
-    <?php endif; // end if api error  ?>
+                        <?php endif; // end if api error  ?>
 
                     </table>
                 </div>
             </div>
 
-    <?php if ($api_booking_error == "3d_secure_request"): ?>
+            <?php if ($api_booking_error == "3d_secure_request"): ?>
                 <h3><?php echo _('Méthode de Paiement'); ?></h3>
                 <table class="payment">
                     <tbody>
@@ -453,7 +453,7 @@ $SPACE = '&nbsp;';
                     </tbody>
                 </table>
 
-    <?php else: ?>
+            <?php else: ?>
                 <form action="<?php echo secure_site_url(); ?>" method="post" onSubmit="booking_confirm('<?php echo secure_site_url(); ?>',false,'<?php echo $settleCurrency; ?>'); return false;">
 
                     <div class="booking_section">  
@@ -467,9 +467,9 @@ $SPACE = '&nbsp;';
                         </div>
                         <div class="booking_section_content" id="step2">    
 
-        <?php // echo form_open("",array("onSubmit" => "booking_confirm('".secure_base_url()."'); return false;"));  ?>
+                            <?php // echo form_open("",array("onSubmit" => "booking_confirm('".secure_base_url()."'); return false;"));  ?>
 
-        <?php echo form_hidden('dateStart', set_value('dateStart', '0000-00-00')); ?>
+                            <?php echo form_hidden('dateStart', set_value('dateStart', '0000-00-00')); ?>
                             <div class="group">
                                 <div class="payment_info_block">
                                     <label for=""><?php echo _('Prénom'); ?> <span class="mandatory">*</span></label>
@@ -492,7 +492,7 @@ $SPACE = '&nbsp;';
                             <div class="group">
                                 <div class="payment_info_block">
                                     <label for=""><?php echo _('Nationalité'); ?> <span class="mandatory">*</span></label>					
-        <?php $this->Db_country->select_country("Nationality", "nationality", set_value('nationality', $book_nationality), "", "en", $this->site_lang, _('Choisir le pays')); ?>					
+                                    <?php $this->Db_country->select_country("Nationality", "nationality", set_value('nationality', $book_nationality), "", "en", $this->site_lang, _('Choisir le pays')); ?>					
                                     <script type="text/javascript">
                                         //$(document).ready(function(){$('#Nationality').translate('en','fr');});
                                         var Nationality = new LiveValidation('Nationality', { validMessage: ' ', onlyOnBlur: true});
@@ -544,20 +544,20 @@ $SPACE = '&nbsp;';
                                     </script>
                                 </div>				
 
-                                    <?php
-                                    if ($this->wordpress->get_option('aj_enable_sms_reminder')) {
-                                        ?>
+                                <?php
+                                if ($this->wordpress->get_option('aj_enable_sms_reminder')) {
+                                    ?>
                                     <div class="payment_info_block">
                                         <label for="sms"><?php echo _('Text/SMS (FREE)') ?></label>
-                                    <?php echo sms_menu("sms", $sms, 'none'); ?>
+                                        <?php echo sms_menu("sms", $sms, 'none'); ?>
                                     </div>					
                                     <?php
                                 } else {
                                     ?>
                                     <input type="hidden" name="sms" id="sms" value="none" />
-            <?php
-        }
-        ?>
+                                    <?php
+                                }
+                                ?>
                             </div>
 
                             <div class="group">
@@ -618,9 +618,9 @@ $SPACE = '&nbsp;';
                                         <input type="hidden" name="sign_me_up" id="sign_me_up" value="1">				
                                         <span class="separate"><a class="popup" target="_blank" href="<?php echo $this->wordpress->get_option('aj_page_conf'); ?>?print=nostyle"><?php echo _('cliquer ici pour notre charte'); ?></a></span>	
                                     </div>								
-                            <?php endif; ?>
+                                <?php endif; ?>
                             </div>
-        <?php if ($user_id !== false): ?>
+                            <?php if ($user_id !== false): ?>
                                 <input type="hidden" name="sign_me_up" id="sign_me_up" value="0" />
                                 <input type="hidden" name="mail_subscribe" id="mail_subscribe" value="0" />
                             <?php endif; ?>
@@ -679,9 +679,9 @@ $SPACE = '&nbsp;';
 
                         <div class="booking_section_content" id="step2">    
 
-        <?php if (isset($secure3d_final) && ($secure3d_final == true)) { ?>
+                            <?php if (isset($secure3d_final) && ($secure3d_final == true)) { ?>
                                 <p class="validation3d"><strong><?php echo _("La validation 3D à été complétée. Veuillez entrer l'information ci-dessous pour confirmer le paiement."); ?></strong></p>
-        <?php } ?>
+                            <?php } ?>
 
                             <div class="group">
                                 <div class="payment_info_block">
@@ -755,10 +755,10 @@ $SPACE = '&nbsp;';
                                     ?>
                                     <script>
                                         $(document).ready(
-                					
+                        					
                                         function () {
                                             var class_type = $("#cctype :selected").attr('class');
-                					
+                        					
                                             if(class_type=="hideall")
                                             {
                                                 hideissueno();
@@ -779,12 +779,12 @@ $SPACE = '&nbsp;';
                                             }
                                         }
                                     );
-                					
+                        					
                                         $("#cctype").change(
                                         function () {
                                             var class_type = $("#cctype :selected").attr('class');
-                		
-                		
+                        		
+                        		
                                             if(class_type=="hideall")
                                             {
                                                 hideissueno();
@@ -805,7 +805,7 @@ $SPACE = '&nbsp;';
                                             }
                                             var posCur    = $("#cctype :selected").val().indexOf('-');
                                             var cctypeCur = $("#cctype :selected").val().substring(posCur+1);
-                		
+                        		
                                             var settlecurselected = "EUR";
                                             if( $("#cur-eur").attr('class') == 'cur-selected')
                                             {
@@ -819,12 +819,12 @@ $SPACE = '&nbsp;';
                                             {
                                                 settlecurselected = 'USD';
                                             }
-                		
+                        		
                                             if((cctypeCur != 'All') && (settlecurselected != cctypeCur))
                                             {
                                                 booking_confirm('<?php echo secure_site_url(); ?>',true,cctypeCur);
                                             }
-                		
+                        		
                                         }
                                     );
                                     </script>
@@ -835,7 +835,7 @@ $SPACE = '&nbsp;';
                                         cctype.add(Validate.Exclusion, { within: <?php echo $jvar_exclude_card; ?>, failureMessage: "<?php echo _('Updating Currency ...'); ?>" });
                                     </script>		
                                     <small><?php echo _("Important information: Maestro cards must be from Great-Britain."); ?></small>
-        <?php /* ?><small><?php echo _("acceptée par l'établissement");?></small><?php */ ?>
+                                    <?php /* ?><small><?php echo _("acceptée par l'établissement");?></small><?php */ ?>
                                 </div>
                                 <div class="payment_info_block dontshowerror">
                                     <label for=""><?php echo _("Date d'expiration :"); ?> <span class="mandatory">*</span></label></td>
@@ -859,22 +859,22 @@ $SPACE = '&nbsp;';
 
                                         <option value="">- - - -</option>
 
-        <?php
-        for ($date_qty = 0; $date_qty < 10; $date_qty++) {
-            $year = mktime(0, 0, 0, date("m"), date("d"), date("Y") + $date_qty);
-            ?>
+                                        <?php
+                                        for ($date_qty = 0; $date_qty < 10; $date_qty++) {
+                                            $year = mktime(0, 0, 0, date("m"), date("d"), date("Y") + $date_qty);
+                                            ?>
                                             <option value="<?php echo date("y", $year); ?>" <?php if (isset($book_ccexpiry_y) && strcasecmp($book_ccexpiry_y, date("y", $year)) == 0) echo "selected=\"selected\""; ?>><?php echo date("Y", $year); ?></option>
 
 
-            <?php
-        }
-        ?>
+                                            <?php
+                                        }
+                                        ?>
 
                                     </select>
                                     <script type="text/javascript">
                                         var ccexpiry_m = new LiveValidation('ccexpiry_m', { validMessage: ' ', onlyOnBlur: true});
                                         var ccexpiry_y = new LiveValidation('ccexpiry_y', { validMessage: ' ', onlyOnBlur: true});
-                				
+                        				
                                         ccexpiry_m.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
                                         ccexpiry_y.add(Validate.Presence, {failureMessage: "<?php echo _('Champ obligatoire'); ?>"});
                                     </script>
@@ -917,13 +917,13 @@ $SPACE = '&nbsp;';
                                     <select class="standard" id="ccvalidfrom_y" name="ccvalidfrom_y">
                                         <option value="">- - - -</option>
 
-        <?php
-        for ($date_qty = 0; $date_qty < 10; $date_qty++) {
-            $year = mktime(0, 0, 0, date("m"), date("d"), date("Y") - $date_qty);
-            ?>
+                                        <?php
+                                        for ($date_qty = 0; $date_qty < 10; $date_qty++) {
+                                            $year = mktime(0, 0, 0, date("m"), date("d"), date("Y") - $date_qty);
+                                            ?>
 
                                             <option value="<?php echo date("y", $year); ?>"><?php echo date("Y", $year); ?></option>
-        <?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
@@ -958,9 +958,9 @@ $SPACE = '&nbsp;';
                                     <?php else : ?>
                                         <?php if (strcasecmp($booking_request->PropertyCurrency->value, $settleCurrency) != 0): ?>
                                             (<?php echo $booking_request->SettleAmountDue->value; ?> <?php echo $cur; ?>)
-            <?php endif; ?>
-        <?php endif; ?>	
-        <?php echo _('est le montant total à payer à votre arrivée'); ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>	
+                                    <?php echo _('est le montant total à payer à votre arrivée'); ?>
                                 </span>
                                 <span class="last_reminder_confirmation"><?php echo _("* En cliquant sur le bouton de Confirmation ci-dessous, vous acceptez les modalités et les conditions et autorisez la facturation d'un montant non remboursable de"); ?> : <?php echo $cur; ?> <?php echo $booking_request->SettleBillTotal->value; ?></span>
                             </div>
@@ -971,13 +971,13 @@ $SPACE = '&nbsp;';
 
                                 <?php if ($this->wordpress->get_option('aj_ssl_url') == "") { ?>
                                     <img title="<?php printf(gettext("Transaction 100%% sécurisée et encryptée")); ?>" id="ssl-img" class="ssl-image" height="45" width="45" src="<?php echo secure_site_url(); ?>images/GandiSSL2.png" alt="<?php echo _("sécurisé"); ?>" />
-        <?php } else { ?>
+                                <?php } else { ?>
                                     <a target="_blank" title="<?php printf(gettext("Transaction 100%% sécurisée et encryptée")); ?>" href="<?php echo $this->wordpress->get_option('aj_ssl_url'); ?>"><img class="ssl-image" id="ssl-img" height="45" width="45" src="<?php echo secure_site_url(); ?>images/GandiSSL2.png" alt="<?php echo _("sécurisé"); ?>" /></a>
                                 <?php } ?>
 
                                 <p id="check_error" style="display:none;"><?php echo _('Please make sure all required fields are filled out correctly'); ?></p>
 
-        <?php /* ?><img class="lock-book" src="<?php echo secure_site_url();?>images/padlock.png" alt="sécurisé" /><?php */ ?>
+                                <?php /* ?><img class="lock-book" src="<?php echo secure_site_url();?>images/padlock.png" alt="sécurisé" /><?php */ ?>
                                 <p id="loading_message" class="loading_book" style="display: none;">
                                     <img src="<?php echo secure_site_url(); ?>images/V2/loading-squares-greenback.gif" alt=""/>
                                     <span><?php echo _('Traitement de la demande...'); ?></span>
@@ -985,7 +985,7 @@ $SPACE = '&nbsp;';
 
                             </div>
 
-        <?php if ($api_booking_error == "api_msg"): ?>
+                            <?php if ($api_booking_error == "api_msg"): ?>
 
                                 <div class="transaction_error api_error">
                                     <p><?php printf(gettext("Il y a eu une erreur lors du traitement de votre demande, veuillez vous assurer que vos informations sur la méthode de paiement sont exactes. Si le problème persiste, veuillez communiquer avec nous à l'adresse suivante : %s"), '<a target="_blank" href="' . $this->wordpress->get_option('aj_page_faq') . '?print=nostyle">' . $this->wordpress->get_option('aj_page_faq') . '</a>'); ?></p>
@@ -999,13 +999,13 @@ $SPACE = '&nbsp;';
                                                 echo $error->message;
                                             }
                                             ?>							
-            <?php endforeach; ?>
-                                <?php if ($api_booking_error == "api_out"): ?>
+                                        <?php endforeach; ?>
+                                        <?php if ($api_booking_error == "api_out"): ?>
                                             <li class="api_error"><?php echo $api_booking_error_msg[0]; ?></li>
-            <?php endif; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>				
-                <?php endif; ?>	
+                            <?php endif; ?>	
                         </div>
                     </div>
                 </form>
@@ -1023,13 +1023,13 @@ $SPACE = '&nbsp;';
                         <div class="chat_help_booking box_round">
                             <a onclick="this.newWindow = window.open('https://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;" target="OnlineChatSoftware" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&amp;showwhen=inqueue"><img border="0" src="https://service.velaro.com/visitor/check.aspx?siteid=7548&amp;showwhen=inqueue" alt="OnlineChatSoftware"></a>
                         </div>
-                    <?php
+                        <?php
                     }
                 }
                 ?>	 
 
 
-                    <?php endif; //if secure not 3d request  ?>
+            <?php endif; //if secure not 3d request  ?>
 
             <div class="booking_section">  
                 <h2 id="step5-title" class="booking_section_title box_round green_gradient_faded"><?php echo _("Changements - Annulations"); ?></h2>			
@@ -1039,28 +1039,28 @@ $SPACE = '&nbsp;';
                             <p><?php echo _("Certains extraits du texte de cette page ont été traduits automatiquement. Cliquer sur les liens suivants changer les version :"); ?><br /><a class="show-original" href="#"><?php echo _("Voir l'original"); ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="show-translate active" href="#"><?php echo _("Voir la version traduite"); ?></a>
                             </p>
                         </div>
-                        <?php } elseif (empty($booking_request->TermsAndConditions->value)) { ?>
+                    <?php } elseif (empty($booking_request->TermsAndConditions->value)) { ?>
                         <p><strong><?php echo _("Les changements et annulations sont possibles, faciles à faire et se font directement avec l‘établissement choisi qui en est responsable. Changements de dates/chambres : possible selon disponibilités. Annulations : au moins 72 heures en avance pour ne pas être facturé la première nuit."); ?></strong></p>
                     <?php } ?>
 
-                    <p><b><span class="notes"><?php echo _("Notes Importantes"); ?></span></b>
-    <?php printf(gettext("Sur %s, vous payez seulement les arrhes (10%% du montant total) et les frais de service minimum et non remboursables afin de confirmer et garantir votre réservation. Le montant restant vous sera demandé à votre arrivée."), $this->config->item('site_name')); ?></p>
+                    <p><b><span class="notes"><?php echo _("Notes Importantes"); ?></span>: </b>
+                        <?php printf(gettext("You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), (int) $booking_request->depositPercent, (int) 100 - $booking_request->depositPercent); ?></p>
 
                     <?php if (!empty($booking_request->TermsAndConditionsTranslated->value)) { ?>
 
                         <div class="translated"><?php echo nl2p(var_check($booking_request->TermsAndConditionsTranslated->value, ""), false, true) ?></div>
                         <div class="original" style="display:none;"><?php echo nl2p(var_check($booking_request->TermsAndConditions->value, ""), false, true) ?></div>
 
-    <?php } elseif (!empty($booking_request->TermsAndConditions->value)) { ?>
+                    <?php } elseif (!empty($booking_request->TermsAndConditions->value)) { ?>
 
                         <div class="original"><?php echo nl2p(var_check($booking_request->TermsAndConditions->value, ""), false, true) ?></div>
 
-        <?php } ?>	
+                    <?php } ?>	
 
                 </div>
             </div>
         </div>
-<?php endif; //endif api error = false   ?>
-<?php if (!$isAjax): ?>
+    <?php endif; //endif api error = false   ?>
+    <?php if (!$isAjax): ?>
     </div>
 <?php endif; ?>

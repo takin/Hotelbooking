@@ -162,7 +162,7 @@
 								</tr>
 								<tr class="first">
 								 <td align="right" colspan="4">
-								 <?php printf(gettext('10%% Arrhes + frais de service facturé en %s à votre carte'),$booking->ChargedCurrency->value); ?>:
+								 <?php _('Amount already paid'); ?>:
 								 </td>
 		
 								 <td>
