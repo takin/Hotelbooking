@@ -49,6 +49,8 @@ class Db_favorite_hostels extends CI_Model {
 	}
 
 	public function getAll($userId) {
+		$this->load->model('Db_links');
+
 		$allData = array();
 
 		// HB
@@ -63,18 +65,19 @@ class Db_favorite_hostels extends CI_Model {
 
 		foreach ($data->result() as $row) {
 			$allData[] = array(
-				'id'              => $row->id,
-				'hostel_hb_id'    => $row->hostel_hb_id,
-				'name'            => $row->property_name,
-				'property_number' => $row->property_number,
-				'arrival_date'    => $row->arrival_date,
-				'nights'          => $row->nights,
-				'notes'           => $row->notes,
-				'city'            => $row->lname_en,
-				'country'         => $row->country
+				'id'                => $row->id,
+				'property_page_url' => $this->Db_links->build_property_page_link($row->property_type, $row->property_name, $row->hb_hostel_id),
+				'hostel_hb_id'      => $row->hostel_hb_id,
+				'name'              => $row->property_name,
+				'property_number'   => $row->property_number,
+				'arrival_date'      => $row->arrival_date,
+				'nights'            => $row->nights,
+				'notes'             => $row->notes,
+				'city'              => $row->lname_en,
+				'country'           => $row->country
 			);
 		}
-
+return $allData;
 		$this->db->flush_cache();
 //		$this->db->_reset_write();
 

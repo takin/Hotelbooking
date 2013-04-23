@@ -29,6 +29,19 @@
 			var favorite_properties_url = '<?php echo site_url('user/favorite_properties_list'); ?>';
 		</script>
 
+		<input type="hidden" id="current_page" value="0">
+		<input type="hidden" id="show_per_page" value="0">
+
 		<div id="favorite_properties"></div>
+
+		<div id="navi" class="pagination_pro" style="display:none;">
+			<div id="resu" class="left_pagi">
+				<span class="resultcount"></span>
+				<?php echo _('of');?>
+				<span class="resulttotal"></span>
+				<?php echo _('Results');?>
+			</div>
+			<div id="page_navigation" class="page_navigation"></div>
+		</div>
 	</div>
 </div>
