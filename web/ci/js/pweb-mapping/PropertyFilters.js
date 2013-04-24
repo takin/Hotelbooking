@@ -554,9 +554,12 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 		
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].firstChild.value;
-			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined)
-			this.FiltersCounts['facility-count-'+current_facility_id]=0;
+			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].
+                            getElementsByTagName("input")[0].value;
+			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined) {
+                            this.FiltersCounts['facility-count-'+current_facility_id]=0;
+                        }
+			
 			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++)
 			{
 				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi])
