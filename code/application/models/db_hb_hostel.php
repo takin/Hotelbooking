@@ -1816,7 +1816,7 @@ class Db_hb_hostel extends CI_Model
 
     $query = $this->CI->db->query($query);
 
-    $popularFacilitiesById = $this->config->item("mostPopularFacilitiesById");
+    $popularFacilitiesById = $this->config->item("hbMostPopularFacilitiesById");
     $mostPopularAmenities = array();
     $amenities = array();
     if($query->num_rows() > 0)

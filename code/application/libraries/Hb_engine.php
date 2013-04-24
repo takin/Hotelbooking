@@ -666,8 +666,6 @@ class Hb_engine {
 
     $data['user_id'] = $this->user_id;
     
-    log_message("debug", "The end: " . print_r($data["property_list"], true));
-    
     return $data;
   }
 
