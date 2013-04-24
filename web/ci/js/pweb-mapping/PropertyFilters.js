@@ -74,7 +74,7 @@ PWebFilterApp.prototype.init = function() {
 	this.count_st=0;
 	
 	//Filter controls init
-	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter",true);
+	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter", false);
 	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter");
 	this.DistrictsCheckBoxes  = new GroupCheckBoxes("cb_group_districts_filter");
 	this.LandmarksCheckBoxes  = new GroupCheckBoxes("cb_group_landmarks_filter");
@@ -170,13 +170,7 @@ PWebFilterApp.prototype.apply_filters = function() {
         
 };
 
-PWebFilterApp.prototype.set_init_filters_value = function() {
-	this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.id] = this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.checked;
-	for (var i = 0; i < this.TypeFilterCheckBoxes.$checkboxes_li.length; i++)
-	{
-		this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
-	}
-	
+PWebFilterApp.prototype.set_init_filters_value = function() {	
 	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 	{
 		this.FiltersInitValues[this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
