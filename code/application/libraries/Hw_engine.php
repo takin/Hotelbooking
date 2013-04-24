@@ -353,19 +353,21 @@ class Hw_engine {
       if($include_availdata !== true)
       {
         //Add district landmark of city
-        $data['city_amenities'] = $this->CI->Db_hw_hostel->get_amenities_city_for_filter();
+        $amenityGroups = $this->CI->Db_hw_hostel->get_amenities_city_for_filter();
+        $data["most_popular_amenities"] = $amenityGroups["mostPopularAmenities"];
+        $data['city_amenities'] = $amenityGroups["amenities"];
         $data['city_districts'] = $this->CI->Db_hw_hostel->get_districts_by_city_id($hw_city->city_id);
         $data['city_landmarks'] = $this->CI->Db_hw_hostel->get_landmarks_by_city_id($hw_city->city_id,2);
 
         //translate city landmarks
         $this->CI->load->model('i18n/db_translation_cache');
-        foreach($data['city_amenities'] as $i => $amenity)
+        foreach(array_merge($data['city_amenities'], $data["most_popular_amenities"]) as $i => $amenity)
         {
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
-          $data['city_amenities'][$i]->original_name = $amenity->facility_name;
+          $amenity->original_name = $amenity->facility_name;
           if(!empty($translation))
           {
-            $data['city_amenities'][$i]->facility_name = $translation->translation;
+            $amenity->facility_name = $translation->translation;
           }
 
         }

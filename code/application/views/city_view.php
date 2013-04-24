@@ -43,7 +43,7 @@
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
                                    <div class="mostPopular">
-                                        <span><?php echo _("Most Popular"); ?></span>
+                                        <span><?php echo _("Most Popular Types"); ?></span>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hostels"]; ?> name="prop_types" value="type_hostels" id="type_hostels" /> <?php echo _("Auberges de jeunesse")?> (<span id="prop-types-count-1">0</span>)</li>
                                    </div>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hotels"]; ?> name="prop_types" value="type_hotels" id="type_hotels" /> <?php echo _("Hôtels pas chers")?> (<span id="prop-types-count-2">0</span>)</li>
@@ -63,12 +63,14 @@
 					<li><input type="checkbox" class="checkbox" id="" name="amenities" /> <?php echo _("Bar")?></li>
 				</ul>
 			</div><?php */?>
-			<?php if(!empty($city_amenities) && !empty($most_popular_amenities)) {?>
+			<?php if(!empty($city_amenities) || !empty($most_popular_amenities)) {?>
 			<span class="filter_title box_round"><strong><?php echo _('Facilities')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
+                                    
+                                    <?php if (!empty($most_popular_amenities)): ?>
                                     <div class="mostPopular">
-                                        <span><?php echo _("Most Popular"); ?></span>
+                                        <span><?php echo _("Most Popular Amenities"); ?></span>
                                         
                                         <?php foreach ($most_popular_amenities as $amenity): ?>
                                             <li>
@@ -81,8 +83,8 @@
                                                         (<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)
                                             </li>
                                         <?php endforeach; ?>
-                                        
                                     </div>
+                                    <?php endif; ?>
                                     
 					<?php foreach ($city_amenities as $amenity): ?>
                                             <li>
