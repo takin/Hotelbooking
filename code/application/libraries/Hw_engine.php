@@ -203,6 +203,7 @@ class Hw_engine {
     $country     = $hw_city->country_name_translated;
     $city        = $hw_city->city_name_translated;
 
+    $data["most_popular_amenities"] = array();
     $data['city_amenities'] = array();
     $data['city_districts'] = array();
     $data['city_landmarks'] = array();
