@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-10 21:06+0200\n"
+"POT-Creation-Date: 2013-04-19 16:10+0300\n"
+"PO-Revision-Date: 2013-04-23 21:07+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "Language: fr\n"
@@ -4444,6 +4444,8 @@ msgstr "(Válido %s)"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
+#: ../code/application/views/helpfile/pofields.php:795
+#, php-format
 msgid "Total:"
 msgstr "Total:"
 
@@ -7513,6 +7515,7 @@ msgid "Not enough parameters"
 msgstr "Parâmetros insuficientes"
 
 #: ../code/application/views/helpfile/pofields.php:661
+#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7525,12 +7528,14 @@ msgid "Invalid email recipient"
 msgstr "Endereço de e-mail inválido"
 
 #: ../code/application/views/helpfile/pofields.php:663
+#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "Preencha o assunto"
 
 #: ../code/application/views/helpfile/pofields.php:664
+#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7995,6 +8000,156 @@ msgstr ""
 "escolhidas. Você pode selecionar esse filtro para ver apenas os quartos com "
 "total disponibilidade para a sua estadia."
 
+#: ../code/application/views/helpfile/pofields.php:768
+#, php-format
+msgid "Email is not valid"
+msgstr "E-mail inválido"
+
+#: ../code/application/views/helpfile/pofields.php:772
+#, php-format
+msgid "Fill in the from name"
+msgstr "Preencher no destinatário"
+
+#: ../code/application/views/helpfile/pofields.php:773
+#, php-format
+msgid "Remove from this search"
+msgstr "Remover desta pesquisa"
+
+#: ../code/application/views/helpfile/pofields.php:774
+#, php-format
+msgid "Remove from any searches for next 24 hours"
+msgstr "Remover de qualquer pesquisa nas próximas 24 horas"
+
+#: ../code/application/views/helpfile/pofields.php:775
+#, php-format
+msgid "Remove from any searches for 1 week"
+msgstr "Remover de qualquer pesquisa por 1 semana"
+
+#: ../code/application/views/helpfile/pofields.php:776
+#, php-format
+msgid "Standard Single Private Ensuite"
+msgstr "Quarto Padrão com Banheiro Privativo"
+
+#: ../code/application/views/helpfile/pofields.php:777
+#, php-format
+msgid "Standard Twin Private Ensuite"
+msgstr "Quarto Padrão Duplo com Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:778
+#, php-format
+msgid "Deluxe Double Bed Private Ensuite"
+msgstr "Quarto de Luxo com Cama de Casal e Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:779
+#, php-format
+msgid "1 Bed Private Ensuite"
+msgstr "1 Cama com Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:780
+#, php-format
+msgid "%d Bed Private Ensuite"
+msgstr "%d Camas com Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:781
+#, php-format
+msgid "Deluxe 1 Bed Family Room Ensuite"
+msgstr "1 Cama de Luxo em Quarto Familiar com Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:782
+#, php-format
+msgid "Deluxe %d Bed Family Room Ensuite"
+msgstr "%d Camas de Luxo em Quarto Familiar com Suíte"
+
+#: ../code/application/views/helpfile/pofields.php:783
+#, php-format
+msgid "Filter by districts"
+msgstr "Filtrer par quartiers"
+
+#: ../code/application/views/helpfile/pofields.php:784
+#, php-format
+msgid "Filter by landmarks (-2kms)"
+msgstr "Filtrer par attractions (-2kms)"
+
+#: ../code/application/views/helpfile/pofields.php:785
+#, php-format
+msgid "Lowest price per night per person in a dorm"
+msgstr "Menor preço por noite por pessoa por quarto"
+
+#: ../code/application/views/helpfile/pofields.php:786
+#, php-format
+msgid "Lowest price per night per person in a private room"
+msgstr "Menor preço por noite por pessoa em um quarto individual"
+
+#: ../code/application/views/helpfile/pofields.php:787
+#, php-format
+msgid "Deposit:"
+msgstr "Depósito:"
+
+#: ../code/application/views/helpfile/pofields.php:788
+#, php-format
+msgid "Deposit to be paid now:"
+msgstr "Depósito a ser pago agora:"
+
+#: ../code/application/views/helpfile/pofields.php:789
+#, php-format
+msgid "Deposit already paid:"
+msgstr "Depósito já realizado:"
+
+#: ../code/application/views/helpfile/pofields.php:790
+#, php-format
+msgid "Amount already charged in %s:"
+msgstr "Valor já cobrado em %s:"
+
+#: ../code/application/views/helpfile/pofields.php:791
+#, php-format
+msgid "Currency for the deposit:"
+msgstr "Moedas para fazer o depósito:"
+
+#: ../code/application/views/helpfile/pofields.php:792
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival."
+msgstr ""
+"Você realiza o depósito para confirmar a assegurar a sua reserva. O valor "
+"que remanescente pode ser pago na sua chegada."
+
+#: ../code/application/views/helpfile/pofields.php:793
+#, php-format
+msgid "Amount to be paid on arrival:"
+msgstr "Valor a ser pago na chegada:"
+
+#: ../code/application/views/helpfile/pofields.php:794
+#, php-format
+msgid "Amount to be paid when you arrive at the property"
+msgstr "Valor a ser pago quando você chegar à propriedade"
+
+#: ../code/application/views/helpfile/pofields.php:796
+#, php-format
+msgid "Membership card (not required):"
+msgstr "Cartão de associado (não é obrigatório):"
+
+#: ../code/application/views/helpfile/pofields.php:797
+#, php-format
+msgid "Membership card:"
+msgstr "Cartão de associado:"
+
+#: ../code/application/views/helpfile/pofields.php:798
+#, php-format
+msgid "The deposit is non refundable and non transferable."
+msgstr "O depósito não é reembolsável e não é transferível."
+
+#: ../code/application/views/helpfile/pofields.php:799
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival. You will find the property"
+msgstr ""
+"Você realiza o depósito para confirmar a assegurar a sua reserva. O valor "
+"que remanescente pode ser pago na sua chegada. Você irá encontrar as "
+"informações de contato do proprietário (email, endereço, número de "
+"telefone…) no seu e-mail de confirmação após ter feito a reserva."
+
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30.000 albergues e acomodações baratas"
@@ -8428,9 +8583,6 @@ msgstr "Seu número de confirmação"
 
 #~ msgid "Articles Récents"
 #~ msgstr "Artigos recentes"
-
-#~ msgid "Pays non valide"
-#~ msgstr "País inválido"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "Servidor não encontrado. Por favor tente mais tarde."

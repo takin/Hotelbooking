@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-08 17:43+0300\n"
-"PO-Revision-Date: 2013-04-10 21:00+0200\n"
+"POT-Creation-Date: 2013-04-19 16:10+0300\n"
+"PO-Revision-Date: 2013-04-23 20:57+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -4357,6 +4357,8 @@ msgstr "（この%sは有効です）"
 
 #: ../code/application/views/email/new_transaction.php:504
 #: ../code/application/views/email/new_transaction_hb.php:218
+#: ../code/application/views/helpfile/pofields.php:795
+#, php-format
 msgid "Total:"
 msgstr "合計："
 
@@ -7361,6 +7363,7 @@ msgid "Not enough parameters"
 msgstr "パラメーター不十分"
 
 #: ../code/application/views/helpfile/pofields.php:661
+#: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/controllers/cmain.php:1673
 #, php-format
 msgid "Fill in the email"
@@ -7373,12 +7376,14 @@ msgid "Invalid email recipient"
 msgstr "無効なEメールアカウント"
 
 #: ../code/application/views/helpfile/pofields.php:663
+#: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/controllers/cmain.php:1681
 #, php-format
 msgid "Fill in the subject"
 msgstr "件名を記入"
 
 #: ../code/application/views/helpfile/pofields.php:664
+#: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/controllers/cmain.php:1684
 #, php-format
 msgid "Fill in the message"
@@ -7828,6 +7833,155 @@ msgstr ""
 "選択した日付で満室、一部ご利用可能なお部屋を表示しています。フィルターで部屋"
 "全体が空室のものを選択できます。"
 
+#: ../code/application/views/helpfile/pofields.php:768
+#, php-format
+msgid "Email is not valid"
+msgstr "無効なEメールアドレスです。"
+
+#: ../code/application/views/helpfile/pofields.php:772
+#, php-format
+msgid "Fill in the from name"
+msgstr "お客様のお名前を入力してください"
+
+#: ../code/application/views/helpfile/pofields.php:773
+#, php-format
+msgid "Remove from this search"
+msgstr "検索結果をリストから外す"
+
+#: ../code/application/views/helpfile/pofields.php:774
+#, php-format
+msgid "Remove from any searches for next 24 hours"
+msgstr "今後24時間の間、検索結果をリストから外す"
+
+#: ../code/application/views/helpfile/pofields.php:775
+#, php-format
+msgid "Remove from any searches for 1 week"
+msgstr "今後1週間の間、検索結果をリストから外す"
+
+#: ../code/application/views/helpfile/pofields.php:776
+#, php-format
+msgid "Standard Single Private Ensuite"
+msgstr "スタンダードシングルベッドルームバスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:777
+#, php-format
+msgid "Standard Twin Private Ensuite"
+msgstr "スタンダードツインベッドルームバスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:778
+#, php-format
+msgid "Deluxe Double Bed Private Ensuite"
+msgstr "デラックスダブルベッドルームバスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:779
+#, php-format
+msgid "1 Bed Private Ensuite"
+msgstr "プライベートシングルベッドルームバスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:780
+#, php-format
+msgid "%d Bed Private Ensuite"
+msgstr "プライベートルーム%d名様用バスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:781
+#, php-format
+msgid "Deluxe 1 Bed Family Room Ensuite"
+msgstr "デラックスファミリープライベートルーム　1シングルベッドバスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:782
+#, php-format
+msgid "Deluxe %d Bed Family Room Ensuite"
+msgstr "デラックスファミリープライベートルーム%d名様用バスルーム付き"
+
+#: ../code/application/views/helpfile/pofields.php:783
+#, php-format
+msgid "Filter by districts"
+msgstr "地区別に検索する"
+
+#: ../code/application/views/helpfile/pofields.php:784
+#, php-format
+msgid "Filter by landmarks (-2kms)"
+msgstr "ランドマークから検索する（2キロ以内）"
+
+#: ../code/application/views/helpfile/pofields.php:785
+#, php-format
+msgid "Lowest price per night per person in a dorm"
+msgstr "ドームでのお1人様一泊最安値料金"
+
+#: ../code/application/views/helpfile/pofields.php:786
+#, php-format
+msgid "Lowest price per night per person in a private room"
+msgstr "プライベートルームでのお1人様一泊最安値料金"
+
+#: ../code/application/views/helpfile/pofields.php:787
+#, php-format
+msgid "Deposit:"
+msgstr "預かり金:"
+
+#: ../code/application/views/helpfile/pofields.php:788
+#, php-format
+msgid "Deposit to be paid now:"
+msgstr "預かり金は今お支払いが必要です:"
+
+#: ../code/application/views/helpfile/pofields.php:789
+#, php-format
+msgid "Deposit already paid:"
+msgstr "預かり金はお支払い済みです:"
+
+#: ../code/application/views/helpfile/pofields.php:790
+#, php-format
+msgid "Amount already charged in %s:"
+msgstr "すでに請求されている金額%s:"
+
+#: ../code/application/views/helpfile/pofields.php:791
+#, php-format
+msgid "Currency for the deposit:"
+msgstr "預かり金の通貨:"
+
+#: ../code/application/views/helpfile/pofields.php:792
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival."
+msgstr ""
+"ご予約確定のために預かり金のお支払いが今必要になります。残金はホテル到着時に"
+"お支払い下さい。"
+
+#: ../code/application/views/helpfile/pofields.php:793
+#, php-format
+msgid "Amount to be paid on arrival:"
+msgstr "到着時のお支払額:"
+
+#: ../code/application/views/helpfile/pofields.php:794
+#, php-format
+msgid "Amount to be paid when you arrive at the property"
+msgstr "宿泊施設到着時のお支払額"
+
+#: ../code/application/views/helpfile/pofields.php:796
+#, php-format
+msgid "Membership card (not required):"
+msgstr "メンバーシップカード（必須ではありません）:"
+
+#: ../code/application/views/helpfile/pofields.php:797
+#, php-format
+msgid "Membership card:"
+msgstr "メンバーシップカード:"
+
+#: ../code/application/views/helpfile/pofields.php:798
+#, php-format
+msgid "The deposit is non refundable and non transferable."
+msgstr "預かり金は返金、譲渡不可です。"
+
+#: ../code/application/views/helpfile/pofields.php:799
+#, php-format
+msgid ""
+"You only pay the deposit to confirm and secure your reservation now. The "
+"remaining amount is payable upon arrival. You will find the property"
+msgstr ""
+"ご予約確定のために預かり金のお支払いが今必要になります。残金はホテル到着時に"
+"お支払い下さい。ご予約後に送信される確認メールにホテルの連絡先が含まれていま"
+"す。（Eメール、住所、電話番号）"
+
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
 msgstr "30000件のユースホステル、格安の宿泊施設"
@@ -8234,9 +8388,6 @@ msgstr "確認コード"
 
 #~ msgid "Articles Récents"
 #~ msgstr "最近の記事"
-
-#~ msgid "Pays non valide"
-#~ msgstr "無効な国"
 
 #~ msgid "Serveur indisponible pour le moment. Veuillez réessayer plus tard."
 #~ msgstr "サーバーが見つかりません。後ほどもう一度お試しください。"
