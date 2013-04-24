@@ -272,6 +272,7 @@ class Hb_engine {
     }
     $data['city_info'] = $city;
 
+    $data["most_popular_amenities"] = array();
     $data['city_amenities'] = array();
     $data['city_districts'] = array();
     $data['city_landmarks'] = array();
@@ -381,7 +382,9 @@ class Hb_engine {
       if($include_availdata !== true)
       {
         //Add district landmark of city
-        $data['city_amenities'] = $this->CI->Db_hb_hostel->get_amenities_city_for_filter();
+        $amenityGroups = $this->CI->Db_hb_hostel->get_amenities_city_for_filter();
+        $data["most_popular_amenities"] = $amenityGroups["mostPopularAmenities"];
+        $data['city_amenities'] = $amenityGroups["amenities"];
         $data['city_districts'] = $this->CI->Db_hb_hostel->get_districts_by_city_id($city->hb_id);
         $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_landmarks_by_city_id($city->hb_id,2);
         //translate city landmarks
@@ -454,18 +457,18 @@ class Hb_engine {
          $tmp_city_name=array();
          $tmp_city=array();
 
-        foreach($data['city_amenities'] as $i => $amenity)
+        foreach(array_merge($data['city_amenities'], $data["most_popular_amenities"]) as $i => $amenity)
         {
 
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
-          $data['city_amenities'][$i]->original_name = $amenity->facility_name;
+          $amenity->original_name = $amenity->facility_name;
           $tmp_city_name[$i]=strtolower($amenity->facility_name);
           if(!empty($translation))
           {
-            $data['city_amenities'][$i]->facility_name = $translation->translation;
+            $amenity->facility_name = $translation->translation;
             $tmp_city_name[$i]=strtolower($amenity->facility_name);
           }
-          $tmp_city[$i] = $data['city_amenities'][$i];
+          $tmp_city[$i] = $amenity;
 		}
 
 		/* array data sorted by Facilities pramod*/
@@ -475,7 +478,7 @@ class Hb_engine {
 
 			foreach($tmp_city as $j=>$cities_original_data){
 					if($val == strtolower($cities_original_data->facility_name)){
-						$data['city_amenities'][$i] = $cities_original_data;
+						$amenity = $cities_original_data;
 					}
 			}
 		}
@@ -525,6 +528,8 @@ class Hb_engine {
           $data['property_list'] = $this->CI->Db_hb_hostel->appendAdditionalPropertyData($results["response"]);
           $data['property_list'] = $this->properties_avail_prepare($data['property_list']);
 
+          log_message("debug", "search mode = 1: " . print_r($data["property_list"], true));
+          
           foreach($data['property_list'] as $property_id => $property)
           {
             $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link(
@@ -555,6 +560,8 @@ class Hb_engine {
                // Second parameter is a range in KM
             $data['landmarks'][(int)$property["id"]] = $this->CI->Db_hb_hostel->get_property_landmarks_for_filter($property["id"], 2);
           }
+          
+          log_message("debug", "search mode = 1 - post loop: " . print_r($data["property_list"], true));
         }
         else
         {
@@ -610,6 +617,8 @@ class Hb_engine {
         }
       }
     }
+    
+    log_message("debug", "post ifs: " . print_r($data["property_list"], true));
 
 //    debug_dump($data['property_list']);
 
@@ -656,6 +665,9 @@ class Hb_engine {
     $data['google_map_hostel_list'] = true;
 
     $data['user_id'] = $this->user_id;
+    
+    log_message("debug", "The end: " . print_r($data["property_list"], true));
+    
     return $data;
   }
 

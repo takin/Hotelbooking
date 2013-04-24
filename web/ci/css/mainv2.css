@@ -2003,6 +2003,22 @@ ul.site-info li span {
 .hb_frame ul.site-info li span{
 	margin-left: 75px
 }
+
+.mostPopular {
+    border: 2px #FDCA37 solid;
+    margin-bottom: 5px;
+    margin-left:-2px;
+}
+
+.mostPopular > span {
+    background-color: #FDCA37;
+    margin-bottom: 5px;
+    width: 100%;
+    position: relative;
+    display: block;
+    line-height: 200%;
+}
+
 .popular_cities{}
 .popular_cities h2{ border-bottom:1px dashed #aaaaaa;}
 .popular_cities a{color:#333333;}

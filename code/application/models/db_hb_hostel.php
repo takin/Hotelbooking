@@ -1816,21 +1816,47 @@ class Db_hb_hostel extends CI_Model
 
     $query = $this->CI->db->query($query);
 
+    $popularFacilitiesById = $this->config->item("mostPopularFacilitiesById");
+    $mostPopularAmenities = array();
     $amenities = array();
     if($query->num_rows() > 0)
     {
-      foreach($query->result() as $i => $row)
+      foreach($query->result() as $row)
       {
-      	$amenities[$i] = new stdClass();
-        $amenities[$i]->amenity_id = (int)$row->amenity_id;
-        $amenities[$i]->facility_id = $row->type.$row->amenity_id;
-        $amenities[$i]->type        = (string)$row->type;
-        $amenities[$i]->facility_name = (string)$row->facility_name;
-        $amenities[$i]->filter_order  = (int)$row->filter_order;
+      	$amenity = new stdClass();
+        $amenity->amenity_id = (int)$row->amenity_id;
+        $amenity->facility_id = $row->type.$row->amenity_id;
+        $amenity->type        = (string)$row->type;
+        $amenity->facility_name = (string)$row->facility_name;
+        $amenity->filter_order  = (int)$row->filter_order;
+        
+        $amenity->id_to_display = $this->getFacilityIdToDisplay($amenity);
+        
+        $popularAmenityKey = array_search($amenity->amenity_id, $popularFacilitiesById);
+        if ($popularAmenityKey !== FALSE) {
+            $mostPopularAmenities[$popularAmenityKey] = $amenity;
+        } else {
+            $amenities[] = $amenity;
+        }
       }
     }
-    return $amenities;
+    
+    return array(
+        "mostPopularAmenities" => $mostPopularAmenities,
+        "amenities" => $amenities
+    );
   }
+  
+  private function getFacilityIdToDisplay($amenity) {
+      if ($amenity->facility_name == 'Breakfast Included' || $amenity->facility_name == 'Breakfast') {
+        $idToDisplay = 'free-breakfast';
+    } else {
+        $idToDisplay = $amenity->facility_id;
+    }
+    
+    return $idToDisplay;
+  }
+          
   function get_property_type($property_number)
   {
   	$this->CI->db->select("property_type");
