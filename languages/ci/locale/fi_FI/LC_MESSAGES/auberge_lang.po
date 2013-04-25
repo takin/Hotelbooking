@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-24 16:44+0300\n"
-"PO-Revision-Date: 2013-04-23 21:42+0200\n"
+"PO-Revision-Date: 2013-04-25 23:26+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2749,16 +2748,16 @@ msgstr "Kiitos"
 #: ../code/application/views/hw/booking_avail_view.php:340
 #: ../code/application/views/hw/booking_avail_view.php:603
 #: ../code/application/views/helpfile/pofields.php:764
-#, fuzzy, php-format
+#, php-format
 msgid "Partially Available"
-msgstr "Pysäköinti"
+msgstr "Osallisesti Saatavalla"
 
 #: ../code/application/views/property_rooms_avail.php:15
 #: ../code/application/views/hw/booking_avail_view.php:29
 #: ../code/application/views/helpfile/pofields.php:766
 #, php-format
 msgid "Show fully available only"
-msgstr ""
+msgstr "Näytä vain täysin saatavilla olevia huoneita"
 
 #: ../code/application/views/property_rooms_avail.php:15
 #: ../code/application/views/hw/booking_avail_view.php:29
@@ -2769,6 +2768,9 @@ msgid ""
 "dates. You can select this filter to only see rooms with full availability "
 "for your stay."
 msgstr ""
+"Näytämme osallisesti ja täysin saatavilla olevia huoneita valittuna "
+"päivämäärinä. Voit valkata myös tämän filtterin joka näyttää vain täysin "
+"vapaita huoneita."
 
 #: ../code/application/views/property_rooms_avail.php:107
 #: ../code/application/views/hw/booking_avail_view.php:641
@@ -4059,9 +4061,8 @@ msgstr "Takaisin maan valintaan "
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:251
-#, fuzzy
 msgid "Filter by Districts"
-msgstr "Haun rajoitus:"
+msgstr "Etsi alueen perusteella"
 
 #: ../code/application/views/city_view.php:20
 #, fuzzy
@@ -5102,7 +5103,7 @@ msgstr "(Voimassa %s)"
 #: ../code/application/views/helpfile/pofields.php:795
 #, php-format
 msgid "Total:"
-msgstr "Yhteensä:"
+msgstr "Kokosumma:"
 
 #: ../code/application/views/email/new_transaction.php:525
 #, php-format
@@ -8101,7 +8102,7 @@ msgstr "Ei tarpeeksi parametrejä"
 #: ../code/application/controllers/cmain.php:1675
 #, php-format
 msgid "Fill in the email"
-msgstr "Täytä sähköposti"
+msgstr "Täytä sähköpostiosoite"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #: ../code/application/controllers/cmain.php:1679
@@ -8114,7 +8115,7 @@ msgstr "Virheellinen sähköpostiosoite"
 #: ../code/application/controllers/cmain.php:1683
 #, php-format
 msgid "Fill in the subject"
-msgstr "Kirjoita aihe"
+msgstr "Kirjoita  aihe"
 
 #: ../code/application/views/helpfile/pofields.php:664
 #: ../code/application/views/helpfile/pofields.php:771
@@ -8208,9 +8209,9 @@ msgid "No"
 msgstr "Ei"
 
 #: ../code/application/views/helpfile/pofields.php:742
-#, fuzzy, php-format
+#, php-format
 msgid "Important Information"
-msgstr "Lisätiedot"
+msgstr "Tärkeää tietoa"
 
 #: ../code/application/views/helpfile/pofields.php:745
 #, php-format
@@ -8247,22 +8248,22 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr ""
+msgstr "Yksityis makuhuone %d ihmiselle yhteisen kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
 msgid "Standard Single Private Shared Bathroom"
-msgstr ""
+msgstr "Standard yksityis makuhuone 1 ihmiselle yhteisen kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "Virheellinen Maa"
+msgstr "Sähköpostiosoite ei ole oikea."
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "Tulosta kartta"
+msgstr "Kirjoita lähettäjän nimi"
 
 #: ../code/application/views/helpfile/pofields.php:773
 #: ../code/application/views/mustache/property_list.php:138
@@ -8290,32 +8291,32 @@ msgstr ""
 #: ../code/application/views/helpfile/pofields.php:777
 #, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr ""
+msgstr "Standard kahden hengen huone kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "Luxus kahden hengen huone kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "1 Yksityishuone yhdelle hengelle kyslpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:780
 #, php-format
 msgid "%d Bed Private Ensuite"
-msgstr ""
+msgstr "%d hengen yksityishuone kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "Luxus 1 sängyn perhe huone kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:782
 #, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "Luxus %d hengen perhe huone kylpyhuoneen kanssa"
 
 #: ../code/application/views/helpfile/pofields.php:783
 #, fuzzy, php-format
@@ -8325,45 +8326,44 @@ msgstr "Haun rajoitus:"
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "Etsi maamerkin perusteella (-2 km)"
 
 #: ../code/application/views/helpfile/pofields.php:785
 #: ../code/application/views/mustache/property_list.php:255
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "Keskimäärin per yö per ihminen"
+msgstr "Matalin hinta per yö per ihminen ylioppilasasuntolassa"
 
 #: ../code/application/views/helpfile/pofields.php:786
 #: ../code/application/views/mustache/property_list.php:264
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr ""
-"Matalain hinta per ihminen per yö yksiyishuoneessa tässä majoituksessa:"
+msgstr "Matalin hinta per yö per ihminen yksityishuoneessa"
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "Käsiraha:"
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "Käsiraha joka pitää maksaa nyt:"
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "Maksu jo suoritettu"
+msgstr "Käsiraha jo maksettu:"
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "Summa joka veloitettu %s valuutalla:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "Käsirahan valuutta:"
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
@@ -8371,44 +8371,45 @@ msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
 msgstr ""
+"Maksat käsirahan vahvistaakseen varauksen.Toinen puoli maksusta maksat "
+"paikanpäällä."
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "Määrä mitä maksat paikanpäällä:"
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "Määrä mitä maksat kun saaput majoituspaikalle"
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "Vaatii jäsenkortin"
+msgstr "Jäsenyys kortti( ei tarvitse):"
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "Vaatii jäsenkortin"
+msgstr "Jäsenyys kortti:"
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
-msgstr ""
+msgstr "Käsirahaa ei ole mahdollista palauttaa tai siirtää."
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property'\\s "
 "contact information (email, address, telephone number…) in your confirmation "
 "email after you have made your reservation."
 msgstr ""
-"Maksat vain takuumaksun (10%% kokonaishinnasta) vahvistaaksesi varauksesi "
-"toistaiseksi. Loput laskusta (90%%) on maksettava saapumisen yhteydessä. "
-"Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero ...) näkyvät "
-"vahvistussähköpostissa kun olet tehnyt varauksesi."
+"Maksat käsirahan vahvistakseen varauksen. Toinen puoli maksusta maksat "
+"paikanpäällä. Löydät majoituksen yhteistiedot (sähköposti,osoite,"
+"puhelinnumero...) vahvistus sähköpostilla, varauksen tehtyä."
 
 #: ../code/application/views/helpfile/pofields.php:800
 #, php-format
