@@ -32,7 +32,7 @@ SavedProperty.prototype.setData = function(json_data) {
 SavedProperty.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
         var that = this;
 
-        $('#' + DOMNodeID).click(function() {
+        $('#' + DOMNodeID).unbind("click").click(function() {
                 $('#' + divID + ' .sorting').removeClass('activesort');
                 $(this).addClass('activesort');
 
@@ -174,9 +174,58 @@ SavedProperty.go_to_page = function(page_num) {
 	$('#current_page').val(page_num);
 };
 
+SavedProperty.edit = function(id, triggerElem) {
+	var obj = $('#prop_tab_box_' + id);
 
+	var propertyNumber = obj.attr('rel');
 
+	SaveProperty.showSaveDialog({
+		id             : id,
+		propertyNumber : propertyNumber,
+		imageURL       : obj.find('.info_pic img').attr('src'),
+		propertyName   : obj.find('.propertyName').html(),
+		city           : obj.find('.city').html(),
+		country        : obj.find('.country').html(),
+		date           : obj.find('.date').html(),
+		dateVal        : obj.find('.date').html(),
+		nights         : obj.find('.nights').html(),
+		notes          : obj.find('.notes').html(),
+		characters     : obj.find('.notes').html().length,
+		isUpdate       : true,
+		isNew          : false
+	});
 
+	$('#save_fav .schedule_details .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
+}
+
+SavedProperty.remove = function(id, triggerElem) {
+	var trigger = $(triggerElem);
+
+	trigger.hide();
+
+	SaveProperty.closeDialog();
+
+	$('#prop_tab_box_' + id).find('.remove').hide();
+
+	$.ajax({
+		type     : 'POST',
+		url      : '/cmain/ajax_delete_favorite_property',
+		dataType : 'json',
+		data     : {
+			id: id
+		},
+		success  : function(response) {
+			if (response.hasErrors) {
+				trigger.hide();
+			}
+			else {
+				$('#prop_tab_box_' + id).fadeOut(300, function(){ $(this).remove(); });
+
+				SaveProperty.loadSavedPropertyList();
+			}
+		}
+	});
+}
 
 
 
@@ -223,8 +272,12 @@ var SaveProperty = function() {
 		dialog.find('.close a').live('click', function(event) {
 			event.preventDefault();
 
-			dialog.hide();
+			closeDialog();
 		});
+	}
+
+	function closeDialog() {
+		dialog.hide();
 	}
 
 	function bindAddToFav() {
@@ -236,7 +289,7 @@ var SaveProperty = function() {
 			var propertyNumber = obj.attr('id').replace('save_to_favorites_', '');
 
 			showSaveDialog({
-				favoriteId     : '',
+				id             : '',
 				propertyNumber : propertyNumber,
 				imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img').attr('src'),
 				propertyName   : obj.attr('title'),
@@ -305,7 +358,9 @@ var SaveProperty = function() {
 				$('#prop_tab_box_' + propertyNumber).find('.save_to_favorites').hide();
 				$('#prop_tab_box_' + propertyNumber).find('.saved_to_favorites').show();
 
-				dialog.hide();
+				SaveProperty.loadSavedPropertyList();
+
+				closeDialog();
 			}
 		}).fail(function() {
 			form.find('.actions').show();
@@ -345,11 +400,14 @@ var SaveProperty = function() {
 	}
 
 	return {
-		handleSaveForm      : handleSaveForm,
-		countRemainingChars : countRemainingChars,
-		init                : init,
-		bindAddToFav        : bindAddToFav,
-		changeDate          : changeDate
+		handleSaveForm        : handleSaveForm,
+		countRemainingChars   : countRemainingChars,
+		init                  : init,
+		bindAddToFav          : bindAddToFav,
+		changeDate            : changeDate,
+		loadSavedPropertyList : loadSavedPropertyList,
+		showSaveDialog        : showSaveDialog,
+		closeDialog           : closeDialog
 	}
 }();
 

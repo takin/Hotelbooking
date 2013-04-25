@@ -709,8 +709,8 @@ class Hb_engine {
     foreach($json_data["property_list"] as $i => $prop)
     {
       //Change keys to match HW data
-      $json_data["property_list"][$i]['savedToFavorites']   = $prop["savedToFavorites"];
-      $json_data["property_list"][$i]['saveToFavorites']    = !$prop["savedToFavorites"];
+      $json_data["property_list"][$i]['savedToFavorites']   = empty($prop["savedToFavorites"]) ? false : true;
+      $json_data["property_list"][$i]['saveToFavorites']    = empty($prop["savedToFavorites"]) ? true : false;
       $json_data["property_list"][$i]['propertyNumber']     = $prop["id"];
       $json_data["property_list"][$i]['propertyName']       = $prop["name"];
       $json_data["property_list"][$i]['shortDescription']   = $prop["shortdescription"];

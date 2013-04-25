@@ -1,5 +1,5 @@
 <form action="<?php echo site_url(); ?>cmain/ajax_save_favorite_property" method="post" id="save_fav" onsubmit="SaveProperty.handleSaveForm(this); return false;">
-	<input type="hidden" name="id" value="{{favoriteId}}" />
+	<input type="hidden" name="id" value="{{id}}" />
 	<input type="hidden" name="propertyNumber" value="{{propertyNumber}}" />
 
 	<input type="hidden" name="nights" value="{{nights}}" />
@@ -43,7 +43,7 @@
 	<div class="actions">
 		{{#isUpdate}}
 			<input type="submit" name="submit" value="<?php echo _('Update Note'); ?>" />
-			<a href="#"><?php echo _('Remove from my favorites'); ?></a>
+			<a href="#" onclick="SavedProperty.remove({{id}}, this); return false;"><?php echo _('Remove from my favorites'); ?></a>
 		{{/isUpdate}}
 
 		{{#isNew}}

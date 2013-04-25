@@ -1,14 +1,16 @@
-<div id="prop_tab_box_{{property_number}}" class="hostel_list search_list" rel="{{property_number}}">
+<div id="prop_tab_box_{{id}}" class="hostel_list search_list" rel="{{property_number}}">
 	<div class="box_content box_round ui-tabs" id="prop_box_{{property_number}}">
 		<div class="city_hostel group" id="city_info_{{property_number}}">
 			<div>
 				<div class="left">
-					<p><strong>{{city}} - {{country}}</strong></p>
-					<p><?php echo _('Arrival:'); ?> <strong>{{arrival_date}}</strong> <?php echo _('Number of nights:'); ?> <strong>{{nights}}</strong></p>
-					<a href="{{property_page_url}}">{{name}}</a>
-					<strong>{{notes}}</strong>
+					<p><strong><span class="city">{{city}}</span> - <span class="country">{{country}}</span></strong></p>
+					<p><?php echo _('Arrival:'); ?> <strong class="dateShow">{{arrival_date_show}}</strong> <?php echo _('Number of nights:'); ?> <strong class="nights">{{nights}}</strong></p>
+					<span class="date" style="display: none">{{arrival_date}}</span>
+					<a href="{{property_page_url}}" class="propertyName">{{name}}</a>
+					<strong class="notes">{{notes}}</strong>
 
-					<a href=""><?php echo _('Edit'); ?></a> or <a href=""><?php echo _('Remove'); ?></a>
+					<a href="#" onclick="SavedProperty.edit({{id}}, this); return false;"><?php echo _('Edit'); ?></a>
+					or <a class="remove" href="#" onclick="SavedProperty.remove({{id}}, this); return false;"><?php echo _('Remove'); ?></a>
 				</div>
 			</div>
 

@@ -1757,7 +1757,7 @@ class CMain extends I18n_site
 	$command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg( site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf' ) . ' ' . escapeshellarg($pdf_path). ' > /dev/null 2>&1';
 
 	log_message('debug', $command);
-error_log($command, 3, '/tmp/abc.log');
+
         // create PDF
 	system($command);
 
@@ -2559,13 +2559,21 @@ error_log($command, 3, '/tmp/abc.log');
  }
 
   function ajax_save_favorite_property() {
+      header('Content-type: application/json');
+
       $id             = $this->input->post('id', true);
       $propertyNumber = $this->input->post('propertyNumber', true);
       $nights         = $this->input->post('nights', true);
       $date           = $this->input->post('date', true);
       $notes          = $this->input->post('notes', true);
 
+      $propertyUrl  = '';
+      $propertyName = '';
+      $city         = '';
+      $country      = '';
+
       $this->load->model('Db_favorite_hostels');
+      $this->load->model('Db_links');
 
       $errors = array();
 
@@ -2577,17 +2585,32 @@ error_log($command, 3, '/tmp/abc.log');
       }
       else {
           $hostelData = array();
+          $data = array();
 
           // search for property
           if ($this->api_used == HB_API) {
-              $this->load->model('Db_hb_hostel');
+              $this->load->library('hb_engine');
 
-              $hostelData = $this->Db_hb_hostel->get_hostel_data($propertyNumber);
+              $hostelData = $this->hb_engine->property_info($data, $propertyNumber);
+
+              if (!empty($hostelData)) {
+                  $propertyName = $hostelData['hostel_db_data']->property_name;
+       	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $propertyName, $propertyNumber, $this->site_lang);
+                  $city         = $hostelData['bc_city'];
+                  $country      = $hostelData['bc_country'];
+              }
           }
           else {
-              $this->load->model('Db_hw_hostel');
+              $this->load->library('hw_engine');
 
-              $hostelData = $this->Db_hw_hostel->get_hostel_data_from_number($propertyNumber);
+              $hostelData = $this->hw_engine->property_info($data, $propertyNumber);
+
+              if (!empty($hostelData)) {
+                  $propertyName = $hostelData['hostel']->property_name;
+       	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $propertyName, $propertyNumber, $this->site_lang);
+                  $city         = $hostelData['hostel']->city;
+                  $country      = $hostelData['hostel']->country;
+              }
           }
 
           if (empty($hostelData)) {
@@ -2597,7 +2620,7 @@ error_log($command, 3, '/tmp/abc.log');
              );
           }
           else {
-             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($propertyNumber);
+             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0));
 
              if (!empty($favHostelNo)) {
                  $errors[] = array(
@@ -2652,11 +2675,16 @@ error_log($command, 3, '/tmp/abc.log');
 
       $this->Db_favorite_hostels->saveFav(array(
           'id'             => $id,
+          'isHB'           => (bool)($this->api_used == HB_API),
           'propertyNumber' => $propertyNumber,
+          'propertyUrl'    => str_replace(site_url('/'), '/', $propertyUrl),
+          'propertyName'   => $propertyName,
+          'city'           => $city,
+          'country'        => $country,
           'nights'         => $nights,
           'date'           => $date,
           'notes'          => $notes,
-          'userId'         => 14
+          'userId'         => 13
       ));
 
       echo json_encode(array(
@@ -2666,6 +2694,29 @@ error_log($command, 3, '/tmp/abc.log');
       exit();
   }
 
+  function ajax_delete_favorite_property() {
+      header('Content-type: application/json');
+
+      $this->load->model('Db_favorite_hostels');
+
+      $id = $this->input->post('id', true);
+
+      if ($id) {
+          if (!$this->Db_favorite_hostels->removeProperty($id, 13)) {
+              echo json_encode(array('hasErrors' => 1));
+
+              exit();
+          }
+
+          echo json_encode(array('hasErrors' => 0));
+
+          exit();
+      }
+
+      echo json_encode(array('hasErrors' => 1));
+
+      exit();
+  }
  
   function property_image($pro_id)
  {

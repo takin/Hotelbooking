@@ -18,7 +18,25 @@ class Db_favorite_hostels extends CI_Model {
 		$this->db->set('notes',          (string)$params['notes']);
 		$this->db->set('user_id',        (int)$params['userId']);
 
+		if (!empty($params['city'])) {
+			$this->db->set('city', (string)$params['city']);
+		}
+		if (!empty($params['country'])) {
+			$this->db->set('country', (string)$params['country']);
+		}
+		if (!empty($params['propertyUrl'])) {
+			$this->db->set('property_url', (string)$params['propertyUrl']);
+		}
+		if (!empty($params['propertyName'])) {
+			$this->db->set('property_name', (string)$params['propertyName']);
+		}
+		if (isset($params['isHB'])) {
+			$this->db->set('type', $params['isHB'] ? 1 : 0);
+		}
+
 		if (empty($params['id'])) {
+			$this->db->set('added', date('Y-m-d H:m:d'));
+
 			return $this->db->insert(self::FAVORITE_TABLE);
 		}
 
@@ -27,8 +45,14 @@ class Db_favorite_hostels extends CI_Model {
 		return $this->db->update(self::FAVORITE_TABLE);
 	}
 
-	public function countPropertyNumber($propertyNumber) {
+	public function countPropertyNumber($id, $propertyNumber, $type) {
+		if ($id) {
+			$this->db->where('id !=', (int)$id);
+		}
+
 		$this->db->where('hostel_hb_id', (int)$propertyNumber);
+		$this->db->where('type', (int)$type);
+
 		$this->db->from(self::FAVORITE_TABLE);
 
 		return $this->db->count_all_results();
@@ -49,61 +73,37 @@ class Db_favorite_hostels extends CI_Model {
 	}
 
 	public function getAll($userId) {
-		$this->load->model('Db_links');
-
 		$allData = array();
 
-		// HB
 		$data = $this->db->query("
-			select favorite_hostels.*, hb_hostel.*, hb_city.lname_en, hb_country.lname_en as country
+			select favorite_hostels.*
 			from favorite_hostels
-			join hb_hostel on (hb_hostel.property_number = favorite_hostels.hostel_hb_id)
-			join hb_city on (hb_city.hb_id = hb_hostel.city_hb_id)
-			join hb_country on (hb_city.hb_country_id = hb_country.hb_country_id)
 			where favorite_hostels.user_id = $userId
 		");
 
 		foreach ($data->result() as $row) {
 			$allData[] = array(
 				'id'                => $row->id,
-				'property_page_url' => $this->Db_links->build_property_page_link($row->property_type, $row->property_name, $row->hb_hostel_id),
+				'property_page_url' => $row->property_url,
 				'hostel_hb_id'      => $row->hostel_hb_id,
 				'name'              => $row->property_name,
-				'property_number'   => $row->property_number,
+				'property_number'   => $row->hostel_hb_id,
 				'arrival_date'      => $row->arrival_date,
+				'arrival_date_show' => date('d F Y', strtotime($row->arrival_date . ' 00:00:00')),
 				'nights'            => $row->nights,
 				'notes'             => $row->notes,
-				'city'              => $row->lname_en,
+				'city'              => $row->city,
 				'country'           => $row->country
-			);
-		}
-return $allData;
-		$this->db->flush_cache();
-//		$this->db->_reset_write();
-
-		// HW
-		$data = $this->db->query("
-			select favorite_hostels.*, hw_hostel.*, hw_city.hw_city, hw_country.hw_country
-			from favorite_hostels
-			join hw_hostel on (hw_hostel.property_number = favorite_hostels.hostel_hb_id)
-			join hw_city on (hw_city.hw_city_id = hw_hostel.hw_city_id)
-			join hw_country on (hw_city.hw_country_id = hw_country.hw_country_id)
-			where favorite_hostels.user_id = $userId
-		");
-
-		foreach ($data->result() as $row) {
-			$allData[] = array(
-				'id'             => $row->id,
-				'propertyName'   => $row->property_name,
-				'propertyNumber' => $row->property_number,
-				'arrivalDate'    => $row->arrival_date,
-				'nights'         => $row->nights,
-				'notes'          => $row->notes,
-				'city'           => $row->hw_city,
-				'country'        => $row->hw_country
 			);
 		}
 
 		return $allData;
+	}
+
+	public function removeProperty($id, $userId) {
+		$this->db->where('id', (int)$id);
+		$this->db->where('user_id', (int)$userId);
+
+		return $this->db->delete(self::FAVORITE_TABLE);
 	}
 }
