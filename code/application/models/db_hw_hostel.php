@@ -1120,13 +1120,48 @@ class Db_hw_hostel extends CI_Model
 
     $query = $this->db->get(self::HW_FACILITY_TABLE);
 
-    $return = array();
+    $popularFacilitiesById = $this->config->item("hwMostPopularFacilitiesById");
+    $mostPopularAmenities = array();
+    $amenities = array();
+    
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      foreach($query->result() as $row)
+      {
+      	$amenity = new stdClass();
+        $amenity->facility_id = $row->facility_id;
+        $amenity->amenity_id = $amenity->facility_id;
+        $amenity->facility_name = (string)$row->facility_name;
+        
+        $amenity->id_to_display = $this->getFacilityIdToDisplay($amenity);
+        
+        $popularAmenityKey = array_search($amenity->facility_id, $popularFacilitiesById);
+        if ($popularAmenityKey !== FALSE) {
+            $mostPopularAmenities[$popularAmenityKey] = $amenity;
+        } else {
+            $amenities[] = $amenity;
+        }
+      }
     }
-    return $return;
+    
+    $amenityGroups = array(
+        "mostPopularAmenities" => $mostPopularAmenities,
+        "amenities" => $amenities
+    );
+    
+    return $amenityGroups;
   }
+  
+  private function getFacilityIdToDisplay($amenity) {
+      if ($amenity->facility_name == 'Breakfast Included' || $amenity->facility_name == 'Breakfast') {
+        $idToDisplay = 'free-breakfast';
+    } else {
+        $idToDisplay = $amenity->facility_id;
+    }
+    
+    return $idToDisplay;
+  }
+  
   public function get_amenities_by_city_id($city_id)
   {
     $city_id = $this->db->escape_str($city_id);
