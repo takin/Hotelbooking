@@ -1208,6 +1208,7 @@ PWebFilterApp.prototype.setup = function(data)
         }
     });
    
+     pweb_filter.toggleMap('city');
         
 //	$('#city_map_show_1').click(function()
 //	{
@@ -1521,7 +1522,7 @@ $(document).ready(function() {
 
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
-    
+  
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();

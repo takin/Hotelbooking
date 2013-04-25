@@ -74,11 +74,10 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-	<div id="search_load">
-		<?php if(isset($city_info->city_geo_lat)){?>
+    	<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 		<?php }?>
-		
+	<div id="search_load">	
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<?php //TODO show filter reset;?>
 			<span class="filter_title_top"><?php echo _('Filter by:')?></span>

@@ -475,7 +475,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
     var property_number = $(pDiv).attr("rel");
     var hostel_title = $.trim($("#hostel_title_"+property_number).text());
-  
+
     var image = null;
 
     if (pIconType === "selected")

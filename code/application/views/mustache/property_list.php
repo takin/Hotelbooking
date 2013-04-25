@@ -146,7 +146,7 @@ if ($displayQuickPreview == 1) {
                 <div class="info_indent">
                     <h2>
                         <a href="{{property_page_url}}" style="vertical-align: middle">
-                            {{propertyName}}
+                            <span id="hostel_title_{{propertyNumber}}">{{propertyName}}</span>
                             <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">
                                 ({{propertyTypeTranslate}})
                             </span>
