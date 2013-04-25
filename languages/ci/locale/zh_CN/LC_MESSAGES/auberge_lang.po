@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-24 16:44+0300\n"
-"PO-Revision-Date: 2013-04-19 22:40+0200\n"
+"PO-Revision-Date: 2013-04-25 21:15+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1236,7 +1235,7 @@ msgstr "把这个页面用邮件发给你认识的某个人，或发给你自己
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr ""
+msgstr "把这个PDF的报价用邮件发给你认识的人，或发送给你自己。"
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1273,13 +1272,13 @@ msgstr "发件人（邮件）"
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr ""
+msgstr "是的，我想订阅优惠折扣信息。 （您可以随时退订）"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
-#, fuzzy, php-format
+#, php-format
 msgid "Send email"
-msgstr "发送邮件"
+msgstr "发送电​​子邮件"
 
 #: ../code/application/views/includes/template-share-email-popup.php:84
 msgid "Send PDF quote"
@@ -3163,14 +3162,14 @@ msgid "1 guest in 1 Bedroom."
 msgstr "1个客人住1个卧室。"
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guests in each room)."
-msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
+msgstr "1个客人住%d个卧室（%d个客人每个房间）。"
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guest in each room)."
-msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
+msgstr "1个客人住%d个卧室（%d个客人每个房间）。"
 
 #: ../code/application/views/property_rooms_avail.php:415
 #: ../code/application/views/hw/booking_avail_view.php:526
@@ -3196,7 +3195,7 @@ msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
 #: ../code/application/views/property_rooms_avail.php:417
 #: ../code/application/views/hw/booking_avail_view.php:528
 #: ../code/application/views/hb/booking_avail_view.php:571
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
 msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
 
@@ -3305,7 +3304,7 @@ msgstr "详细说明："
 
 #: ../code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"
-msgstr ""
+msgstr "您团体里的总人数"
 
 #: ../code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -3798,9 +3797,8 @@ msgstr ""
 "乘汽车、火车、飞机出行。"
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
-msgstr "错误404 - 找不到网页"
+msgstr "錯誤400 - 找不到網頁"
 
 #: ../code/application/views/error400.php:13
 #: ../code/application/views/helpfile/pofields.php:607
@@ -3976,14 +3974,12 @@ msgstr " "
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:251
-#, fuzzy
 msgid "Filter by Districts"
-msgstr "筛选："
+msgstr "用区域过滤"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "地标（2公里内）"
+msgstr "用地标过滤（-2公里）"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4027,7 +4023,7 @@ msgstr "住宿类型"
 #: ../code/application/views/city_view.php:105
 #: ../code/application/views/city_view.php:130
 msgid "Most Popular"
-msgstr ""
+msgstr "最受欢迎的那些"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -4093,9 +4089,8 @@ msgid "Close Map"
 msgstr "关闭地图"
 
 #: ../code/application/views/city_view.php:255
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "筛选："
+msgstr "用地标过滤（-2公里）"
 
 #: ../code/application/views/city_view.php:259
 #, fuzzy
@@ -4452,7 +4447,7 @@ msgid "Bedrooms you will occupy:"
 msgstr "你们将会住的卧室："
 
 #: ../code/application/views/hw/booking_avail_view.php:526
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
 msgstr "%d个客人住%d个卧室（1个客人每个房间）。"
 
@@ -4466,7 +4461,7 @@ msgstr "这个住处一个私人房间每夜每人的最低价:%s"
 
 #: ../code/application/views/hw/booking_avail_view.php:591
 #: ../code/application/views/hb/booking_avail_view.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
 msgstr "%d个客人住%d个卧室（1个客人每个房间）。"
 
@@ -4527,7 +4522,6 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
 msgstr "选择的客人总数"
 
@@ -7770,7 +7764,7 @@ msgstr "我們會尽快将優惠券发到您的邮箱。"
 #: ../code/application/views/helpfile/pofields.php:605
 #, php-format
 msgid "Total Number of people in your groups: %s"
-msgstr ""
+msgstr "您团体里的总人数: %s"
 
 #: ../code/application/views/helpfile/pofields.php:606
 #, php-format
@@ -7881,7 +7875,7 @@ msgstr "请从清单上去掉一个住处。"
 #: ../code/application/views/mustache/property_list.php:118
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
-msgstr ""
+msgstr "请在页面的上方对选定的住处进行比较。"
 
 #: ../code/application/views/helpfile/pofields.php:652
 #, php-format
@@ -8064,7 +8058,7 @@ msgstr "请等一下..."
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr "%d人用的私人房间共用浴室 "
+msgstr "%d私人床位共用浴室"
 
 #: ../code/application/views/helpfile/pofields.php:765
 #, php-format
@@ -8072,14 +8066,14 @@ msgid "Standard Single Private Shared Bathroom"
 msgstr "标准单人间共用浴室"
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "输入国名无效"
+msgstr "邮件是无效的"
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "写在“发件人”名字里"
+msgstr "写在发件人里"
 
 #: ../code/application/views/helpfile/pofields.php:773
 #: ../code/application/views/mustache/property_list.php:138
@@ -8100,212 +8094,212 @@ msgid "Remove from any searches for 1 week"
 msgstr "从1周内的搜索列表中去除"
 
 #: ../code/application/views/helpfile/pofields.php:776
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Single Private Ensuite"
-msgstr "标准单人间共用浴室"
+msgstr "标准单人间带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr "标准单人间共用浴室"
+msgstr "标准双人间带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "豪华大床房带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "单人间带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:780
-#, fuzzy, php-format
+#, php-format
 msgid "%d Bed Private Ensuite"
-msgstr "%d人用的私人房间共用浴室 "
+msgstr "%d人间带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "豪华家庭房带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:782
 #, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "豪华%d人家庭房带浴室"
 
 #: ../code/application/views/helpfile/pofields.php:783
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by districts"
-msgstr "筛选："
+msgstr "用区域过滤"
 
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "用地标过滤（-2公里）"
 
 #: ../code/application/views/helpfile/pofields.php:785
 #: ../code/application/views/mustache/property_list.php:255
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "每夜每人平均"
+msgstr "宿舍里每人每晚的最低价"
 
 #: ../code/application/views/helpfile/pofields.php:786
 #: ../code/application/views/mustache/property_list.php:264
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr "这个住处一个私人房间每夜每人的最低价："
+msgstr "私人房间里每人每晚的最低价"
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "订金："
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "现在需要付的订金："
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "费用已支付"
+msgstr "订金已经付了："
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "费用已收取%s:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "订金所用的货币："
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
-msgstr ""
+msgstr "现在你只需支付订金来确认和确保预定。余额可以到达时再付。"
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "到达时需要支付的金额"
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "你到达住处后需要支付的金额"
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "需要会员卡"
+msgstr "会员卡（不需要）："
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "需要会员卡"
+msgstr "会员卡："
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
-msgstr ""
+msgstr "订金不可退款不能转让。"
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property'\\s "
 "contact information (email, address, telephone number…) in your confirmation "
 "email after you have made your reservation."
 msgstr ""
-"您只需支付房费的10%%即可确保房间预订，剩余的90%%余款抵达旅舍后支付。完成在线"
-"预订后，我们会在其邮件确认回函中向您提供邮件、地址、电话号码等具体联系方式。 "
+"确认和确保你的预定需要支付订金。余额可在到达时支付。预定后你会在确认邮件里发"
+"现住处的联系信息（邮件，地址，电话号码…)。"
 
 #: ../code/application/views/helpfile/pofields.php:800
 #, php-format
 msgid ""
 "By clicking \"Create Account\" you confirm that you accept the Terms of "
 "Service and Privacy Policy."
-msgstr ""
+msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
 
 #: ../code/application/views/helpfile/pofields.php:801
-#, fuzzy, php-format
+#, php-format
 msgid "Create account"
-msgstr "延迟退房"
+msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
 
 #: ../code/application/views/helpfile/pofields.php:802
 #, php-format
 msgid "Tell me about great deals and exclusive discounts!"
-msgstr ""
+msgstr "通知我优惠打折活动"
 
 #: ../code/application/views/helpfile/pofields.php:803
-#, fuzzy, php-format
+#, php-format
 msgid "Save this property as a favorite"
-msgstr "房屋评级"
+msgstr "为喜欢的住处"
 
 #: ../code/application/views/helpfile/pofields.php:804
 #, php-format
 msgid ""
 "We will never sell your personal information - You can unsubscribe anytime."
-msgstr ""
+msgstr "我们绝不会泄露你的个人信息-你可以随时退订。"
 
 #: ../code/application/views/helpfile/pofields.php:805
 #, php-format
 msgid "Your private notes (optional)"
-msgstr ""
+msgstr "你的私人标注（可选）"
 
 #: ../code/application/views/helpfile/pofields.php:806
 #, php-format
 msgid "Characters left:"
-msgstr ""
+msgstr "留下的特点："
 
 #: ../code/application/views/helpfile/pofields.php:807
-#, fuzzy, php-format
+#, php-format
 msgid "Update Notes"
-msgstr "重要注意事項"
+msgstr "更新标注"
 
 #: ../code/application/views/helpfile/pofields.php:808
-#, fuzzy, php-format
+#, php-format
 msgid "Remove from my favorites"
-msgstr "从搜索列表中去除"
+msgstr "从我的喜欢里移除"
 
 #: ../code/application/views/helpfile/pofields.php:809
 #, php-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../code/application/views/helpfile/pofields.php:810
 #, php-format
 msgid "My favorite properties"
-msgstr ""
+msgstr "我喜欢的住处"
 
 #: ../code/application/views/helpfile/pofields.php:811
 #, php-format
 msgid "List of favorite properties"
-msgstr ""
+msgstr "喜欢的住处清单"
 
 #: ../code/application/views/helpfile/pofields.php:812
 #, php-format
 msgid "My short notes about the property"
-msgstr ""
+msgstr "我对住处的临时标注"
 
 #: ../code/application/views/helpfile/pofields.php:813
-#, fuzzy, php-format
+#, php-format
 msgid "Edit or remove"
-msgstr "删除"
+msgstr "编辑或移除"
 
 #: ../code/application/views/helpfile/pofields.php:814
-#, fuzzy, php-format
+#, php-format
 msgid "Saved to my favorites"
-msgstr "浏览收藏夹"
+msgstr "保存到我的喜欢"
 
 #: ../code/application/views/helpfile/pofields.php:815
-#, fuzzy, php-format
+#, php-format
 msgid "Add to my favorites"
-msgstr "添加收藏夹"
+msgstr "添加到我的喜欢"
 
 #: ../code/application/views/helpfile/pofields.php:816
 #, php-format
@@ -8313,12 +8307,12 @@ msgid ""
 "You can save this property as a favorite in your account so you can easily "
 "book it at a later date if you wish.\r\n"
 "Account created"
-msgstr ""
+msgstr "你可以将这个住处添加到你的账户里我的喜欢，以后如果你想预定就很容易了。"
 
 #: ../code/application/views/helpfile/pofields.php:818
 #, php-format
 msgid "To save a property as a favorite, you must be login to your account."
-msgstr ""
+msgstr "你需要登陆到你的账户，才可以保存住处到我的喜欢。"
 
 #: ../code/application/views/helpfile/pofields.php:819
 #, php-format
@@ -8326,20 +8320,23 @@ msgid ""
 "By creating an account you will be able to save properties as favorites, get "
 "access to your bookings and ratings, and many more benefits."
 msgstr ""
+"创建了账户，你可以做很多事情，可以保存住处到我的喜欢，可以进行预定和评价，"
+"等。"
 
 #: ../code/application/views/helpfile/pofields.php:820
 #, php-format
 msgid "Please enter your email address and we will send you a password."
-msgstr ""
+msgstr "请输入你的邮箱地址，我们会把密码发给你。"
 
 #: ../code/application/views/helpfile/pofields.php:821
-#, fuzzy, php-format
+#, php-format
 msgid "Saved favorite properties"
-msgstr "搜索更多%s的住宿"
+msgstr "保存的喜欢的住处"
 
 #: ../code/application/views/helpfile/pofields.php:822
+#, fuzzy
 msgid "Deposit to be paid now (15%)"
-msgstr ""
+msgstr "现在需要支付订金 (%d)"
 
 #: ../code/application/views/helpfile/pofields.php:823
 #, fuzzy
@@ -8349,27 +8346,28 @@ msgid ""
 "will find the property'\\s contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"您只需支付房费的10%%即可确保房间预订，剩余的90%%余款抵达旅舍后支付。完成在线"
-"预订后，我们会在其邮件确认回函中向您提供邮件、地址、电话号码等具体联系方式。 "
+"你现在支付%d的订金可以确定和确保你的预定。余额%d可在到达住处时支付。预定后你"
+"会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
 
 #: ../code/application/views/helpfile/pofields.php:824
+#, fuzzy
 msgid "Deposit (15%)"
-msgstr ""
+msgstr "订金（%d）"
 
 #: ../code/application/views/helpfile/pofields.php:825
-#, fuzzy, php-format
+#, php-format
 msgid "Amount already paid:"
-msgstr "费用已支付"
+msgstr "已经支付的金额："
 
 #: ../code/application/views/helpfile/pofields.php:826
 #, php-format
 msgid "The most popular"
-msgstr ""
+msgstr "最受欢迎的那个"
 
 #: ../code/application/views/helpfile/pofields.php:827
-#, fuzzy, php-format
+#, php-format
 msgid "Most popular"
-msgstr "最重要"
+msgstr "最受欢迎的那些"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"

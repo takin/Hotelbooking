@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-24 16:44+0300\n"
-"PO-Revision-Date: 2013-04-19 22:27+0200\n"
+"PO-Revision-Date: 2013-04-24 21:32+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -4088,9 +4088,8 @@ msgstr "Zpět na všechny země "
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:251
-#, fuzzy
 msgid "Filter by Districts"
-msgstr "Filtruj: "
+msgstr "Filtrovat podle oblasti"
 
 #: ../code/application/views/city_view.php:20
 #, fuzzy
@@ -8160,7 +8159,7 @@ msgstr "Nedostatek parametrů"
 #: ../code/application/controllers/cmain.php:1675
 #, php-format
 msgid "Fill in the email"
-msgstr "Vyplňte email"
+msgstr "Vyplňte emailovou adresu"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #: ../code/application/controllers/cmain.php:1679
@@ -8315,14 +8314,14 @@ msgid "Standard Single Private Shared Bathroom"
 msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:768
-#, fuzzy, php-format
+#, php-format
 msgid "Email is not valid"
-msgstr "Neplatná země"
+msgstr "Email je neplatný"
 
 #: ../code/application/views/helpfile/pofields.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Fill in the from name"
-msgstr "Vyplňte \"od\" jménem"
+msgstr "Vyplňte jméno od"
 
 #: ../code/application/views/helpfile/pofields.php:773
 #: ../code/application/views/mustache/property_list.php:138
@@ -8348,34 +8347,34 @@ msgid "Standard Single Private Ensuite"
 msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:777
-#, fuzzy, php-format
+#, php-format
 msgid "Standard Twin Private Ensuite"
-msgstr "Standartní soukromá ložnice pro 1 osobu se sdílenou koupelnou"
+msgstr "Standartní dvoulůžkový soukromý pokoj (oddělená lůžka) s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:778
 #, php-format
 msgid "Deluxe Double Bed Private Ensuite"
-msgstr ""
+msgstr "Pokoj deluxe s manželským lůžkem a koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:779
 #, php-format
 msgid "1 Bed Private Ensuite"
-msgstr ""
+msgstr "Soukromý jednolůžkový pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:780
 #, fuzzy, php-format
 msgid "%d Bed Private Ensuite"
-msgstr "Soukromá ložnice pro %d osob, sdílená koupelna"
+msgstr "Soukromý sedmilůžkový pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
 msgid "Deluxe 1 Bed Family Room Ensuite"
-msgstr ""
+msgstr "Jednolůžkový deluxe rodinný pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:782
-#, php-format
+#, fuzzy, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr ""
+msgstr "Sedmilůžkový deluxe rodinný pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:783
 #, fuzzy, php-format
@@ -8385,45 +8384,44 @@ msgstr "Filtruj: "
 #: ../code/application/views/helpfile/pofields.php:784
 #, php-format
 msgid "Filter by landmarks (-2kms)"
-msgstr ""
+msgstr "Filtrovat podle důležitých bodů (-2km)"
 
 #: ../code/application/views/helpfile/pofields.php:785
 #: ../code/application/views/mustache/property_list.php:255
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a dorm"
-msgstr "Průměr za osobu a noc"
+msgstr "Nejnižší cena za osobu a noc ve společné ložnici"
 
 #: ../code/application/views/helpfile/pofields.php:786
 #: ../code/application/views/mustache/property_list.php:264
-#, fuzzy, php-format
+#, php-format
 msgid "Lowest price per night per person in a private room"
-msgstr ""
-"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení:"
+msgstr "Nejnižší cena za osobu a noc v soukromém pokoji"
 
 #: ../code/application/views/helpfile/pofields.php:787
 #, php-format
 msgid "Deposit:"
-msgstr ""
+msgstr "Záloha:"
 
 #: ../code/application/views/helpfile/pofields.php:788
 #, php-format
 msgid "Deposit to be paid now:"
-msgstr ""
+msgstr "Záloha k zaplacení nyní:"
 
 #: ../code/application/views/helpfile/pofields.php:789
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit already paid:"
-msgstr "Platba již byla udělána "
+msgstr "Záloha již zaplacená:"
 
 #: ../code/application/views/helpfile/pofields.php:790
 #, php-format
 msgid "Amount already charged in %s:"
-msgstr ""
+msgstr "Částka již účtovaná v %s:"
 
 #: ../code/application/views/helpfile/pofields.php:791
 #, php-format
 msgid "Currency for the deposit:"
-msgstr ""
+msgstr "Měna pro zálohu:"
 
 #: ../code/application/views/helpfile/pofields.php:792
 #, php-format
@@ -8431,44 +8429,45 @@ msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival."
 msgstr ""
+"Zaplatíte pouze zálohu jako potvrzení a zajištění vaší rezervace. Zbylá "
+"částka je splatná při příjezdu."
 
 #: ../code/application/views/helpfile/pofields.php:793
 #, php-format
 msgid "Amount to be paid on arrival:"
-msgstr ""
+msgstr "Částka,kterou zaplatíte při příjezdu:"
 
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr ""
+msgstr "Částka,kterou zaplatíte při příjezdu do ubytovacího zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:796
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card (not required):"
-msgstr "Členská karta nutná"
+msgstr "Členská karta (není vyžadováno):"
 
 #: ../code/application/views/helpfile/pofields.php:797
-#, fuzzy, php-format
+#, php-format
 msgid "Membership card:"
-msgstr "Členská karta nutná"
+msgstr "Členská karta:"
 
 #: ../code/application/views/helpfile/pofields.php:798
 #, php-format
 msgid "The deposit is non refundable and non transferable."
-msgstr ""
+msgstr "Záloha je nevratná a nepřenosná."
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property'\\s "
 "contact information (email, address, telephone number…) in your confirmation "
 "email after you have made your reservation."
 msgstr ""
-"Nám zaplatíte pouze zálohu (10%% z celé částky) pro zabezpečení vaší "
-"rezervace. Zbytek (90%%) je splatný po příjezdu na místo. Informace o vašem "
-"ubytování (email, adresu, telefonní číslo, …) najdete ve vašem potvrzovacím "
-"emailu poté co si uděláte rezervaci.  "
+"Nyní zaplatíte pouze zálohu jako potvrzení a zajištění vaší rezervace. Zbylá "
+"částka je splatná při příjezdu.Kontaktní údaje na ubytovací zařízení (email,"
+"adresu, telefon..) naleznete po rezervaci v potvrzujícím emailu."
 
 #: ../code/application/views/helpfile/pofields.php:800
 #, php-format
