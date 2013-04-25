@@ -796,7 +796,7 @@
 <?php echo _('Membership card (not required):');?>
 <?php echo _('Membership card:');?>
 <?php echo _('The deposit is non refundable and non transferable.');?>
-<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property\'\s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
+<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property\'s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
 <?php echo _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.');?>
 <?php echo _('Create account');?>
 <?php echo _('Tell me about great deals and exclusive discounts!');?>
@@ -813,8 +813,8 @@
 <?php echo _('Edit or remove');?>
 <?php echo _('Saved to my favorites');?>
 <?php echo _('Add to my favorites');?>
-<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.
-Account created');?>
+<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.');?>
+<?php echo _('Account created');?>
 <?php echo _('To save a property as a favorite, you must be login to your account.');?>
 <?php echo _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.');?>
 <?php echo _('Please enter your email address and we will send you a password.');?>
