@@ -395,4 +395,16 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
 <input type= "hidden" name="limit_compare_message" value="<?php echo  _('Only 5 properties can be compared. Please remove a property from list.');?>" id= "limit_compare_message" />
 
+<script type="text/javascript">
+   $(document).ready(function(){
 
+    $(window).scroll(function () { 
+        //we're scrolling our position is greater than 0 from the top of the page.
+        if($(window).scrollTop() > 0){
+
+         $("#sidebar").css({'position' : 'fixed'});
+         }
+       });  
+
+   });  
+</script>
