@@ -172,7 +172,7 @@ class Cron_hb extends I18n_site
     $this->load->library('custom_log');
     $this->load->helper('file');
 
-    $this->custom_log->set_freq("Y-m");
+    $this->custom_log->set_freq("Y-m-d");
 
     foreach($this->Db_links->get_all_domains_distinct_lang() as $domain)
     {
@@ -246,19 +246,19 @@ class Cron_hb extends I18n_site
         $emailSubject = "Email report for the hostelbookers property content service";
         $serviceCallback = array($hbPropertyContentService, "updateShortDescriptions");
         $logFilename = "updatepropertycontent";
-        
+
         $langCodesToUpdate = $this->getLangCodesToUpdate();
         if (!empty($langCodesToUpdate)) {
             $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $langCodesToUpdate);
         }
     }
-    
+
     private function getLangCodesToUpdate() {
         $this->load->model("db_translation_langs");
         $supportedLanguages = $this->db_translation_langs->getSupportedLangCodes();
-        
+
         $todaysIndex = date("j") - 1;
-        
+
         if ($todaysIndex >= count($supportedLanguages)) return array();
         else return array($supportedLanguages[$todaysIndex]);
     }
@@ -284,9 +284,9 @@ class Cron_hb extends I18n_site
             $this->custom_log->log($this->log_filename, $msg);
             $errors[] = $msg;
         }
-        
+
         $serviceObject = $serviceCallback[0];
-        
+
         $reportInfo = array(
             "errors" => array_merge($errors, $serviceObject->getErrors()),
             "subject" => $emailSubject,
