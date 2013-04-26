@@ -1,3 +1,9 @@
+<?php
+$switch_api = false;
+if ($this->session->userdata('switch_api')) {
+    $switch_api = true;
+}
+?>
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<a id="back_to_results" style="display: none;" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
@@ -398,7 +404,17 @@ endforeach; ?>
 
 	<nav class="hostel_tabs group" id="hostels_tabs">
 		<ul class="box_round ui-tabs-nav green_gradient_faded">
-			<li class="first"><a class="tab_price" href="#hostel_info_home"><?php echo _("Info & Prix");?></a></li>
+			<li class="first">
+                            <a class="tab_price" href="#hostel_info_home">
+                                <?php 
+                                if($switch_api) {
+                                    echo _("Info");
+                                } else {
+                                    echo _("Info & Prix");
+                                }                                
+                                ?>
+                            </a>
+                        </li>
 			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
 			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
 		</ul>
