@@ -273,9 +273,12 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 };
 GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
 {
-    // change map Zoom 
-    window.gmap.setZoom(13);
-    
+//    check zoom level and change it according to needed
+    if ( window.gmap.getZoom() > 12 ) {
+        // change map Zoom 
+        window.gmap.setZoom(12);
+    } 
+ 
     // do something with `pDistricts_umIds[counter]`
 
     var filter = MF.filter.Data({
@@ -331,25 +334,30 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 };
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
 
-    // change map Zoom 
-    window.gmap.setZoom(13);
-    
+//    check zoom level and change it according to needed
+    if ( window.gmap.getZoom() > 12 ) {
+        // change map Zoom 
+        window.gmap.setZoom(12);
+    } 
+   
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
-
+        
 //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
         center: new google.maps.LatLng(lat, Lng)
     };
+//var circle_color  = "#4E89C9";
+var circle_color  = "#FF0000";
 
     var LandmarkOptions = {
-        strokeColor: "#4E89C9",
+        strokeColor: circle_color,
         strokeOpacity: 0.8,
         strokeWeight: 2,
 //      fillColor: "#FF0000",
-        fillColor: "#4E89C9",
+        fillColor: circle_color,
         fillOpacity: 0.35,
         map: window.gmap,
         center: citymap.center,
