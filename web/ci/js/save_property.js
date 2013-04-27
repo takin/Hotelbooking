@@ -231,12 +231,11 @@ SavedProperty.remove = function(id, triggerElem) {
 
 
 
-
-
 var SaveProperty = function() {
-	var dialogTemplate = null;
-	var maxCharacters  = 75;
-	var dialog         = null;
+	var dialogTemplate    = null;
+	var maxCharacters     = 75;
+	var dialog            = null;
+	var currentClickedObj = null;
 
 	function init() {
 		dialog = $('#save_property_dialog');
@@ -284,25 +283,35 @@ var SaveProperty = function() {
 		$('.save_to_favorites').live('click', function(event) {
 			event.preventDefault();
 
-			var obj = $(this);
+			currentClickedObj = $(this);
 
-			var propertyNumber = obj.attr('id').replace('save_to_favorites_', '');
+			showSafeDialogFor(1);
+		});
+	}
 
-			showSaveDialog({
-				id             : '',
-				propertyNumber : propertyNumber,
-				imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img').attr('src'),
-				propertyName   : obj.attr('title'),
-				city           : $('.city_selected').html(),
-				country        : $('.country_selected').html(),
-				date           : $('#city_results_arrive_date').html(),
-				dateVal        : $.datepicker.formatDate('yy-mm-dd', $('#book-pick').datepicker('getDate')),
-				nights         : $('#city_results_numnights_selected').html(),
-				notes          : '',
-				characters     : 0,
-				isUpdate       : false,
-				isNew          : true
-			});
+	function showSafeDialogFor(showLogin) {
+		if (showLogin) {
+			getLoginForm();
+
+			return;
+		}
+
+		var propertyNumber = currentClickedObj.attr('id').replace('save_to_favorites_', '');
+
+		showSaveDialog({
+			id             : '',
+			propertyNumber : propertyNumber,
+			imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img').attr('src'),
+			propertyName   : currentClickedObj.attr('title'),
+			city           : $('.city_selected').html(),
+			country        : $('.country_selected').html(),
+			date           : $('#city_results_arrive_date').html(),
+			dateVal        : $.datepicker.formatDate('yy-mm-dd', $('#book-pick').datepicker('getDate')),
+			nights         : $('#city_results_numnights_selected').html(),
+			notes          : '',
+			characters     : 0,
+			isUpdate       : false,
+			isNew          : true
 		});
 	}
 
@@ -399,6 +408,76 @@ var SaveProperty = function() {
 		return true;
 	}
 
+	function getLoginForm() {
+		$.ajax({
+			url: '/connexion',
+			success: function(response) {
+				dialog.find('.content').html(response);
+				dialog.show();
+			}
+		});
+	}
+
+	function login(formElem) {
+		var form = $(formElem);
+
+		$.ajax({
+			type     : 'POST',
+			url      : form.attr('action'),
+			data     : {
+				login    : $('#login').val(),
+				password : $('#password').val(),
+				remember : $('#remember').attr('checked') ? $('#remember').val() : 0
+			},
+			success  : function(response) {
+				if (typeof(response) == 'object') {
+					if (response.ok) {
+						// user is logged in
+						showSafeDialogFor(0);
+					}
+				}
+				else {// some kind of error, see about it
+					dialog.find('.content').html(response);
+				}
+			}
+		});
+	}
+
+	function register(formElem) {
+		var form = $(formElem);
+
+		$.ajax({
+			type     : 'POST',
+			url      : form.attr('action'),
+			data     : {
+				email            : $('#email').val(),
+				password         : $('#password').val(),
+				confirm_password : $('#confirm_password').val()
+			},
+			success  : function(response) {
+				if (typeof(response) == 'object') {
+					if (response.ok) {
+						// user is registered; show login form
+						showSafeDialogFor(1);
+					}
+				}
+				else {// some kind of error, see about it
+					dialog.find('.content').html(response);
+				}
+			}
+		});
+	}
+
+	function getRegisterForm() {
+		$.ajax({
+			url: '/bienvenue',
+			success: function(response) {
+				dialog.find('.content').html(response);
+				dialog.show();
+			}
+		});
+	}
+
 	return {
 		handleSaveForm        : handleSaveForm,
 		countRemainingChars   : countRemainingChars,
@@ -407,7 +486,11 @@ var SaveProperty = function() {
 		changeDate            : changeDate,
 		loadSavedPropertyList : loadSavedPropertyList,
 		showSaveDialog        : showSaveDialog,
-		closeDialog           : closeDialog
+		closeDialog           : closeDialog,
+		login                 : login,
+		register              : register,
+		getRegisterForm       : getRegisterForm,
+		getLoginForm          : getLoginForm
 	}
 }();
 
