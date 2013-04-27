@@ -1629,8 +1629,11 @@ var ajaxrequest =  $.ajax({
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
                         
-                        pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
-			pweb_filter.pweb_maps['cityFilterMap'].enableMap();
+                        if(this.pweb_maps['cityFilterMap'].enabled === true)
+                        {
+                            pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
+                            pweb_filter.pweb_maps['cityFilterMap'].enableMap();
+                         }
 
 	if($("#distrinct:radio:checked").length > 0)
            { 
