@@ -195,7 +195,7 @@ SavedProperty.edit = function(id, triggerElem) {
 		isNew          : false
 	});
 
-	$('#save_fav .schedule_details .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
+	$('#save_fav .schedule_details .date .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
 }
 
 SavedProperty.remove = function(id, triggerElem) {
@@ -282,10 +282,15 @@ var SaveProperty = function() {
 	function bindAddToFav() {
 		$('.save_to_favorites').live('click', function(event) {
 			event.preventDefault();
-
 			currentClickedObj = $(this);
 
-			showSafeDialogFor(1);
+			var showLogin = true;
+
+			if (typeof(userIsLoggedIn) != 'undefined' && userIsLoggedIn) {
+				var showLogin = false;
+			}
+
+			showSafeDialogFor(showLogin);
 		});
 	}
 
@@ -301,13 +306,13 @@ var SaveProperty = function() {
 		showSaveDialog({
 			id             : '',
 			propertyNumber : propertyNumber,
-			imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img').attr('src'),
+			imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img, .main-pic .openup:first img.main:first').attr('src'),
 			propertyName   : currentClickedObj.attr('title'),
 			city           : $('.city_selected').html(),
 			country        : $('.country_selected').html(),
-			date           : $('#city_results_arrive_date').html(),
+			date           : $('#city_results_arrive_date, #booking-table .top-table p b:first').html(),
 			dateVal        : $.datepicker.formatDate('yy-mm-dd', $('#book-pick').datepicker('getDate')),
-			nights         : $('#city_results_numnights_selected').html(),
+			nights         : $('#city_results_numnights_selected, #booking-table .top-table p b:nth-child(2)').html(),
 			notes          : '',
 			characters     : 0,
 			isUpdate       : false,

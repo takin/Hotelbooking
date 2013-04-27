@@ -205,7 +205,7 @@
 									<?php echo _('Add to my favorites'); ?>
 								</a>
 
-								<a href="#" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
+								<a href="<?php echo site_url('user/favorite_properties'); ?>" target="_blank" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 									<?php echo _('Saved to my favorites'); ?>
 								</a>

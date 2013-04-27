@@ -18,6 +18,10 @@ class Db_favorite_hostels extends CI_Model {
 		$this->db->set('notes',          (string)$params['notes']);
 		$this->db->set('user_id',        (int)$params['userId']);
 
+		if (!empty($params['imageURL'])) {
+			$this->db->set('image',          (string)$params['imageURL']);
+		}
+
 		if (!empty($params['city'])) {
 			$this->db->set('city', (string)$params['city']);
 		}
@@ -58,10 +62,13 @@ class Db_favorite_hostels extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
-	public function savedPropertiesNumbers($userId) {
+	public function savedPropertiesNumbers($userId, $type = null) {
 		$numbers = array();
 
-		$this->db->where('id', (int)$userId);
+		$this->db->where('user_id', (int)$userId);
+		if ($type != null) {
+			$this->db->where('type', (int)$type);
+		}
 
 		$data = $this->db->get(self::FAVORITE_TABLE);
 
@@ -93,7 +100,8 @@ class Db_favorite_hostels extends CI_Model {
 				'nights'            => $row->nights,
 				'notes'             => $row->notes,
 				'city'              => $row->city,
-				'country'           => $row->country
+				'country'           => $row->country,
+				'imageURL'          => $row->image
 			);
 		}
 

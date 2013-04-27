@@ -7,7 +7,7 @@
 
 	<div class="property_details">
 		<div class="image">
-			<img src="{{imageURL}}" />
+			<img src="{{imageURL}}" style="width: 100px; height: 100px" />
 		</div>
 
 		<div class="property_name">{{propertyName}}</div>

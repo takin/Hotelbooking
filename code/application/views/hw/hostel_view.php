@@ -1,3 +1,6 @@
+<script type="text/javascript" src="<?php echo site_url('js/pweb/includes/mustache.js'); ?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo site_url('js/save_property.js'); ?>" charset="UTF-8"></script>
+
 <div id="sidebar" class="grid_4 hostel_view_side">
 	<?php //$this->load->view('includes/widget-cours'); ?>
 	<a id="back_to_results" style="display: none;" title="<?php echo _('Back to search results')?>" class="back_to_results expand" href="<?php echo base_url().$hostel->country.'/'.$hostel->city;?>"><strong>&laquo; <?php echo _('Back to search results')?></strong></a>
@@ -351,14 +354,17 @@ endforeach; ?>
                         </div>
 			<?php } ?>
 
-			<?php if ($this->config->item('displaySaveProperty')) { ?>
+			<?php if ($this->config->item('displaySaveProperty')) {
+                            $addToFav   = $favorited ? 'display:none' : '';
+                            $addedToFav = $favorited ? '' : 'display:none';
+			?>
 				<div class="save_to_favorites_options">
-					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel["ID"]?>" style="vertical-align: middle">
+					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>">
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 						<?php echo _('Add to my favorites'); ?>
 					</a>
 
-					<a href="#" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel["ID"]?>" style="vertical-align: middle">
+					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>">
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 						<?php echo _('Saved to my favorites'); ?>
 					</a>

@@ -1063,6 +1063,9 @@ class CMain extends I18n_site
             break;
         }
       }
+
+      $this->load->library('tank_auth');
+
       if($this->api_used == HB_API)
       {
 	    $this->load->helper('domain_replace_helper');
@@ -1083,6 +1086,7 @@ class CMain extends I18n_site
 
         $data['current_view_dir'] = "";
         $data['current_view'] = "city_view";
+        $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
 
         if(empty($dateStart))
         {
@@ -1131,6 +1135,7 @@ class CMain extends I18n_site
 
           $data['current_view_dir'] = "mobile/";
           $data['current_view'] = "city_view";
+          $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
 
           $this->carabiner->load_group_assets('mobile_main_menu');
           $this->carabiner->load_group_assets('mobile_city_property_list');
@@ -1152,6 +1157,7 @@ class CMain extends I18n_site
           $this->carabiner->js('avail_rooms.js');
           $this->carabiner->js('property_images.js');
 
+          $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
           $data['current_view_dir'] = "";
           $data['current_view'] = "city_view";
 
@@ -1374,6 +1380,15 @@ class CMain extends I18n_site
     log_message('debug', 'Entering main controller property page method');
 
     $this->_currency_init();
+    $this->load->library('tank_auth');
+
+    $favorited = false;
+    if ($this->config->item('displaySaveProperty')) {
+        $this->load->model('Db_favorite_hostels');
+
+        $favorited = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
+    }
+
     // add the current params in the "stash"
     $data = array(
         'property_type'   => $property_type,
@@ -1383,7 +1398,9 @@ class CMain extends I18n_site
         'nights'          => $units,
         'print'           => $this->input->get('print', true),
         'showEmail'       => $this->config->item('displayShareEmail'),
-        'showPDF'         => $this->config->item('displaySharePDF')
+        'showPDF'         => $this->config->item('displaySharePDF'),
+        'userIsLoggedIn'  => $this->tank_auth->is_logged_in(),
+        'favorited'       => $favorited
     );
 
     $date = $urldate;
@@ -1811,8 +1828,13 @@ class CMain extends I18n_site
 
     $this->_currency_init();
 
-    $this->load->model('Db_favorite_hostels');
-    $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers(13);
+    $savedPropertiesNumbers = array();
+
+    $this->load->library('tank_auth');
+    if ($this->config->item('displaySaveProperty')) {
+        $this->load->model('Db_favorite_hostels');
+        $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0));
+    }
 
     if ($this->api_used == HB_API) {
       $this->load->library('hb_engine');
@@ -1830,9 +1852,12 @@ class CMain extends I18n_site
       $this->load->library('hw_engine');
 
       $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
+
       if (!empty($data['property_list']) && is_array($data['property_list'])) {
           foreach ($data['property_list'] as $index => $property) {
-              $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+              if (!empty($property) && is_array($property)) {
+                  $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+              }
           }
       }
 
@@ -2561,6 +2586,16 @@ class CMain extends I18n_site
   function ajax_save_favorite_property() {
       header('Content-type: application/json');
 
+      $this->load->library('tank_auth');
+      if (!$this->tank_auth->is_logged_in()) {
+          echo json_encode(array(array(
+              'field'   => 'propertyNumber',
+              'message' => _('Please log in')
+          )));
+
+          exit();
+      }
+
       $id             = $this->input->post('id', true);
       $propertyNumber = $this->input->post('propertyNumber', true);
       $nights         = $this->input->post('nights', true);
@@ -2571,6 +2606,7 @@ class CMain extends I18n_site
       $propertyName = '';
       $city         = '';
       $country      = '';
+      $imageURL     = '';
 
       $this->load->model('Db_favorite_hostels');
       $this->load->model('Db_links');
@@ -2598,6 +2634,7 @@ class CMain extends I18n_site
        	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $propertyName, $propertyNumber, $this->site_lang);
                   $city         = $hostelData['bc_city'];
                   $country      = $hostelData['bc_country'];
+                  $imageURL     = empty($hostelData['hostel']['BIGIMAGES'][0]) ? '' : $hostelData['hostel']['BIGIMAGES'][0];
               }
           }
           else {
@@ -2610,6 +2647,7 @@ class CMain extends I18n_site
        	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $propertyName, $propertyNumber, $this->site_lang);
                   $city         = $hostelData['hostel']->city;
                   $country      = $hostelData['hostel']->country;
+                  $imageURL     = empty($hostelData['hostel']->PropertyImages[0]->imageURL) ? '' : $hostelData['hostel']->PropertyImages[0]->imageURL;
               }
           }
 
@@ -2684,7 +2722,8 @@ class CMain extends I18n_site
           'nights'         => $nights,
           'date'           => $date,
           'notes'          => $notes,
-          'userId'         => 13
+          'userId'         => $this->tank_auth->get_user_id(),
+          'imageURL'       => $imageURL
       ));
 
       echo json_encode(array(
@@ -2697,12 +2736,13 @@ class CMain extends I18n_site
   function ajax_delete_favorite_property() {
       header('Content-type: application/json');
 
+      $this->load->library('tank_auth');
       $this->load->model('Db_favorite_hostels');
 
       $id = $this->input->post('id', true);
 
       if ($id) {
-          if (!$this->Db_favorite_hostels->removeProperty($id, 13)) {
+          if (!$this->Db_favorite_hostels->removeProperty($id, $this->tank_auth->get_user_id())) {
               echo json_encode(array('hasErrors' => 1));
 
               exit();

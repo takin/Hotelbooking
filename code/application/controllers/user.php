@@ -155,12 +155,16 @@ class User extends UserRestricted
   }
 
   function favorite_properties_list() {
+      $this->load->library('tank_auth');
+
       $data = array();
 
       $this->load->model('Db_favorite_hostels');
 
       header('Content-type: application/json');
-      $this->load->view('includes/template-json', array('json_data' => json_encode($this->Db_favorite_hostels->getAll(13)), true));
+      $userId = $this->tank_auth->get_user_id();
+
+      $this->load->view('includes/template-json', array('json_data' => json_encode($this->Db_favorite_hostels->getAll($userId)), true));
   }
 
   function bookings()

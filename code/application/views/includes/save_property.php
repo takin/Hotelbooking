@@ -4,6 +4,10 @@
 ?>
 </script>
 
+<script type="text/javascript">
+        var userIsLoggedIn = <?php echo empty($userIsLoggedIn) ? 'false' : 'true'; ?>;
+</script>
+
 <div id="save_property_dialog">
 	<div class="content_container">
         	<div class="title"><?php echo _('Save this property as favorite'); ?></div>
