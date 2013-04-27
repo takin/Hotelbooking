@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 09:15+0300\n"
-"PO-Revision-Date: 2013-04-23 20:53+0200\n"
+"PO-Revision-Date: 2013-04-26 22:39+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1254,9 +1253,8 @@ msgid ""
 msgstr "このページを他の人に転送する、またはリマインダーとしてあなたに送る。"
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr "このページを他の人に転送する、またはリマインダーとしてあなたに送る。"
+msgstr "このPDF見積もり書を誰か、もしくは自分に送る"
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1290,11 +1288,12 @@ msgid "From (email)"
 msgstr "(e-mail)から"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "はい、ニュースレターの配信を希望します。"
+msgstr ""
+"はい、お得情報が見られるニュースレター購読を申し込みます。（いつでも登録は解"
+"除できます。）"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3119,9 +3118,8 @@ msgstr "空き状況"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "寮"
+msgstr "ドーム"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -3210,14 +3208,14 @@ msgid "1 guest in 1 Bedroom."
 msgstr "1ベッドルームにつきお1人様。"
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guests in each room)."
-msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
+msgstr "1ベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guest in each room)."
-msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
+msgstr "1ベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
 
 #: ../code/application/views/property_rooms_avail.php:415
 #: ../code/application/views/hw/booking_avail_view.php:526
@@ -3243,7 +3241,7 @@ msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ�
 #: ../code/application/views/property_rooms_avail.php:417
 #: ../code/application/views/hw/booking_avail_view.php:528
 #: ../code/application/views/hb/booking_avail_view.php:571
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
 msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
 
@@ -4037,14 +4035,12 @@ msgstr "からすべての国へ戻る"
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:253
-#, fuzzy
 msgid "Filter by Districts"
 msgstr "地区別に検索する"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "ランドマーク（2キロ以内）"
+msgstr "ランドマークから検索する（2キロ以内）"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4159,14 +4155,12 @@ msgid "Close Map"
 msgstr "マップを閉じる"
 
 #: ../code/application/views/city_view.php:257
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "ランドマークから検索する（2キロ以内）"
+msgstr "ランドマークから検索する"
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "地区別に検索する"
+msgstr "地区もしくはランドマークから検索する"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4436,9 +4430,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "空き状況"
+msgstr "ドーム空き状況"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4519,7 +4513,7 @@ msgid "Bedrooms you will occupy:"
 msgstr "ご予約しようとしているベッドルーム："
 
 #: ../code/application/views/hw/booking_avail_view.php:526
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
 msgstr "%dベッドルームに%d名様（各部屋に1名様）。"
 
@@ -4533,7 +4527,7 @@ msgstr "当施設の1プライベートドーム1泊お一人様あたり最低�
 
 #: ../code/application/views/hw/booking_avail_view.php:591
 #: ../code/application/views/hb/booking_avail_view.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
 msgstr "%dベッドルームに%d名様（各部屋に1名様）。"
 
@@ -4595,9 +4589,8 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "合計宿泊人数"
+msgstr "選択された宿泊人数"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737
@@ -8372,16 +8365,16 @@ msgid "The deposit is non refundable and non transferable."
 msgstr "預かり金は返金、譲渡不可です。"
 
 #: ../code/application/views/helpfile/pofields.php:799
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit to confirm and secure your reservation now. The "
 "remaining amount is payable upon arrival. You will find the property's "
 "contact information (email, address, telephone number…) in your confirmation "
 "email after you have made your reservation."
 msgstr ""
-"予約の確認を取る為に（総額の10%%）入金をしてください。残り（総額の90%%）は到"
-"着時に払ってもらって構いません。予約した際に確認のメールが送られます。その中"
-"にプロパティー主の情報が記入されています。（Eメール、住所、電話番号など） "
+"ご予約確定のために預かり金のお支払いが今必要になります。残金はホテル到着時に"
+"お支払い下さい。ご予約後に送信される確認メールにホテルの連絡先が含まれていま"
+"す。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/helpfile/pofields.php:800
 #, php-format
@@ -8389,82 +8382,86 @@ msgid ""
 "By clicking \"Create Account\" you confirm that you accept the Terms of "
 "Service and Privacy Policy."
 msgstr ""
+"「アカウントを開く」をクリックすることにより、サービス利用規約とプライバシー"
+"ポリシーに同意したとみなされます。"
 
 #: ../code/application/views/helpfile/pofields.php:801
-#, fuzzy, php-format
+#, php-format
 msgid "Create account"
-msgstr "チェックアウト： "
+msgstr "「アカウントを開く」"
 
 #: ../code/application/views/helpfile/pofields.php:802
 #, php-format
 msgid "Tell me about great deals and exclusive discounts!"
-msgstr ""
+msgstr "お得情報、割引情報を教えてください！"
 
 #: ../code/application/views/helpfile/pofields.php:803
-#, fuzzy, php-format
+#, php-format
 msgid "Save this property as a favorite"
-msgstr "このプロパティーをレートしてください"
+msgstr "この施設をお気に入りに登録する"
 
 #: ../code/application/views/helpfile/pofields.php:804
 #, php-format
 msgid ""
 "We will never sell your personal information - You can unsubscribe anytime."
 msgstr ""
+"お客様の個人情報を他に漏らすことは絶対にありません。購読はいつでも中止できま"
+"す。"
 
 #: ../code/application/views/helpfile/pofields.php:805
 #, php-format
 msgid "Your private notes (optional)"
-msgstr ""
+msgstr "お客様用メモ（任意）"
 
 #: ../code/application/views/helpfile/pofields.php:806
 #, php-format
 msgid "Characters left:"
-msgstr ""
+msgstr "残りの文字"
 
 #: ../code/application/views/helpfile/pofields.php:807
-#, fuzzy, php-format
+#, php-format
 msgid "Update Notes"
-msgstr "特記事項"
+msgstr "最新情報メモ"
 
 #: ../code/application/views/helpfile/pofields.php:808
-#, fuzzy, php-format
+#, php-format
 msgid "Remove from my favorites"
-msgstr "検索結果をリストから外す"
+msgstr "お気に入りから外す"
 
 #: ../code/application/views/helpfile/pofields.php:809
 #, php-format
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: ../code/application/views/helpfile/pofields.php:810
 #, php-format
 msgid "My favorite properties"
-msgstr ""
+msgstr "お気に入り施設"
 
 #: ../code/application/views/helpfile/pofields.php:811
 #, php-format
 msgid "List of favorite properties"
-msgstr ""
+msgstr "お気に入り施設リスト"
 
 #: ../code/application/views/helpfile/pofields.php:812
 #, php-format
 msgid "My short notes about the property"
-msgstr ""
+msgstr "施設についての短いメモ"
 
 #: ../code/application/views/helpfile/pofields.php:813
-#, fuzzy, php-format
+#, php-format
 msgid "Edit or remove"
-msgstr "削除"
+msgstr "編集もしくは外す"
 
 #: ../code/application/views/helpfile/pofields.php:814
-#, fuzzy, php-format
+#, php-format
 msgid "Saved to my favorites"
-msgstr "お気に入りを見る"
+msgstr "お気に入りに登録しました"
 
 #: ../code/application/views/helpfile/pofields.php:815
-#, fuzzy, php-format
+#, php-format
 msgid "Add to my favorites"
-msgstr "お気に入りに追加"
+msgstr "お気に入りに加える"
 
 #: ../code/application/views/helpfile/pofields.php:816
 #, php-format
@@ -8472,16 +8469,18 @@ msgid ""
 "You can save this property as a favorite in your account so you can easily "
 "book it at a later date if you wish."
 msgstr ""
+"お客様のアカウントにお気に入りの施設を登録できます。後日、簡単に予約ができま"
+"す。"
 
 #: ../code/application/views/helpfile/pofields.php:817
 #, php-format
 msgid "Account created"
-msgstr ""
+msgstr "アカウントが開かれました。"
 
 #: ../code/application/views/helpfile/pofields.php:818
 #, php-format
 msgid "To save a property as a favorite, you must be login to your account."
-msgstr ""
+msgstr "この施設をお気に入り登録するにはアカウントにログインが必要です。"
 
 #: ../code/application/views/helpfile/pofields.php:819
 #, php-format
@@ -8489,53 +8488,55 @@ msgid ""
 "By creating an account you will be able to save properties as favorites, get "
 "access to your bookings and ratings, and many more benefits."
 msgstr ""
+"アカウントを開くことにより、お気に入りリストに施設を登録でき、ご予約情報やレ"
+"ビューへのアクセスができます。他にもメリットがたくさんあります。"
 
 #: ../code/application/views/helpfile/pofields.php:820
 #, php-format
 msgid "Please enter your email address and we will send you a password."
-msgstr ""
+msgstr "お客様のEメールアドレスと入力してください。パスワードを送ります。"
 
 #: ../code/application/views/helpfile/pofields.php:821
-#, fuzzy, php-format
+#, php-format
 msgid "Saved favorite properties"
-msgstr "%sの全てのプロパティーと比べる。"
+msgstr "登録済みのお気に入り施設"
 
 #: ../code/application/views/helpfile/pofields.php:822
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d)"
-msgstr "預かり金は今お支払いが必要です:"
+msgstr "今お支払いが必要な預かり金（%d）"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d) is payable upon arrival. You will "
 "find the property's contact information (email, address, telephone number…) "
 "in your confirmation email after you have made your reservation."
 msgstr ""
-"予約の確認を取る為に（総額の10%%）入金をしてください。残り（総額の90%%）は到"
-"着時に払ってもらって構いません。予約した際に確認のメールが送られます。その中"
-"にプロパティー主の情報が記入されています。（Eメール、住所、電話番号など） "
+"ご予約確定のために預かり金（総額の%d）のお支払いが今必要になります。残金"
+"（%d）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテル"
+"の連絡先が含まれています。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/helpfile/pofields.php:824
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d)"
-msgstr "預かり金:"
+msgstr "預かり金（%d）"
 
 #: ../code/application/views/helpfile/pofields.php:825
-#, fuzzy, php-format
+#, php-format
 msgid "Amount already paid:"
-msgstr "預かり金はお支払い済みです:"
+msgstr "お支払い済みの金額"
 
 #: ../code/application/views/helpfile/pofields.php:826
 #, php-format
 msgid "The most popular"
-msgstr ""
+msgstr "最も人気の"
 
 #: ../code/application/views/helpfile/pofields.php:827
-#, fuzzy, php-format
+#, php-format
 msgid "Most popular"
-msgstr "重要な注意事項"
+msgstr "とても人気の"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
