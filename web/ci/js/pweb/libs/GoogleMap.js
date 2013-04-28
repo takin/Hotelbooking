@@ -267,6 +267,12 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
         }
     }
     else {
+        //    check zoom level and change it according to needed
+        // just change zoom if only one district to be shown
+        if (window.gmap.getZoom() > 12) {
+            // change map Zoom 
+            window.gmap.setZoom(12);
+        }
         this.addDistrictsBorder(MF, district_um_ids, 0);
     }
 
@@ -328,17 +334,17 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
         }
     }
     else {
+        //    check zoom level and change it according to needed
+        // just change zoom  if only one landmark to be shown
+        if (window.gmap.getZoom() > 12) {
+            // change map Zoom 
+            window.gmap.setZoom(12);
+        }
         this.addLandmarkLayer(landmark_LatLng);
     }
 
 };
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
-
-//    check zoom level and change it according to needed
-    if ( window.gmap.getZoom() > 12 ) {
-        // change map Zoom 
-        window.gmap.setZoom(12);
-    } 
    
     var point = landmark_LatLng.split("###");
     var lat = point[0];
