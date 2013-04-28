@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 09:15+0300\n"
-"PO-Revision-Date: 2013-04-27 21:32+0200\n"
+"PO-Revision-Date: 2013-04-28 22:48+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1254,9 +1254,8 @@ msgid ""
 msgstr "Odešlete tuto stránku známému nebo sobě jako připomínku."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr "Odešlete tuto stránku známému nebo sobě jako připomínku."
+msgstr "Zašlete tuto nabídku známému nebo sám sobě."
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1290,11 +1289,12 @@ msgid "From (email)"
 msgstr "Od (email)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "Ano,chic dostávat newsletter."
+msgstr ""
+"Ano,chci dostávat váš newsletter s výhodnými nabídkami.(Můžete se kdykoli "
+"odhlásit)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3134,9 +3134,8 @@ msgstr "Dosažitelnost"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "Koleje"
+msgstr "Společná ložnice"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -4092,9 +4091,8 @@ msgid "Filter by Districts"
 msgstr "Filtrovat podle oblasti"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Význačné body (do 2 km)"
+msgstr "Filtrovat podle význačných bodů (v okruhu 2 km)"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4136,9 +4134,8 @@ msgid "Property type"
 msgstr "Druh objektu"
 
 #: ../code/application/views/city_view.php:105
-#, fuzzy
 msgid "Most Popular Types"
-msgstr "Nejdůležitější "
+msgstr "Nejoblíbenější typy"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -4165,9 +4162,8 @@ msgid "Camping"
 msgstr "Kempování "
 
 #: ../code/application/views/city_view.php:132
-#, fuzzy
 msgid "Most Popular Amenities"
-msgstr "Nejdůležitější "
+msgstr "Nejoblíbenější zařízení"
 
 #: ../code/application/views/city_view.php:205
 #: ../code/application/views/city_ajax_view.php:222
@@ -4213,9 +4209,8 @@ msgid "Filter by Landmarks"
 msgstr "Filtrovat podle důležitých bodů"
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "Filtruj: "
+msgstr "Filtrovat podle oblastí nebo význačných bodů"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4488,9 +4483,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "Dosažitelnost"
+msgstr "Dostupnost polečných ložnic"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4652,9 +4647,8 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "Celkový vybraný počet hostů"
+msgstr "Vybraný počet hostů"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737
@@ -8367,9 +8361,9 @@ msgid "1 Bed Private Ensuite"
 msgstr "Soukromý jednolůžkový pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:780
-#, fuzzy, php-format
+#, php-format
 msgid "%d Bed Private Ensuite"
-msgstr "Soukromý sedmilůžkový pokoj s koupelnou"
+msgstr "Soukromý pokoj se %d lůžky a koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:781
 #, php-format
@@ -8377,9 +8371,9 @@ msgid "Deluxe 1 Bed Family Room Ensuite"
 msgstr "Jednolůžkový deluxe rodinný pokoj s koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:782
-#, fuzzy, php-format
+#, php-format
 msgid "Deluxe %d Bed Family Room Ensuite"
-msgstr "Sedmilůžkový deluxe rodinný pokoj s koupelnou"
+msgstr "Deluxe rodinný pokoj se %d lůžky a koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php:783
 #, php-format

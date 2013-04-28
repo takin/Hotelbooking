@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 09:15+0300\n"
-"PO-Revision-Date: 2013-04-26 20:39+0200\n"
+"PO-Revision-Date: 2013-04-28 22:38+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1269,11 +1269,10 @@ msgstr ""
 "Erinnerung senden."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
 msgstr ""
-"Diese Seite jemanden, den Sie kennen, zusenden oder sich selbst zur "
-"Erinnerung senden."
+"Dieses PDF-Angebot jemanden, den Sie kennen, per Email zusenden oder sich "
+"selbst senden."
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1307,11 +1306,12 @@ msgid "From (email)"
 msgstr "Von (Email)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "Ja, ich möchte den Newsletter erhalten."
+msgstr ""
+"Ja, ich möchte den Newsletter mit tollen Angeboten erhalten und abonnieren. "
+"(Sie können das Abo jederzeit stornieren)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3161,9 +3161,8 @@ msgstr "Verfügbarkeit"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "Dormitórios"
+msgstr "Mehrbettzimmer"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -4133,14 +4132,12 @@ msgstr "Zurück zu allen Ländern in "
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:253
-#, fuzzy
 msgid "Filter by Districts"
 msgstr "Filter nach Bezirken"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Wahrzeichen (2km Umkreis)"
+msgstr "Filter nach Wahrzeichen (innerhalb von 2 Km)"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4182,9 +4179,8 @@ msgid "Property type"
 msgstr "Unterkunftsart"
 
 #: ../code/application/views/city_view.php:105
-#, fuzzy
 msgid "Most Popular Types"
-msgstr "Die Beliebtesten"
+msgstr "Die beliebtesten Typen"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -4211,9 +4207,8 @@ msgid "Camping"
 msgstr "Zeltplätze"
 
 #: ../code/application/views/city_view.php:132
-#, fuzzy
 msgid "Most Popular Amenities"
-msgstr "Die Beliebtesten"
+msgstr "Die beliebtesten Vorzüge"
 
 #: ../code/application/views/city_view.php:205
 #: ../code/application/views/city_ajax_view.php:222
@@ -4255,14 +4250,12 @@ msgid "Close Map"
 msgstr "Karte schließen"
 
 #: ../code/application/views/city_view.php:257
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "Filter nach Wahrzeichen (-2 Km)"
+msgstr "Filter nach Wahrzeichen "
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "Filter nach Bezirken"
+msgstr "Filtern nach Bezirken und Wahrzeichen"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4539,9 +4532,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "Verfügbarkeit"
+msgstr " Verfügbarkeit Mehrbettzimmer"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4708,9 +4701,8 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "Gesamtzahl der Gäste auswählen"
+msgstr "Anzahl der ausgewählten Gäste"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737
