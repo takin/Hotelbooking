@@ -398,13 +398,13 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <script type="text/javascript">
    $(document).ready(function(){
 
-    $(window).scroll(function () { 
-        //we're scrolling our position is greater than 0 from the top of the page.
-        if($(window).scrollTop() > 0){
-
-         $("#sidebar").css({'position' : 'fixed'});
-         }
-       });  
+//    $(window).scroll(function () { 
+//        //we're scrolling our position is greater than 0 from the top of the page.
+//        if($(window).scrollTop() > 0){
+//
+//         $("#sidebar").css({'position' : 'fixed'});
+//         }
+//       });  
 
    });  
 </script>
