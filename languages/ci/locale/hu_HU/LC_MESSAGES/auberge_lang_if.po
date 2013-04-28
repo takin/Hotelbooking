@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 09:15+0300\n"
-"PO-Revision-Date: 2013-04-26 20:36+0200\n"
+"PO-Revision-Date: 2013-04-27 22:25+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1251,9 +1251,9 @@ msgid ""
 msgstr "Küldje el ezt az oldalt egy ismerősének, vagy önmagának emlékeztetőül."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr "Küldje el ezt az oldalt egy ismerősének, vagy önmagának emlékeztetőül."
+msgstr ""
+"Küldje el ezt a PDF formátumú ajánlatot egy ismerősének vagy saját magának!"
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1287,11 +1287,12 @@ msgid "From (email)"
 msgstr "Feladó (e-mail)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "Igen, szeretnék feliratkozni a hírlevélre."
+msgstr ""
+"Igen, szeretnék feliratkozni a hírlevélre, hogy a nagyszerű ajánlatokról "
+"értesülhessek.  (Bármikor leiratkozhat.)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3124,9 +3125,8 @@ msgstr "Szabad helyek"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "Hálótermek"
+msgstr "Kollégiumi szoba"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -4087,9 +4087,8 @@ msgid "Filter by Districts"
 msgstr "Szűrés körzetek szerint"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Látnivalók (2 km-en belül)"
+msgstr "Szűrés Mérföldkövek szerint (2 km-en belül)"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4204,14 +4203,12 @@ msgid "Close Map"
 msgstr "Zárja be a térképet"
 
 #: ../code/application/views/city_view.php:257
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "Szűrés mérföldkövek szerint (-2 km)"
+msgstr "Szűrés Mérföldkövek szerint"
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "Szűrés körzetek szerint"
+msgstr "Körzetek vagy Mérföldkövek szerinti szűrés"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4486,9 +4483,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "Szabad helyek"
+msgstr "Szabad kollégiumi szobák"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4514,7 +4511,7 @@ msgstr "Kollégiumi szobában a legalacsonyabb ár fő / éjre vonatkozóan: %s"
 #: ../code/application/views/mustache/property_list.php:327
 #, php-format
 msgid "Select"
-msgstr "Választ"
+msgstr "Kiválaszt"
 
 #: ../code/application/views/hw/booking_avail_view.php:318
 #: ../code/application/views/hb/booking_avail_view.php:308
@@ -4651,9 +4648,8 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "Kiválasztott vendégek összlétszáma"
+msgstr "Kiválasztott vendégek száma"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737

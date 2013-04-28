@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 09:15+0300\n"
-"PO-Revision-Date: 2013-04-27 01:04+0200\n"
+"PO-Revision-Date: 2013-04-27 21:20+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1253,7 +1253,7 @@ msgstr "Lähetä tämä sivu tuttavalle tai itsellesi muistutukseksi."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr ""
+msgstr "Lähetä tämä PDF sitaatti jollekin tutulle tai itsellesi."
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1291,6 +1291,8 @@ msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
 msgstr ""
+"Kyllä, haluan yhtyä uutiskirjeeseen saadakseen hyviä tarjouksia. ( Voit aina "
+"peruuttaa)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3121,9 +3123,8 @@ msgstr "Saatavuus"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "Dorms"
+msgstr "Ylioppilasasuntola"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -4066,9 +4067,8 @@ msgid "Filter by Districts"
 msgstr "Etsi alueen perusteella"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Maamerkit (2km sisällä)"
+msgstr "Suodata Maamerkkien perusteella (2 km alueella)"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4110,9 +4110,8 @@ msgid "Property type"
 msgstr "Kiinteistötyyppi"
 
 #: ../code/application/views/city_view.php:105
-#, fuzzy
 msgid "Most Popular Types"
-msgstr "Tärkeää"
+msgstr "Suosituimmat vaihtoehdot"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -4139,9 +4138,8 @@ msgid "Camping"
 msgstr "Retkeilyalue"
 
 #: ../code/application/views/city_view.php:132
-#, fuzzy
 msgid "Most Popular Amenities"
-msgstr "Tärkeää"
+msgstr "Suosituimmat palvelut"
 
 #: ../code/application/views/city_view.php:205
 #: ../code/application/views/city_ajax_view.php:222
@@ -4183,14 +4181,12 @@ msgid "Close Map"
 msgstr "Sulje kartta"
 
 #: ../code/application/views/city_view.php:257
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "Etsi maamerkin perusteella (-2 km)"
+msgstr "Suodata Maamerkkien perusteella"
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "Etsi alueen perusteella"
+msgstr "Suodatin Alueen ja Maamerkin perusteella"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4466,9 +4462,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "Saatavuus"
+msgstr "Ylioppilasasuntolan Saatavuus"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4631,9 +4627,8 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "Valittujen vieraitten kokonaismäärä"
+msgstr "Valittujen vieraitten määrä"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737
@@ -8549,17 +8544,16 @@ msgid "Deposit to be paid now (%d)"
 msgstr "Nyt maksettava käsiraha (%d)"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d) is payable upon arrival. You will "
 "find the property's contact information (email, address, telephone number…) "
 "in your confirmation email after you have made your reservation."
 msgstr ""
-"Maksat vain takuumaksun (10%% kokonaishinnasta) vahvistaaksesi varauksesi "
-"toistaiseksi. Loput laskusta (90%%) on maksettava saapumisen yhteydessä. "
-"Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero …) näkyvät "
-"vahvistussähköpostissa kun olet tehnyt varauksesi."
+"Maksat vain käsirahan (%d kokosummasta) vahvistaakseen varauksesi. Jäljellä "
+"oleva summa (%d) maksetaan paikanpäällä. Majoituksen yhteistiedot "
+"(sähköposti,osoite,puhelinnumero…) löydät vahvistuksesta varauksen tehtyä."
 
 #: ../code/application/views/helpfile/pofields.php:824
 #, php-format
