@@ -279,14 +279,6 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 };
 GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
 {
-//    check zoom level and change it according to needed
-    if ( window.gmap.getZoom() > 12 ) {
-        // change map Zoom 
-        window.gmap.setZoom(12);
-    } 
- 
-    // do something with `pDistricts_umIds[counter]`
-
     var filter = MF.filter.Data({
         column: 'umi.neighborhoods.attributes.hood_id',
         operator: '=',
