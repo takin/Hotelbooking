@@ -433,6 +433,23 @@ $config['proxy_ips'] = '92.243.16.182,95.142.170.59,95.142.170.9';
 */
 $config['urbanmapping_key'] = '3e582082263ec602d607b16a3d1b21fb';
 
+
+/*
+ * Most Popular Facilities by ID and in priority order
+ */
+$config["hbMostPopularFacilitiesById"] = array(
+    3,  // Breakfast - hb_extra
+    69, // "Internet / Wi-Fi" - hb_feature
+    13  // 24 hour reception - hb_feature
+);
+
+$config["hwMostPopularFacilitiesById"] = array(
+    26,  // Breakfast - hw_facility
+    27, // "Internet / Wi-Fi" - hw_facility
+    33  // 24 hour reception - hw_facility
+);
+
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
 

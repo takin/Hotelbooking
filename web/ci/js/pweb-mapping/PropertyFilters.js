@@ -73,7 +73,7 @@ PWebFilterApp.prototype.init = function() {
 	this.count_st=0;
 	
 	//Filter controls init
-	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter",true);
+	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter");
 	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter");
 	this.DistrictsCheckBoxes  = new GroupCheckBoxes("cb_group_districts_filter");
 	this.LandmarksCheckBoxes  = new GroupCheckBoxes("cb_group_landmarks_filter");
@@ -169,14 +169,8 @@ PWebFilterApp.prototype.apply_filters = function() {
         
 };
 
-PWebFilterApp.prototype.set_init_filters_value = function() {
-	this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.id] = this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.checked;
-	for (var i = 0; i < this.TypeFilterCheckBoxes.$checkboxes_li.length; i++)
-	{
-		this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
-	}
-	
-	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
+PWebFilterApp.prototype.set_init_filters_value = function() {	
+        for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 	{
 		this.FiltersInitValues[this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
 	}
@@ -283,7 +277,7 @@ PWebFilterApp.prototype.updateMap = function() {
             
         }
 };
-PWebFilterApp.prototype.update = function() { 
+PWebFilterApp.prototype.update = function() {
 	var that = this;
 
 	//Re initiatilize prop_number_to_focus of property map
@@ -296,19 +290,16 @@ PWebFilterApp.prototype.update = function() {
 		this.$sort_controls_div.hide();
 		this.$data_div.html("");
 		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(":input[type='checkbox']").each(function(){
-		 			var type_val = $(this).is(':checked');
-		 			var type_input = $(this).attr('id');
-		 			 if((type_input == 'type_all') && (type_val == true)){
-						 $('#applied_filter_hosting_property').hide();
-						 temp =0;
-						 return false;
-					  }else if(type_val == true){
-						 	   $('#applied_filter_hosting_property').show();
-						  return false;
-						  }
-		 			
-				});
+		
+                $('#cb_group_type_filter li').find(':input').each(function() {
+                    var type_val = $(this).is(':checked');
+                    var type_input = $(this).attr('id');
+                    
+                    if(type_val === false){
+                        $('#applied_filter_hosting_property').show();
+                        return false;
+                    }
+                });
 	}
 	else
 	{
@@ -322,16 +313,14 @@ PWebFilterApp.prototype.update = function() {
 		//Init jquery UI tabs
 		$('ul.ui-tabs-nav').tabs();
 
-		$('#cb_group_type_filter li').find(":input[type='checkbox']").each(function(){
-		 			var type_val = $(this).is(':checked');
-		 			var type_input = $(this).attr('id');
-		 			 if((type_input == 'type_all') && (type_val == true)){
-						 $('#applied_filter_hosting_property').hide();
-						 return false;
-					  }else if(type_val == true){
-						   $('#applied_filter_hosting_property').show();
-						  }
-		 		});
+		$('#applied_filter_hosting_property').hide();
+		$('#cb_group_type_filter li').find(':input').each(function() {
+                    var type_val = $(this).is(':checked');
+                    var type_input = $(this).attr('id');
+                    if(type_val === false){
+                        $('#applied_filter_hosting_property').show();
+                    }
+                });
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
@@ -574,9 +563,12 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 		
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].firstChild.value;
-			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined)
-			this.FiltersCounts['facility-count-'+current_facility_id]=0;
+			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].
+                            getElementsByTagName("input")[0].value;
+			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined) {
+                            this.FiltersCounts['facility-count-'+current_facility_id]=0;
+                        }
+			
 			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++)
 			{
 				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi])
@@ -1646,8 +1638,11 @@ var ajaxrequest =  $.ajax({
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
                         
-                        pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
-			pweb_filter.pweb_maps['cityFilterMap'].enableMap();
+                        if(this.pweb_maps['cityFilterMap'].enabled === true)
+                        {
+                            pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
+                            pweb_filter.pweb_maps['cityFilterMap'].enableMap();
+                         }
 
 	if($("#distrinct:radio:checked").length > 0)
            { 
