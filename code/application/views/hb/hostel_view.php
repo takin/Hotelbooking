@@ -3,6 +3,7 @@ $switch_api = false;
 if ($this->session->userdata('switch_api')) {
     $switch_api = true;
 }
+echo form_hidden('switch_api', $switch_api);
 ?>
 <div id="sidebar" class="grid_4 hostel_view_side">
     <a id="back_to_results"  style="display: none;" title="<?php echo _('Back to search results') ?>" class="back_to_results expand" href="<?php echo base_url() . $hostel["ADDRESS"]["COUNTRY"] . '/' . $hostel["ADDRESS"]["CITY"]; ?>"><strong>&laquo; <?php echo _('Back to search results') ?></strong></a>

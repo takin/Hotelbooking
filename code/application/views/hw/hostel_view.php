@@ -3,6 +3,7 @@ $switch_api = false;
 if ($this->session->userdata('switch_api')) {
     $switch_api = true;
 }
+echo form_hidden('switch_api', $switch_api);
 ?>
 <div id="sidebar" class="grid_4 hostel_view_side">
     <?php //$this->load->view('includes/widget-cours'); ?>
