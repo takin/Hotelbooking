@@ -236,7 +236,7 @@ GoogleMap.prototype.fillMakersArray = function() //, image, iconshadow)
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
 var property_number = $(value).attr("rel");
-    $("#city_map_view_"+property_number).html("")
+    $("#city_map_view_"+property_number).html("");
 
         GoogleMap.prototype.addMarker(index
                 , $("#input_geo_latitude_"+property_number).val()
