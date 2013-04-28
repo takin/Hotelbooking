@@ -1471,7 +1471,6 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data)
 		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
 		{
 			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-//        alert("after if(parseFloat(markers_data[i].Geo.Latitude) ");
 			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
 			
 			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
