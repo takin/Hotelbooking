@@ -102,7 +102,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
                                    <div class="mostPopular">
-                                        <span><?php echo _("Most Popular Types"); ?></span>
+                                        <span><?php echo _("The most popular"); ?></span>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hostels"]; ?> name="prop_types" value="type_hostels" id="type_hostels" /> <?php echo _("Auberges de jeunesse")?> (<span id="prop-types-count-1">0</span>)</li>
                                    </div>
 					<li><input type="checkbox" class="checkbox" <?php echo $filters_init["type"]["hotels"]; ?> name="prop_types" value="type_hotels" id="type_hotels" /> <?php echo _("Hôtels pas chers")?> (<span id="prop-types-count-2">0</span>)</li>
@@ -126,33 +126,33 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<span class="filter_title box_round"><strong><?php echo _('Facilities')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_facilities_filter">
-                                    
+
                                     <?php if (!empty($most_popular_amenities)): ?>
                                     <div class="mostPopular">
-                                        <span><?php echo _("Most Popular Amenities"); ?></span>
-                                        
+                                        <span><?php echo _("Most popular"); ?></span>
+
                                         <?php foreach ($most_popular_amenities as $amenity): ?>
                                             <li>
-                                                <input type="checkbox" class="checkbox" 
+                                                <input type="checkbox" class="checkbox"
                                                        id="facility-<?php echo $amenity->facility_id; ?>"
-                                                       value="<?php echo $amenity->facility_id;?>" 
-                                                       name="facilities" /> 
+                                                       value="<?php echo $amenity->facility_id;?>"
+                                                       name="facilities" />
 
-                                                        <?php echo $amenity->facility_name;?> 
+                                                        <?php echo $amenity->facility_name;?>
                                                         (<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)
                                             </li>
                                         <?php endforeach; ?>
                                     </div>
                                     <?php endif; ?>
-                                    
+
 					<?php foreach ($city_amenities as $amenity): ?>
                                             <li>
-                                                <input type="checkbox" class="checkbox" 
+                                                <input type="checkbox" class="checkbox"
                                                        id="facility-<?php echo $amenity->id_to_display; ?>"
-                                                       value="<?php echo $amenity->facility_id;?>" 
-                                                       name="facilities" /> 
+                                                       value="<?php echo $amenity->facility_id;?>"
+                                                       name="facilities" />
 
-                                                        <?php echo $amenity->facility_name;?> 
+                                                        <?php echo $amenity->facility_name;?>
                                                         (<span id="facility-count-<?php echo $amenity->facility_id;?>">0</span>)
                                             </li>
 					<?php endforeach; ?>
@@ -231,7 +231,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                             $filterBy_flag = "both";
                             $span_style = null;
                              if ( empty($city_landmarks) && empty($city_districts) ) {
-                                 
+
                                  $filterBy_flag = "none";
                              }
                              elseif ( empty($city_landmarks) ) {
@@ -241,7 +241,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                              elseif ( empty($city_districts) ) {
                                   $filterBy_flag = "landmarks";
                                    $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             } 
+                             }
                              if ($filterBy_flag !== "none") {
                                     ?>
                     <div id="map_filter_button" class="box_content map_button_box box_round">
@@ -268,7 +268,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                         <?php } ?>
                     <?php } ?>
 			</div>
- 
+
 
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
@@ -282,9 +282,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                          <span id ="close_map_button"> </span>
                          </a>
 			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
-					<!--property compare code start-->	
-					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ; 
-						if($displayCompareProperty == 1) { ?>		
+					<!--property compare code start-->
+					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ;
+						if($displayCompareProperty == 1) { ?>
 						<div id="property_compare" class="quick-data" style="display:none;">
 							<input type="hidden" name="total_com_property" id="total_com_property" value="0"/>
 							<div class="head123"><p><?php echo _('Quick Compare (5 properties maximum)');?></p>
@@ -367,7 +367,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			</div>
 
 </div>
-<?php 
+<?php
 if(isset($_COOKIE["compare"]) && $_COOKIE["compare"]!=''){
 	if($this->uri->segment(2)==$_COOKIE["citysearch"]){
 	$cookieproid = $_COOKIE["compare"];
@@ -378,17 +378,17 @@ if(isset($_COOKIE["compare"]) && $_COOKIE["compare"]!=''){
 	</script>
 <?php
  }
-} 
+}
 else { ?>
 	<script type="text/javascript">
 			$('#total_com_property').val(0);
-	</script>	
+	</script>
 <?php } ?>
-<?php 
+<?php
 if(isset($_COOKIE["citysearch"]) && $_COOKIE["citysearch"]!=''){
 	if($this->uri->segment(2)!=$_COOKIE["citysearch"]){
 		?>
-		<script> 
+		<script>
 			pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 			pweb_setCookie("compare","",24);
 		</script>
@@ -400,7 +400,7 @@ if(isset($_COOKIE["citysearch"]) && $_COOKIE["citysearch"]!=''){
 pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 </script>
 <?php
-}	
+}
 ?>
 <script id="template-infow" type="text/html">
 <?php
