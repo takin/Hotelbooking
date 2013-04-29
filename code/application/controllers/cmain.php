@@ -774,6 +774,7 @@ class CMain extends I18n_site {
         }
 
         $data['current_view_dir'] = "";
+        $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
         $data['current_view'] = "country_view";
         $this->load->view('includes/template', $data);
     }
@@ -806,6 +807,8 @@ class CMain extends I18n_site {
     }
 
     function property_search($country = NULL, $city = NULL, $urldate = NULL, $units = NULL) {
+        $this->load->library('tank_auth');
+
         log_message('debug', 'Entering main controller property_search method');
 
         $currency_error = false; // default currency paramete is correct
@@ -898,6 +901,7 @@ class CMain extends I18n_site {
                 $this->carabiner->js('avail_rooms.js');
                 $this->carabiner->js('property_images.js');
 
+                $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
                 $data['current_view_dir'] = "";
                 $data['current_view'] = "city_view";
 
@@ -912,6 +916,7 @@ class CMain extends I18n_site {
 
                     $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                     $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                    $this->carabiner->js('save_property.js');
                     $this->carabiner->js('pweb/libs/GoogleMap.js');
                     $this->carabiner->js('properties_compare.js');
                     $this->carabiner->js('compare_property.js');
@@ -938,6 +943,7 @@ class CMain extends I18n_site {
                     $data['month_year_selected'] = date("Y-m", $default_date);
                     $data['numnights_selected'] = 2;
 
+                    $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
                     $data['current_view_dir'] = "mobile/";
                     $data['current_view'] = "city_view";
 
@@ -958,6 +964,7 @@ class CMain extends I18n_site {
                     $this->carabiner->js('avail_rooms.js');
                     $this->carabiner->js('property_images.js');
 
+                    $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
                     $data['current_view_dir'] = "";
                     $data['current_view'] = "city_view";
 
@@ -973,6 +980,7 @@ class CMain extends I18n_site {
 
                         $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                         $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                        $this->carabiner->js('save_property.js');
                         $this->carabiner->js('pweb/libs/GoogleMap.js');
                         $this->carabiner->js('properties_compare.js');
                         $this->carabiner->js('compare_property.js');
@@ -1161,8 +1169,15 @@ class CMain extends I18n_site {
             'nights' => $units,
             'print' => $this->input->get('print', true),
             'showEmail' => $this->config->item('displayShareEmail'),
-            'showPDF' => $this->config->item('displaySharePDF')
+            'showPDF' => $this->config->item('displaySharePDF'),
         );
+
+        if ($this->config->item('displaySaveProperty')) {
+            $this->load->model('Db_favorite_hostels');
+            $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
+        }
+
+
 
         $date = $urldate;
 
@@ -1520,7 +1535,6 @@ class CMain extends I18n_site {
             $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
 
             log_message('debug', $command);
-            error_log($command, 3, '/tmp/abc.log');
             // create PDF
             system($command);
 
@@ -1575,13 +1589,37 @@ class CMain extends I18n_site {
 
         $this->_currency_init();
 
+        $savedPropertiesNumbers = array();
+        $this->load->library('tank_auth');
+
+        if ($this->config->item('displaySaveProperty')) {
+            $this->load->model('Db_favorite_hostels');
+            $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0));
+        }
+
         if ($this->api_used == HB_API) {
             $this->load->library('hb_engine');
             $data = $this->hb_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
+
+            if (!empty($data['property_list']) && is_array($data['property_list'])) {
+                foreach ($data['property_list'] as $index => $property) {
+                   $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                }
+            }
+
             $data = $this->hb_engine->location_json_format($data);
         } else {
             $this->load->library('hw_engine');
             $data = $this->hw_engine->location_search($country, $city, $dateStart, $numNights, TRUE);
+
+            if (!empty($data['property_list']) && is_array($data['property_list'])) {
+                foreach ($data['property_list'] as $index => $property) {
+                    if (!empty($property) && is_array($property)) {
+                        $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                    }
+                }
+            }
+
             $data = $this->hw_engine->location_json_format($data);
         }
 
@@ -2233,4 +2271,179 @@ class CMain extends I18n_site {
         }
     }
 
+
+  function ajax_save_favorite_property() {
+      header('Content-type: application/json');
+
+      $this->load->library('tank_auth');
+      if (!$this->tank_auth->is_logged_in()) {
+          echo json_encode(array(array(
+              'field'   => 'propertyNumber',
+              'message' => _('Please log in')
+          )));
+
+          exit();
+      }
+
+      $id             = $this->input->post('id', true);
+      $propertyNumber = $this->input->post('propertyNumber', true);
+      $nights         = $this->input->post('nights', true);
+      $date           = $this->input->post('date', true);
+      $notes          = $this->input->post('notes', true);
+
+      $propertyUrl  = '';
+      $propertyName = '';
+      $city         = '';
+      $country      = '';
+      $imageURL     = '';
+
+      $this->load->model('Db_favorite_hostels');
+      $this->load->model('Db_links');
+
+      $errors = array();
+
+      if (empty($propertyNumber) || !preg_match('/^\d+$/', $propertyNumber)) {
+          $errors[] = array(
+              'field'   => 'propertyNumber',
+              'message' => _('Invalid property')
+          );
+      }
+      else {
+          $hostelData = array();
+          $data = array();
+
+          // search for property
+          if ($this->api_used == HB_API) {
+              $this->load->library('hb_engine');
+
+              $hostelData = $this->hb_engine->property_info($data, $propertyNumber);
+
+              if (!empty($hostelData)) {
+                  $propertyName = $hostelData['hostel_db_data']->property_name;
+       	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $propertyName, $propertyNumber, $this->site_lang);
+                  $city         = $hostelData['bc_city'];
+                  $country      = $hostelData['bc_country'];
+                  $imageURL     = empty($hostelData['hostel']['BIGIMAGES'][0]) ? '' : $hostelData['hostel']['BIGIMAGES'][0];
+              }
+          }
+          else {
+              $this->load->library('hw_engine');
+
+              $hostelData = $this->hw_engine->property_info($data, $propertyNumber);
+
+              if (!empty($hostelData)) {
+                  $propertyName = $hostelData['hostel']->property_name;
+       	          $propertyUrl  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $propertyName, $propertyNumber, $this->site_lang);
+                  $city         = $hostelData['hostel']->city;
+                  $country      = $hostelData['hostel']->country;
+                  $imageURL     = empty($hostelData['hostel']->PropertyImages[0]->imageURL) ? '' : $hostelData['hostel']->PropertyImages[0]->imageURL;
+              }
+          }
+
+          if (empty($hostelData)) {
+             $errors[] = array(
+                 'field'   => 'propertyNumber',
+                 'message' => _('Property not found')
+             );
+          }
+          else {
+             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0));
+
+             if (!empty($favHostelNo)) {
+                 $errors[] = array(
+                     'field'   => 'propertyNumber',
+                     'message' => _('Property is favorite already')
+                 );
+             }
+          }
+      }
+
+      if (empty($nights) || !preg_match('/^\d+$/', $nights) || $nights <= 0) {
+          $errors[] = array(
+              'field'   => 'nights',
+              'message' => _('Invalid number of nights')
+          );
+      }
+
+      $dateIsValid = true;
+      if (empty($date) || !preg_match('/^\d{4}\-\d{2}\-\d{2}$/', $date)) {
+          $dateIsValid = false;
+      }
+      else {
+          $parsedDate = date_parse($date);
+
+          $dateIsValid = empty($parsedDate) ? false : !(bool)$parsedDate['error_count'];
+      }
+
+      if (!$dateIsValid) {
+          $errors[] = array(
+              'field'   => 'date',
+              'message' => _('Invalid date')
+          );
+      }
+
+      if (!empty($notes) && mb_strlen($notes) > 75) {
+          $errors[] = array(
+              'field'   => 'date',
+              'message' => sprintf(_('Notes are exceeding maximum of %d chars'), 75)
+          );
+      }
+
+      if (!empty($errors)) {
+          echo json_encode(array(
+              'hasErrors' => 1,
+              'errors'    => $errors
+          ));
+
+          exit();
+      }
+
+      // save the entry
+
+      $this->Db_favorite_hostels->saveFav(array(
+          'id'             => $id,
+          'isHB'           => (bool)($this->api_used == HB_API),
+          'propertyNumber' => $propertyNumber,
+          'propertyUrl'    => str_replace(site_url('/'), '/', $propertyUrl),
+          'propertyName'   => $propertyName,
+          'city'           => $city,
+          'country'        => $country,
+          'nights'         => $nights,
+          'date'           => $date,
+          'notes'          => $notes,
+          'userId'         => $this->tank_auth->get_user_id(),
+          'imageURL'       => $imageURL
+      ));
+
+      echo json_encode(array(
+          'hasErrors' => 0
+      ));
+
+      exit();
+  }
+
+  function ajax_delete_favorite_property() {
+      header('Content-type: application/json');
+
+      $this->load->library('tank_auth');
+      $this->load->model('Db_favorite_hostels');
+
+      $id = $this->input->post('id', true);
+
+      if ($id) {
+          if (!$this->Db_favorite_hostels->removeProperty($id, $this->tank_auth->get_user_id())) {
+              echo json_encode(array('hasErrors' => 1));
+
+              exit();
+          }
+
+          echo json_encode(array('hasErrors' => 0));
+
+          exit();
+      }
+
+      echo json_encode(array('hasErrors' => 1));
+
+      exit();
+  }
 }

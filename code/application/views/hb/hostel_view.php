@@ -1,3 +1,6 @@
+<script type="text/javascript" src="<?php echo site_url('js/pweb/includes/mustache.js'); ?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo site_url('js/save_property.js'); ?>" charset="UTF-8"></script>
+
 <?php
 $switch_api = false;
 if ($this->session->userdata('switch_api')) {
@@ -414,6 +417,23 @@ if ($api_error == false) {
                 <div class="fblike">
                     <script src="https://connect.facebook.net/<?php echo $code; ?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
                 </div>
+
+			<?php if ($this->config->item('displaySaveProperty')) {
+                            $addToFav   = $favorited ? 'display:none' : '';
+                            $addedToFav = $favorited ? '' : 'display:none';
+			?>
+				<div class="save_to_favorites_options">
+					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel["ID"]; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>">
+						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
+						<?php echo _('Add to my favorites'); ?>
+					</a>
+
+					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel["ID"]; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>">
+						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
+						<?php echo _('Saved to my favorites'); ?>
+					</a>
+				</div>
+			<?php } ?>
 
                     <?php if ($showEmail) { ?>
                     <div class="share-email">
@@ -1026,3 +1046,4 @@ if ($this->uri->segment(4, 0)) {
 ?>
 
 <?php $this->load->view('includes/template-share-email-popup'); ?>
+<?php $this->load->view('includes/save_property'); ?>

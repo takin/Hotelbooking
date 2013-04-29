@@ -201,7 +201,22 @@ if ($displayQuickPreview == 1) {
                     {{/safety80}}
                 </div>
                 {{#has_amenities}}
-                <div class="info_indent"><p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p></div>
+					<div class="info_indent">
+						<?php if ($this->config->item('displaySaveProperty')) { ?>
+							<p>
+								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{city_name}}" title="{{propertyName}}">
+									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
+									<?php echo _('Add to my favorites'); ?>
+								</a>
+
+								<a href="<?php echo site_url('user/favorite_properties'); ?>" target="_blank" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
+									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
+									<?php echo _('Saved to my favorites'); ?>
+								</a>
+							</p>
+						<?php } ?>
+                				<p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
+					</div>
                 {{/has_amenities}}
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
 
