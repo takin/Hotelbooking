@@ -184,7 +184,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_shared == $room["availableDates"][$date->format("Y-m-d")]["price"]) {
-                            $lowest_night = _('Lowest night:') . ' ' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '');
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';
@@ -270,7 +270,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         <td align="center"><span class="price" style="font-weight: 600;"><?php echo $display_currency . ' ' . number_format(($subtotal / $availableDays), 2, '.', ''); ?></span></td>
                     <?php endif; ?>
                     <td align="center">
-                        <div title="<?php echo _('Maximum number of guests per dorm'); ?>" style="font-weight : 600;">
+                        <div title="" style="font-weight : 600;">
                             <span class="complete" complete="<?php echo $nb_guest_per_room * floor($room["availableBeds"] / $nb_guest_per_room); ?>" not_complete="<?php echo $room["availableBeds"] ?>"><?php echo $room["availableBeds"] ?></span> 
                             <?php echo ($room["availableBeds"] == 1 ? _('Guest') : _('Guests')); ?>
                         </div>
@@ -379,7 +379,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_private == ($room["availableDates"][$date->format("Y-m-d")]["price"] / $room['max_guest_per_unity'])) {
-                            $lowest_night = _('Lowest night:') . ' ' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '');
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';

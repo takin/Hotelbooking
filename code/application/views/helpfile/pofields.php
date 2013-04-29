@@ -765,3 +765,63 @@
 <?php echo _('Standard Single Private Shared Bathroom');?>
 <?php echo _('Show fully available only');?>
 <?php echo _('We are displaying rooms with both full and partial availability for your dates. You can select this filter to only see rooms with full availability for your stay.');?>
+<?php echo _('Email is not valid');?>
+<?php echo _('Fill in the email');?>
+<?php echo _('Fill in the subject');?>
+<?php echo _('Fill in the message');?>
+<?php echo _('Fill in the from name');?>
+<?php echo _('Remove from this search');?>
+<?php echo _('Remove from any searches for next 24 hours');?>
+<?php echo _('Remove from any searches for 1 week');?>
+<?php echo _('Standard Single Private Ensuite');?>
+<?php echo _('Standard Twin Private Ensuite');?>
+<?php echo _('Deluxe Double Bed Private Ensuite');?>
+<?php echo _('1 Bed Private Ensuite');?>
+<?php echo _('%d Bed Private Ensuite');?>
+<?php echo _('Deluxe 1 Bed Family Room Ensuite');?>
+<?php echo _('Deluxe %d Bed Family Room Ensuite');?>
+<?php echo _('Filter by districts');?>
+<?php echo _('Filter by landmarks (-2kms)');?>
+<?php echo _('Lowest price per night per person in a dorm');?>
+<?php echo _('Lowest price per night per person in a private room');?>
+<?php echo _('Deposit:');?>
+<?php echo _('Deposit to be paid now:');?>
+<?php echo _('Deposit already paid:');?>
+<?php echo _('Amount already charged in %s:');?>
+<?php echo _('Currency for the deposit:');?>
+<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival.');?>
+<?php echo _('Amount to be paid on arrival:');?>
+<?php echo _('Amount to be paid when you arrive at the property');?>
+<?php echo _('Total:');?>
+<?php echo _('Membership card (not required):');?>
+<?php echo _('Membership card:');?>
+<?php echo _('The deposit is non refundable and non transferable.');?>
+<?php echo _('You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property\'s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
+<?php echo _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.');?>
+<?php echo _('Create account');?>
+<?php echo _('Tell me about great deals and exclusive discounts!');?>
+<?php echo _('Save this property as a favorite');?>
+<?php echo _('We will never sell your personal information - You can unsubscribe anytime.');?>
+<?php echo _('Your private notes (optional)');?>
+<?php echo _('Characters left:');?>
+<?php echo _('Update Notes');?>
+<?php echo _('Remove from my favorites');?>
+<?php echo _('Cancel');?>
+<?php echo _('My favorite properties');?>
+<?php echo _('List of favorite properties');?>
+<?php echo _('My short notes about the property');?>
+<?php echo _('Edit or remove');?>
+<?php echo _('Saved to my favorites');?>
+<?php echo _('Add to my favorites');?>
+<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.');?>
+<?php echo _('Account created');?>
+<?php echo _('To save a property as a favorite, you must be login to your account.');?>
+<?php echo _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.');?>
+<?php echo _('Please enter your email address and we will send you a password.');?>
+<?php echo _('Saved favorite properties');?>
+<?php echo _('Deposit to be paid now (%d)');?>
+<?php echo _('You only pay the deposit (%d of total amount) to confirm and secure your reservation now. The remaining amount (%d) is payable upon arrival. You will find the property\'s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
+<?php echo _('Deposit (%d)');?>
+<?php echo _('Amount already paid:');?>
+<?php echo _('The most popular');?>
+<?php echo _('Most popular');?>

@@ -757,8 +757,6 @@ class CHostel extends I18n_site
           $postdata['api_booking_error_msg'][0] =  _("Erreur lors de la réservation");
           $this->custom_log->log($this->transaction_log_filename,"Transaction error not set UserMessage or Error.");
         }
-        //print_r($booking[1][0]);
-
 
         $this->booking_process(true,$postdata);
       }

@@ -157,7 +157,7 @@ foreach ($booking_rooms as $hostel_room) {
 
                 if ($min_price_shared == $room_night["CUSTOMER"]["MINPRICE"]) {
 
-                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
+                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_shared, 2, '.', '') . '</span>';
                     $lowest_style = 'style="color: #6DA903;"';
 
                     $dormTitle = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;&nbsp;  ' . _('Lowest night:') . ' ' . $display_currency . ' ' . $min_price_shared;
@@ -276,7 +276,7 @@ foreach ($booking_rooms as $hostel_room) {
         }
 
         $sharedRoomsTable.= '<td align="center" id="snbroom_' . $nbRoomType . '" roombeds="' . $nb_guest_per_room . '">
-                <div title="' . _('Maximum number of guests per dorm') . '" style="font-weight : 600;">
+                <div title="" style="font-weight : 600;">
                 <span class="complete" complete="' . ($nb_guest_per_room * floor($availableBeds / $nb_guest_per_room)) . '" not_complete="' . $availableBeds . '">' . $availableBeds . '</span> 
                 ' . ($availableBeds == 1 ? _('Guest') : _('Guests') ) . ' 
                 </div>
@@ -431,7 +431,7 @@ foreach ($booking_rooms as $hostel_room) {
 
                 if ($min_price_private == $room_night["CUSTOMER"]["MINPRICE"]) {
 
-                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
+                    $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_private, 2, '.', '') . '</span>';
                     $lowest_style = 'style="color: #6DA903;"';
 
                     $roomTitle_PR = _('Arrivée') . ': ' . $datetop . ' &nbsp;&nbsp; ' . _('Nombre de Nuits') . ': ' . $numNights . ' &nbsp;( ' . _('Price per Room') . ' )';
