@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-28 22:32+0200\n"
+"PO-Revision-Date: 2013-04-29 21:09+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -822,9 +822,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Ingresar Fechas"
+msgstr "Escriba las fechas de su interés"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -4695,7 +4695,6 @@ msgid "Date"
 msgstr "Fecha"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "Cantidad ya pagada:"
 
@@ -4915,18 +4914,18 @@ msgstr "Su Selección"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Pagará sólo el depósito (10%% del total) para confirmar y garantizar su "
-"reserva. La cantidad restante (90%%) se abona a su llegada. Una vez hecha su "
-"reserva, recibirá un correo electrónico de la propiedad incluyendo "
-"confirmación de reserva y datos de la propiedad (correo electrónico, "
-"dirección, número de teléfono ...)."
+"Ahora usted paga el depósito (%d%% del importe total) solamente para "
+"confirmar y asegurar su reserva .  La cantidad restante (%d%%) debe pagarse "
+"al llegar.  Una vez que haga su reserva, recibirá un email de confirmación "
+"en el cual encontrará la información de contacto de la propiedad en la que "
+"ha reservado (correo electrónico, dirección, número de teléfono…)."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4943,9 +4942,9 @@ msgstr "Tiene el mejor precio"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "Déposito que debe pagarse ahora (%d)"
+msgstr "Déposito que debe pagarse ahora (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -5006,9 +5005,9 @@ msgid "Prix (lit)"
 msgstr "Precio"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "Depósito (%d)"
+msgstr "Depósito (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013

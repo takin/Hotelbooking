@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-26 22:05+0200\n"
+"PO-Revision-Date: 2013-04-29 21:17+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -816,9 +815,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Wpisz daty"
+msgstr "Wprowadź daty"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -1081,7 +1080,7 @@ msgstr "Nawigacja"
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
 msgid "Information"
-msgstr "Informacja"
+msgstr "Informacje"
 
 #: ../code/application/views/includes/footer.php:86
 #: ../code/application/views/includes/header_book.php:144
@@ -4280,7 +4279,6 @@ msgstr " "
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:253
-#, fuzzy
 msgid "Filter by Districts"
 msgstr "Wyszukaj przez region"
 
@@ -4661,7 +4659,6 @@ msgid "Date"
 msgstr "Data"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "Kwota już zapłacona:"
 
@@ -4876,17 +4873,17 @@ msgstr "Twój wybór"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Teraz płacisz tylko depozyt (10%% całej sumy), aby potwierdzić i "
-"zabezpieczyć rezerwację. Pozostałą kwotę (90%%) muszisz zapłacić zaraz po "
-"przyjeździe. Dane adresowe obiektu ( email, adres, numer telefonu…) możesz "
-"znaleźć w emailu potwierdzającym Twoją rezerwację. "
+"Depozyt płacony jest (%d%% całej kwoty) w celu potwierdzenia rezerwacji. "
+"Pozostałą kwotę (%d%%) uiszcza się po przybyciu na miejsce. Wszystkie dane "
+"kontaktowe i adresowe (email, adres, telefon … ) kwatery znajdują się w "
+"mailu potwierdzającym dokonanie rezerwacji."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4903,9 +4900,9 @@ msgstr "Masz najlepszą cenę."
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "Depozyt do zapłacenia teraz (%d)"
+msgstr "Depozyt do zapłacenia teraz (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -4966,9 +4963,9 @@ msgid "Prix (lit)"
 msgstr "Cena"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "Depozyt (%d)"
+msgstr "Depozyt (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013

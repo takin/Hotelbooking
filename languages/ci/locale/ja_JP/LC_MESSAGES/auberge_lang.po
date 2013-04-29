@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-26 22:39+0200\n"
+"PO-Revision-Date: 2013-04-29 21:24+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -820,9 +819,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "日付を登録してください"
+msgstr "日付を入力する"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -3364,9 +3363,9 @@ msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ�
 #: ../code/application/views/property_rooms_avail.php:417
 #: ../code/application/views/hw/booking_avail_view.php:528
 #: ../code/application/views/hb/booking_avail_view.php:571
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
-msgstr "%dベッドルームに%d名様（%d名様が各部屋に1名様ずつ入ります）。"
+msgstr "%d名様、%dベッドルームにつき。（%d名様が各部屋に1名様ずつ入ります）"
 
 #: ../code/application/views/property_rooms_avail.php:451
 #: ../code/application/views/hw/booking_avail_view.php:494
@@ -4218,7 +4217,6 @@ msgstr "からすべての国へ戻る"
 
 #: ../code/application/views/city_view.php:12
 #: ../code/application/views/city_view.php:253
-#, fuzzy
 msgid "Filter by Districts"
 msgstr "地区別に検索する"
 
@@ -4596,7 +4594,6 @@ msgid "Date"
 msgstr "料金"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "お支払い済みの金額"
 
@@ -4807,16 +4804,16 @@ msgstr "選択"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"予約の確認を取る為に（総額の10%%）入金をしてください。残り（総額の90%%）は到"
-"着時に払ってもらって構いません。予約した際に確認のメールが送られます。その中"
-"にプロパティー主の情報が記入されています。（Eメール、住所、電話番号など） "
+"ご予約確定のために預かり金（総額の%d%%）のお支払いが今必要になります。残金"
+"（%d%%）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテ"
+"ルの連絡先が含まれています。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4833,9 +4830,9 @@ msgstr "あなたは最高の価格を手に入れました"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "今お支払いが必要な預かり金（%d）"
+msgstr "今お支払いが必要な預かり金（%d%%）"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -4895,9 +4892,9 @@ msgid "Prix (lit)"
 msgstr "料金"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "預かり金（%d）"
+msgstr "預かり金（%d%%）"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013

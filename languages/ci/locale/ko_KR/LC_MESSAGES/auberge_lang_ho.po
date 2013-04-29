@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-28 22:39+0200\n"
+"PO-Revision-Date: 2013-04-29 21:20+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -808,9 +807,9 @@ msgstr "언어 수업? CoursParticuliers.com을 방문하세요."
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "날짜 입력"
+msgstr "날짜를 입력하세요"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -4600,7 +4599,6 @@ msgid "Date"
 msgstr "날짜"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "이미 지불한 금액:"
 
@@ -4812,17 +4810,16 @@ msgstr "선택 "
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-" 고객님의 예약승인을 위해 디파짓(총 금액의 10%%)을 결제 해주셔야 합니다. 남"
-"은 금액(90%%)는 도착후에 결제 가능하십니다. 고객님의 예약승인이 완료된후 보내"
-"드리는 확인 메일에서 숙소 정보(이메일, 주소, 전화번호 등..)을 확인 하실 수 있"
-"습니다. "
+" 지금, 예약을 확정하기 위한 보증금 (총 금액의 %d%%)을 지불해야합니다.나머지 "
+"금액 (%d%%)은  도착시 지불하시면 됩니다.  예약을 한 후, 확인 메일에서 호텔의 "
+"연락처 정보 (이메일, 주소, 전화 번호, …)을 찾을 수 있습니다."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4839,9 +4836,9 @@ msgstr "최저의 가격을 제공합니다"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "지금 지불해야하는 보증금(%d)"
+msgstr "지금 지불해야하는 보증금(%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -4902,9 +4899,9 @@ msgid "Prix (lit)"
 msgstr "가격"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "보증금(%d)"
+msgstr "보증금(%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013

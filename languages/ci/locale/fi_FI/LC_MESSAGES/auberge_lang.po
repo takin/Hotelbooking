@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-27 21:19+0200\n"
+"PO-Revision-Date: 2013-04-29 21:33+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -814,9 +813,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Syötä päivämäärät"
+msgstr "Merkitse päivämäärät"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -1077,7 +1076,7 @@ msgstr "Sivukartta"
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
 msgid "Information"
-msgstr "Tiedot"
+msgstr "Tieto"
 
 #: ../code/application/views/includes/footer.php:86
 #: ../code/application/views/includes/header_book.php:144
@@ -1377,7 +1376,7 @@ msgstr "Lähetä"
 
 #: ../code/application/views/includes/template-share-email-popup.php:85
 msgid "Please wait ..."
-msgstr ""
+msgstr "Ole hyvä ja odota..."
 
 #: ../code/application/views/includes/template-share-email-popup.php:90
 #: ../code/application/views/helpfile/pofields.php:684
@@ -4843,16 +4842,16 @@ msgstr "Valikoimasi"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Maksat vain takuumaksun (10%% kokonaishinnasta) vahvistaaksesi varauksesi "
-"toistaiseksi. Loput laskusta (90%%) on maksettava saapumisen yhteydessä. "
-"Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero ...) näkyvät "
+"Maksat vain takuumaksun (%d%% kokonaishinnasta) vahvistaaksesi varauksesi "
+"toistaiseksi. Loput laskusta (%d%%) on maksettava saapumisen yhteydessä. "
+"Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero …) näkyvät "
 "vahvistussähköpostissa kun olet tehnyt varauksesi."
 
 #: ../code/application/views/hw/booking_avail_view.php:749

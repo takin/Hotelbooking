@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-28 22:38+0200\n"
+"PO-Revision-Date: 2013-04-29 21:14+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -822,9 +821,9 @@ msgstr "Sprachunterricht? CoursParticuliers.com"
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Datum eingeben"
+msgstr "Ihre Daten eingeben"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -4695,7 +4694,6 @@ msgid "Date"
 msgstr "Datum"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "Betrag bereits bezahlt:"
 
@@ -4917,18 +4915,18 @@ msgstr "Ihre Auswahl"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Nur 10%% des Gesamtbetrags müssen jetzt als Anzahlung gezahlt werden, um "
-"Ihre Reservierung zu bestätigen und zu sichern. Der Restbetrag (90%%) ist "
-"bei Ihrer Anreise fällig. Die Kontaktinformationen Ihrer Unterkunft (E-Mail, "
-"Adresse, Telefonnummer,...) finden Sie in Ihrer Bestätigungs-E-Mail, nachdem "
-"Sie eine Reservierung durchgeführt haben. "
+"Sie bezahlen nur die Kaution (%d%% des Gesamtbetrages) und sichern so ihre "
+"Reservierung. Der Restbetrag (%d%%) ist bezahlbar bei Anreise. Sie finden "
+"die Kontaktinformationen der Immobilie (Email-Adresse, Anschrift, "
+"Telefonnummer usw.) in ihrer Bestätigungs-Email, nachdem Sie die "
+"Reservierung getätigt haben."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4945,9 +4943,9 @@ msgstr "Sie erhalten den besten Preis"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "Kaution, die jetzt fällig ist (%d)"
+msgstr "Kaution, die jetzt fällig ist (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -5008,9 +5006,9 @@ msgid "Prix (lit)"
 msgstr "Preis"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "Kaution (%d)"
+msgstr "Kaution (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013

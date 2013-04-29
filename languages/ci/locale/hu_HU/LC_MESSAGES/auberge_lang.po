@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-27 22:25+0200\n"
+"PO-Revision-Date: 2013-04-29 21:11+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -812,9 +811,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Írd be a dátumokat"
+msgstr "Adja meg a dátumokat"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -4646,7 +4645,6 @@ msgid "Date"
 msgstr "Dátum"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "Már befizetett összeg:"
 
@@ -4862,18 +4860,17 @@ msgstr "Az Ön által választott"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-" Önnek most csak a letétet kell befizetnie (a teljes összeg10%%-át), hogy "
-"megerősítse és biztosítsa a foglalást. A fennmaradó összeg (a maradék 90%%) "
-"érkezéskor fizetendő. Az ingatlan elérhetőségeit  (e-mail, cím, "
-"telefonszám ...) a visszaigazoló e-mailben találja meg, amit a foglalás után "
-"kapott."
+"Az előleget (%d%%) a szobafoglalás visszaigazolása és biztosítása érdekében "
+"kell befizetnie.  A fennmaradó összeget (%d%%) érkezéskor kell fizetni.  Az "
+"ingatlan elérhetőségeit (email, cím, telefonszám…) a foglalást követően "
+"emailben fogja megkapni."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4890,9 +4887,9 @@ msgstr "A legjobb árat kaptad!"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "Most fizetendő előleg (%d)"
+msgstr "Most fizetendő előleg (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -4953,9 +4950,9 @@ msgid "Prix (lit)"
 msgstr "Ár"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "Előleg (%d)"
+msgstr "Előleg (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013
