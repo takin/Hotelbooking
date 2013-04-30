@@ -350,7 +350,7 @@ if ($api_error == false) {
                 </div>
 
 
-			<?php if ($this->config->item('displaySaveProperty')) {
+			<?php if (false/*$this->config->item('displaySaveProperty')*/) {
                             $addToFav   = $favorited ? 'display:none' : '';
                             $addedToFav = $favorited ? '' : 'display:none';
 			?>

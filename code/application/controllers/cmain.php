@@ -1175,7 +1175,9 @@ class CMain extends I18n_site {
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
             $data['favorited'] = 0;
-           // $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
+            /*
+             *  $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
+             */
         }
 
 
