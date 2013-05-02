@@ -74,7 +74,7 @@ PWebFilterApp.prototype.init = function() {
 	this.count_st=0;
 	
 	//Filter controls init
-	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter",true);
+	this.TypeFilterCheckBoxes = new GroupCheckBoxes("cb_group_type_filter");
 	this.FacilitiesFilterCheckBoxes = new GroupCheckBoxes("cb_group_facilities_filter");
 	this.DistrictsCheckBoxes  = new GroupCheckBoxes("cb_group_districts_filter");
 	this.LandmarksCheckBoxes  = new GroupCheckBoxes("cb_group_landmarks_filter");
@@ -153,7 +153,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	this.init_counts();
 	
 	this.jtable_hits = this.jtable.filter(this.get_filters());
-	
+             
 	if(this.count_st==0) {
 		this.compute_counts();
 		this.update_counts();
@@ -170,14 +170,8 @@ PWebFilterApp.prototype.apply_filters = function() {
         
 };
 
-PWebFilterApp.prototype.set_init_filters_value = function() {
-	this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.id] = this.TypeFilterCheckBoxes.$checkall_li[0].firstChild.checked;
-	for (var i = 0; i < this.TypeFilterCheckBoxes.$checkboxes_li.length; i++)
-	{
-		this.FiltersInitValues[this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.TypeFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
-	}
-	
-	for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
+PWebFilterApp.prototype.set_init_filters_value = function() {	
+        for (var i = 0; i < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; i++)
 	{
 		this.FiltersInitValues[this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.id] = this.FacilitiesFilterCheckBoxes.$checkboxes_li[i].firstChild.checked;
 	}
@@ -273,9 +267,18 @@ PWebFilterApp.prototype.updateMap = function() {
 	{
 		this.pweb_maps['city'].updateMarkers(this.jtable_hits);
 	}
-	this.pweb_maps['city'].reDraw();
+        this.pweb_maps['city'].reDraw();
+        
+        if(this.pweb_maps['cityFilterMap'].enabled === true)
+	{
+            this.pweb_maps['cityFilterMap'].updateMarkers(this.jtable_hits);
+            this.pweb_maps['cityFilterMap'].reDraw();
+            this.pweb_maps['cityFilterMap'].showfilteredDistrict();
+            this.pweb_maps['cityFilterMap'].showfilteredLandmark();
+            
+        }
 };
-PWebFilterApp.prototype.update = function() { 
+PWebFilterApp.prototype.update = function() {
 	var that = this;
 
 	//Re initiatilize prop_number_to_focus of property map
@@ -288,19 +291,16 @@ PWebFilterApp.prototype.update = function() {
 		this.$sort_controls_div.hide();
 		this.$data_div.html("");
 		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(':input').each(function(){
-		 			var type_val = $(this).is(':checked');
-		 			var type_input = $(this).attr('id');
-		 			 if((type_input == 'type_all') && (type_val == true)){
-						 $('#applied_filter_hosting_property').hide();
-						 temp =0;
-						 return false;
-					  }else if(type_val == true){
-						 	   $('#applied_filter_hosting_property').show();
-						  return false;
-						  }
-		 			
-				});
+		
+                $('#cb_group_type_filter li').find(':input').each(function() {
+                    var type_val = $(this).is(':checked');
+                    var type_input = $(this).attr('id');
+                    
+                    if(type_val === false){
+                        $('#applied_filter_hosting_property').show();
+                        return false;
+                    }
+                });
 	}
 	else
 	{
@@ -313,17 +313,15 @@ PWebFilterApp.prototype.update = function() {
 
 		//Init jquery UI tabs
 		$('ul.ui-tabs-nav').tabs();
-		
-		$('#cb_group_type_filter li').find(':input').each(function(){
-		 			var type_val = $(this).is(':checked');
-		 			var type_input = $(this).attr('id');
-		 			 if((type_input == 'type_all') && (type_val == true)){
-						 $('#applied_filter_hosting_property').hide();
-						 return false;
-					  }else if(type_val == true){
-						   $('#applied_filter_hosting_property').show();
-						  }
-		 		});
+
+		$('#applied_filter_hosting_property').hide();
+		$('#cb_group_type_filter li').find(':input').each(function() {
+                    var type_val = $(this).is(':checked');
+                    var type_input = $(this).attr('id');
+                    if(type_val === false){
+                        $('#applied_filter_hosting_property').show();
+                    }
+                });
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
@@ -566,9 +564,12 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 		
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++)
 		{
-			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].firstChild.value;
-			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined)
-			this.FiltersCounts['facility-count-'+current_facility_id]=0;
+			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].
+                            getElementsByTagName("input")[0].value;
+			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined) {
+                            this.FiltersCounts['facility-count-'+current_facility_id]=0;
+                        }
+			
 			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++)
 			{
 				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi])
@@ -771,7 +772,7 @@ PWebFilterApp.prototype.get_filters = function() {
 				}
 			});
 			
-			$('#cb_group_districts_filter li').find(':input').each(function(){
+			$('#cb_group_districts_filter li').find("input[type='checkbox']").each(function(){
 		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'districts_all') && (type_val == true)){
@@ -809,7 +810,7 @@ PWebFilterApp.prototype.get_filters = function() {
 					
 				}
 			});
-			$('#cb_group_landmarks_filter li').find(':input').each(function(){
+			$('#cb_group_landmarks_filter li').find("input[type='checkbox']").each(function(){
 		 			var type_val = $(this).is(':checked');
 		 			var type_input = $(this).attr('id');
 		 			 if((type_input == 'landmark_all') && (type_val == true)){
@@ -1024,12 +1025,13 @@ PWebFilterApp.prototype.init_action_filters = function() {
 	this.FacilitiesFilterCheckBoxes.clickAction(function (){
 		that.apply_filters();
 	});
-	this.DistrictsCheckBoxes.clickAction(function (){
-		that.apply_filters();
-	});
-	this.LandmarksCheckBoxes.clickAction(function (){
-		that.apply_filters();
-	});
+    this.DistrictsCheckBoxes.clickAction(function() {
+        that.apply_filters();
+    });
+    
+    this.LandmarksCheckBoxes.clickAction(function() {
+        that.apply_filters();
+    });
 };
 PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 	var that = this;
@@ -1073,14 +1075,28 @@ PWebFilterApp.prototype.toggleMap = function(map_slug) {
 
 PWebFilterApp.prototype.setup = function(data) 
 {
+    var that = this;
 	data = jQuery.parseJSON(data);
+
+	totalRecords = data.property_list.length;
+
+	// remove from search list
+	for (var i = 0; i < data.property_list.length; i++) {
+		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
+			data.property_list.splice(i, 1);
+
+			// go back one element
+			i -= 1;
+		}
+	}
+
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
 	
-	totalRecords = data.property_list.length;
 
 	this.addFilterMap('city', 'city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+        this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 
 	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
@@ -1089,34 +1105,118 @@ PWebFilterApp.prototype.setup = function(data)
 
 	this.apply_filters();
 
-	this.set_init_filters_value();
+//	this.set_init_filters_value();
 	
 	this.init_action_filters();
-	
-	$('#city_map_show_1').click(function()
-	{
-		pweb_filter.toggleMap('city');
-		$('#map_button_side').hide();
-		$('#city_map_show_2').hide();
-		$('#city_map_hide').show();
-		return false;
-	});
-	$('#city_map_show_2').click(function()
-	{
-		pweb_filter.toggleMap('city');
-		$(this).hide();
-		$('#map_button_side').hide();
-		$('#city_map_hide').show();
-		return false;
-	});
-	$('#city_map_hide').click(function()
-	{
-		pweb_filter.toggleMap('city');
-		$(this).hide();
-		$('#city_map_show_2').show();
-		$('#map_button_side').show();
-		return false;
-	});
+
+      $('#ul_map_filter_tabs').tabs();
+    $('#ul_map_filter_tabs').bind('tabsselect', function(event, ui) {
+
+        $('#ul_map_filter_tabs li').each(function() {
+
+            if ($(this).hasClass("ui-tabs-selected")) {
+                // li that holds the tabs
+                var li_id = $(this).find("a").attr("href");
+                li_id = li_id.split('#')[1];
+                // ul that holds checkboxes
+                var ul_id = "cb_group_landmarks_filter";
+
+                if (li_id === "filter_content_districts_popup") {
+                    ul_id = "cb_group_districts_filter";
+                }
+
+                var applyfilter_flag = false;
+
+                //  clear all Districts options before applying filter on Landmark
+                $("#" + ul_id + " li").each(function() {
+                    var inputcheck = $(this).find("input[type='checkbox']");
+                    if (inputcheck.is(':checked')) {
+                        applyfilter_flag = true;
+                        var checkbox_id = inputcheck.attr("id");
+                        $('#' + checkbox_id).prop('checked', false);
+                    }
+                });
+                if (applyfilter_flag === true) {
+                    // apply filter again to rest the map
+                    that.apply_filters();
+                }
+
+            }
+        });
+    });
+
+    $('#city_map_filter').click(function() {
+        // click on filter by Districts and Landmarks will trigger fancy box 
+        // on div map_filter_popup
+        $('#map_filter_popup').trigger('click');
+    });
+
+    $('#map_filter_popup').click(function() {
+        // for some reason div reloads when ckicked inside it
+        if ($('#map_filter_popup').is(":visible")) {
+            return false;
+        }
+        else {
+
+            
+
+            $("#map_filter_popup").fancybox({
+                'transitionIn': 'elastic',
+                'transitionOut': 'elastic',
+                'showLoading': true,
+//                beforeLoad: function() {
+//                    alert('beforeLoad!');
+//                    $.fancybox.showLoading();
+//                    pweb_filter.toggleMap('cityFilterMap');
+//                },
+                beforeShow: function() {
+                    pweb_filter.toggleMap('cityFilterMap');
+                },
+//                afterLoad  :   function() {
+//                   
+//                },
+                beforeClose: function() {
+                    pweb_filter.toggleMap('cityFilterMap');
+                }
+            });//fancybox
+             var filterByDistricts = false;
+                    var filterByLandmarks = false;
+
+                    if ($("#applied_filter_hosting_districts").is(":visible")) {
+                        filterByDistricts = true;
+                    }
+
+                    if ($("#applied_filter_hosting_landmarks").is(":visible")) {
+                        filterByLandmarks = true;
+                    }
+
+                    if (filterByDistricts === true || filterByLandmarks === true) {
+                        // clear landmark and districts filter
+                        pweb_filter.closeFilter('landmarks');
+                        pweb_filter.closeFilter('districts');
+                        // apply filter again to rest the map
+                        that.apply_filters();
+
+                    }
+        }
+    });
+    
+    $('#city_map_show_2').click(function()
+    {
+        pweb_filter.toggleMap('city');
+        $(this).hide();
+        $('#map_button_side').hide();
+        $('#city_map_hide').show();
+        return false;
+    });
+    $('#city_map_hide').click(function()
+    {
+        pweb_filter.toggleMap('city');
+        $(this).hide();
+        $('#city_map_show_2').show();
+        $('#map_button_side').show();
+        return false;
+    });
 	
 	$('#reset_filters').click(function()
 			{
@@ -1124,7 +1224,9 @@ PWebFilterApp.prototype.setup = function(data)
 				pweb_filter.apply_filters();
 				return false;
 			});
-			
+
+	// handle the delete links
+	this.handle_delete();
 }
 
 PWebFilterApp.prototype.closeFilter = function(type)
@@ -1153,7 +1255,7 @@ PWebFilterApp.prototype.closeFilter = function(type)
 	}
 	
 	pweb_filter.apply_filters();
-}
+};
 
 PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function() 
 {
@@ -1362,14 +1464,48 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data)
 		}
 	}
 };
+PWebFilterMap.prototype.showfilteredDistrict = function() { 
 
+         var values = [];
+        
+    $("#cb_group_districts_filter li").each(function() {
+
+
+            var inputcheck = $(this).find("input[type='checkbox']");
+            if (inputcheck.is(':checked')) {
+                var district_id = inputcheck.val();
+                var district_um_id = $("#hidden_district_"+district_id).val();
+                values.push(district_um_id);
+            }
+
+     });
+
+       this.gmap.changeDistrictLayer(values);
+       	
+};
+PWebFilterMap.prototype.showfilteredLandmark = function() { 
+
+                 var values = [];
+        $("#cb_group_landmarks_filter li").each(function() {
+
+           var inputcheck = $(this).find("input[type='checkbox']");
+            if (inputcheck.is(':checked')) {
+                var landmark_id = inputcheck.val();
+                var landmark_id_lnglat = $("#hidden_landmarks_"+landmark_id).val();
+                values.push(landmark_id_lnglat);
+            }
+
+     });
+       this.gmap.changeLandmarkLayer(values);
+       	
+};
 
 
 $(document).ready(function() { 
 
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
-  
+    
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();
@@ -1492,8 +1628,14 @@ var ajaxrequest =  $.ajax({
 			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
+                        
+                        if(this.pweb_maps['cityFilterMap'].enabled === true)
+                        {
+                            pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
+                            pweb_filter.pweb_maps['cityFilterMap'].enableMap();
+                         }
 
-			if($("#distrinct:radio:checked").length > 0)
+	if($("#distrinct:radio:checked").length > 0)
            { 
             pweb_map.changeDistrictLayer($("#distrinct:radio:checked").val());
            }
@@ -1509,3 +1651,65 @@ var ajaxrequest =  $.ajax({
 		});
 	
 };
+
+PWebFilterApp.prototype.handle_delete = function() {
+	$(document).click(function(event) { 
+		var clickedElement = $(event.target);
+
+		if (
+			clickedElement.attr('class') != 'remove_from_search_options'
+			&& clickedElement.attr('class') != 'remove_from_search_option'
+			&& clickedElement.attr('class') != 'remove_from_search'
+			&& clickedElement.attr('class') != 'remove_from_search_icon'
+			&& clickedElement.attr('class') != 'remove_from_search_trigger'
+			&& clickedElement.attr('class') != 'remove_from_search_trigger_icon'
+		) {
+			$('.remove_from_search_options').hide();
+		}
+	});
+
+	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
+		event.preventDefault();
+
+		var obj = $(this);
+		var id = obj.attr('id');
+
+		var css = {
+			position  : 'absolute',
+			'z-index' : 300
+		};
+
+		var animate = {bottom: '-=350', marginLeft: '-=140'};
+		var timer   = 1000;
+
+		if (obj.hasClass('remove_property_permanentely')) {
+			var number = id.replace('remove_property_permanentely_', '');
+
+			pweb_setCookie('remove_' + number, number, 8765);
+
+			css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+
+			$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+		}
+		else {
+			if (obj.hasClass('remove_property_one_day')) {
+				var number = id.replace('remove_property_one_day_', '');
+
+				pweb_setCookie('remove_' + number, number, 24);
+
+				css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+				$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+			}
+			else {
+				if (obj.hasClass('remove_property_one_week')) {
+					var number = id.replace('remove_property_one_week_', '');
+
+					pweb_setCookie('remove_' + number, number, 168);
+
+					css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
+					$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+				}
+			}
+		}
+	});
+}
