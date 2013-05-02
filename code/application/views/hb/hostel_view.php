@@ -418,7 +418,7 @@ if ($api_error == false) {
                     <script src="https://connect.facebook.net/<?php echo $code; ?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
                 </div>
 
-			<?php if ($this->config->item('displaySaveProperty')) {
+			<?php if ($this->config->item('displaySaveProperty'))  {
                             $addToFav   = $favorited ? 'display:none' : '';
                             $addedToFav = $favorited ? '' : 'display:none';
 			?>
