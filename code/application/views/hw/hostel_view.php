@@ -81,7 +81,7 @@ if ($api_error == false) {
                     <?php
                 }
                 ?>
-<?php if ($api_error == false): //print_r($hostel->PropertyImages) ?>
+<?php //if ($api_error == false) { //print_r($hostel->PropertyImages) ?>
     <?php
 // Separate images from thumb to main
     $main_images = array();
@@ -261,6 +261,7 @@ if ($api_error == false) {
                             <span class="hostel_districts_values">
         <?php
         foreach ($district_info as $key => $district) {
+//                                die(var_dump(count($district_info), $key));
             echo $district->district_name;
 
             if (count($district_info) != $key + 1) {
@@ -284,6 +285,7 @@ if ($api_error == false) {
                             <span class="hostel_landmarks_values">
         <?php
         foreach ($landmarks as $key => $landmark) {
+//                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
             echo $landmark->landmark_name;
 
             if (count($landmarks) != $key + 1) {
@@ -346,6 +348,11 @@ if ($api_error == false) {
                 <div class="fblike">
                     <script src="https://connect.facebook.net/<?php echo $code; ?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
                 </div>
+                <?php if ($showEmail) { ?>
+                    <div class="share-email">
+                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+                    </div>
+    <?php } ?>
 
 			<div class="amenities no-indent">
 			<?php
@@ -578,11 +585,6 @@ if ($api_error == false) {
 			<?php } ?>
 
 
-                <?php if ($showEmail) { ?>
-                    <div class="share-email">
-                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
-                    </div>
-    <?php } ?>
 
 
                 <div class="amenities no-indent">
@@ -1030,6 +1032,7 @@ if ($api_error == false) {
             </div>
         </div>
     </div>
+<?php } //endif api error ?>
 <?php
 /* Check the fourth param in URL */
 if ($this->uri->segment(4, 0)) {
