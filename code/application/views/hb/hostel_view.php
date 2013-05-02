@@ -501,7 +501,7 @@ if ($api_error == false) {
                     <a class="tab_price" href="#hostel_info_home">
                         <?php
                         if ($switch_api) {
-                            echo _("Info");
+                            echo _("Information");
                         } else {
                             echo _("Info & Prix");
                         }
