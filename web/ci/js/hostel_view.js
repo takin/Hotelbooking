@@ -486,7 +486,7 @@ function handleShareEmailPDF() {
             var subscribe = $('#subscribe').val();
             var with_pdf = $('#email_send_pdf').val();
 
-            var date = $("#book-pick").datepicker("getDate");
+            var date = $("#book-pick").length ? $("#book-pick").datepicker("getDate") : null;
 
             $.ajax({
                 type: "POST",
@@ -502,7 +502,7 @@ function handleShareEmailPDF() {
                     property_type: $('#property_type').val(),
                     property_name: $('#property_name').val(),
                     property_number: $('#property_number').val(),
-                    date: siteDateString(date) || '',
+                    date: date ? siteDateString(date) || '' : '',
                     nights: parseInt($('#book-night').val(), 10) || ''
                 },
                 success: function(response) {

@@ -1535,9 +1535,16 @@ class CMain extends I18n_site {
             $commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect);
             $commandCookies .= $cookie_append;
 
-            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
+            $authCommand = '';
+            if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
+                $authCommand = ' --username ' . escapeshellarg($_SERVER['PHP_AUTH_USER']) . ' ';
+                $authCommand .= ' --password ' . escapeshellarg($_SERVER['PHP_AUTH_PW']) . ' ';
+            }
+
+            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
 
             log_message('debug', $command);
+
             // create PDF
             system($command);
 
@@ -1570,7 +1577,10 @@ class CMain extends I18n_site {
         $this->email->send();
 
         if ($pdf_path) {
-            unlink($pdf_path);
+            if (file_exists($pdf_path)) {
+                unlink($pdf_path);
+            }
+
             rmdir($temp_dir);
         }
 
