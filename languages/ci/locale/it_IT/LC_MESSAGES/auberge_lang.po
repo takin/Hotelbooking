@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-29 22:19+0200\n"
+"PO-Revision-Date: 2013-05-01 20:58+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -832,9 +832,9 @@ msgstr " "
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "Inserisci la data"
+msgstr "Inserisci le tue date"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -1342,11 +1342,8 @@ msgstr ""
 "stesso come promemoria."
 
 #: ../code/application/views/includes/template-share-email-popup.php:44
-#, fuzzy
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr ""
-"Manda questa pagina via mail a qualcuno che conosci, oppure mandala a te "
-"stesso come promemoria."
+msgstr "Manda questa preventivo in PDF a qualcuno che conosci, o a te stesso."
 
 #: ../code/application/views/includes/template-share-email-popup.php:47
 #: ../code/application/views/helpfile/pofields.php:676
@@ -1386,11 +1383,12 @@ msgid "From (email)"
 msgstr "A (email)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:73
-#, fuzzy
 msgid ""
 "Yes, I want to subscribe to the newsletter to get great deals. (You can "
 "unsubscribe anytime)"
-msgstr "Si, voglio iscrivermi alla newsletter."
+msgstr ""
+"Si, voglio sottoscrivermi alla newsletter per ricevere grandi offerte. "
+"(Potete sottoscrivervi in qualsiasi momento)"
 
 #: ../code/application/views/includes/template-share-email-popup.php:83
 #: ../code/application/views/helpfile/pofields.php:682
@@ -3291,9 +3289,8 @@ msgstr "Disponibilità"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
-msgstr "Dormitori"
+msgstr "Dormitorio"
 
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -3389,14 +3386,14 @@ msgid "1 guest in 1 Bedroom."
 msgstr "7 ospiti in una Camera."
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guests in each room)."
-msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "1 ospiti in %d Camere (%d ospiti in ogni camera)."
 
 #: ../code/application/views/property_rooms_avail.php:413
-#, fuzzy, php-format
+#, php-format
 msgid "1 guest in %d Bedrooms (%d guest in each room)."
-msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "1 ospiti in %d Camere (%d ospiti in ogni camera)."
 
 #: ../code/application/views/property_rooms_avail.php:415
 #: ../code/application/views/hw/booking_avail_view.php:526
@@ -3425,7 +3422,7 @@ msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
 #: ../code/application/views/property_rooms_avail.php:417
 #: ../code/application/views/hw/booking_avail_view.php:528
 #: ../code/application/views/hb/booking_avail_view.php:571
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
 msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
 
@@ -4334,9 +4331,8 @@ msgid "Filter by Districts"
 msgstr "Filtra per quartiere"
 
 #: ../code/application/views/city_view.php:20
-#, fuzzy
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Punti di riferimento (entro 2 km)"
+msgstr "Seleziona per Punti d'interesse (entro 2km)"
 
 #: ../code/application/views/city_view.php:81
 #: ../code/application/views/helpfile/pofields.php:440
@@ -4389,7 +4385,7 @@ msgstr "Tipo di Struttura"
 #: ../code/application/views/helpfile/pofields.php~:826
 #, php-format
 msgid "The most popular"
-msgstr ""
+msgstr "Il più popolare"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -4418,9 +4414,9 @@ msgstr "Campeggio"
 #: ../code/application/views/city_view.php:132
 #: ../code/application/views/helpfile/pofields.php:827
 #: ../code/application/views/helpfile/pofields.php~:827
-#, fuzzy, php-format
+#, php-format
 msgid "Most popular"
-msgstr "Nota Importante "
+msgstr "I più popolari"
 
 #: ../code/application/views/city_view.php:205
 #: ../code/application/views/city_ajax_view.php:222
@@ -4463,14 +4459,12 @@ msgid "Close Map"
 msgstr "Chiudi la Mappa"
 
 #: ../code/application/views/city_view.php:257
-#, fuzzy
 msgid "Filter by Landmarks"
-msgstr "Filra per"
+msgstr "Seleziona per Punti d'interesse "
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "Filra per"
+msgstr "Seleziona per Quartiere o Punti d'interesse"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4714,9 +4708,8 @@ msgid "Date"
 msgstr "Data"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
-msgstr "Pagamento gi`a effettuato"
+msgstr "Importo già pagato:"
 
 #: ../code/application/views/hw/booking_end_view.php:202
 #: ../code/application/views/hw/booking_avail_view.php:1005
@@ -4769,9 +4762,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "Disponibilità"
+msgstr "Disponibilità di dormitori"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4864,7 +4857,7 @@ msgid "Bedrooms you will occupy:"
 msgstr "Camere che voi occuperete: "
 
 #: ../code/application/views/hw/booking_avail_view.php:526
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
 msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
 
@@ -4881,7 +4874,7 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:591
 #: ../code/application/views/hb/booking_avail_view.php:518
-#, fuzzy, php-format
+#, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
 msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
 
@@ -4933,25 +4926,23 @@ msgstr "La vostra selezione"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Al fine di confermare la vostra prenotazione è richiesto un pagamento pari "
-"al 10%% dell’importo totale. Il restante importo (90%%) dovrà essere saldato "
-"al momento del vostro arrivo presso la struttura. Troverete le informazioni "
-"e i contatti relative alla struttura (e-mail, indirizzo, numero di "
-"telefono ...), nella email di conferma che  riceverete dopo aver effettuato "
-"la prenotazione. "
+"Adesso pagate il deposito (il %d%% dell'intero importo) solamente per "
+"confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) "
+"potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto "
+"della proprietà (email, indirizzo, numero telefonico...) nella vostra email "
+"di conferma una volta effettuata la prenotazione."
 
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:719
-#, fuzzy
 msgid "Number of guests selected"
-msgstr "Numero totale di ospiti selezionati"
+msgstr "Numero di ospiti selezionati"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hb/booking_avail_view.php:737
@@ -4965,7 +4956,7 @@ msgstr "Avete ottenuto il prezzo migliore"
 #: ../code/application/views/hw/booking_view.php:303
 #, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr ""
+msgstr "Deposito da pagare adesso (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -5028,7 +5019,7 @@ msgstr "Prezzo"
 #: ../code/application/views/hw/booking_avail_view.php:978
 #, php-format
 msgid "Deposit (%d%%)"
-msgstr ""
+msgstr "Deposito (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013
@@ -9325,9 +9316,9 @@ msgstr "Camera Privata Familiare Deluxe per %d ospiti con bagno annesso"
 
 #: ../code/application/views/helpfile/pofields.php:783
 #: ../code/application/views/helpfile/pofields.php~:783
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by districts"
-msgstr "Filra per"
+msgstr "Filtra per quartiere"
 
 #: ../code/application/views/helpfile/pofields.php:784
 #: ../code/application/views/helpfile/pofields.php~:784
@@ -9491,51 +9482,51 @@ msgstr "Aggiorna Note"
 
 #: ../code/application/views/helpfile/pofields.php:808
 #: ../code/application/views/helpfile/pofields.php~:808
-#, fuzzy, php-format
+#, php-format
 msgid "Remove from my favorites"
-msgstr "Rimuovete questa struttura"
+msgstr "Rimuovi dai miei preferiti"
 
 #: ../code/application/views/helpfile/pofields.php:809
 #: ../code/application/views/helpfile/pofields.php~:809
 #, php-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancella"
 
 #: ../code/application/views/helpfile/pofields.php:810
 #: ../code/application/views/helpfile/pofields.php~:810
 #, php-format
 msgid "My favorite properties"
-msgstr ""
+msgstr "Le mie proprietà preferite"
 
 #: ../code/application/views/helpfile/pofields.php:811
 #: ../code/application/views/helpfile/pofields.php~:811
 #, php-format
 msgid "List of favorite properties"
-msgstr ""
+msgstr "Lista delle proprietà preferite"
 
 #: ../code/application/views/helpfile/pofields.php:812
 #: ../code/application/views/helpfile/pofields.php~:812
 #, php-format
 msgid "My short notes about the property"
-msgstr ""
+msgstr "Le mie note brevi sulla proprietà"
 
 #: ../code/application/views/helpfile/pofields.php:813
 #: ../code/application/views/helpfile/pofields.php~:813
-#, fuzzy, php-format
+#, php-format
 msgid "Edit or remove"
-msgstr "Rimuovi"
+msgstr "Modifica o rimuovi"
 
 #: ../code/application/views/helpfile/pofields.php:814
 #: ../code/application/views/helpfile/pofields.php~:814
-#, fuzzy, php-format
+#, php-format
 msgid "Saved to my favorites"
-msgstr "Visualizza i Preferiti"
+msgstr "Salvato nei miei preferiti"
 
 #: ../code/application/views/helpfile/pofields.php:815
 #: ../code/application/views/helpfile/pofields.php~:815
-#, fuzzy, php-format
+#, php-format
 msgid "Add to my favorites"
-msgstr "Aggiungi ai Preferiti"
+msgstr "Aggiunto ai miei preferiti"
 
 #: ../code/application/views/helpfile/pofields.php:816
 #: ../code/application/views/helpfile/pofields.php~:816
@@ -9544,18 +9535,21 @@ msgid ""
 "You can save this property as a favorite in your account so you can easily "
 "book it at a later date if you wish."
 msgstr ""
+"Puoi salvare questa proprietà come preferita nel tuo profilo così da poterla "
+"prenotare facilmente in un secondo momento se preferisci."
 
 #: ../code/application/views/helpfile/pofields.php:817
 #: ../code/application/views/helpfile/pofields.php~:817
 #, php-format
 msgid "Account created"
-msgstr ""
+msgstr "Profilo creato"
 
 #: ../code/application/views/helpfile/pofields.php:818
 #: ../code/application/views/helpfile/pofields.php~:818
 #, php-format
 msgid "To save a property as a favorite, you must be login to your account."
 msgstr ""
+"Per salvare una proprietà come preferita, devi loggarti nel tuo profilo."
 
 #: ../code/application/views/helpfile/pofields.php:819
 #: ../code/application/views/helpfile/pofields.php~:819
@@ -9564,52 +9558,54 @@ msgid ""
 "By creating an account you will be able to save properties as favorites, get "
 "access to your bookings and ratings, and many more benefits."
 msgstr ""
+"Creando un profilo potrai salvare le proprietà come preferite, avere accesso "
+"alle tue prenotazioni e valutazioni, e tanti altri vantaggi."
 
 #: ../code/application/views/helpfile/pofields.php:820
 #: ../code/application/views/helpfile/pofields.php~:820
 #, php-format
 msgid "Please enter your email address and we will send you a password."
 msgstr ""
+"Per favore inserisci il tuo indirizzo email e ti manderemo una password."
 
 #: ../code/application/views/helpfile/pofields.php:821
 #: ../code/application/views/helpfile/pofields.php~:821
-#, fuzzy, php-format
+#, php-format
 msgid "Saved favorite properties"
-msgstr "Cerca per ulteriori strutture in %s"
+msgstr "Proprietà preferite salvate"
 
 #: ../code/application/views/helpfile/pofields.php:822
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
-msgstr ""
+msgstr "Deposito da pagare adesso (%d)"
 
 #: ../code/application/views/helpfile/pofields.php:823
 #: ../code/application/views/helpfile/pofields.php~:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d) is payable upon arrival. You will "
 "find the property's contact information (email, address, telephone number…) "
 "in your confirmation email after you have made your reservation."
 msgstr ""
-"Al fine di confermare la vostra prenotazione è richiesto un pagamento pari "
-"al 10%% dell’importo totale. Il restante importo (90%%) dovrà essere saldato "
-"al momento del vostro arrivo presso la struttura. Troverete le informazioni "
-"e i contatti relative alla struttura (e-mail, indirizzo, numero di "
-"telefono ...), nella email di conferma che  riceverete dopo aver effettuato "
-"la prenotazione. "
+"Adesso pagate il deposito (il %d dell'intero importo) solamente per "
+"confermare e garantire la vostra prenotazione. L'importo rimanente (%d) "
+"potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto "
+"della proprietà (email, indirizzo, numero telefonico...) nella vostra email "
+"di conferma una volta effettuata la prenotazione."
 
 #: ../code/application/views/helpfile/pofields.php:824
 #: ../code/application/views/helpfile/pofields.php~:824
 #, php-format
 msgid "Deposit (%d)"
-msgstr ""
+msgstr "Deposito (%d)"
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
-#, fuzzy, php-format
+#, php-format
 msgid "Amount already paid:"
-msgstr "Pagamento gi`a effettuato"
+msgstr "Importo già pagato:"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
