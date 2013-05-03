@@ -417,6 +417,12 @@ if ($api_error == false) {
                 <div class="fblike">
                     <script src="https://connect.facebook.net/<?php echo $code; ?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
                 </div>
+                    <?php if ($showEmail) { ?>
+                    <div class="share-email">
+                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+                    </div>
+                    <?php } ?>
+
 
 			<?php if ($this->config->item('displaySaveProperty'))  {
                             $addToFav   = $favorited ? 'display:none' : '';
@@ -434,12 +440,6 @@ if ($api_error == false) {
 					</a>
 				</div>
 			<?php } ?>
-
-                    <?php if ($showEmail) { ?>
-                    <div class="share-email">
-                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
-                    </div>
-                    <?php } ?>
 
                 <div class="amenities no-indent">
                     <?php

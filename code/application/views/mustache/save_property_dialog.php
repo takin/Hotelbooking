@@ -1,8 +1,15 @@
+<?php 
+$nights = range(1, 30);
+$nightsOptions = '';
+foreach ($nights as $night) {
+	$nightsOptions .= '<option value="' . $night . '">' . $night . '</option>';
+}
+?>
+
 <form action="<?php echo site_url(); ?>cmain/ajax_save_favorite_property" method="post" id="save_fav" onsubmit="SaveProperty.handleSaveForm(this); return false;">
 	<input type="hidden" name="id" value="{{id}}" />
 	<input type="hidden" name="propertyNumber" value="{{propertyNumber}}" />
 
-	<input type="hidden" name="nights" value="{{nights}}" />
 	<input type="hidden" name="date" value="{{dateVal}}" id="date" />
 
 	<div class="property_details">
@@ -23,7 +30,7 @@
 
 		<div class="nights">
 			<span><?php echo _('Number of nights:'); ?></span>
-			<span class="num">{{nights}}</span>
+			<span><select name="nights" id="nights" class="num"><?php echo $nightsOptions; ?></select></span>
 			<a href="#" onclick="SaveProperty.changeDate('#save_fav .schedule_details .date .num', '#date_show'); return false;">[<?php echo _('Change Dates'); ?>]</a>
 		</div>
 	</div>

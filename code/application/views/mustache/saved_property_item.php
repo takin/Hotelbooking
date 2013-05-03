@@ -17,7 +17,7 @@
 				</div>
 			</div>
 
-			<a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
+			<a href="{{property_page_url}}/{{arrival_date}}/{{nights}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
 		</div>
 	</div>
 </div>

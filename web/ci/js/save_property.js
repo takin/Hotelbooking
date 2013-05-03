@@ -196,6 +196,7 @@ SavedProperty.edit = function(id, triggerElem) {
 	});
 
 	$('#save_fav .schedule_details .date .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
+	$('#save_fav .schedule_details .nights .num').val( parseInt(obj.find('.nights').html(), 10) );
 }
 
 SavedProperty.remove = function(id, triggerElem) {
@@ -302,6 +303,7 @@ var SaveProperty = function() {
 		}
 
 		var propertyNumber = currentClickedObj.attr('id').replace('save_to_favorites_', '');
+		var nights = $('#city_results_numnights_selected, #booking-table .top-table p b:nth-child(2)').html();
 
 		showSaveDialog({
 			id             : '',
@@ -312,12 +314,14 @@ var SaveProperty = function() {
 			country        : $('.country_selected').html(),
 			date           : $('#city_results_arrive_date, #booking-table .top-table p b:first').html(),
 			dateVal        : $.datepicker.formatDate('yy-mm-dd', $('#book-pick').datepicker('getDate')),
-			nights         : $('#city_results_numnights_selected, #booking-table .top-table p b:nth-child(2)').html(),
+			nights         : nights,
 			notes          : '',
 			characters     : 0,
 			isUpdate       : false,
 			isNew          : true
 		});
+
+		$('#save_fav .schedule_details .nights .num').val( parseInt(nights, 10) );
 	}
 
 	function showSaveDialog(data) {
@@ -361,7 +365,7 @@ var SaveProperty = function() {
 			data: {
 				id             : form.find('input[name="id"]').val(),
 				propertyNumber : propertyNumber,
-				nights         : form.find('input[name="nights"]').val(),
+				nights         : form.find('select[name="nights"]').val(),
 				date           : form.find('input[name="date"]').val(),
 				notes          : form.find('textarea[name="notes"]').val()
 			},
@@ -438,6 +442,9 @@ var SaveProperty = function() {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
 						// user is logged in
+						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
+						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
+
 						showSafeDialogFor(0);
 					}
 				}
