@@ -259,8 +259,14 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
     window.gmap.overlayMapTypes.setAt(0, null);
 
     if ($.isArray(district_um_ids)) {
-
-        // loop through districts um_ids
+        
+            if(district_um_ids.length === 1){
+                    if (window.gmap.getZoom() > 12) {
+                   // change map Zoom 
+                   window.gmap.setZoom(12);
+               }
+            }
+            // loop through districts um_ids
         var counter;
         for (counter = 0; counter < district_um_ids.length; ++counter) {
             this.addDistrictsBorder(MF, district_um_ids[counter], counter);
@@ -328,9 +334,9 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
     else {
         //    check zoom level and change it according to needed
         // just change zoom  if only one landmark to be shown
-        if (window.gmap.getZoom() > 12) {
+        if (window.gmap.getZoom() > 11) {
             // change map Zoom 
-            window.gmap.setZoom(12);
+            window.gmap.setZoom(11);
         }
         this.addLandmarkLayer(landmark_LatLng);
     }
