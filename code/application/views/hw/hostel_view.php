@@ -350,7 +350,7 @@ if ($api_error == false) {
                 </div>
 
 
-			<?php if ($this->config->item('displaySaveProperty')) {
+			<?php if (false/*$this->config->item('displaySaveProperty')*/) {
                             $addToFav   = $favorited ? 'display:none' : '';
                             $addedToFav = $favorited ? '' : 'display:none';
 			?>
@@ -422,7 +422,7 @@ if ($api_error == false) {
                     <a class="tab_price" href="#hostel_info_home">
                 <?php
                 if ($switch_api) {
-                    echo _("Info");
+                    echo _("Information");
                 } else {
                     echo _("Info & Prix");
                 }

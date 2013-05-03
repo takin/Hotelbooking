@@ -202,7 +202,7 @@ if ($displayQuickPreview == 1) {
                 </div>
                 {{#has_amenities}}
 					<div class="info_indent">
-						<?php if ($this->config->item('displaySaveProperty')) { ?>
+						<?php if (false/*$this->config->item('displaySaveProperty')*/) { ?>
 							<p>
 								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{city_name}}" title="{{propertyName}}">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
