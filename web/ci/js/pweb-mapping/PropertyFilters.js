@@ -1157,8 +1157,13 @@ PWebFilterApp.prototype.setup = function(data)
         }
         else {
 
+            if (!$('#filter_map_leftSide').is(":visible")) {
+                $('#filter_map_rightSide_container').removeClass("tabs_exist");
+                $('#filter_map_rightSide_container').addClass("no_tabs");
+                // make green button wide
+                $('#filter_map_showProperties').css("width", "880px");
+            }
             
-
             $("#map_filter_popup").fancybox({
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',
@@ -1180,25 +1185,25 @@ PWebFilterApp.prototype.setup = function(data)
                     pweb_filter.toggleMap('city');
                 }
             });//fancybox
-             var filterByDistricts = false;
-                    var filterByLandmarks = false;
+            var filterByDistricts = false;
+            var filterByLandmarks = false;
 
-                    if ($("#applied_filter_hosting_districts").is(":visible")) {
-                        filterByDistricts = true;
-                    }
+            if ($("#applied_filter_hosting_districts").is(":visible")) {
+                filterByDistricts = true;
+            }
 
-                    if ($("#applied_filter_hosting_landmarks").is(":visible")) {
-                        filterByLandmarks = true;
-                    }
+            if ($("#applied_filter_hosting_landmarks").is(":visible")) {
+                filterByLandmarks = true;
+            }
 
-                    if (filterByDistricts === true || filterByLandmarks === true) {
-                        // clear landmark and districts filter
-                        pweb_filter.closeFilter('landmarks');
-                        pweb_filter.closeFilter('districts');
-                        // apply filter again to rest the map
-                        that.apply_filters();
+            if (filterByDistricts === true || filterByLandmarks === true) {
+                // clear landmark and districts filter
+                pweb_filter.closeFilter('landmarks');
+                pweb_filter.closeFilter('districts');
+                // apply filter again to rest the map
+                that.apply_filters();
 
-                    }
+            }
         }
     });
    

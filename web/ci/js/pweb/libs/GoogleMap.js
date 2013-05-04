@@ -351,6 +351,12 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     if ($.isArray(district_um_ids)) {
 
+            if(district_um_ids.length === 1){
+                if (window.gmap.getZoom() > 12) {
+                    // change map Zoom 
+                    window.gmap.setZoom(12);
+                }
+        }
         // loop through districts um_ids
         var counter;
         for (counter = 0; counter < district_um_ids.length; ++counter) {
@@ -358,12 +364,6 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
         }
     }
     else {
-        //    check zoom level and change it according to needed
-        // just change zoom if only one district to be shown
-        if (window.gmap.getZoom() > 12) {
-            // change map Zoom 
-            window.gmap.setZoom(12);
-        }
         this.addDistrictsBorder(MF, district_um_ids, 0);
     }
 
@@ -410,6 +410,12 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 
     if ($.isArray(landmark_LatLng)) {
 
+        if (landmark_LatLng.length === 1) {
+            if (window.gmap.getZoom() > 12) {
+                // change map Zoom 
+                window.gmap.setZoom(12);
+            }
+        }
         // loop through districts um_ids
         var counter;
         for (counter = 0; counter < landmark_LatLng.length; ++counter) {
@@ -419,10 +425,10 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
     else {
         //    check zoom level and change it according to needed
         // just change zoom  if only one landmark to be shown
-        if (window.gmap.getZoom() > 12) {
-            // change map Zoom 
-            window.gmap.setZoom(12);
-        }
+            if (window.gmap.getZoom() > 13) {
+                // change map Zoom 
+                window.gmap.setZoom(13);
+            }
         this.addLandmarkLayer(landmark_LatLng);
     }
 

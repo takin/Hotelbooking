@@ -2758,9 +2758,14 @@ width: 275px;}
 #filter_map_leftSide .box_content{
     padding: 0;
 }
-#filter_map_rightSide_container{
+#filter_map_rightSide_container.tabs_exist{
     width: 51% !important;
     float: right;    
+    height: 100%;
+    overflow: hidden;
+}
+
+#filter_map_rightSide_container.no_tabs{   
     height: 100%;
     overflow: hidden;
 }
