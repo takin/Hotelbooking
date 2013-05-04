@@ -60,7 +60,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
     </div>
  <?php } ?>
-    <div id="filter_map_rightSide_container">
+    <div id="filter_map_rightSide_container" class="tabs_exist">
         <div id="filter_map_rightSide"></div>
         <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();">Show properties</button>
     </div>
@@ -243,9 +243,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                    $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
                              }?>
                     <div id="map_filter_button" class="box_content map_button_box box_round">
+                         <a id="city_map_filter" href="#">
                             <?php if ($filterBy_flag !== "none") {
                                     ?>
-                                <a id="city_map_filter" href="#">
                                     <span><strong <?php echo $span_style; ?>>
                                             <?php
                                             switch ($filterBy_flag) {
@@ -264,9 +264,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                             ?></strong></span>
                                     <?php } ?>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
-                                    <?php if ($filterBy_flag !== "none") {  ?>
                                 </a>
-                        <?php } ?>
                          </div>
                     <?php } ?>
 			</div>
