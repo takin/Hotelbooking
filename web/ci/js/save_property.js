@@ -283,12 +283,13 @@ var SaveProperty = function() {
 	function bindAddToFav() {
 		$('.save_to_favorites').live('click', function(event) {
 			event.preventDefault();
+
 			currentClickedObj = $(this);
 
 			var showLogin = true;
 
 			if (typeof(userIsLoggedIn) != 'undefined' && userIsLoggedIn) {
-				var showLogin = false;
+				showLogin = false;
 			}
 
 			showSafeDialogFor(showLogin);
@@ -373,8 +374,8 @@ var SaveProperty = function() {
 			success: function() {
 				form.find('.actions').show();
 
-				$('#prop_tab_box_' + propertyNumber).find('.save_to_favorites').hide();
-				$('#prop_tab_box_' + propertyNumber).find('.saved_to_favorites').show();
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
 
 				SaveProperty.loadSavedPropertyList();
 

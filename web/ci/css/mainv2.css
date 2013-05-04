@@ -2416,7 +2416,7 @@ text-align: -webkit-center;
 }
 
 #save_property_dialog {
-	background-color: #eee;
+	background: url('../images/fancybox_overlay.png');
 }
 
 #save_property_dialog .content_container {
@@ -2427,16 +2427,20 @@ text-align: -webkit-center;
 	color: #00359f;
 	background-color: #fff;
 	opacity: 1;
-	border: 1px solid #b3b3b3;
-	padding: 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+#save_property_dialog .content #content {
+	margin: 10px;
 }
 
 #save_property_dialog .close {
 	float: right;
 	width: 50px;
 	position: absolute;
-	margin-left: 615px;
-	margin-top: -55px;
+	margin-left: 605px;
+	margin-top: -50px;
 }
 
 #share-overlay .content {
@@ -2898,17 +2902,85 @@ width: 275px;}
 
 #save_property_dialog .title {
 	padding: 10px 5px;
+	background-color: #00aeec;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.3em;
+	border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
 }
 
 #save_property_dialog .property_details .image {
 	float: left;
 	width: 120px;
+	margin: 10px;
+}
+
+#save_property_dialog .property_details .property_name,
+#save_property_dialog .property_details .location {
+	font-weight: 600;
+	color: #000;
+	font-size: 2em;
+}
+
+#save_property_dialog .property_details .property_name {
+	padding-top: 45px;
+}
+
+#save_property_dialog .property_details .location {
+	padding-top: 10px;
+}
+
+#save_property_dialog .schedule_details {
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 25px;
+	margin-top: 10px;
+}
+
+#save_property_dialog .schedule_details .date,
+#save_property_dialog .schedule_details .nights {
+	line-height: 23px;
+	color: #666;
+	font-size: 1.3em;
+}
+
+#save_property_dialog .fav_details label {
+	color: #666;
+	font-size: 1.3em;
+}
+
+#save_property_dialog .fav_details textarea {
+	width: 90%;
+	height: 130px;
+}
+
+#save_property_dialog .fav_details .characters {
+	width: 90%;
+	font-size: 1.8em;
+	color: #666;
+}
+
+#save_property_dialog .fav_details .characters .num {
+	color: #000;
+}
+
+#save_property_dialog .schedule_details .nights a {
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+#save_property_dialog .schedule_details .date .num,
+#save_property_dialog .schedule_details .nights .num {
+	font-weight: bold;
+	color: #000;
 }
 
 #save_property_dialog .schedule_details,
 #save_property_dialog .actions,
 #save_property_dialog .fav_details {
 	clear: both;
+	margin-left: 10px;
 }
 
 #save_property_dialog .schedule_details .date,
@@ -2923,4 +2995,12 @@ width: 275px;}
 
 #save_property_dialog .fav_details .characters {
 	text-align: right;
+}
+
+#save_property_dialog .actions input {
+	padding: 5px 15px;
+}
+
+#save_property_dialog .actions input, a {
+	margin-right: 10px;
 }

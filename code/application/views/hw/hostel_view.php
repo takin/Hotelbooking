@@ -350,12 +350,15 @@ if ($api_error == false) {
                 </div>
 
 
-			<?php if (false/*$this->config->item('displaySaveProperty')*/) {
+			<?php if ($this->config->item('displaySaveProperty')) {
                             $addToFav   = $favorited ? 'display:none' : '';
                             $addedToFav = $favorited ? '' : 'display:none';
 			?>
 				<div class="save_to_favorites_options">
-					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>">
+					<span class="city_selected" style="display: none"><?php echo my_mb_ucfirst($bc_city); ?></span>
+					<span class="country_selected" style="display: none"><?php echo my_mb_ucfirst($bc_country); ?></span>
+
+					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>" title="<?php echo var_check($hostel->property_name, ""); ?>">
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 						<?php echo _('Add to my favorites'); ?>
 					</a>

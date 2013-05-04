@@ -1160,6 +1160,9 @@ class CMain extends I18n_site {
         log_message('debug', 'Entering main controller property page method');
 
         $this->_currency_init();
+
+        $this->load->library('tank_auth');
+
         // add the current params in the "stash"
         $data = array(
             'property_type' => $property_type,
@@ -1170,11 +1173,15 @@ class CMain extends I18n_site {
             'print' => $this->input->get('print', true),
             'showEmail' => $this->config->item('displayShareEmail'),
             'showPDF' => $this->config->item('displaySharePDF'),
+            'userIsLoggedIn' => $this->tank_auth->is_logged_in()
         );
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
+
+            $data['favorited'] = $this->tank_auth->is_logged_in() 
+                ? $this->Db_favorite_hostels->countUserPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id())
+                : false;
         }
 
         $date = $urldate;
@@ -1592,7 +1599,9 @@ class CMain extends I18n_site {
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0));
+            $savedPropertiesNumbers = $this->tank_auth->is_logged_in()
+                ? $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0))
+                : array();
         }
 
         if ($this->api_used == HB_API) {
