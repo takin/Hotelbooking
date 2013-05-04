@@ -1157,11 +1157,17 @@ PWebFilterApp.prototype.setup = function(data)
         }
         else {
 
-            if (!$('#filter_map_leftSide').is(":visible")) {
+            if ($('#filter_map_leftSide').length < 1) {
                 $('#filter_map_rightSide_container').removeClass("tabs_exist");
                 $('#filter_map_rightSide_container').addClass("no_tabs");
                 // make green button wide
                 $('#filter_map_showProperties').css("width", "880px");
+            }
+            else{
+                $('#filter_map_rightSide_container').addClass("tabs_exist");
+                $('#filter_map_rightSide_container').removeClass("no_tabs");
+                // make green button wide
+                $('#filter_map_showProperties').css("width", "400px");
             }
             
             $("#map_filter_popup").fancybox({
