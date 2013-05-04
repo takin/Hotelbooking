@@ -468,15 +468,6 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 	    }); 
             
 };
-GoogleMap.prototype.changeMarkerIconToSelected = function(pDiv) {
-
-    this.changeMarkerIcon(pDiv, "selected");
-
-};
-GoogleMap.prototype.setMarkerIconToOriginal = function(pDiv) {
-
-    this.changeMarkerIcon(pDiv, "original");
-};
 GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
     var property_number = $(pDiv).attr("rel");

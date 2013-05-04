@@ -1,7 +1,7 @@
 {{#properties}}
 <div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list" 
-     rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIconToSelected($(this));"
-     onmouseout="GoogleMap.prototype.setMarkerIconToOriginal($(this));">
+     rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
+     onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original');">
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
     {{#Geo}}
     <input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
@@ -146,7 +146,7 @@ if ($displayQuickPreview == 1) {
                 <div class="info_indent">
                     <h2>
                         <a href="{{property_page_url}}" style="vertical-align: middle">
-                            <span id="hostel_title_{{propertyNumber}}">{{propertyName}}</span>
+                            <span id="hostel_title_{{propertyNumber}}" class="hostel_title">{{propertyName}}</span>
                             <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">
                                 ({{propertyTypeTranslate}})
                             </span>
