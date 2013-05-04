@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-29 17:09+0300\n"
-"PO-Revision-Date: 2013-04-29 21:32+0200\n"
+"PO-Revision-Date: 2013-05-04 20:33+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -4843,15 +4843,15 @@ msgstr "Valikoimasi"
 #: ../code/application/views/hw/booking_avail_view.php:744
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Maksat vain takuumaksun (10%% kokonaishinnasta) vahvistaaksesi varauksesi "
-"toistaiseksi. Loput laskusta (90%%) on maksettava saapumisen yhteydessä. "
+"Maksat vain takuumaksun (%d%% kokonaishinnasta) vahvistaaksesi varauksesi "
+"toistaiseksi. Loput laskusta (%d%%) on maksettava saapumisen yhteydessä. "
 "Majoituspaikan tiedot (sähköpostiosoite, osoite, puhelinnumero …) näkyvät "
 "vahvistussähköpostissa kun olet tehnyt varauksesi."
 
@@ -4870,9 +4870,9 @@ msgstr "Sait parhaan tarjouksen"
 
 #: ../code/application/views/hw/booking_avail_view.php:769
 #: ../code/application/views/hw/booking_view.php:303
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "Nyt maksettava käsiraha (%d)"
+msgstr "Nyt maksettava käsiraha (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:790
 #: ../code/application/views/hw/booking_avail_view.php:886
@@ -4933,9 +4933,9 @@ msgid "Prix (lit)"
 msgstr "Hinta"
 
 #: ../code/application/views/hw/booking_avail_view.php:978
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "Käsiraha (%d)"
+msgstr "Käsiraha (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:1007
 #: ../code/application/views/hw/booking_avail_view.php:1013
