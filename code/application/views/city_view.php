@@ -241,10 +241,10 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                              elseif ( empty($city_districts) ) {
                                   $filterBy_flag = "landmarks";
                                    $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }
-                             if ($filterBy_flag !== "none") {
-                                    ?>
+                             }?>
                     <div id="map_filter_button" class="box_content map_button_box box_round">
+                            <?php if ($filterBy_flag !== "none") {
+                                    ?>
                                 <a id="city_map_filter" href="#">
                                     <span><strong <?php echo $span_style; ?>>
                                             <?php
@@ -262,10 +262,12 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                                     break;
                                             }
                                             ?></strong></span>
+                                    <?php } ?>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
+                                    <?php if ($filterBy_flag !== "none") {  ?>
                                 </a>
-                            </div>
                         <?php } ?>
+                         </div>
                     <?php } ?>
 			</div>
 
