@@ -429,13 +429,25 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <script type="text/javascript">
    $(document).ready(function(){
 
-//    $(window).scroll(function () { 
-//        //we're scrolling our position is greater than 0 from the top of the page.
-//        if($(window).scrollTop() > 0){
-//
-//         $("#sidebar").css({'position' : 'fixed'});
-//         }
-//       });  
+    $(window).scroll(function () { 
+        // fix sidebar to make side map always visible
+        var scroll_position = $(window).scrollTop();
+        var page_height = $(document).height();
+        var fix_height_position = 0.7 * page_height;
+        //we're scrolling our position is greater than 0 from the top of the page.
+        if( scroll_position < 230 ){
+            $("#sidebar").removeClass("fix_sidebar_position");
+           $("#main").css({'float' : 'auto'});
+         }
+        else if( scroll_position > 230 && scroll_position < fix_height_position ){
+            $("#sidebar").addClass("fix_sidebar_position");
+           $("#main").css({'float' : 'right'});
+         }
+         else  if( scroll_position > fix_height_position ){
+            $("#sidebar").removeClass("fix_sidebar_position");
+           $("#main").css({'float' : 'auto'});
+         }
+       });  
 
    });  
 </script>

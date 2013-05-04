@@ -2916,16 +2916,9 @@ width: 275px;}
     background-color: #F9F9F9;
 }
 
-#sidebar{
-/*    margin-left: -995px;
-    display: inline;
-    float: left;*/
-/*   left: 66px;
+#sidebar.fix_sidebar_position{
+    left: 120px;
     position: fixed;
-    top: 242px;*/
-
-/*    left: 120px;
-    position: fixed;
-    top: 200px;
- width: 19%;*/
+    width: 19%;
+    top: 0;
 }
