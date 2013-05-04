@@ -8,7 +8,7 @@
    $payloadLog = "/opt/logs/github_payload.log";
    $repository = "https://github.com/mcwebmanagement/source";
    
-   $allowedUsernames = array("jcurlier", "CHRISMORISSEAU");
+   $allowedUsernames = array("jcurlier", "CHRISMORISSEAU", "rotichmordecai");
    $master = "refs/heads/master";
    $deployProdString = "deploy to prod";
    $deployProdScript = "/opt/deployment/deploy2prod.sh";
