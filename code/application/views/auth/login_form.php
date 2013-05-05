@@ -46,6 +46,9 @@ if ($is_ajax) {
 	$register_attributes = array(
 		'onclick' => 'SaveProperty.getRegisterForm(); return false;'
 	);
+
+	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br /><br />';
+	echo '<h2 style="color: #000;">', _('Existing account'), '</h2>';
 }
 else {
 ?>
@@ -62,11 +65,11 @@ else {
 </div>
 <div id="main" class="grid_12 user-auth">
 	<div class="box_content box_round group">
-<?php } ?>
 		<h1 class="content_title"><?php echo _('Connexion à votre compte');?></h1>
 		<p><?php printf(gettext("Bienvenue dans la section \"%s\". Depuis celui-ci, vous avez accès à vos réservations d'Auberges de Jeunesse, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager."),"<b>"._("Mon Compte")."</b>");?></p>
 		<p><?php echo _("Votre compte usager vous permet aussi d'effectuer plus rapidement une réservation en utilisant vos informations déjà entrées.");?></p>
 				
+<?php } ?>
 		<?php echo form_open($this->uri->uri_string(), $form_attributes); ?>
 		
 		<table>
@@ -127,11 +130,14 @@ else {
 		</table>
 		<input id="login-connect-page" type="submit" value="<?php echo _("Se connecter"); ?>" name="submit">
 		<div class="clearfix" style="margin-top:10px;">
-			<?php echo anchor($this->Db_links->get_link("user_forgot_pass"), _("Mot de passe oublié")); ?> | 
-			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor($this->Db_links->get_link("register"), _("S'enregister"), $register_attributes); ?>
+			<?php echo anchor($this->Db_links->get_link("user_forgot_pass"), _("Mot de passe oublié")); if (!$is_ajax) { ?> | 
+			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor($this->Db_links->get_link("register"), _("S'enregister"), $register_attributes); } ?>
 		</div>
 		<?php echo form_close(); ?>
 <?php if (!$is_ajax) { ?>
 	</div>  
 </div>
-<?php } ?>
+<?php } else { 
+	echo '<br /><br /><br /><h2><a onclick="SaveProperty.getRegisterForm(); return false;" href="', $this->Db_links->get_link("register"),'">', _('Create account'), '</a></h2><br />';
+	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span>';
+}?>

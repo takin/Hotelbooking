@@ -13,10 +13,10 @@
 					<a href="{{property_page_url}}" class="propertyName">{{name}}</a>
 					<strong class="notes">{{notes}}</strong>
 
-					<a href="#" onclick="SavedProperty.edit({{id}}, this); return false;"><?php echo _('Edit or remove'); ?></a>
 				</div>
 			</div>
 
+			<a style="float: right; margin-top: 60px; margin-right:113px;" href="#" onclick="SavedProperty.edit({{id}}, this); return false;"><?php echo _('Edit or remove'); ?></a>
 			<a href="{{property_page_url}}/{{arrival_date}}/{{nights}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement");?>"><?php echo _("Réserver");?></a>
 		</div>
 	</div>

@@ -34,6 +34,26 @@ $captcha = array(
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
 );
+$first_name = array(
+	'name'	=> 'first_name',
+	'id'	=> 'first_name',
+	'value'	=> set_value('first_name'),
+	'maxlength'	=> 80,
+	'size'	=> 30,
+);
+$last_name = array(
+	'name'	=> 'last_name',
+	'id'	=> 'last_name',
+	'value'	=> set_value('last_name'),
+	'maxlength'	=> 80,
+	'size'	=> 30,
+);
+$mail_subscription = array(
+	'name'	=> 'mail_subscription',
+	'id'	=> 'mail_subscription',
+	'value'	=> set_value('mail_subscription'),
+	'checked' => true
+);
 
 $login_attributes = array();
 $form_attributes  = array(
@@ -48,6 +68,12 @@ if ($is_ajax) {
 	$login_attributes = array(
 		'onclick' => 'SaveProperty.getLoginForm(); return false;'
 	);
+
+	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br /><br />';
+	echo '<h2 style="color: #000;"><a href="#" onclick="SaveProperty.getLoginForm(); return false;">', _('Existing account'), '</a></h2><br /><br />';
+
+	echo '<h2>', _('Create account'), '</h2><br />';
+	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span><br /><br />';
 }
 else {
 ?>
@@ -64,11 +90,24 @@ else {
 </div>
 <div id="main" class="grid_12 user-auth">
 	<div class="box_content box_round group">
-<?php } ?>
 		<h1 class="content_title"><?php echo _('Vous enregistrer');?> - <?php echo _('Créer votre compte');?></h1>		
 		<p><?php echo _("La création d'un compte vous donnera accès à votre historique de réservations et d'évaluations pour les auberges de jeunesse. Veuillez entrer votre adresse de courriel et nous vous enverrons un mot de passe.");?>
+<?php } ?>
 		<?php echo form_open($this->uri->uri_string(), $form_attributes); ?>
 		<table>
+				<?php if ($is_ajax) { ?>
+					<tr>
+						<td valign="top" class="first"><?php echo form_label(_('First name'), $first_name['id']); ?></td>
+						<td valign="top"><?php echo form_input($first_name); ?></td>
+						<td style="color: red;"><?php echo form_error($first_name['name']); ?><?php echo isset($errors[$first_name['name']]) ? $errors[$first_name['name']] : '' ; ?></td>
+					</tr>
+					<tr>
+						<td valign="top" class="first"><?php echo form_label(_('Last name'), $last_name['id']); ?></td>
+						<td valign="top"><?php echo form_input($last_name); ?></td>
+						<td style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']]) ? $errors[$last_name['name']] : '' ; ?></td>
+					</tr>
+                                <?php } ?>
+
 				<?php if ($use_username) { ?>
 				<tr>
 						<td valign="top" class="first"><?php echo form_label("Nom d'usager", $username['id']); ?></td>
@@ -127,8 +166,23 @@ else {
 						<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
 				</tr>
 				<?php }
-				} ?>
+				}
+
+				if ($is_ajax) { ?>
+					<tr>
+						<td valign="top" class="first"><?php echo form_label(_('Newsletter Subscription'), $mail_subscription['id']); ?></td>
+						<td valign="top"><?php echo form_checkbox($mail_subscription); echo _('We will never sell your personal information - You can unsubscribe anytime.'); ?></td>
+						<td style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></td>
+					</tr>
+
+                                <?php }
+                                ?>
 		</table>
+		<?php
+			if ($is_ajax) {
+				echo '<div style="margin-left:10px; color: #000">', _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.'), '</div>';
+			}
+		?>
 		<input id="register-page" type="submit" value="<?php echo _("S'enregistrer");?>" name="register">
 		<?php echo form_close(); ?><br />
 		<?php echo anchor($this->Db_links->get_link("connect"), _("Se connecter"), $login_attributes); ?>

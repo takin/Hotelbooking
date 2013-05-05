@@ -463,9 +463,12 @@ var SaveProperty = function() {
 			type     : 'POST',
 			url      : form.attr('action'),
 			data     : {
-				email            : $('#email').val(),
-				password         : $('#password').val(),
-				confirm_password : $('#confirm_password').val()
+				email             : $('#email').val(),
+				password          : $('#password').val(),
+				confirm_password  : $('#confirm_password').val(),
+				first_name        : $('#first_name').val(),
+				last_name         : $('#last_name').val(),
+				mail_subscription : $('#mail_subscription').attr('checked')
 			},
 			success  : function(response) {
 				if (typeof(response) == 'object') {
