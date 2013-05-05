@@ -428,26 +428,36 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
-
-    $(window).scroll(function () { 
+// this part is related to fixing the map position
+        $(window).scroll(function () { 
         // fix sidebar to make side map always visible
+        var page_height = $(Document).height();
+        var fix_height_position =  ( page_height - $("#sidebar").height() - 600 ) ;
         var scroll_position = $(window).scrollTop();
-        var page_height = $(document).height();
-        var fix_height_position = 0.8 * page_height;
-        //we're scrolling our position is greater than 0 from the top of the page.
+        //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
             $("#sidebar").removeClass("fix_sidebar_position");
-           $("#main").css({'float' : 'auto'});
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : ''});
+            $("#main").css({'float' : 'auto'});
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#sidebar").addClass("fix_sidebar_position");
-           $("#main").css({'float' : 'right'});
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : ''});
+            $("#main").css({'float' : 'right'});
          }
          else  if( scroll_position > fix_height_position ){
-            $("#sidebar").removeClass("fix_sidebar_position");
-           $("#main").css({'float' : 'auto'});
+            $("#sidebar").css({'position' : 'relative'});
+            $("#sidebar").css({'left' : 0});
+            if( fix_height_position > 0 ){
+                $("#sidebar").css({'top' : fix_height_position});
+            }
+            $("#main").css({'float' : 'auto'});
          }
        });  
 
-   });  
+   });      
 </script>
