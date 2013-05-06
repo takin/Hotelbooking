@@ -453,7 +453,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             $("#sidebar").css({'position' : 'relative'});
             $("#sidebar").css({'left' : 0});
             if( fix_height_position > 0 ){
-                $("#sidebar").css({'top' : fix_height_position});
+                $("#sidebar").css({'top' : fix_height_position - 245 });
             }
             $("#main").css({'float' : 'auto'});
          }
