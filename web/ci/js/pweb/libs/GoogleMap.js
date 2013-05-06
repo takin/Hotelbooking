@@ -286,6 +286,7 @@ GoogleMap.prototype.addMarkersToMap = function() //, image, iconshadow)
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
             that.openInfoWindow(this, this.custom_content);
+            that.goToHostelDiv(this);
         });
 
 
@@ -527,12 +528,29 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigge
 
     var that = this;
     var property_list = that.getItemsInPage();
-
+     
     $.each(property_list, function(index, value) {
 
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
             $(value).trigger(pDivEventToTrigger);
+        }
+    });
+
+};
+GoogleMap.prototype.goToHostelDiv = function(pMarker) {
+// if div exists
+// then animate to it
+    var that = this;
+    var property_list = that.getItemsInPage();
+
+    $.each(property_list, function(index, value) {
+
+        if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
+        {
+            $('html,body').animate({
+                scrollTop: $(value).offset().top},
+            'slow');
         }
     });
 
