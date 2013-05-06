@@ -245,10 +245,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                   $filterBy_flag = "landmarks";
                                    $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
                              }?>
-                    <div id="map_filter_button" class="box_content map_button_box box_round">
-                         <a id="city_map_filter" href="#">
-                            <?php if ($filterBy_flag !== "none") {
-                                    ?>
+                        <?php if ($filterBy_flag !== "none") { ?>
+                            <div id="map_filter_button" class="box_content map_button_box box_round">
+                                <a id="city_map_filter" href="#">
                                     <span><strong <?php echo $span_style; ?>>
                                             <?php
                                             switch ($filterBy_flag) {
@@ -265,13 +264,21 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                                     break;
                                             }
                                             ?></strong></span>
-                                    <?php } ?>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
-                         </div>
+                            </div>
+                        <?php } 
+                        else{ ?>
+                      <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#city_results_count").css({'height' : '15px'});
+                            $(".top_search_result").css({'line-height' : 0});
+                        });      
+                     </script>      
+                       <?php }
+                        ?>        
                     <?php } ?>
 			</div>
-
 
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
@@ -458,6 +465,6 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             $("#main").css({'float' : 'auto'});
          }
        });  
-
+       
    });      
 </script>
