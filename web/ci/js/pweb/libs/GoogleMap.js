@@ -279,16 +279,19 @@ GoogleMap.prototype.addMarkersToMap = function() //, image, iconshadow)
             custom_content: window.markers[i].content
         });
 
-
         window.markers[i].gmarker = window.gmarkers[i];
 
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
-            that.openInfoWindow(this, this.custom_content);
-            that.goToHostelDiv(this);
-        });
+            if (that.map_div.id === "city_side_map_container") {
+                that.goToHostelDiv(this);
+            }
+            else {
+                that.openInfoWindow(this, this.custom_content);
+            }
 
+        });
 
         google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
