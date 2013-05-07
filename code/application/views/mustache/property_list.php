@@ -49,13 +49,13 @@
                 </a>
             </li>
             {{#isGeoValid}}
-            <li>
+<!--            <li>
                 <a name="city_map_show_property" rel="{{propertyNumber}}"
                    class="tab_map box_round" href="#city_map_{{propertyNumber}}"
                    title="<?php echo _("Cartes et Directions"); ?>">
                        <?php echo _("See Map"); ?>
                 </a>
-                </span>
+                </li>-->
                 {{/isGeoValid}}
             <li class="last">
                 <a name="review_show_property" rel="{{propertyNumber}}"

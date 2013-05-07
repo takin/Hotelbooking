@@ -209,11 +209,13 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 };
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
-    var that = this;
     // number of hostels to show per page
     var show_per_page = parseInt($('#show_per_page').val());
     // number of hostels currently shown
-    var page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    var page_num = 0;
+    if( $('#page_navigation .active_page').length > 0 ){
+            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    }
 
     // start hostel number like from 1 to 20
     var start_from = page_num * show_per_page;
@@ -222,10 +224,8 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 
     return $('#property_list').children().slice(start_from, end_on);
 };
-GoogleMap.prototype.fillMakersArray = function() //, image, iconshadow)
+GoogleMap.prototype.fillMakersArray = function() 
 {
-//    this.clearMarkers();
-
     var that = this;
     // clear markers on the map
     // includes that.clearMarkers();
@@ -235,21 +235,21 @@ GoogleMap.prototype.fillMakersArray = function() //, image, iconshadow)
 
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
-var property_number = $(value).attr("rel");
+        var property_number = $(value).attr("rel");
     $("#city_map_view_"+property_number).html("");
 
-        GoogleMap.prototype.addMarker(index
+        that.addMarker(index
                 , $("#input_geo_latitude_"+property_number).val()
                 , $("#input_geo_longitude_"+property_number).val()
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
-                );
+                );   
     });
-
+      
 return window.markers;
 };
-GoogleMap.prototype.addMarkersToMap = function() //, image, iconshadow)
+GoogleMap.prototype.addMarkersToMap = function()
 {
     if ( window.markers.length < 1 )
         {
@@ -284,7 +284,7 @@ GoogleMap.prototype.addMarkersToMap = function() //, image, iconshadow)
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
-            if (that.map_div.id === "city_side_map_container") {
+            if (window.gmap.getDiv().id === "city_side_map_container") {
                 that.goToHostelDiv(this);
             }
             else {
