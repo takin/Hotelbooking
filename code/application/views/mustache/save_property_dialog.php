@@ -22,16 +22,21 @@ foreach ($nights as $night) {
 	</div>
 
 	<div class="schedule_details">
-		<div class="date">
-			<span><?php echo _('Arrival:'); ?></span>
-			<span class="num">{{date}}</span>
-			<input type="text" name="date_show" class="date_show" id="date_show" readonly="readonly" value="{{date}}" />
-		</div>
-
-		<div class="nights">
-			<span><?php echo _('Number of nights:'); ?></span>
-			<span><select name="nights" id="nights" class="num"><?php echo $nightsOptions; ?></select></span>
-			<a href="#" onclick="SaveProperty.changeDate('#save_fav .schedule_details .date .num', '#date_show'); return false;">[<?php echo _('Change Dates'); ?>]</a>
+		<div class="box_content box_round group side_search">
+			<div class="content_block" style="margin-bottom:0px;">
+				<div class="group">
+					<div class="left">
+						<label for="search-date"><?php echo _('Arrivée le:');?></label>
+						<input type="text" id="date_show" name="date_show" class="date_show" value="{{date}}" readonly="readonly" />
+					</div>
+					<div class="left">
+						<?php
+						$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
+						select_nights(_('Nuits:'), "nights", "nights", 2, $hb_api_used);
+						?>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -41,16 +46,17 @@ foreach ($nights as $night) {
 		<textarea cols="30" name="notes" rows="5" class="notes" onkeyup="return SaveProperty.countRemainingChars(this, '#save_fav .characters .num');">{{notes}}</textarea>
 
 		<div class="characters">
+			<span class="singular"><?php echo _('Character left:'); ?></span>
+			<span class="plural"><?php echo _('Characters left:'); ?></span>
 			<span class="num">{{characters}}</span>
-			<span class="singular"><?php echo _('character left'); ?></span>
-			<span class="plural"><?php echo _('characters left'); ?></span>
 		</div>
 	</div>
 
+	<br />
 	<div class="actions">
 		{{#isUpdate}}
-			<input type="submit" name="submit" value="<?php echo _('Update Note'); ?>" />
-			<a href="#" onclick="SavedProperty.remove({{id}}, this); return false;"><?php echo _('Remove from my favorites'); ?></a>
+			<input type="submit" name="submit" value="<?php echo _('Save Note'); ?>" />
+			<a href="#" class="remove" onclick="SavedProperty.remove({{id}}, this); return false;"><?php echo _('Remove from my favorites'); ?></a>
 		{{/isUpdate}}
 
 		{{#isNew}}

@@ -332,18 +332,12 @@ var SaveProperty = function() {
 		countRemainingChars(dialog.find('.notes'), dialog.find('.characters .num'));
 		dialog.find('.date_show').datepicker({
 			dateFormat: 'd MM yy',
-			showOn: 'button',
 			altField: "#date",
 			altFormat:'yy-mm-dd',
 			onSelect: function(newVal) {
-				$('#date_show, #save_fav .ui-datepicker-trigger').hide();
-				$('#save_fav .schedule_details .date .num').show();
-
-				$('#save_fav .schedule_details .date .num').text(newVal);
 			}
 		});
 		dialog.find('.ui-datepicker').hide();
-		$('#date_show, #save_fav .ui-datepicker-trigger').hide();
 		dialog.show();
 	}
 
@@ -463,6 +457,7 @@ var SaveProperty = function() {
 				}
 				else {// some kind of error, see about it
 					dialog.find('.content').html(response);
+					$('#login_form_container').show();
 				}
 			}
 		});
