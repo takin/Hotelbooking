@@ -2421,7 +2421,7 @@ text-align: -webkit-center;
 
 #save_property_dialog .content_container {
 	margin: 0 auto;
-	height: 450px;
+	height: 630px;
 	width: 618px;
 	margin-top: 90px;
 	color: #00359f;
@@ -2429,6 +2429,7 @@ text-align: -webkit-center;
 	opacity: 1;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
+	font-size: 1.2em;
 }
 
 #save_property_dialog .content #content {
@@ -2440,7 +2441,7 @@ text-align: -webkit-center;
 	width: 50px;
 	position: absolute;
 	margin-left: 605px;
-	margin-top: -50px;
+	margin-top: -61px;
 }
 
 #share-overlay .content {
@@ -2901,10 +2902,9 @@ width: 275px;}
 }
 
 #save_property_dialog .title {
-	padding: 10px 5px;
+	padding: 15px 10px;
 	background-color: #00aeec;
 	color: #fff;
-	font-weight: bold;
 	font-size: 1.3em;
 	border-top-left-radius: 5px;
 	-moz-border-top-left-radius: 5px;

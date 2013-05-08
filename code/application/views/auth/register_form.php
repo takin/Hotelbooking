@@ -61,18 +61,34 @@ $form_attributes  = array(
 );
 
 if ($is_ajax) {
+?>
+<style type="text/css">
+	#login-connect-page,
+	#register-page {
+		color: #fff;
+		border: none;
+		background-color: #3087C9;
+		padding: 5px 15px;
+		font-weight: bold;
+		text-transform: uppercase;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+</style>
+<?php
+
 	$form_attributes = array(
 		'onsubmit' => 'SaveProperty.register(this); return false;'
 	);
 
 	$login_attributes = array(
-		'onclick' => 'SaveProperty.getLoginForm(); return false;'
+		'onclick' => 'SaveProperty.getLoginForm(true); return false;'
 	);
 
 	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br /><br />';
-	echo '<h2 style="color: #000;"><a href="#" onclick="SaveProperty.getLoginForm(); return false;">', _('Existing account'), '</a></h2><br /><br />';
+	echo '<h2><a href="#" onclick="SaveProperty.getLoginForm(true); return false;"><center>', _('Existing account'), '</center></a></h2><br /><br />';
 
-	echo '<h2>', _('Create account'), '</h2><br />';
+	echo '<h2><center>', _('Create account'), '</center></h2><br />';
 	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span><br /><br />';
 }
 else {
@@ -180,13 +196,13 @@ else {
 		</table>
 		<?php
 			if ($is_ajax) {
-				echo '<div style="margin-left:10px; color: #000">', _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.'), '</div>';
+				echo '<div style="margin-left:10px; color: #000">', _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.'), '</div><br />';
 			}
 		?>
 		<input id="register-page" type="submit" value="<?php echo _("S'enregistrer");?>" name="register">
 		<?php echo form_close(); ?><br />
-		<?php echo anchor($this->Db_links->get_link("connect"), _("Se connecter"), $login_attributes); ?>
 <?php if (!$is_ajax) { ?>
+		<?php echo anchor($this->Db_links->get_link("connect"), _("Se connecter"), $login_attributes); ?>
 	</div>
 </div>
 <?php } ?>

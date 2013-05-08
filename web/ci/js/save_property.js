@@ -296,9 +296,9 @@ var SaveProperty = function() {
 		});
 	}
 
-	function showSafeDialogFor(showLogin) {
+	function showSafeDialogFor(showLogin, showForm) {
 		if (showLogin) {
-			getLoginForm();
+			getLoginForm(showForm);
 
 			return;
 		}
@@ -418,12 +418,24 @@ var SaveProperty = function() {
 		return true;
 	}
 
-	function getLoginForm() {
+	function getLoginForm(showForm) {
+		var url = '/connexion';
+		if (showForm) {
+			url += '?show_form=true';
+		}
+
 		$.ajax({
-			url: '/connexion',
+			url: url,
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
+
+				if (showForm) {
+					dialog.find('.content_container').css('height', '630px');
+				}
+				else {
+					dialog.find('.content_container').css('height', '400px');
+				}
 			}
 		});
 	}
@@ -473,8 +485,11 @@ var SaveProperty = function() {
 			success  : function(response) {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
-						// user is registered; show login form
-						showSafeDialogFor(1);
+						// user is logged in
+						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
+						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
+
+						showSafeDialogFor(0);
 					}
 				}
 				else {// some kind of error, see about it
@@ -490,6 +505,7 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
+				dialog.find('.content_container').css('height', '630px');
 			}
 		});
 	}

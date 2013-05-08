@@ -146,6 +146,8 @@ class Auth extends I18n_site
 			}
 			else
 			{
+				$data['showForm'] = !empty($_GET['show_form']) && $is_ajax ? true : false;
+
 				$data['current_view'] = "auth/login_form";
 				if ($this->input->is_ajax_request()) {
 					$data['is_ajax'] = true;
@@ -249,6 +251,18 @@ class Auth extends I18n_site
                                                     ),
                                                     false
                                                 );
+
+						// now, login the user
+						if ($this->tank_auth->login(
+							$this->form_validation->set_value('email'),
+							$pass,
+							0,
+							($this->config->item('login_by_username', 'tank_auth') AND $this->config->item('use_username', 'tank_auth')),
+							$this->config->item('login_by_email', 'tank_auth')
+						)) {
+							delete_cookie('currency_selected');
+						}
+
                                         }
 
 					$data['site_name'] = $this->config->item('site_name');
