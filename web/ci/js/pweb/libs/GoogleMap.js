@@ -202,6 +202,7 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 
 GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 {
+    this.clearMap();
     this.fillMakersArray();
     
     // draw markers 
@@ -251,18 +252,23 @@ return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
 {
-    if ( window.markers.length < 1 )
-        {
-            window.markers = this.fillMakersArray();
-        }
-//        console.log(window.markers);
+    if (window.markers.length < 1)
+    {
+        window.markers = this.fillMakersArray();
+    }
+
     var that = this;
 
     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker.png',
             new google.maps.Size(28, 28),
             new google.maps.Point(0, 0),
             new google.maps.Point(0, 29));
-            
+
+    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker_selected.png',
+            new google.maps.Size(28, 28),
+            new google.maps.Point(0, 0),
+            new google.maps.Point(0, 29));
+
     if (this.gbounds === null)
     {
         this.gbounds = new google.maps.LatLngBounds();
@@ -295,11 +301,6 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
-            var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker_selected.png',
-                    new google.maps.Size(28, 28),
-                    new google.maps.Point(0, 0),
-                    new google.maps.Point(0, 29));
-
             this.setIcon(image_selected);
             this.setZIndex(100000);
             that.changeHostelBackground(this, "mouseover");
@@ -316,7 +317,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds.extend(window.gmarkers[i].position);
 
     }
-
+    
 };
 GoogleMap.prototype.removeMap = function() //, image, iconshadow)
 {

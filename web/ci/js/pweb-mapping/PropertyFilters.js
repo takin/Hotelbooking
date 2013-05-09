@@ -1066,10 +1066,10 @@ PWebFilterApp.prototype.refresh = function(more_results) {
 PWebFilterApp.prototype.toggleMap = function(map_slug) {
 	this.pweb_maps[map_slug].toggle();
 
-	if(this.pweb_maps[map_slug].isMapEnable() === true)
-	{
-		this.pweb_maps[map_slug].updateMarkers(this.jtable_hits);
-	}
+    //	if(this.pweb_maps[map_slug].isMapEnable() === true)
+    //	{
+    //		this.pweb_maps[map_slug].updateMarkers(this.jtable_hits);
+    //	}
 };
 
 PWebFilterApp.prototype.setup = function(data) 
