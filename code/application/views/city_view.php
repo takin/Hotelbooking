@@ -60,7 +60,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
     </div>
  <?php } ?>
-    <div id="filter_map_rightSide_container">
+    <div id="filter_map_rightSide_container" class="tabs_exist">
         <div id="filter_map_rightSide"></div>
         <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();">Show properties</button>
     </div>
@@ -202,7 +202,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
 
 	<div id="city_search_title_bar">
-		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'),$city_selected);?> - <?php echo $country_selected;?></h1>
+		<h1 class="title_outside"><?php printf( gettext('Liste des logements pas chers à %s'), '<span class="city_selected">' . $city_selected . '</span>');?> - <?php echo '<span class="country_selected">' . $country_selected . '</span>';?></h1>
 		<span id="city_results_counter">
 			<!-- top city result counter-->
 			<div id="resu" class="left_pagi" style="display:none;">
@@ -241,11 +241,11 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                              elseif ( empty($city_districts) ) {
                                   $filterBy_flag = "landmarks";
                                    $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }
-                             if ($filterBy_flag !== "none") {
-                                    ?>
+                             }?>
                     <div id="map_filter_button" class="box_content map_button_box box_round">
-                                <a id="city_map_filter" href="#">
+                         <a id="city_map_filter" href="#">
+                            <?php if ($filterBy_flag !== "none") {
+                                    ?>
                                     <span><strong <?php echo $span_style; ?>>
                                             <?php
                                             switch ($filterBy_flag) {
@@ -262,10 +262,10 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                                     break;
                                             }
                                             ?></strong></span>
+                                    <?php } ?>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
-                            </div>
-                        <?php } ?>
+                         </div>
                     <?php } ?>
 			</div>
 
@@ -412,6 +412,8 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
   $this->load->view('mustache/property_list');
 ?>
 </script>
+
+<?php $this->load->view('includes/save_property'); ?>
 
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">

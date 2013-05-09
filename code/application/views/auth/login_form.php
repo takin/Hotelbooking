@@ -32,6 +32,22 @@ $captcha = array(
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
 );
+
+$register_attributes = array();
+$form_attributes = array(
+	'method' => 'POST'
+);
+
+if ($is_ajax) {
+	$form_attributes = array(
+		'onsubmit' => 'SaveProperty.login(this); return false;'
+	);
+
+	$register_attributes = array(
+		'onclick' => 'SaveProperty.getRegisterForm(); return false;'
+	);
+}
+else {
 ?>
 <div id="sidebar" class="grid_4">
 	<div class="box_content box_round side_entry">
@@ -46,11 +62,12 @@ $captcha = array(
 </div>
 <div id="main" class="grid_12 user-auth">
 	<div class="box_content box_round group">
+<?php } ?>
 		<h1 class="content_title"><?php echo _('Connexion à votre compte');?></h1>
 		<p><?php printf(gettext("Bienvenue dans la section \"%s\". Depuis celui-ci, vous avez accès à vos réservations d'Auberges de Jeunesse, à vos évaluations, à tous les contacts (emails, numéros de téléphone..) et à votre profil d'usager."),"<b>"._("Mon Compte")."</b>");?></p>
 		<p><?php echo _("Votre compte usager vous permet aussi d'effectuer plus rapidement une réservation en utilisant vos informations déjà entrées.");?></p>
 				
-		<?php echo form_open($this->uri->uri_string()); ?>
+		<?php echo form_open($this->uri->uri_string(), $form_attributes); ?>
 		
 		<table>
 				<tr>
@@ -111,8 +128,10 @@ $captcha = array(
 		<input id="login-connect-page" type="submit" value="<?php echo _("Se connecter"); ?>" name="submit">
 		<div class="clearfix" style="margin-top:10px;">
 			<?php echo anchor($this->Db_links->get_link("user_forgot_pass"), _("Mot de passe oublié")); ?> | 
-			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor($this->Db_links->get_link("register"), _("S'enregister")); ?>
+			<?php if ($this->config->item('allow_registration', 'tank_auth')) echo anchor($this->Db_links->get_link("register"), _("S'enregister"), $register_attributes); ?>
 		</div>
 		<?php echo form_close(); ?>
+<?php if (!$is_ajax) { ?>
 	</div>  
 </div>
+<?php } ?>
