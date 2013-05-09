@@ -46,7 +46,7 @@ foreach ($nights as $night) {
 		<textarea cols="30" name="notes" rows="5" class="notes" onkeyup="return SaveProperty.countRemainingChars(this, '#save_fav .characters .num');">{{notes}}</textarea>
 
 		<div class="characters">
-			<span class="singular"><?php echo _('Character left:'); ?></span>
+			<span class="singular"><?php echo _('Characters left:'); ?></span>
 			<span class="plural"><?php echo _('Characters left:'); ?></span>
 			<span class="num">{{characters}}</span>
 		</div>

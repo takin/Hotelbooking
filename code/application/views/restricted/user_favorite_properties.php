@@ -21,7 +21,7 @@
 				<li class="title"><?php echo _("Classer par:");?></li>
 				<li><a class="sorting" id="sortcity-tous" href="#"><span class="asc"><?php echo _("City");?></span></a></li>
 				<li><a class="sorting activesort" id="sortdate-tous" href="#"><span class="asc"><?php echo _("Date");?></span></a></li>
-				<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Name");?></span></a></li>
+				<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Property name");?></span></a></li>
 			</ul>
 		</nav>
 
