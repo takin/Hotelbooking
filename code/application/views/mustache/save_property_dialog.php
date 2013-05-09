@@ -55,12 +55,12 @@ foreach ($nights as $night) {
 	<br />
 	<div class="actions">
 		{{#isUpdate}}
-			<input type="submit" name="submit" value="<?php echo _('Save Note'); ?>" />
+			<input type="submit" name="submit" value="<?php echo _('Save'); ?>" />
 			<a href="#" class="remove" onclick="SavedProperty.remove({{id}}, this); return false;"><?php echo _('Remove from my favorites'); ?></a>
 		{{/isUpdate}}
 
 		{{#isNew}}
-			<input type="submit" name="submit" value="<?php echo _('Save Note'); ?>" />
+			<input type="submit" name="submit" value="<?php echo _('Save'); ?>" />
 		{{/isNew}}
 
 		<a href="#" onclick="$('#save_property_dialog').hide(); return false;"><?php echo _('Cancel'); ?></a>

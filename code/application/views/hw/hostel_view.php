@@ -358,12 +358,12 @@ if ($api_error == false) {
 					<span class="city_selected" style="display: none"><?php echo my_mb_ucfirst($bc_city); ?></span>
 					<span class="country_selected" style="display: none"><?php echo my_mb_ucfirst($bc_country); ?></span>
 
-					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>" title="<?php echo var_check($hostel->property_name, ""); ?>">
+					<a href="#" class="save_to_favorites" id="save_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addToFav; ?>" rel="<?php echo var_check($hostel->property_name, ""); ?>" title="<?php echo _("You can save this property as a favorite in your account so you can easily book it at a later date if you wish."); ?>">
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 						<?php echo _('Add to my favorites'); ?>
 					</a>
 
-					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>">
+					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>" title="<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.'); ?>">
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 						<?php echo _('Saved to my favorites'); ?>
 					</a>

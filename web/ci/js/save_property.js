@@ -310,7 +310,7 @@ var SaveProperty = function() {
 			id             : '',
 			propertyNumber : propertyNumber,
 			imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img, .main-pic .openup:first img.main:first').attr('src'),
-			propertyName   : currentClickedObj.attr('title'),
+			propertyName   : currentClickedObj.attr('rel'),
 			city           : $('.city_selected').html(),
 			country        : $('.country_selected').html(),
 			date           : $('#city_results_arrive_date, #booking-table .top-table p b:first').html(),
@@ -323,6 +323,7 @@ var SaveProperty = function() {
 		});
 
 		$('#save_fav .schedule_details .nights .num').val( parseInt(nights, 10) );
+		dialog.find('.content_container').css('height', '570px');
 	}
 
 	function showSaveDialog(data) {
@@ -365,11 +366,18 @@ var SaveProperty = function() {
 				notes          : form.find('textarea[name="notes"]').val()
 			},
 			dataType: 'json',
-			success: function() {
+			success: function(response) {
 				form.find('.actions').show();
 
 				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
 				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
+
+                                if (response.message) {
+					alert(response.message);
+
+					return;
+                                }
+
 
 				SaveProperty.loadSavedPropertyList();
 

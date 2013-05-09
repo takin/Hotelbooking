@@ -2284,10 +2284,10 @@ class CMain extends I18n_site {
 
       $this->load->library('tank_auth');
       if (!$this->tank_auth->is_logged_in()) {
-          echo json_encode(array(array(
+          echo json_encode(array(
               'field'   => 'propertyNumber',
               'message' => _('Please log in')
-          )));
+          ));
 
           exit();
       }
@@ -2306,6 +2306,17 @@ class CMain extends I18n_site {
 
       $this->load->model('Db_favorite_hostels');
       $this->load->model('Db_links');
+
+      $favHostelsNo = $this->Db_favorite_hostels->countUserSavedProperties($this->tank_auth->get_user_id());
+
+      if ($favHostelsNo > 30) {
+          echo json_encode(array(
+              'field'   => 'propertyNumber',
+              'message' => _('We are sorry but the maximum number of favorite properties you can save to your account is 30')
+          ));
+
+          exit();
+      }
 
       $errors = array();
 
@@ -2354,7 +2365,7 @@ class CMain extends I18n_site {
              );
           }
           else {
-             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0));
+             $favHostelNo = $this->Db_favorite_hostels->countUserPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id());
 
              if (!empty($favHostelNo)) {
                  $errors[] = array(

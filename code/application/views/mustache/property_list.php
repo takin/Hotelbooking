@@ -204,12 +204,12 @@ if ($displayQuickPreview == 1) {
 					<div class="info_indent">
 						<?php if ($this->config->item('displaySaveProperty')) { ?>
 							<p>
-								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{city_name}}" title="{{propertyName}}">
+								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish."'); ?>">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 									<?php echo _('Add to my favorites'); ?>
 								</a>
 
-								<a href="<?php echo site_url('user/favorite_properties'); ?>" target="_blank" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
+								<a href="<?php echo site_url('user/favorite_properties'); ?>" target="_blank" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle" title="<?php echo _("This property has been saved in your 'My account' section. You can now easily book it at a later date if you wish."); ?>">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 									<?php echo _('Saved to my favorites'); ?>
 								</a>
