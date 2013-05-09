@@ -2403,7 +2403,7 @@ class CMain extends I18n_site {
       if (!empty($notes) && mb_strlen($notes) > 75) {
           $errors[] = array(
               'field'   => 'date',
-              'message' => sprintf(_('Notes are exceeding maximum of %d chars'), 75)
+              'message' => sprintf(_('Notes are exceeding maximum of %d characters'), 75)
           );
       }
 
