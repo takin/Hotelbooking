@@ -827,3 +827,13 @@
 <?php echo _('Most popular');?>
 <?php echo _('Enter your dates');?>
 <?php echo _('Information');?>
+<?php echo _('This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available.');?>
+<?php echo _('Existing account');?>
+<?php echo _('Create new account');?>
+<?php echo _('New password');?>
+<?php echo _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.');?>
+<?php echo _('Create account');?>
+<?php echo _('Show room types');?>
+<?php echo _('Hide room types');?>
+<?php echo _('We are sorry but the maximum number of favorite properties you can save to your account is 30');?>
+<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.');?>

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-29 17:09+0300\n"
+"POT-Creation-Date: 2013-05-09 14:26+0300\n"
 "PO-Revision-Date: 2013-04-26 20:43+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
@@ -56,7 +56,7 @@ msgid "Pays d'"
 msgstr "以下国家提供低价旅舍住宿- "
 
 #: ../code/application/views/auth/forgot_password_form.php:17
-#: ../code/application/views/auth/login_form.php:113
+#: ../code/application/views/auth/login_form.php:130
 #: ../code/application/views/mobile/auth/forgot_password_form.php:18
 #: ../code/application/views/mobile/auth/login_form.php:63
 msgid "Mot de passe oublié"
@@ -73,8 +73,8 @@ msgid "Obtenir nouveau mot de passe"
 msgstr "获取新密码"
 
 #: ../code/application/views/auth/forgot_password_form.php:30
-#: ../code/application/views/auth/register_form.php:117
-#: ../code/application/views/auth/login_form.php:111
+#: ../code/application/views/auth/register_form.php:134
+#: ../code/application/views/auth/login_form.php:128
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/includes/header_book.php:146
 #: ../code/application/views/includes/header.php:974
@@ -125,42 +125,42 @@ msgstr "请输入用户密码"
 msgid "Modifier"
 msgstr "变更"
 
-#: ../code/application/views/auth/register_form.php:40
-#: ../code/application/views/auth/login_form.php:38
+#: ../code/application/views/auth/register_form.php:56
+#: ../code/application/views/auth/login_form.php:54
 msgid "Les avantanges d'avoir un compte"
 msgstr "拥有个人帐户的好处"
 
-#: ../code/application/views/auth/register_form.php:42
-#: ../code/application/views/auth/login_form.php:40
+#: ../code/application/views/auth/register_form.php:58
+#: ../code/application/views/auth/login_form.php:56
 msgid "Voir l'historique de vos réservations"
 msgstr "您的预订记录"
 
-#: ../code/application/views/auth/register_form.php:43
-#: ../code/application/views/auth/login_form.php:41
+#: ../code/application/views/auth/register_form.php:59
+#: ../code/application/views/auth/login_form.php:57
 msgid "Évaluer les auberges visitées"
 msgstr "旅馆评价"
 
-#: ../code/application/views/auth/register_form.php:44
-#: ../code/application/views/auth/login_form.php:42
+#: ../code/application/views/auth/register_form.php:60
+#: ../code/application/views/auth/login_form.php:58
 msgid "Plus rapide lors de la réservation"
 msgstr "快捷方便的预订服务"
 
-#: ../code/application/views/auth/register_form.php:45
-#: ../code/application/views/auth/login_form.php:43
+#: ../code/application/views/auth/register_form.php:61
+#: ../code/application/views/auth/login_form.php:59
 msgid "Modifier vos informations personnelles"
 msgstr "编辑个人信息"
 
-#: ../code/application/views/auth/register_form.php:51
+#: ../code/application/views/auth/register_form.php:68
 #: ../code/application/views/mobile/auth/register_form.php:42
 msgid "Vous enregistrer"
 msgstr "注册"
 
-#: ../code/application/views/auth/register_form.php:51
+#: ../code/application/views/auth/register_form.php:68
 #: ../code/application/views/mobile/auth/register_form.php:47
 msgid "Créer votre compte"
 msgstr "创建帐户"
 
-#: ../code/application/views/auth/register_form.php:52
+#: ../code/application/views/auth/register_form.php:69
 #: ../code/application/views/mobile/auth/register_form.php:48
 msgid ""
 "La création d'un compte vous donnera accès à votre historique de "
@@ -170,37 +170,37 @@ msgstr ""
 "创建一个帐户，您可以随时查看预订记录和发表评价。请输入您的电子邮件，我们将向"
 "您发送密码。"
 
-#: ../code/application/views/auth/register_form.php:86
-#: ../code/application/views/auth/login_form.php:74
+#: ../code/application/views/auth/register_form.php:103
+#: ../code/application/views/auth/login_form.php:91
 msgid "Nouveau CAPTCHA"
 msgstr "新的captcha"
 
-#: ../code/application/views/auth/register_form.php:87
-#: ../code/application/views/auth/login_form.php:75
+#: ../code/application/views/auth/register_form.php:104
+#: ../code/application/views/auth/login_form.php:92
 msgid "Audio CAPTCHA"
 msgstr "captcha音频"
 
-#: ../code/application/views/auth/register_form.php:88
-#: ../code/application/views/auth/login_form.php:76
+#: ../code/application/views/auth/register_form.php:105
+#: ../code/application/views/auth/login_form.php:93
 msgid "Image CAPTCHA"
 msgstr "验证码图片"
 
-#: ../code/application/views/auth/register_form.php:93
-#: ../code/application/views/auth/login_form.php:81
+#: ../code/application/views/auth/register_form.php:110
+#: ../code/application/views/auth/login_form.php:98
 msgid "Entrer le mot ci-dessus"
 msgstr "输入上面的单词"
 
-#: ../code/application/views/auth/register_form.php:94
-#: ../code/application/views/auth/login_form.php:82
+#: ../code/application/views/auth/register_form.php:111
+#: ../code/application/views/auth/login_form.php:99
 msgid "Entrer les numéros entendus"
 msgstr "输入听到的数字"
 
-#: ../code/application/views/auth/register_form.php:103
-#: ../code/application/views/auth/login_form.php:91
+#: ../code/application/views/auth/register_form.php:120
+#: ../code/application/views/auth/login_form.php:108
 msgid "Entrer le code exactement comme il apparaît:"
 msgstr "输入听到代码："
 
-#: ../code/application/views/auth/register_form.php:115
+#: ../code/application/views/auth/register_form.php:132
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/includes/header_book.php:149
 #: ../code/application/views/includes/header.php:978
@@ -208,12 +208,12 @@ msgstr "输入听到代码："
 msgid "S'enregistrer"
 msgstr "注册"
 
-#: ../code/application/views/auth/login_form.php:49
+#: ../code/application/views/auth/login_form.php:66
 #: ../code/application/views/mobile/auth/login_form.php:37
 msgid "Connexion à votre compte"
 msgstr "登录到您的帐户"
 
-#: ../code/application/views/auth/login_form.php:50
+#: ../code/application/views/auth/login_form.php:67
 #, php-format
 msgid ""
 "Bienvenue dans la section \"%s\". Depuis celui-ci, vous avez accès à vos "
@@ -223,12 +223,12 @@ msgstr ""
 "欢迎访问“%s”。您可以从该处预订青年旅馆，发表评价，获取个人帐户资料，更新联系"
 "方式，如电子邮件和电话号码。"
 
-#: ../code/application/views/auth/login_form.php:50
+#: ../code/application/views/auth/login_form.php:67
 #: ../code/application/views/includes/navuser.php:4
 msgid "Mon Compte"
 msgstr "我的帐户"
 
-#: ../code/application/views/auth/login_form.php:51
+#: ../code/application/views/auth/login_form.php:68
 msgid ""
 "Votre compte usager vous permet aussi d'effectuer plus rapidement une "
 "réservation en utilisant vos informations déjà entrées."
@@ -236,7 +236,7 @@ msgstr ""
 "经您许可的任一帐户使用者，在正确输入您的注册信息之后，同样能快速完成床位预"
 "订。"
 
-#: ../code/application/views/auth/login_form.php:114
+#: ../code/application/views/auth/login_form.php:131
 msgid "S'enregister"
 msgstr "注册"
 
@@ -385,7 +385,7 @@ msgstr "整体得分"
 
 #: ../code/application/views/compare_property.php:201
 #: ../code/application/views/property_detail.php:558
-#: ../code/application/views/hb/hostel_view.php:65
+#: ../code/application/views/hb/hostel_view.php:68
 #: ../code/application/views/helpfile/pofields.php:638
 #: ../code/application/views/helpfile/pofields.php~:638
 #, php-format
@@ -394,7 +394,7 @@ msgstr "气氛"
 
 #: ../code/application/views/compare_property.php:206
 #: ../code/application/views/property_detail.php:561
-#: ../code/application/views/hb/hostel_view.php:68
+#: ../code/application/views/hb/hostel_view.php:71
 #: ../code/application/views/helpfile/pofields.php:639
 #: ../code/application/views/helpfile/pofields.php~:639
 #, php-format
@@ -410,7 +410,7 @@ msgstr "场地"
 
 #: ../code/application/views/compare_property.php:216
 #: ../code/application/views/property_detail.php:567
-#: ../code/application/views/hb/hostel_view.php:74
+#: ../code/application/views/hb/hostel_view.php:77
 #: ../code/application/views/helpfile/pofields.php:641
 #: ../code/application/views/helpfile/pofields.php~:641
 #, php-format
@@ -426,20 +426,20 @@ msgstr "服务"
 
 #: ../code/application/views/compare_property.php:226
 #: ../code/application/views/property_detail.php:573
-#: ../code/application/views/hb/hostel_view.php:80
-#: ../code/application/views/hb/hostel_view.php:443
+#: ../code/application/views/hb/hostel_view.php:83
+#: ../code/application/views/hb/hostel_view.php:463
 #: ../code/application/views/hb/property_list.php:104
 #: ../code/application/views/helpfile/pofields.php:643
 #: ../code/application/views/helpfile/pofields.php~:643
 #: ../code/application/views/mustache/property_list.php:200
-#: ../code/application/views/mustache/property_list.php:298
+#: ../code/application/views/mustache/property_list.php:313
 #, php-format
 msgid "Safety"
 msgstr "安全"
 
 #: ../code/application/views/compare_property.php:231
 #: ../code/application/views/property_detail.php:576
-#: ../code/application/views/hb/hostel_view.php:83
+#: ../code/application/views/hb/hostel_view.php:86
 #: ../code/application/views/helpfile/pofields.php:644
 #: ../code/application/views/helpfile/pofields.php~:644
 #, php-format
@@ -450,7 +450,7 @@ msgstr "价值"
 #: ../code/application/views/property_detail.php:570
 #: ../code/application/views/city_view.php:126
 #: ../code/application/views/city_view.php:333
-#: ../code/application/views/hb/hostel_view.php:77
+#: ../code/application/views/hb/hostel_view.php:80
 #: ../code/application/views/helpfile/pofields.php:448
 #: ../code/application/views/helpfile/pofields.php:657
 #: ../code/application/views/helpfile/pofields.php~:448
@@ -513,6 +513,7 @@ msgid "Tous"
 msgstr "所有"
 
 #: ../code/application/views/search_results.php:66
+#: ../code/application/views/restricted/user_favorite_properties.php:22
 #: ../code/application/views/restricted/user_group_quote.php:82
 #: ../code/application/views/email/admin/new_group_request.php:22
 #: ../code/application/views/search_suggest.php:17
@@ -580,6 +581,7 @@ msgstr "以后"
 #: ../code/application/views/search_results.php:120
 #: ../code/application/views/search_results.php:146
 #: ../code/application/views/search_results.php:171
+#: ../code/application/views/restricted/user_favorite_properties.php:21
 #: ../code/application/views/city_view.php:304
 #: ../code/application/views/city_ajax_view.php:348
 #: ../code/application/views/city_ajax_view.php:448
@@ -867,9 +869,9 @@ msgstr "载入中..."
 #: ../code/application/views/includes/header.php:876
 #: ../code/application/views/mobile/hw/booking_view.php:34
 #: ../code/application/views/restricted/admin/group_quote.php:59
-#: ../code/application/views/hw/hostel_view.php:156
+#: ../code/application/views/hw/hostel_view.php:159
 #: ../code/application/views/hw/booking_view.php:495
-#: ../code/application/views/hb/hostel_view.php:210
+#: ../code/application/views/hb/hostel_view.php:213
 #: ../code/application/views/hb/booking_view.php:334
 #: ../code/application/views/group_request.php:75
 #: ../code/application/views/group_request.php:80
@@ -937,10 +939,10 @@ msgstr "城市未找到"
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/hw/hostel_view.php:510
-#: ../code/application/views/hw/hostel_view.php:549
-#: ../code/application/views/hb/hostel_view.php:591
-#: ../code/application/views/hb/hostel_view.php:630
+#: ../code/application/views/hw/hostel_view.php:532
+#: ../code/application/views/hw/hostel_view.php:571
+#: ../code/application/views/hb/hostel_view.php:611
+#: ../code/application/views/hb/hostel_view.php:650
 #: ../code/application/views/mustache/property_list.php:20
 msgid "Date invalide"
 msgstr "输入日期无效"
@@ -981,8 +983,8 @@ msgstr "输入旅舍名或城市名"
 #: ../code/application/views/mobile/hw/booking_end_view.php:31
 #: ../code/application/views/mobile/hw/booking_avail_view.php:87
 #: ../code/application/views/mobile/search_view.php:16
-#: ../code/application/views/hw/hostel_view.php:522
-#: ../code/application/views/hb/hostel_view.php:604
+#: ../code/application/views/hw/hostel_view.php:544
+#: ../code/application/views/hb/hostel_view.php:624
 #: ../code/application/views/group_request.php:97
 msgid "Arrivée le:"
 msgstr "到达日期："
@@ -996,8 +998,8 @@ msgstr "到达日期："
 #: ../code/application/views/mobile/hw/booking_end_view.php:32
 #: ../code/application/views/mobile/hw/booking_avail_view.php:94
 #: ../code/application/views/mobile/search_view.php:25
-#: ../code/application/views/hw/hostel_view.php:532
-#: ../code/application/views/hb/hostel_view.php:614
+#: ../code/application/views/hw/hostel_view.php:554
+#: ../code/application/views/hb/hostel_view.php:634
 #: ../code/application/views/email/admin/new_group_request.php:24
 #: ../code/application/views/group_request.php:106
 msgid "Nuits:"
@@ -1010,8 +1012,8 @@ msgstr "住宿天数:"
 #: ../code/application/views/includes/search_box.php:164
 #: ../code/application/views/includes/city_search_box.php:151
 #: ../code/application/views/mobile/hw/booking_avail_view.php:100
-#: ../code/application/views/hw/hostel_view.php:536
-#: ../code/application/views/hb/hostel_view.php:618
+#: ../code/application/views/hw/hostel_view.php:558
+#: ../code/application/views/hb/hostel_view.php:638
 msgid "Devise:"
 msgstr "货币："
 
@@ -1024,14 +1026,23 @@ msgid "Mes réservations"
 msgstr "我的预订记录"
 
 #: ../code/application/views/includes/navuser.php:6
+#: ../code/application/views/includes/navuser.php:7
+#: ../code/application/views/restricted/user_favorite_properties.php:17
+#: ../code/application/views/helpfile/pofields.php:810
+#: ../code/application/views/helpfile/pofields.php~:810
+#, php-format
+msgid "My favorite properties"
+msgstr "我喜欢的住处"
+
+#: ../code/application/views/includes/navuser.php:8
 msgid "Mes évaluations"
 msgstr "我的评价"
 
-#: ../code/application/views/includes/navuser.php:7
+#: ../code/application/views/includes/navuser.php:9
 msgid "Mon profil"
 msgstr "我的个人资料"
 
-#: ../code/application/views/includes/navuser.php:8
+#: ../code/application/views/includes/navuser.php:10
 #: ../code/application/views/mobile/user/user_profile.php:56
 msgid "Changer de mot de passe"
 msgstr "更改密码"
@@ -1067,6 +1078,8 @@ msgid "Navigation"
 msgstr "导航"
 
 #: ../code/application/views/includes/footer.php:84
+#: ../code/application/views/hw/hostel_view.php:425
+#: ../code/application/views/hb/hostel_view.php:504
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
 msgid "Information"
@@ -1276,8 +1289,8 @@ msgstr "再发送一个信息"
 
 #: ../code/application/views/includes/template-share-email-popup.php:38
 #: ../code/application/views/includes/template-share-email-popup.php:86
-#: ../code/application/views/hw/hostel_view.php:326
-#: ../code/application/views/hb/hostel_view.php:395
+#: ../code/application/views/hw/hostel_view.php:329
+#: ../code/application/views/hb/hostel_view.php:398
 #: ../code/application/views/helpfile/pofields.php:173
 #: ../code/application/views/helpfile/pofields.php:674
 #: ../code/application/views/helpfile/pofields.php:683
@@ -1393,9 +1406,9 @@ msgstr "谷歌地图搜索无效"
 #: ../code/application/views/includes/header.php:510
 #: ../code/application/views/property_detail.php:536
 #: ../code/application/views/property_detail.php:639
-#: ../code/application/views/hw/hostel_view.php:427
-#: ../code/application/views/hb/hostel_view.php:40
-#: ../code/application/views/hb/hostel_view.php:508
+#: ../code/application/views/hw/hostel_view.php:449
+#: ../code/application/views/hb/hostel_view.php:43
+#: ../code/application/views/hb/hostel_view.php:528
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
 #: ../code/application/views/mustache/property_list.php:54
@@ -1411,7 +1424,7 @@ msgstr "评级"
 #: ../code/application/views/hb/property_list.php:122
 #: ../code/application/views/city_ajax_view.php:72
 #: ../code/application/views/city_ajax_view.php:118
-#: ../code/application/views/mustache/property_list.php:234
+#: ../code/application/views/mustache/property_list.php:249
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 msgid "à partir de"
 msgstr " "
@@ -1519,6 +1532,11 @@ msgstr "团队预订"
 msgid "Réservation de groupes"
 msgstr "团体预订"
 
+#: ../code/application/views/includes/save_property.php:13
+#, fuzzy
+msgid "Save this property as favorite"
+msgstr "保存这个住处为喜欢的住处"
+
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
 #: ../code/application/views/helpfile/pofields.php~:246
@@ -1554,7 +1572,7 @@ msgstr "更新您的个人档案"
 #: ../code/application/views/group_request.php:219
 #: ../code/application/controllers/user.php:77
 #: ../code/application/controllers/cmain.php:443
-#: ../code/application/controllers/cmain.php:1693
+#: ../code/application/controllers/cmain.php:1734
 msgid "Prénom"
 msgstr "名"
 
@@ -1567,7 +1585,7 @@ msgstr "名"
 #: ../code/application/views/group_request.php:227
 #: ../code/application/controllers/user.php:78
 #: ../code/application/controllers/cmain.php:444
-#: ../code/application/controllers/cmain.php:1694
+#: ../code/application/controllers/cmain.php:1735
 msgid "Nom"
 msgstr "姓"
 
@@ -1576,7 +1594,7 @@ msgstr "姓"
 #: ../code/application/views/hw/booking_view.php:494
 #: ../code/application/views/hb/booking_view.php:332
 #: ../code/application/controllers/user.php:79
-#: ../code/application/controllers/cmain.php:1696
+#: ../code/application/controllers/cmain.php:1737
 msgid "Nationalité"
 msgstr "国籍"
 
@@ -1682,10 +1700,10 @@ msgstr "夜"
 #: ../code/application/views/hw/booking_end_view.php:56
 #: ../code/application/views/hw/booking_end_view.php:114
 #: ../code/application/views/hw/booking_end_view.php:160
-#: ../code/application/views/hw/booking_avail_view.php:764
-#: ../code/application/views/hw/booking_avail_view.php:930
-#: ../code/application/views/hw/booking_avail_view.php:947
-#: ../code/application/views/hw/booking_avail_view.php:960
+#: ../code/application/views/hw/booking_avail_view.php:773
+#: ../code/application/views/hw/booking_avail_view.php:939
+#: ../code/application/views/hw/booking_avail_view.php:956
+#: ../code/application/views/hw/booking_avail_view.php:969
 #: ../code/application/views/hw/booking_view.php:172
 #: ../code/application/views/hw/booking_view.php:240
 #: ../code/application/views/hw/booking_view.php:293
@@ -1715,7 +1733,7 @@ msgstr "入住人数"
 #: ../code/application/views/mobile/user/user_bookings.php:54
 #: ../code/application/views/mobile/hw/booking_end_view.php:189
 #: ../code/application/views/hw/booking_end_view.php:211
-#: ../code/application/views/hw/booking_avail_view.php:1017
+#: ../code/application/views/hw/booking_avail_view.php:1026
 #: ../code/application/views/hb/booking_end_view.php:152
 #: ../code/application/views/hb/booking_avail_view.php:921
 #: ../code/application/views/email/new_transaction.php:965
@@ -1789,7 +1807,7 @@ msgstr "返回页面顶端"
 #: ../code/application/views/mobile/hw/hostel_view.php:29
 #: ../code/application/views/mobile/hw/hostel_view.php:266
 #: ../code/application/views/mobile/hw/booking_view.php:7
-#: ../code/application/views/hw/booking_avail_view.php:803
+#: ../code/application/views/hw/booking_avail_view.php:812
 #: ../code/application/views/hb/booking_avail_view.php:767
 msgid "Réserver Maintenant"
 msgstr "立即预订"
@@ -1805,7 +1823,7 @@ msgstr "Hostel info"
 #: ../code/application/views/helpfile/pofields.php:268
 #: ../code/application/views/helpfile/pofields.php~:268
 #: ../code/application/views/mustache/property_list.php:15
-#: ../code/application/views/mustache/property_list.php:277
+#: ../code/application/views/mustache/property_list.php:292
 #, php-format
 msgid "Pictures"
 msgstr "图片"
@@ -1819,17 +1837,17 @@ msgstr "关于"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:114
 #: ../code/application/views/property_detail.php:114
-#: ../code/application/views/hw/hostel_view.php:574
-#: ../code/application/views/hb/hostel_view.php:661
-#: ../code/application/views/mustache/property_list.php:208
+#: ../code/application/views/hw/hostel_view.php:596
+#: ../code/application/views/hb/hostel_view.php:681
+#: ../code/application/views/mustache/property_list.php:223
 msgid "Commodité"
 msgstr "服务内容 "
 
 #: ../code/application/views/mobile/hw/hostel_view.php:159
-#: ../code/application/views/hw/hostel_view.php:411
+#: ../code/application/views/hw/hostel_view.php:433
 #: ../code/application/views/hw/reviews.php:44
-#: ../code/application/views/hb/hostel_view.php:492
-#: ../code/application/controllers/cmain.php:1697
+#: ../code/application/views/hb/hostel_view.php:512
+#: ../code/application/controllers/cmain.php:1738
 msgid "Commentaires"
 msgstr "评价"
 
@@ -1850,8 +1868,8 @@ msgid "Par %s | Le %s"
 msgstr "被%s |%s的"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:219
-#: ../code/application/views/hw/hostel_view.php:410
-#: ../code/application/views/hb/hostel_view.php:491
+#: ../code/application/views/hw/hostel_view.php:432
+#: ../code/application/views/hb/hostel_view.php:511
 #: ../code/application/views/mustache/property_list.php:28
 msgid "Cartes et Directions"
 msgstr "地理位置"
@@ -1859,10 +1877,10 @@ msgstr "地理位置"
 #: ../code/application/views/mobile/hw/hostel_view.php:244
 #: ../code/application/views/property_detail.php:496
 #: ../code/application/views/property_detail.php:510
-#: ../code/application/views/hw/hostel_view.php:641
+#: ../code/application/views/hw/hostel_view.php:663
 #: ../code/application/views/hw/booking_end_view.php:19
-#: ../code/application/views/hw/booking_avail_view.php:1034
-#: ../code/application/views/hb/hostel_view.php:842
+#: ../code/application/views/hw/booking_avail_view.php:1043
+#: ../code/application/views/hb/hostel_view.php:862
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_avail_view.php:938
 #: ../code/application/views/hb/booking_view.php:829
@@ -1935,8 +1953,8 @@ msgstr "房间类别和旅客人数"
 #: ../code/application/views/property_detail.php:233
 #: ../code/application/views/property_detail.php:235
 #: ../code/application/views/hw/booking_end_view.php:53
-#: ../code/application/views/hw/booking_avail_view.php:641
-#: ../code/application/views/hw/booking_avail_view.php:925
+#: ../code/application/views/hw/booking_avail_view.php:650
+#: ../code/application/views/hw/booking_avail_view.php:934
 #: ../code/application/views/hw/booking_view.php:159
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/hb/booking_avail_view.php:829
@@ -1956,7 +1974,7 @@ msgstr "价位/每人（多人共用一个单间）"
 #: ../code/application/views/property_detail.php:355
 #: ../code/application/views/property_detail.php:357
 #: ../code/application/views/hw/booking_end_view.php:111
-#: ../code/application/views/hw/booking_avail_view.php:942
+#: ../code/application/views/hw/booking_avail_view.php:951
 #: ../code/application/views/hw/booking_view.php:228
 #: ../code/application/views/hb/booking_avail_view.php:846
 #: ../code/application/views/email/new_transaction.php:405
@@ -1982,7 +2000,7 @@ msgstr "入住当日结清剩余房费。"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:156
 #: ../code/application/views/hw/booking_end_view.php:190
-#: ../code/application/views/hw/booking_avail_view.php:995
+#: ../code/application/views/hw/booking_avail_view.php:1004
 #: ../code/application/views/hb/booking_end_view.php:126
 #: ../code/application/views/hb/booking_avail_view.php:899
 #: ../code/application/views/email/new_transaction.php:901
@@ -1995,7 +2013,7 @@ msgstr "物业信息"
 #: ../code/application/views/restricted/user_ratings.php:55
 #: ../code/application/views/hw/booking_end_view.php:33
 #: ../code/application/views/hw/booking_end_view.php:192
-#: ../code/application/views/hw/booking_avail_view.php:999
+#: ../code/application/views/hw/booking_avail_view.php:1008
 #: ../code/application/views/hw/booking_view.php:132
 #: ../code/application/views/hb/booking_end_view.php:23
 #: ../code/application/views/hb/booking_end_view.php:129
@@ -2007,10 +2025,10 @@ msgid "Nom de l'établissement"
 msgstr "物业名称"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:162
-#: ../code/application/views/hw/hostel_view.php:667
+#: ../code/application/views/hw/hostel_view.php:689
 #: ../code/application/views/hw/booking_end_view.php:196
-#: ../code/application/views/hw/booking_avail_view.php:1011
-#: ../code/application/views/hb/hostel_view.php:870
+#: ../code/application/views/hw/booking_avail_view.php:1020
+#: ../code/application/views/hb/hostel_view.php:890
 #: ../code/application/views/hb/booking_end_view.php:133
 #: ../code/application/views/hb/booking_avail_view.php:915
 #: ../code/application/views/email/new_transaction.php:947
@@ -2030,10 +2048,10 @@ msgid "Fax"
 msgstr "传真"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:194
-#: ../code/application/views/hw/hostel_view.php:737
+#: ../code/application/views/hw/hostel_view.php:758
 #: ../code/application/views/hw/booking_end_view.php:218
-#: ../code/application/views/hw/booking_avail_view.php:1027
-#: ../code/application/views/hb/hostel_view.php:953
+#: ../code/application/views/hw/booking_avail_view.php:1036
+#: ../code/application/views/hb/hostel_view.php:973
 #: ../code/application/views/hb/booking_end_view.php:159
 #: ../code/application/views/hb/booking_avail_view.php:931
 #: ../code/application/views/email/new_transaction.php:1006
@@ -2240,34 +2258,34 @@ msgstr "还原"
 #: ../code/application/views/hw/booking_avail_view.php:10
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:9
-#: ../code/application/views/mustache/property_list.php:285
+#: ../code/application/views/mustache/property_list.php:300
 msgid "Disponibilités"
 msgstr "可用性"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:12
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/mobile/hw/booking_avail_view.php:33
-#: ../code/application/views/hw/hostel_view.php:55
-#: ../code/application/views/hb/hostel_view.php:128
+#: ../code/application/views/hw/hostel_view.php:58
+#: ../code/application/views/hb/hostel_view.php:131
 msgid "Erreur:"
 msgstr "错误："
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:13
-#: ../code/application/views/hw/booking_avail_view.php:819
+#: ../code/application/views/hw/booking_avail_view.php:828
 msgid "No rooms are available for all the nights you selected."
 msgstr "抱歉，没有空床位提供。"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
-#: ../code/application/views/hw/booking_avail_view.php:833
+#: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1283
+#: ../code/application/libraries/Hb_engine.php:1285
 msgid "Serveur inaccessible en ce moment."
 msgstr "服务器关闭。"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:47
-#: ../code/application/views/hw/hostel_view.php:65
-#: ../code/application/views/hw/booking_avail_view.php:854
-#: ../code/application/views/hb/hostel_view.php:138
+#: ../code/application/views/hw/hostel_view.php:68
+#: ../code/application/views/hw/booking_avail_view.php:863
+#: ../code/application/views/hb/hostel_view.php:141
 #: ../code/application/views/hb/booking_avail_error_view.php:19
 msgid "Détails:"
 msgstr "详细说明："
@@ -2285,12 +2303,12 @@ msgstr "详细说明："
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:139
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:746
-#: ../code/application/views/hw/booking_avail_view.php:896
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:755
+#: ../code/application/views/hw/booking_avail_view.php:905
 #: ../code/application/views/hw/booking_view.php:133
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:17
@@ -2318,12 +2336,12 @@ msgstr "抵达"
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:139
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:746
-#: ../code/application/views/hw/booking_avail_view.php:896
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:755
+#: ../code/application/views/hw/booking_avail_view.php:905
 #: ../code/application/views/hw/booking_view.php:133
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:17
@@ -2346,18 +2364,19 @@ msgstr "预订天数"
 #: ../code/application/views/hb/booking_avail_view.php:18
 #: ../code/application/views/helpfile/pofields.php:264
 #: ../code/application/views/helpfile/pofields.php~:264
+#: ../code/application/views/mustache/save_property_dialog.php:27
 #, php-format
 msgid "Change Dates"
 msgstr "更改日期"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:117
-#: ../code/application/views/hw/hostel_view.php:209
-#: ../code/application/views/hb/hostel_view.php:263
+#: ../code/application/views/hw/hostel_view.php:212
+#: ../code/application/views/hb/hostel_view.php:266
 msgid "Soumettre"
 msgstr "提交"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:248
-#: ../code/application/views/hw/booking_avail_view.php:826
+#: ../code/application/views/hw/booking_avail_view.php:835
 #: ../code/application/views/hb/booking_avail_view.php:952
 msgid "Please enter at least one choice in the above table to book a room."
 msgstr "请在上述空格中至少选择一项完成空房预订。"
@@ -2371,7 +2390,7 @@ msgstr "马上预订"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:260
 #: ../code/application/views/mobile/hw/booking_confirm.php:334
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hw/booking_view.php:164
 #: ../code/application/views/hw/booking_view.php:233
@@ -2504,8 +2523,8 @@ msgid "Nom:"
 msgstr "姓："
 
 #: ../code/application/views/mobile/hw/booking_view.php:33
-#: ../code/application/views/hw/hostel_view.php:155
-#: ../code/application/views/hb/hostel_view.php:209
+#: ../code/application/views/hw/hostel_view.php:158
+#: ../code/application/views/hb/hostel_view.php:212
 #: ../code/application/controllers/cmain.php:445
 msgid "Nationalité :"
 msgstr "国籍："
@@ -2654,11 +2673,11 @@ msgstr "点击以下“确认”按纽，表示您接受支付条款及不可退
 #: ../code/application/views/mobile/hw/booking_view.php:421
 #: ../code/application/views/mobile/hw/booking_view.php:422
 #: ../code/application/views/mobile/hw/booking_view.php:425
-#: ../code/application/views/hw/hostel_view.php:124
-#: ../code/application/views/hw/hostel_view.php:135
-#: ../code/application/views/hw/hostel_view.php:149
-#: ../code/application/views/hw/hostel_view.php:161
-#: ../code/application/views/hw/hostel_view.php:192
+#: ../code/application/views/hw/hostel_view.php:127
+#: ../code/application/views/hw/hostel_view.php:138
+#: ../code/application/views/hw/hostel_view.php:152
+#: ../code/application/views/hw/hostel_view.php:164
+#: ../code/application/views/hw/hostel_view.php:195
 #: ../code/application/views/hw/booking_view.php:479
 #: ../code/application/views/hw/booking_view.php:487
 #: ../code/application/views/hw/booking_view.php:499
@@ -2672,11 +2691,11 @@ msgstr "点击以下“确认”按纽，表示您接受支付条款及不可退
 #: ../code/application/views/hw/booking_view.php:878
 #: ../code/application/views/hw/booking_view.php:879
 #: ../code/application/views/hw/booking_view.php:890
-#: ../code/application/views/hb/hostel_view.php:178
-#: ../code/application/views/hb/hostel_view.php:189
-#: ../code/application/views/hb/hostel_view.php:203
-#: ../code/application/views/hb/hostel_view.php:215
-#: ../code/application/views/hb/hostel_view.php:246
+#: ../code/application/views/hb/hostel_view.php:181
+#: ../code/application/views/hb/hostel_view.php:192
+#: ../code/application/views/hb/hostel_view.php:206
+#: ../code/application/views/hb/hostel_view.php:218
+#: ../code/application/views/hb/hostel_view.php:249
 #: ../code/application/views/hb/booking_view.php:317
 #: ../code/application/views/hb/booking_view.php:325
 #: ../code/application/views/hb/booking_view.php:341
@@ -2713,10 +2732,10 @@ msgstr "必填字段"
 
 #: ../code/application/views/mobile/hw/booking_view.php:396
 #: ../code/application/views/mobile/hw/booking_view.php:400
-#: ../code/application/views/hw/hostel_view.php:148
+#: ../code/application/views/hw/hostel_view.php:151
 #: ../code/application/views/hw/booking_view.php:520
 #: ../code/application/views/hw/booking_view.php:529
-#: ../code/application/views/hb/hostel_view.php:202
+#: ../code/application/views/hb/hostel_view.php:205
 #: ../code/application/views/hb/booking_view.php:404
 #: ../code/application/views/hb/booking_view.php:413
 #: ../code/application/views/group_request.php:242
@@ -2756,7 +2775,8 @@ msgstr "已被旅客分级！"
 #: ../code/application/views/mobile/property_list.php:40
 #: ../code/application/views/property_detail.php:479
 #: ../code/application/views/property_detail.php:487
-#: ../code/application/views/mustache/property_list.php:335
+#: ../code/application/views/mustache/saved_property_item.php:20
+#: ../code/application/views/mustache/property_list.php:350
 msgid "Réserver"
 msgstr "预订"
 
@@ -2792,8 +2812,10 @@ msgstr "谢谢！"
 #: ../code/application/views/property_rooms_avail.php:264
 #: ../code/application/views/property_rooms_avail.php:464
 #: ../code/application/views/hw/booking_avail_view.php:4
-#: ../code/application/views/hw/booking_avail_view.php:340
-#: ../code/application/views/hw/booking_avail_view.php:603
+#: ../code/application/views/hw/booking_avail_view.php:342
+#: ../code/application/views/hw/booking_avail_view.php:345
+#: ../code/application/views/hw/booking_avail_view.php:609
+#: ../code/application/views/hw/booking_avail_view.php:612
 #: ../code/application/views/helpfile/pofields.php:764
 #: ../code/application/views/helpfile/pofields.php~:764
 #, php-format
@@ -2821,7 +2843,7 @@ msgstr ""
 "显示的房间是在您停留期间完全和部分空闲的，您可以通过筛选显示完全空闲的房间。"
 
 #: ../code/application/views/property_rooms_avail.php:107
-#: ../code/application/views/hw/booking_avail_view.php:641
+#: ../code/application/views/hw/booking_avail_view.php:650
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/helpfile/pofields.php:697
 #: ../code/application/views/helpfile/pofields.php~:697
@@ -2831,7 +2853,7 @@ msgstr "宿舍类型"
 
 #: ../code/application/views/property_rooms_avail.php:107
 #: ../code/application/views/property_detail.php:236
-#: ../code/application/views/hw/booking_avail_view.php:641
+#: ../code/application/views/hw/booking_avail_view.php:650
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/helpfile/pofields.php:167
 #: ../code/application/views/helpfile/pofields.php~:167
@@ -2843,7 +2865,7 @@ msgstr ""
 "<BR />套房 = 宿舍内有浴室<BR />共享浴室 = 浴室不在宿舍"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:698
 #: ../code/application/views/helpfile/pofields.php~:698
@@ -2852,7 +2874,7 @@ msgid "Dorms for your group only"
 msgstr "只用于你们团队的宿舍"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:699
 #: ../code/application/views/helpfile/pofields.php~:699
@@ -2861,7 +2883,7 @@ msgid "Complete dorm only"
 msgstr "只能整个宿舍"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:700
 #: ../code/application/views/helpfile/pofields.php~:700
@@ -2876,8 +2898,8 @@ msgstr ""
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:701
@@ -2888,8 +2910,8 @@ msgstr "每夜每人平均"
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:702
@@ -2900,8 +2922,8 @@ msgstr "平均价格 "
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:703
@@ -2920,9 +2942,9 @@ msgstr ""
 #: ../code/application/views/city_view.php:83
 #: ../code/application/views/city_view.php:321
 #: ../code/application/views/hw/booking_avail_view.php:271
-#: ../code/application/views/hw/booking_avail_view.php:661
-#: ../code/application/views/hw/booking_avail_view.php:715
-#: ../code/application/views/hw/booking_avail_view.php:751
+#: ../code/application/views/hw/booking_avail_view.php:670
+#: ../code/application/views/hw/booking_avail_view.php:724
+#: ../code/application/views/hw/booking_avail_view.php:760
 #: ../code/application/views/hb/booking_avail_view.php:273
 #: ../code/application/views/hb/booking_avail_view.php:635
 #: ../code/application/views/hb/booking_avail_view.php:687
@@ -2933,8 +2955,8 @@ msgstr "价格"
 
 #: ../code/application/views/property_rooms_avail.php:128
 #: ../code/application/views/property_rooms_avail.php:332
-#: ../code/application/views/hw/booking_avail_view.php:663
-#: ../code/application/views/hw/booking_avail_view.php:717
+#: ../code/application/views/hw/booking_avail_view.php:672
+#: ../code/application/views/hw/booking_avail_view.php:726
 #: ../code/application/views/hb/booking_avail_view.php:637
 #: ../code/application/views/hb/booking_avail_view.php:689
 #: ../code/application/views/helpfile/pofields.php:705
@@ -2948,8 +2970,8 @@ msgstr "最多"
 #: ../code/application/views/property_rooms_avail.php:292
 #: ../code/application/views/property_detail.php:346
 #: ../code/application/views/hw/booking_avail_view.php:144
-#: ../code/application/views/hw/booking_avail_view.php:351
-#: ../code/application/views/hw/booking_avail_view.php:677
+#: ../code/application/views/hw/booking_avail_view.php:356
+#: ../code/application/views/hw/booking_avail_view.php:686
 #: ../code/application/views/hb/booking_avail_view.php:339
 #: ../code/application/views/hb/booking_avail_view.php:650
 msgid "No dorms available"
@@ -2961,8 +2983,8 @@ msgstr "该卡不被接受,请换另一张卡。"
 #: ../code/application/views/property_rooms_avail.php:427
 #: ../code/application/views/hw/booking_avail_view.php:173
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:445
-#: ../code/application/views/hw/booking_avail_view.php:448
+#: ../code/application/views/hw/booking_avail_view.php:450
+#: ../code/application/views/hw/booking_avail_view.php:453
 #: ../code/application/views/hb/booking_avail_view.php:160
 #: ../code/application/views/hb/booking_avail_view.php:163
 #: ../code/application/views/hb/booking_avail_view.php:434
@@ -2979,8 +3001,8 @@ msgstr "最便宜的夜晚："
 #: ../code/application/views/property_rooms_avail.php:398
 #: ../code/application/views/hw/booking_avail_view.php:186
 #: ../code/application/views/hw/booking_avail_view.php:188
-#: ../code/application/views/hw/booking_avail_view.php:462
-#: ../code/application/views/hw/booking_avail_view.php:464
+#: ../code/application/views/hw/booking_avail_view.php:467
+#: ../code/application/views/hw/booking_avail_view.php:469
 #: ../code/application/views/hw/booking_view.php:165
 #: ../code/application/views/hb/booking_avail_view.php:169
 #: ../code/application/views/hb/booking_avail_view.php:171
@@ -3050,8 +3072,8 @@ msgstr "%d个宿舍全都空着还有1个宿舍部分已有客人（床位已经
 #: ../code/application/views/property_detail.php:390
 #: ../code/application/views/hw/booking_avail_view.php:198
 #: ../code/application/views/hw/booking_avail_view.php:199
-#: ../code/application/views/hw/booking_avail_view.php:473
-#: ../code/application/views/hw/booking_avail_view.php:474
+#: ../code/application/views/hw/booking_avail_view.php:478
+#: ../code/application/views/hw/booking_avail_view.php:479
 #: ../code/application/views/hb/booking_avail_view.php:213
 #: ../code/application/views/hb/booking_avail_view.php:214
 #: ../code/application/views/hb/booking_avail_view.php:478
@@ -3069,8 +3091,8 @@ msgstr "初始版本："
 #: ../code/application/views/hw/booking_end_view.php:136
 #: ../code/application/views/hw/booking_avail_view.php:207
 #: ../code/application/views/hw/booking_avail_view.php:210
-#: ../code/application/views/hw/booking_avail_view.php:482
-#: ../code/application/views/hw/booking_avail_view.php:485
+#: ../code/application/views/hw/booking_avail_view.php:487
+#: ../code/application/views/hw/booking_avail_view.php:490
 #: ../code/application/views/hw/booking_view.php:192
 #: ../code/application/views/hw/booking_view.php:260
 #: ../code/application/views/hb/booking_end_view.php:58
@@ -3113,10 +3135,10 @@ msgstr "这种类型的宿舍每个宿舍能住%d个客人。"
 #: ../code/application/views/property_rooms_avail.php:275
 #: ../code/application/views/property_rooms_avail.php:477
 #: ../code/application/views/hw/booking_avail_view.php:279
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:549
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:554
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:281
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
@@ -3133,10 +3155,10 @@ msgstr "客人"
 #: ../code/application/views/property_rooms_avail.php:275
 #: ../code/application/views/property_rooms_avail.php:477
 #: ../code/application/views/hw/booking_avail_view.php:279
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:549
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:554
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:281
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
@@ -3152,17 +3174,17 @@ msgstr "客人们"
 #: ../code/application/views/property_rooms_avail.php:479
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:281
-#: ../code/application/views/hw/booking_avail_view.php:318
-#: ../code/application/views/hw/booking_avail_view.php:320
-#: ../code/application/views/hw/booking_avail_view.php:326
+#: ../code/application/views/hw/booking_avail_view.php:321
+#: ../code/application/views/hw/booking_avail_view.php:323
 #: ../code/application/views/hw/booking_avail_view.php:329
-#: ../code/application/views/hw/booking_avail_view.php:331
-#: ../code/application/views/hw/booking_avail_view.php:502
-#: ../code/application/views/hw/booking_avail_view.php:551
-#: ../code/application/views/hw/booking_avail_view.php:585
-#: ../code/application/views/hw/booking_avail_view.php:587
-#: ../code/application/views/hw/booking_avail_view.php:591
+#: ../code/application/views/hw/booking_avail_view.php:332
+#: ../code/application/views/hw/booking_avail_view.php:334
+#: ../code/application/views/hw/booking_avail_view.php:507
+#: ../code/application/views/hw/booking_avail_view.php:556
 #: ../code/application/views/hw/booking_avail_view.php:593
+#: ../code/application/views/hw/booking_avail_view.php:595
+#: ../code/application/views/hw/booking_avail_view.php:599
+#: ../code/application/views/hw/booking_avail_view.php:601
 #: ../code/application/views/hb/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:289
 #: ../code/application/views/hb/booking_avail_view.php:308
@@ -3200,7 +3222,7 @@ msgid "Dorms"
 msgstr "专用房"
 
 #: ../code/application/views/property_rooms_avail.php:300
-#: ../code/application/views/hw/booking_avail_view.php:685
+#: ../code/application/views/hw/booking_avail_view.php:694
 #: ../code/application/views/hb/booking_avail_view.php:657
 #: ../code/application/views/helpfile/pofields.php:716
 #: ../code/application/views/helpfile/pofields.php~:716
@@ -3210,7 +3232,7 @@ msgstr "私人卧室的类型"
 
 #: ../code/application/views/property_rooms_avail.php:300
 #: ../code/application/views/property_detail.php:358
-#: ../code/application/views/hw/booking_avail_view.php:685
+#: ../code/application/views/hw/booking_avail_view.php:694
 #: ../code/application/views/hb/booking_avail_view.php:657
 #: ../code/application/views/helpfile/pofields.php:717
 #: ../code/application/views/helpfile/pofields.php~:717
@@ -3223,9 +3245,9 @@ msgstr "即使你用不了卧室里所有的床，你也要为整个卧室付费
 #: ../code/application/views/property_rooms_avail.php:310
 #: ../code/application/views/property_rooms_avail.php:427
 #: ../code/application/views/property_rooms_avail.php:430
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:695
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:704
 #: ../code/application/views/hb/booking_avail_view.php:397
 #: ../code/application/views/hb/booking_avail_view.php:438
 #: ../code/application/views/hb/booking_avail_view.php:667
@@ -3238,9 +3260,9 @@ msgstr "每人的价格"
 #: ../code/application/views/property_rooms_avail.php:321
 #: ../code/application/views/property_rooms_avail.php:426
 #: ../code/application/views/property_rooms_avail.php:429
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:706
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:715
 #: ../code/application/views/hb/booking_avail_view.php:396
 #: ../code/application/views/hb/booking_avail_view.php:437
 #: ../code/application/views/hb/booking_avail_view.php:678
@@ -3251,7 +3273,7 @@ msgid "Price per Room"
 msgstr "每个房间的价格"
 
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:720
 #: ../code/application/views/helpfile/pofields.php~:720
@@ -3263,16 +3285,16 @@ msgstr "每个房间每夜平均"
 #: ../code/application/views/property_rooms_avail.php:489
 #: ../code/application/views/property_rooms_avail.php:494
 #: ../code/application/views/property_detail.php:466
-#: ../code/application/views/hw/booking_avail_view.php:417
-#: ../code/application/views/hw/booking_avail_view.php:615
-#: ../code/application/views/hw/booking_avail_view.php:731
+#: ../code/application/views/hw/booking_avail_view.php:422
+#: ../code/application/views/hw/booking_avail_view.php:624
+#: ../code/application/views/hw/booking_avail_view.php:740
 #: ../code/application/views/hb/booking_avail_view.php:702
 msgid "No private room available"
 msgstr "空床位（数）"
 
 #: ../code/application/views/property_rooms_avail.php:411
-#: ../code/application/views/hw/booking_avail_view.php:524
-#: ../code/application/views/hw/booking_avail_view.php:585
+#: ../code/application/views/hw/booking_avail_view.php:529
+#: ../code/application/views/hw/booking_avail_view.php:593
 #: ../code/application/views/hb/booking_avail_view.php:512
 #: ../code/application/views/hb/booking_avail_view.php:565
 #: ../code/application/views/helpfile/pofields.php:711
@@ -3292,8 +3314,8 @@ msgid "1 guest in %d Bedrooms (%d guest in each room)."
 msgstr "1个客人住%d个卧室（%d个客人每个房间）。"
 
 #: ../code/application/views/property_rooms_avail.php:415
-#: ../code/application/views/hw/booking_avail_view.php:526
-#: ../code/application/views/hw/booking_avail_view.php:587
+#: ../code/application/views/hw/booking_avail_view.php:531
+#: ../code/application/views/hw/booking_avail_view.php:595
 #: ../code/application/views/hb/booking_avail_view.php:514
 #: ../code/application/views/hb/booking_avail_view.php:567
 #: ../code/application/views/helpfile/pofields.php:712
@@ -3305,8 +3327,8 @@ msgid "%d guests in 1 Bedroom."
 msgstr "%d个客人住1个卧室。"
 
 #: ../code/application/views/property_rooms_avail.php:417
-#: ../code/application/views/hw/booking_avail_view.php:528
-#: ../code/application/views/hw/booking_avail_view.php:593
+#: ../code/application/views/hw/booking_avail_view.php:533
+#: ../code/application/views/hw/booking_avail_view.php:601
 #: ../code/application/views/hb/booking_avail_view.php:520
 #: ../code/application/views/hb/booking_avail_view.php:573
 #: ../code/application/views/helpfile/pofields.php:713
@@ -3316,15 +3338,15 @@ msgid "%d guests in %d Bedrooms (%d guests in each room)."
 msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
 
 #: ../code/application/views/property_rooms_avail.php:417
-#: ../code/application/views/hw/booking_avail_view.php:528
+#: ../code/application/views/hw/booking_avail_view.php:533
 #: ../code/application/views/hb/booking_avail_view.php:571
 #, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
 msgstr "%d个客人住%d个卧室（%d个客人每个房间）。"
 
 #: ../code/application/views/property_rooms_avail.php:451
-#: ../code/application/views/hw/booking_avail_view.php:494
-#: ../code/application/views/hw/booking_avail_view.php:495
+#: ../code/application/views/hw/booking_avail_view.php:499
+#: ../code/application/views/hw/booking_avail_view.php:500
 #: ../code/application/views/hb/booking_avail_view.php:499
 #: ../code/application/views/hb/booking_avail_view.php:500
 #: ../code/application/views/helpfile/pofields.php:751
@@ -3334,8 +3356,8 @@ msgid "This type of bedroom can accommodate up to 1 guest per room."
 msgstr "这种类型的卧室每个房间能住1个客人 。"
 
 #: ../code/application/views/property_rooms_avail.php:453
-#: ../code/application/views/hw/booking_avail_view.php:497
-#: ../code/application/views/hw/booking_avail_view.php:498
+#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:503
 #: ../code/application/views/hb/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:503
 #: ../code/application/views/helpfile/pofields.php:752
@@ -3345,7 +3367,7 @@ msgid "This type of bedroom can accommodate up to %d guests per room."
 msgstr "这种类型的卧室每个房间能住%d个客人。"
 
 #: ../code/application/views/property_rooms_avail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:553
+#: ../code/application/views/hw/booking_avail_view.php:558
 #: ../code/application/views/hb/booking_avail_view.php:546
 #: ../code/application/views/helpfile/pofields.php:709
 #: ../code/application/views/helpfile/pofields.php~:709
@@ -3354,7 +3376,7 @@ msgid "Bedroom"
 msgstr "卧室"
 
 #: ../code/application/views/property_rooms_avail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:553
+#: ../code/application/views/hw/booking_avail_view.php:558
 #: ../code/application/views/hb/booking_avail_view.php:546
 #: ../code/application/views/helpfile/pofields.php:710
 #: ../code/application/views/helpfile/pofields.php~:710
@@ -3364,7 +3386,7 @@ msgstr "卧室"
 
 #: ../code/application/views/property_rooms_avail.php:503
 #: ../code/application/views/property_detail.php:480
-#: ../code/application/views/hw/booking_avail_view.php:796
+#: ../code/application/views/hw/booking_avail_view.php:805
 #: ../code/application/views/hb/booking_avail_view.php:762
 #: ../code/application/views/helpfile/pofields.php:289
 #: ../code/application/views/helpfile/pofields.php~:289
@@ -3374,7 +3396,7 @@ msgstr "我们保证最优价格"
 
 #: ../code/application/views/property_rooms_avail.php:504
 #: ../code/application/views/property_detail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:797
+#: ../code/application/views/hw/booking_avail_view.php:806
 #: ../code/application/views/hb/booking_avail_view.php:763
 #: ../code/application/views/helpfile/pofields.php:290
 #: ../code/application/views/helpfile/pofields.php~:290
@@ -3420,6 +3442,44 @@ msgstr "发布"
 #: ../code/application/views/restricted/user_ratings.php:85
 msgid "Vous n'avez fait aucune évaluation d'auberge de jeunesse à ce jour."
 msgstr "迄今为止，您还没有发表任何评价。"
+
+#: ../code/application/views/restricted/user_favorite_properties.php:23
+#: ../code/application/views/hw/booking_end_view.php:52
+#: ../code/application/views/hw/booking_end_view.php:110
+#: ../code/application/views/hw/booking_avail_view.php:933
+#: ../code/application/views/hw/booking_avail_view.php:950
+#: ../code/application/views/hw/booking_view.php:158
+#: ../code/application/views/hw/booking_view.php:227
+#: ../code/application/views/hb/booking_end_view.php:33
+#: ../code/application/views/hb/booking_avail_view.php:828
+#: ../code/application/views/hb/booking_avail_view.php:845
+#: ../code/application/views/hb/booking_view.php:108
+#: ../code/application/views/email/new_transaction.php:284
+#: ../code/application/views/email/new_transaction.php:397
+#: ../code/application/views/email/new_transaction_hb.php:107
+#: ../code/application/views/email/admin/new_group_request.php:23
+msgid "Date"
+msgstr "日期"
+
+#: ../code/application/views/restricted/user_favorite_properties.php:24
+msgid "Name"
+msgstr ""
+
+#: ../code/application/views/restricted/user_favorite_properties.php:40
+#: ../code/application/views/city_view.php:210
+#: ../code/application/views/city_view.php:362
+#: ../code/application/views/mustache/property_list.php:161
+msgid "of"
+msgstr "之"
+
+#: ../code/application/views/restricted/user_favorite_properties.php:42
+#: ../code/application/views/city_view.php:212
+#: ../code/application/views/city_view.php:364
+#: ../code/application/views/helpfile/pofields.php:645
+#: ../code/application/views/helpfile/pofields.php~:645
+#, php-format
+msgid "Results"
+msgstr "结果"
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
@@ -3469,9 +3529,9 @@ msgid "Group booking quote information"
 msgstr "團體預訂報價信息"
 
 #: ../code/application/views/restricted/user_group_quote.php:152
-#: ../code/application/views/hw/hostel_view.php:662
-#: ../code/application/views/hw/booking_avail_view.php:801
-#: ../code/application/views/hb/hostel_view.php:864
+#: ../code/application/views/hw/hostel_view.php:684
+#: ../code/application/views/hw/booking_avail_view.php:810
+#: ../code/application/views/hb/hostel_view.php:884
 #: ../code/application/views/hb/booking_avail_view.php:769
 #: ../code/application/views/email/share_page-txt.php:27
 #: ../code/application/views/email/share_page-html.php:62
@@ -3506,8 +3566,8 @@ msgstr "您的报价"
 
 #: ../code/application/views/restricted/user_group_quote.php:196
 #: ../code/application/views/property_detail.php:88
-#: ../code/application/views/hb/hostel_view.php:734
-#: ../code/application/views/mustache/property_list.php:218
+#: ../code/application/views/hb/hostel_view.php:754
+#: ../code/application/views/mustache/property_list.php:233
 msgid "What's Included"
 msgstr "所包含"
 
@@ -3980,36 +4040,36 @@ msgstr "由於語法錯誤该請求不能实现"
 #: ../code/application/views/property_detail.php:93
 #: ../code/application/views/property_detail.php:98
 #: ../code/application/views/property_detail.php:104
-#: ../code/application/views/hb/hostel_view.php:745
-#: ../code/application/views/hb/hostel_view.php:750
-#: ../code/application/views/hb/hostel_view.php:756
+#: ../code/application/views/hb/hostel_view.php:765
+#: ../code/application/views/hb/hostel_view.php:770
+#: ../code/application/views/hb/hostel_view.php:776
 #: ../code/application/views/hb/booking_view.php:240
-#: ../code/application/views/mustache/property_list.php:223
+#: ../code/application/views/mustache/property_list.php:238
 msgid "Free"
 msgstr "免费"
 
 #: ../code/application/views/property_detail.php:161
 #: ../code/application/views/city_view.php:337
-#: ../code/application/views/hw/hostel_view.php:257
-#: ../code/application/views/hw/hostel_view.php:680
-#: ../code/application/views/hb/hostel_view.php:326
-#: ../code/application/views/hb/hostel_view.php:898
+#: ../code/application/views/hw/hostel_view.php:260
+#: ../code/application/views/hw/hostel_view.php:702
+#: ../code/application/views/hb/hostel_view.php:329
+#: ../code/application/views/hb/hostel_view.php:918
 #: ../code/application/views/helpfile/pofields.php:447
 #: ../code/application/views/helpfile/pofields.php~:447
 #: ../code/application/views/mustache/property_list.php:172
-#: ../code/application/views/mustache/property_list.php:315
+#: ../code/application/views/mustache/property_list.php:330
 #, php-format
 msgid "Districts"
 msgstr "区"
 
 #: ../code/application/views/property_detail.php:186
 #: ../code/application/views/city_view.php:341
-#: ../code/application/views/hw/hostel_view.php:281
-#: ../code/application/views/hw/hostel_view.php:705
-#: ../code/application/views/hb/hostel_view.php:350
-#: ../code/application/views/hb/hostel_view.php:922
+#: ../code/application/views/hw/hostel_view.php:284
+#: ../code/application/views/hw/hostel_view.php:726
+#: ../code/application/views/hb/hostel_view.php:353
+#: ../code/application/views/hb/hostel_view.php:942
 #: ../code/application/views/mustache/property_list.php:180
-#: ../code/application/views/mustache/property_list.php:325
+#: ../code/application/views/mustache/property_list.php:340
 msgid "Landmarks (within 2km)"
 msgstr "地标（2公里内）"
 
@@ -4037,19 +4097,20 @@ msgstr "该房间可容纳的最多人数"
 
 #: ../code/application/views/property_detail.php:479
 #: ../code/application/views/property_detail.php:487
-#: ../code/application/views/mustache/property_list.php:317
-#: ../code/application/views/mustache/property_list.php:327
-#: ../code/application/views/mustache/property_list.php:335
+#: ../code/application/views/mustache/saved_property_item.php:20
+#: ../code/application/views/mustache/property_list.php:332
+#: ../code/application/views/mustache/property_list.php:342
+#: ../code/application/views/mustache/property_list.php:350
 msgid "Plus sur ce logement"
 msgstr "更多细节"
 
 #: ../code/application/views/property_detail.php:492
 #: ../code/application/views/property_detail.php:506
-#: ../code/application/views/hw/hostel_view.php:325
-#: ../code/application/views/hb/hostel_view.php:394
+#: ../code/application/views/hw/hostel_view.php:328
+#: ../code/application/views/hb/hostel_view.php:397
 #: ../code/application/views/helpfile/pofields.php:262
 #: ../code/application/views/helpfile/pofields.php~:262
-#: ../code/application/views/mustache/property_list.php:204
+#: ../code/application/views/mustache/property_list.php:218
 #, php-format
 msgid "Read more…"
 msgstr "阅读更多..."
@@ -4060,13 +4121,13 @@ msgstr "阅读更多..."
 #: ../code/application/views/helpfile/pofields.php:256
 #: ../code/application/views/helpfile/pofields.php~:256
 #: ../code/application/views/mustache/property_list.php:36
-#: ../code/application/views/mustache/property_list.php:307
+#: ../code/application/views/mustache/property_list.php:322
 #, php-format
 msgid "Latest Reviews"
 msgstr "最近评价"
 
 #: ../code/application/views/property_detail.php:564
-#: ../code/application/views/hb/hostel_view.php:71
+#: ../code/application/views/hb/hostel_view.php:74
 #: ../code/application/views/group_request.php:214
 #: ../code/application/views/helpfile/pofields.php:193
 #: ../code/application/views/helpfile/pofields.php:630
@@ -4077,14 +4138,14 @@ msgid "Location"
 msgstr "地点"
 
 #: ../code/application/views/property_detail.php:586
-#: ../code/application/views/hb/hostel_view.php:93
+#: ../code/application/views/hb/hostel_view.php:96
 msgid "N/A"
 msgstr "不可用"
 
 #: ../code/application/views/property_detail.php:598
 #: ../code/application/views/property_detail.php:642
 #: ../code/application/views/hw/reviews.php:5
-#: ../code/application/views/hb/hostel_view.php:983
+#: ../code/application/views/hb/hostel_view.php:1003
 #: ../code/application/views/hb/reviews.php:1
 #: ../code/application/views/review_empty.php:1
 #: ../code/application/views/city_ajax_view.php:194
@@ -4099,45 +4160,45 @@ msgid "Par %s"
 msgstr "被%s |%s的"
 
 #: ../code/application/views/property_detail.php:623
-#: ../code/application/views/hw/hostel_view.php:417
-#: ../code/application/views/hb/hostel_view.php:498
+#: ../code/application/views/hw/hostel_view.php:439
+#: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:982
-#: ../code/application/libraries/Hw_engine.php:717
+#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
 msgstr "好"
 
 #: ../code/application/views/property_detail.php:627
-#: ../code/application/views/hw/hostel_view.php:419
-#: ../code/application/views/hb/hostel_view.php:500
+#: ../code/application/views/hw/hostel_view.php:441
+#: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:986
-#: ../code/application/libraries/Hw_engine.php:721
+#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
 msgstr "很好"
 
 #: ../code/application/views/property_detail.php:631
-#: ../code/application/views/hw/hostel_view.php:421
-#: ../code/application/views/hb/hostel_view.php:502
+#: ../code/application/views/hw/hostel_view.php:443
+#: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:990
-#: ../code/application/libraries/Hw_engine.php:725
+#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
 msgstr "太棒了"
 
 #: ../code/application/views/property_detail.php:635
-#: ../code/application/views/hw/hostel_view.php:423
-#: ../code/application/views/hb/hostel_view.php:504
+#: ../code/application/views/hw/hostel_view.php:445
+#: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:993
-#: ../code/application/libraries/Hw_engine.php:728
+#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
 msgstr "好极了"
@@ -4253,20 +4314,6 @@ msgstr "最受欢迎的那些"
 msgid "Liste des logements pas chers à %s"
 msgstr "搜索结果 - %s "
 
-#: ../code/application/views/city_view.php:210
-#: ../code/application/views/city_view.php:362
-#: ../code/application/views/mustache/property_list.php:161
-msgid "of"
-msgstr "之"
-
-#: ../code/application/views/city_view.php:212
-#: ../code/application/views/city_view.php:364
-#: ../code/application/views/helpfile/pofields.php:645
-#: ../code/application/views/helpfile/pofields.php~:645
-#, php-format
-msgid "Results"
-msgstr "结果"
-
 #: ../code/application/views/city_view.php:224
 #: ../code/application/views/hw/booking_end_view.php:35
 #: ../code/application/views/hb/booking_end_view.php:28
@@ -4277,8 +4324,8 @@ msgid "Nombre de Nuits: %s"
 msgstr "住宿天数%s"
 
 #: ../code/application/views/city_view.php:227
-#: ../code/application/views/hw/hostel_view.php:28
-#: ../code/application/views/hb/hostel_view.php:27
+#: ../code/application/views/hw/hostel_view.php:31
+#: ../code/application/views/hb/hostel_view.php:30
 msgid "Voir la carte"
 msgstr "查看地图"
 
@@ -4332,20 +4379,20 @@ msgstr "只有免费早餐"
 msgid "Selected filters:"
 msgstr "選定的過濾器："
 
-#: ../code/application/views/city_view.php:416
+#: ../code/application/views/city_view.php:418
 msgid "Please Wait"
 msgstr "请等一下"
 
-#: ../code/application/views/city_view.php:421
+#: ../code/application/views/city_view.php:423
 msgid "From"
 msgstr "发件人"
 
-#: ../code/application/views/city_view.php:422
+#: ../code/application/views/city_view.php:424
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr "只有5个住处可供比较. 请从清单上去掉一个住处。"
 
-#: ../code/application/views/hw/hostel_view.php:10
-#: ../code/application/views/hb/hostel_view.php:9
+#: ../code/application/views/hw/hostel_view.php:13
+#: ../code/application/views/hb/hostel_view.php:12
 #: ../code/application/views/helpfile/pofields.php:213
 #: ../code/application/views/helpfile/pofields.php:259
 #: ../code/application/views/helpfile/pofields.php~:213
@@ -4354,69 +4401,69 @@ msgstr "只有5个住处可供比较. 请从清单上去掉一个住处。"
 msgid "Back to search results"
 msgstr "返回搜索结果 "
 
-#: ../code/application/views/hw/hostel_view.php:53
-#: ../code/application/views/hb/hostel_view.php:126
+#: ../code/application/views/hw/hostel_view.php:56
+#: ../code/application/views/hb/hostel_view.php:129
 msgid "Erreur de requête"
 msgstr "错误请求"
 
-#: ../code/application/views/hw/hostel_view.php:103
-#: ../code/application/views/hb/hostel_view.php:158
-#: ../code/application/controllers/cmain.php:1760
+#: ../code/application/views/hw/hostel_view.php:106
+#: ../code/application/views/hb/hostel_view.php:161
+#: ../code/application/controllers/cmain.php:1801
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "您发表的评价正在审核中。谢谢！"
 
-#: ../code/application/views/hw/hostel_view.php:110
-#: ../code/application/views/hb/hostel_view.php:164
+#: ../code/application/views/hw/hostel_view.php:113
+#: ../code/application/views/hb/hostel_view.php:167
 #, php-format
 msgid "Laissez vos impressions sur %s"
 msgstr "留下您对该旅舍的看法%s"
 
-#: ../code/application/views/hw/hostel_view.php:119
-#: ../code/application/views/hb/hostel_view.php:173
+#: ../code/application/views/hw/hostel_view.php:122
+#: ../code/application/views/hb/hostel_view.php:176
 msgid "Votre Prénom:"
 msgstr "您的名字："
 
-#: ../code/application/views/hw/hostel_view.php:130
-#: ../code/application/views/hb/hostel_view.php:184
+#: ../code/application/views/hw/hostel_view.php:133
+#: ../code/application/views/hb/hostel_view.php:187
 msgid "Votre Nom (ne sera pas publié):"
 msgstr "您的姓（不公开）："
 
-#: ../code/application/views/hw/hostel_view.php:142
-#: ../code/application/views/hb/hostel_view.php:196
+#: ../code/application/views/hw/hostel_view.php:145
+#: ../code/application/views/hb/hostel_view.php:199
 msgid "Votre Email (ne sera pas publié):"
 msgstr "您的电子邮件（不公开）："
 
-#: ../code/application/views/hw/hostel_view.php:167
-#: ../code/application/views/hb/hostel_view.php:221
+#: ../code/application/views/hw/hostel_view.php:170
+#: ../code/application/views/hb/hostel_view.php:224
 msgid "Veuillez évaluer votre expérience:"
 msgstr "您的评价："
 
-#: ../code/application/views/hw/hostel_view.php:186
-#: ../code/application/views/hb/hostel_view.php:240
+#: ../code/application/views/hw/hostel_view.php:189
+#: ../code/application/views/hb/hostel_view.php:243
 #, php-format
 msgid "Vos commentaires sur %s :"
 msgstr "您对%s的评价："
 
-#: ../code/application/views/hw/hostel_view.php:198
-#: ../code/application/views/hb/hostel_view.php:252
+#: ../code/application/views/hw/hostel_view.php:201
+#: ../code/application/views/hb/hostel_view.php:255
 msgid "La date de votre dernier séjour à cet endroit :"
 msgstr "您上次逗留此地的日期："
 
-#: ../code/application/views/hw/hostel_view.php:330
-#: ../code/application/views/hw/hostel_view.php:577
-#: ../code/application/views/hw/hostel_view.php:644
-#: ../code/application/views/hw/hostel_view.php:740
+#: ../code/application/views/hw/hostel_view.php:333
+#: ../code/application/views/hw/hostel_view.php:599
+#: ../code/application/views/hw/hostel_view.php:666
+#: ../code/application/views/hw/hostel_view.php:761
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1039
-#: ../code/application/views/hb/hostel_view.php:399
-#: ../code/application/views/hb/hostel_view.php:664
-#: ../code/application/views/hb/hostel_view.php:737
-#: ../code/application/views/hb/hostel_view.php:769
-#: ../code/application/views/hb/hostel_view.php:825
+#: ../code/application/views/hb/hostel_view.php:402
+#: ../code/application/views/hb/hostel_view.php:684
+#: ../code/application/views/hb/hostel_view.php:757
+#: ../code/application/views/hb/hostel_view.php:789
 #: ../code/application/views/hb/hostel_view.php:845
-#: ../code/application/views/hb/hostel_view.php:956
+#: ../code/application/views/hb/hostel_view.php:865
+#: ../code/application/views/hb/hostel_view.php:976
 #: ../code/application/views/hb/reviews.php:5
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -4425,21 +4472,21 @@ msgstr "您上次逗留此地的日期："
 msgid "Voir la version traduite"
 msgstr "参见译本"
 
-#: ../code/application/views/hw/hostel_view.php:331
-#: ../code/application/views/hw/hostel_view.php:578
-#: ../code/application/views/hw/hostel_view.php:645
-#: ../code/application/views/hw/hostel_view.php:741
+#: ../code/application/views/hw/hostel_view.php:334
+#: ../code/application/views/hw/hostel_view.php:600
+#: ../code/application/views/hw/hostel_view.php:667
+#: ../code/application/views/hw/hostel_view.php:762
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1039
-#: ../code/application/views/hb/hostel_view.php:400
-#: ../code/application/views/hb/hostel_view.php:665
-#: ../code/application/views/hb/hostel_view.php:738
-#: ../code/application/views/hb/hostel_view.php:770
-#: ../code/application/views/hb/hostel_view.php:826
+#: ../code/application/views/hb/hostel_view.php:403
+#: ../code/application/views/hb/hostel_view.php:685
+#: ../code/application/views/hb/hostel_view.php:758
+#: ../code/application/views/hb/hostel_view.php:790
 #: ../code/application/views/hb/hostel_view.php:846
-#: ../code/application/views/hb/hostel_view.php:957
+#: ../code/application/views/hb/hostel_view.php:866
+#: ../code/application/views/hb/hostel_view.php:977
 #: ../code/application/views/hb/reviews.php:6
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -4448,43 +4495,55 @@ msgstr "参见译本"
 msgid "Voir l'original"
 msgstr "查看原始版本"
 
-#: ../code/application/views/hw/hostel_view.php:403
-#: ../code/application/views/hb/hostel_view.php:484
-#: ../code/application/views/mustache/property_list.php:9
-msgid "Info"
-msgstr "信息"
+#: ../code/application/views/hw/hostel_view.php:360
+#: ../code/application/views/hb/hostel_view.php:428
+#: ../code/application/views/helpfile/pofields.php:815
+#: ../code/application/views/helpfile/pofields.php~:815
+#: ../code/application/views/mustache/property_list.php:209
+#, php-format
+msgid "Add to my favorites"
+msgstr "添加到我的喜欢"
 
-#: ../code/application/views/hw/hostel_view.php:405
-#: ../code/application/views/hb/hostel_view.php:486
+#: ../code/application/views/hw/hostel_view.php:365
+#: ../code/application/views/hb/hostel_view.php:433
+#: ../code/application/views/helpfile/pofields.php:814
+#: ../code/application/views/helpfile/pofields.php~:814
+#: ../code/application/views/mustache/property_list.php:214
+#, php-format
+msgid "Saved to my favorites"
+msgstr "保存到我的喜欢"
+
+#: ../code/application/views/hw/hostel_view.php:427
+#: ../code/application/views/hb/hostel_view.php:506
 msgid "Info & Prix"
 msgstr "空床位信息"
 
-#: ../code/application/views/hw/hostel_view.php:548
-#: ../code/application/views/hb/hostel_view.php:629
+#: ../code/application/views/hw/hostel_view.php:570
+#: ../code/application/views/hb/hostel_view.php:649
 msgid "Rechercher"
 msgstr "搜索"
 
-#: ../code/application/views/hw/hostel_view.php:555
-#: ../code/application/views/hb/hostel_view.php:640
-#: ../code/application/views/mustache/property_list.php:302
+#: ../code/application/views/hw/hostel_view.php:577
+#: ../code/application/views/hb/hostel_view.php:660
+#: ../code/application/views/mustache/property_list.php:317
 msgid "Recherche de disponibilités..."
 msgstr "搜索..."
 
-#: ../code/application/views/hw/hostel_view.php:563
-#: ../code/application/views/hb/hostel_view.php:653
+#: ../code/application/views/hw/hostel_view.php:585
+#: ../code/application/views/hb/hostel_view.php:673
 #: ../code/application/views/helpfile/pofields.php:694
 #: ../code/application/views/helpfile/pofields.php~:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
 msgstr "想收到或发送这个这个报价的PDF副本吗？"
 
-#: ../code/application/views/hw/hostel_view.php:674
-#: ../code/application/views/hb/hostel_view.php:892
+#: ../code/application/views/hw/hostel_view.php:696
+#: ../code/application/views/hb/hostel_view.php:912
 msgid "Cartes"
 msgstr "地图"
 
-#: ../code/application/views/hw/hostel_view.php:730
-#: ../code/application/views/hb/hostel_view.php:947
+#: ../code/application/views/hw/hostel_view.php:751
+#: ../code/application/views/hb/hostel_view.php:967
 msgid "Street View"
 msgstr "街景"
 
@@ -4516,30 +4575,13 @@ msgstr "登陆"
 msgid "Arrivée: %s à %s"
 msgstr "住宿日期：从%s至 %s"
 
-#: ../code/application/views/hw/booking_end_view.php:52
-#: ../code/application/views/hw/booking_end_view.php:110
-#: ../code/application/views/hw/booking_avail_view.php:924
-#: ../code/application/views/hw/booking_avail_view.php:941
-#: ../code/application/views/hw/booking_view.php:158
-#: ../code/application/views/hw/booking_view.php:227
-#: ../code/application/views/hb/booking_end_view.php:33
-#: ../code/application/views/hb/booking_avail_view.php:828
-#: ../code/application/views/hb/booking_avail_view.php:845
-#: ../code/application/views/hb/booking_view.php:108
-#: ../code/application/views/email/new_transaction.php:284
-#: ../code/application/views/email/new_transaction.php:397
-#: ../code/application/views/email/new_transaction_hb.php:107
-#: ../code/application/views/email/admin/new_group_request.php:23
-msgid "Date"
-msgstr "日期"
-
 #: ../code/application/views/hw/booking_end_view.php:165
 #, fuzzy
 msgid "Amount already paid"
 msgstr "已经支付的金额："
 
 #: ../code/application/views/hw/booking_end_view.php:202
-#: ../code/application/views/hw/booking_avail_view.php:1005
+#: ../code/application/views/hw/booking_avail_view.php:1014
 #: ../code/application/views/hb/booking_end_view.php:143
 #: ../code/application/views/hb/booking_avail_view.php:909
 #: ../code/application/views/email/new_transaction.php:934
@@ -4584,7 +4626,7 @@ msgstr ""
 "一次只能预定%d个客人。如果客人数量超过%d人，你可选择页面顶部的团体预订。"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
-#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:507
 #: ../code/application/views/hb/booking_avail_view.php:289
 #, fuzzy, php-format
 msgid "Dorm Availability"
@@ -4606,21 +4648,21 @@ msgstr "你们将会住的宿舍："
 msgid "The lowest price per person per night in a dorm in this property: %s"
 msgstr "这个住处一个宿舍每夜每人的最低价：%s"
 
-#: ../code/application/views/hw/booking_avail_view.php:308
-#: ../code/application/views/hw/booking_avail_view.php:577
+#: ../code/application/views/hw/booking_avail_view.php:311
+#: ../code/application/views/hw/booking_avail_view.php:585
 #: ../code/application/views/hb/booking_avail_view.php:299
 #: ../code/application/views/hb/booking_avail_view.php:558
 #: ../code/application/views/helpfile/pofields.php:691
 #: ../code/application/views/helpfile/pofields.php:723
 #: ../code/application/views/helpfile/pofields.php~:691
 #: ../code/application/views/helpfile/pofields.php~:723
-#: ../code/application/views/mustache/property_list.php:317
-#: ../code/application/views/mustache/property_list.php:327
+#: ../code/application/views/mustache/property_list.php:332
+#: ../code/application/views/mustache/property_list.php:342
 #, php-format
 msgid "Select"
 msgstr "选择"
 
-#: ../code/application/views/hw/booking_avail_view.php:318
+#: ../code/application/views/hw/booking_avail_view.php:321
 #: ../code/application/views/hb/booking_avail_view.php:308
 #: ../code/application/views/helpfile/pofields.php:724
 #: ../code/application/views/helpfile/pofields.php~:724
@@ -4628,7 +4670,7 @@ msgstr "选择"
 msgid "You will use 1 full dorm."
 msgstr "你将使用1整个宿舍。"
 
-#: ../code/application/views/hw/booking_avail_view.php:320
+#: ../code/application/views/hw/booking_avail_view.php:323
 #: ../code/application/views/hb/booking_avail_view.php:310
 #: ../code/application/views/helpfile/pofields.php:725
 #: ../code/application/views/helpfile/pofields.php~:725
@@ -4636,9 +4678,9 @@ msgstr "你将使用1整个宿舍。"
 msgid "You will use %d full dorms."
 msgstr "你将使用%d整个宿舍。"
 
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
 #: ../code/application/views/hb/booking_avail_view.php:578
@@ -4646,7 +4688,7 @@ msgstr "你将使用%d整个宿舍。"
 msgid "%d %s ( %s )"
 msgstr ""
 
-#: ../code/application/views/hw/booking_avail_view.php:326
+#: ../code/application/views/hw/booking_avail_view.php:329
 #: ../code/application/views/hb/booking_avail_view.php:316
 #: ../code/application/views/helpfile/pofields.php:726
 #: ../code/application/views/helpfile/pofields.php~:726
@@ -4654,7 +4696,7 @@ msgstr ""
 msgid "You will partially use 1 dorm."
 msgstr "你只用1个宿舍的部分。"
 
-#: ../code/application/views/hw/booking_avail_view.php:329
+#: ../code/application/views/hw/booking_avail_view.php:332
 #: ../code/application/views/hb/booking_avail_view.php:319
 #: ../code/application/views/helpfile/pofields.php:727
 #: ../code/application/views/helpfile/pofields.php~:727
@@ -4662,7 +4704,7 @@ msgstr "你只用1个宿舍的部分。"
 msgid "You will use 1 full dorm and 1 partially."
 msgstr "你将用1整个宿舍和另外1个宿舍的一部分。"
 
-#: ../code/application/views/hw/booking_avail_view.php:331
+#: ../code/application/views/hw/booking_avail_view.php:334
 #: ../code/application/views/hb/booking_avail_view.php:321
 #: ../code/application/views/helpfile/pofields.php:728
 #: ../code/application/views/helpfile/pofields.php~:728
@@ -4670,7 +4712,7 @@ msgstr "你将用1整个宿舍和另外1个宿舍的一部分。"
 msgid "You will use %d full dorms and 1 partially."
 msgstr "你将用%d整个宿舍和1个宿舍的一部分。"
 
-#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:507
 #: ../code/application/views/hb/booking_avail_view.php:550
 #: ../code/application/views/helpfile/pofields.php:738
 #: ../code/application/views/helpfile/pofields.php~:738
@@ -4678,12 +4720,12 @@ msgstr "你将用%d整个宿舍和1个宿舍的一部分。"
 msgid "Bedrooms you will occupy:"
 msgstr "你们将会住的卧室："
 
-#: ../code/application/views/hw/booking_avail_view.php:526
+#: ../code/application/views/hw/booking_avail_view.php:531
 #, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
 msgstr "%d个客人住%d个卧室（1个客人每个房间）。"
 
-#: ../code/application/views/hw/booking_avail_view.php:536
+#: ../code/application/views/hw/booking_avail_view.php:541
 #: ../code/application/views/hb/booking_avail_view.php:529
 #: ../code/application/views/helpfile/pofields.php:758
 #: ../code/application/views/helpfile/pofields.php~:758
@@ -4692,19 +4734,19 @@ msgid ""
 "The lowest price per person per night in a private room at this property: %s"
 msgstr "这个住处一个私人房间每夜每人的最低价:%s"
 
-#: ../code/application/views/hw/booking_avail_view.php:591
+#: ../code/application/views/hw/booking_avail_view.php:599
 #: ../code/application/views/hb/booking_avail_view.php:518
 #, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
 msgstr "%d个客人住%d个卧室（1个客人每个房间）。"
 
-#: ../code/application/views/hw/booking_avail_view.php:624
+#: ../code/application/views/hw/booking_avail_view.php:633
 #: ../code/application/views/hb/booking_avail_error_view.php:14
 #: ../code/application/views/hb/booking_avail_view.php:598
 msgid "No Beds Found"
 msgstr "沒有找到床位"
 
-#: ../code/application/views/hw/booking_avail_view.php:629
+#: ../code/application/views/hw/booking_avail_view.php:638
 #: ../code/application/views/hb/booking_avail_error_view.php:21
 #: ../code/application/views/hb/booking_avail_view.php:603
 msgid ""
@@ -4712,10 +4754,10 @@ msgid ""
 "and try again."
 msgstr "沒有找到符合您的搜索标准的床位。請更改您的日期再試一次。"
 
-#: ../code/application/views/hw/booking_avail_view.php:665
-#: ../code/application/views/hw/booking_avail_view.php:719
-#: ../code/application/views/hw/booking_avail_view.php:929
-#: ../code/application/views/hw/booking_avail_view.php:946
+#: ../code/application/views/hw/booking_avail_view.php:674
+#: ../code/application/views/hw/booking_avail_view.php:728
+#: ../code/application/views/hw/booking_avail_view.php:938
+#: ../code/application/views/hw/booking_avail_view.php:955
 #: ../code/application/views/hb/booking_avail_view.php:639
 #: ../code/application/views/hb/booking_avail_view.php:691
 #: ../code/application/views/hb/booking_avail_view.php:833
@@ -4726,8 +4768,8 @@ msgstr "沒有找到符合您的搜索标准的床位。請更改您的日期再
 msgid "Number of guests"
 msgstr "客人号码"
 
-#: ../code/application/views/hw/booking_avail_view.php:667
-#: ../code/application/views/hw/booking_avail_view.php:721
+#: ../code/application/views/hw/booking_avail_view.php:676
+#: ../code/application/views/hw/booking_avail_view.php:730
 #: ../code/application/views/hb/booking_avail_view.php:641
 #: ../code/application/views/hb/booking_avail_view.php:693
 #: ../code/application/views/helpfile/pofields.php:760
@@ -4736,12 +4778,12 @@ msgstr "客人号码"
 msgid "Number of guests for %d nights"
 msgstr "住%d晚的客人数量"
 
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hb/booking_avail_view.php:714
 msgid "Your Selection"
 msgstr "您的选择"
 
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
 #, fuzzy, php-format
@@ -4754,12 +4796,12 @@ msgstr ""
 "您只需支付房费的10%%即可确保房间预订，剩余的90%%余款抵达旅舍后支付。完成在线"
 "预订后，我们会在其邮件确认回函中向您提供邮件、地址、电话号码等具体联系方式。 "
 
-#: ../code/application/views/hw/booking_avail_view.php:749
+#: ../code/application/views/hw/booking_avail_view.php:758
 #: ../code/application/views/hb/booking_avail_view.php:719
 msgid "Number of guests selected"
 msgstr "选择的客人总数"
 
-#: ../code/application/views/hw/booking_avail_view.php:769
+#: ../code/application/views/hw/booking_avail_view.php:778
 #: ../code/application/views/hb/booking_avail_view.php:737
 #: ../code/application/views/helpfile/pofields.php:291
 #: ../code/application/views/helpfile/pofields.php~:291
@@ -4767,14 +4809,15 @@ msgstr "选择的客人总数"
 msgid "You got the best price"
 msgstr "您得到最优价格"
 
-#: ../code/application/views/hw/booking_avail_view.php:769
+#: ../code/application/views/hw/booking_avail_view.php:778
 #: ../code/application/views/hw/booking_view.php:303
+#: ../code/application/views/helpfile/pofields.php:822
 #, fuzzy, php-format
 msgid "Deposit to be paid now (%d%%)"
 msgstr "现在需要支付订金 (%d)"
 
-#: ../code/application/views/hw/booking_avail_view.php:790
-#: ../code/application/views/hw/booking_avail_view.php:886
+#: ../code/application/views/hw/booking_avail_view.php:799
+#: ../code/application/views/hw/booking_avail_view.php:895
 #: ../code/application/views/hb/booking_avail_view.php:756
 #: ../code/application/views/hb/booking_avail_view.php:790
 #: ../code/application/views/helpfile/pofields.php:729
@@ -4783,7 +4826,7 @@ msgstr "现在需要支付订金 (%d)"
 msgid "Confirmation Email Preview"
 msgstr "确认邮件预览"
 
-#: ../code/application/views/hw/booking_avail_view.php:792
+#: ../code/application/views/hw/booking_avail_view.php:801
 #: ../code/application/views/hb/booking_avail_view.php:758
 #: ../code/application/views/helpfile/pofields.php:748
 #: ../code/application/views/helpfile/pofields.php~:748
@@ -4791,7 +4834,7 @@ msgstr "确认邮件预览"
 msgid "Please click here to preview your confirmation email"
 msgstr "请点击这里预览您的确认邮件"
 
-#: ../code/application/views/hw/booking_avail_view.php:805
+#: ../code/application/views/hw/booking_avail_view.php:814
 #: ../code/application/views/hw/booking_view.php:973
 #: ../code/application/views/hw/booking_view.php:975
 #: ../code/application/views/hb/booking_avail_view.php:771
@@ -4800,7 +4843,7 @@ msgstr "请点击这里预览您的确认邮件"
 msgid "sécurisé"
 msgstr "安全"
 
-#: ../code/application/views/hw/booking_avail_view.php:867
+#: ../code/application/views/hw/booking_avail_view.php:876
 #: ../code/application/views/hb/booking_avail_error_view.php:27
 #: ../code/application/views/helpfile/pofields.php:552
 #: ../code/application/views/helpfile/pofields.php~:552
@@ -4808,7 +4851,7 @@ msgstr "安全"
 msgid "Search for more properties in %s"
 msgstr "搜索更多%s的住宿"
 
-#: ../code/application/views/hw/booking_avail_view.php:893
+#: ../code/application/views/hw/booking_avail_view.php:902
 #: ../code/application/views/hb/booking_avail_view.php:797
 #: ../code/application/views/helpfile/pofields.php:730
 #: ../code/application/views/helpfile/pofields.php~:730
@@ -4818,8 +4861,8 @@ msgid ""
 "Your reservation will be immediate and guaranteed."
 msgstr "在你预定之后，预定号码会马上发给你。预定即刻生效并被保证。"
 
-#: ../code/application/views/hw/booking_avail_view.php:927
-#: ../code/application/views/hw/booking_avail_view.php:944
+#: ../code/application/views/hw/booking_avail_view.php:936
+#: ../code/application/views/hw/booking_avail_view.php:953
 #: ../code/application/views/hw/booking_view.php:162
 #: ../code/application/views/hb/booking_end_view.php:35
 #: ../code/application/views/hb/booking_avail_view.php:831
@@ -4829,14 +4872,15 @@ msgstr "在你预定之后，预定号码会马上发给你。预定即刻生效
 msgid "Prix (lit)"
 msgstr "价格"
 
-#: ../code/application/views/hw/booking_avail_view.php:978
+#: ../code/application/views/hw/booking_avail_view.php:987
+#: ../code/application/views/helpfile/pofields.php:824
 #, fuzzy, php-format
 msgid "Deposit (%d%%)"
 msgstr "订金（%d）"
 
-#: ../code/application/views/hw/booking_avail_view.php:1007
-#: ../code/application/views/hw/booking_avail_view.php:1013
-#: ../code/application/views/hw/booking_avail_view.php:1019
+#: ../code/application/views/hw/booking_avail_view.php:1016
+#: ../code/application/views/hw/booking_avail_view.php:1022
+#: ../code/application/views/hw/booking_avail_view.php:1028
 #: ../code/application/views/hb/booking_avail_view.php:911
 #: ../code/application/views/hb/booking_avail_view.php:917
 #: ../code/application/views/hb/booking_avail_view.php:923
@@ -4846,7 +4890,7 @@ msgstr "订金（%d）"
 msgid "Provided after reservation"
 msgstr "预定后提供"
 
-#: ../code/application/views/hw/booking_avail_view.php:1023
+#: ../code/application/views/hw/booking_avail_view.php:1032
 #: ../code/application/views/hb/booking_avail_view.php:927
 #: ../code/application/views/helpfile/pofields.php:744
 #: ../code/application/views/helpfile/pofields.php~:744
@@ -4856,7 +4900,7 @@ msgid ""
 "case you have any special requests."
 msgstr "有了所有的联系信息，如果您有特殊要求，您可以随时联系住处。"
 
-#: ../code/application/views/hw/booking_avail_view.php:1030
+#: ../code/application/views/hw/booking_avail_view.php:1039
 #: ../code/application/views/hb/booking_avail_view.php:934
 #: ../code/application/views/helpfile/pofields.php:743
 #: ../code/application/views/helpfile/pofields.php~:743
@@ -4866,7 +4910,7 @@ msgid ""
 "including public transportation and airport information."
 msgstr "如果可以，我们会提供如何到达住处包括公共交通和机场信息。"
 
-#: ../code/application/views/hw/booking_avail_view.php:1037
+#: ../code/application/views/hw/booking_avail_view.php:1046
 #: ../code/application/views/hb/booking_avail_view.php:941
 #: ../code/application/views/helpfile/pofields.php:741
 #: ../code/application/views/helpfile/pofields.php~:741
@@ -4878,8 +4922,8 @@ msgstr "我们会提供所有重要的信息确保您的住宿愉快。"
 
 #: ../code/application/views/hw/property_list.php:89
 #: ../code/application/views/hb/property_list.php:137
-#: ../code/application/views/mustache/property_list.php:209
-#: ../code/application/views/mustache/property_list.php:219
+#: ../code/application/views/mustache/property_list.php:224
+#: ../code/application/views/mustache/property_list.php:234
 msgid "close"
 msgstr "关闭"
 
@@ -5100,23 +5144,23 @@ msgstr "交易加密，十分安全。"
 msgid "Please make sure all required fields are filled out correctly"
 msgstr "请务必正确填写所有必填信息"
 
-#: ../code/application/views/hb/hostel_view.php:766
+#: ../code/application/views/hb/hostel_view.php:786
 msgid "Purchasable Extras"
 msgstr "附加设备"
 
-#: ../code/application/views/hb/hostel_view.php:801
+#: ../code/application/views/hb/hostel_view.php:821
 msgid "Check-In/Out Details"
 msgstr "入住/退房细则"
 
-#: ../code/application/views/hb/hostel_view.php:806
+#: ../code/application/views/hb/hostel_view.php:826
 msgid "Check-in:"
 msgstr "入住："
 
-#: ../code/application/views/hb/hostel_view.php:810
+#: ../code/application/views/hb/hostel_view.php:830
 msgid "Check-out:"
 msgstr "退房："
 
-#: ../code/application/views/hb/hostel_view.php:822
+#: ../code/application/views/hb/hostel_view.php:842
 #: ../code/application/views/hb/booking_end_view.php:180
 #: ../code/application/views/email/new_transaction_hb.php:703
 msgid "Cancellation Policy"
@@ -5629,8 +5673,8 @@ msgstr "在发送预定请求前，请选择您的团体里男性数量，女性
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
 #: ../code/application/controllers/cform_ajax.php:75
-#: ../code/application/controllers/cmain.php:788
-#: ../code/application/controllers/cmain.php:801
+#: ../code/application/controllers/cmain.php:789
+#: ../code/application/controllers/cmain.php:802
 #, php-format
 msgid "Group Booking"
 msgstr "团体预订"
@@ -5656,7 +5700,7 @@ msgstr "团队预订不超过500人。"
 #: ../code/application/views/group_request.php:31
 #: ../code/application/views/helpfile/pofields.php:147
 #: ../code/application/views/helpfile/pofields.php~:147
-#: ../code/application/controllers/cmain.php:794
+#: ../code/application/controllers/cmain.php:795
 #, php-format
 msgid ""
 "If you are looking for a hostel, a Youth hostel, a hotel, a B&B or a cheap "
@@ -5888,14 +5932,14 @@ msgstr "查看所有%s住宿"
 
 #: ../code/application/views/helpfile/pofields.php:13
 #: ../code/application/views/helpfile/pofields.php~:13
-#: ../code/application/views/mustache/property_list.php:249
+#: ../code/application/views/mustache/property_list.php:264
 #, php-format
 msgid "Dorms from %s"
 msgstr "%s的宿舍"
 
 #: ../code/application/views/helpfile/pofields.php:14
 #: ../code/application/views/helpfile/pofields.php~:14
-#: ../code/application/views/mustache/property_list.php:263
+#: ../code/application/views/mustache/property_list.php:278
 #, php-format
 msgid "Private rooms from %s"
 msgstr "%s的专用间"
@@ -6720,9 +6764,9 @@ msgstr "手机版本"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:863
-#: ../code/application/libraries/Hw_engine.php:741
-#: ../code/application/libraries/Hw_engine.php:1296
+#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hw_engine.php:743
+#: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -6769,7 +6813,7 @@ msgstr "在本网站预订房间不需要提供会员卡。"
 
 #: ../code/application/views/helpfile/pofields.php:198
 #: ../code/application/views/helpfile/pofields.php~:198
-#: ../code/application/libraries/Hw_engine.php:1295
+#: ../code/application/libraries/Hw_engine.php:1297
 #, php-format
 msgid "Property availability error"
 msgstr "信息错误。"
@@ -6777,7 +6821,7 @@ msgstr "信息错误。"
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
 #: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1037
+#: ../code/application/libraries/Hb_engine.php:1039
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "目前没有您需要的信息。稍后再试！"
@@ -6785,7 +6829,7 @@ msgstr "目前没有您需要的信息。稍后再试！"
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1293
+#: ../code/application/libraries/Hb_engine.php:1295
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "抱歉，没有空床位提供。"
@@ -7062,8 +7106,8 @@ msgstr "免费上网"
 
 #: ../code/application/views/helpfile/pofields.php:287
 #: ../code/application/views/helpfile/pofields.php~:287
-#: ../code/application/views/mustache/property_list.php:240
-#: ../code/application/views/mustache/property_list.php:257
+#: ../code/application/views/mustache/property_list.php:255
+#: ../code/application/views/mustache/property_list.php:272
 #, php-format
 msgid "Deal of the Day"
 msgstr "当日特价"
@@ -8690,7 +8734,7 @@ msgstr "显示更少"
 
 #: ../code/application/views/helpfile/pofields.php:660
 #: ../code/application/views/helpfile/pofields.php~:660
-#: ../code/application/controllers/cmain.php:1438
+#: ../code/application/controllers/cmain.php:1456
 #, php-format
 msgid "Not enough parameters"
 msgstr "参数不够"
@@ -8699,14 +8743,14 @@ msgstr "参数不够"
 #: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/views/helpfile/pofields.php~:661
 #: ../code/application/views/helpfile/pofields.php~:769
-#: ../code/application/controllers/cmain.php:1442
+#: ../code/application/controllers/cmain.php:1460
 #, php-format
 msgid "Fill in the email"
 msgstr "写在邮件里"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #: ../code/application/views/helpfile/pofields.php~:662
-#: ../code/application/controllers/cmain.php:1445
+#: ../code/application/controllers/cmain.php:1463
 #, php-format
 msgid "Invalid email recipient"
 msgstr "无效的邮件接收人"
@@ -8715,7 +8759,7 @@ msgstr "无效的邮件接收人"
 #: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/views/helpfile/pofields.php~:663
 #: ../code/application/views/helpfile/pofields.php~:770
-#: ../code/application/controllers/cmain.php:1449
+#: ../code/application/controllers/cmain.php:1467
 #, php-format
 msgid "Fill in the subject"
 msgstr "写在主题里"
@@ -8724,28 +8768,28 @@ msgstr "写在主题里"
 #: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/views/helpfile/pofields.php~:664
 #: ../code/application/views/helpfile/pofields.php~:771
-#: ../code/application/controllers/cmain.php:1452
+#: ../code/application/controllers/cmain.php:1470
 #, php-format
 msgid "Fill in the message"
 msgstr "写在信息里"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #: ../code/application/views/helpfile/pofields.php~:665
-#: ../code/application/controllers/cmain.php:1455
+#: ../code/application/controllers/cmain.php:1473
 #, php-format
 msgid "Fill in the \"From\" name"
 msgstr "写在“发件人”名字里"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #: ../code/application/views/helpfile/pofields.php~:666
-#: ../code/application/controllers/cmain.php:1458
+#: ../code/application/controllers/cmain.php:1476
 #, php-format
 msgid "Fill in the \"From\" email"
 msgstr "写在“发件人”邮件里"
 
 #: ../code/application/views/helpfile/pofields.php:667
 #: ../code/application/views/helpfile/pofields.php~:667
-#: ../code/application/controllers/cmain.php:1461
+#: ../code/application/controllers/cmain.php:1479
 #, php-format
 msgid "Invalid \"From\" email"
 msgstr "无效的“已发送”邮件"
@@ -8972,14 +9016,14 @@ msgstr "用地标过滤（-2公里）"
 
 #: ../code/application/views/helpfile/pofields.php:785
 #: ../code/application/views/helpfile/pofields.php~:785
-#: ../code/application/views/mustache/property_list.php:255
+#: ../code/application/views/mustache/property_list.php:270
 #, php-format
 msgid "Lowest price per night per person in a dorm"
 msgstr "宿舍里每人每晚的最低价"
 
 #: ../code/application/views/helpfile/pofields.php:786
 #: ../code/application/views/helpfile/pofields.php~:786
-#: ../code/application/views/mustache/property_list.php:264
+#: ../code/application/views/mustache/property_list.php:279
 #, php-format
 msgid "Lowest price per night per person in a private room"
 msgstr "私人房间里每人每晚的最低价"
@@ -9065,6 +9109,7 @@ msgstr ""
 "现住处的联系信息（邮件，地址，电话号码…)。"
 
 #: ../code/application/views/helpfile/pofields.php:800
+#: ../code/application/views/helpfile/pofields.php:834
 #: ../code/application/views/helpfile/pofields.php~:800
 #, php-format
 msgid ""
@@ -9073,6 +9118,7 @@ msgid ""
 msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
 
 #: ../code/application/views/helpfile/pofields.php:801
+#: ../code/application/views/helpfile/pofields.php:835
 #: ../code/application/views/helpfile/pofields.php~:801
 #, php-format
 msgid "Create account"
@@ -9099,6 +9145,7 @@ msgstr "我们绝不会泄露你的个人信息-你可以随时退订。"
 
 #: ../code/application/views/helpfile/pofields.php:805
 #: ../code/application/views/helpfile/pofields.php~:805
+#: ../code/application/views/mustache/save_property_dialog.php:32
 #, php-format
 msgid "Your private notes (optional)"
 msgstr "你的私人标注（可选）"
@@ -9117,21 +9164,17 @@ msgstr "更新标注"
 
 #: ../code/application/views/helpfile/pofields.php:808
 #: ../code/application/views/helpfile/pofields.php~:808
+#: ../code/application/views/mustache/save_property_dialog.php:46
 #, php-format
 msgid "Remove from my favorites"
 msgstr "从我的喜欢里移除"
 
 #: ../code/application/views/helpfile/pofields.php:809
 #: ../code/application/views/helpfile/pofields.php~:809
+#: ../code/application/views/mustache/save_property_dialog.php:53
 #, php-format
 msgid "Cancel"
 msgstr "取消"
-
-#: ../code/application/views/helpfile/pofields.php:810
-#: ../code/application/views/helpfile/pofields.php~:810
-#, php-format
-msgid "My favorite properties"
-msgstr "我喜欢的住处"
 
 #: ../code/application/views/helpfile/pofields.php:811
 #: ../code/application/views/helpfile/pofields.php~:811
@@ -9147,21 +9190,10 @@ msgstr "我对住处的临时标注"
 
 #: ../code/application/views/helpfile/pofields.php:813
 #: ../code/application/views/helpfile/pofields.php~:813
+#: ../code/application/views/mustache/saved_property_item.php:16
 #, php-format
 msgid "Edit or remove"
 msgstr "编辑或移除"
-
-#: ../code/application/views/helpfile/pofields.php:814
-#: ../code/application/views/helpfile/pofields.php~:814
-#, php-format
-msgid "Saved to my favorites"
-msgstr "保存到我的喜欢"
-
-#: ../code/application/views/helpfile/pofields.php:815
-#: ../code/application/views/helpfile/pofields.php~:815
-#, php-format
-msgid "Add to my favorites"
-msgstr "添加到我的喜欢"
 
 #: ../code/application/views/helpfile/pofields.php:816
 #: ../code/application/views/helpfile/pofields.php~:816
@@ -9205,13 +9237,77 @@ msgstr "请输入你的邮箱地址，我们会把密码发给你。"
 msgid "Saved favorite properties"
 msgstr "保存的喜欢的住处"
 
-#: ../code/application/views/helpfile/pofields.php:822
+#: ../code/application/views/helpfile/pofields.php:823
+#, fuzzy, php-format
+msgid ""
+"You only pay the deposit (%d%% of total amount) to confirm and secure your "
+"reservation now. The remaining amount (%d%%) is payable upon arrival. You "
+"will find the property's contact information (email, address, telephone "
+"number…) in your confirmation email after you have made your reservation."
+msgstr ""
+"你现在支付%d的订金可以确定和确保你的预定。余额%d可在到达住处时支付。预定后你"
+"会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
+
+#: ../code/application/views/helpfile/pofields.php:825
+#: ../code/application/views/helpfile/pofields.php~:825
+#, php-format
+msgid "Amount already paid:"
+msgstr "已经支付的金额："
+
+#: ../code/application/views/helpfile/pofields.php:830
+#, php-format
+msgid ""
+"This is the time your room will be ready the day of your arrival and the "
+"time you will need to leave your room the day of your departure. Most "
+"properties will store your luggage in a safe space if you arrive early or "
+"leave later and are open 24 hours a day. Please review the list of services "
+"offered by this particular property to confirm they are available."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:831
+#, fuzzy, php-format
+msgid "Existing account"
+msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
+
+#: ../code/application/views/helpfile/pofields.php:832
+#, fuzzy, php-format
+msgid "Create new account"
+msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
+
+#: ../code/application/views/helpfile/pofields.php:833
+#, php-format
+msgid "New password"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:836
+#, php-format
+msgid "Show room types"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:837
+#, php-format
+msgid "Hide room types"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:838
+#, php-format
+msgid ""
+"We are sorry but the maximum number of favorite properties you can save to "
+"your account is 30"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:839
+#, fuzzy, php-format
+msgid ""
+"This property has been saved in your \"My account\" section. You can now "
+"easily book it at a later date if you wish."
+msgstr "你可以将这个住处添加到你的账户里我的喜欢，以后如果你想预定就很容易了。"
+
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
 msgstr "现在需要支付订金 (%d)"
 
-#: ../code/application/views/helpfile/pofields.php:823
 #: ../code/application/views/helpfile/pofields.php~:823
 #, php-format
 msgid ""
@@ -9223,17 +9319,10 @@ msgstr ""
 "你现在支付%d的订金可以确定和确保你的预定。余额%d可在到达住处时支付。预定后你"
 "会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
 
-#: ../code/application/views/helpfile/pofields.php:824
 #: ../code/application/views/helpfile/pofields.php~:824
 #, php-format
 msgid "Deposit (%d)"
 msgstr "订金（%d）"
-
-#: ../code/application/views/helpfile/pofields.php:825
-#: ../code/application/views/helpfile/pofields.php~:825
-#, php-format
-msgid "Amount already paid:"
-msgstr "已经支付的金额："
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -9255,6 +9344,42 @@ msgid ""
 msgstr ""
 "欢迎使用本网站搜索便宜旅馆、旅舍、公寓、单间和床位（含早餐）。您只需点击其中"
 "一项，即可访问所有其他相关住宿信息。您也可以按国别查找，请参见以下列表："
+
+#: ../code/application/views/mustache/save_property_dialog.php:19
+#: ../code/application/views/mustache/saved_property_item.php:11
+#, fuzzy
+msgid "Arrival:"
+msgstr "抵达日"
+
+#: ../code/application/views/mustache/save_property_dialog.php:25
+#: ../code/application/views/mustache/saved_property_item.php:11
+#, fuzzy
+msgid "Number of nights:"
+msgstr "客人号码"
+
+#: ../code/application/views/mustache/save_property_dialog.php:38
+#, fuzzy
+msgid "character left"
+msgstr "留下的特点："
+
+#: ../code/application/views/mustache/save_property_dialog.php:39
+#, fuzzy
+msgid "characters left"
+msgstr "留下的特点："
+
+#: ../code/application/views/mustache/save_property_dialog.php:45
+#, fuzzy
+msgid "Update Note"
+msgstr "更新标注"
+
+#: ../code/application/views/mustache/save_property_dialog.php:50
+#, fuzzy
+msgid "Save Note"
+msgstr "更新标注"
+
+#: ../code/application/views/mustache/property_list.php:9
+msgid "Info"
+msgstr "信息"
 
 #: ../code/application/views/mustache/property_list.php:21
 msgid "Disponibility and Price"
@@ -9289,42 +9414,77 @@ msgstr "条款约定"
 msgid "Votre réservation sur %s!"
 msgstr "通过%s预订！"
 
-#: ../code/application/controllers/cmain.php:1695
+#: ../code/application/controllers/cmain.php:1736
 #: ../code/application/language/multi/tank_auth_lang.php:51
 msgid "Courriel"
 msgstr "电子邮件"
 
-#: ../code/application/controllers/cmain.php:1698
+#: ../code/application/controllers/cmain.php:1739
 msgid "Évaluation"
 msgstr "评价"
 
-#: ../code/application/controllers/cmain.php:1699
+#: ../code/application/controllers/cmain.php:1740
 msgid "Mois"
 msgstr "月"
 
-#: ../code/application/controllers/cmain.php:1700
+#: ../code/application/controllers/cmain.php:1741
 msgid "Année"
 msgstr "年"
 
-#: ../code/application/controllers/cmain.php:1739
+#: ../code/application/controllers/cmain.php:1780
 #, php-format
 msgid "Demande de modération pour la propriété %s"
 msgstr "%s要求合理的住宿节制。"
 
-#: ../code/application/controllers/cmain.php:1821
+#: ../code/application/controllers/cmain.php:1862
 msgid "Accept terms and conditions agreement to proceed"
 msgstr "同意该条款并继续"
+
+#: ../code/application/controllers/cmain.php:2285
+#, fuzzy
+msgid "Please log in"
+msgstr "请等一下"
+
+#: ../code/application/controllers/cmain.php:2311
+#, fuzzy
+msgid "Invalid property"
+msgstr "格式错误"
+
+#: ../code/application/controllers/cmain.php:2349
+#, fuzzy
+msgid "Property not found"
+msgstr "楼号"
+
+#: ../code/application/controllers/cmain.php:2358
+#, fuzzy
+msgid "Property is favorite already"
+msgstr "保存这个住处为喜欢的住处"
+
+#: ../code/application/controllers/cmain.php:2367
+#, fuzzy
+msgid "Invalid number of nights"
+msgstr "电话号码格式错误"
+
+#: ../code/application/controllers/cmain.php:2384
+#, fuzzy
+msgid "Invalid date"
+msgstr "格式错误"
+
+#: ../code/application/controllers/cmain.php:2391
+#, php-format
+msgid "Notes are exceeding maximum of %d chars"
+msgstr ""
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
 #: ../code/application/controllers/chostel.php:356
-#: ../code/application/libraries/Hw_engine.php:1692
+#: ../code/application/libraries/Hw_engine.php:1694
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "服务器无法访问，请稍后再试。"
 
 #: ../code/application/controllers/chostelbk.php:549
 #: ../code/application/controllers/chostel.php:767
-#: ../code/application/libraries/Hw_engine.php:2035
+#: ../code/application/libraries/Hw_engine.php:2037
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "服务器无法访问，请稍后再试。"
 
@@ -9346,7 +9506,7 @@ msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "请告知我们您的出行计划！"
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2025
+#: ../code/application/libraries/Hw_engine.php:2027
 msgid "Erreur lors de la réservation"
 msgstr "错误预订"
 
@@ -9366,13 +9526,13 @@ msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr "输入日期和预订天数无效 - 搜索无效"
 
-#: ../code/application/libraries/Hb_engine.php:1237
-#: ../code/application/libraries/Hw_engine.php:1063
+#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:1984
+#: ../code/application/libraries/Hw_engine.php:1986
 msgid "Card not supported please choose another card"
 msgstr "该卡不被接受,请换另一张卡。"
 
