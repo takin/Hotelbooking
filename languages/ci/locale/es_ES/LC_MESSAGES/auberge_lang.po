@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-04-29 21:09+0200\n"
+"PO-Revision-Date: 2013-05-09 22:37+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -4432,7 +4432,7 @@ msgstr "Tipo de propiedad"
 #: ../code/application/views/helpfile/pofields.php~:826
 #, php-format
 msgid "The most popular"
-msgstr "Los más populares"
+msgstr "El más popular"
 
 #: ../code/application/views/city_view.php:106
 #: ../code/application/views/city_ajax_view.php:226
@@ -9603,18 +9603,18 @@ msgid "Saved favorite properties"
 msgstr "Propiedades favoritas guardadas"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Ahora usted paga el depósito (%d del importe total) solamente para confirmar "
-"y asegurar su reserva .  La cantidad restante (%d) debe pagarse al llegar.  "
-"Una vez que haga su reserva, recibirá un email de confirmación en el cual "
-"encontrará la información de contacto de la propiedad en la que ha reservado "
-"(correo electrónico, dirección, número de teléfono…)."
+"Ahora usted paga el depósito (%d%% del importe total) solamente para "
+"confirmar y asegurar su reserva .  La cantidad restante (%d%%) debe pagarse "
+"al llegar.  Una vez que haga su reserva, recibirá un email de confirmación "
+"en el cual encontrará la información de contacto de la propiedad en la que "
+"ha reservado (correo electrónico, dirección, número de teléfono…)."
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9631,31 +9631,37 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Esta es la hora en que su habitación estará preparada el día de su llegada y "
+"la hora en la que debe dejar la habitación el día de su partida.  La mayoría "
+"de los alojamientos pueden guardar su equipaje en un lugar seguro si usted "
+"llega antes o parte más tarde y están abiertos 24 horas al día.  Por favor, "
+"revise la lista de servicios ofrecidos por este alojamiento en particular "
+"para confirmar que estos servicios son ofrecidos."
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Crear cuenta"
+msgstr "Cuenta existente"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Crear cuenta"
+msgstr "Crear cuenta nueva"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Nueva contraseña"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Mostrar tipos de habitaciones"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Ocultar tipos de habitaciones"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9745,7 +9751,6 @@ msgid "characters left"
 msgstr "Caractéres restantes"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Actualizar notas"
 
