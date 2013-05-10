@@ -63,7 +63,7 @@ if ($is_ajax) {
 		'onclick' => 'SaveProperty.getRegisterForm(); return false;'
 	);
 
-	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br /><br />';
+	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br />';
 	echo $showForm
 		? '<h2><center>' . _('Existing account') . '</center></h2><br />'
 		: '<h2><a href="#" onclick="$(\'.content_container\').css(\'height\', \'630px\'); $(\'#login_form_container\').show(); return false;"><center>' . _('Existing account') . '</center></a></h2><br />';
@@ -159,6 +159,6 @@ else {
 	</div>  
 </div>
 <?php } else { 
-	echo '</div><br /><br /><br /><h2><a onclick="SaveProperty.getRegisterForm(); return false;" href="', $this->Db_links->get_link("register"),'"><center>', _('Create account'), '</center></a></h2>';
+	echo '</div><br /><br /><h2><a onclick="SaveProperty.getRegisterForm(); return false;" href="', $this->Db_links->get_link("register"),'"><center>', _('Create account'), '</center></a></h2>';
 	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span>';
 }?>

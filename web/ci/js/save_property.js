@@ -433,7 +433,7 @@ var SaveProperty = function() {
 				dialog.show();
 
 				if (showForm) {
-					dialog.find('.content_container').css('height', '565px');
+					dialog.find('.content_container').css('height', '625px');
 				}
 				else {
 					dialog.find('.content_container').css('height', '400px');
@@ -515,7 +515,7 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
-				dialog.find('.content_container').css('height', '565px');
+				dialog.find('.content_container').css('height', '625px');
 			}
 		});
 	}
