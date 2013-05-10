@@ -433,11 +433,18 @@ var SaveProperty = function() {
 				dialog.show();
 
 				if (showForm) {
-					dialog.find('.content_container').css('height', '630px');
+					dialog.find('.content_container').css('height', '565px');
 				}
 				else {
 					dialog.find('.content_container').css('height', '400px');
 				}
+
+				$('input[type="password"]').on('keydown', function(event){
+					if (event.which == 8) { //backspace event
+						event.preventDefault();
+						$(this).val('');
+					}
+				});
 			}
 		});
 	}
@@ -508,7 +515,7 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
-				dialog.find('.content_container').css('height', '630px');
+				dialog.find('.content_container').css('height', '565px');
 			}
 		});
 	}
