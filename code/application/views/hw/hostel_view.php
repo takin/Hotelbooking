@@ -81,7 +81,7 @@ if ($api_error == false) {
                     <?php
                 }
                 ?>
-<?php //if ($api_error == false) { //print_r($hostel->PropertyImages) ?>
+<?php if ($api_error == false): //print_r($hostel->PropertyImages) ?>
     <?php
 // Separate images from thumb to main
     $main_images = array();
@@ -348,224 +348,7 @@ if ($api_error == false) {
                 <div class="fblike">
                     <script src="https://connect.facebook.net/<?php echo $code; ?>/all.js#xfbml=1"></script><fb:like data-layout="button_count" show_faces="false"></fb:like>
                 </div>
-                <?php if ($showEmail) { ?>
-                    <div class="share-email">
-                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
-                    </div>
-    <?php } ?>
 
-			<div class="amenities no-indent">
-			<?php
-			if(!empty($main_services))
-			{
-			  foreach($main_services as $service)
-			  {
-			    if($service->service_type == 'facility')
-			    {
-            ?>
-            <span class="icon_facility icon_facility_<?php echo $service->service_id; ?> group"><span><?php echo$service->description; ?></span></span>
-            <?php
-			    }
-			    else
-			    {
-			      ?>
-			      <span class="icon_facility icon_landmark group"><span><?php echo $service->description; ?></span></span>
-			      <?php
-			    }
-			  }
-			}
-			?>
-			</div>
-
-		</div>
-		<?php if (isset($hostel->PropertyImages)){ $count = 0;?>
-		<div class="thumbnail_list" id="thumbnail_list">
-		<?php foreach ($thumb_images as $image):?>
-<?php if (empty($print)) { ?>
-		<a class="openup" rel="<?php echo var_check($hostel->property_name,"");?>" href="<?php echo $main_images[$count];?>" alt="<?php echo var_check($hostel->property_name,"");?>">
-
-		  <img height="45px" data-href="<?php echo $image; ?>" src="<?php echo site_url("images/V2/blank.gif"); ?>" alt="<?php echo $hostel->property_name; ?>" />
-			<noscript>
-				<img height="45px" src="<?php echo $image; ?>" alt="<?php echo $hostel->property_name; ?>" />
-			</noscript>
-
-		</a>
-<?php } else {?>
-			<img height="45px" src="<?php echo $image; ?>" alt="<?php echo $hostel->property_name; ?>" />
-<?php } ?>
-		<?php $count++; endforeach;?>
-		</div>
-		<?php }?>
-	</div>
-
-	<nav class="hostel_tabs group" id="hostels_tabs">
-		<ul class="box_round ui-tabs-nav green_gradient_faded">
-			<li class="first"><a class="tab_price" href="#hostel_info_home"><?php echo _("Info & Prix");?></a></li>
-			<li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction" onClick="appendBootstrap()"><?php echo _("Cartes et Directions");?></a></li>
-			<li class="last"><a id="tab_comment" class="tab_review" href="#hostel_info_reviews"><?php echo _("Commentaires");?></a></li>
-		</ul>
-					<?php if(!empty($hostel->rating)){
-						$rating ='';
-						if(($hostel->rating>59) && ($hostel->rating<70) )
-						{
-						$rating = _("Good");
-			            }
-			            elseif(($hostel->rating>69) && ($hostel->rating<80) )
-			            {
-						$rating = _("Very good");
-					    }
-						elseif(($hostel->rating>79) && ($hostel->rating<90) )
-						{
-						$rating = _("Great");
-						}
-						elseif(($hostel->rating>89))
-						{
-						$rating = _("Fantastic");
-						}
-						?>
-						<ul class="box_round rating">
-						<li class="first last"><span class="" title="<?php echo _("évaluation moyenne");?>"><strong class="txt-mid green"><?php echo $rating;?></strong><strong style="color:#333333;"><?php echo $hostel->rating;?> %</strong></span></li>
-						</ul>
-						<?php }?>
-	</nav>
-
-	<div class="box_content box_round group hostel_info ui-tabs">
-		<div id="hostel_info_home" class="hostels_tab_content">
-		  <?php
-      if(!$this->api_forced)
-      {
-			?>
-			<div class="content_block">
-
-				<form class="group box_round" id="dispo-form" action="" method="">
-				<input type="hidden" id="book-property-number" name="book-property-number" value="<?php echo $hostel->property_number;?>" />
-				<input type="hidden" id="book-property-name" name="book-property-name" value="<?php echo $hostel->property_name;?>" />
-					 <?php
-					 //To support handling of dates and numnights of cached property page
-					 //JS is used to carry the session data on the cached view
-					 ?>
-						<script>
-						$(document).ready(
-								function()
-								{
-									jQuery("#book-pick").datepicker({ dateFormat: 'd MM, yy', minDate: 0});
-									var date_cookie = getCookie('date_selected');
-									if(isValidDate(date_cookie))
-									{
-										var date_url = date_cookie;
-										var date_array = date_cookie.split('-');
-										var date_avail 	= new Date(date_array[0],date_array[1]-1,date_array[2]);
-										$("#book-pick").datepicker( "setDate" , date_avail );
-									}
-									else
-									{
-										var date_avail = new Date();
-										date_avail.setDate(date_avail.getDate()+10);
-										$("#book-pick").datepicker( "setDate" , date_avail );
-										date_avail = siteDateString(date_avail);
-										var date_url = date_avail;
-									}
-
-									var numnight_cookie = getCookie('numnights_selected');
-									if(numnight_cookie)
-									{
-										document.getElementById('book-night').value = numnight_cookie;
-										var night_url = numnight_cookie;
-									}
-									else
-									{
-										numnight_avail = 2;
-										document.getElementById('book-night').value = numnight_avail;
-										var night_url = numnight_avail;
-									}
-
-									function getURLParameter(name) {
-											return decodeURI(
-													(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-											);
-									}
-									var currency_value = getURLParameter('currency');
-									if(!currency_value || currency_value == "null")
-									{
-										currency_value = getCookie('currency_selected');
-									}
-									if(currency_value)
-									{
-										document.getElementById('book-property-currency').value = currency_value;
-									}
-									else
-									{
-										currency_value = 'EUR';
-										document.getElementById('book-property-currency').value = currency_value;
-									}
-
-									<?php
-										$and_print = '';
-										if (!empty($print)) {
-											$and_print = '?print=true';
-										}
-									?>
-
-									var current_url = $("#back_to_results").attr("href");
-									$('#back_to_results').attr("href",current_url+"/"+date_url+"/"+night_url);
-									checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table', '<?php echo $and_print; ?>');
-								}
-							);
-						</script>
-					 <ul class="group">
-					 <?php
-						if(!isset($date_selected))
-						{
-							$date_selected = get_date_default();
-						}
-						//select_date(_('Arrivée le:'),"book-date-day","book-date-day","book-date-month","book-date-month",$date_selected);
-						?>
-						 <li>
-						 <label for="book-pick"><?php echo _('Arrivée le:');?></label>
-						 <input type="text" id="book-pick" name="book-pick" value="<?php echo $date_selected;?>" />
-						 </li>
-
-						<li>
-						<?php
-						if(!isset($numnights_selected))
-						{
-							$numnights_selected = 2;
-						}
-						$hb_api_used = ($this->api_used == HB_API) ? TRUE : FALSE;
-						select_nights(_('Nuits:'),"book-night","book-night",$numnights_selected, $hb_api_used); ?>
-						</li>
-						<li>
-						<label for="book-property-currency"><?php echo _("Devise:");?></label>
-						<?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$currency,"",$this->site_lang); ?>
-						</li>
-
-						<?php
-							$and_print = '';
-							if (!empty($print)) {
-								$and_print = '?print=true';
-							}
-									?>
-
-						<li class="last">
-						<input onfocus="this.blur()" type="button" name="book-submit" id="book-submit" class="button-green box_round hoverit" value="<?php echo _("Rechercher");?>" OnClick="$('ul.tabing').tabs('select', 0);checkAvailability('<?php echo site_url($this->hostel_controller); ?>','<?php echo str_replace("'","\\'",$bc_country);?>','<?php echo str_replace("'","\\'",$bc_city);?>',<?php echo $hostel->property_number;?>,'book-pick',document.getElementById('book-night').value,'<?php echo addslashes($hostel->property_name);?>',document.getElementById('book-property-currency').value,'<?php echo _('Date invalide'); ?>','booking-table', '<?php echo $and_print; ?>');" />
-						</li>
-
-					</ul>
-
-				</form>
-				<p id="loading_dispo"><?php echo _('Recherche de disponibilités...'); ?></p>
-				<div id="booking-table"></div>
-
-			</div>
-
-
-			<?php if ($showPDF) { ?>
-			<div class="content_block" id="share_pdf_container">
-				<strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?");?></strong>
-				<a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px" href="<?php echo site_url("images/share_pdf.png"); ?>"><img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 10px" /></a>
-				<br style="clear: both" />
-			</div>
-			<?php } ?>
 
 			<?php if (false/*$this->config->item('displaySaveProperty')*/) {
                             $addToFav   = $favorited ? 'display:none' : '';
@@ -585,6 +368,11 @@ if ($api_error == false) {
 			<?php } ?>
 
 
+                <?php if ($showEmail) { ?>
+                    <div class="share-email">
+                        <a id="share-email" class="share" href="<?php echo site_url("images/share_email.png"); ?>"><img src="<?php echo site_url("images/share_email.png"); ?>" alt="Share Email" /></a>
+                    </div>
+    <?php } ?>
 
 
                 <div class="amenities no-indent">
@@ -634,7 +422,7 @@ if ($api_error == false) {
                     <a class="tab_price" href="#hostel_info_home">
                 <?php
                 if ($switch_api) {
-                    echo _("Info");
+                    echo _("Information");
                 } else {
                     echo _("Info & Prix");
                 }
@@ -1032,7 +820,7 @@ if ($api_error == false) {
             </div>
         </div>
     </div>
-<?php } //endif api error ?>
+<?php endif; //endif api error ?>
 <?php
 /* Check the fourth param in URL */
 if ($this->uri->segment(4, 0)) {
