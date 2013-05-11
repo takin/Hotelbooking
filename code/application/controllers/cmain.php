@@ -2285,7 +2285,7 @@ class CMain extends I18n_site {
       $this->load->library('tank_auth');
       if (!$this->tank_auth->is_logged_in()) {
           echo json_encode(array(
-              'field'   => 'propertyNumber',
+              'reason'  => 'userLogOut',
               'message' => _('Please log in')
           ));
 

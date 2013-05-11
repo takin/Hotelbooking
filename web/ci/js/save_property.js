@@ -323,7 +323,7 @@ var SaveProperty = function() {
 		});
 
 		$('#save_fav .schedule_details .nights .num').val( parseInt(nights, 10) );
-		dialog.find('.content_container').css('height', '570px');
+//		dialog.find('.content_container').css('height', '570px');
 	}
 
 	function showSaveDialog(data) {
@@ -369,15 +369,20 @@ var SaveProperty = function() {
 			success: function(response) {
 				form.find('.actions').show();
 
-				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
-				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
-
                                 if (response.message) {
 					alert(response.message);
+
+					if (response.reason && response.reason == 'userLogOut') {
+						userIsLoggedIn = false;
+
+						getLoginForm(true);
+					}
 
 					return;
                                 }
 
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
 
 				SaveProperty.loadSavedPropertyList();
 
@@ -433,10 +438,10 @@ var SaveProperty = function() {
 				dialog.show();
 
 				if (showForm) {
-					dialog.find('.content_container').css('height', '625px');
+//					dialog.find('.content_container').css('height', '625px');
 				}
 				else {
-					dialog.find('.content_container').css('height', '400px');
+//					dialog.find('.content_container').css('height', '400px');
 				}
 
 				$('input[type="password"]').on('keydown', function(event){
@@ -463,6 +468,8 @@ var SaveProperty = function() {
 			success  : function(response) {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
+						userIsLoggedIn = true;
+
 						// user is logged in
 						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
 						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
@@ -495,6 +502,8 @@ var SaveProperty = function() {
 			success  : function(response) {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
+						userIsLoggedIn = true;
+
 						// user is logged in
 						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
 						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
@@ -515,7 +524,7 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
-				dialog.find('.content_container').css('height', '625px');
+//				dialog.find('.content_container').css('height', '625px');
 			}
 		});
 	}

@@ -2422,7 +2422,7 @@ text-align: -webkit-center;
 
 #save_property_dialog .content_container {
 	margin: 0 auto;
-	height: 630px;
+/*	height: 630px;*/
 	width: 618px;
 	margin-top: 30px;
 	color: #00359f;
@@ -2431,6 +2431,7 @@ text-align: -webkit-center;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	font-size: 1.2em;
+	padding-bottom: 10px;
 }
 
 #save_property_dialog .content #content {

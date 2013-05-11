@@ -85,11 +85,11 @@ if ($is_ajax) {
 		'onclick' => 'SaveProperty.getLoginForm(true); return false;'
 	);
 
-	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br /><br />';
-	echo '<h2><a href="#" onclick="SaveProperty.getLoginForm(true); return false;"><center>', _('Existing account'), '</center></a></h2><br />';
+	echo '<br /><span style="color: #000;">', _('To save a property as a favorite, you must be login to your account.'), '</span><br />';
+	echo '<h2><a href="#" onclick="SaveProperty.getLoginForm(true); return false;"><center>', _('Existing account'), '</center></a></h2>';
 
-	echo '<h2><center>', _('Create account'), '</center></h2><br />';
-	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span><br /><br />';
+	echo '<h2><center>', _('Create account'), '</center></h2>';
+	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span>';
 }
 else {
 ?>
