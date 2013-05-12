@@ -196,7 +196,7 @@ SavedProperty.edit = function(id, triggerElem) {
 	});
 
 	$('#save_fav .schedule_details .date .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
-	$('#save_fav .schedule_details .nights .num').val( parseInt(obj.find('.nights').html(), 10) );
+	$('#nights').val( parseInt(obj.find('.nights').html(), 10) );
 }
 
 SavedProperty.remove = function(id, triggerElem) {
@@ -222,7 +222,7 @@ SavedProperty.remove = function(id, triggerElem) {
 			else {
 				$('#prop_tab_box_' + id).fadeOut(300, function(){ $(this).remove(); });
 
-				SaveProperty.loadSavedPropertyList();
+				SaveProperty.loadSavedPropertyList(true);
 			}
 		}
 	});
@@ -263,6 +263,10 @@ var SaveProperty = function() {
 			url     : favorite_properties_url,
 			success : function(data) {
 				savedProperty.setup(data);
+
+				if (!data.length) {
+					$('#favorite_properties').html( $('#missing_hostels').html() );
+				}
 			}
 		});
 
@@ -322,7 +326,7 @@ var SaveProperty = function() {
 			isNew          : true
 		});
 
-		$('#save_fav .schedule_details .nights .num').val( parseInt(nights, 10) );
+		$('#nights').val( parseInt(nights, 10) );
 //		dialog.find('.content_container').css('height', '570px');
 	}
 

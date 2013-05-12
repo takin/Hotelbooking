@@ -32,6 +32,7 @@
 		<input type="hidden" id="current_page" value="0">
 		<input type="hidden" id="show_per_page" value="0">
 
+		<div id="missing_hostels" style="display: none"><?php echo _('No properties were saved.'); ?></div>
 		<div id="favorite_properties"></div>
 
 		<div id="navi" class="pagination_pro" style="display:none;">
