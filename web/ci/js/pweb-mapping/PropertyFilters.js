@@ -176,6 +176,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 			if (elem.val()) {
 				var checkbox = $('#pro_compare_' + elem.val());
 				if (checkbox.length) {
+					checkbox.parent().find('label').css('color', '#3087C9');
 					checkbox.attr('checked', 'checked');
 				}
 			}
@@ -1577,6 +1578,8 @@ $(document).ready(function() {
 				if(property_selected != ''){
 				    for(i=0;i<property_selected;i++){  
 					   $("#pro_compare_"+total_property[i]).attr('checked',true); 
+					   $("#pro_compare_"+total_property[i]).parent().find('label').css('color', '#3087C9');
+
 					   $('#compare_count_'+total_property[i]).html(property_selected);
 				    }
 					 

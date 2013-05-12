@@ -293,7 +293,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 
 						if ($hascheckedfe == true) { ?>
 							<tr class="quick_compare_grey rating row_white" id="row-extra-<?php echo $extra->hb_extra_id;?>">
-								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#"><?php echo $space;?></a> <?php echo $extra->description;?></td>
+								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#"><?php echo $space;?></a> <?php echo _($extra->description); ?></td>
 								<?php
 									for ($i = 0; $i < count($compare_data); $i++) {
 										if (in_array($extra->hb_extra_id, $compare_data[$i]['extra']))  {
@@ -325,7 +325,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 
 						if($haschecked==true){
 							echo '<tr class="'.$class.'" id="row-featur-'.$x.'">
-								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#">'.$space.'</a>'.$featur->description.'</td>';
+								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#">'.$space.'</a>'. _($featur->description) .'</td>';
 								for($i=0; $i< count($compare_data); $i++){
 									if (in_array($featur->hb_feature_id, $compare_data[$i]['feature']))  {
 										echo '<td  class="control_button"><img src="'.site_url().'images/valid.gif"/></td>';
@@ -362,7 +362,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						}
 						if($haschecked==true){
 							echo '<tr class="'.$class.'" id="row-extra-'.$x.'"">
-								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#">'.$space.'</a>'.$facelity->description.'</td>';
+								<td class="facility"><a class="hideRowButton" data-rowid="row-5" href="#">'.$space.'</a>'._($facelity->description).'</td>';
 								for($i=0; $i< count($compare_data); $i++){
 									if(in_array($facelity->hw_facility_id, $compare_data[$i]['facelity']))  {
 										echo '<td  class="control_button"><img src="'.site_url().'images/valid.gif"/></td>';
