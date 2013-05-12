@@ -203,6 +203,7 @@ class Hw_engine {
     $country     = $hw_city->country_name_translated;
     $city        = $hw_city->city_name_translated;
 
+    $data["most_popular_amenities"] = array();
     $data['city_amenities'] = array();
     $data['city_districts'] = array();
     $data['city_landmarks'] = array();
@@ -352,19 +353,21 @@ class Hw_engine {
       if($include_availdata !== true)
       {
         //Add district landmark of city
-        $data['city_amenities'] = $this->CI->Db_hw_hostel->get_amenities_city_for_filter();
+        $amenityGroups = $this->CI->Db_hw_hostel->get_amenities_city_for_filter();
+        $data["most_popular_amenities"] = $amenityGroups["mostPopularAmenities"];
+        $data['city_amenities'] = $amenityGroups["amenities"];
         $data['city_districts'] = $this->CI->Db_hw_hostel->get_districts_by_city_id($hw_city->city_id);
         $data['city_landmarks'] = $this->CI->Db_hw_hostel->get_landmarks_by_city_id($hw_city->city_id,2);
 
         //translate city landmarks
         $this->CI->load->model('i18n/db_translation_cache');
-        foreach($data['city_amenities'] as $i => $amenity)
+        foreach(array_merge($data['city_amenities'], $data["most_popular_amenities"]) as $i => $amenity)
         {
           $translation = $this->CI->db_translation_cache->get_translation($amenity->facility_name,$this->CI->site_lang);
-          $data['city_amenities'][$i]->original_name = $amenity->facility_name;
+          $amenity->original_name = $amenity->facility_name;
           if(!empty($translation))
           {
-            $data['city_amenities'][$i]->facility_name = $translation->translation;
+            $amenity->facility_name = $translation->translation;
           }
 
         }
@@ -611,6 +614,8 @@ class Hw_engine {
     {
       //TODO insert this into HW and HB lib
 
+      $json_data["property_list"][$i]['savedToFavorites']   = empty($prop["savedToFavorites"]) ? false : true;
+      $json_data["property_list"][$i]['saveToFavorites']    = empty($prop["saveToFavorites"]) ? true : false;
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
@@ -757,7 +762,7 @@ class Hw_engine {
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
       $json_data["property_list"][$i]["display_shared_price"]  = floatval($prices['min_dorm_price']);
-      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_price']);
+      $json_data["property_list"][$i]["display_private_price"] = floatval($prices['min_room_per_person_price']);
       $json_data["property_list"][$i]["display_private_people"] = intval($prices['min_room_people']);
 
       $json_data["property_list"][$i]["currency_code"] = $json_data["property_list"][$i]["BedPrices"]["BedPrice"]["currency"];
@@ -1311,6 +1316,7 @@ class Hw_engine {
     $cheapest_prices['min_price']      = "";
     $cheapest_prices['min_dorm_price'] = "";
     $cheapest_prices['min_room_price'] = "";
+    $cheapest_prices['min_room_per_person_price'] = "";
     $cheapest_prices['min_room_people'] = "";
 
     $maxPersons = 10;
@@ -1363,7 +1369,15 @@ class Hw_engine {
           $cheapest_prices['min_room_price'] = (float)$cheapest_room_date['price']*$bedsincrement;
           $cheapest_prices['min_room_people'] = $bedsincrement;
         }
-
+        
+        if(empty($cheapest_prices['min_room_per_person_price']))
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
+        elseif(( (float)$cheapest_room_date['price']) < $cheapest_prices['min_room_per_person_price'] )
+        {
+          $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
+        }
 
       }
     }

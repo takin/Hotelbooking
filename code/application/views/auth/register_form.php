@@ -34,6 +34,22 @@ $captcha = array(
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
 );
+
+$login_attributes = array();
+$form_attributes  = array(
+	'action' => 'POST'
+);
+
+if ($is_ajax) {
+	$form_attributes = array(
+		'onsubmit' => 'SaveProperty.register(this); return false;'
+	);
+
+	$login_attributes = array(
+		'onclick' => 'SaveProperty.getLoginForm(); return false;'
+	);
+}
+else {
 ?>
 <div id="sidebar" class="grid_4">
 	<div class="box_content box_round side_entry">
@@ -48,9 +64,10 @@ $captcha = array(
 </div>
 <div id="main" class="grid_12 user-auth">
 	<div class="box_content box_round group">
+<?php } ?>
 		<h1 class="content_title"><?php echo _('Vous enregistrer');?> - <?php echo _('Créer votre compte');?></h1>		
 		<p><?php echo _("La création d'un compte vous donnera accès à votre historique de réservations et d'évaluations pour les auberges de jeunesse. Veuillez entrer votre adresse de courriel et nous vous enverrons un mot de passe.");?>
-		<?php echo form_open($this->uri->uri_string()); ?>
+		<?php echo form_open($this->uri->uri_string(), $form_attributes); ?>
 		<table>
 				<?php if ($use_username) { ?>
 				<tr>
@@ -114,6 +131,8 @@ $captcha = array(
 		</table>
 		<input id="register-page" type="submit" value="<?php echo _("S'enregistrer");?>" name="register">
 		<?php echo form_close(); ?><br />
-		<a href="<?php echo site_url($this->Db_links->get_link("connect"));?>">&laquo; <?php echo _("Se connecter");?></a>
+		<?php echo anchor($this->Db_links->get_link("connect"), _("Se connecter"), $login_attributes); ?>
+<?php if (!$is_ajax) { ?>
 	</div>
 </div>
+<?php } ?>

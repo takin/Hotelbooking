@@ -437,7 +437,7 @@ class Db_hb_city extends CI_Model
                                   LOCATE(', ', hb_city.lname_en) - 1)),
                           hb_city.lname_en) as city_lname_en_stripped,
                       continents.continent_en AS continent_name,
-                      continents.continent_pl AS continent_name_translated,
+                      continents.continent_$lang AS continent_name_translated,
                       hb_country.country_iso_code_2
                   FROM (hb_city)
                   LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id
