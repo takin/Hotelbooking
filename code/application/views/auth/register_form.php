@@ -89,7 +89,7 @@ if ($is_ajax) {
 	echo '<h2><a href="#" onclick="SaveProperty.getLoginForm(true); return false;"><center>', _('Existing account'), '</center></a></h2>';
 
 	echo '<h2><center>', _('Create account'), '</center></h2>';
-	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span>';
+	echo '<span style="color: #000">', _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.'), '</span><br /><br />';
 }
 else {
 ?>
@@ -114,44 +114,56 @@ else {
 				<?php if ($is_ajax) { ?>
 					<tr>
 						<td valign="top" class="first"><?php echo form_label(_('First name'), $first_name['id']); ?></td>
-						<td valign="top"><?php echo form_input($first_name); ?></td>
-						<td style="color: red;"><?php echo form_error($first_name['name']); ?><?php echo isset($errors[$first_name['name']]) ? $errors[$first_name['name']] : '' ; ?></td>
+						<td valign="top"><?php
+							echo form_input($first_name); ?>
+							<span style="color: red;"><?php echo form_error($first_name['name']); ?><?php echo isset($errors[$first_name['name']]) ? $errors[$first_name['name']] : '' ; ?></span>
+						</td>
 					</tr>
 					<tr>
 						<td valign="top" class="first"><?php echo form_label(_('Last name'), $last_name['id']); ?></td>
-						<td valign="top"><?php echo form_input($last_name); ?></td>
-						<td style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']]) ? $errors[$last_name['name']] : '' ; ?></td>
+						<td valign="top"><?php
+							echo form_input($last_name); ?>
+							<span style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']]) ? $errors[$last_name['name']] : '' ; ?></span>
+						</td>
 					</tr>
                                 <?php } ?>
 
 				<?php if ($use_username) { ?>
 				<tr>
 						<td valign="top" class="first"><?php echo form_label("Nom d'usager", $username['id']); ?></td>
-						<td valign="top"><?php echo form_input($username); ?></td>
-						<td style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></td>
+						<td valign="top"><?php
+							echo form_input($username); ?>
+							<span style="color: red;"><?php echo form_error($username['name']); ?><?php echo isset($errors[$username['name']])?$errors[$username['name']]:''; ?></span>
+						</td>
 				</tr>
 				<?php } ?>
 				<tr>
 						<td valign="top" class="first"><?php echo form_label($this->lang->line('auth_field_email'), $email['id']); ?></td>
-						<td valign="top"><?php echo form_input($email); ?></td>
-						<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
+						<td valign="top"><?php
+							echo form_input($email); ?>
+							<span style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></span>
+						</td>
 				</tr>
 				<?php if($choose_password == TRUE):?>
 					<tr>
 							<td class="first"><?php echo form_label($this->lang->line('auth_field_password'), $password['id']); ?></td>
-							<td><?php echo form_password($password); ?></td>
-							<td style="color: red;"><?php echo form_error($password['name']); ?></td>
+							<td><?php
+								echo form_password($password); ?>
+								<span style="color: red;"><?php echo form_error($password['name']); ?></span>
+							</td>
 					</tr>
 					<tr>
 							<td class="first"><?php echo form_label($this->lang->line('auth_field_confirm_new_password'), $confirm_password['id']); ?></td>
-							<td><?php echo form_password($confirm_password); ?></td>
-							<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
+							<td><?php
+								echo form_password($confirm_password); ?>
+								<span style="color: red;"><?php echo form_error($confirm_password['name']); ?></span>
+							</td>
 					</tr>
 				<?php  endif;?>
 				<?php if ($captcha_registration) {
 						if ($use_recaptcha) { ?>
 				<tr>
-						<td colspan="2">
+						<td>
 								<div id="recaptcha_image"></div>
 						</td>
 						<td>
@@ -165,21 +177,25 @@ else {
 								<div class="recaptcha_only_if_image"><?php echo _("Entrer le mot ci-dessus");?></div>
 								<div class="recaptcha_only_if_audio"><?php echo _("Entrer les numéros entendus");?></div>
 						</td>
-						<td><input type="text" id="recaptcha_response_field" name="recaptcha_response_field" /></td>
-						<td style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></td>
+						<td>
+							<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+							<span style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></span>
+						</td>
 						<?php echo $recaptcha_html; ?>
 				</tr>
 				<?php } else { ?>
 				<tr>
-						<td class="first" colspan="3">
+						<td class="first" colspan="2">
 								<p><?php echo _("Entrer le code exactement comme il apparaît:"); ?></p>
 								<?php echo $captcha_html; ?>
 						</td>
 				</tr>
 				<tr>
 						<td class="first"><?php echo form_label($this->lang->line('auth_field_confirmation_code'), $captcha['id']); ?></td>
-						<td><?php echo form_input($captcha); ?></td>
-						<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
+						<td><?php
+							echo form_input($captcha); ?>
+							<span style="color: red;"><?php echo form_error($captcha['name']); ?></span>
+						</td>
 				</tr>
 				<?php }
 				}
@@ -187,8 +203,10 @@ else {
 				if ($is_ajax) { ?>
 					<tr>
 						<td valign="top" class="first"><?php echo form_label(_('Newsletter Subscription'), $mail_subscription['id']); ?></td>
-						<td valign="top"><?php echo form_checkbox($mail_subscription); echo _('We will never sell your personal information - You can unsubscribe anytime.'); ?></td>
-						<td style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></td>
+						<td valign="top"><?php
+							echo form_checkbox($mail_subscription); echo _('We will never sell your personal information - You can unsubscribe anytime.'); ?>
+							<span style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></span>
+						</td>
 					</tr>
 
                                 <?php }
@@ -196,7 +214,7 @@ else {
 		</table>
 		<?php
 			if ($is_ajax) {
-				echo '<div style="margin-left:10px; color: #000">', _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.'), '</div><br />';
+				echo '<div style="margin-left:10px; color: #000; margin-top: 20px">', _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.'), '</div><br />';
 			}
 		?>
 		<input id="register-page" type="submit" value="<?php echo _("S'enregistrer");?>" name="register">

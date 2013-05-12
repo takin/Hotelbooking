@@ -96,19 +96,23 @@ else {
 		<table>
 				<tr>
 						<td class="first label1" valign="middle"><?php echo form_label($login_label, $login['id']); ?></td>
-						<td valign="middle"><?php echo form_input($login); ?></td>
-						<td valign="middle" style="color: red;"><?php echo form_error($login['name']); ?><?php echo isset($errors[$login['name']])?$errors[$login['name']]:''; ?></td>
+						<td valign="middle"><?php
+							echo form_input($login); ?>
+							<span valign="middle" style="color: red;"><?php echo form_error($login['name']); ?><?php echo isset($errors[$login['name']])?$errors[$login['name']]:''; ?></span>
+						</td>
 				</tr>
 				<tr>
 						<td class="first label1" valign="middle"><?php echo form_label($this->lang->line('auth_field_password'), $password['id']); ?></td>
-						<td valign="middle"><?php echo form_password($password); ?></td>
-						<td valign="middle" style="color: red;"><?php echo form_error($password['name']); ?><?php echo isset($errors[$password['name']])?$errors[$password['name']]:''; ?></td>
+						<td valign="middle"><?php
+							echo form_password($password); ?>
+							<span valign="middle" style="color: red;"><?php echo form_error($password['name']); ?><?php echo isset($errors[$password['name']])?$errors[$password['name']]:''; ?></span>
+						</td>
 				</tr>
 		
 				<?php if ($show_captcha) {
 						if ($use_recaptcha) { ?>
 				<tr>
-						<td colspan="2">
+						<td>
 								<div id="recaptcha_image"></div>
 						</td>
 						<td>
@@ -122,30 +126,33 @@ else {
 								<div class="recaptcha_only_if_image"><?php echo _("Entrer le mot ci-dessus");?></div>
 								<div class="recaptcha_only_if_audio"><?php echo _("Entrer les numéros entendus");?></div>
 						</td>
-						<td><input type="text" id="recaptcha_response_field" name="recaptcha_response_field" /></td>
-						<td style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></td>
+						<td>
+							<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+							<span style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></span>
+						</td>
 						<?php echo $recaptcha_html; ?>
 				</tr>
 				<?php } else { ?>
 				<tr>
-						<td class="first" colspan="3">
+						<td class="first" colspan="2">
 								<p><?php echo _("Entrer le code exactement comme il apparaît:"); ?></p>
 								<?php echo $captcha_html; ?>
 						</td>
 				</tr>
 				<tr>
 						<td class="first"><?php echo form_label($this->lang->line('auth_field_confirmation_code'), $captcha['id']); ?></td>
-						<td><?php echo form_input($captcha); ?></td>
-						<td valign="middle" style="color: red;"><?php echo form_error($captcha['name']); ?></td>
+						<td><?php
+							echo form_input($captcha); ?>
+							<span valign="middle" style="color: red;"><?php echo form_error($captcha['name']); ?></span>
+						</td>
 				</tr>
 				<?php }
 				} ?>
 		
 				<tr>
-						<td class="first" colspan="3">
+						<td class="first" colspan="2">
 								<?php echo form_checkbox($remember); ?>
 								<?php echo form_label($this->lang->line('auth_field_remember_me'), $remember['id']); ?>
-								
 						</td>
 				</tr>
 		</table>
