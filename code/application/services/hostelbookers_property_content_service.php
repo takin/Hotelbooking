@@ -75,6 +75,7 @@ class Hostelbookers_Property_Content_Service {
     }
     
     private function parsePropertyXml($propertyXml, $langCode) {
+        
         $property = array(
             "hostel_hb_id" => intval((string) $propertyXml["ID"], 10),
             "short_description" => (string) $propertyXml->overview,
