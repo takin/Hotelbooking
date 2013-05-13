@@ -291,51 +291,56 @@ if ($api_error == false) {
             //If number of night avaible of the room is higher or equal to the property min night condition dispay the room selection menu
             if ($num_nights_available_of_room >= $booking_info->minNights) {
 
-                $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"" . $hostel_room_type['roomTypeCode'] . "\" />";
-                $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomType[]\" value=\"" . $hostel_room_type['roomType'] . "\" />";
-                $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDesc[]\" value=\"" . $hostel_room_type['roomTypeDescription'] . "\" />";
+                // If number of nights of the room is equal to total number of nights then fully available else paritally available
+                if ($num_nights_available_of_room == $numNights) {
 
-                if (!empty($hostel_room_type['roomTypeDescriptionTranslated'])) {
-                    $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"" . $hostel_room_type['roomTypeDescriptionTranslated'] . "\" />";
-                } else {
-                    $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"\" />";
-                }
+                    $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"" . $hostel_room_type['roomTypeCode'] . "\" />";
+                    $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomType[]\" value=\"" . $hostel_room_type['roomType'] . "\" />";
+                    $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDesc[]\" value=\"" . $hostel_room_type['roomTypeDescription'] . "\" />";
 
-                $sharedRoomsAvailable++;
-
-                $sharedRoomsTable.= "<select id=\"sharedsel_" . $nbRoomType . "\" class=\"sharedsel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
-
-                $sharedRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
-                $sharedRoomsTable.= "<option value=\"0\">0</option>\n";
-
-                for ($p = 1; $p <= $availableBeds; $p++) {
-
-                    $selection_title = '';
-
-                    if ($p % $nb_guest_per_room == 0) {
-
-                        if (($p / $nb_guest_per_room) == 1) {
-                            $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm.'));
-                        } else {
-                            $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms.'), (int) ($p / $nb_guest_per_room));
-                        }
-                        $sharedRoomsTable.= "<option value=\"$p\" complete=\"true\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
+                    if (!empty($hostel_room_type['roomTypeDescriptionTranslated'])) {
+                        $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"" . $hostel_room_type['roomTypeDescriptionTranslated'] . "\" />";
                     } else {
-
-                        if (floor($p / $nb_guest_per_room) < 1) {
-                            $selection_title = _('Availability') . ' | ' . _('You will partially use 1 dorm.');
-                        } else {
-                            if (floor($p / $nb_guest_per_room) == 1) {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm and 1 partially.'));
-                            } else {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 partially.'), (int) floor($p / $nb_guest_per_room));
-                            }
-                        }
-
-                        $sharedRoomsTable.= "<option value=\"$p\" complete=\"false\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
+                        $sharedRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"\" />";
                     }
+
+                    $sharedRoomsAvailable++;
+
+                    $sharedRoomsTable.= "<select id=\"sharedsel_" . $nbRoomType . "\" class=\"sharedsel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
+
+                    $sharedRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
+                    $sharedRoomsTable.= "<option value=\"0\">0</option>\n";
+
+                    for ($p = 1; $p <= $availableBeds; $p++) {
+
+                        $selection_title = '';
+
+                        if ($p % $nb_guest_per_room == 0) {
+
+                            if (($p / $nb_guest_per_room) == 1) {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm.'));
+                            } else {
+                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms.'), (int) ($p / $nb_guest_per_room));
+                            }
+                            $sharedRoomsTable.= "<option value=\"$p\" complete=\"true\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
+                        } else {
+
+                            if (floor($p / $nb_guest_per_room) < 1) {
+                                $selection_title = _('Availability') . ' | ' . _('You will partially use 1 dorm.');
+                            } else {
+                                if (floor($p / $nb_guest_per_room) == 1) {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use 1 full dorm and 1 partially.'));
+                                } else {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('You will use %d full dorms and 1 partially.'), (int) floor($p / $nb_guest_per_room));
+                                }
+                            }
+                            $sharedRoomsTable.= "<option value=\"$p\" complete=\"false\" selection_title=\"$selection_title\">" . sprintf(gettext('%d %s ( %s )'), (int) $p, ( $p == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $subtotal * $p )) . "</option>\n";
+                        }
+                    }
+                    $sharedRoomsTable.= "</select>";
+                } else {
+                    $sharedRoomsTable.= '<a class="ajaxTable" href="#sajaxTable' . $ajaxTableID . '" rel="#sajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $dormTitle . '">' . _('Partially Available') . '</a>';
                 }
-                $sharedRoomsTable.= "</select>";
             } else {
                 $sharedRoomsTable.= '<a class="ajaxTable" href="#sajaxTable' . $ajaxTableID . '" rel="#sajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $dormTitle . '">' . _('Partially Available') . '</a>';
             }
@@ -560,45 +565,49 @@ if ($api_error == false) {
             //If number of night avaible of the room is higher or equal to the property min night condition dispay the room selection menu
             if ($num_nights_available_of_room >= $booking_info->minNights) {
 
-                $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"" . $hostel_room_type['roomTypeCode'] . "\" />";
+                // If number of nights of the room is equal to total number of nights then fully available else paritally available
+                if ($num_nights_available_of_room == $numNights) {
 
-                $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomType[]\" value=\"" . $hostel_room_type['roomType'] . "\" />";
-                $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDesc[]\" value=\"" . $hostel_room_type['roomTypeDescription'] . "\" />";
+                    $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomPreferences[]\" value=\"" . $hostel_room_type['roomTypeCode'] . "\" />";
 
-                if (!empty($hostel_room_type['roomTypeDescriptionTranslated'])) {
-                    $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"" . $hostel_room_type['roomTypeDescriptionTranslated'] . "\" />";
-                } else {
-                    $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"\" />";
-                }
+                    $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomType[]\" value=\"" . $hostel_room_type['roomType'] . "\" />";
+                    $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDesc[]\" value=\"" . $hostel_room_type['roomTypeDescription'] . "\" />";
 
-                $privateRoomsAvailable++;
-
-                $privateRoomsTable.= "<select id=\"privatesel_" . $nbRoomType . "\" class=\"privatesel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
-                $privateRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
-                $privateRoomsTable.= "<option value=\"0\">0</option>\n";
-
-                for ($p = 1; $p <= $availableRooms; $p++) {
-                    if ($p * $hostel_room_type['bedsIncrement'] <= $maxPersons) {
-
-                        if ($p == 1) {
-                            if (($p * $hostel_room_type['bedsIncrement']) == 1) {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('1 guest in 1 Bedroom.'));
-                            } else {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in 1 Bedroom.'), (int) $p * $hostel_room_type['bedsIncrement']);
-                            }
-                        } else {
-                            if (($hostel_room_type['bedsIncrement']) == 1) {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (1 guest in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p);
-                            } else {
-                                $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (%d guests in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p, (int) $hostel_room_type['bedsIncrement']);
-                            }
-                        }
-
-                        $privateRoomsTable.= "<option value=\"" . $p * $hostel_room_type['bedsIncrement'] . "\" selection_title=\"" . $selection_title . "\">" . sprintf(gettext('%d %s ( %s )'), ( $p * (int) $hostel_room_type['bedsIncrement']), ( ($p * (int) $hostel_room_type['bedsIncrement']) == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $sum_available * $p )) . "</option>\n";
+                    if (!empty($hostel_room_type['roomTypeDescriptionTranslated'])) {
+                        $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"" . $hostel_room_type['roomTypeDescriptionTranslated'] . "\" />";
+                    } else {
+                        $privateRoomsTable.= "<input type=\"hidden\" name=\"book-roomDescTrans[]\" value=\"\" />";
                     }
-                }
 
-                $privateRoomsTable.= "</select>";
+                    $privateRoomsAvailable++;
+
+                    $privateRoomsTable.= "<select id=\"privatesel_" . $nbRoomType . "\" class=\"privatesel\" name=\"book-nbPersons[]\" style=\"width:150px; color:#3087C9;\">";
+                    $privateRoomsTable.= "<option value=\"0\">" . _('Select') . "</option>\n";
+                    $privateRoomsTable.= "<option value=\"0\">0</option>\n";
+
+                    for ($p = 1; $p <= $availableRooms; $p++) {
+                        if ($p * $hostel_room_type['bedsIncrement'] <= $maxPersons) {
+
+                            if ($p == 1) {
+                                if (($p * $hostel_room_type['bedsIncrement']) == 1) {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('1 guest in 1 Bedroom.'));
+                                } else {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in 1 Bedroom.'), (int) $p * $hostel_room_type['bedsIncrement']);
+                                }
+                            } else {
+                                if (($hostel_room_type['bedsIncrement']) == 1) {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (1 guest in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p);
+                                } else {
+                                    $selection_title = _('Availability') . ' | ' . sprintf(gettext('%d guests in %d Bedrooms (%d guests in each room).'), (int) $p * $hostel_room_type['bedsIncrement'], (int) $p, (int) $hostel_room_type['bedsIncrement']);
+                                }
+                            }
+                            $privateRoomsTable.= "<option value=\"" . $p * $hostel_room_type['bedsIncrement'] . "\" selection_title=\"" . $selection_title . "\">" . sprintf(gettext('%d %s ( %s )'), ( $p * (int) $hostel_room_type['bedsIncrement']), ( ($p * (int) $hostel_room_type['bedsIncrement']) == 1 ? _('Guest') : _('Guests')), $currency_formin . ( $sum_available * $p )) . "</option>\n";
+                        }
+                    }
+                    $privateRoomsTable.= "</select>";
+                } else {
+                    $privateRoomsTable.= '<a class="ajaxTable per_tooltip" href="#pajaxTable' . $ajaxTableID . '" rel="#pajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $roomTitle_PP . '"  per_person="' . $roomTitle_PP . '"  per_room="' . $roomTitle_PR . '">' . _('Partially Available') . '</a>';
+                }
             } else {
                 $privateRoomsTable.= '<a class="ajaxTable per_tooltip" href="#pajaxTable' . $ajaxTableID . '" rel="#pajaxTable' . $ajaxTableID . '" style="display : block; padding : 5px;" title="' . $roomTitle_PP . '"  per_person="' . $roomTitle_PP . '"  per_room="' . $roomTitle_PR . '">' . _('Partially Available') . '</a>';
             }
@@ -741,7 +750,7 @@ if ($api_error == false) {
                 <tbody>
                     <tr>
                         <th class="title" colspan="3" width="275">
-                            <?php echo anchor('#', _('Your Selection'), array('class' => 'title', 'style' => 'display: block; float: left;', 'title' => _('Notes Importantes') . ' | ' . sprintf(gettext("You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), $this->config->item('site_name')))); ?>
+                            <?php echo anchor('#', _('Your Selection'), array('class' => 'title', 'style' => 'display: block; float: left;', 'title' => _('Notes Importantes') . ' | ' . sprintf(gettext("You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."), (int) $booking_info->depositPercent, (int) 100 - $booking_info->depositPercent))); ?>
                             <span style="float: right; margin-right: 20px;">
                                 <?php echo _('Arrivée'); ?> : <b><?php echo $datetop; ?> </b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?> : <b><?php echo $numNights; ?> </b>
                             </span>
@@ -766,7 +775,7 @@ if ($api_error == false) {
                         <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="bigTotal">0.00</strong></td>
                     </tr>
                     <tr>
-                        <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?></span><strong class="right deposit_bottom"><?php echo _('10% Arrhes / Dépôt sera facturé en'); ?></strong></td>
+                        <td class="first" align="right" colspan="4"><span class="best_price left"><?php echo _('You got the best price') ?></span><strong class="right deposit_bottom"><?php echo sprintf(gettext('Deposit to be paid now (%d%%)'), (int) $booking_info->depositPercent); ?>: </strong></td>
                         <td align="center"><?php echo is_array($display_currency) ? currency_symbol($display_currency[0]) : $display_currency; ?> <strong id="depositTotal">0.00</strong></td>
                     </tr>
                 </tbody>
@@ -808,10 +817,10 @@ if ($api_error == false) {
                     </table>
                 </div>
                 <script>
-                    $(function(){
-                        $("#dispo-form").hide();
-                        $("#change-dates").show();
-                    });                    
+                                    $(function() {
+                                        $("#dispo-form").hide();
+                                        $("#change-dates").show();
+                                    });
                 </script>
                 <?php
             } else {
@@ -836,10 +845,10 @@ if ($api_error == false) {
     <div class="dispo-error group">
         <img class="arrow-error" src="<?php echo site_url(); ?>images/V2/arrow-error.png" alt="" />
         <div<?php
-    if ($api_error_msg->message == 'No Beds Found') {
-        echo ' class="half"';
-    }
-    ?>>
+        if ($api_error_msg->message == 'No Beds Found') {
+            echo ' class="half"';
+        }
+        ?>>
 
             <h3>
                 <?php
@@ -957,7 +966,7 @@ if (empty($csspath)) {
             <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
                 <p align=right style="text-align:right;line-height:18px; font-size:13px;">
                     <strong>
-                        <?php echo _('Total'); ?> (<?php echo $currency; ?>):
+                        <?php echo _('Total'); ?>:
                     </strong>
                 </p>
             </td>
@@ -975,7 +984,7 @@ if (empty($csspath)) {
             <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
                 <p align=right style="text-align:right;line-height:18px">
                     <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
-                        <?php echo _('10% Arrhes / Dépôt sera facturé en'); ?> <strong><?php echo $currency; ?></strong>:
+                        <?php echo sprintf(gettext('Deposit (%d%%)'), (int) $booking_info->depositPercent); ?>:
                     </span>
                 </p>
             </td>
@@ -1048,86 +1057,86 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/calcprice.js"></script>
 <script type="text/javascript">
-    
-    $('a.basic-modal').bind('click', function() {        
-        
+
+    $('a.basic-modal').bind('click', function() {
+
         var srows = 0;
-        
-        $('table tr[class^="sreservation sreservation_"] td:nth-child(4) span').each(function () {
-            
-            if( parseInt($(this).html()) > 0 ) {
+
+        $('table tr[class^="sreservation sreservation_"] td:nth-child(4) span').each(function() {
+
+            if (parseInt($(this).html()) > 0) {
                 srows++;
             } else {
                 $(this).parent().parent().hide();
             }
-            
+
         });
-        
-        if(srows == 0) {
+
+        if (srows == 0) {
             $('table#sharedemailreservationView').hide();
         }
-        
+
         var prows = 0;
-        
-        $('table tr[class^="preservation preservation_"] td:nth-child(4) span').each(function () {
-            
-            if( parseInt($(this).html()) > 0 ) {
+
+        $('table tr[class^="preservation preservation_"] td:nth-child(4) span').each(function() {
+
+            if (parseInt($(this).html()) > 0) {
                 prows++;
             } else {
                 $(this).parent().parent().hide();
             }
-            
+
         });
-        
-        if(prows == 0) {
+
+        if (prows == 0) {
             $('table#privateemailreservationView').hide();
         }
-        
+
         $('#basic-modal-content').modal();
-        
+
         return false;
-        
-    });   
-    
+
+    });
+
     var sharedrowCount = $('table#sharedemailreservationView tr').length;
-    if(sharedrowCount > 1) {
-        $("table#sharedemailreservationView").tablesorter({ 
+    if (sharedrowCount > 1) {
+        $("table#sharedemailreservationView").tablesorter({
             // sort on the first column and third column, order asc 
-            sortList: [[0,0]] 
+            sortList: [[0, 0]]
         });
     }
-    
+
 
     var privaterowCount = $('table#privateemailreservationView tr').length;
-    if(privaterowCount > 1) {
-        $("table#privateemailreservationView").tablesorter({ 
+    if (privaterowCount > 1) {
+        $("table#privateemailreservationView").tablesorter({
             // sort on the first column and third column, order asc 
-            sortList: [[0,0]] 
+            sortList: [[0, 0]]
         });
-    }  
-    
-    $('table#sharedemailreservationView tr.preservation').each(function () {
+    }
+
+    $('table#sharedemailreservationView tr.preservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#privateemailreservationView tr.preservation').each(function () {
+
+    $('table#privateemailreservationView tr.preservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#sharedemailreservationView tr.sreservation').each(function () {
+
+    $('table#sharedemailreservationView tr.sreservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#privateemailreservationView tr.sreservation').each(function () {
+
+    $('table#privateemailreservationView tr.sreservation').each(function() {
         $(this).hide();
     });
-        
+
     $('div.confirmationEmail').hide();
 
     $('a.title').cluetip({
         width: '400px',
-        splitTitle: '|', 
-        local:true, 
+        splitTitle: '|',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
@@ -1139,8 +1148,8 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
     });
 
     $('a.ajaxTable').cluetip({
-        width: '600px', 
-        local:true, 
+        width: '600px',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
@@ -1151,23 +1160,25 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         topOffset: 10
     });
 
-    $(function(){$("#booking-table").show();});
-    
+    $(function() {
+        $("#booking-table").show();
+    });
+
     $("#booking-table form").submit(function() {
-        
+
         var noerror = false;
-        
+
         $("#formerror").hide();
-        $("#booking-table select").each(function () {
-            if ($(this).val() != 0){
+        $("#booking-table select").each(function() {
+            if ($(this).val() != 0) {
                 noerror = true;
             }
         });
 
-        if (noerror == true){
+        if (noerror == true) {
             noerror = true;
             return true;
-        }else{
+        } else {
             $("#formerror").show();
             return false;
         }
@@ -1189,160 +1200,160 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         $("#booking-table").toggle();
         return false;
     });
-    
+
     $('#complete_dorms').bind('click', function() {
-        
-        if($(this).is(':checked')) {
-           
+
+        if ($(this).is(':checked')) {
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().hide();
                 }
             });
-            
+
             $("select.sharedsel > option[complete$='false']").hide();
-            
+
         } else {
-            
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('not_complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().show();
                 }
-            });            
-            
+            });
+
             $("select.sharedsel > option[complete$='false']").show();
-            
+
         }
-        
+
         var dorm_rows = $('tr.dorm_row').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(dorm_rows == 0) {
+
+        if (dorm_rows == 0) {
             $('tr.no_dorms').show();
         } else {
             $('tr.no_dorms').hide();
         }
-        
+
     });
-    
-    
-    $('#fully_available').bind('click', function() { 
-        
-        if($(this).is(':checked')) {
-                        
-            $("tr").find("td:eq(4):contains('"+$("input[type='hidden'][name='partially_available']").val()+"')").each(function(i, v){
+
+
+    $('#fully_available').bind('click', function() {
+
+        if ($(this).is(':checked')) {
+
+            $("tr").find("td:eq(4):contains('" + $("input[type='hidden'][name='partially_available']").val() + "')").each(function(i, v) {
                 $(v).parent().hide();
             });
-            
+
         } else {
-            
-            $("tr").find("td:eq(4):contains('"+$("input[type='hidden'][name='partially_available']").val()+"')").each(function(i, v){
+
+            $("tr").find("td:eq(4):contains('" + $("input[type='hidden'][name='partially_available']").val() + "')").each(function(i, v) {
                 $(v).parent().show();
             });
-            
+
         }
-        
+
         var dorm_rows = $('tr.dorm_row').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(dorm_rows == 0) {
+
+        if (dorm_rows == 0) {
             $('tr.no_dorms').show();
         } else {
             $('tr.no_dorms').hide();
         }
-        
+
         var room_rows = $('tr.room_row').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(room_rows == 0) {
+
+        if (room_rows == 0) {
             $('tr.no_rooms').show();
         } else {
             $('tr.no_rooms').hide();
-        }        
-        
+        }
+
     });
-    
-    
-    if( $('input[name="price_selection"]').val() == 'per_person' ) {
-        
+
+
+    if ($('input[name="price_selection"]').val() == 'per_person') {
+
         $('span.private').each(function() {
             $(this).html($(this).attr('per_person'));
-        });  
-            
+        });
+
         $('th.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
+
         $('a.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
-        $('a.per_tooltip').each(function() {            
+
+        $('a.per_tooltip').each(function() {
             $(this).attr('title', $(this).attr('per_person'));
         });
-        
+
         $('span.lowest_night').each(function() {
             $(this).show();
         });
-    
-    }    
-    
+
+    }
+
     $('input[name="price_selection"]').bind('click', function() {
 
-        if($(this).val() == 'per_person') {
-            
+        if ($(this).val() == 'per_person') {
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_person'));
-            });  
-            
+            });
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_person'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).show();
             });
-            
+
         } else if ($(this).val() == 'per_room') {
-            
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_room'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).hide();
             });
-            
+
         }
-        
+
         $('a.ajaxTable').cluetip({
-            width: '600px', 
-            local:true, 
+            width: '600px',
+            local: true,
             cursor: 'pointer',
             arrows: false,
             dropShadow: false,
@@ -1352,14 +1363,14 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
             tracking: true,
             topOffset: 10
         });
-        
-    });    
-    
+
+    });
+
     $('tr.no_dorms').hide();
     $('tr.no_rooms').hide();
-    
+
     $('table.ajaxTable').each(function() {
         $(this).hide();
-    });    
+    });
 
 </script>

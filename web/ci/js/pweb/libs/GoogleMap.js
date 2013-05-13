@@ -260,6 +260,12 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     if ($.isArray(district_um_ids)) {
 
+            if(district_um_ids.length === 1){
+                if (window.gmap.getZoom() > 12) {
+                    // change map Zoom 
+                    window.gmap.setZoom(12);
+                }
+        }
         // loop through districts um_ids
         var counter;
         for (counter = 0; counter < district_um_ids.length; ++counter) {
@@ -273,11 +279,6 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 };
 GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
 {
-    // change map Zoom 
-    window.gmap.setZoom(13);
-    
-    // do something with `pDistricts_umIds[counter]`
-
     var filter = MF.filter.Data({
         column: 'umi.neighborhoods.attributes.hood_id',
         operator: '=',
@@ -318,6 +319,12 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 
     if ($.isArray(landmark_LatLng)) {
 
+        if (landmark_LatLng.length === 1) {
+            if (window.gmap.getZoom() > 12) {
+                // change map Zoom 
+                window.gmap.setZoom(12);
+            }
+        }
         // loop through districts um_ids
         var counter;
         for (counter = 0; counter < landmark_LatLng.length; ++counter) {
@@ -325,31 +332,36 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
         }
     }
     else {
+        //    check zoom level and change it according to needed
+        // just change zoom  if only one landmark to be shown
+            if (window.gmap.getZoom() > 13) {
+                // change map Zoom 
+                window.gmap.setZoom(13);
+            }
         this.addLandmarkLayer(landmark_LatLng);
     }
 
 };
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
-
-    // change map Zoom 
-    window.gmap.setZoom(13);
-    
+   
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
-
+        
 //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
         center: new google.maps.LatLng(lat, Lng)
     };
+//var circle_color  = "#4E89C9";
+var circle_color  = "#FF0000";
 
     var LandmarkOptions = {
-        strokeColor: "#4E89C9",
+        strokeColor: circle_color,
         strokeOpacity: 0.8,
         strokeWeight: 2,
 //      fillColor: "#FF0000",
-        fillColor: "#4E89C9",
+        fillColor: circle_color,
         fillOpacity: 0.35,
         map: window.gmap,
         center: citymap.center,

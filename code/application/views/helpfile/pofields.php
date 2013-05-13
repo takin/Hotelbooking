@@ -819,9 +819,21 @@
 <?php echo _('By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits.');?>
 <?php echo _('Please enter your email address and we will send you a password.');?>
 <?php echo _('Saved favorite properties');?>
-<?php echo _('Deposit to be paid now (%d)');?>
-<?php echo _('You only pay the deposit (%d of total amount) to confirm and secure your reservation now. The remaining amount (%d) is payable upon arrival. You will find the property\'s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
-<?php echo _('Deposit (%d)');?>
+<?php echo _('Deposit to be paid now (%d%%)');?>
+<?php echo _('You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the property\'s contact information (email, address, telephone number…) in your confirmation email after you have made your reservation.');?>
+<?php echo _('Deposit (%d%%)');?>
 <?php echo _('Amount already paid:');?>
 <?php echo _('The most popular');?>
 <?php echo _('Most popular');?>
+<?php echo _('Enter your dates');?>
+<?php echo _('Information');?>
+<?php echo _('This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available.');?>
+<?php echo _('Existing account');?>
+<?php echo _('Create new account');?>
+<?php echo _('New password');?>
+<?php echo _('By clicking "Create Account" you confirm that you accept the Terms of Service and Privacy Policy.');?>
+<?php echo _('Create account');?>
+<?php echo _('Show room types');?>
+<?php echo _('Hide room types');?>
+<?php echo _('We are sorry but the maximum number of favorite properties you can save to your account is 30');?>
+<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.');?>
