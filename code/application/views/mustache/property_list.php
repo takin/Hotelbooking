@@ -1,4 +1,5 @@
 {{#properties}}
+{{^isMinNightNeeded}}
 <div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}">
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
     <nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
@@ -350,4 +351,5 @@ if ($displayQuickPreview == 1) {
         <a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement"); ?>"><?php echo _("Réserver"); ?></a>
     </div>
 </div>
+{{/isMinNightNeeded}}
 {{/properties}}
