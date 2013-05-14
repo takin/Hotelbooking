@@ -1566,9 +1566,8 @@ msgid "Réservation de groupes"
 msgstr "Réservation de groupes"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Sauvegarder cette établissement en tant que favori"
+msgstr "Enregistrer cet établissement comme favori"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -3541,7 +3540,7 @@ msgstr "Date"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -9596,18 +9595,18 @@ msgid "Saved favorite properties"
 msgstr "Mes établissements favoris"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Vous ne payez que le dépôt (%d du montant total) pour confirmer et garantir "
-"votre réservation maintenant. Le montant restant (%d) est payable à "
-"l'arrivée. Vous trouverez les coordonnées de létablissment (email, adresse, "
-"numéro de téléphone …) dans votre email de confirmation après avoir effectué "
-"votre réservation."
+"Vous ne payez que le dépôt (%d%% du montant total) pour confirmer et "
+"garantir votre réservation maintenant. Le montant restant (%d%%) est payable "
+"à l'arrivée. Vous trouverez les coordonnées de létablissment (email, "
+"adresse, numéro de téléphone …) dans votre email de confirmation après avoir "
+"effectué votre réservation."
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9624,31 +9623,37 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"C'est l’heure à laquelle votre chambre sera prête le jour de votre arrivée "
+"et l’heure que vous devrez libérer votre chambre le jour de votre départ. La "
+"plupart des établissements peuvent garder vos bagages dans un lieu sûr si "
+"vous arrivez plus tôt ou si vous partez plus tard, et sont ouvert 24 heures "
+"sur 24. S'il vous plaît veuillez vérifier sur la liste des services offerts "
+"par cet établissement en particulier que ces services sont disponibles."
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Créer un compte"
+msgstr "Compte existant"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Créer un compte"
+msgstr "Créer nouveau compte"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Montrer les types de chambres"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Cacher les types de chambres"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9656,16 +9661,18 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Nous sommes désolés mais le nombre maximum d'établissements favoris que vous "
+"pouvez enregistrer dans votre compte est de 30 maximum."
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Vous pouvez enregistrer cet établissement comme un favori dans votre compte "
-"de sorte que vous pourrez facilement le réserver à une date ultérieure si "
-"vous le souhaitez."
+"Cette propriété a été enregistrée dans votre section « Mon compte ». Vous "
+"pouvez maintenant facilement réserver à une date ultérieure si vous le "
+"souhaitez."
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9718,15 +9725,13 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Le jour de votre arrivée"
+msgstr "Arrivée :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Nombre de clients"
+msgstr "Nombre de nuits :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
 #, fuzzy
@@ -9739,14 +9744,12 @@ msgid "characters left"
 msgstr "Caractères restants:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Mise à jour de vos notes"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Mise à jour de vos notes"
+msgstr "Enregistrer cette note"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9812,39 +9815,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "Acceptez les termes et conditions pour continuer"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Veuillez patienter s'il vous plaît…"
+msgstr "Veuillez vous connecter"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Format invalide"
+msgstr "Etablissement non valide"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Numéro de l'établissement"
+msgstr "Etablissement introuvable"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Sauvegarder cette établissement en tant que favori"
+msgstr "Etablissement déjà favori"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Numéro de téléphone invalide"
+msgstr "Nombre de nuits non valide"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Format invalide"
+msgstr "Date non valide"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "Les notes ne peuvent pas dépasser %d caractères"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
