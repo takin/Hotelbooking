@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-04-29 21:51-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-05-14 21:28+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1579,7 +1578,6 @@ msgid "Réservation de groupes"
 msgstr "Gruppenbuchungen"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
 msgstr "Diese Immobilie als Favorit speichern"
 
@@ -3554,7 +3552,7 @@ msgstr "Datum"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -9611,18 +9609,18 @@ msgid "Saved favorite properties"
 msgstr "Gespeicherte Favoriten-Immobilien"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Sie bezahlen nur die Kaution (%d des Gesamtbetrages) und sichern so ihre "
-"Reservierung. Der Restbetrag (%d) ist bezahlbar bei Anreise. Sie finden die "
-"Kontaktinformationen der Immobilie (Email-Adresse, Anschrift, Telefonnummer "
-"usw.) in ihrer Bestätigungs-Email, nachdem Sie die Reservierung getätigt "
-"haben."
+"Sie bezahlen nur die Kaution (%d%% des Gesamtbetrages) und sichern so ihre "
+"Reservierung. Der Restbetrag (%d%%) ist bezahlbar bei Anreise. Sie finden "
+"die Kontaktinformationen der Immobilie (Email-Adresse, Anschrift, "
+"Telefonnummer usw.) in ihrer Bestätigungs-Email, nachdem Sie die "
+"Reservierung getätigt haben."
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9639,31 +9637,38 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Dies ist die Zeit, an der ihr Zimmer für den Ankunftstag und Abreisetag und "
+"Zeit bereit sein wird und frei sein sollte bei ihrer Abreise. Die meisten "
+"Immobilien werden ihr Gepäck an einem sicheren Ort lagern, sollten Sie "
+"frühzeitig ankommen oder spät abreisen; dieser Abstellort wird 24 Stunden "
+"zur Verfügung stehen. Bitte lesen Sie die Dienstleistungen durch, welche von "
+"der bestimmten Immobilie angeboten wird um zu bestätigen, dass solche zur "
+"Verfügung stehen."
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Konto eröffnen"
+msgstr "Bestehendes Konto"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Konto eröffnen"
+msgstr "Neues Konto erstellen"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Zimmertypen anzeigen"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Zimmertypen verstecken"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9671,15 +9676,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Wir bedauern, aber die maximale Anzahl der Favoriten ihrer Immobilien, die "
+"Sie speichern können ist lediglich 30."
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Sie können diese Immobilie als ein Favorit in ihrem Konto speichern, damit "
-"Sie sie leicht zu einem späteren Zeitpunkt buchen können sofern Sie dies "
+"Diese Immobilie wurde in \"Mein Konto\" bereits gespeichert. Sie können "
+"jetzt ganz leicht zu einem späteren Zietpunkt buchen, falls Sie dies "
 "wünschen."
 
 #: ../code/application/views/helpfile/pofields.php~:822
@@ -9734,15 +9741,13 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Ankunftstag"
+msgstr "Ankunft:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Anzahl der Gäste"
+msgstr "Anzahl der Übernachtungen:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
 #, fuzzy
@@ -9755,14 +9760,12 @@ msgid "characters left"
 msgstr "Buchstaben übrig:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Notizen updaten"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Notizen updaten"
+msgstr "Notizen speichern"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9829,39 +9832,33 @@ msgstr ""
 "Nehmen Sie die allgemeinen Geschäftsbedingungen an, um fortfahren zu können"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Bitte warten"
+msgstr "Bitte loggen Sie sich ein"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Format ungültig"
+msgstr "Ungültige Immobilie"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Nummer der Unterkunft"
+msgstr "Immobilie nicht gefunden"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Diese Immobilie als Favorit speichern"
+msgstr "Immobilie ist bereits in Favorit"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Format der Telefonnummer ungültig"
+msgstr "Ungültige Anzahl der Übernachtungen"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Format ungültig"
+msgstr "Ungültiges Datum"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "Notizen können maximal %d Buchstaben haben"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
