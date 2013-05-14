@@ -1,9 +1,7 @@
 {{#properties}}
-{{^isMinNightNeeded}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" 
-     rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}"
+onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
      onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original');">
-    
     <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
     {{#Geo}}
     <input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
@@ -379,7 +377,6 @@ if ($displayQuickPreview == 1) {
         <a href="{{property_page_url}}" class="reserve button-green hoverit" title="<?php echo _("Plus sur ce logement"); ?>"><?php echo _("Réserver"); ?></a>
     </div>
 </div>
-{{/isMinNightNeeded}}
 {{/properties}}
 
 <script type="text/javascript">
@@ -394,4 +391,3 @@ $(document).ready(function() {
     }); 
 });
 </script>
-
