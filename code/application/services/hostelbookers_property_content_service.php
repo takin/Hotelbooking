@@ -105,8 +105,7 @@ class Hostelbookers_Property_Content_Service {
         $description = $propertyContent["short_description"];
         
         try {
-            $this->ci->db_hb_hostel->update_hb_short_desc(
-                    $propertyNumber, $langCode, $description);
+            $this->ci->db_hb_hostel->update_hb_translations($propertyNumber, $propertyContent);
             $this->successCount++;
         } catch(Exception $e) {
             $msg = sprintf("%s error: inserting/updating hostel description (property_number %s) in database. %s \n %s", 
