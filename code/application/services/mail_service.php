@@ -10,7 +10,7 @@ class Mail_Service {
     public function __construct() {
         $this->ci = &get_instance();
         $this->ci->load->library("email");
-        $this->emailAddress = "technical@mcwebmanagement.com";
+        $this->emailAddress = "korir.mordecai@gmail.com";//technical@mcwebmanagement.com
     }
     
     public function mailReport(array $reportInfo) {
