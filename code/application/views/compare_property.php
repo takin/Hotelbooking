@@ -24,11 +24,12 @@ $question_alert = '????';
 for ($i = 0; $i < count($compare_data); $i++) {
 	$protype = $compare_data[$i]['property_type'];
 
-	if ($compare_data[$i]['symbol'] != '' && $compare_data[$i]['symbol'] != 'NULL') {
+        // TODO
+	if (0 && $compare_data[$i]['symbol'] != '' && $compare_data[$i]['symbol'] != 'NULL') {
 		$symbol = $compare_data[$i]['symbol'];
 	}
 	else {
-		$symbol = $compare_data[$i]['currency'];
+		$symbol = '&eur;'; //$compare_data[$i]['currency'];
 	}
 
 	$a = $i + 1;
@@ -40,12 +41,14 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
 	$maplink       .= '<td  class="control_button"><span class="link_color"><a href="#map_td">' . _('See Map') . '</a><span></td>';
 
+        $property_number = $compare_data[$i]['property_number'];
+
 	if ($this->api_used == HB_API) {
-		if ($compare_data[$i]['type'] == 'private') {
+		if (0 && $compare_data[$i]['type'] == 'private') {
 			$dorms    .= '<td  class="control_button">' . _('Not available') . '</td>';
 			$Privates .= '<td  class="control_button">' . $symbol . ' ' . $compare_data[$i]['bed_price'] . '</td>';
 		}
-		elseif ($compare_data[$i]['type'] == 'dorm') {
+		elseif (0 && $compare_data[$i]['type'] == 'dorm') {
 			$dorms    .= '<td  class="control_button">' . $symbol . ' ' . $compare_data[$i]['bed_price'] . '</td>';
 			$Privates .= '<td  class="control_button">' . _('Not available') . '</td>';
 	 	}
@@ -53,14 +56,17 @@ for ($i = 0; $i < count($compare_data); $i++) {
 //			$dorms    .= '<td  class="control_button">' . _('Not available') . '</td>';
 //			$Privates .= '<td  class="control_button">' . _('Not available') . '</td>';
 
-			$dorms    .= '';
-			$Privates .= '';
+//			$dorms    .= '';
+//			$Privates .= '';
 
+			$dorms    .= '<td  class="control_button dorm_price_container_' . $property_number . '"><span>' . _('Not available') . '</spa></td>';
+			$Privates .= '<td  class="control_button private_price_container_' . $property_number . '"><span>' . _('Not available') . '</span></td>';	
 	 	}
 	}
 	else {
 		$dorms    .= '<td  class="control_button"><span>'. _('Not available') . '</span></td>';
-		$Privates .= '<td  class="control_button">' . $symbol . ' ' . $compare_data[$i]['bed_price'] . '</td>';
+		$Privates .= '<td  class="control_button private_price_container_' . $property_number . '"><span>'. _('Not available') . '</span></td>';
+// . $symbol . ' ' . $compare_data[$i]['bed_price'] . '</td>';
 	}
 
 	if ($this->api_used == HB_API) {
@@ -220,7 +226,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<?php echo $maplink; ?>
 					</tr>
 					<?php  if ($this->api_used == HB_API) { ?>
-<!-- 					<tr class="quick_compare_grey row_white" id="row-1">
+ 					<tr class="quick_compare_grey row_white" id="row-1">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Dorms From')?></td>
 						<?php echo $dorms; ?>
 					</tr>
@@ -228,7 +234,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a> <?php echo _('Privates From')?></td>
 						<?php echo $Privates; ?>
 					</tr>
--->
+
 					<?php if ($rating_over) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-3">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Rating Overall')?></td>
@@ -340,15 +346,16 @@ for ($i = 0; $i < count($compare_data); $i++) {
 					}
 				 }
 				else { ?> 
-<!--					<tr class="quick_compare_grey row_white" id="row-2">
+					<tr class="quick_compare_grey row_white" id="row-2">
 						<td class="heading" ><a  class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Privates From')?></td>
 						<?php echo $Privates; ?>
-					</tr> -->
+					</tr>
+                                        <?php if ($rating_over) { ?>
 					<tr class="quick_compare_grey rating row_white" id="row-3">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Rating Overall')?></td>
 						<?php echo $rating_over; ?>
 					</tr>
-					<?php 
+					<?php }
 					$x=1;
 					$class='quick_compare_grey rating row_white';
 					$displaytr='';

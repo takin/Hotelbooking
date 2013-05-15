@@ -39,10 +39,10 @@ function compare_property(value,proname,protype) {
 			return false;
 		}
 		else {
-			$('#proselect_'+value).fadeIn();
-			setTimeout(function(){
-	        		$('#proselect_'+value).fadeOut();
-	   		}, 2000);
+	//		$('#proselect_'+value).fadeIn();
+	//		setTimeout(function(){
+	  //      		$('#proselect_'+value).fadeOut();
+	   //		}, 2000);
 			this.compare_count.html(parseInt(this.total_com_property.val())+1);
 			this.total_com_property.val(parseInt(this.total_com_property.val())+1);
 			var compare_pro = getCookie('compare');
@@ -232,7 +232,26 @@ function property_compare_popup() {
 			pweb_filter.pweb_maps['property'].prop_number_to_focus = pro_id;
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
 			pweb_filter.pweb_maps['city'].enableMap();
-			$('#map_lat').val(JSON.stringify(data.map_data));			
+			$('#map_lat').val(JSON.stringify(data.map_data));
+
+                        for (var i = 0; i < chks.length; i++) {
+                            // private 
+                            if (
+                                $('#prop_tab_box_' + chks[i].value + ' .private_currency').length
+                                && $('#prop_tab_box_' + chks[i].value + ' .private_price').length
+                            ) {
+                                $(".private_price_container_" + chks[i].value + " span").html($("#prop_tab_box_" + chks[i].value + " .private_currency").html() + $("#prop_tab_box_" +  chks[i].value + " .private_price").html());
+                            }
+
+                            // dorm
+                            if (
+                                $('#prop_tab_box_' + chks[i].value + ' .dorms_currency').length
+                                && $('#prop_tab_box_' + chks[i].value + ' .dorms_price').length
+                            ) {
+                                $(".dorm_price_container_" + chks[i].value + " span").html($("#prop_tab_box_" + chks[i].value + " .dorms_currency").html() + $("#prop_tab_box_" +  chks[i].value + " .dorms_price").html());
+                            }
+
+                        }
 		}
 	});
 
