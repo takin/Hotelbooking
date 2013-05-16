@@ -257,7 +257,7 @@ class Cron_hb extends I18n_site
         $this->load->model("db_translation_langs");
         $supportedLanguages = $this->db_translation_langs->getSupportedLangCodes();
 
-        $todaysIndex = date("j") - 15;
+        $todaysIndex = date("j") - 1;
 
         if ($todaysIndex >= count($supportedLanguages)) return array();
         else return array($supportedLanguages[$todaysIndex]);
