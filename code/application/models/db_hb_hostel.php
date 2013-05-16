@@ -1925,6 +1925,21 @@ class Db_hb_hostel extends CI_Model
     return "property";
   }
 
+  function get_hb_long_desc($property_number, $lang = "en")
+  {
+    $this->CI->db->where('language', $lang);
+    $this->CI->db->where('hostel_hb_id', $property_number);
+
+    $query = $this->CI->db->get(self::HOSTEL_DESC_TABLE);
+    if($query->num_rows() > 0)
+    {
+      $row = $query->row();
+      return $row->long_description;
+    }
+    return NULL;
+
+  }
+  
   function get_hb_short_desc($property_number, $lang = "en")
   {
     $this->CI->db->where('language', $lang);
