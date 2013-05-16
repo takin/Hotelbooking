@@ -8,10 +8,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-05-01 20:58+0200\n"
+"PO-Revision-Date: 2013-05-16 22:29+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1591,9 +1590,8 @@ msgid "Réservation de groupes"
 msgstr "Prenotazione per un gruppo"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Salva questa proprietà tra i preferiti"
+msgstr "Salva questa proprietà come preferita"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -3568,7 +3566,7 @@ msgstr "Data"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -9478,15 +9476,15 @@ msgid ""
 "By clicking \"Create Account\" you confirm that you accept the Terms of "
 "Service and Privacy Policy."
 msgstr ""
-"Cliccando su\"Crea Profilo\" confermi di accettare Privacy e Termini di "
-"utilizzo."
+"Cliccando su \"Crea profilo\" confermi di accettare le Condizioni d'uso e "
+"l'Informativa sulla Privacy.  "
 
 #: ../code/application/views/helpfile/pofields.php:801
 #: ../code/application/views/helpfile/pofields.php:835
 #: ../code/application/views/helpfile/pofields.php~:801
 #, php-format
 msgid "Create account"
-msgstr "Creare profilo"
+msgstr "Crea profilo"
 
 #: ../code/application/views/helpfile/pofields.php:802
 #: ../code/application/views/helpfile/pofields.php~:802
@@ -9608,18 +9606,18 @@ msgid "Saved favorite properties"
 msgstr "Proprietà preferite salvate"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Adesso pagate il deposito (il %d dell'intero importo) solamente per "
-"confermare e garantire la vostra prenotazione. L'importo rimanente (%d) "
+"Adesso pagate il deposito (il %d%% dell'intero importo) solamente per "
+"confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) "
 "potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto "
-"della proprietà (email, indirizzo, numero telefonico...) nella vostra email "
-"di conferma una volta effettuata la prenotazione."
+"della proprietà (email, indirizzo, numero telefonico…) nella vostra email di "
+"conferma una volta effettuata la prenotazione."
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9636,31 +9634,38 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Questo è l'orario in cui la vostra camera sarà pronta il giorno del vostro "
+"arrivo e l'orario in cui dovrete lasciare la camera nel giorno della vostra "
+"partenza. Molte proprietà custodiranno il vostro bagaglio in uno spazio "
+"sicuro se arriverete presto oppure andrete via più tardi e questi spazi sono "
+"aperti 24 ore al giorno. Per favore date un'altra occhiata alla lista dei "
+"servizi offerti da questa proprietà in particolare per confermare la loro "
+"disponibilità. "
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Creare profilo"
+msgstr "Profilo già esistente"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Creare profilo"
+msgstr "Crea un nuovo profilo"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Nuova password"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Mostra i tipi di camera"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Nascondi i tipi di camera"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9668,15 +9673,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Siamo spiacenti ma il numero massimo di proprietà preferite che può salvare "
+"sul suo profilo è 30"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Puoi salvare questa proprietà come preferita nel tuo profilo così da poterla "
-"prenotare facilmente in un secondo momento se preferisci."
+"Questa proprietà è stata salvata nella sezione \"Mio profilo\". Se lo "
+"desidera potrà prenotarla facilmente in un secondo momento."
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9730,15 +9737,13 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Data di arrivo"
+msgstr "Arrivo:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Numero di ospiti"
+msgstr "Numero di notti:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
 #, fuzzy
@@ -9746,19 +9751,16 @@ msgid "character left"
 msgstr "Caratteri rimasti:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "Caratteri rimasti:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Aggiorna Note"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Aggiorna Note"
+msgstr "Salva la nota"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9824,39 +9826,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "Accetta le Condizioni Generali per proseguire"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Attendere Prego"
+msgstr "Per favore accedere"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Formato non valido"
+msgstr "Proprietà non valida"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Numero della Struttura"
+msgstr "Proprietà non trovata"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Salva questa proprietà tra i preferiti"
+msgstr "La proprietà è già tra le preferite"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Numero telefonico non valido"
+msgstr "Numero di notti invalido"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Formato non valido"
+msgstr "Data invalida"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "Le note sono superiori al massimo di %d caratteri"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
