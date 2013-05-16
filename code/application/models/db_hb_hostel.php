@@ -637,6 +637,31 @@ class Db_hb_hostel extends CI_Model
     return $this->CI->db->update(self::HOSTEL_DESC_TABLE);
 
   }
+  
+  /**
+   * 
+   * Update HB translations
+   * 
+   * @param type $hostel_id
+   * @param array $translations
+   * @return type
+   */
+  function update_hb_translations($hostel_id, $translations)
+  {
+    if(is_null($this->get_hb_translations($hostel_id, $translations['language'])))
+    {
+      return $this->insert_hb_translations($hostel_id, $translations);
+    }
+    $this->CI->db->set('short_description', (string)$translations['short_description']);
+    $this->CI->db->set('long_description', (string)$translations['long_description']);
+    $this->CI->db->set('hostel_location', (string)$translations['hostel_location']);
+    $this->CI->db->set('hostel_directions', (string)$translations['hostel_directions']);
+
+    $this->CI->db->where('language', $translations['language']);
+    $this->CI->db->where('hostel_hb_id', $hostel_id);
+    return $this->CI->db->update(self::HOSTEL_DESC_TABLE);
+
+  }
 
   function update_hb_hostel_features($hostel_id, $features)
   {
@@ -1247,6 +1272,34 @@ class Db_hb_hostel extends CI_Model
     $this->CI->db->set('api_sync_status', self::PROPERTY_VALID);
 
     return $this->CI->db->insert(self::HOSTEL_TABLE);
+  }
+  
+  /**
+   * Insert HB translations
+   * 
+   * @param int $hostel_id
+   * @param array $translations
+   * @return boolean
+   * @throws Exception
+   */
+  function insert_hb_translations($hostel_id, $translations)
+  {
+    $hostelId = $this->get_hostel_id($hostel_id);
+            
+    if (!isset($hostelId) || empty($hostelId)) {
+        throw new Exception("Error inserting short description: hostel with property number $hostel_id doesn't exist");
+        return true;
+    }
+      
+    $this->CI->db->set('hostel_hb_id', $hostel_id);
+    $this->CI->db->set('language', (string)$translations['language']);
+    $this->CI->db->set('short_description', (string)$translations['short_description']);
+    $this->CI->db->set('long_description', (string)$translations['long_description']);
+    $this->CI->db->set('hostel_location', (string)$translations['hostel_location']);
+    $this->CI->db->set('hostel_directions', (string)$translations['hostel_directions']);
+
+    return $this->CI->db->insert(self::HOSTEL_DESC_TABLE);
+
   }
 
   function insert_hb_short_desc($hostel_id, $langage, $short_description)
@@ -1872,6 +1925,21 @@ class Db_hb_hostel extends CI_Model
     return "property";
   }
 
+  function get_hb_long_desc($property_number, $lang = "en")
+  {
+    $this->CI->db->where('language', $lang);
+    $this->CI->db->where('hostel_hb_id', $property_number);
+
+    $query = $this->CI->db->get(self::HOSTEL_DESC_TABLE);
+    if($query->num_rows() > 0)
+    {
+      $row = $query->row();
+      return $row->long_description;
+    }
+    return NULL;
+
+  }
+  
   function get_hb_short_desc($property_number, $lang = "en")
   {
     $this->CI->db->where('language', $lang);
@@ -1882,6 +1950,20 @@ class Db_hb_hostel extends CI_Model
     {
       $row = $query->row();
       return $row->short_description;
+    }
+    return NULL;
+
+  }
+  
+  function get_hb_translations($property_number, $lang = "en")
+  {
+    $this->CI->db->where('language', $lang);
+    $this->CI->db->where('hostel_hb_id', $property_number);
+
+    $query = $this->CI->db->get(self::HOSTEL_DESC_TABLE);
+    if($query->num_rows() > 0)
+    {
+      return $query->row();
     }
     return NULL;
 
