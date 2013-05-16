@@ -37,7 +37,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	$one           .= '<th  class="control_button"><div class="close_btn" id="' . $a . '">x</div></th>';
 	$propertyno    .= '<th  class="control_button" > <span class="column_order">' . $a . '</span> </th>';
  
-	$proname       .= '<td  class="control_button"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . substr($compare_data[$i]['property_name'], 0, 25) . '</a></td>';
+	$proname       .= '<td  class="control_button" style="width: 120px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
 	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
 	$maplink       .= '<td  class="control_button"><span class="link_color"><a href="#map_td">' . _('See Map') . '</a><span></td>';
 
