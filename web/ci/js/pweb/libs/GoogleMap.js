@@ -46,7 +46,10 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "filter_map_rightSide"){
         this.map_div.style.height = "100%";
-//        this.default_zoom = 10;
+    }
+    
+     if (this.map_div.id === "city_side_map_container"){
+        this.map_div.style.height = "280px";
     }
         	
     var myOptions = {
@@ -177,7 +180,7 @@ GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, i
         lat: lat,
         lng: lng,
         content: content,
-        gmarker: null
+        gmarkvarer: null
     };
     window.markers[index] = marker;
 };
@@ -214,8 +217,8 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
     var show_per_page = parseInt($('#show_per_page').val());
     // number of hostels currently shown
     var page_num = 0;
-    if( $('#page_navigation .active_page').length > 0 ){
-            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    if ($('#page_navigation .active_page').length > 0) {
+        page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
     }
 
     // start hostel number like from 1 to 20
@@ -223,7 +226,13 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
     // end hostel number like from 1 to 20
     var end_on = start_from + show_per_page;
 
-    return $('#property_list').children().slice(start_from, end_on);
+    var result = {
+        property_list: $('#property_list').children().slice(start_from, end_on),
+        start_from: start_from
+    };
+    
+    return result;
+//    return $('#property_list').children().slice(start_from, end_on);
 };
 GoogleMap.prototype.fillMakersArray = function() 
 {
@@ -231,15 +240,18 @@ GoogleMap.prototype.fillMakersArray = function()
     // clear markers on the map
     // includes that.clearMarkers();
     that.clearMap();
-    
-    var property_list = that.getItemsInPage();
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
+    var start_from = resultInPage.start_from;
 
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
-    $("#city_map_view_"+property_number).html("");
+        $("#city_map_view_"+property_number).html("");
 
-        that.addMarker(index
+        var markerIndex = index +  parseInt(start_from); 
+        that.addMarker( markerIndex 
                 , $("#input_geo_latitude_"+property_number).val()
                 , $("#input_geo_longitude_"+property_number).val()
                 , $.trim($("#hostel_title_"+property_number).text())
@@ -259,23 +271,27 @@ GoogleMap.prototype.addMarkersToMap = function()
 
     var that = this;
 
-    var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker.png',
-            new google.maps.Size(28, 28),
-            new google.maps.Point(0, 0),
-            new google.maps.Point(0, 29));
-
-    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map-marker_selected.png',
-            new google.maps.Size(28, 28),
-            new google.maps.Point(0, 0),
-            new google.maps.Point(0, 29));
-
     if (this.gbounds === null)
     {
         this.gbounds = new google.maps.LatLngBounds();
     }
     //TODO support custom image in addMarker function
     for (var i in window.markers) {
+//
+//     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/unselected/marker_'+(parseInt(i)+1)+'.png',
+//             new google.maps.Size(20, 30),
+//            new google.maps.Point(0, 0),
+//            new google.maps.Point(0, 29));
+//
+//    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/selected/marker_selected_'+(parseInt(i)+1)+'.png',
+//             new google.maps.Size(20, 30),
+//            new google.maps.Point(0, 0),
+//            new google.maps.Point(0, 29));
+//            
+//            
+     var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_'+(parseInt(i)+1)+'.png';
 
+    var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_'+(parseInt(i)+1)+'.png';
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),
@@ -484,15 +500,15 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     var property_number = $(pDiv).attr("rel");
     var hostel_title = $.trim($("#hostel_title_"+property_number).text());
 
-    var image = null;
+    var imagePath = null;
 
     if (pIconType === "selected")
     {
-        image = "map-marker_selected.png";
+        imagePath = '/images/map_markers/selected/marker_selected_';
     }
     else
     {
-        image = "map-marker.png";
+        imagePath = '/images/map_markers/unselected/marker_';
     }
 
     $("#city_info_" + property_number).removeClass('property_info_hover');
@@ -515,10 +531,11 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
-                    var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/' + image,
-                            new google.maps.Size(28, 28),
-                            new google.maps.Point(0, 0),
-                            new google.maps.Point(0, 29));
+//                    var image = new google.maps.MarkerImage("http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png',
+//                            new google.maps.Size(20, 30),
+//                            new google.maps.Point(0, 0),
+//                            new google.maps.Point(0, 29));
+ var image = "http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png';
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
 
@@ -531,8 +548,11 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigger) {
 
     var that = this;
-    var property_list = that.getItemsInPage();
-     
+
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
+
     $.each(property_list, function(index, value) {
 
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
@@ -546,7 +566,10 @@ GoogleMap.prototype.goToHostelDiv = function(pMarker) {
 // if div exists
 // then animate to it
     var that = this;
-    var property_list = that.getItemsInPage();
+
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
 
     $.each(property_list, function(index, value) {
 
