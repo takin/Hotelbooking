@@ -31,7 +31,11 @@ function compare_property(value,proname,protype) {
 	this.compare_count = $('.compare_count');
 
 	if ($('#pro_compare_' + value).is(':checked')) {
-		$('#pro_compare_' + value).parent().find('label').css('color', '#3087C9');
+		// must be at least 2 hostels to compare
+		if (total_com_property.val() >= 1) {
+			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#3087C9');
+//			$('#pro_compare_' + value).parent().find('label').css('color', '#3087C9');
+		}
 
 		if (this.total_com_property.val() == 5) {
 			$('#pro_compare_'+value).attr('checked', false);
@@ -98,6 +102,10 @@ function compare_property(value,proname,protype) {
 	}
 	else {
 		$('#pro_compare_' + value).parent().find('label').css('color', '#000');
+		// must be at least 2 hostels to compare
+		if (total_com_property.val() == 2) {
+			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#000');
+		}
 
 		var compare_pro2 = getCookie('compare');
 
@@ -265,12 +273,16 @@ $(document).ready(function() {
 	$('.com_div label').live('click', function(event) {
 		var obj = $(this);
 
-		if (obj.parent().find('input').is(':checked')) {
-			setTimeout(function() {
-				if ($('#compare_data .show-data a').length > 1) {
-					$('#comparelink a').trigger('click');
-				}
-			}, 100);
+		var total_com_property = $('#total_com_property');
+
+		if (total_com_property.val() >= 2) {
+			if (obj.parent().find('input').is(':checked')) {
+				setTimeout(function() {
+					if ($('#compare_data .show-data a').length > 1) {
+						$('#comparelink a').trigger('click');
+					}
+				}, 100);
+			}
 		}
 	});
 

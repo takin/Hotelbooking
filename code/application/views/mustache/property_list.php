@@ -159,7 +159,7 @@ if ($displayQuickPreview == 1) {
                     <?php $displayCompareProperty = $this->config->item('displayCompareProperty');
                     if ($displayCompareProperty == 1) {
                         ?>
-                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
+                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
 <?php } ?>
                     <p class="address">{{address1}} - {{city_name}}</p>
 
