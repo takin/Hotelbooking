@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-04-29 21:27+0200\n"
+"PO-Revision-Date: 2013-05-16 22:34+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "Language: fr\n"
@@ -9441,8 +9441,8 @@ msgid ""
 "By clicking \"Create Account\" you confirm that you accept the Terms of "
 "Service and Privacy Policy."
 msgstr ""
-"Clicando em \"Criar Conta\" você confirma que aceitou os Termos de "
-"Utilização e a Política de Privacidade"
+"Clicando em \"Criar Conta\" você confirma que aceita os Termos de Serviço e "
+"a Política de Privacidade."
 
 #: ../code/application/views/helpfile/pofields.php:801
 #: ../code/application/views/helpfile/pofields.php:835
@@ -9571,15 +9571,15 @@ msgid "Saved favorite properties"
 msgstr "Salvar propriedades favoritas"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Você apenas faz o depósito (%d do valor total) para confirmar e assegurar a "
-"sua reserva agora. O valor restante (%d) é pago na chegada. Você irá "
+"Você apenas faz o depósito (%d%% do valor total) para confirmar e assegurar "
+"a sua reserva agora. O valor restante (%d%%) é pago na chegada. Você irá "
 "encontrar informações de contato do proprietário (e-mail, endereço, número "
 "de telefone…) no seu e-mail de confirmação depois de ter feito a sua reserva."
 
@@ -9598,31 +9598,37 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Essa é a hora que o seu quarto estará disponível no dia de sua chegada e o "
+"tempo que você irá precisar para deixar o seu quarto no dia da sua partida. "
+"Muitas propriedades irão guardar a sua bagagem em um lugar seguro se você "
+"chegar cedo ou sair depois, e elas estão abertas 24 horas por dia. Por favor "
+"veja a lista de serviços oferecidos por essa propriedade em particular para "
+"confirmar que elas estão disponíveis."
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Criar conta"
+msgstr "Conta existente"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Criar conta"
+msgstr "Criar nova conta"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Nova senha"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Mostrar tipos de quartos"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Esconder tipos de quartos"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9630,15 +9636,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Desculé, mas o máximo de propriedades favoritas que você pode salvar na sua "
+"conta é 30"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Você pode salvar essa propriedade como um favorito na sua conta, assim você "
-"pode facilmente agendar em uma data futura se você quiser."
+"Essa propriedade foi salva na seção \"Minha Conta\". Você pode facilmente "
+"agendá-la em uma data que você queira."
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format

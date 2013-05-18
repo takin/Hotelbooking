@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-04-29 21:32+0200\n"
+"PO-Revision-Date: 2013-05-16 22:46+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3516,14 +3515,14 @@ msgstr "Päivämäärä"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
 #: ../code/application/views/city_view.php:362
 #: ../code/application/views/mustache/property_list.php:161
 msgid "of"
-msgstr ""
+msgstr "ja"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:42
 #: ../code/application/views/city_view.php:212
@@ -3536,7 +3535,7 @@ msgstr "Tulokset"
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
-msgstr ""
+msgstr "Sinun henkilökohtainen ryhmävaraus tarjous - Tässä se on!"
 
 #: ../code/application/views/restricted/user_group_quote.php:66
 #: ../code/application/views/helpfile/pofields.php:205
@@ -3547,7 +3546,7 @@ msgstr "Yksityiskohdat."
 
 #: ../code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"
-msgstr ""
+msgstr "Ryhmässäsi olevien ihmisten määrä"
 
 #: ../code/application/views/restricted/user_group_quote.php:111
 msgid ""
@@ -3555,18 +3554,22 @@ msgid ""
 "available. If you can answer the following questions, we will do our best to "
 "find you the perfect property:"
 msgstr ""
+"Ole hyvä ja katso alustavasti esimerkkejä vapaana olevista majoitus "
+"paikoista. Jos vastaisit seuraaviin kysymyksiin, niin teemme parhaamme "
+"löytääkseen täydellisen paikan sinulle."
 
 #: ../code/application/views/restricted/user_group_quote.php:115
 msgid "Are you happy with the types of rooms suggested below?"
-msgstr ""
+msgstr "Oletko tyytyväinen eri huone tyypien ehdotuksista?"
 
 #: ../code/application/views/restricted/user_group_quote.php:122
 msgid "What is your budget?"
-msgstr ""
+msgstr "Mikä on budjettisi?"
 
 #: ../code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
 msgstr ""
+"Ovatko päivämäärät ja matkustajien määrä varmistettu, vai muutuuko se vielä? "
 
 #: ../code/application/views/restricted/user_group_quote.php:137
 #, php-format
@@ -3574,6 +3577,8 @@ msgid ""
 "When will you be ready to make a payment to secure your booking with a 20%% "
 "deposit?"
 msgstr ""
+"Milloin olet valmis tekemään ensimmäisen maksun, 20%% käsirahaa, "
+"varmistaakseen varauksesi. "
 
 #: ../code/application/views/restricted/user_group_quote.php:150
 #, fuzzy
@@ -3588,20 +3593,22 @@ msgstr "Ryhmävarauslomake"
 #: ../code/application/views/email/share_page-txt.php:27
 #: ../code/application/views/email/share_page-html.php:62
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
-msgstr ""
+msgstr "HUOM TÄMÄ EI OLE VAHVISTETTU VARAUS"
 
 #: ../code/application/views/restricted/user_group_quote.php:153
 msgid ""
 "Please have a look at the offer below and check our website to get more "
 "information about the property."
 msgstr ""
+"Ole hyvä ja katso tarjousta ja katso kotisivuamme saadakseen enemmän tieto "
+"majoituksesta."
 
 #: ../code/application/views/restricted/user_group_quote.php:160
 #: ../code/application/views/helpfile/pofields.php:597
 #: ../code/application/views/helpfile/pofields.php~:597
 #, php-format
 msgid "Beds have been put aside for your group until the following date:"
-msgstr ""
+msgstr "Sängyt on varattu teidän ryhmälle saapumispäiväksi: "
 
 #: ../code/application/views/restricted/user_group_quote.php:165
 #: ../code/application/views/helpfile/pofields.php:598
@@ -3611,6 +3618,8 @@ msgid ""
 "After this date, these beds will be released to other groups, so do not wait "
 "to book!"
 msgstr ""
+"Tämän päivämäärän jälkeen nämä sängyt poistetaan ja ovat vapaita toisille "
+"ryhmille, tehkää varaus niin pian kun mahdollista! "
 
 #: ../code/application/views/restricted/user_group_quote.php:174
 #, fuzzy
@@ -3626,7 +3635,7 @@ msgstr "Mitä sisältyy"
 
 #: ../code/application/views/restricted/user_group_quote.php:208
 msgid "Room description"
-msgstr ""
+msgstr "Huoneen kuvaus"
 
 #: ../code/application/views/restricted/user_group_quote.php:211
 #, fuzzy
@@ -3635,11 +3644,13 @@ msgstr "Hinta per huone (ei per henkilö)"
 
 #: ../code/application/views/restricted/user_group_quote.php:266
 msgid "Offer Expiry date"
-msgstr ""
+msgstr "Tarjouksen Päättymispäivä"
 
 #: ../code/application/views/restricted/user_group_quote.php:267
 msgid "Non-refundable and non-transferable deposit to secure this booking"
 msgstr ""
+"Käsirahan maksettua, varaus on varmistettu ja tämä summa ei ole "
+"palautettavissa eikä siiretävissä."
 
 #: ../code/application/views/restricted/user_group_quote.php:287
 #, php-format
