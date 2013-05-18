@@ -33,7 +33,7 @@ function compare_property(value,proname,protype) {
 	if ($('#pro_compare_' + value).is(':checked')) {
 		// must be at least 2 hostels to compare
 		if (total_com_property.val() >= 1) {
-			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#3087C9');
+			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#3087C9').css('cursor', 'pointer');
 //			$('#pro_compare_' + value).parent().find('label').css('color', '#3087C9');
 		}
 
@@ -101,10 +101,10 @@ function compare_property(value,proname,protype) {
 		}	
 	}
 	else {
-		$('#pro_compare_' + value).parent().find('label').css('color', '#000');
+		$('#pro_compare_' + value).parent().find('label').css('color', '#000').css('cursor', 'default');
 		// must be at least 2 hostels to compare
 		if (total_com_property.val() == 2) {
-			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#000');
+			$('input[name="pro_compare"]:checked').parent().find('label').css('color', '#000').css('cursor', 'pointer');
 		}
 
 		var compare_pro2 = getCookie('compare');
