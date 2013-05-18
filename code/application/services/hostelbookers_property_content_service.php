@@ -78,6 +78,9 @@ class Hostelbookers_Property_Content_Service {
         $property = array(
             "hostel_hb_id" => intval((string) $propertyXml["ID"], 10),
             "short_description" => (string) $propertyXml->overview,
+            "long_description" => (string) $propertyXml->info,
+            "hostel_location" => (string) $propertyXml->location,
+            "hostel_directions" => (string) $propertyXml->directions,
             "language" => $langCode,
         );
 
