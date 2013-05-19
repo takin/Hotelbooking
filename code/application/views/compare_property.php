@@ -37,7 +37,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	$one           .= '<th  class="control_button"><div class="close_btn" id="' . $a . '">x</div></th>';
 	$propertyno    .= '<th  class="control_button" > <span class="column_order">' . $a . '</span> </th>';
  
-	$proname       .= '<td  class="control_button" style="width: 120px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
+	$proname       .= '<td  class="control_button" style="width: 115px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
 	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
 	$maplink       .= '<td  class="control_button"><span class="link_color"><a href="#map_td">' . _('See Map') . '</a><span></td>';
 
@@ -197,7 +197,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 			<table width="900" class="quick_compare_data" id="quick_com_data" border="0" cellspacing="0" cellpadding="0">
 				<tbody>
 					<tr class="quick_compare_grey">
-						<th class="heading" style="width: 140px"><?php echo $space;?></th>
+						<th class="heading" style="width: 110px"><?php echo $space;?></th>
 						<?php echo $one; ?>
 					</tr>
 					<tr class="quick_compare_grey">

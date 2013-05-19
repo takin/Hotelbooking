@@ -293,7 +293,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 							<div class="remove_div"><a href="#" onclick="remove_pro('');"><?php echo _('Remove All');?></a></div>
 						</div>
 						<div style="display: none;">
-							 <div id="property_compare_data" style="min-height:600px;overflow:auto; width:970px;">
+							 <div id="property_compare_data" style="min-height:600px;overflow:hidden; width:970px;">
 					   		 </div>
 						</div>
 					<?php } ?>

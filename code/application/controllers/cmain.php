@@ -2290,10 +2290,10 @@ class CMain extends I18n_site {
                 if (!empty($hostelData['hostel']['PROPERTYEXTRAS_translated']) && is_array($hostelData['hostel']['PROPERTYEXTRAS_translated'])) {
                     $i = 0;
                     foreach($hostelData['hostel']['PROPERTYEXTRAS_translated'] as $extra => $val) {
-                        $hostelData['extra'][] = 'extras' . $i . $property_number;
+                        $hostelData['extra'][] = $extra;
 
                         $obj = new stdClass;
-                        $obj->hb_extra_id = 'extras' . $i . $property_number;
+                        $obj->hb_extra_id = $extra;
                         $obj->description = $extra;
                         $property_extra[$extra] = $obj;
 
@@ -2307,10 +2307,10 @@ class CMain extends I18n_site {
                 if (!empty($hostelData['hostel']['FEATURES_translated']) && is_array($hostelData['hostel']['FEATURES_translated'])) {
                     $i = 0;
                     foreach($hostelData['hostel']['FEATURES_translated'] as $val => $feature) {
-                        $hostelData['feature'][] = 'feature' . $i . $property_number;
+                        $hostelData['feature'][] = $feature;
 
                         $obj = new stdClass;
-                        $obj->hb_feature_id = 'feature' . $i . $property_number;
+                        $obj->hb_feature_id = $feature;
                         $obj->description = $feature;
                         $property_feature[$feature] = $obj;
 
@@ -2337,10 +2337,10 @@ class CMain extends I18n_site {
                 if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
                     $i = 0;
                     foreach ($hostelData['hostel']->facilitiesTranslated as $facility) {
-                        $hostelData['facelity'][] = 'facelity' . $i . $property_number;
+                        $hostelData['facelity'][] = $facility;
 
                         $obj = new stdClass;
-                        $obj->hw_facility_id = 'facelity' . $i . $property_number;
+                        $obj->hw_facility_id = $facility;
                         $obj->description = $facility;
                         $property_facelity[$facility] = $obj;
                     }
@@ -2349,8 +2349,6 @@ class CMain extends I18n_site {
                     $hostelData['facelity'] = array();
                 }
  
-            //    $d = $this->hw_engine->property_avail_check($hostelData['hostel']->property_name, $property_number, '2013-05-16', 2, 'EUR');
-
                 $data[] = $hostelData;
             }
         }
