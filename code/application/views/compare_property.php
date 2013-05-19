@@ -64,7 +64,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	 	}
 	}
 	else {
-		$dorms    .= '<td  class="control_button"><span>'. _('Not available') . '</span></td>';
+		$dorms    .= '<td  class="control_button dorm_price_container_' . $property_number . '"><span>'. _('Not available') . '</span></td>';
 		$Privates .= '<td  class="control_button private_price_container_' . $property_number . '"><span>'. _('Not available') . '</span></td>';
 // . $symbol . ' ' . $compare_data[$i]['bed_price'] . '</td>';
 	}
@@ -336,7 +336,12 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						$x++;
 					}
 				 }
-				else { ?> 
+				else { ?>
+ 					<tr class="quick_compare_grey row_white" id="row-1">
+						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Dorms From')?></td>
+						<?php echo $dorms; ?>
+					</tr>
+
 					<tr class="quick_compare_grey row_white" id="row-2">
 						<td class="heading" ><a  class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Privates From')?></td>
 						<?php echo $Privates; ?>
