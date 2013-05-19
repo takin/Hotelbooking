@@ -177,7 +177,7 @@ if ($GLOBALS['print'] == 'nostyle') {
                            'Grenade', 'auberge');
     ?>" href="<?php echo get_option('aj_api_url') ?><?php
                    _e(
-                           'portugual/lisbon', 'auberge');
+                           'portugal/lisbon', 'auberge');
     ?>"><?php _e('Lisbonne', 'auberge'); ?></a>
                     <a style="font-size:<?php echo rand(8, 16) ?>pt;" title="<?php
                    _e(
