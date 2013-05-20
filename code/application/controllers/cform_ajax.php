@@ -10,6 +10,9 @@ class CForm_ajax extends I18n_site {
     }
 
     function group_request() {
+        
+        echo $this->config->item('admin_booking_email');
+        
         $this->load->library('email');
         $this->load->library('form_validation');
 
