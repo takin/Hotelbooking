@@ -10,9 +10,7 @@ class CForm_ajax extends I18n_site {
     }
 
     function group_request() {
-        
-        echo $this->config->item('admin_booking_email');
-        
+
         $this->load->library('email');
         $this->load->library('form_validation');
 
@@ -78,9 +76,7 @@ class CForm_ajax extends I18n_site {
                 $this->email->subject($this->config->item('site_name') . " - " . sprintf(gettext("Group Booking")) . " - " . sprintf(gettext("People:")) . " " . $totalpeople . " - " . $data["search_city"] . " - " . $data["datepick"]);
                 $this->email->message($emailcontent);
                 $emailsent = $this->email->send();
-                
-                echo $this->email->print_debugger();
-                
+
                 if (!$emailsent) {
                     log_message('error', "Error sending Group Booking Request Email to " . $admin_email . " -> " . $this->email->print_debugger());
                 }
