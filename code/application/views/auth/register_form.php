@@ -35,18 +35,18 @@ $captcha = array(
 	'maxlength'	=> 8,
 );
 $first_name = array(
-	'name'	=> 'first_name',
-	'id'	=> 'first_name',
-	'value'	=> set_value('first_name'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'name'	    => 'first_name',
+	'id'	    => 'first_name',
+	'value'	    => set_value('first_name'),
+	'maxlength' => 40,
+	'size'	    => 30,
 );
 $last_name = array(
-	'name'	=> 'last_name',
-	'id'	=> 'last_name',
-	'value'	=> set_value('last_name'),
-	'maxlength'	=> 80,
-	'size'	=> 30,
+	'name'	    => 'last_name',
+	'id'	    => 'last_name',
+	'value'	    => set_value('last_name'),
+	'maxlength' => 40,
+	'size'	    => 30,
 );
 $mail_subscription = array(
 	'name'	=> 'mail_subscription',
