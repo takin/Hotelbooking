@@ -1,6 +1,8 @@
 jQuery(document).ready(function() {
     handleShareEmailPDF();
 
+    handleTooltip();
+
     jQuery("img").error(function() {
         jQuery(this).hide();
     });
@@ -350,4 +352,14 @@ function handleShareEmailPDF() {
         var from_email = new LiveValidation('from_email', {validMessage: " "});
         from_email.destroy();
     }
+}
+
+function handleTooltip() {
+	$('#check_in_out')
+		.mouseover(function() {
+			$('#tooltip_content').show();
+		})
+		.mouseout(function() {
+			$('#tooltip_content').hide();
+		});
 }
