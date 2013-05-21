@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-04-29 21:39+0200\n"
+"PO-Revision-Date: 2013-05-21 22:26+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1560,9 +1560,8 @@ msgid "Réservation de groupes"
 msgstr "Skupinové rezervace"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Uložit toto ubytovací zařízení jako oblíbené"
+msgstr "Uložte toto zařízení jako oblíbené"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -3524,7 +3523,7 @@ msgstr "Datum"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Jméno"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -9122,7 +9121,7 @@ msgstr "Důležitá informace"
 #: ../code/application/views/helpfile/pofields.php~:745
 #, php-format
 msgid "Property name"
-msgstr "Název ubytovacího zařízení"
+msgstr "Název zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:747
 #: ../code/application/views/helpfile/pofields.php~:747
@@ -9360,15 +9359,15 @@ msgid ""
 "By clicking \"Create Account\" you confirm that you accept the Terms of "
 "Service and Privacy Policy."
 msgstr ""
-"Kliknutím na \"vytvořit účet\" potvrzujete souhlas s našimi všeobecnými "
-"podmínkami a zásadami ochrany osobních údajů."
+"Kliknutím na \"Vytvořit účet\" souhlasíte s Obchodními podmínkami a zásadami "
+"ochrany osobních údajů."
 
 #: ../code/application/views/helpfile/pofields.php:801
 #: ../code/application/views/helpfile/pofields.php:835
 #: ../code/application/views/helpfile/pofields.php~:801
 #, php-format
 msgid "Create account"
-msgstr "Vytvořit účet"
+msgstr "Vytvořte  účet"
 
 #: ../code/application/views/helpfile/pofields.php:802
 #: ../code/application/views/helpfile/pofields.php~:802
@@ -9489,16 +9488,16 @@ msgid "Saved favorite properties"
 msgstr "Uložená oblíbená ubytovací zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"Zaplatíte nyní pouze zálohu (%d z celkové částky) jako potvrzení a zajištění "
-"vaší rezervace. Zbývající částku (%d) splatíte při příjezdu. Informaci o "
-"ubytovacím zařízení (email,adresu,telefonní číslo...) naleznete v "
+"Zaplatíte nyní pouze zálohu (%d%% z celkové částky) jako potvrzení a "
+"zajištění vaší rezervace. Zbývající částku (%d%%) splatíte při příjezdu. "
+"Informaci o ubytovacím zařízení (email,adresu,telefonní číslo…) naleznete v "
 "potvrzujícím emailu po dokončení rezervace."
 
 #: ../code/application/views/helpfile/pofields.php:825
@@ -9516,31 +9515,37 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Toto je čas, kdy bude váš pokoj připraven v den vašeho příjezdu a čas, kdy "
+"máte pokoj opustit v den vašeho odjezdu.Pokud přijedete dříve nebo odjedete "
+"později, většina ubytovacích zařízení uskladní vaše zavazadla na bezpečném "
+"místě, které je přístupné 24 hodin denně.Prosím zkontrolujte si seznam "
+"služeb nabízených konkrétním ubytovacímzařízením, abyste si potvrdili, že "
+"jsou k dispozici."
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "Vytvořit účet"
+msgstr "Existující účet"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "Vytvořit účet"
+msgstr "Vytvořte nový účet"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Nové heslo"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Ukažte typy pokojů"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Skrýt typy pokojů"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
@@ -9548,15 +9553,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Je nám líto, ale maximální počet oblíbených ubytovacích zařízení k uložení "
+"na vašem účtu je 30"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Můžete si uložit toto ubytovací zařízení na svém účtu jako oblíbené,abyste "
-"ho, budete-li si to přát, mohli později snadno rezervovat."
+"Toto zařízení bylo uloženo v sekci \"Můj účet\".Můžete ho nyní snadno "
+"rezervovat pro pozdější datum, pokud si přejete."
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9608,15 +9615,13 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Den příjezdu"
+msgstr "Příjezd:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Počet hostů"
+msgstr "Počet nocí:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
 #, fuzzy
@@ -9629,14 +9634,12 @@ msgid "characters left"
 msgstr "Zbývající znaky:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Aktualizace poznámek"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Aktualizace poznámek"
+msgstr "Uložit poznámku"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9702,39 +9705,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "K dalšímu pokračování prosím akceptujte smluvni podminky. "
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Prosím čekejte"
+msgstr "Prosím přihlašte se heslem"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Neplatný formát "
+msgstr "Neplatné zařízení"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Číslo objektu"
+msgstr "Zařízení nenalezeno"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Uložit toto ubytovací zařízení jako oblíbené"
+msgstr "Zařízení je již oblíbené"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Neplatný formát telefonního čisla."
+msgstr "Neplatný počet nocí"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Neplatný formát "
+msgstr "Neplatné datum"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "Poznámky překračují maximum %d znaků"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
