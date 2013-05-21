@@ -888,6 +888,7 @@ if (empty($csspath)) {
 }
 ?>
 
+<?php if (empty($print)) { ?>
 <!-- modal content -->
 <div id="basic-modal-content">
     <h3 style="color: #6DA903; text-align: center;">
@@ -1047,7 +1048,7 @@ if (empty($csspath)) {
     </div>
 
 </div>
-
+<?php } ?>
 <br />
 
 <?php

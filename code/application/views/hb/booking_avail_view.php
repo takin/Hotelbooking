@@ -783,6 +783,7 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
     }
     ?>
 
+<?php if (empty($print)) { ?>
     <!-- modal content -->
     <div id="basic-modal-content">
         <h3 style="color: #6DA903; text-align: center;">
@@ -942,6 +943,7 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
         </div>
 
     </div>
+<?php } ?>
 
     <script>
         $(function(){
