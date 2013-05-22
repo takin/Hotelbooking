@@ -10,7 +10,7 @@
 					<p><strong><span class="city">{{city}}</span> - <span class="country">{{country}}</span></strong></p>
 					<p><?php echo _('Arrival:'); ?> <strong class="dateShow">{{arrival_date_show}}</strong> <?php echo _('Number of nights:'); ?> <strong class="nights">{{nights}}</strong></p>
 					<span class="date" style="display: none">{{arrival_date}}</span>
-					<a href="{{property_page_url}}" class="propertyName">{{name}}</a>
+					<a href="{{property_page_url}}/{{arrival_date}}/{{nights}}" class="propertyName">{{name}}</a>
 					<strong class="notes">{{notes}}</strong>
 
 				</div>
