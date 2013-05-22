@@ -1212,8 +1212,11 @@ PWebFilterApp.prototype.setup = function(data)
             }
         }
     });
-   
-     pweb_filter.toggleMap('city');
+    // check if this city has latitude and longitude to display the right side map
+    if (  $("#city_geo_lat").val() !== "" &&  $("#city_geo_lng").val() !== ""){
+        pweb_filter.toggleMap('city');
+    }
+     
         
 //	$('#city_map_show_1').click(function()
 //	{
