@@ -14,10 +14,10 @@ $config['displayQuickPreview'] = FALSE;
 $config['displayCompareProperty'] = FALSE;
 
 /* set variable to show remove from search */
-$config['displayRemoveFromSearch'] = true;
+$config['displayRemoveFromSearch'] = TRUE;
 
 /* set variable to show save property  */
-$config['displaySaveProperty'] = true;
+$config['displaySaveProperty'] = FALSE;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
