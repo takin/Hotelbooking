@@ -6,6 +6,7 @@ $config['displayVelaro'] = TRUE;
 /* Display or not the share PDF and Email */
 $config['displayShareEmail'] = true;
 $config['displaySharePDF']   = true;
+
 // HTTP basic auth credentials
 $config['httpAuthUsername']  = '';
 $config['httpAuthPassword']  = '';
