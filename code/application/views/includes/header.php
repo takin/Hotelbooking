@@ -981,7 +981,7 @@ $(document).ready(function()
 		</div>
 	</div>
 </div>
-<div class="wrapper container_16 group">
+<div id="main_container" class="wrapper container_16 group">
 <?php if(isset($google_map_enable)&&($google_map_enable===true)): ?>
 <img src="<?php echo site_url("images/map-marker.png"); ?>" style="display:none" />
 <img src="<?php echo site_url("images/map-marker-shadow.png"); ?>" style="display:none" />

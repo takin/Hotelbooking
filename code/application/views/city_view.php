@@ -435,36 +435,59 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
-// this part is related to fixing the map position
+       // on window resize
+       $(window).resize(function() {
+            changeSidebar_width();
+        });
+        // this part is related to fixing the map position
         $(window).scroll(function () { 
+            changeSidebar_width();
+       });
+       
+       function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(Document).height();
         var fix_height_position =  ( page_height - $("#sidebar").height() - 600 ) ;
         var scroll_position = $(window).scrollTop();
+        // whole div container
+        var main_container_leftPosition = $("#main_container").offset().left;
+        var main_container_width = $("#main_container").width();
+
+        var sidebar_width = ( parseInt(main_container_width) * 0.23 );
+
         //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
             $("#sidebar").removeClass("fix_sidebar_position");
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
             $("#sidebar").css({'position' : ''});
             $("#sidebar").css({'top' : ''});
             $("#sidebar").css({'left' : ''});
+            
             $("#main").css({'float' : 'auto'});
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#sidebar").addClass("fix_sidebar_position");
+            $("#sidebar").removeClass("container_16");
+            $("#sidebar").removeClass("grid_4");
             $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'width' : sidebar_width});
             $("#sidebar").css({'top' : ''});
-            $("#sidebar").css({'left' : ''});
+            $("#sidebar").css({'left' : (parseInt(main_container_leftPosition) + 10 ) });
+            
             $("#main").css({'float' : 'right'});
          }
          else  if( scroll_position > fix_height_position ){
             $("#sidebar").css({'position' : 'relative'});
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
             $("#sidebar").css({'left' : 0});
             if( fix_height_position > 0 ){
                 $("#sidebar").css({'top' : fix_height_position - 245 });
             }
             $("#main").css({'float' : 'auto'});
-         }
-       });  
+         } 
+       }
        
    });      
 </script>

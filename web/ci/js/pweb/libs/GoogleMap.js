@@ -50,7 +50,7 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "city_side_map_container") {
         this.map_div.style.height = "280px";
-        this.map_div.style.width = "255px";
+        this.map_div.style.width = "auto";
     }
 
     var myOptions = {
