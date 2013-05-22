@@ -430,7 +430,8 @@ var SaveProperty = function() {
 	}
 
 	function getLoginForm(showForm) {
-		var url = '/connexion';
+		var url = $('.account_login .meta_login').attr('href'); //'/connexion';
+
 		if (showForm) {
 			url += '?show_form=true';
 		}
@@ -524,7 +525,7 @@ var SaveProperty = function() {
 
 	function getRegisterForm() {
 		$.ajax({
-			url: '/bienvenue',
+			url: $('.logout_register .meta_register').attr('href'), //'/bienvenue',
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
