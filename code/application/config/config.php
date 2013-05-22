@@ -17,7 +17,7 @@ $config['displayCompareProperty'] = FALSE;
 $config['displayRemoveFromSearch'] = TRUE;
 
 /* set variable to show save property  */
-$config['displaySaveProperty'] = FALSE;
+$config['displaySaveProperty'] = TRUE;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
