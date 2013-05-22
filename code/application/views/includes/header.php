@@ -54,7 +54,7 @@
 
         if (!empty($print) && $print == 'pdf') {
     	    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css','all','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v='.time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
 	    $this->carabiner->css('pdf.css');
@@ -65,7 +65,7 @@
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v='.time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
             $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
             
