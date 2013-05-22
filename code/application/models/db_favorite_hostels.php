@@ -62,6 +62,28 @@ class Db_favorite_hostels extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
+	public function countUserPropertyNumber($id, $propertyNumber, $type, $userId) {
+		if ($id) {
+			$this->db->where('id !=', (int)$id);
+		}
+
+		$this->db->where('user_id', (int)$userId);
+		$this->db->where('hostel_hb_id', (int)$propertyNumber);
+		$this->db->where('type', (int)$type);
+
+		$this->db->from(self::FAVORITE_TABLE);
+
+		return $this->db->count_all_results();
+	}
+
+	public function countUserSavedProperties($userId) {
+		$this->db->where('user_id', (int)$userId);
+
+		$this->db->from(self::FAVORITE_TABLE);
+
+		return $this->db->count_all_results();
+	}
+
 	public function savedPropertiesNumbers($userId, $type = null) {
 		$numbers = array();
 

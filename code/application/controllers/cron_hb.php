@@ -69,6 +69,7 @@ class Cron_hb extends I18n_site
 
   function hb_city_list()
   {
+    log_message('info', 'Starting hb_city_list cron job');
 
     $this->log_filename.= "_cities";
 
@@ -150,10 +151,14 @@ class Cron_hb extends I18n_site
 
     $this->unlock();
 
+    log_message('info', 'Done hb_city_list cron job');
+
   }
 
   function update_xml_hb_city_data()
   {
+    log_message('info', 'Starting update_xml_hb_city_data cron job');
+
     $this->load->model('Db_hb_country');
     foreach($this->Db_links->get_all_domains_distinct_lang() as $domain)
     {
@@ -162,11 +167,15 @@ class Cron_hb extends I18n_site
       $this->Db_hb_country->fwrite_xml_cities_data("cities", $domain->lang, FALSE);
       $this->Db_hb_country->fwrite_xml_cities_data("cities", $domain->lang, TRUE);
     }
+
+    log_message('info', 'Ending update_xml_hb_city_data cron job');
   }
 
   //Should not be used without further testing
   function hb_landing_page_cache()
   {
+    log_message('info', 'Starting hb_landing_page_cache cron job');
+
     $this->load->model('Db_hb_city');
     $this->load->library('hb_engine');
     $this->load->library('custom_log');
@@ -192,10 +201,14 @@ class Cron_hb extends I18n_site
       }
     }
     $this->custom_log->log($this->log_filename."_city_landing","Caching of city landing pages completed for ".$domain->site_domain);
+
+    log_message('info', 'Ending hb_landing_page_cache cron job');
   }
 
   function hb_get_nationalities()
   {
+    log_message('info', 'Starting hb_get_nationalities cron job');
+
     $this->load->model('Db_hb_country');
     $this->load->model('Hostelbookers_api');
 
@@ -225,9 +238,12 @@ class Cron_hb extends I18n_site
       }
 //     }
 
+    log_message('info', 'Done hb_get_nationalities cron job');
   }
 
     public function hb_hostels_get() {
+
+        log_message('info', 'Starting hb_hostels_get cron job');
 
         require_once(APPPATH . "/services/hostelbookers_feed_service.php");
         $hbFeedService = new Hostelbookers_feed_service();
@@ -237,9 +253,13 @@ class Cron_hb extends I18n_site
         $logFilename = "updateallproperties";
 
         $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename);
+
+        log_message('info', 'Done hb_hostels_get cron job');
     }
 
     public function update_hb_hostel_descriptions() {
+
+        log_message('info', 'Starting update_hb_hostel_descriptions cron job');
 
         require_once(APPPATH . "/services/hostelbookers_property_content_service.php");
         $hbPropertyContentService = new Hostelbookers_Property_Content_Service();
@@ -251,6 +271,8 @@ class Cron_hb extends I18n_site
         if (!empty($langCodesToUpdate)) {
             $this->runXmlServiceCron($serviceCallback, $emailSubject, $logFilename, $langCodesToUpdate);
         }
+
+        log_message('info', 'Done update_hb_hostel_descriptions cron job');
     }
 
     private function getLangCodesToUpdate() {
@@ -327,6 +349,8 @@ class Cron_hb extends I18n_site
     $this->load->model('Db_currency');
     $this->load->model('Hostelbookers_api');
 
+    log_message('info', 'Starting cache_exchange_rates cron job');
+
     $location_id = 1126;
     $hostel_id   = 0;
     $hostel_price_field = "MINPRIVATEPRICE";
@@ -384,14 +408,23 @@ class Cron_hb extends I18n_site
           //Ensure new price is not 0!
           if($cached_hostel["prices"]["CUSTOMER"][$hostel_price_field] > 0)
           {
+            log_message('debug', 'Updating currency '.$db_currency->currency_code);
             $this->Db_currency->update_hb_equivalent($db_currency->currency_code, $cached_hostel["prices"]["CUSTOMER"][$hostel_price_field]);
+          }
+          else
+          {
+            log_message('debug', 'Cannot update currency '.$db_currency->currency_code.' as new price is 0');
           }
         }
         sleep(1);
       }
     }
 
+    log_message('info', 'Done cache_exchange_rates cron job');
+
   }
+
+
   function my_error_handler($errno, $errstr, $errfile, $errline){
     $errno = $errno & error_reporting();
     if($errno == 0) return;

@@ -146,6 +146,8 @@ class Auth extends I18n_site
 			}
 			else
 			{
+				$data['showForm'] = !empty($_GET['show_form']) && $is_ajax ? true : false;
+
 				$data['current_view'] = "auth/login_form";
 				if ($this->input->is_ajax_request()) {
 					$data['is_ajax'] = true;
@@ -236,6 +238,33 @@ class Auth extends I18n_site
 								$pass,
 								$email_activation
 				))) { // success
+                                        // update with first name and last name
+                                        if (!empty($data['user_id']) && $ajax_request) {
+                                                $this->load->model('tank_auth/user_profiles');
+
+                                                $this->user_profiles->set_profile_data(
+                                                    $data['user_id'],
+                                                    array(
+                                                        'first_name'        => $_POST['first_name'],
+                                                        'last_name'         => $_POST['last_name'],
+                                                        'mail_subscription' => $_POST['mail_subscription'] ? 1 : 0
+                                                    ),
+                                                    false
+                                                );
+
+						// now, login the user
+						if ($this->tank_auth->login(
+							$this->form_validation->set_value('email'),
+							$pass,
+							0,
+							($this->config->item('login_by_username', 'tank_auth') AND $this->config->item('use_username', 'tank_auth')),
+							$this->config->item('login_by_email', 'tank_auth')
+						)) {
+							delete_cookie('currency_selected');
+						}
+
+                                        }
+
 					$data['site_name'] = $this->config->item('site_name');
 
 					if ($email_activation) {									// send "activate" email

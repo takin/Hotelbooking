@@ -10,8 +10,8 @@
 
 <div id="save_property_dialog">
 	<div class="content_container">
-        	<div class="title"><?php echo _('Save this property as favorite'); ?></div>
-        	<div class="close"><a href="#">close</a></div>
+        	<div class="title"><?php echo _('Save this property as a favorite'); ?></div>
+        	<div class="close"><a href="#"><img src="<?php echo site_url('images/modal_close.png'); ?>" alt="close" /></a></div>
 
 		<div class="content"></div>
 	</div>

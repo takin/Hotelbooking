@@ -10,6 +10,7 @@ class CForm_ajax extends I18n_site {
     }
 
     function group_request() {
+
         $this->load->library('email');
         $this->load->library('form_validation');
 
