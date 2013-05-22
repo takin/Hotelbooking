@@ -1,5 +1,5 @@
 <script type="text/javascript" src="<?php echo site_url('js/pweb/includes/mustache.js'); ?>" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo site_url('js/save_property.js'); ?>" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo site_url('js/save_property.js?v=' . time()); ?>" charset="UTF-8"></script>
 
 <?php
 $switch_api = false;
