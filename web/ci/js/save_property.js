@@ -196,6 +196,7 @@ SavedProperty.edit = function(id, triggerElem) {
 	});
 
 	$('#save_fav .schedule_details .date .num').html( $.datepicker.formatDate('d MM yy', $('#date_show').datepicker('getDate')) );
+	$('#nights').val( parseInt(obj.find('.nights').html(), 10) );
 }
 
 SavedProperty.remove = function(id, triggerElem) {
@@ -221,7 +222,7 @@ SavedProperty.remove = function(id, triggerElem) {
 			else {
 				$('#prop_tab_box_' + id).fadeOut(300, function(){ $(this).remove(); });
 
-				SaveProperty.loadSavedPropertyList();
+				SaveProperty.loadSavedPropertyList(true);
 			}
 		}
 	});
@@ -262,6 +263,10 @@ var SaveProperty = function() {
 			url     : favorite_properties_url,
 			success : function(data) {
 				savedProperty.setup(data);
+
+				if (!data.length) {
+					$('#favorite_properties').html( $('#missing_hostels').html() );
+				}
 			}
 		});
 
@@ -282,42 +287,47 @@ var SaveProperty = function() {
 	function bindAddToFav() {
 		$('.save_to_favorites').live('click', function(event) {
 			event.preventDefault();
+
 			currentClickedObj = $(this);
 
 			var showLogin = true;
 
 			if (typeof(userIsLoggedIn) != 'undefined' && userIsLoggedIn) {
-				var showLogin = false;
+				showLogin = false;
 			}
 
 			showSafeDialogFor(showLogin);
 		});
 	}
 
-	function showSafeDialogFor(showLogin) {
+	function showSafeDialogFor(showLogin, showForm) {
 		if (showLogin) {
-			getLoginForm();
+			getLoginForm(showForm);
 
 			return;
 		}
 
 		var propertyNumber = currentClickedObj.attr('id').replace('save_to_favorites_', '');
+		var nights = $('#city_results_numnights_selected, #booking-table .top-table p b:nth-child(2)').html();
 
 		showSaveDialog({
 			id             : '',
 			propertyNumber : propertyNumber,
 			imageURL       : $('#prop_tab_box_' + propertyNumber + ' .info_pic img, .main-pic .openup:first img.main:first').attr('src'),
-			propertyName   : currentClickedObj.attr('title'),
+			propertyName   : currentClickedObj.attr('rel'),
 			city           : $('.city_selected').html(),
 			country        : $('.country_selected').html(),
 			date           : $('#city_results_arrive_date, #booking-table .top-table p b:first').html(),
 			dateVal        : $.datepicker.formatDate('yy-mm-dd', $('#book-pick').datepicker('getDate')),
-			nights         : $('#city_results_numnights_selected, #booking-table .top-table p b:nth-child(2)').html(),
+			nights         : nights,
 			notes          : '',
 			characters     : 0,
 			isUpdate       : false,
 			isNew          : true
 		});
+
+		$('#nights').val( parseInt(nights, 10) );
+//		dialog.find('.content_container').css('height', '570px');
 	}
 
 	function showSaveDialog(data) {
@@ -327,18 +337,12 @@ var SaveProperty = function() {
 		countRemainingChars(dialog.find('.notes'), dialog.find('.characters .num'));
 		dialog.find('.date_show').datepicker({
 			dateFormat: 'd MM yy',
-			showOn: 'button',
 			altField: "#date",
 			altFormat:'yy-mm-dd',
 			onSelect: function(newVal) {
-				$('#date_show, #save_fav .ui-datepicker-trigger').hide();
-				$('#save_fav .schedule_details .date .num').show();
-
-				$('#save_fav .schedule_details .date .num').text(newVal);
 			}
 		});
 		dialog.find('.ui-datepicker').hide();
-		$('#date_show, #save_fav .ui-datepicker-trigger').hide();
 		dialog.show();
 	}
 
@@ -361,16 +365,28 @@ var SaveProperty = function() {
 			data: {
 				id             : form.find('input[name="id"]').val(),
 				propertyNumber : propertyNumber,
-				nights         : form.find('input[name="nights"]').val(),
+				nights         : form.find('select[name="nights"]').val(),
 				date           : form.find('input[name="date"]').val(),
 				notes          : form.find('textarea[name="notes"]').val()
 			},
 			dataType: 'json',
-			success: function() {
+			success: function(response) {
 				form.find('.actions').show();
 
-				$('#prop_tab_box_' + propertyNumber).find('.save_to_favorites').hide();
-				$('#prop_tab_box_' + propertyNumber).find('.saved_to_favorites').show();
+                                if (response.message) {
+					alert(response.message);
+
+					if (response.reason && response.reason == 'userLogOut') {
+						userIsLoggedIn = false;
+
+						getLoginForm(true);
+					}
+
+					return;
+                                }
+
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
+				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
 
 				SaveProperty.loadSavedPropertyList();
 
@@ -413,12 +429,31 @@ var SaveProperty = function() {
 		return true;
 	}
 
-	function getLoginForm() {
+	function getLoginForm(showForm) {
+		var url = '/connexion';
+		if (showForm) {
+			url += '?show_form=true';
+		}
+
 		$.ajax({
-			url: '/connexion',
+			url: url,
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
+
+				if (showForm) {
+//					dialog.find('.content_container').css('height', '625px');
+				}
+				else {
+//					dialog.find('.content_container').css('height', '400px');
+				}
+
+				$('input[type="password"]').on('keydown', function(event){
+					if (event.which == 8) { //backspace event
+						event.preventDefault();
+						$(this).val('');
+					}
+				});
 			}
 		});
 	}
@@ -437,12 +472,18 @@ var SaveProperty = function() {
 			success  : function(response) {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
+						userIsLoggedIn = true;
+
 						// user is logged in
+						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
+						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
+
 						showSafeDialogFor(0);
 					}
 				}
 				else {// some kind of error, see about it
 					dialog.find('.content').html(response);
+					$('#login_form_container').show();
 				}
 			}
 		});
@@ -455,15 +496,23 @@ var SaveProperty = function() {
 			type     : 'POST',
 			url      : form.attr('action'),
 			data     : {
-				email            : $('#email').val(),
-				password         : $('#password').val(),
-				confirm_password : $('#confirm_password').val()
+				email             : $('#email').val(),
+				password          : $('#password').val(),
+				confirm_password  : $('#confirm_password').val(),
+				first_name        : $('#first_name').val(),
+				last_name         : $('#last_name').val(),
+				mail_subscription : $('#mail_subscription').attr('checked')
 			},
 			success  : function(response) {
 				if (typeof(response) == 'object') {
 					if (response.ok) {
-						// user is registered; show login form
-						showSafeDialogFor(1);
+						userIsLoggedIn = true;
+
+						// user is logged in
+						$('#top_bar_inner .account_login').html( $('#logged_in_link').html() );
+						$('#top_bar_inner .logout_register').html( $('#log_out_link').html() );
+
+						showSafeDialogFor(0);
 					}
 				}
 				else {// some kind of error, see about it
@@ -479,6 +528,7 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
+//				dialog.find('.content_container').css('height', '625px');
 			}
 		});
 	}

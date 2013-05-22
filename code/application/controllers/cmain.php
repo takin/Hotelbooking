@@ -1160,6 +1160,9 @@ class CMain extends I18n_site {
         log_message('debug', 'Entering main controller property page method');
 
         $this->_currency_init();
+
+        $this->load->library('tank_auth');
+
         // add the current params in the "stash"
         $data = array(
             'property_type' => $property_type,
@@ -1170,17 +1173,16 @@ class CMain extends I18n_site {
             'print' => $this->input->get('print', true),
             'showEmail' => $this->config->item('displayShareEmail'),
             'showPDF' => $this->config->item('displaySharePDF'),
+            'userIsLoggedIn' => $this->tank_auth->is_logged_in()
         );
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $data['favorited'] = 0;
-            /*
-             *  $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
-             */
+
+            $data['favorited'] = $this->tank_auth->is_logged_in() 
+                ? $this->Db_favorite_hostels->countUserPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id())
+                : false;
         }
-
-
 
         $date = $urldate;
 
@@ -1597,7 +1599,9 @@ class CMain extends I18n_site {
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0));
+            $savedPropertiesNumbers = $this->tank_auth->is_logged_in()
+                ? $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0))
+                : array();
         }
 
         if ($this->api_used == HB_API) {
@@ -2280,10 +2284,10 @@ class CMain extends I18n_site {
 
       $this->load->library('tank_auth');
       if (!$this->tank_auth->is_logged_in()) {
-          echo json_encode(array(array(
-              'field'   => 'propertyNumber',
+          echo json_encode(array(
+              'reason'  => 'userLogOut',
               'message' => _('Please log in')
-          )));
+          ));
 
           exit();
       }
@@ -2302,6 +2306,17 @@ class CMain extends I18n_site {
 
       $this->load->model('Db_favorite_hostels');
       $this->load->model('Db_links');
+
+      $favHostelsNo = $this->Db_favorite_hostels->countUserSavedProperties($this->tank_auth->get_user_id());
+
+      if ($favHostelsNo > 30) {
+          echo json_encode(array(
+              'field'   => 'propertyNumber',
+              'message' => _('We are sorry but the maximum number of favorite properties you can save to your account is 30')
+          ));
+
+          exit();
+      }
 
       $errors = array();
 
@@ -2350,7 +2365,7 @@ class CMain extends I18n_site {
              );
           }
           else {
-             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0));
+             $favHostelNo = $this->Db_favorite_hostels->countUserPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id());
 
              if (!empty($favHostelNo)) {
                  $errors[] = array(
@@ -2388,7 +2403,7 @@ class CMain extends I18n_site {
       if (!empty($notes) && mb_strlen($notes) > 75) {
           $errors[] = array(
               'field'   => 'date',
-              'message' => sprintf(_('Notes are exceeding maximum of %d chars'), 75)
+              'message' => sprintf(_('Notes are exceeding maximum of %d characters'), 75)
           );
       }
 
