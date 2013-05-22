@@ -363,7 +363,7 @@ if ($api_error == false) {
 						<?php echo _('Add to my favorites'); ?>
 					</a>
 
-					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>" title="<?php echo _('This property has been saved in your \'My account\' section. You can now easily book it at a later date if you wish.'); ?>">
+					<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_<?php echo $hostel->property_number; ?>" style="vertical-align: middle;<?php echo $addedToFav; ?>" title='<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.'); ?>'>
 						<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 						<?php echo _('Saved to my favorites'); ?>
 					</a>
