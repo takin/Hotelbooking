@@ -120,7 +120,7 @@ else {
 						</td>
 					</tr>
 					<tr>
-						<td valign="top" class="first"><?php echo form_label(_('Last name'), $last_name['id']); ?></td>
+						<td valign="top" class="first"><?php echo form_label(_('Nom'), $last_name['id']); ?></td>
 						<td valign="top"><?php
 							echo form_input($last_name); ?>
 							<span style="color: red;"><?php echo form_error($last_name['name']); ?><?php echo isset($errors[$last_name['name']]) ? $errors[$last_name['name']] : '' ; ?></span>
@@ -202,7 +202,7 @@ else {
 
 				if ($is_ajax) { ?>
 					<tr>
-						<td valign="top" class="first"><?php echo form_label(_('Newsletter Subscription'), $mail_subscription['id']); ?></td>
+						<td valign="top" class="first"><?php echo form_label(_('Abonnement newsletter'), $mail_subscription['id']); ?></td>
 						<td valign="top"><?php
 							echo form_checkbox($mail_subscription); echo _('We will never sell your personal information - You can unsubscribe anytime.'); ?>
 							<span style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></span>
