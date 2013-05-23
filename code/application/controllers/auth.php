@@ -20,28 +20,28 @@ class Auth extends I18n_site
 
 		//Currency initialization
 		$this->load->library('get_config');
-    $this->load->model('Db_currency');
+		$this->load->model('Db_currency');
 
-    $currency_validated = $this->input->get("currency", TRUE);
-    if(!empty($currency_validated))
-    {
-      $currency_validated = $this->Db_currency->validate_currency($currency_validated);
-    }
-	  else
-    {
-      $currency_validated = $this->config->item('site_currency_default');
-    }
-    $this->get_config->set_config_from_get("currency","site_currency_selected",TRUE,'currency_selected',$currency_validated);
+		$currency_validated = $this->input->get("currency", TRUE);
+		if(!empty($currency_validated))
+		{
+			$currency_validated = $this->Db_currency->validate_currency($currency_validated);
+		}
+		else
+		{
+			$currency_validated = $this->config->item('site_currency_default');
+		}
+		$this->get_config->set_config_from_get("currency","site_currency_selected",TRUE,'currency_selected',$currency_validated);
 
-    //Load JS for search box
-    if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-    {
-      $this->carabiner->load_group_assets('mobile_main_menu');
-    }
-    else
-    {
-      $this->carabiner->load_group_assets('search_box_scripts');
-    }
+		//Load JS for search box
+		if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
+		{
+			$this->carabiner->load_group_assets('mobile_main_menu');
+		}
+		else
+		{
+			$this->carabiner->load_group_assets('search_box_scripts');
+		}
 	}
 
 	function index()
@@ -54,8 +54,8 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 */
-	function login()
-	{
+	function login() {
+		$is_ajax = $this->input->is_ajax_request();
 
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 			redirect('');
@@ -64,22 +64,20 @@ class Auth extends I18n_site
 			redirect('/auth/send_again/');
 
 		} else {
-			$data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND
-					$this->config->item('use_username', 'tank_auth'));
+			$data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND $this->config->item('use_username', 'tank_auth'));
 			$data['login_by_email'] = $this->config->item('login_by_email', 'tank_auth');
 
-      $login_field = $this->lang->line('auth_field_email');
-      if($data['login_by_username'])
-      {
-        $login_field = $this->lang->line('auth_field_login');
-      }
+			$login_field = $this->lang->line('auth_field_email');
+			if($data['login_by_username']) {
+				$login_field = $this->lang->line('auth_field_login');
+			}
+
 			$this->form_validation->set_rules('login', $login_field, 'trim|required|xss_clean');
 			$this->form_validation->set_rules('password', $this->lang->line('auth_field_password'), 'trim|required|xss_clean');
 			$this->form_validation->set_rules('remember', $this->lang->line('auth_field_remember_me'), 'integer');
 
 			// Get login for counting attempts to login
-			if ($this->config->item('login_count_attempts', 'tank_auth') AND
-					($login = $this->input->post('login'))) {
+			if ($this->config->item('login_count_attempts', 'tank_auth') AND ($login = $this->input->post('login'))) {
 				$login = $this->input->xss_clean($login);
 			} else {
 				$login = '';
@@ -96,13 +94,23 @@ class Auth extends I18n_site
 
 			if ($this->form_validation->run()) {								// validation ok
 				if ($this->tank_auth->login(
-						$this->form_validation->set_value('login'),
-						$this->form_validation->set_value('password'),
-						$this->form_validation->set_value('remember'),
-						$data['login_by_username'],
-						$data['login_by_email'])) {								// success
+							$this->form_validation->set_value('login'),
+							$this->form_validation->set_value('password'),
+							$this->form_validation->set_value('remember'),
+							$data['login_by_username'],
+							$data['login_by_email'])) {								// success
 					delete_cookie('currency_selected');
-					redirect($this->Db_links->get_link("user"));
+
+					if ($is_ajax) {
+						header('Content-type: application/json');
+						echo json_encode(array(
+							'ok' => true
+						));
+						exit();
+					}
+					else {
+						redirect($this->Db_links->get_link("user"));
+					}
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();
@@ -118,6 +126,7 @@ class Auth extends I18n_site
 					}
 				}
 			}
+
 			$data['show_captcha'] = FALSE;
 			if ($this->tank_auth->is_max_login_attempts_exceeded($login)) {
 				$data['show_captcha'] = TRUE;
@@ -131,15 +140,24 @@ class Auth extends I18n_site
 			//$this->load->view('auth/login_form', $data);
 
 			if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-      {
-        $data['current_view'] = "mobile/auth/login_form";
-        $this->load->view('mobile/includes/template',$data);
-      }
-      else
-      {
-  			$data['current_view'] = "auth/login_form";
-        $this->load->view('includes/template',$data);
-      }
+			{
+				$data['current_view'] = "mobile/auth/login_form";
+				$this->load->view('mobile/includes/template', $data);
+			}
+			else
+			{
+				$data['showForm'] = !empty($_GET['show_form']) && $is_ajax ? true : false;
+
+				$data['current_view'] = "auth/login_form";
+				if ($this->input->is_ajax_request()) {
+					$data['is_ajax'] = true;
+					$this->load->view('includes/template-no-wrapper', $data);
+				}
+				else {
+					$data['is_ajax'] = false;
+					$this->load->view('includes/template', $data);
+				}
+			}
 		}
 	}
 
@@ -161,8 +179,8 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 */
-	function register()
-	{
+	function register(){
+		$ajax_request = $this->input->is_ajax_request();
 
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 			redirect('');
@@ -172,50 +190,80 @@ class Auth extends I18n_site
 
 		} elseif (!$this->config->item('allow_registration', 'tank_auth')) {	// registration is off
 			$this->_show_message($this->lang->line('auth_message_registration_disabled'));
-			return;
 
+			return;
 		} else {
 			$use_username = $this->config->item('use_username', 'tank_auth');
+
 			if ($use_username) {
 				$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length['.$this->config->item('username_min_length', 'tank_auth').']|max_length['.$this->config->item('username_max_length', 'tank_auth').']|alpha_dash');
 			}
 
-			$choose_password = $this->config->item('user_choose_pass_on_registration', 'tank_auth');
-			if($choose_password == TRUE)
-			{
-        $this->form_validation->set_rules('password', $this->lang->line('auth_field_password'), 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
-        $this->form_validation->set_rules('confirm_password', 'lang:auth_field_confirm_new_password', 'trim|required|xss_clean|matches[password]');
+			$choose_password = $ajax_request ? true : $this->config->item('user_choose_pass_on_registration', 'tank_auth');
+
+			if($choose_password == TRUE) {
+				$this->form_validation->set_rules('password', $this->lang->line('auth_field_password'), 'trim|required|xss_clean|min_length['.$this->config->item('password_min_length', 'tank_auth').']|max_length['.$this->config->item('password_max_length', 'tank_auth').']|alpha_dash');
+				$this->form_validation->set_rules('confirm_password', 'lang:auth_field_confirm_new_password', 'trim|required|xss_clean|matches[password]');
 			}
 
 			$this->form_validation->set_rules('email', 'lang:auth_field_email', 'trim|required|xss_clean|valid_email');
 
 			$captcha_registration	= $this->config->item('captcha_registration', 'tank_auth');
-			$use_recaptcha			= $this->config->item('use_recaptcha', 'tank_auth');
+			$use_recaptcha		= $this->config->item('use_recaptcha', 'tank_auth');
+
 			if ($captcha_registration) {
 				if ($use_recaptcha) {
 					$this->form_validation->set_rules('recaptcha_response_field', 'Confirmation Code', 'trim|xss_clean|required|callback__check_recaptcha');
-				} else {
+				}
+				else {
 					$this->form_validation->set_rules('captcha', 'Confirmation Code', 'trim|xss_clean|required|callback__check_captcha');
 				}
 			}
+
 			$data['errors'] = array();
 
-			$email_activation = $this->config->item('email_activation', 'tank_auth');
+			$email_activation = $ajax_request ? false : $this->config->item('email_activation', 'tank_auth');
 
 			if ($this->form_validation->run()) {								// validation ok
-			  if($choose_password == TRUE)
-			  {
-			    $pass = $this->form_validation->set_value('password');
-			  }
-  			else
-        {
-          $pass = random_string('alnum', $this->config->item('generate_password_length', 'tank_auth'));
-        }
+				if ($choose_password == TRUE) {
+					$pass = $this->form_validation->set_value('password');
+				}
+				else {
+					$pass = random_string('alnum', $this->config->item('generate_password_length', 'tank_auth'));
+				}
+
 				if (!is_null($data = $this->tank_auth->create_user(
-						$use_username ? $this->form_validation->set_value('username') : '',
-						$this->form_validation->set_value('email'),
-						$pass,
-						$email_activation))) {									// success
+								$use_username ? $this->form_validation->set_value('username') : '',
+								$this->form_validation->set_value('email'),
+								$pass,
+								$email_activation
+				))) { // success
+                                        // update with first name and last name
+                                        if (!empty($data['user_id']) && $ajax_request) {
+                                                $this->load->model('tank_auth/user_profiles');
+
+                                                $this->user_profiles->set_profile_data(
+                                                    $data['user_id'],
+                                                    array(
+                                                        'first_name'        => $_POST['first_name'],
+                                                        'last_name'         => $_POST['last_name'],
+                                                        'mail_subscription' => $_POST['mail_subscription'] ? 1 : 0
+                                                    ),
+                                                    false
+                                                );
+
+						// now, login the user
+						if ($this->tank_auth->login(
+							$this->form_validation->set_value('email'),
+							$pass,
+							0,
+							($this->config->item('login_by_username', 'tank_auth') AND $this->config->item('use_username', 'tank_auth')),
+							$this->config->item('login_by_email', 'tank_auth')
+						)) {
+							delete_cookie('currency_selected');
+						}
+
+                                        }
 
 					$data['site_name'] = $this->config->item('site_name');
 
@@ -225,33 +273,49 @@ class Auth extends I18n_site
 						$this->_send_email('activate', $data['email'], $data);
 
 						unset($data['password']); // Clear password (just for any case)
-            unset($pass);
+						unset($pass);
+
+						if ($ajax_request) {
+							header('Content-type: application/json');
+
+							echo json_encode(array('ok' => true));
+
+							exit();
+						}
 
 						$this->_show_message($this->lang->line('auth_message_registration_completed_1'));
 						return;
-
 					} else {
 						if ($this->config->item('email_account_details', 'tank_auth')) {	// send "welcome" email
-
 							$this->_send_email('welcome', $data['email'], $data);
 						}
-						unset($data['password']); // Clear password (just for any case)
-            unset($pass);
 
-            $warning = NULL;
-  					if($choose_password == FALSE)
-            {
-              $warning = $this->lang->line('auth_warning_password_sent');
-            }
+						unset($data['password']); // Clear password (just for any case)
+						unset($pass);
+
+						if ($ajax_request) {
+							header('Content-type: application/json');
+
+							echo json_encode(array('ok' => true));
+
+							exit();
+						}
+
+						$warning = NULL;
+						if ($choose_password == FALSE) {
+							$warning = $this->lang->line('auth_warning_password_sent');
+						}
 
 						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor($this->Db_links->get_link("connect"), $this->lang->line('auth_link_login')),$warning);
 						return;
 					}
-				} else {
+				}
+				else {
 					$errors = $this->tank_auth->get_error_message();
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
+
 			if ($captcha_registration) {
 				if ($use_recaptcha) {
 					$data['recaptcha_html'] = $this->_create_recaptcha();
@@ -259,6 +323,7 @@ class Auth extends I18n_site
 					$data['captcha_html'] = $this->_create_captcha();
 				}
 			}
+
 			$data['use_username'] = $use_username;
 			$data['choose_password'] = $choose_password;
 			$data['captcha_registration'] = $captcha_registration;
@@ -266,16 +331,24 @@ class Auth extends I18n_site
 
 			//$this->load->view('auth/register_form', $data);
 
+			$data['is_ajax'] = $ajax_request;
+
 			if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-      {
-        $data['current_view'] = "mobile/auth/register_form";
-        $this->load->view('mobile/includes/template',$data);
-      }
-      else
-      {
-  			$data['current_view'] = "auth/register_form";
-        $this->load->view('includes/template',$data);
-      }
+			{
+				$data['current_view'] = "mobile/auth/register_form";
+				$this->load->view('mobile/includes/template',$data);
+			}
+			else
+			{
+				$data['current_view'] = "auth/register_form";
+
+				if ($ajax_request) {
+					$this->load->view('includes/template-no-wrapper', $data);
+				}
+				else {
+					$this->load->view('includes/template', $data);
+				}
+			}
 		}
 	}
 
@@ -284,36 +357,36 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 *//*
-	function send_again()
-	{
-		if (!$this->tank_auth->is_logged_in(FALSE)) {							// not logged in or activated
-			redirect('/connexion/');
+	      function send_again()
+	      {
+	      if (!$this->tank_auth->is_logged_in(FALSE)) {							// not logged in or activated
+	      redirect('/connexion/');
 
-		} else {
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
+	      } else {
+	      $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
 
-			$data['errors'] = array();
+	      $data['errors'] = array();
 
-			if ($this->form_validation->run()) {								// validation ok
-				if (!is_null($data = $this->tank_auth->change_email(
-						$this->form_validation->set_value('email')))) {			// success
+	      if ($this->form_validation->run()) {								// validation ok
+	      if (!is_null($data = $this->tank_auth->change_email(
+	      $this->form_validation->set_value('email')))) {			// success
 
-					$data['site_name']	= $this->config->item('site_name');
-					$data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;
+	      $data['site_name']	= $this->config->item('site_name');
+	      $data['activation_period'] = $this->config->item('email_activation_expire', 'tank_auth') / 3600;
 
-					$this->_send_email('activate', $data['email'], $data);
+	      $this->_send_email('activate', $data['email'], $data);
 
-					$this->_show_message(sprintf($this->lang->line('auth_message_activation_email_sent'), $data['email']));
-					return;
-				} else {
-					$errors = $this->tank_auth->get_error_message();
-					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
-				}
-			}
-			$this->load->view('auth/send_again_form', $data);
-		}
-	}
-*/
+	      $this->_show_message(sprintf($this->lang->line('auth_message_activation_email_sent'), $data['email']));
+	      return;
+	      } else {
+	      $errors = $this->tank_auth->get_error_message();
+	      foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
+	      }
+	      }
+	      $this->load->view('auth/send_again_form', $data);
+	      }
+	      }
+	    */
 	/**
 	 * Activate user account.
 	 * User is verified by user_id and authentication code in the URL.
@@ -321,21 +394,21 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 *//*
-	function activate()
-	{
-		$user_id		= $this->uri->segment(3);
-		$new_email_key	= $this->uri->segment(4);
+	      function activate()
+	      {
+	      $user_id		= $this->uri->segment(3);
+	      $new_email_key	= $this->uri->segment(4);
 
-		// Activate user
-		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
-			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/connexion/', 'Login'));
+	// Activate user
+	if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
+	$this->tank_auth->logout();
+	$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/connexion/', 'Login'));
 
-		} else {																// fail
-			$this->_show_message($this->lang->line('auth_message_activation_failed'));
-		}
+	} else {																// fail
+	$this->_show_message($this->lang->line('auth_message_activation_failed'));
 	}
-*/
+	}
+	    */
 	/**
 	 * Generate reset code (to change password) and send it to user
 	 *
@@ -352,26 +425,26 @@ class Auth extends I18n_site
 
 		} else {
 
-		  $data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND
-          $this->config->item('use_username', 'tank_auth'));
+			$data['login_by_username'] = ($this->config->item('login_by_username', 'tank_auth') AND
+					$this->config->item('use_username', 'tank_auth'));
 
-      $login_field = $this->lang->line('auth_field_email');
-      if($data['login_by_username'])
-      {
-        $login_field = $this->lang->line('auth_field_login');
-        $this->form_validation->set_rules('login', $login_field, 'trim|required|xss_clean');
-      }
-      else
-      {
-        $this->form_validation->set_rules('login', $login_field, 'trim|required|xss_clean|valid_email');
-      }
+			$login_field = $this->lang->line('auth_field_email');
+			if($data['login_by_username'])
+			{
+				$login_field = $this->lang->line('auth_field_login');
+				$this->form_validation->set_rules('login', $login_field, 'trim|required|xss_clean');
+			}
+			else
+			{
+				$this->form_validation->set_rules('login', $login_field, 'trim|required|xss_clean|valid_email');
+			}
 
 
 			$data['errors'] = array();
 
 			if ($this->form_validation->run()) {								// validation ok
 				if (!is_null($data = $this->tank_auth->forgot_password(
-						$this->form_validation->set_value('login')))) {
+								$this->form_validation->set_value('login')))) {
 
 					$data['site_name'] = $this->config->item('site_name');
 
@@ -387,18 +460,18 @@ class Auth extends I18n_site
 				}
 				//else warning and after X tentatives ban and put captcha
 			}
-//			$this->load->view('auth/forgot_password_form', $data);
+			//			$this->load->view('auth/forgot_password_form', $data);
 
 			if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-      {
-        $data['current_view'] = "mobile/auth/forgot_password_form";
-        $this->load->view('mobile/includes/template',$data);
-      }
-      else
-      {
-  			$data['current_view'] = "auth/forgot_password_form";
-        $this->load->view('includes/template',$data);
-      }
+			{
+				$data['current_view'] = "mobile/auth/forgot_password_form";
+				$this->load->view('mobile/includes/template',$data);
+			}
+			else
+			{
+				$data['current_view'] = "auth/forgot_password_form";
+				$this->load->view('includes/template',$data);
+			}
 		}
 	}
 
@@ -422,8 +495,8 @@ class Auth extends I18n_site
 
 		if ($this->form_validation->run()) {								// validation ok
 			if (!is_null($data = $this->tank_auth->reset_password(
-					$user_id, $new_pass_key,
-					$this->form_validation->set_value('new_password')))) {	// success
+							$user_id, $new_pass_key,
+							$this->form_validation->set_value('new_password')))) {	// success
 
 				$data['site_name'] = $this->config->item('site_name');
 
@@ -449,16 +522,16 @@ class Auth extends I18n_site
 			}
 		}
 
-	  if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-    {
-      $data['current_view'] = "mobile/auth/reset_password_form";
-      $this->load->view('mobile/includes/template',$data);
-    }
-    else
-    {
-		  $data['current_view'] = "auth/reset_password_form";
-      $this->load->view('includes/template',$data);
-    }
+		if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
+		{
+			$data['current_view'] = "mobile/auth/reset_password_form";
+			$this->load->view('mobile/includes/template',$data);
+		}
+		else
+		{
+			$data['current_view'] = "auth/reset_password_form";
+			$this->load->view('includes/template',$data);
+		}
 	}
 
 	/**
@@ -481,8 +554,8 @@ class Auth extends I18n_site
 
 			if ($this->form_validation->run()) {								// validation ok
 				if ($this->tank_auth->change_password(
-						$this->form_validation->set_value('old_password'),
-						$this->form_validation->set_value('new_password'))) {	// success
+							$this->form_validation->set_value('old_password'),
+							$this->form_validation->set_value('new_password'))) {	// success
 					$this->_show_message($this->lang->line('auth_message_password_changed'));
 					return;
 
@@ -493,15 +566,15 @@ class Auth extends I18n_site
 			}
 
 			if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-      {
-        $data['current_view'] = "mobile/auth/change_password_form";
-        $this->load->view('mobile/includes/template',$data);
-      }
-      else
-      {
-  			$data['current_view'] = "auth/change_password_form";
-  			$this->load->view('includes/template',$data);
-      }
+			{
+				$data['current_view'] = "mobile/auth/change_password_form";
+				$this->load->view('mobile/includes/template',$data);
+			}
+			else
+			{
+				$data['current_view'] = "auth/change_password_form";
+				$this->load->view('includes/template',$data);
+			}
 		}
 	}
 
@@ -510,39 +583,39 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 *//*
-	function change_email()
-	{
-		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
-			redirect('/connexion/');
+	      function change_email()
+	      {
+	      if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
+	      redirect('/connexion/');
 
-		} else {
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
+	      } else {
+	      $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+	      $this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email');
 
-			$data['errors'] = array();
+	      $data['errors'] = array();
 
-			if ($this->form_validation->run()) {								// validation ok
-				if (!is_null($data = $this->tank_auth->set_new_email(
-						$this->form_validation->set_value('email'),
-						$this->form_validation->set_value('password')))) {			// success
+	      if ($this->form_validation->run()) {								// validation ok
+	      if (!is_null($data = $this->tank_auth->set_new_email(
+	      $this->form_validation->set_value('email'),
+	      $this->form_validation->set_value('password')))) {			// success
 
-					$data['site_name'] = $this->config->item('site_name');
+	      $data['site_name'] = $this->config->item('site_name');
 
-					// Send email with new email address and its activation link
-					$this->_send_email('change_email', $data['new_email'], $data);
+	// Send email with new email address and its activation link
+	$this->_send_email('change_email', $data['new_email'], $data);
 
-					$this->_show_message(sprintf($this->lang->line('auth_message_new_email_sent'), $data['new_email']));
-					return;
+	$this->_show_message(sprintf($this->lang->line('auth_message_new_email_sent'), $data['new_email']));
+	return;
 
-				} else {
-					$errors = $this->tank_auth->get_error_message();
-					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
-				}
-			}
-			$this->load->view('auth/change_email_form', $data);
-		}
+	} else {
+	$errors = $this->tank_auth->get_error_message();
+	foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 	}
-*/
+	}
+	$this->load->view('auth/change_email_form', $data);
+	}
+	}
+	    */
 	/**
 	 * Replace user email with a new one.
 	 * User is verified by user_id and authentication code in the URL.
@@ -550,51 +623,51 @@ class Auth extends I18n_site
 	 *
 	 * @return void
 	 *//*
-	function reset_email()
-	{
-		$user_id		= $this->uri->segment(3);
-		$new_email_key	= $this->uri->segment(4);
+	      function reset_email()
+	      {
+	      $user_id		= $this->uri->segment(3);
+	      $new_email_key	= $this->uri->segment(4);
 
-		// Reset email
-		if ($this->tank_auth->activate_new_email($user_id, $new_email_key)) {	// success
-			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_new_email_activated').' '.anchor('/connexion/', 'Login'));
+	// Reset email
+	if ($this->tank_auth->activate_new_email($user_id, $new_email_key)) {	// success
+	$this->tank_auth->logout();
+	$this->_show_message($this->lang->line('auth_message_new_email_activated').' '.anchor('/connexion/', 'Login'));
 
-		} else {																// fail
-			$this->_show_message($this->lang->line('auth_message_new_email_failed'));
-		}
+	} else {																// fail
+	$this->_show_message($this->lang->line('auth_message_new_email_failed'));
 	}
-*/
+	}
+	    */
 	/**
 	 * Delete user from the site (only when user is logged in)
 	 *
 	 * @return void
 	 *//*
-	function unregister()
-	{
-		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
-			redirect('/connexion/');
+	      function unregister()
+	      {
+	      if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
+	      redirect('/connexion/');
 
-		} else {
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+	      } else {
+	      $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
-			$data['errors'] = array();
+	      $data['errors'] = array();
 
-			if ($this->form_validation->run()) {								// validation ok
-				if ($this->tank_auth->delete_user(
-						$this->form_validation->set_value('password'))) {		// success
-					$this->_show_message($this->lang->line('auth_message_unregistered'));
-					return;
+	      if ($this->form_validation->run()) {								// validation ok
+	      if ($this->tank_auth->delete_user(
+	      $this->form_validation->set_value('password'))) {		// success
+	      $this->_show_message($this->lang->line('auth_message_unregistered'));
+	      return;
 
-				} else {														// fail
-					$errors = $this->tank_auth->get_error_message();
-					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
-				}
-			}
-			$this->load->view('auth/unregister_form', $data);
-		}
-	}
-*/
+	      } else {														// fail
+	      $errors = $this->tank_auth->get_error_message();
+	      foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
+	      }
+	      }
+	      $this->load->view('auth/unregister_form', $data);
+	      }
+	      }
+	    */
 	/**
 	 * Show info message
 	 *
@@ -606,23 +679,23 @@ class Auth extends I18n_site
 		//$this->load->view('auth/general_message', array('message' => $message));
 		if(!is_null($warning))
 		{
-		  $data['warning']         = true;
-      $data['warning_message'] = $warning;
+			$data['warning']         = true;
+			$data['warning_message'] = $warning;
 		}
 
 		$data['message'] = $message;
 
 		if($this->user_agent_mobile && !$this->user_agent_mobile_bypass)
-    {
-      $data['current_view'] = "mobile/auth/general_message";
-      $this->load->view('mobile/includes/template',$data);
-    }
-    else
-    {
-  		$data['current_view'] = "auth/general_message";
-      $this->load->view('includes/template',$data);
-    }
-    //redirect(base_url());
+		{
+			$data['current_view'] = "mobile/auth/general_message";
+			$this->load->view('mobile/includes/template',$data);
+		}
+		else
+		{
+			$data['current_view'] = "auth/general_message";
+			$this->load->view('includes/template',$data);
+		}
+		//redirect(base_url());
 	}
 
 	/**
@@ -655,21 +728,21 @@ class Auth extends I18n_site
 		$this->load->plugin('captcha');
 
 		$cap = create_captcha(array(
-			'img_path'		=> './'.$this->config->item('captcha_path', 'tank_auth'),
-			'img_url'		=> base_url().$this->config->item('captcha_path', 'tank_auth'),
-			'font_path'		=> './'.$this->config->item('captcha_fonts_path', 'tank_auth'),
-			'font_size'		=> $this->config->item('captcha_font_size', 'tank_auth'),
-			'img_width'		=> $this->config->item('captcha_width', 'tank_auth'),
-			'img_height'	=> $this->config->item('captcha_height', 'tank_auth'),
-			'show_grid'		=> $this->config->item('captcha_grid', 'tank_auth'),
-			'expiration'	=> $this->config->item('captcha_expire', 'tank_auth'),
-		));
+					'img_path'		=> './'.$this->config->item('captcha_path', 'tank_auth'),
+					'img_url'		=> base_url().$this->config->item('captcha_path', 'tank_auth'),
+					'font_path'		=> './'.$this->config->item('captcha_fonts_path', 'tank_auth'),
+					'font_size'		=> $this->config->item('captcha_font_size', 'tank_auth'),
+					'img_width'		=> $this->config->item('captcha_width', 'tank_auth'),
+					'img_height'	=> $this->config->item('captcha_height', 'tank_auth'),
+					'show_grid'		=> $this->config->item('captcha_grid', 'tank_auth'),
+					'expiration'	=> $this->config->item('captcha_expire', 'tank_auth'),
+					));
 
 		// Save captcha params in session
 		$this->session->set_flashdata(array(
-				'captcha_word' => $cap['word'],
-				'captcha_time' => $cap['time'],
-		));
+					'captcha_word' => $cap['word'],
+					'captcha_time' => $cap['time'],
+					));
 
 		return $cap['image'];
 	}
@@ -693,7 +766,7 @@ class Auth extends I18n_site
 			return FALSE;
 
 		} elseif (($this->config->item('captcha_case_sensitive', 'tank_auth') AND
-				$code != $word) OR
+					$code != $word) OR
 				strtolower($code) != strtolower($word)) {
 			$this->form_validation->set_message('_check_captcha', $this->lang->line('auth_incorrect_captcha'));
 			return FALSE;
@@ -713,7 +786,7 @@ class Auth extends I18n_site
 		$lang = 'en';
 		if(strcasecmp($this->config->item('language'),'french')==0)
 		{
-		  $lang = 'fr';
+			$lang = 'fr';
 		}
 
 		// Add custom theme so we can get only image

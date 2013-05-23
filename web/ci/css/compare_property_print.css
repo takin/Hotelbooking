@@ -5,8 +5,9 @@
 }
 .quick_compare_scroll{
 	min-height:600px;
-	max-height:600px;
+/*	max-height:600px;
 	overflow-y:scroll;
+*/
 }
 div.quick_compare_head {
 	margin-left: auto;
@@ -171,6 +172,9 @@ span.rating-cat {
     left: 7px;
     position: absolute;
     top: 5px;
+    width: 194px;
+    overflow: hidden;
+    height: 1em;
 }
 span.rating-value {
     display: block;
@@ -212,4 +216,16 @@ color:#f00000;
 }
 .head_remove_button{
 float: left;
+}
+
+.com_div {
+	margin-top: 5px;
+}
+
+.com_div label {
+}
+
+.hostel_list .info h2 {
+	width: 290px;
+	display: inline-block;
 }

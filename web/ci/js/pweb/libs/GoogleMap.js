@@ -19,7 +19,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 	
 	this.default_lat   = default_lat || 0;
 	this.default_lng   = default_lng || 0;
-	this.default_zoom  = default_zoom || 10;
+	this.default_zoom  = default_zoom || 8;
 	
 	window.gmap       = null;
         window.cityCircle = null;
@@ -40,25 +40,30 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 // return N/A 
 // 
 GoogleMap.prototype.init = function() { 
-
-	var myOptions = {
-	      zoom:      this.default_zoom,
-	      center:    new google.maps.LatLng(this.default_lat, this.default_lng),
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
 	
 	this.map_div.style.display = "block";
 	this.map_div.style.width = "100%";
 	this.map_div.style.height = "285px";
 
-	window.gmap    = new google.maps.Map(this.map_div, myOptions);
+    if (this.map_div.id === "filter_map_rightSide"){
+        this.map_div.style.height = "100%";
+//        this.default_zoom = 10;
+    }
+        	
+    var myOptions = {
+	      zoom:      this.default_zoom,
+	      center:    new google.maps.LatLng(this.default_lat, this.default_lng),
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+    
+        window.gmap    = new google.maps.Map(this.map_div, myOptions);
 	this.gbounds = new google.maps.LatLngBounds();
 	
 	//add infowindow to map
 	this.initInfoWin();
 
 	this.drawMarkers();
-	
+    
 	this.marker_focus();
 	
 	if((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
@@ -82,9 +87,9 @@ GoogleMap.prototype.init = function() {
         // if yes call the district function to show district boundries
         if($("#frmDistrict_"+property_number+" input:radio:checked").length > 0)
             {
-              var district_um_id =   $("#frmDistrict_"+property_number+" input:radio:checked").val();
+              var district_um_ids =   $("#frmDistrict_"+property_number+" input:radio:checked").val();
               // call the function to show the district
-             this.changeDistrictLayer(district_um_id);
+             this.changeDistrictLayer(district_um_ids);
             }
            else
             {
@@ -142,32 +147,34 @@ GoogleMap.prototype.marker_focus = function()
 };
 GoogleMap.prototype.drawMap = function()
 {
-	var script = document.createElement("script"),
-	    that   = this;
+	  var  that   = this;
 	
-	if(this.glib_loaded === false)
-	{
-		script.type = "text/javascript";
-		script.src = "https://maps.google.com/maps/api/js?sensor=false&language="+this.map_lang+"&callback=gmap_start";
-		
-		//Create callback function that must be global
-		window.gmap_start = function(){
-			 that.glib_loaded = true;
-			 that.init();
-		   };
-		   
-		document.body.appendChild(script);
-	}
-	else
-	{
-		this.init();
-	}
+  var script_id = "google_map_api_script";
+    
+    if ($("#" + script_id).length <= 0)
+    {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.id = script_id;
+        script.src = "https://maps.google.com/maps/api/js?sensor=false&language=" + this.map_lang + "&callback=gmap_start";
+
+        //Create callback function that must be global
+        window.gmap_start = function() {
+            that.init();
+        };
+
+        document.body.appendChild(script);
+    }
+    else
+    {
+        this.init();
+    }
 };
 
 GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, image, iconshadow)
 {
 	var marker = {
-			  title: title,
+                      title: title,
 		      lat: lat,
 		      lng: lng,
 		      content: content,
@@ -189,7 +196,7 @@ GoogleMap.prototype.clearMarkers = function () //, image, iconshadow)
 GoogleMap.prototype.drawMarkers = function () //, image, iconshadow)
 {
 	var that = this;
-	
+
 	//TODO support custom image in addMarker function
 	for (var i in this.markers) {
 		//initialize icon of marker
@@ -241,40 +248,63 @@ GoogleMap.prototype.initInfoWin = function() {
 	});
 	google.maps.event.addListener(window.gmap, 'click', function () {window.gInfoWin.close();});
 };
-GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
+GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     // working with mapinfulence
     // Initialize Mapfluence with your API key.
     MF.initialize({
-        apiKey: urbanmapping_key 
+        apiKey: urbanmapping_key
     });
         // remove any old districts
         //map.overlayMapTypes.push(null);
    if (window.gmap && window.gmap.overlayMapTypes) {
       window.gmap.overlayMapTypes.setAt(1, null); 
    }
+    // remove any old districts
+    window.gmap.overlayMapTypes.setAt(0, null);
 
+    if ($.isArray(district_um_ids)) {
+
+            if(district_um_ids.length === 1){
+                if (window.gmap.getZoom() > 12) {
+                    // change map Zoom 
+                    window.gmap.setZoom(12);
+                }
+        }
+        // loop through districts um_ids
+        var counter;
+        for (counter = 0; counter < district_um_ids.length; ++counter) {
+            this.addDistrictsBorder(MF, district_um_ids[counter], counter);
+        }
+    }
+    else {
+        this.addDistrictsBorder(MF, district_um_ids, 0);
+    }
+
+};
+GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
+{
     var filter = MF.filter.Data({
-        column: 'umi.neighborhoods.attributes.hood_id', 
-        operator: '=', 
-        value: parseInt(district_um_id)
+        column: 'umi.neighborhoods.attributes.hood_id',
+        operator: '=',
+        value: parseInt(pDistricts_umIds)
 
     });
-    
-        var hoodsLayer = MF.layer.tile.Simple({
-            from : 'umi.neighborhoods.geometry',
-            style: {
-                color: 'feba02'
-            },
-            border: {
-                color: 'black',
-                size: 1.0
-            },
-            where: filter,
-            opacity: .40
-        });
-                        
- // Create the Mapfluence adapter for Google Maps
+
+    var hoodsLayer = MF.layer.tile.Simple({
+        from: 'umi.neighborhoods.geometry',
+        style: {
+            color: 'feba02'
+        },
+        border: {
+            color: 'black',
+            size: 1.0
+        },
+        where: filter,
+        opacity: .40
+    });
+
+    // Create the Mapfluence adapter for Google Maps
     var googleAdapter = MF.map.google.Adapter();
 
     // Adapt a Mapfluence layer for use with the Google Maps API
@@ -282,37 +312,79 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_id){
 
     // Overlay the Mapfluence layer
 //    map.overlayMapTypes.insertAt(0, adaptedLayer);
-       window.gmap.overlayMapTypes.setAt(1, adaptedLayer); 
+    window.gmap.overlayMapTypes.setAt((counter + 1), adaptedLayer);
+
 };
+GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
 
-GoogleMap.prototype.changeLandmarkLayer = function (landmark_LatLng){
+    if (window.cityCircle !== null)
+    {
+        window.cityCircle.setMap(null);
+    }
 
-if(window.cityCircle != null)
-{
-    window.cityCircle.setMap(null);
-}
-var point = landmark_LatLng.split("###");
-var lat = point[0];
-var Lng = point[1];
+    if ($.isArray(landmark_LatLng)) {
 
+        if (landmark_LatLng.length === 1) {
+            if (window.gmap.getZoom() > 12) {
+                // change map Zoom 
+                window.gmap.setZoom(12);
+            }
+        }
+        // loop through districts um_ids
+        var counter;
+        for (counter = 0; counter < landmark_LatLng.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng[counter]);
+        }
+    }
+    else {
+        //    check zoom level and change it according to needed
+        // just change zoom  if only one landmark to be shown
+            if (window.gmap.getZoom() > 13) {
+                // change map Zoom 
+                window.gmap.setZoom(13);
+            }
+        this.addLandmarkLayer(landmark_LatLng);
+    }
+
+};
+GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
+   
+    var point = landmark_LatLng.split("###");
+    var lat = point[0];
+    var Lng = point[1];
+        
 //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
-var citymap = {
-//  center: new google.maps.LatLng(53.477001,-2.230000)
-  center: new google.maps.LatLng( lat, Lng )
-};
+    var citymap = {
+        center: new google.maps.LatLng(lat, Lng)
+    };
+//var circle_color  = "#4E89C9";
+var circle_color  = "#FF0000";
 
     var LandmarkOptions = {
-      strokeColor: "#4E89C9",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
+        strokeColor: circle_color,
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
 //      fillColor: "#FF0000",
-      fillColor: "#4E89C9",
-      fillOpacity: 0.35,
-      map: window.gmap,
-      center: citymap.center,
-      radius:  2000
+        fillColor: circle_color,
+        fillOpacity: 0.35,
+        map: window.gmap,
+        center: citymap.center,
+        radius: 2000
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
-  
-  }
+
+//landmark_marker_blue.png
+var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
+			        new google.maps.Size(28, 28),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(0, 29));
+                                
+	var gmarker = new google.maps.Marker({
+	        position: new google.maps.LatLng(lat, Lng), 
+	        map: window.gmap,
+//	        title:this.markers[i].title,
+	        icon: image	        
+	    }); 
+            
+};

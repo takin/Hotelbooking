@@ -8,7 +8,7 @@
 | Directory to write databases backup
 |
 */
-$config['db_backup_dir'] = "/srv/d_mcweb1/dbbackups";
+$config['db_backup_dir'] = "/opt/backup";
 /*
 |--------------------------------------------------------------------------
 | Databases keywords to backup
@@ -24,7 +24,7 @@ $config['dbKeysToBackup'][0] = 'default';
 | Number of files to keep of the same database backup
 |--------------------------------------------------------------------------
 |
-| 
+|
 |
 */
 $config['DbFilesQty'] = 15;

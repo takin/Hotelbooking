@@ -54,17 +54,24 @@
 
         if (!empty($print) && $print == 'pdf') {
     	    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css','all','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v='.time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
 	    $this->carabiner->css('pdf.css');
+            
+            $this->carabiner->css('jquery.cluetip.css', 'screen', 'jquery.cluetip.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.toastmessage.css', 'screen', 'jquery.toastmessage.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.simplemodal.css', 'screen', 'jquery.simplemodal.css', FALSE, FALSE, "full_site_global");
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css','screen','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v='.time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
             $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
+            
+            $this->carabiner->css('jquery.cluetip.css', 'screen', 'jquery.cluetip.css', FALSE, FALSE, "full_site_global");
             $this->carabiner->css('jquery.toastmessage.css', 'screen', 'jquery.toastmessage.css', FALSE, FALSE, "full_site_global");
+            $this->carabiner->css('jquery.simplemodal.css', 'screen', 'jquery.simplemodal.css', FALSE, FALSE, "full_site_global");
         }
 
 	if($this->api_used == HB_API)
@@ -818,13 +825,16 @@ var citymap = {
     $this->carabiner->js('jquery.jscrollpane.min.js','jquery.jscrollpane.min.js',TRUE);
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
     $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
+    $this->carabiner->js('jquery.tablesorter.js', 'jquery.tablesorter.js', TRUE);
   }
   elseif($current_view == "search_results")
   {
 	  $this->carabiner->js('search-sort.js');
 	  $this->carabiner->js('paginateview.js');
   }
+  $this->carabiner->js('jquery.cluetip.all.js', 'jquery.cluetip.all.js', TRUE);
   $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
+  $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
   <?php
@@ -954,18 +964,35 @@ $(document).ready(function()
 
 		</div>
 		<div class="grid_10">
+			<span id="logged_in_link" style="display: none">
+				<?php $logged_in_link = "<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Mon Compte")."</a>"; ?>
+				<?php echo $logged_in_link; ?>
+			</span>
+			<span id="log_in_link" style="display: none">
+				<?php $log_in_link = "<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\">"._("Se connecter")."</a>"; ?>
+				<?php echo $log_in_link; ?>
+			</span>
+			<span id="log_out_link" style="display: none">
+				<?php $logout_link = "<a class=\"meta_logout\" href=\"".site_url($this->Db_links->get_link("logout"))."\">"._("Se déconnecter")."</a>"; ?>
+				<?php echo $logout_link; ?>
+			</span>
+			<span id="register_link" style="display: none">
+				<?php $register_link = "<a class=\"meta_register\" href=\"".site_url($this->Db_links->get_link("register"))."\">"._("S'enregistrer")."</a>"; ?>
+				<?php echo $register_link; ?>
+			</span>
+
 			<ul class="user_meta_top group">
 				<?php $about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
 				<li><a class="meta_about" href="<?php echo $about; ?>"><?php echo _("About us");?></a></li>
 				<?php }?>
 				<li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li>
-				<li>
+				<li class="account_login">
 					<?php //echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");
-					echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\">"._("Se connecter")."</a>"); // modify to remove js error as right  id "top-login-form" is comment at line no 916.
+					echo login_check($this->tank_auth->is_logged_in(), $logged_in_link, $log_in_link); // modify to remove js error as right  id "top-login-form" is comment at line no 916.
 					 ?>
 				</li>
-				<li class="last">
-					<?php echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_logout\" href=\"".site_url($this->Db_links->get_link("logout"))."\">"._("Se déconnecter")."</a>","<a class=\"meta_register\" href=\"".site_url($this->Db_links->get_link("register"))."\">"._("S'enregistrer")."</a>"); ?>
+				<li class="last logout_register">
+					<?php echo login_check($this->tank_auth->is_logged_in(), $logout_link, $register_link); ?>
 				</li>
 			</ul>
 		</div>

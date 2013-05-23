@@ -1,6 +1,6 @@
 <div class="main-cotainer"  id="main-div">
 	<div>
-		<div style="float: left;margin: 10px 0;width: 48px;">
+		<div style="float: left;margin: 10px 0;width: 55px;">
 			{{#prevIndex}}
 				<div style="display: inline;float: left;">
 					<a href="<?php echo base_url(); ?>" onclick="QuickView.moveToIndex('{{prevIndex}}'); return false;" class="pre_next_arrows"><img src="<?php echo base_url(); ?>images/left.png"/></a>
@@ -110,7 +110,7 @@
 					</div>
 
 					<!--location details added here -->	
-					<div id="hostel_info_direction" class="hostels_tab_content ui-tabs-hide">
+					<div id="hostel_info_direction" class="hostels_tab_content">
 						<div class="content_block">
 							{{#hasDistricts}}
 								<div id="hostel_mapView_districts" class="hostel_mapView_districts">

@@ -1,17 +1,24 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /* Valero chat globale variable set false for disable and True for enable chat*/
-$config['displayVelaro'] = FALSE;
+$config['displayVelaro'] = TRUE;
 
 /* Display or not the share PDF and Email */
 $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
 
+
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = true;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = FALSE;
+$config['displayCompareProperty'] = true;
+
+/* set variable to show remove from search */
+$config['displayRemoveFromSearch'] = TRUE;
+
+/* set variable to show save property  */
+$config['displaySaveProperty'] = TRUE;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;
@@ -429,6 +436,23 @@ $config['proxy_ips'] = '92.243.16.182,95.142.170.59,95.142.170.9';
 |
 */
 $config['urbanmapping_key'] = '3e582082263ec602d607b16a3d1b21fb';
+
+
+/*
+ * Most Popular Facilities by ID and in priority order
+ */
+$config["hbMostPopularFacilitiesById"] = array(
+    3,  // Breakfast - hb_extra
+    69, // "Internet / Wi-Fi" - hb_feature
+    13  // 24 hour reception - hb_feature
+);
+
+$config["hwMostPopularFacilitiesById"] = array(
+    26,  // Breakfast - hw_facility
+    27, // "Internet / Wi-Fi" - hw_facility
+    33  // 24 hour reception - hw_facility
+);
+
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

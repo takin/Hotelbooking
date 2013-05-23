@@ -637,6 +637,31 @@ class Db_hb_hostel extends CI_Model
     return $this->CI->db->update(self::HOSTEL_DESC_TABLE);
 
   }
+  
+  /**
+   * 
+   * Update HB translations
+   * 
+   * @param type $hostel_id
+   * @param array $translations
+   * @return type
+   */
+  function update_hb_translations($hostel_id, $translations)
+  {
+    if(is_null($this->get_hb_translations($hostel_id, $translations['language'])))
+    {
+      return $this->insert_hb_translations($hostel_id, $translations);
+    }
+    $this->CI->db->set('short_description', (string)$translations['short_description']);
+    $this->CI->db->set('long_description', (string)$translations['long_description']);
+    $this->CI->db->set('hostel_location', (string)$translations['hostel_location']);
+    $this->CI->db->set('hostel_directions', (string)$translations['hostel_directions']);
+
+    $this->CI->db->where('language', $translations['language']);
+    $this->CI->db->where('hostel_hb_id', $hostel_id);
+    return $this->CI->db->update(self::HOSTEL_DESC_TABLE);
+
+  }
 
   function update_hb_hostel_features($hostel_id, $features)
   {
@@ -1248,6 +1273,34 @@ class Db_hb_hostel extends CI_Model
 
     return $this->CI->db->insert(self::HOSTEL_TABLE);
   }
+  
+  /**
+   * Insert HB translations
+   * 
+   * @param int $hostel_id
+   * @param array $translations
+   * @return boolean
+   * @throws Exception
+   */
+  function insert_hb_translations($hostel_id, $translations)
+  {
+    $hostelId = $this->get_hostel_id($hostel_id);
+            
+    if (!isset($hostelId) || empty($hostelId)) {
+        throw new Exception("Error inserting short description: hostel with property number $hostel_id doesn't exist");
+        return true;
+    }
+      
+    $this->CI->db->set('hostel_hb_id', $hostel_id);
+    $this->CI->db->set('language', (string)$translations['language']);
+    $this->CI->db->set('short_description', (string)$translations['short_description']);
+    $this->CI->db->set('long_description', (string)$translations['long_description']);
+    $this->CI->db->set('hostel_location', (string)$translations['hostel_location']);
+    $this->CI->db->set('hostel_directions', (string)$translations['hostel_directions']);
+
+    return $this->CI->db->insert(self::HOSTEL_DESC_TABLE);
+
+  }
 
   function insert_hb_short_desc($hostel_id, $langage, $short_description)
   {
@@ -1816,21 +1869,47 @@ class Db_hb_hostel extends CI_Model
 
     $query = $this->CI->db->query($query);
 
+    $popularFacilitiesById = $this->config->item("hbMostPopularFacilitiesById");
+    $mostPopularAmenities = array();
     $amenities = array();
     if($query->num_rows() > 0)
     {
-      foreach($query->result() as $i => $row)
+      foreach($query->result() as $row)
       {
-      	$amenities[$i] = new stdClass();
-        $amenities[$i]->amenity_id = (int)$row->amenity_id;
-        $amenities[$i]->facility_id = $row->type.$row->amenity_id;
-        $amenities[$i]->type        = (string)$row->type;
-        $amenities[$i]->facility_name = (string)$row->facility_name;
-        $amenities[$i]->filter_order  = (int)$row->filter_order;
+      	$amenity = new stdClass();
+        $amenity->amenity_id = (int)$row->amenity_id;
+        $amenity->facility_id = $row->type.$row->amenity_id;
+        $amenity->type        = (string)$row->type;
+        $amenity->facility_name = (string)$row->facility_name;
+        $amenity->filter_order  = (int)$row->filter_order;
+        
+        $amenity->id_to_display = $this->getFacilityIdToDisplay($amenity);
+        
+        $popularAmenityKey = array_search($amenity->amenity_id, $popularFacilitiesById);
+        if ($popularAmenityKey !== FALSE) {
+            $mostPopularAmenities[$popularAmenityKey] = $amenity;
+        } else {
+            $amenities[] = $amenity;
+        }
       }
     }
-    return $amenities;
+    
+    return array(
+        "mostPopularAmenities" => $mostPopularAmenities,
+        "amenities" => $amenities
+    );
   }
+  
+  private function getFacilityIdToDisplay($amenity) {
+      if ($amenity->facility_name == 'Breakfast Included' || $amenity->facility_name == 'Breakfast') {
+        $idToDisplay = 'free-breakfast';
+    } else {
+        $idToDisplay = $amenity->facility_id;
+    }
+    
+    return $idToDisplay;
+  }
+          
   function get_property_type($property_number)
   {
   	$this->CI->db->select("property_type");
@@ -1846,6 +1925,21 @@ class Db_hb_hostel extends CI_Model
     return "property";
   }
 
+  function get_hb_long_desc($property_number, $lang = "en")
+  {
+    $this->CI->db->where('language', $lang);
+    $this->CI->db->where('hostel_hb_id', $property_number);
+
+    $query = $this->CI->db->get(self::HOSTEL_DESC_TABLE);
+    if($query->num_rows() > 0)
+    {
+      $row = $query->row();
+      return $row->long_description;
+    }
+    return NULL;
+
+  }
+  
   function get_hb_short_desc($property_number, $lang = "en")
   {
     $this->CI->db->where('language', $lang);
@@ -1856,6 +1950,20 @@ class Db_hb_hostel extends CI_Model
     {
       $row = $query->row();
       return $row->short_description;
+    }
+    return NULL;
+
+  }
+  
+  function get_hb_translations($property_number, $lang = "en")
+  {
+    $this->CI->db->where('language', $lang);
+    $this->CI->db->where('hostel_hb_id', $property_number);
+
+    $query = $this->CI->db->get(self::HOSTEL_DESC_TABLE);
+    if($query->num_rows() > 0)
+    {
+      return $query->row();
     }
     return NULL;
 
@@ -2146,7 +2254,9 @@ class Db_hb_hostel extends CI_Model
     $landmark_source_id = $this->db->escape($landmark_source_id);
 
     $sql = "SELECT `".self::LANDMARKS_TABLE."`.`landmark_id`,
-                     `".self::LANDMARKS_TABLE."`.`landmark_name`,
+                   `".self::LANDMARKS_TABLE."`.`landmark_name`,
+                   `".self::LANDMARKS_TABLE."`.`geo_latitude`,
+                   `".self::LANDMARKS_TABLE."`.`geo_longitude`,
                      SUM(if( distance <= $range_km,1,0)) as landmark_count
               FROM ".self::HOSTEL_TABLE."
               RIGHT JOIN `".self::HB_HOSTEL_LANDMARK_TABLE."` ON `".self::HB_HOSTEL_LANDMARK_TABLE."`.`property_number` = `".self::HOSTEL_TABLE."`.`property_number`
