@@ -1113,6 +1113,12 @@ class CMain extends I18n_site {
                 'expire' => time() + 1209600,
                 'path' => '/'
             );
+            $this->carabiner->js('property_quickview.js?v=' . time());
+            $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+            $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+            $this->carabiner->js('pweb/libs/GoogleMap.js');
+			$this->carabiner->js('properties_compare.js');
+		    $this->carabiner->js('compare_property.js');
 
             set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
 

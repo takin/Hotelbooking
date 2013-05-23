@@ -8,7 +8,7 @@
 <?php
 if (!empty($print) && strtolower($print) == 'pdf') {
     $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-    $this->carabiner->css('mainv2.css?v='.time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css?v=' . time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('jquery.fancybox.css','all','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
@@ -17,7 +17,7 @@ if (!empty($print) && strtolower($print) == 'pdf') {
 }
 else {
     $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-    $this->carabiner->css('mainv2.css?v='.time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css?v=' . time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('jquery.fancybox.css','screen','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
