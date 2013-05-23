@@ -258,11 +258,22 @@ var SaveProperty = function() {
 
 		var savedProperty = new SavedProperty();
 
+		var sort = $('ul.sorting .activesort');
+
 		$.ajax({
 			type    : "GET",
 			url     : favorite_properties_url,
 			success : function(data) {
 				savedProperty.setup(data);
+
+				// apply sort
+				var sortField = {
+					'sortname-tous': 'name',
+			        	'sortdate-tous': 'arrival_date',
+			        	'sortcity-tous': 'city'
+				};
+
+				savedProperty.apply_filters(sortField[sort.attr('id')], (sort.find('.desc').length ? jOrder.desc : jOrder.asc));
 
 				if (!data.length) {
 					$('#favorite_properties').html( $('#missing_hostels').html() );
@@ -529,6 +540,14 @@ var SaveProperty = function() {
 			success: function(response) {
 				dialog.find('.content').html(response);
 				dialog.show();
+
+				$('input[type="password"]').on('keydown', function(event){
+					if (event.which == 8) { //backspace event
+						event.preventDefault();
+						$(this).val('');
+					}
+				});
+
 //				dialog.find('.content_container').css('height', '625px');
 			}
 		});

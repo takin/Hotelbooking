@@ -88,7 +88,7 @@ class Db_favorite_hostels extends CI_Model {
 		$numbers = array();
 
 		$this->db->where('user_id', (int)$userId);
-		if ($type != null) {
+		if ($type !== null) {
 			$this->db->where('type', (int)$type);
 		}
 
@@ -97,7 +97,7 @@ class Db_favorite_hostels extends CI_Model {
 		foreach ($data->result() as $row) {
 			$numbers["{$row->hostel_hb_id}"] = $row->hostel_hb_id;
 		}
-
+error_log(print_r($numbers, true), 3, '/tmp/abc.log');
 		return $numbers;
 	}
 
