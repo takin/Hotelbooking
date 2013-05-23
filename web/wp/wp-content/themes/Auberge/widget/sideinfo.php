@@ -8,7 +8,7 @@ echo '
        <ul class="site-info">
          <li id="rules" class="first"><img src="'.$aj_api_url.'images/'.$csspath.'/sideinfo-rules.png" alt="" /><span><strong>'.__('AubergesDeJeunesse.com','auberge').'</strong> '.__('est réglementé par l\'Union Européenne.','auberge').'</span></li>
          <li id="secure"><img src="'.$aj_api_url.'images/sideinfo-secure.png" alt="" /><span><strong>'.sprintf(__('100%% sécurisé.','auberge')).'</strong> '.__('Paiements sécurisés et encryptés pour votre sécurité.','auberge').'</span></li>
-         <li id="bestprice"><img src="'.$aj_api_url.'images/sideinfo-10percent.png" alt="" /><span>'.__('Seulement 10% pour garantir votre réservation.','auberge').'</span></li>
+         <li id="bestprice" style="display:none;"><img src="'.$aj_api_url.'images/sideinfo-10percent.png" alt="" /><span>'.__('Seulement 10% pour garantir votre réservation.','auberge').'</span></li>
          <li class="support" style="display:none;"><img src="'.$aj_api_url.'images/sideinfo-support.png" alt="" /><span>'.__('Un service clientèle de qualité disponible','auberge').' <b>'.__('24h/24, 7j/7','auberge').'</b> '.__('prêt à vous guider à tout moment.','auberge').'</span></li>
 				 
 				 <li class="support" ><img src="'.$aj_api_url.'images/sideinfo-support.png" alt="" /><br><span>'.__('Text/SMS (Free)','auberge').'</span></li>
