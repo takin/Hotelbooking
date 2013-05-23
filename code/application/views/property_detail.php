@@ -35,7 +35,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/quick_view.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.ad-gallery.css" media="all" />
 	<script type="text/javascript" src="<?php echo base_url();?>js/ad-gallery.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>js/property_quickview.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/property_quickview.js?v=<?php echo time(); ?>"></script>
 	<div id="gallery" class="ad-gallery">
       <div class="ad-image-wrapper">
       </div>
