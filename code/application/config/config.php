@@ -7,11 +7,12 @@ $config['displayVelaro'] = TRUE;
 $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
 
+
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = FALSE;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = FALSE;
+$config['displayCompareProperty'] = true;
 
 /* set variable to show remove from search */
 $config['displayRemoveFromSearch'] = TRUE;

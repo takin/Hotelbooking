@@ -3052,6 +3052,12 @@ width: 275px;}
 	margin: 0 !important;
 }
 
+.actions input,
+#login-connect-page,
+#register-page {
+	cursor: pointer;
+}
+
 /* change hostel background*/
 .property_info_hover{
     background-color: #F9F9F9;

@@ -1610,7 +1610,8 @@ class CMain extends I18n_site {
 
             if (!empty($data['property_list']) && is_array($data['property_list'])) {
                 foreach ($data['property_list'] as $index => $property) {
-                   $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                   $data['property_list'][$index]['savedToFavorites'] = empty($savedPropertiesNumbers[ $property['id'] ]) ? false : true;
+                   $data['property_list'][$index]['saveToFavorites'] = empty($savedPropertiesNumbers[ $property['id'] ]) ? true : false;
                 }
             }
 
@@ -1621,8 +1622,8 @@ class CMain extends I18n_site {
 
             if (!empty($data['property_list']) && is_array($data['property_list'])) {
                 foreach ($data['property_list'] as $index => $property) {
-                    if (!empty($property) && is_array($property)) {
-                        $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                    if (!empty($property)) {
+                        $data['property_list'][$index]->savedToFavorites = empty($savedPropertiesNumbers[ "{$property->propertyNumber}" ]) ? false : true;
                     }
                 }
             }
@@ -2199,6 +2200,7 @@ class CMain extends I18n_site {
     }
 
     //compare property function
+/*
     function ajax_compare_property($pro_id) {
         $data = array();
         if ($this->api_used == HB_API) {
@@ -2263,6 +2265,112 @@ class CMain extends I18n_site {
 
         echo json_encode($jsondata);
     }
+*/
+    function ajax_compare_property($pro_id) {
+        $prodIds = explode(",", $pro_id);
+
+        $filter_array = array();
+        $data = array();
+        $property_extra = array();
+        $property_feature = array();
+        $property_facelity = array();
+
+        foreach ($prodIds as $property_number) {
+            if ($this->api_used == HB_API) {
+                $this->load->library('hb_engine');
+
+                $_hostelData = array();
+                $hostelData = $this->hb_engine->property_info($_hostelData, $property_number);
+       	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $hostelData['hostel_db_data']->property_name, $property_number, $this->site_lang);
+                $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
+                $hostelData['property_number'] = $property_number;
+                $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
+
+                if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
+                    foreach ($hostelData['property_ratings'] as $type => $val) {
+                        $hostelData['rating_' . $type] = $val;
+                    }
+                }
+
+                if (!empty($hostelData['hostel']['PROPERTYEXTRAS_translated']) && is_array($hostelData['hostel']['PROPERTYEXTRAS_translated'])) {
+                    $i = 0;
+                    foreach($hostelData['hostel']['PROPERTYEXTRAS_translated'] as $extra => $val) {
+                        $hostelData['extra'][] = $extra;
+
+                        $obj = new stdClass;
+                        $obj->hb_extra_id = $extra;
+                        $obj->description = $extra;
+                        $property_extra[$extra] = $obj;
+
+                        $i += 1;
+                    }
+                }
+                else {
+                    $hostelData['extra'] = array();
+                }
+
+                if (!empty($hostelData['hostel']['FEATURES_translated']) && is_array($hostelData['hostel']['FEATURES_translated'])) {
+                    $i = 0;
+                    foreach($hostelData['hostel']['FEATURES_translated'] as $val => $feature) {
+                        $hostelData['feature'][] = $feature;
+
+                        $obj = new stdClass;
+                        $obj->hb_feature_id = $feature;
+                        $obj->description = $feature;
+                        $property_feature[$feature] = $obj;
+
+                        $i += 1;
+                    }
+                }
+                else {
+                    $hostelData['feature'] = array();
+                }
+
+                $data[] = $hostelData;
+            }
+            else {
+                $this->load->library('hw_engine');
+
+                $_hostelData = array();
+                $hostelData = $this->hw_engine->property_info($_hostelData, $property_number);
+       	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $hostelData['hostel']->property_name, $property_number, $this->site_lang);
+                $hostelData['property_type'] = $hostelData['hostel']->property_type;
+                $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
+                $hostelData['rating']        = $hostelData['hostel']->rating;
+                $hostelData['property_number'] = $property_number;
+
+                if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
+                    $i = 0;
+                    foreach ($hostelData['hostel']->facilitiesTranslated as $facility) {
+                        $hostelData['facelity'][] = $facility;
+
+                        $obj = new stdClass;
+                        $obj->hw_facility_id = $facility;
+                        $obj->description = $facility;
+                        $property_facelity[$facility] = $obj;
+                    }
+                }
+                else {
+                    $hostelData['facelity'] = array();
+                }
+ 
+                $data[] = $hostelData;
+            }
+        }
+
+        $jsondata = array();
+        $jsondata['map_data'] = $this->get_property_details($pro_id);
+        $jsondata['html'] = $this->load->view("compare_property", array(
+            'compare_data'      => $data,
+            'property_extra'    => $property_extra,
+            'property_feature'  => $property_feature,
+            'property_facelity' => $property_facelity,
+        ), true);
+
+        echo json_encode($jsondata);
+    }
+
+
 
     function property_image($pro_id) {
         if ($this->api_used == HB_API) {
