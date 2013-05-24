@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:26+0300\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
 "PO-Revision-Date: 2013-05-20 21:36+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2288,7 +2289,7 @@ msgstr "죄송합니다. 선택하신 날짜에 룸이 없습니다."
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1285
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "서버가 일시적으로 다운되었습니다."
 
@@ -4229,7 +4230,7 @@ msgstr "%s에 의해 %s"
 #: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hb_engine.php:862
 #: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
@@ -4240,7 +4241,7 @@ msgstr "좋음"
 #: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hb_engine.php:865
 #: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
@@ -4251,7 +4252,7 @@ msgstr "매우 좋음"
 #: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hb_engine.php:868
 #: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
@@ -4262,7 +4263,7 @@ msgstr "우수하다"
 #: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hb_engine.php:870
 #: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
@@ -5765,7 +5766,7 @@ msgstr ""
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #: ../code/application/controllers/cmain.php:789
 #: ../code/application/controllers/cmain.php:802
 #, php-format
@@ -6877,7 +6878,7 @@ msgstr "모바일 서비스"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hb_engine.php:758
 #: ../code/application/libraries/Hw_engine.php:743
 #: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
@@ -6935,8 +6936,8 @@ msgstr "오류가 발생했습니다."
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1039
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "데이타가 불가능합니다. 다시 시도해 주세요. "
@@ -6944,7 +6945,7 @@ msgstr "데이타가 불가능합니다. 다시 시도해 주세요. "
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1295
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "선택하신 날짜에 룸이 없습니다."
@@ -8302,7 +8303,7 @@ msgstr "보안된 예약"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "인원수:"
@@ -9449,6 +9450,31 @@ msgstr ""
 " 이 호텔을 귀하의 계정에 즐겨 찾기로 저장하여, 원하는 때에 손쉽게 예약을 할 "
 "수 있습니다."
 
+#: ../code/application/views/helpfile/pofields.php:840
+#, php-format
+msgid "Most Popular Amenities"
+msgstr "가장 인기있는 시설"
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, php-format
+msgid "Most Popular Types"
+msgstr "가장 인기있는 유형"
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, fuzzy, php-format
+msgid "Save"
+msgstr "참고사항 업데이트"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, fuzzy, php-format
+msgid "Last name"
+msgstr "이름"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr ""
+
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
@@ -9658,9 +9684,9 @@ msgstr "귀하의 의견을 보내주시기 바랍니다."
 msgid "Erreur lors de la réservation"
 msgstr "예약 진행 중 오류"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9668,14 +9694,14 @@ msgstr "예약 진행 중 오류"
 msgid "Hostels in %s - %s"
 msgstr "%s - %s에 위치한 호스텔"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr ""
 "날짜 및 숙박 일수가 잘못 입력되었습니다. 값을 검색하는 동안 무시됩니다."
 
-#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hb_engine.php:1082
 #: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
@@ -9870,12 +9896,6 @@ msgstr "연결 유지"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "확인 코드"
-
-#~ msgid "Most Popular Types"
-#~ msgstr "가장 인기있는 유형"
-
-#~ msgid "Most Popular Amenities"
-#~ msgstr "가장 인기있는 시설"
 
 #~ msgid "All"
 #~ msgstr "모든"

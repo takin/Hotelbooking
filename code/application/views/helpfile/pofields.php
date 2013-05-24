@@ -837,3 +837,8 @@
 <?php echo _('Hide room types');?>
 <?php echo _('We are sorry but the maximum number of favorite properties you can save to your account is 30');?>
 <?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.');?>
+<?php echo _('Most Popular Amenities');?>
+<?php echo _('Most Popular Types');?>
+<?php echo _('Save');?>
+<?php echo _('Last name');?>
+<?php echo _('Newsletter subscription');?>
