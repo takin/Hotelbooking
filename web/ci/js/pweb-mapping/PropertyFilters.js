@@ -1067,10 +1067,15 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 
 			that.sort_hits(rowname,jOrder.asc,true);
 		}
+                // refresh map markers after sorting
+                 that.updateMarkers('city');
 		return false;
 	});
 };
-
+PWebFilterApp.prototype.updateMarkers = function(map_slug)
+{
+    this.pweb_maps[map_slug].reDrawMarkers();
+};
 PWebFilterApp.prototype.refresh = function(more_results) {
 	more_results   = more_results || 0;
 	
@@ -1448,7 +1453,13 @@ PWebFilterMap.prototype.reDraw = function ()
 		this.gmap.drawMap();
 	}
 };
-
+PWebFilterMap.prototype.reDrawMarkers = function ()
+{
+	if(this.enabled === true)
+	{
+		this.gmap.drawMarkers();
+	}
+};
 PWebFilterMap.prototype.toggle = function ()
 {
 	if(this.enabled === false)
