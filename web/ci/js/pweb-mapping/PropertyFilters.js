@@ -1580,7 +1580,7 @@ $(document).ready(function() {
 					   $("#pro_compare_"+total_property[i]).attr('checked',true); 
 					   $("#pro_compare_"+total_property[i]).parent().find('label').css('color', '#3087C9');
 
-					   $('#compare_count_'+total_property[i]).html(property_selected);
+					   $('.compare_count').html(property_selected);
 				    }
 					 
 				}
