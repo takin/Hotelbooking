@@ -291,12 +291,13 @@ $SPACE = '&nbsp;';
           </tfoot>
        </table>
 			
-      <?php endif; // end if api error?>
+      <?php endif; // end if api error ?>
 			</div>
 		</div>	
 			
 		<form action="<?php echo secure_site_url(); ?>" method="post" onSubmit="booking_confirm2('<?php echo secure_site_url(); ?>',false,'<?php echo $settleCurrency;?>'); return false;">
-		<div class="booking_section">  
+                    <input type="hidden" id="api_shortname" name="api_shortname" value="hb" />
+                    <div class="booking_section">  
 			<div class="popup-info-wrap">
 				<h2 id="step2-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>2. <?php echo _('Informations personnelles - Sécurisées et Encryptées');?></span></h2>
 				<div class="popup-info booking_view">
