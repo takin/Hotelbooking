@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:26+0300\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
 "PO-Revision-Date: 2013-05-15 21:44+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2307,7 +2308,7 @@ msgstr "Sajnáljuk, nincs szabad szoba az összes kiválasztott éjszakára."
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1285
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "Szerver elérhetetlen ebban a pillanatban."
 
@@ -4272,7 +4273,7 @@ msgstr "Által %s |A %s  "
 #: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hb_engine.php:862
 #: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
@@ -4283,7 +4284,7 @@ msgstr "Jó"
 #: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hb_engine.php:865
 #: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
@@ -4294,7 +4295,7 @@ msgstr "nagyon jó"
 #: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hb_engine.php:868
 #: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
@@ -4305,7 +4306,7 @@ msgstr "Nagyszerű"
 #: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hb_engine.php:870
 #: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
@@ -5833,7 +5834,7 @@ msgstr ""
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #: ../code/application/controllers/cmain.php:789
 #: ../code/application/controllers/cmain.php:802
 #, php-format
@@ -6965,7 +6966,7 @@ msgstr "Mobil változat"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hb_engine.php:758
 #: ../code/application/libraries/Hw_engine.php:743
 #: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
@@ -7023,8 +7024,8 @@ msgstr "Rendelkezésre álló ingatlanok - hiba"
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1039
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "Adat elérhetetlen. Probája újra."
@@ -7032,7 +7033,7 @@ msgstr "Adat elérhetetlen. Probája újra."
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1295
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "Nincs szabad szoba a kiválasztott éjszakákra."
@@ -8398,7 +8399,7 @@ msgstr "Biztonságos foglalás"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "Személyek:"
@@ -9572,6 +9573,31 @@ msgstr ""
 "A fiókjában az ingatlant elmentheti a kedvencei közé, így, ha szeretné, egy "
 "későbbi időpontban könnyen lefoglahatja."
 
+#: ../code/application/views/helpfile/pofields.php:840
+#, fuzzy, php-format
+msgid "Most Popular Amenities"
+msgstr "Legkedveltebbek"
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, fuzzy, php-format
+msgid "Most Popular Types"
+msgstr "Legkedveltebbek"
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, fuzzy, php-format
+msgid "Save"
+msgstr "Jegyzetek Frissítése"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, fuzzy, php-format
+msgid "Last name"
+msgstr "Keresztnév"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr ""
+
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
@@ -9787,9 +9813,9 @@ msgstr "Kérjük értékelje tartozkodását!"
 msgid "Erreur lors de la réservation"
 msgstr "Hiba történt az Ön foglalása közben"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9797,7 +9823,7 @@ msgstr "Hiba történt az Ön foglalása közben"
 msgid "Hostels in %s - %s"
 msgstr "Ifjúsági Szállások - %s - %s"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
@@ -9805,7 +9831,7 @@ msgstr ""
 "Dátum és az éjszakák száma érvénytelen. Az értékek figyelmen kívül lettek "
 "hagyva a keresés során."
 
-#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hb_engine.php:1082
 #: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
@@ -9993,14 +10019,6 @@ msgstr "Maradjon kapcsolatban"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "Igazoló kód"
-
-#, fuzzy
-#~ msgid "Most Popular Types"
-#~ msgstr "Legkedveltebbek"
-
-#, fuzzy
-#~ msgid "Most Popular Amenities"
-#~ msgstr "Legkedveltebbek"
 
 #~ msgid "All"
 #~ msgstr "Valamennyi"
