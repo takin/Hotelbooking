@@ -3,7 +3,7 @@
 </div>
 <div id="main" class="grid_12">
 	<div class="box_content box_round group">
-		<h1 class="content_title"><?php echo _('Votre Compte - Réservation Auberges De Jeunesse');?></h1> 
+		<h1 class="content_title"><?php echo _('Mon Compte - Réservation Auberges De Jeunesse');?></h1> 
 		<?php if(isset($changes_success)){ ?>
 		<div style="color:#80B422;"><?php echo _('Your changes has been saved successfully')?></div></br>
 		<?php } ?>
@@ -12,12 +12,15 @@
       
          <ul class="account-nav clearfix">
          
-           <li><a class="account-reserv" href="<?php echo site_url($this->Db_links->get_link("user_bookings"));?>"><?php echo _("Voir vos réservation"); ?></a></li>
+           <li><a class="account-reserv" href="<?php echo site_url($this->Db_links->get_link("user_bookings"));?>"><?php echo _("Mes réservations"); ?></a></li>
            
-           <li class="last-li"><a class="account-review" href="<?php echo site_url($this->Db_links->get_link("user_comments"));?>"><?php echo _("Voir vos évaluation"); ?></a></li>
+           <li class="last-li"><a class="account-review" href="<?php echo site_url($this->Db_links->get_link("user_comments"));?>"><?php echo _("Mes évaluations"); ?></a></li>
            
-           <li><a class="account-profile" href="<?php echo site_url($this->Db_links->get_link("user_profile"));?>"><?php echo _("Voir votre profil"); ?></a>
-           
+           <li><a class="account-profile" href="<?php echo site_url($this->Db_links->get_link("user_profile"));?>"><?php echo _("Mon profil"); ?></a>
+           <?php if ($this->config->item('displaySaveProperty')) { ?> 
+           <li><a class="saved-properties" href="<?php echo site_url('user/favorite_properties'); ?>"><?php echo _("My favorite properties");?></a></li>
+           <?php } ?>
+
            <li class="last-li"><a class="account-support" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Visiter notre centre d'aide");?></a></li>
            
            <?php /*?><li class="last-li"><span class="account-bus"><?php echo _("Bus"); ?></span></li><?php */?>

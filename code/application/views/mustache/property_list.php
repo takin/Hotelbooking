@@ -115,7 +115,7 @@ if ($displayQuickPreview == 1) {
                     </a>
                     <span class="info_type">{{propertyType}}</span>
                 </div>
-                <div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.'); ?></div>
+                <!-- <div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.'); ?></div> -->
                 <div class="info_indent">
                     <h2>
                         <a href="{{property_page_url}}" style="vertical-align: middle">
@@ -158,7 +158,7 @@ if ($displayQuickPreview == 1) {
                     <?php $displayCompareProperty = $this->config->item('displayCompareProperty');
                     if ($displayCompareProperty == 1) {
                         ?>
-                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}','{{propertyName}}','{{propertyType}}');" class="propertycompare"/><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</div>
+                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
 <?php } ?>
                     <p class="address">{{address1}} - {{city_name}}</p>
 
@@ -202,14 +202,14 @@ if ($displayQuickPreview == 1) {
                 </div>
                 {{#has_amenities}}
 					<div class="info_indent">
-						<?php if (false/*$this->config->item('displaySaveProperty')*/) { ?>
+						<?php if ($this->config->item('displaySaveProperty')) { ?>
 							<p>
-								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{city_name}}" title="{{propertyName}}">
+								<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 									<?php echo _('Add to my favorites'); ?>
 								</a>
 
-								<a href="<?php echo site_url('user/favorite_properties'); ?>" target="_blank" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle">
+								<a href="<?php echo site_url('user/favorite_properties'); ?>" class="saved_to_favorites" id="saved_to_favorites_{{propertyNumber}}" style="{{#saveToFavorites}}display: none;{{/saveToFavorites}} vertical-align: middle" title='<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.'); ?>'>
 									<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 									<?php echo _('Saved to my favorites'); ?>
 								</a>
@@ -267,7 +267,7 @@ if ($displayQuickPreview == 1) {
                     {{#original_price}}
                     <span class="rebate-price"> {{display_currency}} {{original_price}}</span>
                     {{/original_price}}
-                    {{display_currency}} <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>">{{display_shared_price_formatted}}</strong>
+                    <span class="dorms_currency" style="display: inline">{{display_currency}}</span> <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>" class="dorms_price">{{display_shared_price_formatted}}</strong>
                     {{#original_price}}
                     <div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div>
                     {{/original_price}}
@@ -276,7 +276,7 @@ if ($displayQuickPreview == 1) {
                     <div class="group">
                         <span class="nbpeople" title=""><span class="private-people icon-nbpeople nbpeople-1">1 x</span>
                             <span class="nbpeople-text"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
-                            <span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>">{{display_currency}} <strong>{{display_private_formatted}}</strong></span>
+                            <span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
                         </span>
                     </div>
                     {{/display_private_price}}

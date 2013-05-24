@@ -21,7 +21,7 @@
 				<li class="title"><?php echo _("Classer par:");?></li>
 				<li><a class="sorting" id="sortcity-tous" href="#"><span class="asc"><?php echo _("City");?></span></a></li>
 				<li><a class="sorting activesort" id="sortdate-tous" href="#"><span class="asc"><?php echo _("Date");?></span></a></li>
-				<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Name");?></span></a></li>
+				<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Property name");?></span></a></li>
 			</ul>
 		</nav>
 
@@ -32,6 +32,7 @@
 		<input type="hidden" id="current_page" value="0">
 		<input type="hidden" id="show_per_page" value="0">
 
+		<div id="missing_hostels" style="display: none"><?php echo _('No properties were saved.'); ?></div>
 		<div id="favorite_properties"></div>
 
 		<div id="navi" class="pagination_pro" style="display:none;">

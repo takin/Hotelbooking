@@ -7,17 +7,18 @@ $config['displayVelaro'] = TRUE;
 $config['displayShareEmail'] = FALSE;
 $config['displaySharePDF']   = FALSE;
 
+
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = FALSE;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = FALSE;
+$config['displayCompareProperty'] = true;
 
 /* set variable to show remove from search */
-$config['displayRemoveFromSearch'] = true;
+$config['displayRemoveFromSearch'] = TRUE;
 
 /* set variable to show save property  */
-$config['displaySaveProperty'] = true;
+$config['displaySaveProperty'] = TRUE;
 
 /* translation log for enable and distable (TRUE=enable, FALSE=disable)*/
 $config['translationLog'] = TRUE;

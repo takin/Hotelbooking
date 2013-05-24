@@ -916,7 +916,7 @@ class CMain extends I18n_site {
 
                     $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                     $this->carabiner->js('pweb-mapping/PropertyFilters.js');
-                    $this->carabiner->js('save_property.js');
+                    $this->carabiner->js('save_property.js?v='. time());
                     $this->carabiner->js('pweb/libs/GoogleMap.js');
                     $this->carabiner->js('properties_compare.js');
                     $this->carabiner->js('compare_property.js');
@@ -980,7 +980,7 @@ class CMain extends I18n_site {
 
                         $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                         $this->carabiner->js('pweb-mapping/PropertyFilters.js');
-                        $this->carabiner->js('save_property.js');
+                        $this->carabiner->js('save_property.js?v=' . time());
                         $this->carabiner->js('pweb/libs/GoogleMap.js');
                         $this->carabiner->js('properties_compare.js');
                         $this->carabiner->js('compare_property.js');
@@ -1160,6 +1160,9 @@ class CMain extends I18n_site {
         log_message('debug', 'Entering main controller property page method');
 
         $this->_currency_init();
+
+        $this->load->library('tank_auth');
+
         // add the current params in the "stash"
         $data = array(
             'property_type' => $property_type,
@@ -1170,17 +1173,16 @@ class CMain extends I18n_site {
             'print' => $this->input->get('print', true),
             'showEmail' => $this->config->item('displayShareEmail'),
             'showPDF' => $this->config->item('displaySharePDF'),
+            'userIsLoggedIn' => $this->tank_auth->is_logged_in()
         );
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $data['favorited'] = 0;
-            /*
-             *  $data['favorited'] = $this->Db_favorite_hostels->countPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0));
-             */
+
+            $data['favorited'] = $this->tank_auth->is_logged_in() 
+                ? $this->Db_favorite_hostels->countUserPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id())
+                : false;
         }
-
-
 
         $date = $urldate;
 
@@ -1597,7 +1599,9 @@ class CMain extends I18n_site {
 
         if ($this->config->item('displaySaveProperty')) {
             $this->load->model('Db_favorite_hostels');
-            $savedPropertiesNumbers = $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0));
+            $savedPropertiesNumbers = $this->tank_auth->is_logged_in()
+                ? $this->Db_favorite_hostels->savedPropertiesNumbers($this->tank_auth->get_user_id(), ($this->api_used == HB_API ? 1 : 0))
+                : array();
         }
 
         if ($this->api_used == HB_API) {
@@ -1606,7 +1610,8 @@ class CMain extends I18n_site {
 
             if (!empty($data['property_list']) && is_array($data['property_list'])) {
                 foreach ($data['property_list'] as $index => $property) {
-                   $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                   $data['property_list'][$index]['savedToFavorites'] = empty($savedPropertiesNumbers[ $property['id'] ]) ? false : true;
+                   $data['property_list'][$index]['saveToFavorites'] = empty($savedPropertiesNumbers[ $property['id'] ]) ? true : false;
                 }
             }
 
@@ -1617,8 +1622,8 @@ class CMain extends I18n_site {
 
             if (!empty($data['property_list']) && is_array($data['property_list'])) {
                 foreach ($data['property_list'] as $index => $property) {
-                    if (!empty($property) && is_array($property)) {
-                        $data['property_list'][$index]['savedToFavorites'] = !empty($savedPropertiesNumbers[ $property['id'] ]);
+                    if (!empty($property)) {
+                        $data['property_list'][$index]->savedToFavorites = empty($savedPropertiesNumbers[ "{$property->propertyNumber}" ]) ? false : true;
                     }
                 }
             }
@@ -2195,6 +2200,7 @@ class CMain extends I18n_site {
     }
 
     //compare property function
+/*
     function ajax_compare_property($pro_id) {
         $data = array();
         if ($this->api_used == HB_API) {
@@ -2259,6 +2265,112 @@ class CMain extends I18n_site {
 
         echo json_encode($jsondata);
     }
+*/
+    function ajax_compare_property($pro_id) {
+        $prodIds = explode(",", $pro_id);
+
+        $filter_array = array();
+        $data = array();
+        $property_extra = array();
+        $property_feature = array();
+        $property_facelity = array();
+
+        foreach ($prodIds as $property_number) {
+            if ($this->api_used == HB_API) {
+                $this->load->library('hb_engine');
+
+                $_hostelData = array();
+                $hostelData = $this->hb_engine->property_info($_hostelData, $property_number);
+       	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $hostelData['hostel_db_data']->property_name, $property_number, $this->site_lang);
+                $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
+                $hostelData['property_number'] = $property_number;
+                $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
+
+                if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
+                    foreach ($hostelData['property_ratings'] as $type => $val) {
+                        $hostelData['rating_' . $type] = $val;
+                    }
+                }
+
+                if (!empty($hostelData['hostel']['PROPERTYEXTRAS_translated']) && is_array($hostelData['hostel']['PROPERTYEXTRAS_translated'])) {
+                    $i = 0;
+                    foreach($hostelData['hostel']['PROPERTYEXTRAS_translated'] as $extra => $val) {
+                        $hostelData['extra'][] = $extra;
+
+                        $obj = new stdClass;
+                        $obj->hb_extra_id = $extra;
+                        $obj->description = $extra;
+                        $property_extra[$extra] = $obj;
+
+                        $i += 1;
+                    }
+                }
+                else {
+                    $hostelData['extra'] = array();
+                }
+
+                if (!empty($hostelData['hostel']['FEATURES_translated']) && is_array($hostelData['hostel']['FEATURES_translated'])) {
+                    $i = 0;
+                    foreach($hostelData['hostel']['FEATURES_translated'] as $val => $feature) {
+                        $hostelData['feature'][] = $feature;
+
+                        $obj = new stdClass;
+                        $obj->hb_feature_id = $feature;
+                        $obj->description = $feature;
+                        $property_feature[$feature] = $obj;
+
+                        $i += 1;
+                    }
+                }
+                else {
+                    $hostelData['feature'] = array();
+                }
+
+                $data[] = $hostelData;
+            }
+            else {
+                $this->load->library('hw_engine');
+
+                $_hostelData = array();
+                $hostelData = $this->hw_engine->property_info($_hostelData, $property_number);
+       	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $hostelData['hostel']->property_name, $property_number, $this->site_lang);
+                $hostelData['property_type'] = $hostelData['hostel']->property_type;
+                $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
+                $hostelData['rating']        = $hostelData['hostel']->rating;
+                $hostelData['property_number'] = $property_number;
+
+                if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
+                    $i = 0;
+                    foreach ($hostelData['hostel']->facilitiesTranslated as $facility) {
+                        $hostelData['facelity'][] = $facility;
+
+                        $obj = new stdClass;
+                        $obj->hw_facility_id = $facility;
+                        $obj->description = $facility;
+                        $property_facelity[$facility] = $obj;
+                    }
+                }
+                else {
+                    $hostelData['facelity'] = array();
+                }
+ 
+                $data[] = $hostelData;
+            }
+        }
+
+        $jsondata = array();
+        $jsondata['map_data'] = $this->get_property_details($pro_id);
+        $jsondata['html'] = $this->load->view("compare_property", array(
+            'compare_data'      => $data,
+            'property_extra'    => $property_extra,
+            'property_feature'  => $property_feature,
+            'property_facelity' => $property_facelity,
+        ), true);
+
+        echo json_encode($jsondata);
+    }
+
+
 
     function property_image($pro_id) {
         if ($this->api_used == HB_API) {
@@ -2280,10 +2392,10 @@ class CMain extends I18n_site {
 
       $this->load->library('tank_auth');
       if (!$this->tank_auth->is_logged_in()) {
-          echo json_encode(array(array(
-              'field'   => 'propertyNumber',
+          echo json_encode(array(
+              'reason'  => 'userLogOut',
               'message' => _('Please log in')
-          )));
+          ));
 
           exit();
       }
@@ -2302,6 +2414,17 @@ class CMain extends I18n_site {
 
       $this->load->model('Db_favorite_hostels');
       $this->load->model('Db_links');
+
+      $favHostelsNo = $this->Db_favorite_hostels->countUserSavedProperties($this->tank_auth->get_user_id());
+
+      if ($favHostelsNo > 30) {
+          echo json_encode(array(
+              'field'   => 'propertyNumber',
+              'message' => _('We are sorry but the maximum number of favorite properties you can save to your account is 30')
+          ));
+
+          exit();
+      }
 
       $errors = array();
 
@@ -2350,7 +2473,7 @@ class CMain extends I18n_site {
              );
           }
           else {
-             $favHostelNo = $this->Db_favorite_hostels->countPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0));
+             $favHostelNo = $this->Db_favorite_hostels->countUserPropertyNumber($id, $propertyNumber, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id());
 
              if (!empty($favHostelNo)) {
                  $errors[] = array(
@@ -2388,7 +2511,7 @@ class CMain extends I18n_site {
       if (!empty($notes) && mb_strlen($notes) > 75) {
           $errors[] = array(
               'field'   => 'date',
-              'message' => sprintf(_('Notes are exceeding maximum of %d chars'), 75)
+              'message' => sprintf(_('Notes are exceeding maximum of %d characters'), 75)
           );
       }
 
