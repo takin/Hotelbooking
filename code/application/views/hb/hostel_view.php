@@ -822,7 +822,7 @@ if ($api_error == false) {
                 <?php if (!empty($hostel['CHECKINTIMES']['CHECKOUT']) || !empty($hostel['CHECKINTIMES']['CHECKIN'])) { ?>
                     <div class="content_block">
 			<br style="clear: both" />
-                        <h2 class="margbot10"><?php echo _("Check-In/Out Details"); ?><img id="check_in_out" src="<?php echo site_url('/images/V2/icon_help.png'); ?>" title="<?php echo _("Check-In/Out Details"); ?>|<?php echo _('This is the time your room will be ready the day of your arrival and the time when you will need to leave your room the day of departure. Most properties will store your luggage in a safe space if you arrive early or leave later. This property might be open 24 hours a day. Please review services above.'); ?>" /></h2>
+                        <h2 class="margbot10"><?php echo _("Check-In/Out Details"); ?><img id="check_in_out" src="<?php echo site_url('/images/V2/icon_help.png'); ?>" title="<?php echo _("Check-In/Out Details"); ?>|<?php echo _('This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available.'); ?>" /></h2>
                         <div class="group">
                     <?php
                     foreach ($hostel['CHECKINTIMES'] as $indice => $valeur) {
