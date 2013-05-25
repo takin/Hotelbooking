@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-20 21:36+0200\n"
+"PO-Revision-Date: 2013-05-25 22:20+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9398,16 +9397,16 @@ msgid "Saved favorite properties"
 msgstr "登録済みのお気に入り施設"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"ご予約確定のために預かり金（総額の%d）のお支払いが今必要になります。残金"
-"（%d）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテル"
-"の連絡先が含まれています。（Eメール、住所、電話番号）"
+"ご予約確定のために預かり金（総額の%d%%）のお支払いが今必要になります。残金"
+"（%d%%）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテ"
+"ルの連絡先が含まれています。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9471,14 +9470,14 @@ msgstr ""
 "す。"
 
 #: ../code/application/views/helpfile/pofields.php:840
-#, fuzzy, php-format
+#, php-format
 msgid "Most Popular Amenities"
-msgstr "重要な注意事項"
+msgstr "一番人気のアメニティ"
 
 #: ../code/application/views/helpfile/pofields.php:841
-#, fuzzy, php-format
+#, php-format
 msgid "Most Popular Types"
-msgstr "重要な注意事項"
+msgstr "一番人気のタイプ"
 
 #: ../code/application/views/helpfile/pofields.php:842
 #, fuzzy, php-format
