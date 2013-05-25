@@ -355,11 +355,19 @@ function handleShareEmailPDF() {
 }
 
 function handleTooltip() {
-	$('#check_in_out')
-		.mouseover(function() {
-			$('#tooltip_content').show();
-		})
-		.mouseout(function() {
-			$('#tooltip_content').hide();
-		});
+   $('#check_in_out').cluetip({
+        width: '600px', 
+        local:true, 
+        cursor: 'pointer',
+        arrows: false,
+        dropShadow: false,
+        sticky: false,
+        positionBy: 'auto',
+        cluetipClass: 'mcweb',
+        tracking: true,
+	splitTitle: '|',
+	onShow: function(ct, ci) {
+		ci.css('color', '#3087C9');
+	}
+    });
 }
