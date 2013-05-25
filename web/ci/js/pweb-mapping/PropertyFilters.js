@@ -167,7 +167,21 @@ PWebFilterApp.prototype.apply_filters = function() {
         this.update();
 
         this.updateMap();
-        
+
+	// apply compare checkboxes
+	if ($('.selectedPropertyForCompare').length) {
+		$('.selectedPropertyForCompare').each(function() {
+			var elem = $(this);
+
+			if (elem.val()) {
+				var checkbox = $('#pro_compare_' + elem.val());
+				if (checkbox.length) {
+					checkbox.parent().find('label').css('color', '#3087C9');
+					checkbox.attr('checked', 'checked');
+				}
+			}
+		});
+	}
 };
 
 PWebFilterApp.prototype.set_init_filters_value = function() {	
@@ -1564,7 +1578,9 @@ $(document).ready(function() {
 				if(property_selected != ''){
 				    for(i=0;i<property_selected;i++){  
 					   $("#pro_compare_"+total_property[i]).attr('checked',true); 
-					   $('#compare_count_'+total_property[i]).html(property_selected);
+					   $("#pro_compare_"+total_property[i]).parent().find('label').css('color', '#3087C9');
+
+					   $('.compare_count').html(property_selected);
 				    }
 					 
 				}

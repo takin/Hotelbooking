@@ -636,6 +636,7 @@ h2.search_title{padding: 2px 0px 10px 40px;}
 	color:#333333;
 }
 
+#save_property_dialog .date_show,
 .side_search input.search_date, .main_search input.search_date{
 	padding:5px;
 	width:175px;
@@ -1801,6 +1802,7 @@ ul.account-nav li a, ul.account-nav li span{ display:block; color:#464646; font-
 
 span.account-bus{  height:65px; display:block; text-indent:-9999px; background:url(../images/account-bus.png) no-repeat top left; }
 a.account-reserv{	 background:url(../images/account-reserv.png) no-repeat center left; padding:15px 0px 15px 60px;	}
+a.saved-properties {	 background:url(../images/saved_favorite.png) no-repeat center left; padding:15px 0px 15px 60px;	}
 a.account-review{	 background:url(../images/account-review.png) no-repeat center left; padding:15px 0px 15px 50px;}
 a.account-profile{	 background:url(../images/account-profile.png) no-repeat center left; padding:15px 0px 15px 60px;}
 a.account-groupe{	 background:url(../images/account-groupe.png) no-repeat center left; padding:10px 0px 10px 60px;}
@@ -2387,10 +2389,15 @@ text-align: -webkit-center;
 
 .save_to_favorites_options {
 	margin-top: 11px;
+	float: left;
+	margin-right: 10px;
+	width: 160px;
 }
 
 .share-email {
 	margin-top: 2px;
+	width: 50px;
+	float: left;
 }
 
 #save_property_dialog,
@@ -2409,20 +2416,34 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#save_property_dialog {
+	background: url('../images/fancybox_overlay.png');
+}
+
 #save_property_dialog .content_container {
 	margin: 0 auto;
-	height: 450px;
+/*	height: 630px;*/
 	width: 618px;
-	margin-top: 90px;
+	margin-top: 30px;
 	color: #00359f;
 	background-color: #fff;
 	opacity: 1;
-	border: 1px solid #b3b3b3;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	font-size: 1.2em;
+	padding-bottom: 10px;
+}
+
+#save_property_dialog .content #content {
+	margin: 10px;
 }
 
 #save_property_dialog .close {
 	float: right;
 	width: 50px;
+	position: absolute;
+	margin-left: 605px;
+	margin-top: -61px;
 }
 
 #share-overlay .content {
@@ -2888,18 +2909,89 @@ width: 275px;}
 }
 
 #save_property_dialog .title {
-	padding: 10px 5px;
+	padding: 15px 10px;
+	background-color: #00aeec;
+	color: #fff;
+	font-size: 1.3em;
+	border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
 }
 
 #save_property_dialog .property_details .image {
 	float: left;
 	width: 120px;
+	margin: 10px;
+}
+
+#save_property_dialog .property_details .property_name,
+#save_property_dialog .property_details .location {
+	font-weight: 600;
+	color: #000;
+	font-size: 2em;
+}
+
+#save_property_dialog .property_details .property_name {
+	padding-top: 45px;
+}
+
+#save_property_dialog .property_details .location {
+	padding-top: 10px;
+}
+
+#save_property_dialog .schedule_details {
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 25px;
+	margin-top: 10px;
+}
+
+#save_property_dialog .schedule_details .date,
+#save_property_dialog .schedule_details .nights {
+	line-height: 23px;
+	color: #666;
+	font-size: 1.3em;
+}
+
+#save_property_dialog .fav_details label {
+	color: #666;
+	font-size: 1.3em;
+}
+
+#save_property_dialog .fav_details textarea {
+	width: 90%;
+	height: 130px;
+}
+
+#save_property_dialog .fav_details .characters {
+	width: 90%;
+	font-size: 1.8em;
+	color: #666;
+}
+
+#save_property_dialog .fav_details .characters .num {
+	color: #000;
+}
+
+#save_property_dialog .schedule_details .nights a {
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+#save_property_dialog .schedule_details .date .num,
+#save_property_dialog .schedule_details .nights .num {
+	font-weight: bold;
+	color: #000;
 }
 
 #save_property_dialog .schedule_details,
 #save_property_dialog .actions,
 #save_property_dialog .fav_details {
 	clear: both;
+	margin-left: 10px;
+}
+
+#save_property_dialog .schedule_details {
+	margin-left: 140px;
 }
 
 #save_property_dialog .schedule_details .date,
@@ -2918,5 +3010,53 @@ width: 275px;}
 
 #check_in_out {
 	margin-left: 5px;
+}
+
+#save_property_dialog .actions input {
+	padding: 5px 15px;
+}
+
+#save_property_dialog .actions input, a {
+	margin-right: 10px;
+}
+
+#save_property_dialog .actions input {
+	color: #fff;
+	border: none;
+	background-color: #6ed53a;
+	padding: 10px 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 5px;
+	-moz-border-radius: 5px;	
+}
+
+#save_property_dialog .actions .remove {
+	padding: 10px 20px;
+	background-color: #edecec;
+	border: 1px solid #ccc9d0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+
+#save_property_dialog .actions .remove:hover {
+	text-decoration: none;
+}
+
+#save_property_dialog form {
+	font-size: 90%;
+}
+
+#save_property_dialog .box_content label {
+	color: #000;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+	margin: 0 !important;
+}
+
+.actions input,
+#login-connect-page,
+#register-page {
 	cursor: pointer;
 }
