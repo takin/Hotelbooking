@@ -34,20 +34,25 @@ echo form_hidden('switch_api', $switch_api);
             <?php } ?>
             <?php $empty_rating = 0;
             foreach ($property_ratings as $rating_category => $rating_value) {
-                if ($rating_value == "") {
+                if ($rating_value == "" || !(int)$rating_value) {
                     $empty_rating++;
                 }
-            } ?>
-            <?php if ($empty_rating < 9) { ?>
+            }
+
+            $hostelRatingValue = null;
+            if (!empty($hostel["RATING"])) {
+                $hostelRatingValue = $hostel["RATING"];
+            }
+            elseif (!empty($hostel_db_data->rating_overall)) {
+                $hostelRatingValue = ceil($hostel_db_data->rating_overall) . ' %';
+            }
+
+            ?>
+            <?php if ($empty_rating < 9 && (int)$hostelRatingValue) { ?>
         <div class="box_content box_round group rating_bars">
             <span class="title"><?php echo ucwords(_("évaluation moyenne")); ?>
                     <?php
-                    if (!empty($hostel["RATING"])) {
-                        echo $hostel["RATING"];
-                    }
-                    elseif (!empty($hostel_db_data->rating_overall)) {
-                        echo ceil($hostel_db_data->rating_overall) . ' %';
-                    }
+                        echo $hostelRatingValue;
                     ?>
             </span>
             <div class="clearfix bar-overview">
@@ -525,7 +530,7 @@ if ($api_error == false) {
                 $hostelRatingValue = $hostel_db_data->rating_overall;
             }
 
-            if ($hostelRatingValue != null) {
+            if ($hostelRatingValue != null && (int)$hostelRatingValue) {
                 $hostelRatingValue = (int)$hostelRatingValue;
 
                 $rating = '';
