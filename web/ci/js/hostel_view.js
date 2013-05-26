@@ -1,6 +1,8 @@
 jQuery(document).ready(function() {
     handleShareEmailPDF();
 
+    handleTooltip();
+
     jQuery("img").error(function() {
         jQuery(this).hide();
     });
@@ -350,4 +352,22 @@ function handleShareEmailPDF() {
         var from_email = new LiveValidation('from_email', {validMessage: " "});
         from_email.destroy();
     }
+}
+
+function handleTooltip() {
+   $('#check_in_out').cluetip({
+        width: '600px', 
+        local:true, 
+        cursor: 'pointer',
+        arrows: false,
+        dropShadow: false,
+        sticky: false,
+        positionBy: 'auto',
+        cluetipClass: 'mcweb',
+        tracking: true,
+	splitTitle: '|',
+	onShow: function(ct, ci) {
+		ci.css('color', '#3087C9');
+	}
+    });
 }
