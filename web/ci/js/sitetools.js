@@ -12,13 +12,17 @@ $(document).ready(function(){
 		$('#more_options_side').toggle();
 		$(this).toggle();
 	});
-	$('#read_more_hostel').click(function(){
+	$('#read_more_hostel').click(function(event) {
+		event.preventDefault();
+
 		$('#top_info_short').toggle();
 		$('#top_info_long').toggle();
 		$(this).toggle();
 		$('#read_less_hostel').toggle();
 	});
-	$('#read_less_hostel').click(function(){
+	$('#read_less_hostel').click(function(event) {
+		event.preventDefault();
+
 		$('#top_info_short').toggle();
 		$('#top_info_long').toggle();
 		$(this).toggle();
