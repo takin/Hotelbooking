@@ -42,10 +42,11 @@ echo form_hidden('switch_api', $switch_api);
         <div class="box_content box_round group rating_bars">
             <span class="title"><?php echo ucwords(_("évaluation moyenne")); ?>
                     <?php
-                    if (!empty($hostel_db_data->rating_overall)) {
+                    if (!empty($hostel["RATING"])) {
+                        echo $hostel["RATING"];
+                    }
+                    elseif (!empty($hostel_db_data->rating_overall)) {
                         echo ceil($hostel_db_data->rating_overall) . ' %';
-                    } elseif (!empty($hostel["RATING"])) {
-                        echo ceil($hostel["RATING"]) . ' %';
                     }
                     ?>
             </span>
@@ -515,20 +516,31 @@ if ($api_error == false) {
                 <li class="last"><a id="tab_comment" class="tab_review" id="hostel-show-commentaries-tab" href="#hostel_info_reviews"><?php echo _("Commentaires"); ?></a></li>
             </ul>
             <?php
+            $hostelRatingValue = null;
+
             if (!empty($hostel["RATING"])) {
+                $hostelRatingValue = $hostel["RATING"];
+            }
+            elseif (!empty($hostel_db_data->rating_overall)) {
+                $hostelRatingValue = $hostel_db_data->rating_overall;
+            }
+
+            if ($hostelRatingValue != null) {
+                $hostelRatingValue = (int)$hostelRatingValue;
+
                 $rating = '';
-                if (($hostel["RATING"] > 59) && ($hostel["RATING"] < 70)) {
+                if (($hostelRatingValue > 59) && ($hostelRatingValue < 70)) {
                     $rating = _("Good");
-                } elseif (($hostel["RATING"] > 69) && ($hostel["RATING"] < 80)) {
+                } elseif (($hostelRatingValue > 69) && ($hostelRatingValue < 80)) {
                     $rating = _("Very good");
-                } elseif (($hostel["RATING"] > 79) && ($hostel["RATING"] < 90)) {
+                } elseif (($hostelRatingValue > 79) && ($hostelRatingValue < 90)) {
                     $rating = _("Great");
-                } elseif (($hostel["RATING"] > 89)) {
+                } elseif (($hostelRatingValue > 89)) {
                     $rating = _("Fantastic");
                 }
                 ?>
                 <ul class="box_round rating">
-                    <li class="first last"><span class="" title="<?php echo _("évaluation moyenne"); ?>"><strong class="txt-mid green"><?php echo $rating; ?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"]; ?></strong></span></li>
+                    <li class="first last"><span class="" title="<?php echo _("évaluation moyenne"); ?>"><strong class="txt-mid green"><?php echo $rating; ?></strong><strong style="color:#333333;"><?php echo $hostelRatingValue; ?>%</strong></span></li>
                 </ul>
             <?php } ?>
         </nav>
