@@ -1235,7 +1235,7 @@ class CMain extends I18n_site {
                     if (url_title($data_engine['property_name']) == $property_name) {
                         $this->api_used = HW_API;
                         $this->api_view_dir = "hw/";
-                        $this->api_forced = true;
+                        $this->hostel_controller = "chostel";
                         $this->session->set_userdata('switch_api', true);
                     } else {
                         $this->session->set_userdata('switch_api', false);
@@ -1254,7 +1254,7 @@ class CMain extends I18n_site {
                     if (url_title($data_engine['property_name']) == $property_name) {
                         $this->api_used = HB_API;
                         $this->api_view_dir = "hb/";
-                        $this->api_forced = true;
+                        $this->hostel_controller = "chostelbk";
                         $this->session->set_userdata('switch_api', true);
                     } else {
                         $this->session->set_userdata('switch_api', false);
