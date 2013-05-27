@@ -161,7 +161,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	}
 
 	this.update_counts();
-	
+
 	this.sort_hits(this.actual_sort_index.row, this.actual_sort_order);
 
         this.update();
@@ -982,8 +982,23 @@ PWebFilterApp.prototype.init_action_filters = function() {
 	document.getElementById('filter_rating').innerHTML = $( "#slider_rating" ).slider( "values", 0 ) +
 		"% - " + $( "#slider_rating" ).slider( "values", 1 )+"%";
 	
-	$('#breakfast_2nd_filter').click(function ()
-			{
+	$('#breakfast_2nd_filter').click(function () {
+		var obj = $(this);
+
+		var breakfast = $('#facility-extra3, #facility-26');
+
+		if($('#breakfast_2nd_filter').is(':checked')) {
+			breakfast.attr('checked', 'ckecked');
+		}
+		else {
+			breakfast.attr('checked', false);
+		}
+
+		breakfast.triggerHandler('click');
+
+//		$('#facility-extra3').attr('checked', obj.attr('ckecked'));
+//		$('#facility-extra3').click();
+/*
 				if($('#breakfast_2nd_filter').is(':checked'))
 				{
 					$('#'+that.BreakfastExtraCheckId).attr('checked', true);
@@ -993,7 +1008,8 @@ PWebFilterApp.prototype.init_action_filters = function() {
 					$('#'+that.BreakfastExtraCheckId).attr('checked', false);
 				}
 				that.apply_filters();
-			});
+*/
+	});
 	
 	$('#downtown_2nd_filter').click(function ()
 			{
