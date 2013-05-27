@@ -1657,7 +1657,7 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 	var text =  '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>'+wait_message+'</p></div>';	
 	$('#quick_preview_div').empty().append(text);
 
-var ajaxrequest =  $.ajax({
+    var ajaxrequest =  $.ajax({
 		type:'GET',
 		dataType: "json",
                 cache: true,
