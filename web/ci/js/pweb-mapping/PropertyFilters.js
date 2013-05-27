@@ -967,7 +967,7 @@ PWebFilterApp.prototype.init_action_filters = function() {
 	
 	$( "#slider_rating" ).slider({
 		range: true,
-		min: that.RatingRangeMin,
+		min: that.RatingRangeMin || 0,
 		max: that.RatingRangeMax,
 		values: [ that.RatingRangeMin, that.RatingRangeMax ],
 		slide: function( event, ui ) {
