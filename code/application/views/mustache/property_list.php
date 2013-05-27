@@ -156,11 +156,6 @@ if ($displayQuickPreview == 1) {
                     <?php }
                     ?>
                     </h2>
-                    <?php $displayCompareProperty = $this->config->item('displayCompareProperty');
-                    if ($displayCompareProperty == 1) {
-                        ?>
-                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
-<?php } ?>
                     <p class="address">{{address1}} - {{city_name}}</p>
 
                     {{#isMinNightNeeded}}
@@ -201,7 +196,6 @@ if ($displayQuickPreview == 1) {
                     <span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
                     {{/safety80}}
                 </div>
-                {{#has_amenities}}
 					<div class="info_indent">
 						<?php if (false/*$this->config->item('displaySaveProperty')*/) { ?>
 							<p>
@@ -216,9 +210,15 @@ if ($displayQuickPreview == 1) {
 								</a>
 							</p>
 						<?php } ?>
-                				<p><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
+                				<p style="width: 150px; float: left"><a href="#" rel="{{propertyNumber}}" class="prop_more_info"><?php echo _('Read more…'); ?></a></p>
+
+                    <?php $displayCompareProperty = $this->config->item('displayCompareProperty');
+                    if ($displayCompareProperty == 1) {
+                        ?>
+                        <div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
+<?php } ?>
+
 					</div>
-                {{/has_amenities}}
                 <div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
 
                     <h2 class="margbot10"><?php echo _("Commodité"); ?></h2>
