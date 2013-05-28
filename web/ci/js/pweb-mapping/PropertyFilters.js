@@ -1189,13 +1189,14 @@ PWebFilterApp.prototype.setup = function(data)
         });
     });
 
-    $('#city_map_filter').click(function() {
+    $('.city_map_filter').click(function() {
+       
         // click on filter by Districts and Landmarks will trigger fancy box 
         // on div map_filter_popup
-        $('#map_filter_popup').trigger('click');
+        $('#map_filter_popup').trigger('click',[this.id]);
     });
 
-    $('#map_filter_popup').click(function() {
+    $('#map_filter_popup').click(function(event, link_id) {
         // for some reason div reloads when ckicked inside it
         if ($('#map_filter_popup').is(":visible")) {
             return false;
@@ -1208,11 +1209,28 @@ PWebFilterApp.prototype.setup = function(data)
                 // make green button wide
                 $('#filter_map_showProperties').css("width", "880px");
             }
-            else{
+            else {
                 $('#filter_map_rightSide_container').addClass("tabs_exist");
                 $('#filter_map_rightSide_container').removeClass("no_tabs");
                 // make green button wide
                 $('#filter_map_showProperties').css("width", "400px");
+
+                $("#ul_map_filter_tabs").tabs('select', -1);
+                $(".ui-tabs-selected").removeClass("ui-state-active").removeClass("ui-tabs-selected");
+                // trigger tab according to the link that fire the fancybox
+                if (link_id === "city_map_filter_districts") {
+                    // trigger the district tab
+                    $("#ul_map_filter_tabs").tabs('select', 0);
+                    $("#filter_content_districts_popup").show();
+                    $("#filter_content_landmarks_popup").hide();
+                }
+                else {
+                    // trigger the landmark tab
+                    $("#ul_map_filter_tabs").tabs('select', 1);
+                    $("#filter_content_districts_popup").hide();
+                    $("#filter_content_landmarks_popup").show();
+                }
+
             }
             
             $("#map_filter_popup").fancybox({

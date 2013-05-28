@@ -74,6 +74,36 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
+    <div id="filter_links_container">
+     <?php
+        $filterBy_flag = "both";
+        if (empty($city_landmarks) && empty($city_districts)) {
+
+            $filterBy_flag = "none";
+        } elseif (empty($city_landmarks)) {
+            $filterBy_flag = "districts";
+        } elseif (empty($city_districts)) {
+            $filterBy_flag = "landmarks";
+        }
+        $filter_by_districts_link = '<a id="city_map_filter_districts" href="#" class="city_map_filter">' . _("Filter by Districts") . '</a>';
+        $filter_by_landmarks_link = '<a id="city_map_filter_landmarks" href="#" class="city_map_filter">' . _("Filter by Landmarks") . '</a>';
+        switch ($filterBy_flag) {
+            case "both":
+                echo $filter_by_districts_link . $filter_by_landmarks_link;
+                break;
+            
+            case "districts":
+                echo $filter_by_districts_link;
+                break;
+            
+            case "landmarks":
+                echo $filter_by_landmarks_link;
+                break;
+
+            default:
+                break;
+        } ?>
+</div>
     	<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 		<?php }?>
@@ -229,55 +259,56 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 <!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
 				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
-                       <?php if(isset($city_info->city_geo_lat)) { ?>
+                       <?php // if(isset($city_info->city_geo_lat)) { ?>
                         <?php
-                            $filterBy_flag = "both";
-                            $span_style = null;
-                             if ( empty($city_landmarks) && empty($city_districts) ) {
-
-                                 $filterBy_flag = "none";
-                             }
-                             elseif ( empty($city_landmarks) ) {
-                                  $filterBy_flag = "districts";
-                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }
-                             elseif ( empty($city_districts) ) {
-                                  $filterBy_flag = "landmarks";
-                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }?>
-                        <?php if ($filterBy_flag !== "none") { ?>
-                            <div id="map_filter_button" class="box_content map_button_box box_round">
+//                            $filterBy_flag = "both";
+//                            $span_style = null;
+//                             if ( empty($city_landmarks) && empty($city_districts) ) {
+//
+//                                 $filterBy_flag = "none";
+//                             }
+//                             elseif ( empty($city_landmarks) ) {
+//                                  $filterBy_flag = "districts";
+//                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+//                             }
+//                             elseif ( empty($city_districts) ) {
+//                                  $filterBy_flag = "landmarks";
+//                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+//                             }?>
+                        <?php // if ($filterBy_flag !== "none") { ?>
+<!--                            <div id="map_filter_button" class="box_content map_button_box box_round">
                                 <a id="city_map_filter" href="#">
-                                    <span><strong <?php echo $span_style; ?>>
+                                    <span><strong <?php echo $span_style; ?>>-->
                                             <?php
-                                            switch ($filterBy_flag) {
-                                                case "districts":
-                                                    echo _("Filter by Districts");
-
-                                                    break;
-                                                case "landmarks":
-                                                    echo _("Filter by Landmarks");
-
-                                                    break;
-                                                default:
-                                                    echo _("Filter by Districts or Landmarks");
-                                                    break;
-                                            }
-                                            ?></strong></span>
+//                                            switch ($filterBy_flag) {
+//                                                case "districts":
+//                                                    echo _("Filter by Districts");
+//
+//                                                    break;
+//                                                case "landmarks":
+//                                                    echo _("Filter by Landmarks");
+//
+//                                                    break;
+//                                                default:
+//                                                    echo _("Filter by Districts or Landmarks");
+//                                                    break;
+//                                            }
+                                            ?>
+<!--                                        </strong></span>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
-                            </div>
-                        <?php } 
-                        else{ ?>
-                      <script type="text/javascript">
+                            </div>-->
+                        <?php // } 
+//                        else{ ?>
+<!--                      <script type="text/javascript">
                         $(document).ready(function(){
                             $("#city_results_count").css({'height' : '15px'});
                             $(".top_search_result").css({'line-height' : 0});
                         });      
-                     </script>      
-                       <?php }
+                     </script>      -->
+                       <?php //}
                         ?>        
-                    <?php } ?>
+                    <?php //} ?>
 			</div>
 
 		<!-- research code -->

@@ -764,8 +764,10 @@ div.mapbubble p.price span{ color:red; display:inline;}
 
 #city_search_title_bar{width: 100%;height:22px;margin-bottom:15px;padding-bottom:5px;border-bottom:1px dashed #AAAAAA;}
 #city_search_title_bar h1{float:left;border:0px;}
-#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none; height: 86px;}
-.top_search_result{line-height: 65px;}
+#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none; 
+                    /*height: 86px;*/
+}
+/*.top_search_result{line-height: 65px;}*/
 #city_results_count .view_map{float:right;font-weight:normal;
 color:#3087C9;
 background:url(../images/V2/icon_view_map_green.png) no-repeat center left;
@@ -3082,4 +3084,11 @@ width: 275px;}
     height: 40px;
     margin-right: 10px;
     float: left;
+}
+
+.city_map_filter{
+    display: block;
+    font-size: 14px;
+    padding-bottom: 10px;
+    text-decoration: underline !important;  
 }
