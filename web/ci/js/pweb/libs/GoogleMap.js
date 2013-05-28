@@ -528,10 +528,17 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     }
 
     $("#city_info_" + property_number).removeClass('property_info_hover');
-
+    // change the marker that appears between the property image and the property name 
+    var imageSrc = $("#property_marker_number_" + property_number).attr('src');
+    imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_"); 
+    
+    $("#property_marker_number_" + property_number).attr("src", imageSrc);
     if (pIconType === "selected")
     {
         $("#city_info_" + property_number).addClass('property_info_hover');
+        // change the marker that appears between the property image and the property name 
+        imageSrc = imageSrc.replace("unselected/marker_", "selected/marker_selected_"); 
+        $("#property_marker_number_" + property_number).attr("src", imageSrc);
     }
 
 

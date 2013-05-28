@@ -2372,7 +2372,7 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 	padding: 4px 3px 4px 1px;
 	position: absolute;
 	top: 11px;
-    z-index: 1;
+        /*z-index: 1;*/
 }
 .searchcenter{
 width: 100%;
@@ -3076,4 +3076,10 @@ width: 275px;}
 
 #city_side_map_container.map_button_box span{
     display:none;	
+}
+
+.property_marker_number{
+    height: 40px;
+    margin-right: 10px;
+    float: left;
 }

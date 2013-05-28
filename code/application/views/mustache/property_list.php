@@ -126,7 +126,7 @@ onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
         <div class="city_hostel group" id="city_info_{{propertyNumber}}">
             <div class="info">
                 <div class="left info_pic">
-                    <div class="picture_number" id="{{propertyNumber}}">0</div>
+                    <div id="{{propertyNumber}}" class="picture_number">0</div>
                     <a href="{{property_page_url}}" style="position:relative;">
                         {{#PropertyImages}}
                         <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
@@ -145,6 +145,7 @@ if ($displayQuickPreview == 1) {
                 <!-- <div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.'); ?></div> -->
                 <div class="info_indent">
                     <h2>
+                         <img id ="property_marker_number_{{propertyNumber}}" class="property_marker_number" src="<?php echo site_url(); ?>/images/map_markers/unselected/marker_1.png" alt="" />
                         <a href="{{property_page_url}}" style="vertical-align: middle">
                             <span id="hostel_title_{{propertyNumber}}" class="hostel_title">{{propertyName}}</span>
                             <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">

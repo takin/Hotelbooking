@@ -349,6 +349,16 @@ PWebFilterApp.prototype.update = function() {
 			index = index +1;
 			$(this).html(index);
 		});
+                
+                // change the marker that appears between the property image and the property name 
+                $(".property_marker_number").each(function(index, value) {
+			index = index +1;
+                        // get image src
+                    	var imageSrc = $(this).attr('src');
+//                      replace it with image index
+                        imageSrc = imageSrc.replace("marker_1.png", "marker_"+index+".png"); 
+                        $(this).attr("src", imageSrc);    
+                });
 			
 	}
 	
