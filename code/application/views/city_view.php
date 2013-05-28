@@ -305,6 +305,12 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
 					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Prix");?></span></a></li>
 					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Cote");?></span></a></li>
+
+  				<li class="inputs"><input type="checkbox" class="checkbox" id="safest_filter" value="" name="safest_filter" />
+					<span class="icon"><span><?php echo _("Safest");?></span></span></li>
+				<li class="inputs"><input type="checkbox" class="checkbox" id="best_location_filter" value="" name="best_location_filter" />
+					<span class="icon"><span><?php echo _("Best Location");?></span></span></li>
+
   				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
 					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
 					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
