@@ -1092,6 +1092,18 @@ PWebFilterApp.prototype.setup = function(data)
     var that = this;
 	data = jQuery.parseJSON(data);
 
+	totalRecords = data.property_list.length;
+
+	// remove from search list
+	for (var i = 0; i < data.property_list.length; i++) {
+		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
+			data.property_list.splice(i, 1);
+
+			// go back one element
+			i -= 1;
+		}
+	}
+
 	// right about here load the QuickView
 	if (typeof(data.property_list) != 'undefined') {
 		if (typeof(data.property_list) == 'object') {
@@ -1104,18 +1116,6 @@ PWebFilterApp.prototype.setup = function(data)
 			for (var i = 0; i < data.property_list.length; i++) {
 				QuickView.addProperty(data.property_list[i]);
 			}
-		}
-	}
-
-	totalRecords = data.property_list.length;
-
-	// remove from search list
-	for (var i = 0; i < data.property_list.length; i++) {
-		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
-			data.property_list.splice(i, 1);
-
-			// go back one element
-			i -= 1;
 		}
 	}
 
@@ -1748,8 +1748,10 @@ PWebFilterApp.prototype.handle_delete = function() {
 		var animate = {bottom: '-=350', marginLeft: '-=140'};
 		var timer   = 1000;
 
+		var number = null;
+
 		if (obj.hasClass('remove_property_permanentely')) {
-			var number = id.replace('remove_property_permanentely_', '');
+			number = id.replace('remove_property_permanentely_', '');
 
 			pweb_setCookie('remove_' + number, number, 8765);
 
@@ -1759,7 +1761,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
-				var number = id.replace('remove_property_one_day_', '');
+				number = id.replace('remove_property_one_day_', '');
 
 				pweb_setCookie('remove_' + number, number, 24);
 
@@ -1768,7 +1770,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
-					var number = id.replace('remove_property_one_week_', '');
+					number = id.replace('remove_property_one_week_', '');
 
 					pweb_setCookie('remove_' + number, number, 168);
 
@@ -1776,6 +1778,10 @@ PWebFilterApp.prototype.handle_delete = function() {
 					$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
 				}
 			}
+		}
+
+		if (number != null) {
+			QuickView.remove(number);
 		}
 	});
 }

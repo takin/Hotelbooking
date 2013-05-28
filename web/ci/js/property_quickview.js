@@ -9,6 +9,23 @@ QuickView.propertyList          = [];
 QuickView.currentProperty       = null;
 QuickView.propertyNumberToIndex = {};
 
+QuickView.remove = function(propertyNumber) {
+	var index = QuickView.propertyNumberToIndex[propertyNumber.toString()];
+
+	if (index == undefined) {
+		return;
+	}
+
+	QuickView.propertyNumberToIndex = {};
+
+	// remove it
+	QuickView.propertyList.splice(index, 1);
+
+	for (var i = 0; i < QuickView.propertyList.length; i++) {
+		QuickView.propertyNumberToIndex[ QuickView.propertyList[i].data.propertyNumber ] = i;
+	}
+}
+
 QuickView.addProperty = function(data) {
 	var currentIndex = QuickView.propertyList.length;
 
