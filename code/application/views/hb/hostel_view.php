@@ -34,19 +34,25 @@ echo form_hidden('switch_api', $switch_api);
             <?php } ?>
             <?php $empty_rating = 0;
             foreach ($property_ratings as $rating_category => $rating_value) {
-                if ($rating_value == "") {
+                if ($rating_value == "" || !(int)$rating_value) {
                     $empty_rating++;
                 }
-            } ?>
-            <?php if ($empty_rating < 9) { ?>
+            }
+
+            $hostelRatingValue = null;
+            if (!empty($hostel["RATING"])) {
+                $hostelRatingValue = $hostel["RATING"];
+            }
+            elseif (!empty($hostel_db_data->rating_overall)) {
+                $hostelRatingValue = ceil($hostel_db_data->rating_overall) . ' %';
+            }
+
+            ?>
+            <?php if ($empty_rating < 9 && (int)$hostelRatingValue) { ?>
         <div class="box_content box_round group rating_bars">
             <span class="title"><?php echo ucwords(_("évaluation moyenne")); ?>
                     <?php
-                    if (!empty($hostel_db_data->rating_overall)) {
-                        echo ceil($hostel_db_data->rating_overall) . ' %';
-                    } elseif (!empty($hostel["RATING"])) {
-                        echo ceil($hostel["RATING"]) . ' %';
-                    }
+                        echo $hostelRatingValue;
                     ?>
             </span>
             <div class="clearfix bar-overview">
@@ -515,20 +521,31 @@ if ($api_error == false) {
                 <li class="last"><a id="tab_comment" class="tab_review" id="hostel-show-commentaries-tab" href="#hostel_info_reviews"><?php echo _("Commentaires"); ?></a></li>
             </ul>
             <?php
+            $hostelRatingValue = null;
+
             if (!empty($hostel["RATING"])) {
+                $hostelRatingValue = $hostel["RATING"];
+            }
+            elseif (!empty($hostel_db_data->rating_overall)) {
+                $hostelRatingValue = $hostel_db_data->rating_overall;
+            }
+
+            if ($hostelRatingValue != null && (int)$hostelRatingValue) {
+                $hostelRatingValue = (int)$hostelRatingValue;
+
                 $rating = '';
-                if (($hostel["RATING"] > 59) && ($hostel["RATING"] < 70)) {
+                if (($hostelRatingValue > 59) && ($hostelRatingValue < 70)) {
                     $rating = _("Good");
-                } elseif (($hostel["RATING"] > 69) && ($hostel["RATING"] < 80)) {
+                } elseif (($hostelRatingValue > 69) && ($hostelRatingValue < 80)) {
                     $rating = _("Very good");
-                } elseif (($hostel["RATING"] > 79) && ($hostel["RATING"] < 90)) {
+                } elseif (($hostelRatingValue > 79) && ($hostelRatingValue < 90)) {
                     $rating = _("Great");
-                } elseif (($hostel["RATING"] > 89)) {
+                } elseif (($hostelRatingValue > 89)) {
                     $rating = _("Fantastic");
                 }
                 ?>
                 <ul class="box_round rating">
-                    <li class="first last"><span class="" title="<?php echo _("évaluation moyenne"); ?>"><strong class="txt-mid green"><?php echo $rating; ?></strong><strong style="color:#333333;"><?php echo $hostel["RATING"]; ?></strong></span></li>
+                    <li class="first last"><span class="" title="<?php echo _("évaluation moyenne"); ?>"><strong class="txt-mid green"><?php echo $rating; ?></strong><strong style="color:#333333;"><?php echo $hostelRatingValue; ?>%</strong></span></li>
                 </ul>
             <?php } ?>
         </nav>
@@ -821,7 +838,8 @@ if ($api_error == false) {
 
                 <?php if (!empty($hostel['CHECKINTIMES']['CHECKOUT']) || !empty($hostel['CHECKINTIMES']['CHECKIN'])) { ?>
                     <div class="content_block">
-                        <h2 class="margbot10"><?php echo _("Check-In/Out Details"); ?></h2>
+			<br style="clear: both" />
+                        <h2 class="margbot10"><?php echo _("Check-In/Out Details"); ?><img id="check_in_out" src="<?php echo site_url('/images/V2/icon_help.png'); ?>" title="<?php echo _("Check-In/Out Details"); ?>|<?php echo _('This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available.'); ?>" /></h2>
                         <div class="group">
                     <?php
                     foreach ($hostel['CHECKINTIMES'] as $indice => $valeur) {

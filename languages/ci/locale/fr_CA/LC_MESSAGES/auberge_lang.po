@@ -3896,9 +3896,9 @@ msgstr "Commentaires et évaluations des voyageurs"
 
 #: ../code/application/views/property_detail.php:609
 #: ../code/application/views/property_detail.php:652
-#, fuzzy, php-format
+#, php-format
 msgid "Par %s"
-msgstr "Par %s | Le %s"
+msgstr "Par %s"
 
 #: ../code/application/views/property_detail.php:623
 #: ../code/application/views/hw/hostel_view.php:439
@@ -4516,7 +4516,7 @@ msgstr "Votre Sélection"
 #: ../code/application/views/hw/booking_view.php:1047
 #, php-format
 msgid "You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Zaplatíte nyní pouze zálohu (%d%% z celkové částky) jako potvrzení a zajištění vaší rezervace. Zbývající částku (%d%%) splatíte při příjezdu. Informaci o ubytovacím zařízení (email,adresu,telefonní číslo...) naleznete v potvrzujícím emailu po dokončení rezervace."
+msgstr "Vous ne payez que le dépôt (%d%% du montant total) pour confirmer et garantir votre réservation maintenant. Le montant restant (%d%%) est payable à l'arrivée. Vous trouverez les coordonnées de létablissment (email, adresse, numéro de téléphone ...) dans votre email de confirmation après avoir effectué votre réservation."
 
 #: ../code/application/views/hw/booking_avail_view.php:758
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4889,7 +4889,7 @@ msgstr "Information "
 #: ../code/application/views/hb/booking_view.php:96
 #, php-format
 msgid "You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Vous ne payez que le dépôt (10%% du montant total) pour confirmer et garantir votre réservation. Le montant restant (90%%) est payable à votre arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, numéro de téléphone ...) dans votre courriel de confirmation après avoir effectué votre réservation."
+msgstr "Vous ne payez que le dépôt (10%% du montant total) pour confirmer et garantir cette réservation. Le montant restant (90%%) est payable à votre arrivée. Vous trouverez les coordonnées de l’établissement (email, adresse, numéro de téléphone …) dans votre courriel de confirmation après avoir effectué votre réservation."
 
 #: ../code/application/views/hb/booking_view.php:346
 #: ../code/application/controllers/cadmin.php:26
@@ -6469,7 +6469,7 @@ msgstr "Voirs vos favoris"
 #: ../code/application/views/helpfile/pofields.php~:215
 #, php-format
 msgid "Remove this property"
-msgstr "Enlever cette propriété "
+msgstr "Enlever cet établissement "
 
 #: ../code/application/views/helpfile/pofields.php:216
 #: ../code/application/views/helpfile/pofields.php~:216
@@ -8199,7 +8199,7 @@ msgstr " de "
 #: ../code/application/views/helpfile/pofields.php~:628
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
-msgstr "Les propriétés sélectionnées à comparer sont visibles en haut de cette page."
+msgstr "Les établissements sélectionnés à comparer sont visibles en haut de cette page."
 
 #: ../code/application/views/helpfile/pofields.php:646
 #: ../code/application/views/helpfile/pofields.php~:646
@@ -8413,7 +8413,7 @@ msgstr "Adresse"
 #: ../code/application/views/helpfile/pofields.php~:753
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property:"
-msgstr "Le prix le plus bas par personne et par nuit dans un dortoir dans cette établissement:"
+msgstr "Le prix le plus bas par personne et par nuit dans un dortoir dans cet établissement:"
 
 #: ../code/application/views/helpfile/pofields.php:754
 #: ../code/application/views/helpfile/pofields.php~:754
@@ -8741,7 +8741,7 @@ msgstr "Mes établissements favoris"
 #: ../code/application/views/helpfile/pofields.php:823
 #, php-format
 msgid "You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the property's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Vous ne payez que le dépôt (%d%% du montant total) pour confirmer et garantir votre réservation maintenant. Le montant restant (%d%%) est payable à l'arrivée. Vous trouverez les coordonnées de létablissment (email, adresse, numéro de téléphone …) dans votre email de confirmation après avoir effectué votre réservation."
+msgstr "Vous ne payez que le dépôt (%d%% du montant total) pour confirmer et garantir cette réservation maintenant. Le montant restant (%d%%) est payable à l'arrivée. Vous trouverez les coordonnées de l'établissement (email, adresse, numéro de téléphone …) dans votre email de confirmation après avoir effectué votre réservation."
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -8752,7 +8752,7 @@ msgstr "Montant déjà payé:"
 #: ../code/application/views/helpfile/pofields.php:830
 #, php-format
 msgid "This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available."
-msgstr "C'est l’heure à laquelle votre chambre sera prête le jour de votre arrivée et l’heure que vous devrez libérer votre chambre le jour de votre départ. La plupart des établissements peuvent garder vos bagages dans un lieu sûr si vous arrivez plus tôt ou si vous partez plus tard, et sont ouvert 24 heures sur 24. S'il vous plaît veuillez vérifier sur la liste des services offerts par cet établissement en particulier que ces services sont disponibles."
+msgstr "C'est l’heure à laquelle votre chambre sera prête le jour de votre arrivée et l’heure que vous devrez libérer votre chambre le jour de votre départ. La plupart des établissements peuvent garder vos bagages dans un lieu sûr si vous arrivez plus tôt ou si vous partez plus tard, et sont ouverts 24 heures sur 24. S'il vous plaît veuillez vérifier la liste des services offerts par cet établissement sur cette page."
 
 #: ../code/application/views/helpfile/pofields.php:831
 #, php-format
@@ -8787,7 +8787,7 @@ msgstr "Nous sommes désolés mais le nombre maximum d'établissements favoris q
 #: ../code/application/views/helpfile/pofields.php:839
 #, php-format
 msgid "This property has been saved in your \"My account\" section. You can now easily book it at a later date if you wish."
-msgstr "Cette propriété a été enregistrée dans votre section « Mon compte ». Vous pouvez maintenant facilement réserver à une date ultérieure si vous le souhaitez."
+msgstr "Cet établissement a été enregistré dans votre section « Mon compte ». Vous pouvez maintenant facilement le réserver à une date ultérieure si vous le souhaitez."
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -8797,7 +8797,7 @@ msgstr "Dépôt à payer maintenant (%d)"
 #: ../code/application/views/helpfile/pofields.php~:823
 #, php-format
 msgid "You only pay the deposit (%d of total amount) to confirm and secure your reservation now. The remaining amount (%d) is payable upon arrival. You will find the property's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Vous ne payez que le dépôt (%d du montant total) pour confirmer et garantir votre réservation maintenant. Le montant restant (%d) est payable à l'arrivée. Vous trouverez les coordonnées de létablissment (email, adresse, numéro de téléphone …) dans votre email de confirmation après avoir effectué votre réservation."
+msgstr "Vous ne payez que le dépôt (%d du montant total) pour confirmer et garantir cette réservation maintenant. Le montant restant (%d) est payable à l'arrivée. Vous trouverez les coordonnées de l'établissement (email, adresse, numéro de téléphone …) dans votre email de confirmation après avoir effectué votre réservation."
 
 #: ../code/application/views/helpfile/pofields.php~:824
 #, php-format
@@ -8827,9 +8827,8 @@ msgid "Number of nights:"
 msgstr "Nombre de nuits :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
-msgstr "Caractères restants:"
+msgstr "Caractère restants"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
 msgid "characters left"
@@ -8841,7 +8840,7 @@ msgstr "Mise à jour de vos notes"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
 msgid "Save Note"
-msgstr "Enregistrer cette note"
+msgstr "Sauvegarder cette note"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-05-14 21:28+0200\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
+"PO-Revision-Date: 2013-05-25 21:58+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -2340,7 +2340,7 @@ msgstr ""
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1285
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "Server steht zur Zeit nicht zur Verfügung."
 
@@ -4320,7 +4320,7 @@ msgstr "Von %s | %s Die"
 #: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hb_engine.php:862
 #: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
@@ -4331,7 +4331,7 @@ msgstr "Gut"
 #: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hb_engine.php:865
 #: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
@@ -4342,7 +4342,7 @@ msgstr "Sehr gut"
 #: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hb_engine.php:868
 #: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
@@ -4353,7 +4353,7 @@ msgstr "Super"
 #: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hb_engine.php:870
 #: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
@@ -5907,7 +5907,7 @@ msgstr ""
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #: ../code/application/controllers/cmain.php:789
 #: ../code/application/controllers/cmain.php:802
 #, php-format
@@ -7052,7 +7052,7 @@ msgstr "Mobile Version"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hb_engine.php:758
 #: ../code/application/libraries/Hw_engine.php:743
 #: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
@@ -7114,8 +7114,8 @@ msgstr "Verfügbarkeitsfehler für diese Unterkunft"
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1039
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "Information nicht verfügbar. Bitte versuchen Sie es später wieder."
@@ -7123,7 +7123,7 @@ msgstr "Information nicht verfügbar. Bitte versuchen Sie es später wieder."
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1295
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "Es stehen keine Zimmer für die gewählten Nächte zur Verfügung."
@@ -8496,7 +8496,7 @@ msgstr "Reservierung garantiert"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "Personen:"
@@ -9689,6 +9689,31 @@ msgstr ""
 "jetzt ganz leicht zu einem späteren Zietpunkt buchen, falls Sie dies "
 "wünschen."
 
+#: ../code/application/views/helpfile/pofields.php:840
+#, php-format
+msgid "Most Popular Amenities"
+msgstr "Die beliebtesten Vorzüge"
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, php-format
+msgid "Most Popular Types"
+msgstr "Die beliebtesten Typen"
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, php-format
+msgid "Save"
+msgstr "Speichern"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, fuzzy, php-format
+msgid "Last name"
+msgstr "Vorname"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr ""
+
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
@@ -9896,9 +9921,9 @@ msgstr "Schicken Sie uns einen Bericht über Ihren Aufenthalt!"
 msgid "Erreur lors de la réservation"
 msgstr "Buchungsfehler"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9906,14 +9931,14 @@ msgstr "Buchungsfehler"
 msgid "Hostels in %s - %s"
 msgstr "Hostels und Jugendherbergen in %s - %s"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr ""
 "Datum und Zahl der Übernachtungen ungültig. Werte bei der Suche ignoriert."
 
-#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hb_engine.php:1082
 #: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
@@ -10114,12 +10139,6 @@ msgstr "Eingeloggt bleiben"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "Bestätigungs-Code"
-
-#~ msgid "Most Popular Types"
-#~ msgstr "Die beliebtesten Typen"
-
-#~ msgid "Most Popular Amenities"
-#~ msgstr "Die beliebtesten Vorzüge"
 
 #~ msgid "All"
 #~ msgstr "Alle"

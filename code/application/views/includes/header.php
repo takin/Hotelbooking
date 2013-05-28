@@ -806,7 +806,7 @@ var citymap = {
   $this->carabiner->js('tabs.js');
   if($current_view != "group_request")
   {
-    $this->carabiner->js('sitetools.js');
+    $this->carabiner->js('sitetools.js?v=' . time());
   }
   $this->carabiner->js('map.js');
   $this->carabiner->js('slide.js');
