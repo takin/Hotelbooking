@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-25 21:59+0200\n"
+"PO-Revision-Date: 2013-05-29 00:36+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -1574,9 +1574,8 @@ msgid "Réservation de groupes"
 msgstr "Reservas de grupo"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Guarde esta propiedad como una de mis favoritas"
+msgstr "Guardar esta propiedad como favorita"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -9669,15 +9668,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Lo sentimos  pero la cantidad máxima de propiedades que puede guardar como "
+"favoritas en su cuenta es de 30 propiedades"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"Puedes guardar esta propiedad como una favorita en tu cuenta para que puedas "
-"hacer una reservación allí más adelante si lo deseas."
+"Esta propiedad ha sido guardad en la sección \"Mi cuenta\". Ahora puedes "
+"reservar fácilmente en cualquier momento que lo desees."
 
 #: ../code/application/views/helpfile/pofields.php:840
 #, php-format
@@ -9690,19 +9691,19 @@ msgid "Most Popular Types"
 msgstr "Tipos Más Populares"
 
 #: ../code/application/views/helpfile/pofields.php:842
-#, fuzzy, php-format
+#, php-format
 msgid "Save"
-msgstr "Actualizar notas"
+msgstr "Guardar"
 
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "Nombre"
+msgstr "Apellidos"
 
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "Suscripción al Boletín de noticias"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9755,25 +9756,21 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Llegada"
+msgstr "Llegada:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Número de huéspedes"
+msgstr "Número de noches:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
-msgstr "Caractéres restantes"
+msgstr "Caractéres restantes:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
-msgstr "Caractéres restantes"
+msgstr "Caractéres restantes:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
 msgid "Update Note"
@@ -9847,39 +9844,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "Aceptar los términos y condiciones del contrato para continuar"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Por favor espera"
+msgstr "Por favor inicie sesión"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Formato inválido"
+msgstr "Propiedad inválidas"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Numero de propiedad"
+msgstr "Propiedad no encontrada"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Guarde esta propiedad como una de mis favoritas"
+msgstr "Esta propiedad ya se encuentra en su lista de favoritas"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Invalido Formato de número de teléfono"
+msgstr "Número de noches no válido"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Formato inválido"
+msgstr "Fecha inválida"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "Las notas exceden el máximo permitido de %d carácteres"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
