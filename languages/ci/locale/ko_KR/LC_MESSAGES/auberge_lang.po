@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-25 22:04+0200\n"
+"PO-Revision-Date: 2013-05-29 22:16+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1542,9 +1542,8 @@ msgid "Réservation de groupes"
 msgstr "단체 예약"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "이 호텔을 즐겨찾기로 저장하기"
+msgstr "즐겨 찾기로 이 호텔을 저장"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -9439,15 +9438,17 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"죄송하지만, 귀하의 계정에 저장할 수 있는 즐겨찾기 호텔의 최대 수는 30 개 입니"
+"다."
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-" 이 호텔을 귀하의 계정에 즐겨 찾기로 저장하여, 원하는 때에 손쉽게 예약을 할 "
-"수 있습니다."
+"이 호텔은 \"내 계정\"란에 저장되었습니다. 이제 귀하가  원하시는 때에,  쉽게  "
+"예약 할 수 있습니다."
 
 #: ../code/application/views/helpfile/pofields.php:840
 #, php-format
@@ -9460,19 +9461,19 @@ msgid "Most Popular Types"
 msgstr "가장 인기있는 유형"
 
 #: ../code/application/views/helpfile/pofields.php:842
-#, fuzzy, php-format
+#, php-format
 msgid "Save"
-msgstr "참고사항 업데이트"
+msgstr "저장"
 
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "이름"
+msgstr "성"
 
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "뉴스 레터 구독"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9520,35 +9521,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "도착 날짜"
+msgstr "도착 :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "손님 수"
+msgstr "숙박 일수 :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "남은 글자 수 :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "남은 글자 수 :"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "참고사항 업데이트"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "참고사항 업데이트"
+msgstr "메모 내용 저장"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9614,39 +9609,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "이용 약관에  동의하십시오."
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "기다려 주세요"
+msgstr "로그인을 해주세요"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "잘못된 형식입니다."
+msgstr "유효하지 않은 호텔"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "소유 번호"
+msgstr "호텔을 찾을 수 없습니다"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "이 호텔을 즐겨찾기로 저장하기"
+msgstr "이미 마음에 드는 호텔입니다."
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "없는 번호 입니다."
+msgstr "유효하지 않은 숙박일 숫자"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "잘못된 형식입니다."
+msgstr "유효하지 않은 날짜"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "메모 내용이 최대 %d개의 문자를 초과했습니다."
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337

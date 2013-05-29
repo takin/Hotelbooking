@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-25 22:02+0200\n"
+"PO-Revision-Date: 2013-05-29 22:05+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -1554,9 +1554,8 @@ msgid "Réservation de groupes"
 msgstr "Hostel Csoport foglalás"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Ingatlan mentése a kedvencek közé."
+msgstr "Ezt az ingatlant mentse el a kedvencek közé"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -9561,15 +9560,16 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Sajnos a fiójában a kedvencek közé maximálisan elmenthető ingatlanok száma 30"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"A fiókjában az ingatlant elmentheti a kedvencei közé, így, ha szeretné, egy "
-"későbbi időpontban könnyen lefoglahatja."
+"Ezt az ingatlant az \"Fiókom\" részben elmentette, így egy későbbi "
+"időpontban könnyebben le tudja foglalni."
 
 #: ../code/application/views/helpfile/pofields.php:840
 #, php-format
@@ -9582,19 +9582,19 @@ msgid "Most Popular Types"
 msgstr "Legnépszerűbb típusok"
 
 #: ../code/application/views/helpfile/pofields.php:842
-#, fuzzy, php-format
+#, php-format
 msgid "Save"
-msgstr "Jegyzetek Frissítése"
+msgstr "Mentés"
 
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "Keresztnév"
+msgstr "Vezetéknév"
 
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "Feliratkozás hírlevélre"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9648,35 +9648,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Érkezési nap"
+msgstr "Érkezés:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Vendégek száma"
+msgstr "Éjszakák száma:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "Felhasználható karakterek:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "Felhasználható karakterek:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Jegyzetek Frissítése"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Jegyzetek Frissítése"
+msgstr "Megjegyzés Mentése"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9742,39 +9736,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "Fogadd el az általános szerződési feltételeket a folytatáshoz"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Kérem , várjon"
+msgstr "Kérem, jelentkezzen be"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Érvénytelen forma"
+msgstr "Érvénytelen ingatlan"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Ingatlan szám"
+msgstr "Ingatlan nem található"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Ingatlan mentése a kedvencek közé."
+msgstr "Az ingatlan már a kedvencek között van"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Érvénytelen telefonszám "
+msgstr "Éjszakák száma érvénytelen"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Érvénytelen forma"
+msgstr "Érvénytelen dátum"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "A megjegyzés meghaladja a maximális %d karakter hosszúságot"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337

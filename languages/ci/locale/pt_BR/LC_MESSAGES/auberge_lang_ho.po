@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-16 22:34+0200\n"
+"PO-Revision-Date: 2013-05-29 22:30+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "Language: fr\n"
@@ -1574,9 +1574,8 @@ msgid "Réservation de groupes"
 msgstr "Reservas de grupos"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "Salvar essa propriedade como favorito"
+msgstr "Salvar essa propriedade como favorita"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -3545,7 +3544,7 @@ msgstr "Data"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -9649,29 +9648,29 @@ msgstr ""
 "agendá-la em uma data que você queira."
 
 #: ../code/application/views/helpfile/pofields.php:840
-#, fuzzy, php-format
+#, php-format
 msgid "Most Popular Amenities"
-msgstr "Mais Importante"
+msgstr "Serviços Mais Populares"
 
 #: ../code/application/views/helpfile/pofields.php:841
-#, fuzzy, php-format
+#, php-format
 msgid "Most Popular Types"
-msgstr "Mais Importante"
+msgstr "Tipos Mais Populares"
 
 #: ../code/application/views/helpfile/pofields.php:842
-#, fuzzy, php-format
+#, php-format
 msgid "Save"
-msgstr "Atualizar Notas"
+msgstr "Salvar"
 
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "Primeiro nome"
+msgstr "Último nome"
 
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "Inscrição na newsletter"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9724,35 +9723,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "Dia da chegada"
+msgstr "Chegada:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "Número de hóspedes"
+msgstr "Número de noites:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "Caracteres faltantes:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "Caracteres faltantes:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "Atualizar Notas"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "Atualizar Notas"
+msgstr "Salvar anotação"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9818,39 +9811,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "Aceitar os termos e condições de contrato para continuar"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "Por favor aguarde"
+msgstr "Por favor faça login"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "Formato inválido"
+msgstr "Propriedade inválida:"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "Número da Propriedade"
+msgstr "Propriedade não encontrada:"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "Salvar essa propriedade como favorito"
+msgstr "A propriedade já está nos favoritos"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "Número de telefone inválido"
+msgstr "Número de noites inválido"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "Formato inválido"
+msgstr "Data inválida"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "As anotações excederam o máximo de %d caracteres"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337

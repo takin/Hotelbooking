@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-24 17:30+0300\n"
-"PO-Revision-Date: 2013-05-25 22:20+0200\n"
+"PO-Revision-Date: 2013-05-29 22:20+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1556,9 +1556,8 @@ msgid "Réservation de groupes"
 msgstr "グループ予約"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "この施設をお気に入りに登録する"
+msgstr "この施設をお気に入りに登録する。"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -9458,16 +9457,16 @@ msgstr "ルームタイプを隠す"
 msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
-msgstr ""
+msgstr "お気に入りに登録できるのは30件までです。申し訳ございません。"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"お客様のアカウントにお気に入りの施設を登録できます。後日、簡単に予約ができま"
-"す。"
+"ご指定の施設はマイアカウントに保存されました。いつでも後から簡単にご予約可能"
+"です。"
 
 #: ../code/application/views/helpfile/pofields.php:840
 #, php-format
@@ -9480,19 +9479,19 @@ msgid "Most Popular Types"
 msgstr "一番人気のタイプ"
 
 #: ../code/application/views/helpfile/pofields.php:842
-#, fuzzy, php-format
+#, php-format
 msgid "Save"
-msgstr "最新情報メモ"
+msgstr "保存する"
 
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "名前"
+msgstr "姓"
 
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "ニュースレター購読"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9541,35 +9540,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "到着日"
+msgstr "到着:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "宿泊人数"
+msgstr "宿泊数:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "残りの文字"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "残りの文字"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "最新情報メモ"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "最新情報メモ"
+msgstr "メモを保存する"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9635,39 +9628,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "進む為には契約条件合意を受け入れてください"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "お待ち下さい"
+msgstr "ログインしてください。"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "無効なフォーマット　"
+msgstr "無効の施設"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "プロパティー番号"
+msgstr "施設が見つかりません"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "この施設をお気に入りに登録する"
+msgstr "この施設はすでにお気に入りに登録されています"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "無効な電話番号フォーマット"
+msgstr "無効の宿泊数"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "無効なフォーマット　"
+msgstr "無効の日付"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "メモは最大の%d文字を超えています。"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
