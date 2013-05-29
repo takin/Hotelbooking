@@ -480,7 +480,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(Document).height();
-        var fix_height_position =  ( page_height - $("#sidebar").height() - 600 ) ;
+        var fix_height_position =  ( page_height - $("#sidebar").height() - 385 ) ;
         var scroll_position = $(window).scrollTop();
         // whole div container
         var main_container_leftPosition = $("#main_container").offset().left;
@@ -490,6 +490,8 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
         //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
+            $("#side_search_box").show();
+            
             $("#sidebar").removeClass("fix_sidebar_position");
             $("#sidebar").addClass("container_16");
             $("#sidebar").addClass("grid_4");
@@ -500,6 +502,8 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             $("#main").css({'float' : 'auto'});
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
+            $("#side_search_box").hide();
+            
             $("#sidebar").addClass("fix_sidebar_position");
             $("#sidebar").removeClass("container_16");
             $("#sidebar").removeClass("grid_4");
@@ -511,6 +515,8 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             $("#main").css({'float' : 'right'});
          }
          else  if( scroll_position > fix_height_position ){
+            $("#side_search_box").show();
+            
             $("#sidebar").css({'position' : 'relative'});
             $("#sidebar").addClass("container_16");
             $("#sidebar").addClass("grid_4");
