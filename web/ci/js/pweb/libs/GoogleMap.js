@@ -561,6 +561,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
  var image = "http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png';
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
+                    // set map to center on marker
+                    window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
 
                 }
             }
