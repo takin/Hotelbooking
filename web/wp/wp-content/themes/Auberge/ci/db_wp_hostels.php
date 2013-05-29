@@ -95,20 +95,6 @@ class Db_hostels
 
     $currency = $this->db->escape($currency);
 
-    $booker_country = "";
-//     if(!empty($booker_country_code))
-//     {
-//       $booker_country_code = $this->db->escape($booker_country_code);
-
-//       $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-//       $booker_country_code = $this->db->get_var($query);
-
-//       if(!empty($booker_country_code))
-//       {
-//         $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-//       }
-//     }
-
     if($include_test_bookings == true)
     {
       $include_test_bookings = "";
@@ -213,7 +199,6 @@ class Db_hostels
                   WHERE  LOWER(API_booked) LIKE LOWER('hw')
                      $include_test_bookings
                      $domain
-                     $booker_country
                      AND hw_city.hw_city IS NOT NULL
                      AND DATE(booking_time) > '$since_date'
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
@@ -236,7 +221,7 @@ class Db_hostels
               AND hw_hostel_price.currency_price = 'EUR'";
 
     //Booker country assumes to be always the same no longer in key
-    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count";
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$top_count";
 
     $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
@@ -266,20 +251,6 @@ class Db_hostels
     $currency = $this->db->escape($currency);
 
     $api_lang = $this->db->escape($this->hb_lang_code_convert($lang));
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     //force test booking includes for starting the site
     $include_test_bookings = true;
@@ -371,7 +342,6 @@ class Db_hostels
                     $include_test_bookings
                     $domain
                    -- AND hb_city.lname_en IS NOT NULL
-                    $booker_country
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
                       AND DATE(booking_time) > '$since_date'
                    GROUP BY property_city_hb_id
@@ -395,7 +365,7 @@ class Db_hostels
               ORDER BY property_booking_count DESC, min_price ASC";
 
     //Booker country assumes to be always the same no longer in key
-    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count";
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$top_count";
 
     $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
