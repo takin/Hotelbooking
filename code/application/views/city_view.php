@@ -74,7 +74,11 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-    <div id="filter_links_container">
+    	<?php if(isset($city_info->city_geo_lat)){?>
+		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
+		<?php }?>
+                    <div id="filter_links_container" class="box_content box_round group side_search">
+                        <ul class="group_filter_links_container">
      <?php
         $filterBy_flag = "both";
         if (empty($city_landmarks) && empty($city_districts)) {
@@ -85,8 +89,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         } elseif (empty($city_districts)) {
             $filterBy_flag = "landmarks";
         }
-        $filter_by_districts_link = '<a id="city_map_filter_districts" href="#" class="city_map_filter">' . _("Filter by Districts") . '</a>';
-        $filter_by_landmarks_link = '<a id="city_map_filter_landmarks" href="#" class="city_map_filter">' . _("Filter by Landmarks") . '</a>';
+        $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
+        $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by landmarks") . '</a></li>';
         switch ($filterBy_flag) {
             case "both":
                 echo $filter_by_districts_link . $filter_by_landmarks_link;
@@ -103,10 +107,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
             default:
                 break;
         } ?>
+                            </ul>
 </div>
-    	<?php if(isset($city_info->city_geo_lat)){?>
-		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
-		<?php }?>
 	<div id="search_load">	
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<?php //TODO show filter reset;?>

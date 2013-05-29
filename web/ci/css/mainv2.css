@@ -578,7 +578,8 @@ a.modify_search.collapse {
 
 .city_view_search #side_search_wrap, .hostel_view_side #side_search_wrap{display:none;}
 
-.box_content.side_search, .box_content.main_search{	
+.box_content.side_search, .box_content.main_search
+,#filter_links_container{	
 	border:1px solid #80B422;
 	background-color: #EAF0DE;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F7EF), to(#EAF0DE));
@@ -3086,9 +3087,9 @@ width: 275px;}
     float: left;
 }
 
-.city_map_filter{
-    display: block;
+.group_filter_links_container li{
+    float: left;
     font-size: 14px;
-    padding-bottom: 10px;
-    text-decoration: underline !important;  
+    margin-left: 4px;
+    width: 8em;
 }
