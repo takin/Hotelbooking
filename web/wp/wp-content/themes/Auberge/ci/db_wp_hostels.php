@@ -95,20 +95,6 @@ class Db_hostels
 
     $currency = $this->db->escape($currency);
 
-    $booker_country = "";
-//     if(!empty($booker_country_code))
-//     {
-//       $booker_country_code = $this->db->escape($booker_country_code);
-
-//       $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-//       $booker_country_code = $this->db->get_var($query);
-
-//       if(!empty($booker_country_code))
-//       {
-//         $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-//       }
-//     }
-
     if($include_test_bookings == true)
     {
       $include_test_bookings = "";
@@ -213,7 +199,6 @@ class Db_hostels
                   WHERE  LOWER(API_booked) LIKE LOWER('hw')
                      $include_test_bookings
                      $domain
-                     $booker_country
                      AND hw_city.hw_city IS NOT NULL
                      AND DATE(booking_time) > '$since_date'
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
@@ -235,15 +220,20 @@ class Db_hostels
               WHERE base_desc_table.langage = 'English'
               AND hw_hostel_price.currency_price = 'EUR'";
 
-    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     //Booker country assumes to be always the same no longer in key
-    $old_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W",$last_week_date);
-    $key_var     = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W");
+    //-- is there to use cache created with old key
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
+    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
+
+    $key_var     = "$generic_key_var-".date("Y-W");
+
+    $generic_cache_key = "tophostelhw_".md5($generic_key_var);
     $old_cache_key = "tophostelhw_".md5($old_key_var);
     $cache_key     = "tophostelhw_".md5($key_var);
 
-    $results = $this->get_db_results_with_cached($query,$cache_key,$old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached($query, $generic_cache_key, $cache_key, $old_cache_key,$currency_code);
 
     return $results;
   }
@@ -262,20 +252,6 @@ class Db_hostels
     $currency = $this->db->escape($currency);
 
     $api_lang = $this->db->escape($this->hb_lang_code_convert($lang));
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     //force test booking includes for starting the site
     $include_test_bookings = true;
@@ -353,7 +329,7 @@ class Db_hostels
                   SELECT API_booked, transactions_hostelworld.site_domain_id, site_domain,
                          IF(LOCATE(',',hb_city.lname_en)>0,TRIM(LEFT(hb_city.lname_en,LOCATE(',',hb_city.lname_en)-1)),hb_city.lname_en)as property_city,
                          hb_country.lname_en as property_country,
-                		hb_city.hb_id as property_city_hb_id,
+              			hb_city.hb_id as property_city_hb_id,
               --           `continent_fr` as translated_continent,
               --           `continent_en`,
                          count(*) as property_booking_count
@@ -367,7 +343,6 @@ class Db_hostels
                     $include_test_bookings
                     $domain
                    -- AND hb_city.lname_en IS NOT NULL
-                    $booker_country
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
                       AND DATE(booking_time) > '$since_date'
                    GROUP BY property_city_hb_id
@@ -390,62 +365,63 @@ class Db_hostels
     					GROUP BY top_hostel_of_city
               ORDER BY property_booking_count DESC, min_price ASC";
 
+    //Booker country assumes to be always the same no longer in key
+    //-- is there to use cache created with old key
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
     $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
 
-    //Booker country assumes to be always the same no longer in key
-    $old_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W",$last_week_date);
-    $key_var     = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W");
+    $key_var     = "$generic_key_var-".date("Y-W");
 
+    $generic_cache_key = "tophostelhb_".md5($generic_key_var);
     $old_cache_key = "tophostelhb_".md5($old_key_var);
     $cache_key     = "tophostelhb_".md5($key_var);
 
-    $results = array();
-    $results = $this->get_db_results_with_cached($query,$cache_key,$old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached($query, $generic_cache_key, $cache_key,$old_cache_key,$currency_code);
 
     return $results;
   }
 
-  function get_db_results_with_cached($query, $cache_key, $old_cache_key, $currency_code)
+  function get_db_results_with_cached($query, $generic_cache_key, $cache_key, $old_cache_key, $currency_code)
   {
     $results = array();
 
-//     debug_dump($cache_key,"70.55.166.30");
-
-    //If forcing refresh of caching
+   //If forcing refresh of caching
     if (!empty($_GET['cacherun']) && ($_GET['cacherun'] == 'run') )
     {
       $results = $this->db->get_results($query);
-      // 7 days = 604800 sec
       set_transient( $cache_key, $results, 0);
+      set_transient( $generic_cache_key, $results, 0);
 
-      //Delete old cache key no more useful
+      //delete old cache key no more useful
       if(get_transient( $old_cache_key ) !== false)
       {
         delete_transient($old_cache_key);
       }
     }
+    //no cache for the current key
     elseif ( false === ( $results = get_transient( $cache_key ) ) )
     {
-      //If old key is cached serve old key cached results and start a process to update cache with new key
+      //no cache for the previous key
       if( false === ( $results = get_transient( $old_cache_key ) ) )
       {
-        //Old key not cached so cache results of new key
-        $results = $this->db->get_results($query);
-        // 7 days = 604800 sec
-        // 30 days = 2592000
-        if(!empty($results))
+        //no cache for the generic key
+        if( false === ( $results = get_transient( $generic_cache_key ) ) )
         {
-          set_transient( $cache_key, $results, 0);
-        }
-//         debug_dump("Wait no old key","70.55.166.30");
 
-//         debug_dump($old_cache_key,"70.55.166.30");
-//         debug_dump($cache_key,"70.55.166.30");
-//         debug_dump($query,"70.55.166.30");
+          //Old key not cached so cache results of new key
+          $results = $this->db->get_results($query);
+          set_transient( $cache_key, $results, 0);
+          set_transient( $generic_cache_key, $results, 0);
+        }
       }
+      //cache for the previous key
       else
       {
+        //for now store the previous week result while the cache is updated
+        set_transient( $cache_key, $results, 0);
+
         //start parallel process to load new key in DB
         //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
         //TONOTICE function should be independant from URL now only on homepage
@@ -456,15 +432,7 @@ class Db_hostels
 
         $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
         exec($cmd);
-//         debug_dump("CMD","70.55.166.30");
       }
-    }
-    else
-    {
-      //taken cached results
-//       debug_dump("Cached","70.55.166.30");
-//       debug_dump($cache_key,"70.55.166.30");
-//       debug_dump($results,"70.55.166.30");
     }
 
     return $results;
