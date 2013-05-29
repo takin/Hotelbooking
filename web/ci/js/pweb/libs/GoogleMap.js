@@ -248,6 +248,17 @@ GoogleMap.prototype.initInfoWin = function() {
 	});
 	google.maps.event.addListener(window.gmap, 'click', function () {window.gInfoWin.close();});
 };
+
+GoogleMap.clearDistrictLandmark = function() {
+	if (window.gmap && window.gmap.overlayMapTypes) {
+		window.gmap.overlayMapTypes.setAt(1, null); 
+	}
+
+	if (window.cityCircle !== null) {
+		window.cityCircle.setMap(null);
+	}
+};
+
 GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     // working with mapinfulence
@@ -347,6 +358,11 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
     }
 
 };
+
+GoogleMap.setZoom = function(zoom) {
+	window.gmap.setZoom(zoom || 13);
+};
+
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
    
     var point = landmark_LatLng.split("###");

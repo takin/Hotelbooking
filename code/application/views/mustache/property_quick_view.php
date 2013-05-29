@@ -117,7 +117,7 @@
 									<b><span class="mapView_districtWord"><?php echo _('Districts');?>:</span></b>
 									{{#districts}}
 										<p>
-											<input type="radio" name="distrinct_landmark" value="{{um_id}}" onchange="GoogleMap.prototype.changeDistrictLayer('{{um_id}}')">
+											<input type="radio" name="distrinct_landmark" value="{{um_id}}" onchange="GoogleMap.clearDistrictLandmark(); GoogleMap.prototype.changeDistrictLayer('{{um_id}}'); GoogleMap.setZoom(13)">
 											{{district_name}}
 										</p>
 									{{/districts}}
@@ -133,7 +133,7 @@
 									<b><span class="mapView_districtWord"><?php echo _('Landmarks (within 2km)');?>:</span></b>
 									{{#landmarks}}
 										<p>
-											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}}###{{geo_longitude}}" onchange="GoogleMap.prototype.changeLandmarkLayer('{{geo_latitude}}###{{geo_longitude}}');">
+											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}}###{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); GoogleMap.prototype.changeLandmarkLayer('{{geo_latitude}}###{{geo_longitude}}'); GoogleMap.setZoom(13);">
 											{{translation_name}}
 										</p>
 									{{/landmarks}}

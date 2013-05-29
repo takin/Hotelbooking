@@ -119,8 +119,13 @@ QuickView.prototype.getContent = function() {
 					Latitude: data.hostel.geolatitude,
 					Longitude: data.hostel.geolongitude
 				};
+				var imageList = data.hostel.BIGIMAGES ? data.hostel.BIGIMAGES : data.hostel['PropertyImages'];
 
-				images = data.hostel.BIGIMAGES ? data.hostel.BIGIMAGES : data.hostel['PropertyImages'];
+				for (var i = 0; i < imageList.length; i++) {
+					if (imageList[i].imageType == 'Main') {
+						images.push(imageList[i]);
+					}
+				}
 
 				// now load the info
 				var content = Mustache.to_html(document.getElementById('template-property-quick-view').innerHTML, {
@@ -134,8 +139,8 @@ QuickView.prototype.getContent = function() {
 	//				image_list: self.data.image_list,
 	//				shortImages: [],
 
-					IMAGES: data.hostel.BIGIMAGES,
-					HW_IMAGES: data.hostel['PropertyImages'],
+					IMAGES: images,
+					HW_IMAGES: images,
 
 					hasIncludes  : includes.length,
 					hasAmenities : amenities.length,
@@ -179,12 +184,12 @@ QuickView.prototype.getContent = function() {
 
 					imageList[i].onerror = function() {
 						var current = $(this);
-						$('img[src="' + current.attr('src') + '"]').remove();
+						$('img[src="' + current.attr('src') + '"]').parent().parent().remove();
 					};
 
 					imageList[i].onabort = function() {
 						var current = $(this);
-						$('img[src="' + current.attr('src') + '"]').remove();
+						$('img[src="' + current.attr('src') + '"]').parent().parent().remove();
 					};
 
 					imageList[i].src = images[i];
@@ -193,7 +198,7 @@ QuickView.prototype.getContent = function() {
 				var imagesNo = parseInt($('.ad-thumb-list li').length, 10);
 
 				$('.ad-gallery').adGallery({
-					start_at_index: parseInt(imagesNo / 2, 10),
+					start_at_index: 5,
 					loader_image: '/images/loading-round.gif',
 					width: 400,
 					height: 300
@@ -230,7 +235,7 @@ QuickView.prototype.getContent = function() {
 
 				// set first items selected
 				$('#hostel_mapView_districts input[type="radio"]').eq(0).attr('checked', true);
-				$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
+				//$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
 
 
 				self.setMap();
@@ -348,7 +353,7 @@ QuickView.prototype.getContent = function() {
 
 			// set first items selected
 			$('#hostel_mapView_districts input[type="radio"]').eq(0).attr('checked', true);
-			$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
+			//$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
 
 			self.setMap();
 		}, 200);
@@ -396,22 +401,17 @@ QuickView.prototype.setMap = function() {
 	} catch(err) {}
 
 	function autoselect() {
-		if ($('#hostel_mapView_districts input[type="radio"]:checked').length > 0) {
+		if ($('input[name="distrinct_landmark"]:checked').length > 0) {
 			try {
-				QuickView.pweb_map.changeDistrictLayer( $('#hostel_mapView_districts input[type="radio"]:checked').val() );
-			} catch(err) {}
-		}
-
-		if ($('#hostel_mapView_landmarks input[type="radio"]:checked').length > 0) {
-			try {
-				QuickView.pweb_map.changeLandmarkLayer( $('#hostel_mapView_landmarks input[type="radio"]:checked').val() );
+				QuickView.pweb_map.changeDistrictLayer( $('input[name="distrinct_landmark"]:checked').val() );
+				GoogleMap.setZoom(13);
 			} catch(err) {}
 		}
 
 		$('#map_canvas').css('height', '285px !important');
 	}
 
-	window.setTimeout(function() { autoselect(); }, 1200);
+	window.setTimeout(function() { autoselect(); }, 2200);
 }
 
 
