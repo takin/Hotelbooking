@@ -410,13 +410,10 @@ class Db_hostels
   {
     $results = array();
 
-//     debug_dump($cache_key,"70.55.166.30");
-
-    //If forcing refresh of caching
+   //If forcing refresh of caching
     if (!empty($_GET['cacherun']) && ($_GET['cacherun'] == 'run') )
     {
       $results = $this->db->get_results($query);
-      // 7 days = 604800 sec
       set_transient( $cache_key, $results, 0);
 
       //Delete old cache key no more useful
@@ -425,6 +422,7 @@ class Db_hostels
         delete_transient($old_cache_key);
       }
     }
+    //no cache
     elseif ( false === ( $results = get_transient( $cache_key ) ) )
     {
       //If old key is cached serve old key cached results and start a process to update cache with new key
@@ -432,20 +430,16 @@ class Db_hostels
       {
         //Old key not cached so cache results of new key
         $results = $this->db->get_results($query);
-        // 7 days = 604800 sec
-        // 30 days = 2592000
         if(!empty($results))
         {
           set_transient( $cache_key, $results, 0);
         }
-//         debug_dump("Wait no old key","70.55.166.30");
-
-//         debug_dump($old_cache_key,"70.55.166.30");
-//         debug_dump($cache_key,"70.55.166.30");
-//         debug_dump($query,"70.55.166.30");
       }
       else
       {
+        //for now store the previous week result while the cache is updated
+        set_transient( $cache_key, $results, 0);
+
         //start parallel process to load new key in DB
         //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
         //TONOTICE function should be independant from URL now only on homepage
@@ -456,15 +450,11 @@ class Db_hostels
 
         $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
         exec($cmd);
-//         debug_dump("CMD","70.55.166.30");
       }
     }
     else
     {
       //taken cached results
-//       debug_dump("Cached","70.55.166.30");
-//       debug_dump($cache_key,"70.55.166.30");
-//       debug_dump($results,"70.55.166.30");
     }
 
     return $results;
