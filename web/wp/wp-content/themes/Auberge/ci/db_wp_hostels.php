@@ -418,11 +418,11 @@ class Db_hostels
 
     if (($startProcess) && ($needReload))
     {
-      $wgetOptions = "";
+      $wgetOptions = "--read-timeout=0";
 
       if ((isset($_SERVER['PHP_AUTH_USER'])) && (isset($_SERVER['PHP_AUTH_PW'])))
       {
-        $wgetOptions = "--http-user=user=".$_SERVER['PHP_AUTH_USER']." --http-password=password=".$_SERVER['PHP_AUTH_PW'];
+        $wgetOptions = "--read-timeout=0 --user=".$_SERVER['PHP_AUTH_USER']." --password=".$_SERVER['PHP_AUTH_PW'];
       }
 
       //start parallel process to load new key in DB
