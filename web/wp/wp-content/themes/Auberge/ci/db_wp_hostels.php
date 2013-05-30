@@ -79,7 +79,7 @@ class Db_hostels
     return $query;
   }
 
-  function get_top_hw_hostels($booker_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
+  function get_top_hw_hostels($currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
 
     $since_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
@@ -229,7 +229,7 @@ class Db_hostels
     return $results;
   }
 
-  function get_top_hb_hostels($booker_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
+  function get_top_hb_hostels($currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
     $since_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     if($include_test_bookings == TRUE)
@@ -445,24 +445,14 @@ class Db_hostels
     $tophostels = array();
     if(strcasecmp($API,"hb") == 0)
     {
-      $tophostels = $this->get_top_hb_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      if(empty($tophostels))
-      {
-        $tophostels = $this->get_top_hb_hostels("", $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      }
-      return $tophostels;
+      $tophostels = $this->get_top_hb_hostels($currency_code, $lang, $include_test_bookings, $domain, $top_count);
     }
     else
     {
-      $tophostels = $this->get_top_hw_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      if(empty($tophostels)  || count($tophostels) < 4)
-      {
-        $tophostels = $this->get_top_hw_hostels("", $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      }
-      return $tophostels;
+      $tophostels = $this->get_top_hw_hostels($currency_code, $lang, $include_test_bookings, $domain, $top_count);
     }
 
-    return $this->get_top_hw_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
+    return $tophostels;
   }
 
   function get_hw_top_cities_of_continent($booker_country_code = "", $currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
