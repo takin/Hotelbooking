@@ -400,6 +400,9 @@ class Db_hostels
         //no cache for the generic key
         if( false === ( $results = get_transient( $generic_cache_key ) ) )
         {
+          //for now store the previous week result while the cache is updated
+          set_transient( $cache_key, $results, 0);
+
           $needReload = TRUE;
         }
       }
