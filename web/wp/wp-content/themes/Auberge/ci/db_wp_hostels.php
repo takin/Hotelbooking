@@ -418,16 +418,23 @@ class Db_hostels
 
     if (($startProcess) && ($needReload))
     {
-          //start parallel process to load new key in DB
-          //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
-          //TONOTICE function should be independant from URL now only on homepage
-          // LIKE adding $_SERVER["REQUEST_URI"] at the end and then append to query string if any
-          $cmd = "/usr/bin/wget \"http://".$_SERVER["HTTP_HOST"] ."/?currency=".$currency_code."&cacherun=run\" -O ".CI_ABSPATH."cache_queries/cache_processes/last_index_cached.html";
-          $outputfile = CI_ABSPATH."cache_queries/cache_processes/cachinghomepage.html";
-          $pidfile    = CI_ABSPATH."cache_queries/cache_processes/cachinghomepagePID.txt";
+      $wgetOptions = "";
 
-          $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
-          exec($cmd);
+      if ((isset($_SERVER['PHP_AUTH_USER'])) && (isset($_SERVER['PHP_AUTH_PW'])))
+      {
+        $wgetOptions = "--http-user=user=".$_SERVER['PHP_AUTH_USER']." --http-password=password=".$_SERVER['PHP_AUTH_PW'];
+      }
+
+      //start parallel process to load new key in DB
+      //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
+      //TONOTICE function should be independant from URL now only on homepage
+      // LIKE adding $_SERVER["REQUEST_URI"] at the end and then append to query string if any
+      $cmd = "/usr/bin/wget ".$wgetOptions." \"http://".$_SERVER["HTTP_HOST"] ."/?currency=".$currency_code."&cacherun=run\" -O ".CI_ABSPATH."cache_queries/cache_processes/last_index_cached.html";
+      $outputfile = CI_ABSPATH."cache_queries/cache_processes/cachinghomepage.html";
+      $pidfile    = CI_ABSPATH."cache_queries/cache_processes/cachinghomepagePID.txt";
+
+      $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
+      exec($cmd);
     }
 
     return $results;
