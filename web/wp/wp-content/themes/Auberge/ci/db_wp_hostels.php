@@ -368,6 +368,7 @@ class Db_hostels
   function get_db_results_with_cached($key_prefix, $query, $generic_key_var, $currency_code, $startProcess)
   {
     $results = array();
+    $needReload = FALSE;
 
     $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
@@ -399,21 +400,21 @@ class Db_hostels
         //no cache for the generic key
         if( false === ( $results = get_transient( $generic_cache_key ) ) )
         {
-
-          //Old key not cached so cache results of new key
-          $results = $this->db->get_results($query);
-          set_transient( $cache_key, $results, 0);
-          set_transient( $generic_cache_key, $results, 0);
+          $needReload = TRUE;
         }
       }
-      //cache for the previous key
+      //create cache for this week and set for now last week cache
       else
       {
         //for now store the previous week result while the cache is updated
         set_transient( $cache_key, $results, 0);
 
-        if ($startProcess)
-        {
+        $needReload = TRUE;
+      }
+    }
+
+    if (($startProcess) && ($needReload))
+    {
           //start parallel process to load new key in DB
           //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
           //TONOTICE function should be independant from URL now only on homepage
@@ -424,12 +425,11 @@ class Db_hostels
 
           $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
           exec($cmd);
-        }
-      }
     }
 
     return $results;
   }
+
   function get_top_hostels($API = "hw", $user_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
     $tophostels = array();
