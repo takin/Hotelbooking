@@ -224,7 +224,7 @@ class Db_hostels
     //-- is there to use cache created with old key
     $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $results = $this->get_db_results_with_cached("tophostelhw_", $query, $generic_key_var,$currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhw_", $query, $generic_key_var,$currency_code, TRUE);
 
     return $results;
   }
@@ -360,12 +360,12 @@ class Db_hostels
     //-- is there to use cache created with old key
     $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $results = $this->get_db_results_with_cached("tophostelhb_", $query, $generic_key_var, $currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhb_", $query, $generic_key_var, $currency_code, TRUE);
 
     return $results;
   }
 
-  function get_db_results_with_cached($key_prefix, $query, $generic_key_var, $currency_code)
+  function get_db_results_with_cached($key_prefix, $query, $generic_key_var, $currency_code, $startProcess)
   {
     $results = array();
 
@@ -412,16 +412,19 @@ class Db_hostels
         //for now store the previous week result while the cache is updated
         set_transient( $cache_key, $results, 0);
 
-        //start parallel process to load new key in DB
-        //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
-        //TONOTICE function should be independant from URL now only on homepage
-        // LIKE adding $_SERVER["REQUEST_URI"] at the end and then append to query string if any
-        $cmd = "/usr/bin/wget \"http://".$_SERVER["HTTP_HOST"] ."/?currency=".$currency_code."&cacherun=run\" -O ".CI_ABSPATH."cache_queries/cache_processes/last_index_cached.html";
-        $outputfile = CI_ABSPATH."cache_queries/cache_processes/cachinghomepage.html";
-        $pidfile    = CI_ABSPATH."cache_queries/cache_processes/cachinghomepagePID.txt";
+        if ($startProcess)
+        {
+          //start parallel process to load new key in DB
+          //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
+          //TONOTICE function should be independant from URL now only on homepage
+          // LIKE adding $_SERVER["REQUEST_URI"] at the end and then append to query string if any
+          $cmd = "/usr/bin/wget \"http://".$_SERVER["HTTP_HOST"] ."/?currency=".$currency_code."&cacherun=run\" -O ".CI_ABSPATH."cache_queries/cache_processes/last_index_cached.html";
+          $outputfile = CI_ABSPATH."cache_queries/cache_processes/cachinghomepage.html";
+          $pidfile    = CI_ABSPATH."cache_queries/cache_processes/cachinghomepagePID.txt";
 
-        $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
-        exec($cmd);
+          $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
+          exec($cmd);
+        }
       }
     }
 
