@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-05-20 21:36+0200\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
+"PO-Revision-Date: 2013-05-29 22:20+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1556,9 +1556,8 @@ msgid "Réservation de groupes"
 msgstr "グループ予約"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "この施設をお気に入りに登録する"
+msgstr "この施設をお気に入りに登録する。"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -2305,7 +2304,7 @@ msgstr "抱歉，没有空床位提供。"
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1285
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "現在サーバーはアクセス不可能です。"
 
@@ -4224,7 +4223,7 @@ msgstr "%sのでは | %s"
 #: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hb_engine.php:862
 #: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
@@ -4235,7 +4234,7 @@ msgstr "グット"
 #: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hb_engine.php:865
 #: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
@@ -4246,7 +4245,7 @@ msgstr "物凄く良い"
 #: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hb_engine.php:868
 #: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
@@ -4257,7 +4256,7 @@ msgstr "素晴らしい"
 #: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hb_engine.php:870
 #: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
@@ -5768,7 +5767,7 @@ msgstr ""
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #: ../code/application/controllers/cmain.php:789
 #: ../code/application/controllers/cmain.php:802
 #, php-format
@@ -6892,7 +6891,7 @@ msgstr "モバイル版"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hb_engine.php:758
 #: ../code/application/libraries/Hw_engine.php:743
 #: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
@@ -6952,8 +6951,8 @@ msgstr "プロパーティーのエラー"
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1039
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "データがありません。もう一度やり直してください。"
@@ -6961,7 +6960,7 @@ msgstr "データがありません。もう一度やり直してください。
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1295
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "お部屋は、選択された夜には使用できません。"
@@ -8319,7 +8318,7 @@ msgstr "安全な予約"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "人："
@@ -9396,16 +9395,16 @@ msgid "Saved favorite properties"
 msgstr "登録済みのお気に入り施設"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"ご予約確定のために預かり金（総額の%d）のお支払いが今必要になります。残金"
-"（%d）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテル"
-"の連絡先が含まれています。（Eメール、住所、電話番号）"
+"ご予約確定のために預かり金（総額の%d%%）のお支払いが今必要になります。残金"
+"（%d%%）はホテル到着時にお支払い下さい。ご予約後に送信される確認メールにホテ"
+"ルの連絡先が含まれています。（Eメール、住所、電話番号）"
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9457,16 +9456,41 @@ msgstr "ルームタイプを隠す"
 msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
-msgstr ""
+msgstr "お気に入りに登録できるのは30件までです。申し訳ございません。"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
 msgstr ""
-"お客様のアカウントにお気に入りの施設を登録できます。後日、簡単に予約ができま"
-"す。"
+"ご指定の施設はマイアカウントに保存されました。いつでも後から簡単にご予約可能"
+"です。"
+
+#: ../code/application/views/helpfile/pofields.php:840
+#, php-format
+msgid "Most Popular Amenities"
+msgstr "一番人気のアメニティ"
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, php-format
+msgid "Most Popular Types"
+msgstr "一番人気のタイプ"
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, php-format
+msgid "Save"
+msgstr "保存する"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, php-format
+msgid "Last name"
+msgstr "姓"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr "ニュースレター購読"
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9515,35 +9539,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "到着日"
+msgstr "到着:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "宿泊人数"
+msgstr "宿泊数:"
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "残りの文字"
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "残りの文字"
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "最新情報メモ"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "最新情報メモ"
+msgstr "メモを保存する"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9609,39 +9627,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "進む為には契約条件合意を受け入れてください"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "お待ち下さい"
+msgstr "ログインしてください。"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "無効なフォーマット"
+msgstr "無効の施設"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "プロパティー番号"
+msgstr "施設が見つかりません"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "この施設をお気に入りに登録する"
+msgstr "この施設はすでにお気に入りに登録されています"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "無効な電話番号フォーマット"
+msgstr "無効の宿泊数"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "無効なフォーマット"
+msgstr "無効の日付"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "メモは最大の%d文字を超えています。"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
@@ -9678,9 +9690,9 @@ msgstr "ご滞在時の感想をお知らせください！"
 msgid "Erreur lors de la réservation"
 msgstr "予約プロセスのエラー"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9688,13 +9700,13 @@ msgstr "予約プロセスのエラー"
 msgid "Hostels in %s - %s"
 msgstr "ホステル - %s - %s"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr "日付と泊数が無効です。検索時の値段をに無視してください。"
 
-#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hb_engine.php:1082
 #: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
@@ -9892,14 +9904,6 @@ msgstr "ログイン継続"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "確認コード"
-
-#, fuzzy
-#~ msgid "Most Popular Types"
-#~ msgstr "重要な注意事項"
-
-#, fuzzy
-#~ msgid "Most Popular Amenities"
-#~ msgstr "重要な注意事項"
 
 #~ msgid "All"
 #~ msgstr "全て"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 14:26+0300\n"
-"PO-Revision-Date: 2013-05-20 21:38+0200\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
+"PO-Revision-Date: 2013-05-25 22:36+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -808,9 +808,9 @@ msgstr "语言课程？CoursParticuliers.com"
 
 #: ../code/application/views/includes/side_search_box.php:16
 #: ../code/application/views/helpfile/pofields.php:828
-#, fuzzy, php-format
+#, php-format
 msgid "Enter your dates"
-msgstr "入住日期"
+msgstr "填入日期"
 
 #: ../code/application/views/includes/side_search_box.php:18
 #: ../code/application/views/mobile/city_view.php:4
@@ -1532,9 +1532,8 @@ msgid "Réservation de groupes"
 msgstr "团体预订"
 
 #: ../code/application/views/includes/save_property.php:13
-#, fuzzy
 msgid "Save this property as favorite"
-msgstr "保存这个住处为喜欢的住处"
+msgstr "保存这个住处到我的喜欢"
 
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
@@ -2277,7 +2276,7 @@ msgstr "抱歉，没有空床位提供。"
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1285
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "服务器关闭。"
 
@@ -3207,7 +3206,6 @@ msgstr "有"
 #: ../code/application/views/property_rooms_avail.php:279
 #: ../code/application/views/hw/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:285
-#, fuzzy
 msgid "Dorm"
 msgstr "专用房"
 
@@ -3462,7 +3460,7 @@ msgstr "日期"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 #: ../code/application/views/restricted/user_favorite_properties.php:40
 #: ../code/application/views/city_view.php:210
@@ -4163,7 +4161,7 @@ msgstr "被%s |%s的"
 #: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:984
+#: ../code/application/libraries/Hb_engine.php:862
 #: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
@@ -4174,7 +4172,7 @@ msgstr "好"
 #: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:988
+#: ../code/application/libraries/Hb_engine.php:865
 #: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
@@ -4185,7 +4183,7 @@ msgstr "很好"
 #: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:992
+#: ../code/application/libraries/Hb_engine.php:868
 #: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
@@ -4196,7 +4194,7 @@ msgstr "太棒了"
 #: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:995
+#: ../code/application/libraries/Hb_engine.php:870
 #: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
@@ -4338,9 +4336,8 @@ msgid "Filter by Landmarks"
 msgstr "用地标过滤（-2公里）"
 
 #: ../code/application/views/city_view.php:261
-#, fuzzy
 msgid "Filter by Districts or Landmarks"
-msgstr "筛选："
+msgstr "用地区或地标筛选"
 
 #: ../code/application/views/city_view.php:290
 #: ../code/application/views/helpfile/pofields.php:649
@@ -4575,7 +4572,6 @@ msgid "Arrivée: %s à %s"
 msgstr "住宿日期：从%s至 %s"
 
 #: ../code/application/views/hw/booking_end_view.php:165
-#, fuzzy
 msgid "Amount already paid"
 msgstr "已经支付的金额："
 
@@ -4627,9 +4623,9 @@ msgstr ""
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:507
 #: ../code/application/views/hb/booking_avail_view.php:289
-#, fuzzy, php-format
+#, php-format
 msgid "Dorm Availability"
-msgstr "有"
+msgstr "可以预定的宿舍"
 
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hb/booking_avail_view.php:289
@@ -4785,15 +4781,15 @@ msgstr "您的选择"
 #: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the hotel's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"您只需支付房费的10%%即可确保房间预订，剩余的90%%余款抵达旅舍后支付。完成在线"
-"预订后，我们会在其邮件确认回函中向您提供邮件、地址、电话号码等具体联系方式。 "
+"你现在支付%d%%的订金可以确定和确保你的预定。余额%d%%可在到达住处时支付。预定"
+"后你会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
 
 #: ../code/application/views/hw/booking_avail_view.php:758
 #: ../code/application/views/hb/booking_avail_view.php:719
@@ -4811,9 +4807,9 @@ msgstr "您得到最优价格"
 #: ../code/application/views/hw/booking_avail_view.php:778
 #: ../code/application/views/hw/booking_view.php:303
 #: ../code/application/views/helpfile/pofields.php:822
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit to be paid now (%d%%)"
-msgstr "现在需要支付订金 (%d)"
+msgstr "现在需要支付订金 (%d%%)"
 
 #: ../code/application/views/hw/booking_avail_view.php:799
 #: ../code/application/views/hw/booking_avail_view.php:895
@@ -4873,9 +4869,9 @@ msgstr "价格"
 
 #: ../code/application/views/hw/booking_avail_view.php:987
 #: ../code/application/views/helpfile/pofields.php:824
-#, fuzzy, php-format
+#, php-format
 msgid "Deposit (%d%%)"
-msgstr "订金（%d）"
+msgstr "订金（%d%%）"
 
 #: ../code/application/views/hw/booking_avail_view.php:1016
 #: ../code/application/views/hw/booking_avail_view.php:1022
@@ -5671,7 +5667,7 @@ msgstr "在发送预定请求前，请选择您的团体里男性数量，女性
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #: ../code/application/controllers/cmain.php:789
 #: ../code/application/controllers/cmain.php:802
 #, php-format
@@ -6763,7 +6759,7 @@ msgstr "手机版本"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hb_engine.php:758
 #: ../code/application/libraries/Hw_engine.php:743
 #: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
@@ -6819,8 +6815,8 @@ msgstr "信息错误。"
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1039
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "目前没有您需要的信息。稍后再试！"
@@ -6828,7 +6824,7 @@ msgstr "目前没有您需要的信息。稍后再试！"
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1295
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "抱歉，没有空床位提供。"
@@ -7125,9 +7121,9 @@ msgstr "查找更多结果。"
 
 #: ../code/application/views/helpfile/pofields.php:293
 #: ../code/application/views/helpfile/pofields.php~:293
-#, fuzzy, php-format
+#, php-format
 msgid "Payer seulement 10%% maintenant"
-msgstr "支付10%定金"
+msgstr "支付10%%定金"
 
 #: ../code/application/views/helpfile/pofields.php:294
 #: ../code/application/views/helpfile/pofields.php~:294
@@ -8177,7 +8173,7 @@ msgstr "预订安全"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "人数"
@@ -9237,15 +9233,15 @@ msgid "Saved favorite properties"
 msgstr "保存的喜欢的住处"
 
 #: ../code/application/views/helpfile/pofields.php:823
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You only pay the deposit (%d%% of total amount) to confirm and secure your "
 "reservation now. The remaining amount (%d%%) is payable upon arrival. You "
 "will find the property's contact information (email, address, telephone "
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
-"你现在支付%d的订金可以确定和确保你的预定。余额%d可在到达住处时支付。预定后你"
-"会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
+"你现在支付%d%%的订金可以确定和确保你的预定。余额%d%%可在到达住处时支付。预定"
+"后你会在确认邮件里看到住处的联系信息（邮箱，地址，电话号码…)。"
 
 #: ../code/application/views/helpfile/pofields.php:825
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -9267,43 +9263,68 @@ msgstr ""
 "值班。请阅读住处提供的服务列表来确认住处提供的服务。"
 
 #: ../code/application/views/helpfile/pofields.php:831
-#, fuzzy, php-format
+#, php-format
 msgid "Existing account"
-msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
+msgstr "已有的账号"
 
 #: ../code/application/views/helpfile/pofields.php:832
-#, fuzzy, php-format
+#, php-format
 msgid "Create new account"
-msgstr "点击了“创建账户”，表明你接受了服务条款和隐私政策。"
+msgstr "创建一个新账号"
 
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "显示房间类型"
 
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "隐藏房间类型"
 
 #: ../code/application/views/helpfile/pofields.php:838
 #, php-format
 msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
-msgstr ""
+msgstr "很抱歉地通知你你能保存的最喜欢的住处数量最多30个"
 
 #: ../code/application/views/helpfile/pofields.php:839
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This property has been saved in your \"My account\" section. You can now "
 "easily book it at a later date if you wish."
-msgstr "你可以将这个住处添加到你的账户里我的喜欢，以后如果你想预定就很容易了。"
+msgstr "这个住处被保存在你的“我的账户”里。之后你可以很容易地预定它。"
+
+#: ../code/application/views/helpfile/pofields.php:840
+#, php-format
+msgid "Most Popular Amenities"
+msgstr "最流行的便利设施"
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, php-format
+msgid "Most Popular Types"
+msgstr "最流行的类型"
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, php-format
+msgid "Save"
+msgstr "保存"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, fuzzy, php-format
+msgid "Last name"
+msgstr "名"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
@@ -9349,35 +9370,29 @@ msgstr ""
 
 #: ../code/application/views/mustache/save_property_dialog.php:19
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Arrival:"
-msgstr "抵达日"
+msgstr "到达："
 
 #: ../code/application/views/mustache/save_property_dialog.php:25
 #: ../code/application/views/mustache/saved_property_item.php:11
-#, fuzzy
 msgid "Number of nights:"
-msgstr "客人号码"
+msgstr "夜晚数量："
 
 #: ../code/application/views/mustache/save_property_dialog.php:38
-#, fuzzy
 msgid "character left"
 msgstr "留下的特点："
 
 #: ../code/application/views/mustache/save_property_dialog.php:39
-#, fuzzy
 msgid "characters left"
 msgstr "留下的特点："
 
 #: ../code/application/views/mustache/save_property_dialog.php:45
-#, fuzzy
 msgid "Update Note"
 msgstr "更新标注"
 
 #: ../code/application/views/mustache/save_property_dialog.php:50
-#, fuzzy
 msgid "Save Note"
-msgstr "更新标注"
+msgstr "保存备注"
 
 #: ../code/application/views/mustache/property_list.php:9
 msgid "Info"
@@ -9443,39 +9458,33 @@ msgid "Accept terms and conditions agreement to proceed"
 msgstr "同意该条款并继续"
 
 #: ../code/application/controllers/cmain.php:2285
-#, fuzzy
 msgid "Please log in"
-msgstr "请等一下"
+msgstr "请登陆"
 
 #: ../code/application/controllers/cmain.php:2311
-#, fuzzy
 msgid "Invalid property"
-msgstr "格式错误"
+msgstr "无效的住处"
 
 #: ../code/application/controllers/cmain.php:2349
-#, fuzzy
 msgid "Property not found"
-msgstr "楼号"
+msgstr "没有找到住处"
 
 #: ../code/application/controllers/cmain.php:2358
-#, fuzzy
 msgid "Property is favorite already"
-msgstr "保存这个住处为喜欢的住处"
+msgstr "住处已经是我喜欢的"
 
 #: ../code/application/controllers/cmain.php:2367
-#, fuzzy
 msgid "Invalid number of nights"
-msgstr "电话号码格式错误"
+msgstr "无效的夜晚数量"
 
 #: ../code/application/controllers/cmain.php:2384
-#, fuzzy
 msgid "Invalid date"
-msgstr "格式错误"
+msgstr "无效的日期"
 
 #: ../code/application/controllers/cmain.php:2391
 #, php-format
 msgid "Notes are exceeding maximum of %d chars"
-msgstr ""
+msgstr "备注超过了%d个字符"
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
@@ -9512,9 +9521,9 @@ msgstr "请告知我们您的出行计划！"
 msgid "Erreur lors de la réservation"
 msgstr "错误预订"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9522,13 +9531,13 @@ msgstr "错误预订"
 msgid "Hostels in %s - %s"
 msgstr "廉价旅舍 - %s - %s"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr "输入日期和预订天数无效 - 搜索无效"
 
-#: ../code/application/libraries/Hb_engine.php:1239
+#: ../code/application/libraries/Hb_engine.php:1082
 #: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
@@ -9710,14 +9719,6 @@ msgstr "保持联系"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "验证码"
-
-#, fuzzy
-#~ msgid "Most Popular Types"
-#~ msgstr "最受欢迎的那些"
-
-#, fuzzy
-#~ msgid "Most Popular Amenities"
-#~ msgstr "最受欢迎的那些"
 
 #~ msgid "All"
 #~ msgstr "全部"

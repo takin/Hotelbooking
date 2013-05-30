@@ -329,7 +329,7 @@ class Db_hostels
                   SELECT API_booked, transactions_hostelworld.site_domain_id, site_domain,
                          IF(LOCATE(',',hb_city.lname_en)>0,TRIM(LEFT(hb_city.lname_en,LOCATE(',',hb_city.lname_en)-1)),hb_city.lname_en)as property_city,
                          hb_country.lname_en as property_country,
-              			hb_city.hb_id as property_city_hb_id,
+                    hb_city.hb_id as property_city_hb_id,
               --           `continent_fr` as translated_continent,
               --           `continent_en`,
                          count(*) as property_booking_count
@@ -362,7 +362,7 @@ class Db_hostels
                 ON hb_hostel.property_number = hostel_translated.hostel_hb_id
               WHERE base_desc_table.language = 'en'
               AND hb_hostel_price.currency_code = 'EUR'
-    					GROUP BY top_hostel_of_city
+              GROUP BY top_hostel_of_city
               ORDER BY property_booking_count DESC, min_price ASC";
 
     //Booker country assumes to be always the same no longer in key
@@ -652,19 +652,19 @@ class Db_hostels
                      property_country,
                      translated_city,
                      translated_country,
-                		 top_cities_translated.city_hb_id,
-                   	 translated_continent,
+                     top_cities_translated.city_hb_id,
+                     translated_continent,
                      continent_en,
                      city_booking_count,
-        							ROUND(
+                      ROUND(
                          MIN(bed_price)
                          * (SELECT hb_equivalent FROM currencies WHERE currency_code = '$currency_code' LIMIT 1)
                          / (SELECT hb_equivalent FROM currencies WHERE currency_code = 'EUR' LIMIT 1)
                          ,2
                        ) as converted_city_min_price,
                        '$currency_code' as converted_currency
-    					FROM
-    					(
+              FROM
+              (
                SELECT API_booked,
                        site_domain_id, site_domain,
                        city_en_name as property_city,
