@@ -224,16 +224,7 @@ class Db_hostels
     //-- is there to use cache created with old key
     $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
-    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
-
-    $key_var     = "$generic_key_var-".date("Y-W");
-
-    $generic_cache_key = "tophostelhw_".md5($generic_key_var);
-    $old_cache_key = "tophostelhw_".md5($old_key_var);
-    $cache_key     = "tophostelhw_".md5($key_var);
-
-    $results = $this->get_db_results_with_cached($query, $generic_cache_key, $cache_key, $old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhw_", $query, $generic_key_var,$currency_code);
 
     return $results;
   }
@@ -369,23 +360,22 @@ class Db_hostels
     //-- is there to use cache created with old key
     $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
-    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
-
-    $key_var     = "$generic_key_var-".date("Y-W");
-
-    $generic_cache_key = "tophostelhb_".md5($generic_key_var);
-    $old_cache_key = "tophostelhb_".md5($old_key_var);
-    $cache_key     = "tophostelhb_".md5($key_var);
-
-    $results = $this->get_db_results_with_cached($query, $generic_cache_key, $cache_key,$old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhb_", $query, $generic_key_var, $currency_code);
 
     return $results;
   }
 
-  function get_db_results_with_cached($query, $generic_cache_key, $cache_key, $old_cache_key, $currency_code)
+  function get_db_results_with_cached($key_prefix, $query, $generic_key_var, $currency_code)
   {
     $results = array();
+
+    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
+    $key_var     = "$generic_key_var-".date("Y-W");
+
+    $generic_cache_key = $key_prefix.md5($generic_key_var);
+    $old_cache_key = $key_prefix.md5($old_key_var);
+    $cache_key     = $key_prefix.md5($key_var);
 
    //If forcing refresh of caching
     if (!empty($_GET['cacherun']) && ($_GET['cacherun'] == 'run') )
