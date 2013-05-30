@@ -455,27 +455,13 @@ class Db_hostels
     return $tophostels;
   }
 
-  function get_hw_top_cities_of_continent($booker_country_code = "", $currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
+  function get_hw_top_cities_of_continent($currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
   {
     $since_date = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
     $since_date = date("Y-m-d",$since_date);
 
     $lang         = $this->db->escape($lang);
     $currency_code     = $this->db->escape($currency_code);
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     if(!empty($domain))
     {
@@ -576,7 +562,6 @@ class Db_hostels
                 $domain
                 AND hw_city.hw_city IS NOT NULL
                 $continent_en
-                $booker_country
                 AND DATE(booking_time) > '$since_date'
               GROUP BY property_country, property_city
               ORDER BY property_booking_count DESC
@@ -584,7 +569,7 @@ class Db_hostels
               ) as top_cities
               LEFT JOIN cities2 ON (top_cities.property_city = cities2.city_en AND top_cities.property_country = cities2.country_en)";
 
-    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count";
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain--$continent_en-$top_count";
 
     $results = $this->get_db_results_with_cached("topcitieshw_", $query, $generic_key_var, "", FALSE);
 
@@ -592,24 +577,10 @@ class Db_hostels
   }
 
 
-  function get_hb_top_cities_of_continent($booker_country_code = "", $currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
+  function get_hb_top_cities_of_continent($currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
   {
     $lang          = $this->db->escape($lang);
     $currency_code = $this->db->escape($currency_code);
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     if(!empty($domain))
     {
@@ -699,7 +670,6 @@ class Db_hostels
                   $include_test_bookings
                   $domain
                   $continent_en
-                  $booker_country
                 GROUP BY hb_hostel.city_hb_id
                 ORDER BY city_booking_count DESC
                 LIMIT $top_count
@@ -711,7 +681,7 @@ class Db_hostels
               WHERE  hb_hostel_price.currency_code LIKE'EUR'
               GROUP BY top_cities_translated.city_hb_id";
 
-    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count";
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain--$continent_en-$top_count";
 
     $results = $this->get_db_results_with_cached("topcitieshb_", $query, $generic_key_var, "", FALSE);
 
@@ -724,24 +694,14 @@ class Db_hostels
     $topcities = array();
     if(strcasecmp($API,"hb") == 0)
     {
-      $topcities = $this->get_hb_top_cities_of_continent($user_country_code, $currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
-      if(empty($topcities))
-      {
-        $topcities = $this->get_hb_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
-      }
-      return $topcities;
+      $topcities = $this->get_hb_top_cities_of_continent($currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
     }
     else
     {
-      $topcities = $this->get_hw_top_cities_of_continent($user_country_code, $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
-      if(empty($topcities))
-      {
-        $topcities = $this->get_hw_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
-      }
-      return $topcities;
+      $topcities = $this->get_hw_top_cities_of_continent($currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
     }
 
-    return $this->get_hw_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
+    return $topcities;
   }
   /**
    * HW Api handle the following langages:
