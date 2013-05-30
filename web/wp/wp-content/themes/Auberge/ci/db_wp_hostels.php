@@ -584,15 +584,10 @@ class Db_hostels
               ) as top_cities
               LEFT JOIN cities2 ON (top_cities.property_city = cities2.city_en AND top_cities.property_country = cities2.country_en)";
 
-    $key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count-".date("Y-W");
-    $cache_key = "topcitieshw_".md5($key_var);
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count";
 
-    if ( false === ( $results = get_transient( $cache_key ) ) )
-    {
-      // It wasn't cached, so regenerate the data and save the transient
-      $results = $this->db->get_results($query);
-      set_transient( $cache_key, $results, 604800);
-    }
+    $results = $this->get_db_results_with_cached("topcitieshw_", $query, $generic_key_var, "", FALSE);
+
     return $results;
   }
 
@@ -716,17 +711,10 @@ class Db_hostels
               WHERE  hb_hostel_price.currency_code LIKE'EUR'
               GROUP BY top_cities_translated.city_hb_id";
 
-    $key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count-".date("Y-W");
-    //Added _fixed_ to force transient update on all site after a query fix
-    $cache_key = "topcitieshb_".md5($key_var);
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count";
 
-    $results = array();
-    if ( false === ( $results = get_transient( $cache_key ) ) )
-    {
-      // It wasn't cached, so regenerate the data and save the transient
-      $results = $this->db->get_results($query);
-      set_transient( $cache_key, $results, 604800);
-    }
+    $results = $this->get_db_results_with_cached("topcitieshb_", $query, $generic_key_var, "", FALSE);
+
     return $results;
   }
 
