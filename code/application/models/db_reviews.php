@@ -8,6 +8,7 @@ class Db_reviews extends CI_Model
 {
     const REVIEW_TABLE    = 'wp_ext_hw_reviews';
     const WP_REVIEW_TABLE = 'wp_comments';
+    const HW_HB_MATCH_TABLE = 'hw_hb_match';
     
     var $wpblogDB;
     var $aubergeDB;
@@ -50,8 +51,32 @@ class Db_reviews extends CI_Model
       return $this->wpblogDB->get(self::REVIEW_TABLE);
       
     }
+    
+    /**
+     * Get property number when there is 
+     * 
+     * @param type $property_number
+     * @return type
+     */
+    function get_property_number($property_number) {
+
+        $this->aubergeDB->select('*');
+        $this->aubergeDB->from(self::HW_HB_MATCH_TABLE);
+        $this->aubergeDB->where('hb_property_number', $property_number);
+        $query = $this->aubergeDB->get();
+        if ($this->api_used == HB_API) {
+            foreach ($query->result() as $hw_hb_result) {
+                $this->api_used_code = 'HW';
+                return $hw_hb_result->hw_property_number;
+            }
+        }
+        return $property_number;
+    }
+    
     function get_property_reviews($property_number,$approved = '1')
     {
+      
+      $property_number = $this->get_property_number($property_number);  
 
       $this->wpblogDB->join(self::WP_REVIEW_TABLE, self::WP_REVIEW_TABLE.'.comment_ID = '.self::REVIEW_TABLE.'.wp_comment_id');
       
