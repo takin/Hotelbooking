@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$date_selected = get_date_default();
+		$date_selected = get_date_default(14);
 	}
 	if(isset($numnights_selected))
 	{
