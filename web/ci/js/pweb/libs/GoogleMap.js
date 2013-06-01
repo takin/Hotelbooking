@@ -260,7 +260,11 @@ GoogleMap.prototype.fillMakersArray = function()
     var resultInPage = that.getItemsInPage();
 
     var property_list = resultInPage.property_list;
-    var start_from = resultInPage.start_from;
+    
+    // for now just going to make markers always shows from 1 to 20
+    // on side map
+//    var start_from = resultInPage.start_from;
+    var start_from = 0;
 
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
@@ -305,9 +309,17 @@ GoogleMap.prototype.addMarkersToMap = function()
 //            new google.maps.Point(0, 0),
 //            new google.maps.Point(0, 29));
 //            
-//            
-        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
-        var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+//          check if it is the tham map on the left
+        if (window.gmap.getDiv().id === "city_side_map_container") {
+
+            var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
+            var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+        }
+        else {
+            var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+            var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
+        }
+       
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),

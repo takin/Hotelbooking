@@ -351,12 +351,18 @@ PWebFilterApp.prototype.update = function() {
 		});
                 
                 // change the marker that appears between the property image and the property name 
+                 // for now always show markers from 1 to 20
+                 var tempIndex = 0;
                 $(".property_marker_number").each(function(index, value) {
-			index = index +1;
+                   
+                    if ( tempIndex === 20 ){
+                        tempIndex = 0;
+                    }
+			tempIndex = tempIndex +1;
                         // get image src
                     	var imageSrc = $(this).attr('src');
 //                      replace it with image index
-                        imageSrc = imageSrc.replace("marker_1.png", "marker_"+index+".png"); 
+                        imageSrc = imageSrc.replace("marker_1.png", "marker_"+tempIndex+".png"); 
                         $(this).attr("src", imageSrc);    
                 });
 			
