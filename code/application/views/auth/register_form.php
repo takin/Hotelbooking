@@ -37,14 +37,14 @@ $captcha = array(
 $first_name = array(
 	'name'	    => 'first_name',
 	'id'	    => 'first_name',
-	'value'	    => set_value('first_name'),
+	'value'	    => set_value('first_name', ( empty($_POST['first_name']) ? '' : $_POST['first_name'] )),
 	'maxlength' => 40,
 	'size'	    => 30,
 );
 $last_name = array(
 	'name'	    => 'last_name',
 	'id'	    => 'last_name',
-	'value'	    => set_value('last_name'),
+	'value'	    => set_value('last_name', ( empty($_POST['last_name']) ? '' : $_POST['last_name'] )),
 	'maxlength' => 40,
 	'size'	    => 30,
 );
@@ -204,7 +204,7 @@ else {
 					<tr>
 						<td valign="top" class="first"><?php echo form_label(_('Abonnement newsletter'), $mail_subscription['id']); ?></td>
 						<td valign="top"><?php
-							echo form_checkbox($mail_subscription); echo _('We will never sell your personal information - You can unsubscribe anytime.'); ?>
+							echo form_checkbox($mail_subscription); echo '<span style="color: #000">', _('We will never sell your personal information - You can unsubscribe anytime.'), '</span>'; ?>
 							<span style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></span>
 						</td>
 					</tr>
