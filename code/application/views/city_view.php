@@ -90,7 +90,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
             $filterBy_flag = "landmarks";
         }
         $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
-        $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by landmarks") . '</a></li>';
+        $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by Landmarks") . '</a></li>';
         switch ($filterBy_flag) {
             case "both":
                 echo $filter_by_districts_link . $filter_by_landmarks_link;
