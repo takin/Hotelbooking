@@ -587,7 +587,12 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 //                            new google.maps.Size(20, 30),
 //                            new google.maps.Point(0, 0),
 //                            new google.maps.Point(0, 29));
-                    var image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+                    var image = "http://" + window.location.host + imagePath + '0.png';
+                    
+                    if (window.gmap.getDiv().id === "city_side_map_container") {
+                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+                    }
+ 
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
                 }
