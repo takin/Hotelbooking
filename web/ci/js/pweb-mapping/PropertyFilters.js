@@ -559,11 +559,11 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 		$('#breakfast_2nd_filter').parent().hide();
 	}
 
-	if (this.hasHostelsFilter === true) {
-//		$('#hostels_2nd_filter').parent().show();
+	if ($('#type_hostels').length) {
+		$('#hostels_2nd_filter').parent().show();
 	}
 	else {
-//		$('#hostels_2nd_filter').parent().hide();
+		$('#hostels_2nd_filter').parent().hide();
 	}
 };
 
@@ -946,13 +946,42 @@ PWebFilterApp.prototype.setData = function(json_data) {
 		json_data[i]['ratings_safety']   = 0;
 		json_data[i]['ratings_location'] = 0;
 
+		json_data[i]['ratings_safety_safe']      = false;
+		json_data[i]['ratings_safety_very_safe'] = false;
+		json_data[i]['ratings_location_good']    = false;
+		json_data[i]['ratings_location_great']   = false;
+		json_data[i]['display_alternate_rating'] = false;
+
+
 		if (typeof(currentData['ratings']) != 'undefined' && typeof(currentData['ratings']) == 'object') {
 			if (typeof(currentData['ratings']['safety']) != 'undefined') {
 				json_data[i]['ratings_safety'] = currentData['ratings']['safety'];
+
+				if (currentData['ratings']['safety'] >= 70 && currentData['ratings']['safety'] < 80) {
+					json_data[i]['display_alternate_rating'] = true;
+					json_data[i]['ratings_safety_safe']      = true;
+				}
+				else {
+					if (currentData['ratings']['safety'] >= 80) {
+						json_data[i]['display_alternate_rating'] = true;
+						json_data[i]['ratings_safety_very_safe'] = true;
+					}
+				}
 			}
 
 			if (typeof(currentData['ratings']['location']) != 'undefined') {
 				json_data[i]['ratings_location'] = currentData['ratings']['location'];
+
+				if (currentData['ratings']['location'] >= 70 && currentData['ratings']['location'] < 80) {
+					json_data[i]['display_alternate_rating'] = true;
+					json_data[i]['ratings_location_good']    = true;
+				}
+				else {
+					if (currentData['ratings']['location'] >= 80) {
+						json_data[i]['display_alternate_rating'] = true;
+						json_data[i]['ratings_location_great']   = true;
+					}
+				}
 			}
 		}
 	}

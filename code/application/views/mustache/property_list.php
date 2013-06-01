@@ -46,6 +46,36 @@
                 {{^isRatingsEmpty}}
             <li data-propertyNumber="{{propertyNumber}}" class="first last">
                 {{/isRatingsEmpty}}
+
+		{{#display_alternate_rating}}
+			{{#ratings_safety_safe}}
+			<span>
+	                    <strong class="txt-mid green"><?php echo _('Safe'); ?> <span class="darkYellow" style="display: inline">{{ratings_safety}}%</span></strong>
+<!--        	            <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>-->
+                	</span>
+			{{/ratings_safety_safe}}
+			{{#ratings_safety_very_safe}}
+			<span>
+	                    <strong class="txt-mid green"><?php echo _('Very safe'); ?> <span class="darkYellow" style="display: inline">{{ratings_safety}}%</span></strong>
+    <!--    	            <span class="averageRatingCaption"><?php echo _('Safety'); ?></span> -->
+                	</span>
+			{{/ratings_safety_very_safe}}
+
+			{{#ratings_location_good}}
+			<span>
+	                    <strong class="txt-mid green"><?php echo _('Good location'); ?> <span class="darkYellow" style="display: inline">{{ratings_location}}%</span></strong>
+<!--        	            <span class="averageRatingCaption"><?php echo _('Location'); ?></span>-->
+                	</span>
+			{{/ratings_location_good}}
+			{{#ratings_location_great}}
+			<span>
+	                    <strong class="txt-mid green"><?php echo _('Great location'); ?> <span class="darkYellow" style="display: inline">{{ratings_location}}%</span></strong>
+<!--        	            <span class="averageRatingCaption"><?php echo _('Location'); ?></span>-->
+                	</span>
+			{{/ratings_location_great}}
+		{{/display_alternate_rating}}
+
+		{{^display_alternate_rating}}
                 <span class="">
                     <strong class="txt-mid green">{{rating}}</strong>
                     <strong>{{overall_rating}} %</strong>
@@ -53,6 +83,7 @@
                 <span class="averageRatingCaption">
                     <?php echo _("évaluation moyenne"); ?>
                 </span>
+		{{/display_alternate_rating}}
             </li>
         </ul>
         {{/overall_rating}}
@@ -60,7 +91,7 @@
             {{^isRatingsEmpty}}    
             {{#Ratings}}
             <div class="propertyRatingsContainer">
-                <h3>
+		 <h3>
                     <?php echo _("évaluation moyenne") . " - " .
                     _("As rated by bookers like you") . ": ";
                     ?>
