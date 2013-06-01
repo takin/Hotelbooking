@@ -333,10 +333,12 @@ class CHostelbk extends I18n_site
                                                                                              $bookCurrency);
       
           print_r($response);
+          print_r($response);
           
           $data['booking_fee'] = $response["RESPONSE"]["FEE"];
           $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
           
+          print_r($response);
           print_r($response);
           
         } else {
