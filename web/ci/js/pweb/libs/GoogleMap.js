@@ -35,6 +35,8 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 
 } // end GoogleMap() constructor 
 
+GoogleMap.markers = [];
+
 // Function init() is a member function to initialize the Google Map object.
 // Make sure this is run after google map script has loaded
 // return N/A 
@@ -257,6 +259,10 @@ GoogleMap.clearDistrictLandmark = function() {
 	if (window.cityCircle !== null) {
 		window.cityCircle.setMap(null);
 	}
+
+	for (var i = 0; i < GoogleMap.markers.length; i++ ) {
+		GoogleMap.markers[i].setMap(null);
+	}
 };
 
 GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
@@ -356,7 +362,6 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
             }
         this.addLandmarkLayer(landmark_LatLng);
     }
-
 };
 
 GoogleMap.setZoom = function(zoom) {
@@ -402,5 +407,6 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 //	        title:this.markers[i].title,
 	        icon: image	        
 	    }); 
-            
+
+	GoogleMap.markers.push(gmarker);            
 };
