@@ -332,6 +332,8 @@ class CHostelbk extends I18n_site
                                                                                              $this->api_functions_lang,
                                                                                              $bookCurrency);
       
+          print_r($response);
+          
           $data['booking_fee'] = $response["RESPONSE"]["FEE"];
           $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
           
@@ -346,7 +348,7 @@ class CHostelbk extends I18n_site
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
             
-            print_r($response);
+            //print_r($response);
             
         }         
 
