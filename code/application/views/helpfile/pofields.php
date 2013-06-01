@@ -842,3 +842,16 @@
 <?php echo _('Save');?>
 <?php echo _('Last name');?>
 <?php echo _('Newsletter subscription');?>
+<?php echo _('Show properties');?>
+<?php echo _('Best price');?>
+<?php echo _('Best location');?>
+<?php echo _('Safest');?>
+<?php echo _('Best rating');?>
+<?php echo _('Great location');?>
+<?php echo _('Good location');?>
+<?php echo _('Safe');?>
+<?php echo _('Very safe');?>
+<?php echo _('Youth hostels only');?>
+<?php echo _('Check this box to see new search results as you move the map');?>
+<?php echo _('Redo search in map');?>
+<?php echo _('%d Bed Female Dorm Shared Bathroom');?>
