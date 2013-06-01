@@ -12,7 +12,7 @@ $config['displaySharePDF']   = FALSE;
 $config['displayQuickPreview'] = FALSE;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = true;
+$config['displayCompareProperty'] = TRUE;
 
 /* set variable to show remove from search */
 $config['displayRemoveFromSearch'] = TRUE;
