@@ -309,15 +309,14 @@ GoogleMap.prototype.addMarkersToMap = function()
 //            new google.maps.Point(0, 0),
 //            new google.maps.Point(0, 29));
 //            
+
+        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+        var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 //          check if it is the tham map on the left
         if (window.gmap.getDiv().id === "city_side_map_container") {
 
-            var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
-            var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
-        }
-        else {
-            var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
-            var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
+             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
+             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
         }
        
         //Add marker to map
@@ -637,4 +636,22 @@ GoogleMap.prototype.goToHostelDiv = function(pMarker) {
         }
     });
 
+};
+GoogleMap.prototype.removeMarker = function(property_number) {
+
+    var hostel_title = $.trim($("#hostel_title_" + property_number).text());
+    if (window.markers.length !== 0) {
+
+        for (var i in window.markers) {
+
+            if (window.markers[i].gmarker !== null)
+            {
+                if (window.markers[i].gmarker.getZIndex() === 100000 ||
+                        hostel_title === $.trim(window.markers[i].gmarker.getTitle())) {
+                    window.markers[i].gmarker.setMap(null);
+                }
+
+            }
+        }
+    }
 };

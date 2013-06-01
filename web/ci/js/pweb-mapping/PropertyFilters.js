@@ -1510,6 +1510,13 @@ PWebFilterMap.prototype.reDrawMarkers = function ()
 		this.gmap.drawMarkers();
 	}
 };
+PWebFilterMap.prototype.removeMarker = function(property_number)
+{
+    if (this.enabled === true)
+    {
+        this.gmap.removeMarker(property_number);
+    }
+};
 PWebFilterMap.prototype.toggle = function ()
 {
 	if(this.enabled === false)
@@ -1758,6 +1765,8 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 };
 
 PWebFilterApp.prototype.handle_delete = function() {
+    var that = this;
+    
 	$(document).click(function(event) { 
 		var clickedElement = $(event.target);
 
@@ -1816,5 +1825,15 @@ PWebFilterApp.prototype.handle_delete = function() {
 				}
 			}
 		}
+                // clear marker after removing property
+                var n = this.id.lastIndexOf('_');
+                var property_number = this.id.substring(n + 1);
+                
+                that.removeMarker("city", property_number);
+                that.removeMarker("cityFilterMap", property_number);  
 	});
+};
+PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
+{
+    this.pweb_maps[map_slug].removeMarker(property_number);
 };
