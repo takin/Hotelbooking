@@ -80,24 +80,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<?php //TODO show filter reset;?>
 			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
 			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
-			<span class="filter_title box_round"><strong><?php echo _('Price')?></strong></span>
-			<div class="filter_content">
-				<p class="group">
-					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
-					<span id="filter_price" class="slide_filter"/></span>
-				</p>
-			<div id="slider_price"></div>
-			</div>
-
-			<span class="filter_title box_round"><strong><?php echo _('Rating')?></strong></span>
-				<div class="filter_content">
-				<p class="group">
-					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
-					<span id="filter_rating" class="slide_filter"/></span>
-				</p>
-				<div id="slider_rating"></div>
-			</div>
-
+	
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -159,6 +142,23 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				</ul>
 			</div>
 			<?php }$district_count=0;$total_dsitrict = count($city_districts);?>
+
+			<div class="filter_content">
+				<p class="group">
+					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
+					<span id="filter_price" class="slide_filter"/></span>
+				</p>
+				<div id="slider_price"></div>
+			</div>
+			<br />
+			<div class="filter_content">
+				<p class="group">
+					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
+					<span id="filter_rating" class="slide_filter"/></span>
+				</p>
+				<div id="slider_rating"></div>
+			</div>
+
 		</div>
 	</div>
 	<?php }?>
@@ -303,18 +303,22 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
 					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
-					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Prix");?></span></a></li>
-					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Cote");?></span></a></li>
+					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Best Price");?></span></a></li>
+					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Best rating");?></span></a></li>
 
-  				<li class="inputs"><input type="checkbox" class="checkbox" id="safest_filter" value="" name="safest_filter" />
-					<span class="icon"><span><?php echo _("Safest");?></span></span></li>
-				<li class="inputs"><input type="checkbox" class="checkbox" id="best_location_filter" value="" name="best_location_filter" />
-					<span class="icon"><span><?php echo _("Best Location");?></span></span></li>
+				<?php if ($this->api_used == HB_API) { ?>
+					<li><a class="sorting" id="sortsafest-tous" href="#"><span class="asc"><?php echo _("Safest");?></span></a></li>
+					<li><a class="sorting" id="sortbestlocation-tous" href="#"><span class="asc"><?php echo _("Best Location");?></span></a></li>
+				<?php } ?>
 
-  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
+				<li class="inputs"><input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
+					<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
+				</li>
+
+<!--  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
 					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
 					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
-					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li>
+					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
 
 			</nav>

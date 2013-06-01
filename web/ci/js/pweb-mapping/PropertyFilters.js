@@ -81,8 +81,13 @@ PWebFilterApp.prototype.init = function() {
 
 	this.DowntownExtraCheckId  = 'landmark-downtown';
 	this.BreakfastExtraCheckId = 'facility-free-breakfast';
+	this.SafestCheckId       = 'safest_filter';
+	this.BestLocationCheckId = 'best_location_filter';
+
 	this.hasDowntownFilter  = false;
 	this.hasBreakfastFilter = false;
+	this.hasSafestFilter       = false;
+	this.hasBestLocationFilter = false;
 	
 	
 	//Set these range to not set
@@ -129,6 +134,18 @@ PWebFilterApp.prototype.init = function() {
 						},
 						{
 							"row": "overall_rating",
+							"grouped": true,
+							"ordered": true,
+							"type": jOrder.number
+						},
+						{
+							"row": "ratings_safety",
+							"grouped": true,
+							"ordered": true,
+							"type": jOrder.number
+						},
+						{
+							"row": "ratings_location",
 							"grouped": true,
 							"ordered": true,
 							"type": jOrder.number
@@ -199,6 +216,7 @@ PWebFilterApp.prototype.set_init_filters_value = function() {
 	}
 	
 	this.FiltersInitValues['breakfast_2nd_filter'] = false;
+	this.FiltersInitValues['hostels_2nd_filter'] = false;
 	this.FiltersInitValues['downtown_2nd_filter'] = false;	
 };
 
@@ -442,7 +460,6 @@ PWebFilterApp.prototype.fetch_index = function(rowname) {
 };
 
 PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) { 
-
 	this.actual_sort_index = this.fetch_index(indexname);
 	this.actual_sort_order = dir;
 
@@ -458,7 +475,7 @@ PWebFilterApp.prototype.sort_hits = function(indexname,dir,update) {
 //	    .orderby([this.actual_sort_index.row], this.actual_sort_order);
 //	    .orderby([this.actual_sort_index.row], this.actual_sort_order,{ indexName: this.actual_sort_index.row,offset: 0, limit: this.results_limit });
 	    .orderby([this.actual_sort_index.row], this.actual_sort_order,{ indexName: this.actual_sort_index.row});
-	    
+
 	if(update !== undefined)
 	{
 		this.update();
@@ -485,6 +502,7 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 
 	this.hasDowntownFilter  = false;
 	this.hasBreakfastFilter = false;
+	this.hasHostelsFilter   = false;
 	
 	for (var index in this.jtable_hits)
 	{
@@ -509,7 +527,13 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 				}
 			}
 		}
-		
+
+		if (this.hasHostelsFilter === false) {
+			if (this.jtable_hits[index].propertyType == 'Hostel') {
+				this.hasHostelsFilter = true;
+			}
+		}
+	
 		if((this.hasDowntownFilter === true) &&
 		  (this.hasBreakfastFilter === true))
 		{
@@ -533,6 +557,13 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 	else
 	{
 		$('#breakfast_2nd_filter').parent().hide();
+	}
+
+	if (this.hasHostelsFilter === true) {
+//		$('#hostels_2nd_filter').parent().show();
+	}
+	else {
+//		$('#hostels_2nd_filter').parent().hide();
 	}
 };
 
@@ -907,6 +938,24 @@ PWebFilterApp.prototype.get_filters = function() {
 
 PWebFilterApp.prototype.setData = function(json_data) {
 	jOrder.logging = null;
+
+	// add necessary info
+	for (var i = 0; i < json_data.length; i++) {
+		var currentData = json_data[i];
+
+		json_data[i]['ratings_safety']   = 0;
+		json_data[i]['ratings_location'] = 0;
+
+		if (typeof(currentData['ratings']) != 'undefined' && typeof(currentData['ratings']) == 'object') {
+			if (typeof(currentData['ratings']['safety']) != 'undefined') {
+				json_data[i]['ratings_safety'] = currentData['ratings']['safety'];
+			}
+
+			if (typeof(currentData['ratings']['location']) != 'undefined') {
+				json_data[i]['ratings_location'] = currentData['ratings']['location'];
+			}
+		}
+	}
 	this.jtable = jOrder(json_data)
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
@@ -1010,7 +1059,28 @@ PWebFilterApp.prototype.init_action_filters = function() {
 				that.apply_filters();
 */
 	});
-	
+
+	$('#hostels_2nd_filter').click(function () {
+		var obj = $(this);
+
+		if (obj.attr('checked')) {
+			$('#cb_group_type_filter input[type="checkbox"]').attr('checked', false);
+			$('#type_hostels').attr('checked', 'checked');
+			$('#cb_group_type_filter input[type="checkbox"]').triggerHandler('click');
+		}
+		else {
+			$('#cb_group_type_filter input[type="checkbox"]').attr('checked', 'checked').triggerHandler('click');
+		}
+	});
+
+	$('#type_hostels').click(function() {
+		var obj = $(this);
+		
+		if (!obj.attr('checked')) {
+			$('#hostels_2nd_filter').attr('checked', false);
+		}
+	});
+
 	$('#downtown_2nd_filter').click(function ()
 			{
 				if($('#downtown_2nd_filter').is(':checked'))
@@ -1067,8 +1137,8 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 	var that = this;
 	
 	$('#'+DOMNodeID).click(function(){
-
 		$('#'+divID+' .sorting').removeClass('activesort');
+
 		$(this).addClass('activesort');
 
 		if($(this).children().hasClass('asc'))
@@ -1131,6 +1201,8 @@ PWebFilterApp.prototype.setup = function(data)
 	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
 	this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
+	this.setClickSort('data_sort_controls','sortsafest-tous','ratings_safety');
+	this.setClickSort('data_sort_controls','sortbestlocation-tous','ratings_location');
 	$('#data_sort_controls').show();
 
 	this.apply_filters();
