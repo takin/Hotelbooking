@@ -328,7 +328,20 @@ class CHostelbk extends I18n_site
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
-
+      
+      if (in_array($_SERVER['HTTP_HOST'], $this->config->item('hbChargeBookingFee'))) {
+          
+          $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDateWithBookingFee( $propertyNumber,
+                                                                                             $roomsIDS,
+                                                                                             $dateStart->format('d-M-Y'),
+                                                                                             $numNights,
+                                                                                             $this->api_functions_lang,
+                                                                                             $bookCurrency);
+      
+          $data['booking_fee'] = $response["RESPONSE"]["FEE"];
+          $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
+          
+        }          
 
       $inputok = true;
       if($response === false)

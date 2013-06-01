@@ -454,6 +454,20 @@ $config["hwMostPopularFacilitiesById"] = array(
 );
 
 
+/*
+ * HB sites that import Reviews from HW
+ */
+$config["hbImporthwReviews"] = array(
+    'www.hbsitetest.com'
+);
+
+/*
+ * HB sites that charge Booking Fee
+ */
+$config["hbChargeBookingFee"] = array(
+    'www.hbsitetest.com'
+);
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
 

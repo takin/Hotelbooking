@@ -233,12 +233,27 @@ $SPACE = '&nbsp;';
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?>:</td>
                <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></td>
-              </tr>
+              </tr>							
+              
+              <?php if (isset($booking_fee)): ?>
+              <tr class="light">
+                                    <td class="first" align="right">
 
-							<tr class="light">
+                                        <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
+                                    <td>
+                                        <span style="display: inline;">
+                                            <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
+                                        </span>
+
+                                    </td>
+                                </tr>
+              <?php else: ?>                  
+                                <tr class="light">
                <td class="first" align="right"><span id="bookingFeeDesc"><?php echo _('No Booking fees')?>:</span></td>
 							 <td><span style="display: inline;"><b><span class="cur book selected"><?php echo _('Free')?></span></b></span></td>
               </tr>
+              <?php endif; ?>
+              
 
               <?php /*?><tr class="light">
                <td  align="right">
