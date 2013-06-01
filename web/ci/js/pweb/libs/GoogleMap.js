@@ -523,9 +523,7 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 	    }); 
             
 };
-GoogleMap.prototype.centerMapMarker = function(pDiv) {
-
-    var property_number = $(pDiv).attr("rel");
+GoogleMap.prototype.centerMapMarker = function() {
 
     if (window.markers.length !== 0) {
 
