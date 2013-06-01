@@ -139,7 +139,7 @@ QuickView.prototype.getContent = function() {
 	//				image_list: self.data.image_list,
 	//				shortImages: [],
 
-					IMAGES: images,
+					IMAGES: [],
 					HW_IMAGES: images,
 
 					hasIncludes  : includes.length,
@@ -256,8 +256,8 @@ QuickView.prototype.getContent = function() {
 //				image_list: self.data.image_list,
 //				shortImages: [],
 
-			IMAGES: self.data.BIGIMAGES,
-			HW_IMAGES: self.data.PropertyImages,
+			IMAGES: images,
+			HW_IMAGES: [],
 
 			hasIncludes  : includes.length,
 			hasAmenities : amenities.length,
