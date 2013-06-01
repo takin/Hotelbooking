@@ -523,10 +523,29 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 	    }); 
             
 };
+GoogleMap.prototype.centerMapMarker = function(pDiv) {
+
+    var property_number = $(pDiv).attr("rel");
+
+    if (window.markers.length !== 0) {
+
+        for (var i in window.markers) {
+
+            if (window.markers[i].gmarker !== null)
+            {
+                if (window.markers[i].gmarker.getZIndex() === 100000) {
+                    // set map to center on marker
+                    window.gmap.setCenter(window.markers[i].gmarker.getPosition());
+                }
+
+            }
+        }
+    }
+};
 GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
     var property_number = $(pDiv).attr("rel");
-    var hostel_title = $.trim($("#hostel_title_"+property_number).text());
+    var hostel_title = $.trim($("#hostel_title_" + property_number).text());
 
     var imagePath = null;
 
@@ -542,18 +561,18 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     $("#city_info_" + property_number).removeClass('property_info_hover');
     // change the marker that appears between the property image and the property name 
     var imageSrc = $("#property_marker_number_" + property_number).attr('src');
-    imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_"); 
-    
+    imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
+
     $("#property_marker_number_" + property_number).attr("src", imageSrc);
     if (pIconType === "selected")
     {
         $("#city_info_" + property_number).addClass('property_info_hover');
         // change the marker that appears between the property image and the property name 
-        imageSrc = imageSrc.replace("unselected/marker_", "selected/marker_selected_"); 
+        imageSrc = imageSrc.replace("unselected/marker_", "selected/marker_selected_");
         $("#property_marker_number_" + property_number).attr("src", imageSrc);
     }
-
-
+    
+    
     if (window.markers.length !== 0) {
 
         for (var i in window.markers) {
@@ -570,12 +589,9 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 //                            new google.maps.Size(20, 30),
 //                            new google.maps.Point(0, 0),
 //                            new google.maps.Point(0, 29));
- var image = "http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png';
+                    var image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
-                    // set map to center on marker
-                    window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
-
                 }
             }
 
