@@ -62,7 +62,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
  <?php } ?>
     <div id="filter_map_rightSide_container" class="tabs_exist">
         <div id="filter_map_rightSide"></div>
-        <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();">Show properties</button>
+        <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
     </div>
 </div>
 <div id="sidebar" class="grid_4 city_view_search">
