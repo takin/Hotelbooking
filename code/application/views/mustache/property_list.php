@@ -9,12 +9,12 @@
                        <?php echo _("Info"); ?>
                 </a>
             </li>
-            <li id="tryingFancyBox">
+<!--            <li id="tryingFancyBox">
                 <a class="tab_pic" href="#city_pictures_{{propertyNumber}}"
                    onClick='display_property_pics("{{propertyNumber}}","{{propertyName}}","property_pics_{{propertyNumber}}");return false;'>
                        <?php echo _('Pictures'); ?>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a class="tab_avail" href="#city_avail_{{propertyNumber}}"
                    onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}","city_avail_table_{{propertyNumber}}");return false;'>
@@ -30,12 +30,12 @@
                 </a>
                 </span>
                 {{/isGeoValid}}
-            <li class="last">
+<!--            <li class="last">
                 <a name="review_show_property" rel="{{propertyNumber}}"
                    class="tab_review" href="#city_comment_{{propertyNumber}}">
                        <?php echo _('Latest Reviews') ?>
                 </a>
-            </li>
+            </li> -->
         </ul>
         {{#overall_rating}}
         <ul class="box_round rating">
@@ -50,28 +50,32 @@
 		{{#display_alternate_rating}}
 			{{#ratings_safety_safe}}
 			<span>
-	                    <strong class="txt-mid green"><?php echo _('Safe'); ?> <span class="darkYellow" style="display: inline">{{ratings_safety}}%</span></strong>
-<!--        	            <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>-->
+	                    <strong class="txt-mid green"><?php echo _('Safe'); ?></strong>
+			    <strong>{{ratings_safety}}%</strong>
                 	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 			{{/ratings_safety_safe}}
 			{{#ratings_safety_very_safe}}
 			<span>
-	                    <strong class="txt-mid green"><?php echo _('Very safe'); ?> <span class="darkYellow" style="display: inline">{{ratings_safety}}%</span></strong>
-    <!--    	            <span class="averageRatingCaption"><?php echo _('Safety'); ?></span> -->
+	                    <strong class="txt-mid green"><?php echo _('Very safe'); ?></strong>
+			    <strong>{{ratings_safety}}%</strong>
                 	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 			{{/ratings_safety_very_safe}}
 
 			{{#ratings_location_good}}
 			<span>
-	                    <strong class="txt-mid green"><?php echo _('Good location'); ?> <span class="darkYellow" style="display: inline">{{ratings_location}}%</span></strong>
-<!--        	            <span class="averageRatingCaption"><?php echo _('Location'); ?></span>-->
+	                    <strong class="txt-mid green"><?php echo _('Good location'); ?></strong>
+			    <strong>{{ratings_location}}%</strong>
                 	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 			{{/ratings_location_good}}
 			{{#ratings_location_great}}
 			<span>
-	                    <strong class="txt-mid green"><?php echo _('Great location'); ?> <span class="darkYellow" style="display: inline">{{ratings_location}}%</span></strong>
-<!--        	            <span class="averageRatingCaption"><?php echo _('Location'); ?></span>-->
+	                    <strong class="txt-mid green"><?php echo _('Great location'); ?></strong>
+			    <strong>{{ratings_location}}%</strong>
                 	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 			{{/ratings_location_great}}
 		{{/display_alternate_rating}}
 

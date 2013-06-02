@@ -336,6 +336,48 @@ PWebFilterApp.prototype.update = function() {
 	}
 	else
 	{
+		// display ratings based on sorting
+		if (this.actual_sort_index) {
+			for (var i = 0; i < this.jtable_hits_sorted.length; i++) {
+				var currentData = this.jtable_hits_sorted[i];
+
+				this.jtable_hits_sorted[i]['display_alternate_rating'] = false;
+
+				if (this.actual_sort_index.row == 'ratings_safety' || this.actual_sort_index.row == 'ratings_location') {
+					if (this.actual_sort_index.row == 'ratings_location') {
+						this.jtable_hits_sorted[i]['ratings_safety_safe']      = false;
+						this.jtable_hits_sorted[i]['ratings_safety_very_safe'] = false;
+
+						if (currentData['ratings']['location'] >= 70 && currentData['ratings']['location'] < 80) {
+							this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+							this.jtable_hits_sorted[i]['ratings_location_good']    = true;
+						}
+						else {
+							if (currentData['ratings']['location'] >= 80) {
+								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+								this.jtable_hits_sorted[i]['ratings_location_great']   = true;
+							}
+						}
+					}
+					else {
+						this.jtable_hits_sorted[i]['ratings_location_good']  = false;
+						this.jtable_hits_sorted[i]['ratings_location_great'] = false;
+
+						if (currentData['ratings']['safety'] >= 70 && currentData['ratings']['safety'] < 80) {
+							this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+							this.jtable_hits_sorted[i]['ratings_safety_safe']      = true;
+						}
+						else {
+							if (currentData['ratings']['safety'] >= 80) {
+								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+								this.jtable_hits_sorted[i]['ratings_safety_very_safe'] = true;
+							}
+						}
+					}
+				}
+			}
+		}
+
 		var output = Mustache.to_html(this.template, { "properties": this.jtable_hits_sorted});
 
 		this.$data_loading_msg.hide();
@@ -950,38 +992,16 @@ PWebFilterApp.prototype.setData = function(json_data) {
 		json_data[i]['ratings_safety_very_safe'] = false;
 		json_data[i]['ratings_location_good']    = false;
 		json_data[i]['ratings_location_great']   = false;
-		json_data[i]['display_alternate_rating'] = false;
 
+		json_data[i]['display_alternate_rating'] = false;
 
 		if (typeof(currentData['ratings']) != 'undefined' && typeof(currentData['ratings']) == 'object') {
 			if (typeof(currentData['ratings']['safety']) != 'undefined') {
 				json_data[i]['ratings_safety'] = currentData['ratings']['safety'];
-
-				if (currentData['ratings']['safety'] >= 70 && currentData['ratings']['safety'] < 80) {
-					json_data[i]['display_alternate_rating'] = true;
-					json_data[i]['ratings_safety_safe']      = true;
-				}
-				else {
-					if (currentData['ratings']['safety'] >= 80) {
-						json_data[i]['display_alternate_rating'] = true;
-						json_data[i]['ratings_safety_very_safe'] = true;
-					}
-				}
 			}
 
 			if (typeof(currentData['ratings']['location']) != 'undefined') {
 				json_data[i]['ratings_location'] = currentData['ratings']['location'];
-
-				if (currentData['ratings']['location'] >= 70 && currentData['ratings']['location'] < 80) {
-					json_data[i]['display_alternate_rating'] = true;
-					json_data[i]['ratings_location_good']    = true;
-				}
-				else {
-					if (currentData['ratings']['location'] >= 80) {
-						json_data[i]['display_alternate_rating'] = true;
-						json_data[i]['ratings_location_great']   = true;
-					}
-				}
 			}
 		}
 	}
@@ -1170,19 +1190,19 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 
 		$(this).addClass('activesort');
 
-		if($(this).children().hasClass('asc'))
-	{
+		if ($(this).children().hasClass('asc') || $(this).hasClass('desc')) {
 			$(this).children().removeClass('asc');
 			$(this).children().addClass('desc');
-			that.sort_hits(rowname,jOrder.desc,true);
-	}
-		else
-		{
+
+			that.sort_hits(rowname, jOrder.desc, true);
+		}
+		else {
 			$(this).children().removeClass('desc');
 			$(this).children().addClass('asc');
 
-			that.sort_hits(rowname,jOrder.asc,true);
+			that.sort_hits(rowname, jOrder.asc, true);
 		}
+
 		return false;
 	});
 };

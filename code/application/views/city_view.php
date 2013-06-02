@@ -76,11 +76,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	?>
 	<div id="search_load">
 		<?php $this->load->view('includes/group-booking'); ?>
-		<div class="filter_block box_content box_round" id="filter_choices">
-			<?php //TODO show filter reset;?>
-			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
-			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
-	
+		<div class="filter_block box_content box_round" id="filter_choices">	
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -159,6 +155,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<div id="slider_rating"></div>
 			</div>
 
+			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
 		</div>
 	</div>
 	<?php }?>
@@ -303,12 +300,12 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
 					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
-					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Best Price");?></span></a></li>
-					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Best rating");?></span></a></li>
+					<li><a class="sorting activesort asc" id="sortprice-tous" href="#"><?php echo _("Best Price");?></a></li>
+					<li><a class="sorting desc" id="sortcote-tous" href="#"><?php echo _("Best rating");?></a></li>
 
 				<?php if ($this->api_used == HB_API) { ?>
-					<li><a class="sorting" id="sortsafest-tous" href="#"><span class="asc"><?php echo _("Safest");?></span></a></li>
-					<li><a class="sorting" id="sortbestlocation-tous" href="#"><span class="asc"><?php echo _("Best Location");?></span></a></li>
+					<li><a class="sorting desc" id="sortsafest-tous" href="#"><?php echo _("Safest");?></a></li>
+					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best Location"); ?></a></li>
 				<?php } ?>
 
 				<li class="inputs"><input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
