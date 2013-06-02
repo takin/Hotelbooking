@@ -211,7 +211,7 @@ $SPACE = '&nbsp;';
            $settle_deposit_usd        = number_format($booking_total_usd_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_eur        = number_format($booking_total_eur_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_cad        = number_format($booking_total_cad_price*$hb_arrhes_rate,2,'.','');
-           $settle_deposit_booking    = number_format(($booking_total_price*$hb_arrhes_rate)+(isset($booking_fee['CUSTOMER']['AMOUNT'])?$booking_fee['CUSTOMER']['AMOUNT']:0),2,'.','');
+           $settle_deposit_booking    = number_format(($booking_total_price*$hb_arrhes_rate)+(isset($booking_fee['AFFILIATE']['AMOUNT'])?$booking_fee['AFFILIATE']['AMOUNT']:0),2,'.','');
 
             // Find the CADDepositAMount to put in the hidden field 'analytic-value'
             $CADDepositAmount = (float)$settle_deposit_booking * 0.6;
@@ -242,7 +242,7 @@ $SPACE = '&nbsp;';
                                         <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
                                     <td>
                                         <span style="display: inline;">
-                                            <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
+                                            <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['AFFILIATE']['AMOUNT'])?number_format( $booking_fee['AFFILIATE']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
                                         </span>
 
                                     </td>
