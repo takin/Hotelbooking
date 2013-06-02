@@ -331,15 +331,9 @@ class CHostelbk extends I18n_site
                                                                                              $numNights,
                                                                                              $this->api_functions_lang,
                                                                                              $bookCurrency);
-      
-          print_r($response);
-          print_r($response);
           
           $data['booking_fee'] = $response["RESPONSE"]["FEE"];
           $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
-          
-          print_r($response);
-          print_r($response);
           
         } else {
             
@@ -349,8 +343,6 @@ class CHostelbk extends I18n_site
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
-            
-            //print_r($response);
             
         }         
 
@@ -378,7 +370,6 @@ class CHostelbk extends I18n_site
           $data['api_error'] = false;
           $data['api_error_msg'] = "";
           //Ensure array of room per date is sorted by soonest date first
-//          ksort($response["RESPONSE"]);
           $this->_sort_hb_rooms_response($response["RESPONSE"]);
           $this->Hb_api_translate->translate_PropertyRoomPricingPerDate($response["RESPONSE"]);
         }
