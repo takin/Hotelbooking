@@ -1,9 +1,36 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}">
-    <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
-    <nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
-        <ul class="box_round ui-tabs-nav">
-            <li class="first ui-tabs-selected">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}"
+onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
+     onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original');">
+    <input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
+    {{#Geo}}
+    <input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
+    <input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
+    {{/Geo}}
+    <div id="map_InfoWindow_{{propertyNumber}}" class="map_InfoWindow"  style="display: none;">
+        <div class="mapbubble">
+                <a href="{{property_page_url}}">
+                  {{#PropertyImages}}
+                  <img class="alignleft" alt="{{propertyName}}" 
+                                          src="{{#PropertyImage}}{{imageThumbnailURL}}{{/PropertyImage}}" />
+                  {{/PropertyImages}}
+                </a>
+                <h2>
+                <a href="{{property_page_url}}">{{propertyName}}</a>
+                </h2>
+                <p class="price">
+                <?php echo _('à partir de'); ?><span> {{display_price_formatted}}</span> {{display_currency}}
+                {{#overall_rating}}
+                 - <?php echo _("évaluation moyenne"); ?> {{overall_rating}}%
+                {{/overall_rating}}
+                </p>
+                <a href="{{property_page_url}}" class="more-info"><?php echo _("Plus d'information"); ?> &raquo;</a>
+                <div class="clear"></div>
+        </div>
+    </div>
+	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
+		<ul class="box_round ui-tabs-nav">
+			<li class="first ui-tabs-selected">
                 <a id="first_tab_{{propertyNumber}}" class="tab_price"
                    href="#city_info_{{propertyNumber}}">
                        <?php echo _("Info"); ?>
@@ -22,13 +49,13 @@
                 </a>
             </li>
             {{#isGeoValid}}
-            <li>
+<!--            <li>
                 <a name="city_map_show_property" rel="{{propertyNumber}}"
                    class="tab_map box_round" href="#city_map_{{propertyNumber}}"
                    title="<?php echo _("Cartes et Directions"); ?>">
                        <?php echo _("See Map"); ?>
                 </a>
-                </span>
+                </li>-->
                 {{/isGeoValid}}
             <li class="last">
                 <a name="review_show_property" rel="{{propertyNumber}}"
@@ -99,7 +126,7 @@
         <div class="city_hostel group" id="city_info_{{propertyNumber}}">
             <div class="info">
                 <div class="left info_pic">
-                    <div class="picture_number" id="{{propertyNumber}}">0</div>
+                    <div id="{{propertyNumber}}" class="picture_number">0</div>
                     <a href="{{property_page_url}}" style="position:relative;">
                         {{#PropertyImages}}
                         <img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
@@ -118,9 +145,12 @@ if ($displayQuickPreview == 1) {
                 <!-- <div class="propertyselectmsg" id="proselect_{{propertyNumber}}"><?php echo _('Please see selected properties to compare on top of this page.'); ?></div> -->
                 <div class="info_indent">
                     <h2>
+                         <img id ="property_marker_number_{{propertyNumber}}" class="property_marker_number" 
+                              src="<?php echo site_url(); ?>images/map_markers/unselected/marker_1.png" alt="" 
+                              onmouseover="GoogleMap.prototype.centerMapMarker();" />
                         <a href="{{property_page_url}}" style="vertical-align: middle">
-                            {{propertyName}}
-                            <span style="color: #3087C9; font-size:0.7em; vertical-align: middle">
+                            <span id="hostel_title_{{propertyNumber}}" class="hostel_title">{{propertyName}}</span>
+                            <span style="color: #3087C9; font-size:0.7em; vertical-align: middle;">
                                 ({{propertyTypeTranslate}})
                             </span>
                         </a>
@@ -351,3 +381,16 @@ if ($displayQuickPreview == 1) {
     </div>
 </div>
 {{/properties}}
+
+<script type="text/javascript">
+    // Property Ratings Tooltip
+$(document).ready(function() {
+        
+    $("#current_page").live("change", function()
+    {   
+        GoogleMap.prototype.drawMarkers(); 
+
+        return false;
+    }); 
+});
+</script>
