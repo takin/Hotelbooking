@@ -381,16 +381,3 @@ if ($displayQuickPreview == 1) {
     </div>
 </div>
 {{/properties}}
-
-<script type="text/javascript">
-    // Property Ratings Tooltip
-$(document).ready(function() {
-        
-    $("#current_page").live("change", function()
-    {   
-        GoogleMap.prototype.drawMarkers(); 
-
-        return false;
-    }); 
-});
-</script>
