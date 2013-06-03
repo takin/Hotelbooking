@@ -458,8 +458,8 @@ $config["hwMostPopularFacilitiesById"] = array(
  * HB sites that import Reviews from HW
  */
 $config["hbImporthwReviews"] = array(
-    'www.hbsitetest.com'//,
-    //'www.retkeilymajoja.com'
+    'www.hbsitetest.com',
+    'www.retkeilymajoja.com'
 );
 
 /*
