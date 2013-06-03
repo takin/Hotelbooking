@@ -1194,19 +1194,27 @@ PWebFilterApp.prototype.init_action_filters = function() {
 };
 PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 	var that = this;
-	
+
 	$('#'+DOMNodeID).click(function(){
+		var obj = $(this);
+
 		$('#'+divID+' .sorting').removeClass('activesort');
 
 		$(this).addClass('activesort');
 
+		pweb_setCookie('city_sort_field', obj.attr('id'), 24);
+
 		if ($(this).children().hasClass('asc') || $(this).hasClass('desc')) {
+			pweb_setCookie('city_sort_direction', 'desc', 24);
+
 			$(this).children().removeClass('asc');
 			$(this).children().addClass('desc');
 
 			that.sort_hits(rowname, jOrder.desc, true);
 		}
 		else {
+			pweb_setCookie('city_sort_direction', 'asc', 24);
+
 			$(this).children().removeClass('desc');
 			$(this).children().addClass('asc');
 
@@ -1262,6 +1270,7 @@ PWebFilterApp.prototype.setup = function(data)
 	this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
 	this.setClickSort('data_sort_controls','sortsafest-tous','ratings_safety');
 	this.setClickSort('data_sort_controls','sortbestlocation-tous','ratings_location');
+
 	$('#data_sort_controls').show();
 
 	this.apply_filters();
@@ -1399,6 +1408,31 @@ PWebFilterApp.prototype.setup = function(data)
 
 	// handle the delete links
 	this.handle_delete();
+
+	// keep the prev sorting
+	var sortCookie = getCookie('city_sort_field');
+	if (sortCookie) {
+		var elem = $('#' + sortCookie);
+
+		if (elem.length) {
+			var dir = getCookie('city_sort_direction');
+
+			if (elem.find('.asc').length) {
+				if (dir == 'asc') {
+					elem.find('.asc').removeClass('asc').addClass('desc');
+				}
+			}
+
+			if (elem.find('.desc').length) {
+				if (dir == 'desc') {
+					elem.find('.desc').removeClass('desc').addClass('asc');
+				}
+			}
+
+			elem.trigger('click');
+		}
+	}
+
 }
 
 PWebFilterApp.prototype.closeFilter = function(type)
