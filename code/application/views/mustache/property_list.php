@@ -62,6 +62,13 @@
                 	</span>
         	        <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 			{{/ratings_safety_very_safe}}
+			{{#ratings_safety_under}}
+			<span>
+	                    <strong class="txt-mid green"></strong>
+			    <strong>{{ratings_safety}}%</strong>
+                	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
+			{{/ratings_safety_under}}
 
 			{{#ratings_location_good}}
 			<span>
@@ -77,6 +84,13 @@
                 	</span>
         	        <span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 			{{/ratings_location_great}}
+			{{#ratings_location_under}}
+			<span>
+	                    <strong class="txt-mid green"></strong>
+			    <strong>{{ratings_location}}%</strong>
+                	</span>
+        	        <span class="averageRatingCaption"><?php echo _('Location'); ?></span>
+			{{/ratings_location_under}}
 		{{/display_alternate_rating}}
 
 		{{^display_alternate_rating}}

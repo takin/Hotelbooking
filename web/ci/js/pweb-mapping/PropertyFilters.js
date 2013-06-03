@@ -347,6 +347,7 @@ PWebFilterApp.prototype.update = function() {
 					if (this.actual_sort_index.row == 'ratings_location') {
 						this.jtable_hits_sorted[i]['ratings_safety_safe']      = false;
 						this.jtable_hits_sorted[i]['ratings_safety_very_safe'] = false;
+						this.jtable_hits_sorted[i]['ratings_safety_under']     = false;
 
 						if (currentData['ratings']['location'] >= 70 && currentData['ratings']['location'] < 80) {
 							this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
@@ -357,11 +358,16 @@ PWebFilterApp.prototype.update = function() {
 								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
 								this.jtable_hits_sorted[i]['ratings_location_great']   = true;
 							}
+							else {
+								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+								this.jtable_hits_sorted[i]['ratings_location_under']   = true;
+							}
 						}
 					}
 					else {
 						this.jtable_hits_sorted[i]['ratings_location_good']  = false;
 						this.jtable_hits_sorted[i]['ratings_location_great'] = false;
+						this.jtable_hits_sorted[i]['ratings_location_under'] = false;
 
 						if (currentData['ratings']['safety'] >= 70 && currentData['ratings']['safety'] < 80) {
 							this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
@@ -371,6 +377,10 @@ PWebFilterApp.prototype.update = function() {
 							if (currentData['ratings']['safety'] >= 80) {
 								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
 								this.jtable_hits_sorted[i]['ratings_safety_very_safe'] = true;
+							}
+							else {
+								this.jtable_hits_sorted[i]['display_alternate_rating'] = true;
+								this.jtable_hits_sorted[i]['ratings_safety_under'] = true;
 							}
 						}
 					}
