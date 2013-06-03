@@ -468,6 +468,14 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
+       
+       $("#current_page").live("change", function()
+    {   
+        GoogleMap.prototype.drawMarkers(); 
+
+        return false;
+    }); 
+    
        // on window resize
        $(window).resize(function() {
             changeSidebar_width();
@@ -479,7 +487,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
        
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
-        var page_height = $(Document).height();
+        var page_height = $(document).height();
         var fix_height_position =  ( page_height - $("#sidebar").height() - 385 ) ;
         var scroll_position = $(window).scrollTop();
         // whole div container
