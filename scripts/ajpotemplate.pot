@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-30 17:44+0300\n"
+"POT-Creation-Date: 2013-06-03 19:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -751,6 +751,7 @@ msgstr ""
 #: ../code/application/views/hw/hostel_view.php:366
 #: ../code/application/views/mustache/property_list.php:206
 #: ../code/application/views/hb/hostel_view.php:446
+#: ../code/application/views/helpfile/pofields.php~:839
 #: ../code/application/views/helpfile/pofields.php:839
 #, php-format
 msgid ""
@@ -769,6 +770,7 @@ msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:428
 #: ../code/application/views/hb/hostel_view.php:513
+#: ../code/application/views/helpfile/pofields.php~:829
 #: ../code/application/views/helpfile/pofields.php:829
 #: ../code/application/views/includes/footer.php:84
 #, php-format
@@ -1721,6 +1723,7 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:783
 #: ../code/application/views/hw/booking_view.php:303
+#: ../code/application/views/helpfile/pofields.php~:822
 #: ../code/application/views/helpfile/pofields.php:822
 #, php-format
 msgid "Deposit to be paid now (%d%%)"
@@ -1827,6 +1830,7 @@ msgid "Prix (lit)"
 msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:992
+#: ../code/application/views/helpfile/pofields.php~:824
 #: ../code/application/views/helpfile/pofields.php:824
 #, php-format
 msgid "Deposit (%d%%)"
@@ -2963,6 +2967,7 @@ msgstr ""
 #: ../code/application/views/auth/register_form.php:89
 #: ../code/application/views/auth/login_form.php:68
 #: ../code/application/views/auth/login_form.php:69
+#: ../code/application/views/helpfile/pofields.php~:831
 #: ../code/application/views/helpfile/pofields.php:831
 #, php-format
 msgid "Existing account"
@@ -2971,6 +2976,7 @@ msgstr ""
 #: ../code/application/views/auth/register_form.php:91
 #: ../code/application/views/auth/login_form.php:169
 #: ../code/application/views/helpfile/pofields.php~:801
+#: ../code/application/views/helpfile/pofields.php~:835
 #: ../code/application/views/helpfile/pofields.php:801
 #: ../code/application/views/helpfile/pofields.php:835
 #, php-format
@@ -3076,6 +3082,7 @@ msgstr ""
 
 #: ../code/application/views/auth/register_form.php:217
 #: ../code/application/views/helpfile/pofields.php~:800
+#: ../code/application/views/helpfile/pofields.php~:834
 #: ../code/application/views/helpfile/pofields.php:800
 #: ../code/application/views/helpfile/pofields.php:834
 #, php-format
@@ -3367,6 +3374,8 @@ msgid "Property name"
 msgstr ""
 
 #: ../code/application/views/restricted/user_favorite_properties.php:35
+#: ../code/application/views/helpfile/pofields.php:864
+#, php-format
 msgid "No properties were saved."
 msgstr ""
 
@@ -3586,6 +3595,8 @@ msgid "Chargement..."
 msgstr ""
 
 #: ../code/application/views/restricted/user_view.php:6
+#: ../code/application/views/helpfile/pofields.php:865
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
 msgstr ""
 
@@ -4199,6 +4210,7 @@ msgid "Check-In/Out Details"
 msgstr ""
 
 #: ../code/application/views/hb/hostel_view.php:842
+#: ../code/application/views/helpfile/pofields.php~:830
 #: ../code/application/views/helpfile/pofields.php:830
 #, php-format
 msgid ""
@@ -8876,31 +8888,7 @@ msgstr ""
 msgid "Saved favorite properties"
 msgstr ""
 
-#: ../code/application/views/helpfile/pofields.php~:822
-#, php-format
-msgid "Deposit to be paid now (%d)"
-msgstr ""
-
 #: ../code/application/views/helpfile/pofields.php~:823
-#, php-format
-msgid ""
-"You only pay the deposit (%d of total amount) to confirm and secure your "
-"reservation now. The remaining amount (%d) is payable upon arrival. You will "
-"find the property's contact information (email, address, telephone number…) "
-"in your confirmation email after you have made your reservation."
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php~:824
-#, php-format
-msgid "Deposit (%d)"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php~:825
-#: ../code/application/views/helpfile/pofields.php:825
-#, php-format
-msgid "Amount already paid:"
-msgstr ""
-
 #: ../code/application/views/helpfile/pofields.php:823
 #, php-format
 msgid ""
@@ -8910,32 +8898,44 @@ msgid ""
 "number…) in your confirmation email after you have made your reservation."
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:825
+#: ../code/application/views/helpfile/pofields.php:825
+#, php-format
+msgid "Amount already paid:"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php~:828
 #: ../code/application/views/helpfile/pofields.php:828
 #: ../code/application/views/includes/side_search_box.php:16
 #, php-format
 msgid "Enter your dates"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:832
 #: ../code/application/views/helpfile/pofields.php:832
 #, php-format
 msgid "Create new account"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:833
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:836
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:837
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:838
 #: ../code/application/views/helpfile/pofields.php:838
 #: ../code/application/controllers/cmain.php:2423
 #, php-format
@@ -8944,94 +8944,144 @@ msgid ""
 "your account is 30"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:840
 #: ../code/application/views/helpfile/pofields.php:840
 #, php-format
 msgid "Most Popular Amenities"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:841
 #: ../code/application/views/helpfile/pofields.php:841
 #, php-format
 msgid "Most Popular Types"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:842
 #: ../code/application/views/helpfile/pofields.php:842
 #, php-format
 msgid "Save"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:843
 #: ../code/application/views/helpfile/pofields.php:843
 #, php-format
 msgid "Last name"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:844
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:845
 #: ../code/application/views/helpfile/pofields.php:845
 #, php-format
 msgid "Show properties"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
 #, php-format
 msgid "Best price"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
 #, php-format
 msgid "Best location"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
 #, php-format
 msgid "Safest"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:850
 #: ../code/application/views/helpfile/pofields.php:850
 #, php-format
 msgid "Great location"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:851
 #: ../code/application/views/helpfile/pofields.php:851
 #, php-format
 msgid "Good location"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:852
 #: ../code/application/views/helpfile/pofields.php:852
 #, php-format
 msgid "Safe"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:853
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
+#: ../code/application/views/helpfile/pofields.php:858
 #, php-format
 msgid "Youth hostels only"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:855
 #: ../code/application/views/helpfile/pofields.php:855
+#: ../code/application/views/helpfile/pofields.php:859
 #, php-format
 msgid "Check this box to see new search results as you move the map"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:856
 #: ../code/application/views/helpfile/pofields.php:856
+#: ../code/application/views/helpfile/pofields.php:860
 #, php-format
 msgid "Redo search in map"
 msgstr ""
 
+#: ../code/application/views/helpfile/pofields.php~:857
 #: ../code/application/views/helpfile/pofields.php:857
 #, php-format
 msgid "%d Bed Female Dorm Shared Bathroom"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:861
+#, php-format
+msgid "Hostels only"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:862
+#, php-format
+msgid ""
+"Customers can easily cancel their reservation free of charge up to 7 Days "
+"before arrival. Deposits paid are non refundable."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:863
+#, php-format
+msgid ""
+"Customers can easily cancel their reservation free of charge up to 1 Day "
+"before arrival. Deposits paid are non refundable."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:866
+#, php-format
+msgid "Show prices"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:867
+#, php-format
+msgid "Hide prices"
 msgstr ""
 
 #: ../code/application/views/property_rooms_avail.php:413
