@@ -638,7 +638,7 @@ class Hw_engine {
       //TODO insert this into HW and HB lib
 
       $json_data["property_list"][$i]['savedToFavorites']   = empty($prop["savedToFavorites"]) ? false : true;
-      $json_data["property_list"][$i]['saveToFavorites']    = empty($prop["saveToFavorites"]) ? true : false;
+      $json_data["property_list"][$i]['saveToFavorites']    = empty($prop["savedToFavorites"]) ? true : false;
       $json_data["property_list"][$i]['amenities'] = $data['amenities'][$prop["propertyNumber"]];
       $json_data["property_list"][$i]['amenities_filter'] = $data['amenities_filter'][$prop["propertyNumber"]];
       if (!empty($json_data["property_list"][$i]['PropertyImages']) && !empty($json_data["property_list"][$i]['PropertyImages']['PropertyImage']['imageURL']))
@@ -663,7 +663,7 @@ class Hw_engine {
 
 	   // -------Translate the propertyType----------------------------------//
 	    $this->CI->load->model('Db_term_translate');
-	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
+	  $json_data["property_list"][$i]['propertyTypeTranslate'] = (string)$this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
 	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
        $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
 	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)

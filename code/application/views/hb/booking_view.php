@@ -211,7 +211,7 @@ $SPACE = '&nbsp;';
            $settle_deposit_usd        = number_format($booking_total_usd_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_eur        = number_format($booking_total_eur_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_cad        = number_format($booking_total_cad_price*$hb_arrhes_rate,2,'.','');
-           $settle_deposit_booking        = number_format($booking_total_price*$hb_arrhes_rate,2,'.','');
+           $settle_deposit_booking    = number_format(($booking_total_price*$hb_arrhes_rate)+(isset($booking_fee['CUSTOMER']['AMOUNT'])?$booking_fee['CUSTOMER']['AMOUNT']:0),2,'.','');
 
             // Find the CADDepositAMount to put in the hidden field 'analytic-value'
             $CADDepositAmount = (float)$settle_deposit_booking * 0.6;
@@ -233,38 +233,27 @@ $SPACE = '&nbsp;';
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?>:</td>
                <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></td>
-              </tr>
+              </tr>							
+              
+              <?php if (isset($booking_fee)): ?>
+              <tr class="light">
+                                    <td class="first" align="right">
 
-							<tr class="light">
+                                        <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
+                                    <td>
+                                        <span style="display: inline;">
+                                            <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
+                                        </span>
+
+                                    </td>
+                                </tr>
+              <?php else: ?>                  
+                                <tr class="light">
                <td class="first" align="right"><span id="bookingFeeDesc"><?php echo _('No Booking fees')?>:</span></td>
 							 <td><span style="display: inline;"><b><span class="cur book selected"><?php echo _('Free')?></span></b></span></td>
               </tr>
-
-              <?php /*?><tr class="light">
-               <td  align="right">
-
-                   <span id="bookingFeeDesc"><strong>
-									 <?php
-										 $member_gbp = $cur.' 12.00';
-										 $member_eur = currency_symbol('EUR').' 14.00 ';
-										 $member_usd = currency_symbol('USD').' 20.00';
-                  	?>
-                   <span class="cur gbp selected"><?php printf(gettext("%s yearly membership card - waived:"),$member_gbp); ?></span>
-									 <span class="cur usd"><?php printf(gettext("%s yearly membership card - waived:"),$member_usd); ?></span>
-									 <span class="cur eur"><?php printf(gettext("%s yearly membership card - waived:"),$member_eur); ?></span>
-									 </strong></span>
-									 </td>
-                   <td>
-                   <span style="display: inline;">
-                     <b>
-										 <span class="cur book selected"><?php echo $bookCurSymbol;?> 0.00</span>
-                     </b>
-                   </span>
-
-               </td>
-              </tr><?php */?>
-
-
+              <?php endif; ?>
+              
               <tr class="end-total">
                <td class="first" align="right"><strong><?php echo _('Total à payer maintenant');?>:</strong></td>
                <td><span style="display: inline;"><b><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></b></span></td>
@@ -291,12 +280,13 @@ $SPACE = '&nbsp;';
           </tfoot>
        </table>
 			
-      <?php endif; // end if api error?>
+      <?php endif; // end if api error ?>
 			</div>
 		</div>	
 			
 		<form action="<?php echo secure_site_url(); ?>" method="post" onSubmit="booking_confirm2('<?php echo secure_site_url(); ?>',false,'<?php echo $settleCurrency;?>'); return false;">
-		<div class="booking_section">  
+                    <input type="hidden" id="api_shortname" name="api_shortname" value="hb" />
+                    <div class="booking_section">  
 			<div class="popup-info-wrap">
 				<h2 id="step2-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>2. <?php echo _('Informations personnelles - Sécurisées et Encryptées');?></span></h2>
 				<div class="popup-info booking_view">

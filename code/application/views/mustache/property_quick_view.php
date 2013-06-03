@@ -105,8 +105,8 @@
 				<div class="top-map-inn1">
 					<!--<div class="map" id="map_property" style="height:367px;">
 					<?php _('Map');?></div> -->
-					<div id="map-wrap" class="map">
-						<div id="map_canvas"></div>
+					<div id="map-wrap" class="map quickview">
+						<div id="map_canvas" class="map_quickview"></div>
 					</div>
 
 					<!--location details added here -->	

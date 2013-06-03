@@ -837,3 +837,21 @@
 <?php echo _('Hide room types');?>
 <?php echo _('We are sorry but the maximum number of favorite properties you can save to your account is 30');?>
 <?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.');?>
+<?php echo _('Most Popular Amenities');?>
+<?php echo _('Most Popular Types');?>
+<?php echo _('Save');?>
+<?php echo _('Last name');?>
+<?php echo _('Newsletter subscription');?>
+<?php echo _('Show properties');?>
+<?php echo _('Best price');?>
+<?php echo _('Best location');?>
+<?php echo _('Safest');?>
+<?php echo _('Best rating');?>
+<?php echo _('Great location');?>
+<?php echo _('Good location');?>
+<?php echo _('Safe');?>
+<?php echo _('Very safe');?>
+<?php echo _('Youth hostels only');?>
+<?php echo _('Check this box to see new search results as you move the map');?>
+<?php echo _('Redo search in map');?>
+<?php echo _('%d Bed Female Dorm Shared Bathroom');?>

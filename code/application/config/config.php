@@ -12,7 +12,7 @@ $config['displaySharePDF']   = FALSE;
 $config['displayQuickPreview'] = true;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = true;
+$config['displayCompareProperty'] = TRUE;
 
 /* set variable to show remove from search */
 $config['displayRemoveFromSearch'] = TRUE;
@@ -29,11 +29,11 @@ $config['recent_view_number_cookies'] = 5;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
-	$config['bingTranslation'] = FALSE;
+	$config['bingTranslation'] = TRUE;
 }
 else
 {
-	$config['bingTranslation'] = FALSE;
+	$config['bingTranslation'] = TRUE;
 }
 
 $config['companies_strings_to_replace'] = array(
@@ -453,6 +453,22 @@ $config["hwMostPopularFacilitiesById"] = array(
     33  // 24 hour reception - hw_facility
 );
 
+
+/*
+ * HB sites that import Reviews from HW
+ */
+$config["hbImporthwReviews"] = array(
+    'www.hbsitetest.com',
+    'www.retkeilymajoja.com'
+);
+
+/*
+ * HB sites that charge Booking Fee
+ */
+$config["hbChargeBookingFee"] = array(
+    'www.hbsitetest.com',
+    'www.retkeilymajoja.com'
+);
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

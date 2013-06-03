@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-29 17:09+0300\n"
+"POT-Creation-Date: 2013-05-24 17:30+0300\n"
 "PO-Revision-Date: 2013-05-02 22:26+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,7 +58,7 @@ msgid "Pays d'"
 msgstr "Страны, где вы можете найти дешевый хостел"
 
 #: ../code/application/views/auth/forgot_password_form.php:17
-#: ../code/application/views/auth/login_form.php:113
+#: ../code/application/views/auth/login_form.php:130
 #: ../code/application/views/mobile/auth/forgot_password_form.php:18
 #: ../code/application/views/mobile/auth/login_form.php:63
 msgid "Mot de passe oublié"
@@ -76,8 +77,8 @@ msgid "Obtenir nouveau mot de passe"
 msgstr "Получить новый пароль"
 
 #: ../code/application/views/auth/forgot_password_form.php:30
-#: ../code/application/views/auth/register_form.php:117
-#: ../code/application/views/auth/login_form.php:111
+#: ../code/application/views/auth/register_form.php:134
+#: ../code/application/views/auth/login_form.php:128
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/includes/header_book.php:146
 #: ../code/application/views/includes/header.php:974
@@ -128,42 +129,42 @@ msgstr "Пожалуйста, заполните все поля"
 msgid "Modifier"
 msgstr "Изменить"
 
-#: ../code/application/views/auth/register_form.php:40
-#: ../code/application/views/auth/login_form.php:38
+#: ../code/application/views/auth/register_form.php:56
+#: ../code/application/views/auth/login_form.php:54
 msgid "Les avantanges d'avoir un compte"
 msgstr "Воспользуйтесь преимуществами наличия аккаунта"
 
-#: ../code/application/views/auth/register_form.php:42
-#: ../code/application/views/auth/login_form.php:40
+#: ../code/application/views/auth/register_form.php:58
+#: ../code/application/views/auth/login_form.php:56
 msgid "Voir l'historique de vos réservations"
 msgstr "История бронирования"
 
-#: ../code/application/views/auth/register_form.php:43
-#: ../code/application/views/auth/login_form.php:41
+#: ../code/application/views/auth/register_form.php:59
+#: ../code/application/views/auth/login_form.php:57
 msgid "Évaluer les auberges visitées"
 msgstr "Оценить посетившие хостелы"
 
-#: ../code/application/views/auth/register_form.php:44
-#: ../code/application/views/auth/login_form.php:42
+#: ../code/application/views/auth/register_form.php:60
+#: ../code/application/views/auth/login_form.php:58
 msgid "Plus rapide lors de la réservation"
 msgstr "Быстрый способ забронировать"
 
-#: ../code/application/views/auth/register_form.php:45
-#: ../code/application/views/auth/login_form.php:43
+#: ../code/application/views/auth/register_form.php:61
+#: ../code/application/views/auth/login_form.php:59
 msgid "Modifier vos informations personnelles"
 msgstr "Изменить личную информацию"
 
-#: ../code/application/views/auth/register_form.php:51
+#: ../code/application/views/auth/register_form.php:68
 #: ../code/application/views/mobile/auth/register_form.php:42
 msgid "Vous enregistrer"
 msgstr "Зарегистрироваться"
 
-#: ../code/application/views/auth/register_form.php:51
+#: ../code/application/views/auth/register_form.php:68
 #: ../code/application/views/mobile/auth/register_form.php:47
 msgid "Créer votre compte"
 msgstr "Создать аккаунт"
 
-#: ../code/application/views/auth/register_form.php:52
+#: ../code/application/views/auth/register_form.php:69
 #: ../code/application/views/mobile/auth/register_form.php:48
 msgid ""
 "La création d'un compte vous donnera accès à votre historique de "
@@ -174,37 +175,37 @@ msgstr ""
 "оценкам доступных мест проживания. Пожалуйста, введите свой адрес "
 "электронной почты для получения пароля."
 
-#: ../code/application/views/auth/register_form.php:86
-#: ../code/application/views/auth/login_form.php:74
+#: ../code/application/views/auth/register_form.php:103
+#: ../code/application/views/auth/login_form.php:91
 msgid "Nouveau CAPTCHA"
 msgstr "Новая CAPTCHA"
 
-#: ../code/application/views/auth/register_form.php:87
-#: ../code/application/views/auth/login_form.php:75
+#: ../code/application/views/auth/register_form.php:104
+#: ../code/application/views/auth/login_form.php:92
 msgid "Audio CAPTCHA"
 msgstr "Аудио CAPTCHA"
 
-#: ../code/application/views/auth/register_form.php:88
-#: ../code/application/views/auth/login_form.php:76
+#: ../code/application/views/auth/register_form.php:105
+#: ../code/application/views/auth/login_form.php:93
 msgid "Image CAPTCHA"
 msgstr "CAPTCHA Изображение"
 
-#: ../code/application/views/auth/register_form.php:93
-#: ../code/application/views/auth/login_form.php:81
+#: ../code/application/views/auth/register_form.php:110
+#: ../code/application/views/auth/login_form.php:98
 msgid "Entrer le mot ci-dessus"
 msgstr "Введите слово выше"
 
-#: ../code/application/views/auth/register_form.php:94
-#: ../code/application/views/auth/login_form.php:82
+#: ../code/application/views/auth/register_form.php:111
+#: ../code/application/views/auth/login_form.php:99
 msgid "Entrer les numéros entendus"
 msgstr "Введите цифры, которые прослушали"
 
-#: ../code/application/views/auth/register_form.php:103
-#: ../code/application/views/auth/login_form.php:91
+#: ../code/application/views/auth/register_form.php:120
+#: ../code/application/views/auth/login_form.php:108
 msgid "Entrer le code exactement comme il apparaît:"
 msgstr "Введите код в точности так, как он изображен:"
 
-#: ../code/application/views/auth/register_form.php:115
+#: ../code/application/views/auth/register_form.php:132
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/includes/header_book.php:149
 #: ../code/application/views/includes/header.php:978
@@ -212,12 +213,12 @@ msgstr "Введите код в точности так, как он изобр
 msgid "S'enregistrer"
 msgstr "Зарегистрироваться"
 
-#: ../code/application/views/auth/login_form.php:49
+#: ../code/application/views/auth/login_form.php:66
 #: ../code/application/views/mobile/auth/login_form.php:37
 msgid "Connexion à votre compte"
 msgstr "Войти "
 
-#: ../code/application/views/auth/login_form.php:50
+#: ../code/application/views/auth/login_form.php:67
 #, php-format
 msgid ""
 "Bienvenue dans la section \"%s\". Depuis celui-ci, vous avez accès à vos "
@@ -228,12 +229,12 @@ msgstr ""
 "все ваши брони,  ваши оценки, все контакты (адреса электронной почты, номера "
 "телефонов...), а также вы можете зайти в профиль пользователя."
 
-#: ../code/application/views/auth/login_form.php:50
+#: ../code/application/views/auth/login_form.php:67
 #: ../code/application/views/includes/navuser.php:4
 msgid "Mon Compte"
 msgstr "Мой аккаунт"
 
-#: ../code/application/views/auth/login_form.php:51
+#: ../code/application/views/auth/login_form.php:68
 msgid ""
 "Votre compte usager vous permet aussi d'effectuer plus rapidement une "
 "réservation en utilisant vos informations déjà entrées."
@@ -241,7 +242,7 @@ msgstr ""
 "Ваш аккаунт также позволит вам быстро зарезервировать место проживания, "
 "используя информацию которую вы уже ввели."
 
-#: ../code/application/views/auth/login_form.php:114
+#: ../code/application/views/auth/login_form.php:131
 msgid "S'enregister"
 msgstr "Зарегистрироваться"
 
@@ -396,7 +397,7 @@ msgstr "Общий Рейтинг"
 
 #: ../code/application/views/compare_property.php:201
 #: ../code/application/views/property_detail.php:558
-#: ../code/application/views/hb/hostel_view.php:65
+#: ../code/application/views/hb/hostel_view.php:68
 #: ../code/application/views/helpfile/pofields.php:638
 #: ../code/application/views/helpfile/pofields.php~:638
 #, php-format
@@ -405,7 +406,7 @@ msgstr "Атмосфера"
 
 #: ../code/application/views/compare_property.php:206
 #: ../code/application/views/property_detail.php:561
-#: ../code/application/views/hb/hostel_view.php:68
+#: ../code/application/views/hb/hostel_view.php:71
 #: ../code/application/views/helpfile/pofields.php:639
 #: ../code/application/views/helpfile/pofields.php~:639
 #, php-format
@@ -421,7 +422,7 @@ msgstr "Сайт"
 
 #: ../code/application/views/compare_property.php:216
 #: ../code/application/views/property_detail.php:567
-#: ../code/application/views/hb/hostel_view.php:74
+#: ../code/application/views/hb/hostel_view.php:77
 #: ../code/application/views/helpfile/pofields.php:641
 #: ../code/application/views/helpfile/pofields.php~:641
 #, php-format
@@ -437,20 +438,20 @@ msgstr "Услуги"
 
 #: ../code/application/views/compare_property.php:226
 #: ../code/application/views/property_detail.php:573
-#: ../code/application/views/hb/hostel_view.php:80
-#: ../code/application/views/hb/hostel_view.php:443
+#: ../code/application/views/hb/hostel_view.php:83
+#: ../code/application/views/hb/hostel_view.php:463
 #: ../code/application/views/hb/property_list.php:104
 #: ../code/application/views/helpfile/pofields.php:643
 #: ../code/application/views/helpfile/pofields.php~:643
 #: ../code/application/views/mustache/property_list.php:200
-#: ../code/application/views/mustache/property_list.php:298
+#: ../code/application/views/mustache/property_list.php:313
 #, php-format
 msgid "Safety"
 msgstr "Безопасность"
 
 #: ../code/application/views/compare_property.php:231
 #: ../code/application/views/property_detail.php:576
-#: ../code/application/views/hb/hostel_view.php:83
+#: ../code/application/views/hb/hostel_view.php:86
 #: ../code/application/views/helpfile/pofields.php:644
 #: ../code/application/views/helpfile/pofields.php~:644
 #, php-format
@@ -461,7 +462,7 @@ msgstr "Стоимость"
 #: ../code/application/views/property_detail.php:570
 #: ../code/application/views/city_view.php:126
 #: ../code/application/views/city_view.php:333
-#: ../code/application/views/hb/hostel_view.php:77
+#: ../code/application/views/hb/hostel_view.php:80
 #: ../code/application/views/helpfile/pofields.php:448
 #: ../code/application/views/helpfile/pofields.php:657
 #: ../code/application/views/helpfile/pofields.php~:448
@@ -524,6 +525,7 @@ msgid "Tous"
 msgstr "Все"
 
 #: ../code/application/views/search_results.php:66
+#: ../code/application/views/restricted/user_favorite_properties.php:22
 #: ../code/application/views/restricted/user_group_quote.php:82
 #: ../code/application/views/email/admin/new_group_request.php:22
 #: ../code/application/views/search_suggest.php:17
@@ -591,6 +593,7 @@ msgstr "следующий"
 #: ../code/application/views/search_results.php:120
 #: ../code/application/views/search_results.php:146
 #: ../code/application/views/search_results.php:171
+#: ../code/application/views/restricted/user_favorite_properties.php:21
 #: ../code/application/views/city_view.php:304
 #: ../code/application/views/city_ajax_view.php:348
 #: ../code/application/views/city_ajax_view.php:448
@@ -882,9 +885,9 @@ msgstr "Загрузка..."
 #: ../code/application/views/includes/header.php:876
 #: ../code/application/views/mobile/hw/booking_view.php:34
 #: ../code/application/views/restricted/admin/group_quote.php:59
-#: ../code/application/views/hw/hostel_view.php:156
+#: ../code/application/views/hw/hostel_view.php:159
 #: ../code/application/views/hw/booking_view.php:495
-#: ../code/application/views/hb/hostel_view.php:210
+#: ../code/application/views/hb/hostel_view.php:213
 #: ../code/application/views/hb/booking_view.php:334
 #: ../code/application/views/group_request.php:75
 #: ../code/application/views/group_request.php:80
@@ -952,10 +955,10 @@ msgstr "Город не найден"
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
 #: ../code/application/views/includes/city_search_box.php:158
-#: ../code/application/views/hw/hostel_view.php:510
-#: ../code/application/views/hw/hostel_view.php:549
-#: ../code/application/views/hb/hostel_view.php:591
-#: ../code/application/views/hb/hostel_view.php:630
+#: ../code/application/views/hw/hostel_view.php:532
+#: ../code/application/views/hw/hostel_view.php:571
+#: ../code/application/views/hb/hostel_view.php:611
+#: ../code/application/views/hb/hostel_view.php:650
 #: ../code/application/views/mustache/property_list.php:20
 msgid "Date invalide"
 msgstr "Дата указана неправильно"
@@ -996,8 +999,8 @@ msgstr "Введите имя города или хостела"
 #: ../code/application/views/mobile/hw/booking_end_view.php:31
 #: ../code/application/views/mobile/hw/booking_avail_view.php:87
 #: ../code/application/views/mobile/search_view.php:16
-#: ../code/application/views/hw/hostel_view.php:522
-#: ../code/application/views/hb/hostel_view.php:604
+#: ../code/application/views/hw/hostel_view.php:544
+#: ../code/application/views/hb/hostel_view.php:624
 #: ../code/application/views/group_request.php:97
 msgid "Arrivée le:"
 msgstr "Прибытие:"
@@ -1011,8 +1014,8 @@ msgstr "Прибытие:"
 #: ../code/application/views/mobile/hw/booking_end_view.php:32
 #: ../code/application/views/mobile/hw/booking_avail_view.php:94
 #: ../code/application/views/mobile/search_view.php:25
-#: ../code/application/views/hw/hostel_view.php:532
-#: ../code/application/views/hb/hostel_view.php:614
+#: ../code/application/views/hw/hostel_view.php:554
+#: ../code/application/views/hb/hostel_view.php:634
 #: ../code/application/views/email/admin/new_group_request.php:24
 #: ../code/application/views/group_request.php:106
 msgid "Nuits:"
@@ -1025,8 +1028,8 @@ msgstr "Ночей:"
 #: ../code/application/views/includes/search_box.php:164
 #: ../code/application/views/includes/city_search_box.php:151
 #: ../code/application/views/mobile/hw/booking_avail_view.php:100
-#: ../code/application/views/hw/hostel_view.php:536
-#: ../code/application/views/hb/hostel_view.php:618
+#: ../code/application/views/hw/hostel_view.php:558
+#: ../code/application/views/hb/hostel_view.php:638
 msgid "Devise:"
 msgstr "Валюта:"
 
@@ -1039,14 +1042,23 @@ msgid "Mes réservations"
 msgstr "Моя бронь"
 
 #: ../code/application/views/includes/navuser.php:6
+#: ../code/application/views/includes/navuser.php:7
+#: ../code/application/views/restricted/user_favorite_properties.php:17
+#: ../code/application/views/helpfile/pofields.php:810
+#: ../code/application/views/helpfile/pofields.php~:810
+#, php-format
+msgid "My favorite properties"
+msgstr "Мои любимые свойства"
+
+#: ../code/application/views/includes/navuser.php:8
 msgid "Mes évaluations"
 msgstr "Мои отзывы"
 
-#: ../code/application/views/includes/navuser.php:7
+#: ../code/application/views/includes/navuser.php:9
 msgid "Mon profil"
 msgstr "Мой профиль"
 
-#: ../code/application/views/includes/navuser.php:8
+#: ../code/application/views/includes/navuser.php:10
 #: ../code/application/views/mobile/user/user_profile.php:56
 msgid "Changer de mot de passe"
 msgstr "Изменение пароля"
@@ -1084,6 +1096,8 @@ msgid "Navigation"
 msgstr "Навигация"
 
 #: ../code/application/views/includes/footer.php:84
+#: ../code/application/views/hw/hostel_view.php:425
+#: ../code/application/views/hb/hostel_view.php:504
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
 msgid "Information"
@@ -1305,8 +1319,8 @@ msgstr "Отправить еще одно сообщение"
 
 #: ../code/application/views/includes/template-share-email-popup.php:38
 #: ../code/application/views/includes/template-share-email-popup.php:86
-#: ../code/application/views/hw/hostel_view.php:326
-#: ../code/application/views/hb/hostel_view.php:395
+#: ../code/application/views/hw/hostel_view.php:329
+#: ../code/application/views/hb/hostel_view.php:398
 #: ../code/application/views/helpfile/pofields.php:173
 #: ../code/application/views/helpfile/pofields.php:674
 #: ../code/application/views/helpfile/pofields.php:683
@@ -1430,9 +1444,9 @@ msgstr "Неправильное местонахождение Google Map"
 #: ../code/application/views/includes/header.php:510
 #: ../code/application/views/property_detail.php:536
 #: ../code/application/views/property_detail.php:639
-#: ../code/application/views/hw/hostel_view.php:427
-#: ../code/application/views/hb/hostel_view.php:40
-#: ../code/application/views/hb/hostel_view.php:508
+#: ../code/application/views/hw/hostel_view.php:449
+#: ../code/application/views/hb/hostel_view.php:43
+#: ../code/application/views/hb/hostel_view.php:528
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
 #: ../code/application/views/mustache/property_list.php:54
@@ -1448,7 +1462,7 @@ msgstr "средний рейтинг"
 #: ../code/application/views/hb/property_list.php:122
 #: ../code/application/views/city_ajax_view.php:72
 #: ../code/application/views/city_ajax_view.php:118
-#: ../code/application/views/mustache/property_list.php:234
+#: ../code/application/views/mustache/property_list.php:249
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 msgid "à partir de"
 msgstr "от"
@@ -1558,6 +1572,11 @@ msgstr "Зарезервировать проживание в хостеле д
 msgid "Réservation de groupes"
 msgstr "Бронирование для групп"
 
+#: ../code/application/views/includes/save_property.php:13
+#, fuzzy
+msgid "Save this property as favorite"
+msgstr "Добавить вариант в избранное"
+
 #: ../code/application/views/mobile/auth/change_email_form.php:40
 #: ../code/application/views/helpfile/pofields.php:246
 #: ../code/application/views/helpfile/pofields.php~:246
@@ -1593,7 +1612,7 @@ msgstr "Обновить профиль"
 #: ../code/application/views/group_request.php:219
 #: ../code/application/controllers/user.php:77
 #: ../code/application/controllers/cmain.php:443
-#: ../code/application/controllers/cmain.php:1693
+#: ../code/application/controllers/cmain.php:1734
 msgid "Prénom"
 msgstr "Имя"
 
@@ -1606,7 +1625,7 @@ msgstr "Имя"
 #: ../code/application/views/group_request.php:227
 #: ../code/application/controllers/user.php:78
 #: ../code/application/controllers/cmain.php:444
-#: ../code/application/controllers/cmain.php:1694
+#: ../code/application/controllers/cmain.php:1735
 msgid "Nom"
 msgstr "Фамилия"
 
@@ -1615,7 +1634,7 @@ msgstr "Фамилия"
 #: ../code/application/views/hw/booking_view.php:494
 #: ../code/application/views/hb/booking_view.php:332
 #: ../code/application/controllers/user.php:79
-#: ../code/application/controllers/cmain.php:1696
+#: ../code/application/controllers/cmain.php:1737
 msgid "Nationalité"
 msgstr "Гражданство"
 
@@ -1721,10 +1740,10 @@ msgstr "Ночей"
 #: ../code/application/views/hw/booking_end_view.php:56
 #: ../code/application/views/hw/booking_end_view.php:114
 #: ../code/application/views/hw/booking_end_view.php:160
-#: ../code/application/views/hw/booking_avail_view.php:764
-#: ../code/application/views/hw/booking_avail_view.php:930
-#: ../code/application/views/hw/booking_avail_view.php:947
-#: ../code/application/views/hw/booking_avail_view.php:960
+#: ../code/application/views/hw/booking_avail_view.php:773
+#: ../code/application/views/hw/booking_avail_view.php:939
+#: ../code/application/views/hw/booking_avail_view.php:956
+#: ../code/application/views/hw/booking_avail_view.php:969
 #: ../code/application/views/hw/booking_view.php:172
 #: ../code/application/views/hw/booking_view.php:240
 #: ../code/application/views/hw/booking_view.php:293
@@ -1754,7 +1773,7 @@ msgstr "Сумма, для оплаты по прибытию"
 #: ../code/application/views/mobile/user/user_bookings.php:54
 #: ../code/application/views/mobile/hw/booking_end_view.php:189
 #: ../code/application/views/hw/booking_end_view.php:211
-#: ../code/application/views/hw/booking_avail_view.php:1017
+#: ../code/application/views/hw/booking_avail_view.php:1026
 #: ../code/application/views/hb/booking_end_view.php:152
 #: ../code/application/views/hb/booking_avail_view.php:921
 #: ../code/application/views/email/new_transaction.php:965
@@ -1828,7 +1847,7 @@ msgstr "Вернуться к началу"
 #: ../code/application/views/mobile/hw/hostel_view.php:29
 #: ../code/application/views/mobile/hw/hostel_view.php:266
 #: ../code/application/views/mobile/hw/booking_view.php:7
-#: ../code/application/views/hw/booking_avail_view.php:803
+#: ../code/application/views/hw/booking_avail_view.php:812
 #: ../code/application/views/hb/booking_avail_view.php:767
 msgid "Réserver Maintenant"
 msgstr "Забронировать сейчас"
@@ -1844,7 +1863,7 @@ msgstr "Информация о хостеле "
 #: ../code/application/views/helpfile/pofields.php:268
 #: ../code/application/views/helpfile/pofields.php~:268
 #: ../code/application/views/mustache/property_list.php:15
-#: ../code/application/views/mustache/property_list.php:277
+#: ../code/application/views/mustache/property_list.php:292
 #, php-format
 msgid "Pictures"
 msgstr "Фотографии"
@@ -1858,17 +1877,17 @@ msgstr "О нас"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:114
 #: ../code/application/views/property_detail.php:114
-#: ../code/application/views/hw/hostel_view.php:574
-#: ../code/application/views/hb/hostel_view.php:661
-#: ../code/application/views/mustache/property_list.php:208
+#: ../code/application/views/hw/hostel_view.php:596
+#: ../code/application/views/hb/hostel_view.php:681
+#: ../code/application/views/mustache/property_list.php:223
 msgid "Commodité"
 msgstr "Удобства"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:159
-#: ../code/application/views/hw/hostel_view.php:411
+#: ../code/application/views/hw/hostel_view.php:433
 #: ../code/application/views/hw/reviews.php:44
-#: ../code/application/views/hb/hostel_view.php:492
-#: ../code/application/controllers/cmain.php:1697
+#: ../code/application/views/hb/hostel_view.php:512
+#: ../code/application/controllers/cmain.php:1738
 msgid "Commentaires"
 msgstr "Комментарии"
 
@@ -1889,8 +1908,8 @@ msgid "Par %s | Le %s"
 msgstr "%s |%s"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:219
-#: ../code/application/views/hw/hostel_view.php:410
-#: ../code/application/views/hb/hostel_view.php:491
+#: ../code/application/views/hw/hostel_view.php:432
+#: ../code/application/views/hb/hostel_view.php:511
 #: ../code/application/views/mustache/property_list.php:28
 msgid "Cartes et Directions"
 msgstr "Карты и путеводители"
@@ -1898,10 +1917,10 @@ msgstr "Карты и путеводители"
 #: ../code/application/views/mobile/hw/hostel_view.php:244
 #: ../code/application/views/property_detail.php:496
 #: ../code/application/views/property_detail.php:510
-#: ../code/application/views/hw/hostel_view.php:641
+#: ../code/application/views/hw/hostel_view.php:663
 #: ../code/application/views/hw/booking_end_view.php:19
-#: ../code/application/views/hw/booking_avail_view.php:1034
-#: ../code/application/views/hb/hostel_view.php:842
+#: ../code/application/views/hw/booking_avail_view.php:1043
+#: ../code/application/views/hb/hostel_view.php:862
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_avail_view.php:938
 #: ../code/application/views/hb/booking_view.php:829
@@ -1974,8 +1993,8 @@ msgstr "Тип комнаты и количество гостей"
 #: ../code/application/views/property_detail.php:233
 #: ../code/application/views/property_detail.php:235
 #: ../code/application/views/hw/booking_end_view.php:53
-#: ../code/application/views/hw/booking_avail_view.php:641
-#: ../code/application/views/hw/booking_avail_view.php:925
+#: ../code/application/views/hw/booking_avail_view.php:650
+#: ../code/application/views/hw/booking_avail_view.php:934
 #: ../code/application/views/hw/booking_view.php:159
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/hb/booking_avail_view.php:829
@@ -1997,7 +2016,7 @@ msgstr ""
 #: ../code/application/views/property_detail.php:355
 #: ../code/application/views/property_detail.php:357
 #: ../code/application/views/hw/booking_end_view.php:111
-#: ../code/application/views/hw/booking_avail_view.php:942
+#: ../code/application/views/hw/booking_avail_view.php:951
 #: ../code/application/views/hw/booking_view.php:228
 #: ../code/application/views/hb/booking_avail_view.php:846
 #: ../code/application/views/email/new_transaction.php:405
@@ -2023,7 +2042,7 @@ msgstr "Баланс оплачиваемый по прибытии"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:156
 #: ../code/application/views/hw/booking_end_view.php:190
-#: ../code/application/views/hw/booking_avail_view.php:995
+#: ../code/application/views/hw/booking_avail_view.php:1004
 #: ../code/application/views/hb/booking_end_view.php:126
 #: ../code/application/views/hb/booking_avail_view.php:899
 #: ../code/application/views/email/new_transaction.php:901
@@ -2036,7 +2055,7 @@ msgstr "Информация о месте проживания"
 #: ../code/application/views/restricted/user_ratings.php:55
 #: ../code/application/views/hw/booking_end_view.php:33
 #: ../code/application/views/hw/booking_end_view.php:192
-#: ../code/application/views/hw/booking_avail_view.php:999
+#: ../code/application/views/hw/booking_avail_view.php:1008
 #: ../code/application/views/hw/booking_view.php:132
 #: ../code/application/views/hb/booking_end_view.php:23
 #: ../code/application/views/hb/booking_end_view.php:129
@@ -2048,10 +2067,10 @@ msgid "Nom de l'établissement"
 msgstr "Название места проживания"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:162
-#: ../code/application/views/hw/hostel_view.php:667
+#: ../code/application/views/hw/hostel_view.php:689
 #: ../code/application/views/hw/booking_end_view.php:196
-#: ../code/application/views/hw/booking_avail_view.php:1011
-#: ../code/application/views/hb/hostel_view.php:870
+#: ../code/application/views/hw/booking_avail_view.php:1020
+#: ../code/application/views/hb/hostel_view.php:890
 #: ../code/application/views/hb/booking_end_view.php:133
 #: ../code/application/views/hb/booking_avail_view.php:915
 #: ../code/application/views/email/new_transaction.php:947
@@ -2071,10 +2090,10 @@ msgid "Fax"
 msgstr "Факс"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:194
-#: ../code/application/views/hw/hostel_view.php:737
+#: ../code/application/views/hw/hostel_view.php:758
 #: ../code/application/views/hw/booking_end_view.php:218
-#: ../code/application/views/hw/booking_avail_view.php:1027
-#: ../code/application/views/hb/hostel_view.php:953
+#: ../code/application/views/hw/booking_avail_view.php:1036
+#: ../code/application/views/hb/hostel_view.php:973
 #: ../code/application/views/hb/booking_end_view.php:159
 #: ../code/application/views/hb/booking_avail_view.php:931
 #: ../code/application/views/email/new_transaction.php:1006
@@ -2293,34 +2312,34 @@ msgstr "Вернуться"
 #: ../code/application/views/hw/booking_avail_view.php:10
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:9
-#: ../code/application/views/mustache/property_list.php:285
+#: ../code/application/views/mustache/property_list.php:300
 msgid "Disponibilités"
 msgstr "Наличие"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:12
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/mobile/hw/booking_avail_view.php:33
-#: ../code/application/views/hw/hostel_view.php:55
-#: ../code/application/views/hb/hostel_view.php:128
+#: ../code/application/views/hw/hostel_view.php:58
+#: ../code/application/views/hb/hostel_view.php:131
 msgid "Erreur:"
 msgstr "Ошибка:"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:13
-#: ../code/application/views/hw/booking_avail_view.php:819
+#: ../code/application/views/hw/booking_avail_view.php:828
 msgid "No rooms are available for all the nights you selected."
 msgstr "Извините, нет достаточного количества комнат на все выбранные ночи"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
-#: ../code/application/views/hw/booking_avail_view.php:833
+#: ../code/application/views/hw/booking_avail_view.php:842
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1283
+#: ../code/application/libraries/Hb_engine.php:1122
 msgid "Serveur inaccessible en ce moment."
 msgstr "В данный момент сервер недоступен."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:47
-#: ../code/application/views/hw/hostel_view.php:65
-#: ../code/application/views/hw/booking_avail_view.php:854
-#: ../code/application/views/hb/hostel_view.php:138
+#: ../code/application/views/hw/hostel_view.php:68
+#: ../code/application/views/hw/booking_avail_view.php:863
+#: ../code/application/views/hb/hostel_view.php:141
 #: ../code/application/views/hb/booking_avail_error_view.php:19
 msgid "Détails:"
 msgstr "Подробная информация:"
@@ -2338,12 +2357,12 @@ msgstr "Подробная информация:"
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:139
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:746
-#: ../code/application/views/hw/booking_avail_view.php:896
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:755
+#: ../code/application/views/hw/booking_avail_view.php:905
 #: ../code/application/views/hw/booking_view.php:133
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:17
@@ -2371,12 +2390,12 @@ msgstr "Прибытие"
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:139
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:746
-#: ../code/application/views/hw/booking_avail_view.php:896
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:755
+#: ../code/application/views/hw/booking_avail_view.php:905
 #: ../code/application/views/hw/booking_view.php:133
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:17
@@ -2399,18 +2418,19 @@ msgstr "Кол-во ночей"
 #: ../code/application/views/hb/booking_avail_view.php:18
 #: ../code/application/views/helpfile/pofields.php:264
 #: ../code/application/views/helpfile/pofields.php~:264
+#: ../code/application/views/mustache/save_property_dialog.php:27
 #, php-format
 msgid "Change Dates"
 msgstr "Изменить даты"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:117
-#: ../code/application/views/hw/hostel_view.php:209
-#: ../code/application/views/hb/hostel_view.php:263
+#: ../code/application/views/hw/hostel_view.php:212
+#: ../code/application/views/hb/hostel_view.php:266
 msgid "Soumettre"
 msgstr "Подтвердить"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:248
-#: ../code/application/views/hw/booking_avail_view.php:826
+#: ../code/application/views/hw/booking_avail_view.php:835
 #: ../code/application/views/hb/booking_avail_view.php:952
 msgid "Please enter at least one choice in the above table to book a room."
 msgstr "Пожалуйста, сделайте выбор для того, чтобы забронировать комнату."
@@ -2424,7 +2444,7 @@ msgstr "Забронировать"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:260
 #: ../code/application/views/mobile/hw/booking_confirm.php:334
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hw/booking_view.php:164
 #: ../code/application/views/hw/booking_view.php:233
@@ -2560,8 +2580,8 @@ msgid "Nom:"
 msgstr "Фамилия:"
 
 #: ../code/application/views/mobile/hw/booking_view.php:33
-#: ../code/application/views/hw/hostel_view.php:155
-#: ../code/application/views/hb/hostel_view.php:209
+#: ../code/application/views/hw/hostel_view.php:158
+#: ../code/application/views/hb/hostel_view.php:212
 #: ../code/application/controllers/cmain.php:445
 msgid "Nationalité :"
 msgstr "Гражданство:"
@@ -2713,11 +2733,11 @@ msgstr ""
 #: ../code/application/views/mobile/hw/booking_view.php:421
 #: ../code/application/views/mobile/hw/booking_view.php:422
 #: ../code/application/views/mobile/hw/booking_view.php:425
-#: ../code/application/views/hw/hostel_view.php:124
-#: ../code/application/views/hw/hostel_view.php:135
-#: ../code/application/views/hw/hostel_view.php:149
-#: ../code/application/views/hw/hostel_view.php:161
-#: ../code/application/views/hw/hostel_view.php:192
+#: ../code/application/views/hw/hostel_view.php:127
+#: ../code/application/views/hw/hostel_view.php:138
+#: ../code/application/views/hw/hostel_view.php:152
+#: ../code/application/views/hw/hostel_view.php:164
+#: ../code/application/views/hw/hostel_view.php:195
 #: ../code/application/views/hw/booking_view.php:479
 #: ../code/application/views/hw/booking_view.php:487
 #: ../code/application/views/hw/booking_view.php:499
@@ -2731,11 +2751,11 @@ msgstr ""
 #: ../code/application/views/hw/booking_view.php:878
 #: ../code/application/views/hw/booking_view.php:879
 #: ../code/application/views/hw/booking_view.php:890
-#: ../code/application/views/hb/hostel_view.php:178
-#: ../code/application/views/hb/hostel_view.php:189
-#: ../code/application/views/hb/hostel_view.php:203
-#: ../code/application/views/hb/hostel_view.php:215
-#: ../code/application/views/hb/hostel_view.php:246
+#: ../code/application/views/hb/hostel_view.php:181
+#: ../code/application/views/hb/hostel_view.php:192
+#: ../code/application/views/hb/hostel_view.php:206
+#: ../code/application/views/hb/hostel_view.php:218
+#: ../code/application/views/hb/hostel_view.php:249
 #: ../code/application/views/hb/booking_view.php:317
 #: ../code/application/views/hb/booking_view.php:325
 #: ../code/application/views/hb/booking_view.php:341
@@ -2772,10 +2792,10 @@ msgstr "Обязательное поле"
 
 #: ../code/application/views/mobile/hw/booking_view.php:396
 #: ../code/application/views/mobile/hw/booking_view.php:400
-#: ../code/application/views/hw/hostel_view.php:148
+#: ../code/application/views/hw/hostel_view.php:151
 #: ../code/application/views/hw/booking_view.php:520
 #: ../code/application/views/hw/booking_view.php:529
-#: ../code/application/views/hb/hostel_view.php:202
+#: ../code/application/views/hb/hostel_view.php:205
 #: ../code/application/views/hb/booking_view.php:404
 #: ../code/application/views/hb/booking_view.php:413
 #: ../code/application/views/group_request.php:242
@@ -2815,7 +2835,8 @@ msgstr "Рейтинг от тех, кто бронировал"
 #: ../code/application/views/mobile/property_list.php:40
 #: ../code/application/views/property_detail.php:479
 #: ../code/application/views/property_detail.php:487
-#: ../code/application/views/mustache/property_list.php:335
+#: ../code/application/views/mustache/saved_property_item.php:20
+#: ../code/application/views/mustache/property_list.php:350
 msgid "Réserver"
 msgstr "Бронировать"
 
@@ -2854,8 +2875,10 @@ msgstr "Спасибо"
 #: ../code/application/views/property_rooms_avail.php:264
 #: ../code/application/views/property_rooms_avail.php:464
 #: ../code/application/views/hw/booking_avail_view.php:4
-#: ../code/application/views/hw/booking_avail_view.php:340
-#: ../code/application/views/hw/booking_avail_view.php:603
+#: ../code/application/views/hw/booking_avail_view.php:342
+#: ../code/application/views/hw/booking_avail_view.php:345
+#: ../code/application/views/hw/booking_avail_view.php:609
+#: ../code/application/views/hw/booking_avail_view.php:612
 #: ../code/application/views/helpfile/pofields.php:764
 #: ../code/application/views/helpfile/pofields.php~:764
 #, php-format
@@ -2885,7 +2908,7 @@ msgstr ""
 "для вашего пребывания."
 
 #: ../code/application/views/property_rooms_avail.php:107
-#: ../code/application/views/hw/booking_avail_view.php:641
+#: ../code/application/views/hw/booking_avail_view.php:650
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/helpfile/pofields.php:697
 #: ../code/application/views/helpfile/pofields.php~:697
@@ -2895,7 +2918,7 @@ msgstr "Тип общежития"
 
 #: ../code/application/views/property_rooms_avail.php:107
 #: ../code/application/views/property_detail.php:236
-#: ../code/application/views/hw/booking_avail_view.php:641
+#: ../code/application/views/hw/booking_avail_view.php:650
 #: ../code/application/views/hb/booking_avail_view.php:616
 #: ../code/application/views/helpfile/pofields.php:167
 #: ../code/application/views/helpfile/pofields.php~:167
@@ -2910,7 +2933,7 @@ msgstr ""
 "Ванная Комната = Ванная не находиться в общежитии"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:698
 #: ../code/application/views/helpfile/pofields.php~:698
@@ -2919,7 +2942,7 @@ msgid "Dorms for your group only"
 msgstr "Общежития только для вашей группы"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:699
 #: ../code/application/views/helpfile/pofields.php~:699
@@ -2928,7 +2951,7 @@ msgid "Complete dorm only"
 msgstr "Только все общежитие"
 
 #: ../code/application/views/property_rooms_avail.php:117
-#: ../code/application/views/hw/booking_avail_view.php:651
+#: ../code/application/views/hw/booking_avail_view.php:660
 #: ../code/application/views/hb/booking_avail_view.php:626
 #: ../code/application/views/helpfile/pofields.php:700
 #: ../code/application/views/helpfile/pofields.php~:700
@@ -2944,8 +2967,8 @@ msgstr ""
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:701
@@ -2956,8 +2979,8 @@ msgstr "Стоимость за комнату (за одного человек
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:702
@@ -2968,8 +2991,8 @@ msgstr "Средняя цена"
 
 #: ../code/application/views/property_rooms_avail.php:123
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:658
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:667
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:632
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:703
@@ -2989,9 +3012,9 @@ msgstr ""
 #: ../code/application/views/city_view.php:83
 #: ../code/application/views/city_view.php:321
 #: ../code/application/views/hw/booking_avail_view.php:271
-#: ../code/application/views/hw/booking_avail_view.php:661
-#: ../code/application/views/hw/booking_avail_view.php:715
-#: ../code/application/views/hw/booking_avail_view.php:751
+#: ../code/application/views/hw/booking_avail_view.php:670
+#: ../code/application/views/hw/booking_avail_view.php:724
+#: ../code/application/views/hw/booking_avail_view.php:760
 #: ../code/application/views/hb/booking_avail_view.php:273
 #: ../code/application/views/hb/booking_avail_view.php:635
 #: ../code/application/views/hb/booking_avail_view.php:687
@@ -3002,8 +3025,8 @@ msgstr "Цена"
 
 #: ../code/application/views/property_rooms_avail.php:128
 #: ../code/application/views/property_rooms_avail.php:332
-#: ../code/application/views/hw/booking_avail_view.php:663
-#: ../code/application/views/hw/booking_avail_view.php:717
+#: ../code/application/views/hw/booking_avail_view.php:672
+#: ../code/application/views/hw/booking_avail_view.php:726
 #: ../code/application/views/hb/booking_avail_view.php:637
 #: ../code/application/views/hb/booking_avail_view.php:689
 #: ../code/application/views/helpfile/pofields.php:705
@@ -3017,8 +3040,8 @@ msgstr "Максимум"
 #: ../code/application/views/property_rooms_avail.php:292
 #: ../code/application/views/property_detail.php:346
 #: ../code/application/views/hw/booking_avail_view.php:144
-#: ../code/application/views/hw/booking_avail_view.php:351
-#: ../code/application/views/hw/booking_avail_view.php:677
+#: ../code/application/views/hw/booking_avail_view.php:356
+#: ../code/application/views/hw/booking_avail_view.php:686
 #: ../code/application/views/hb/booking_avail_view.php:339
 #: ../code/application/views/hb/booking_avail_view.php:650
 msgid "No dorms available"
@@ -3030,8 +3053,8 @@ msgstr "Нет общежитий"
 #: ../code/application/views/property_rooms_avail.php:427
 #: ../code/application/views/hw/booking_avail_view.php:173
 #: ../code/application/views/hw/booking_avail_view.php:176
-#: ../code/application/views/hw/booking_avail_view.php:445
-#: ../code/application/views/hw/booking_avail_view.php:448
+#: ../code/application/views/hw/booking_avail_view.php:450
+#: ../code/application/views/hw/booking_avail_view.php:453
 #: ../code/application/views/hb/booking_avail_view.php:160
 #: ../code/application/views/hb/booking_avail_view.php:163
 #: ../code/application/views/hb/booking_avail_view.php:434
@@ -3048,8 +3071,8 @@ msgstr "Самая низкая цена за ночь:"
 #: ../code/application/views/property_rooms_avail.php:398
 #: ../code/application/views/hw/booking_avail_view.php:186
 #: ../code/application/views/hw/booking_avail_view.php:188
-#: ../code/application/views/hw/booking_avail_view.php:462
-#: ../code/application/views/hw/booking_avail_view.php:464
+#: ../code/application/views/hw/booking_avail_view.php:467
+#: ../code/application/views/hw/booking_avail_view.php:469
 #: ../code/application/views/hw/booking_view.php:165
 #: ../code/application/views/hb/booking_avail_view.php:169
 #: ../code/application/views/hb/booking_avail_view.php:171
@@ -3124,8 +3147,8 @@ msgstr ""
 #: ../code/application/views/property_detail.php:390
 #: ../code/application/views/hw/booking_avail_view.php:198
 #: ../code/application/views/hw/booking_avail_view.php:199
-#: ../code/application/views/hw/booking_avail_view.php:473
-#: ../code/application/views/hw/booking_avail_view.php:474
+#: ../code/application/views/hw/booking_avail_view.php:478
+#: ../code/application/views/hw/booking_avail_view.php:479
 #: ../code/application/views/hb/booking_avail_view.php:213
 #: ../code/application/views/hb/booking_avail_view.php:214
 #: ../code/application/views/hb/booking_avail_view.php:478
@@ -3143,8 +3166,8 @@ msgstr "Исходная версия:"
 #: ../code/application/views/hw/booking_end_view.php:136
 #: ../code/application/views/hw/booking_avail_view.php:207
 #: ../code/application/views/hw/booking_avail_view.php:210
-#: ../code/application/views/hw/booking_avail_view.php:482
-#: ../code/application/views/hw/booking_avail_view.php:485
+#: ../code/application/views/hw/booking_avail_view.php:487
+#: ../code/application/views/hw/booking_avail_view.php:490
 #: ../code/application/views/hw/booking_view.php:192
 #: ../code/application/views/hw/booking_view.php:260
 #: ../code/application/views/hb/booking_end_view.php:58
@@ -3187,10 +3210,10 @@ msgstr "Этот тип общежития расчитан на %d гостей
 #: ../code/application/views/property_rooms_avail.php:275
 #: ../code/application/views/property_rooms_avail.php:477
 #: ../code/application/views/hw/booking_avail_view.php:279
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:549
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:554
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:281
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
@@ -3207,10 +3230,10 @@ msgstr "Гость"
 #: ../code/application/views/property_rooms_avail.php:275
 #: ../code/application/views/property_rooms_avail.php:477
 #: ../code/application/views/hw/booking_avail_view.php:279
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:549
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:554
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:281
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
@@ -3226,17 +3249,17 @@ msgstr "Гости"
 #: ../code/application/views/property_rooms_avail.php:479
 #: ../code/application/views/hw/booking_avail_view.php:231
 #: ../code/application/views/hw/booking_avail_view.php:281
-#: ../code/application/views/hw/booking_avail_view.php:318
-#: ../code/application/views/hw/booking_avail_view.php:320
-#: ../code/application/views/hw/booking_avail_view.php:326
+#: ../code/application/views/hw/booking_avail_view.php:321
+#: ../code/application/views/hw/booking_avail_view.php:323
 #: ../code/application/views/hw/booking_avail_view.php:329
-#: ../code/application/views/hw/booking_avail_view.php:331
-#: ../code/application/views/hw/booking_avail_view.php:502
-#: ../code/application/views/hw/booking_avail_view.php:551
-#: ../code/application/views/hw/booking_avail_view.php:585
-#: ../code/application/views/hw/booking_avail_view.php:587
-#: ../code/application/views/hw/booking_avail_view.php:591
+#: ../code/application/views/hw/booking_avail_view.php:332
+#: ../code/application/views/hw/booking_avail_view.php:334
+#: ../code/application/views/hw/booking_avail_view.php:507
+#: ../code/application/views/hw/booking_avail_view.php:556
 #: ../code/application/views/hw/booking_avail_view.php:593
+#: ../code/application/views/hw/booking_avail_view.php:595
+#: ../code/application/views/hw/booking_avail_view.php:599
+#: ../code/application/views/hw/booking_avail_view.php:601
 #: ../code/application/views/hb/booking_avail_view.php:283
 #: ../code/application/views/hb/booking_avail_view.php:289
 #: ../code/application/views/hb/booking_avail_view.php:308
@@ -3273,7 +3296,7 @@ msgid "Dorms"
 msgstr "Общежития"
 
 #: ../code/application/views/property_rooms_avail.php:300
-#: ../code/application/views/hw/booking_avail_view.php:685
+#: ../code/application/views/hw/booking_avail_view.php:694
 #: ../code/application/views/hb/booking_avail_view.php:657
 #: ../code/application/views/helpfile/pofields.php:716
 #: ../code/application/views/helpfile/pofields.php~:716
@@ -3283,7 +3306,7 @@ msgstr "Тип приватных комнат"
 
 #: ../code/application/views/property_rooms_avail.php:300
 #: ../code/application/views/property_detail.php:358
-#: ../code/application/views/hw/booking_avail_view.php:685
+#: ../code/application/views/hw/booking_avail_view.php:694
 #: ../code/application/views/hb/booking_avail_view.php:657
 #: ../code/application/views/helpfile/pofields.php:717
 #: ../code/application/views/helpfile/pofields.php~:717
@@ -3303,9 +3326,9 @@ msgstr ""
 #: ../code/application/views/property_rooms_avail.php:310
 #: ../code/application/views/property_rooms_avail.php:427
 #: ../code/application/views/property_rooms_avail.php:430
-#: ../code/application/views/hw/booking_avail_view.php:411
-#: ../code/application/views/hw/booking_avail_view.php:448
-#: ../code/application/views/hw/booking_avail_view.php:695
+#: ../code/application/views/hw/booking_avail_view.php:416
+#: ../code/application/views/hw/booking_avail_view.php:453
+#: ../code/application/views/hw/booking_avail_view.php:704
 #: ../code/application/views/hb/booking_avail_view.php:397
 #: ../code/application/views/hb/booking_avail_view.php:438
 #: ../code/application/views/hb/booking_avail_view.php:667
@@ -3318,9 +3341,9 @@ msgstr "Стоимость за одного человека"
 #: ../code/application/views/property_rooms_avail.php:321
 #: ../code/application/views/property_rooms_avail.php:426
 #: ../code/application/views/property_rooms_avail.php:429
-#: ../code/application/views/hw/booking_avail_view.php:412
-#: ../code/application/views/hw/booking_avail_view.php:449
-#: ../code/application/views/hw/booking_avail_view.php:706
+#: ../code/application/views/hw/booking_avail_view.php:417
+#: ../code/application/views/hw/booking_avail_view.php:454
+#: ../code/application/views/hw/booking_avail_view.php:715
 #: ../code/application/views/hb/booking_avail_view.php:396
 #: ../code/application/views/hb/booking_avail_view.php:437
 #: ../code/application/views/hb/booking_avail_view.php:678
@@ -3331,7 +3354,7 @@ msgid "Price per Room"
 msgstr "Стоимость за комнату"
 
 #: ../code/application/views/property_rooms_avail.php:327
-#: ../code/application/views/hw/booking_avail_view.php:712
+#: ../code/application/views/hw/booking_avail_view.php:721
 #: ../code/application/views/hb/booking_avail_view.php:684
 #: ../code/application/views/helpfile/pofields.php:720
 #: ../code/application/views/helpfile/pofields.php~:720
@@ -3343,16 +3366,16 @@ msgstr "Средняя цена за ночь за номер"
 #: ../code/application/views/property_rooms_avail.php:489
 #: ../code/application/views/property_rooms_avail.php:494
 #: ../code/application/views/property_detail.php:466
-#: ../code/application/views/hw/booking_avail_view.php:417
-#: ../code/application/views/hw/booking_avail_view.php:615
-#: ../code/application/views/hw/booking_avail_view.php:731
+#: ../code/application/views/hw/booking_avail_view.php:422
+#: ../code/application/views/hw/booking_avail_view.php:624
+#: ../code/application/views/hw/booking_avail_view.php:740
 #: ../code/application/views/hb/booking_avail_view.php:702
 msgid "No private room available"
 msgstr "Нет доступных комнат"
 
 #: ../code/application/views/property_rooms_avail.php:411
-#: ../code/application/views/hw/booking_avail_view.php:524
-#: ../code/application/views/hw/booking_avail_view.php:585
+#: ../code/application/views/hw/booking_avail_view.php:529
+#: ../code/application/views/hw/booking_avail_view.php:593
 #: ../code/application/views/hb/booking_avail_view.php:512
 #: ../code/application/views/hb/booking_avail_view.php:565
 #: ../code/application/views/helpfile/pofields.php:711
@@ -3372,8 +3395,8 @@ msgid "1 guest in %d Bedrooms (%d guest in each room)."
 msgstr "1 гость в %d Комнатах (%d гостей в каждой комнате)."
 
 #: ../code/application/views/property_rooms_avail.php:415
-#: ../code/application/views/hw/booking_avail_view.php:526
-#: ../code/application/views/hw/booking_avail_view.php:587
+#: ../code/application/views/hw/booking_avail_view.php:531
+#: ../code/application/views/hw/booking_avail_view.php:595
 #: ../code/application/views/hb/booking_avail_view.php:514
 #: ../code/application/views/hb/booking_avail_view.php:567
 #: ../code/application/views/helpfile/pofields.php:712
@@ -3385,8 +3408,8 @@ msgid "%d guests in 1 Bedroom."
 msgstr "%d гостей в 1 комнате."
 
 #: ../code/application/views/property_rooms_avail.php:417
-#: ../code/application/views/hw/booking_avail_view.php:528
-#: ../code/application/views/hw/booking_avail_view.php:593
+#: ../code/application/views/hw/booking_avail_view.php:533
+#: ../code/application/views/hw/booking_avail_view.php:601
 #: ../code/application/views/hb/booking_avail_view.php:520
 #: ../code/application/views/hb/booking_avail_view.php:573
 #: ../code/application/views/helpfile/pofields.php:713
@@ -3396,15 +3419,15 @@ msgid "%d guests in %d Bedrooms (%d guests in each room)."
 msgstr "%d гостей в %d Комнатах (%d гостей в каждой комнате)."
 
 #: ../code/application/views/property_rooms_avail.php:417
-#: ../code/application/views/hw/booking_avail_view.php:528
+#: ../code/application/views/hw/booking_avail_view.php:533
 #: ../code/application/views/hb/booking_avail_view.php:571
 #, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
 msgstr "%d гостей в %d Комнатах (%d гостей в каждой комнате)."
 
 #: ../code/application/views/property_rooms_avail.php:451
-#: ../code/application/views/hw/booking_avail_view.php:494
-#: ../code/application/views/hw/booking_avail_view.php:495
+#: ../code/application/views/hw/booking_avail_view.php:499
+#: ../code/application/views/hw/booking_avail_view.php:500
 #: ../code/application/views/hb/booking_avail_view.php:499
 #: ../code/application/views/hb/booking_avail_view.php:500
 #: ../code/application/views/helpfile/pofields.php:751
@@ -3414,8 +3437,8 @@ msgid "This type of bedroom can accommodate up to 1 guest per room."
 msgstr "Этот тип комнаты расчитан на 1 гостя."
 
 #: ../code/application/views/property_rooms_avail.php:453
-#: ../code/application/views/hw/booking_avail_view.php:497
-#: ../code/application/views/hw/booking_avail_view.php:498
+#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:503
 #: ../code/application/views/hb/booking_avail_view.php:502
 #: ../code/application/views/hb/booking_avail_view.php:503
 #: ../code/application/views/helpfile/pofields.php:752
@@ -3425,7 +3448,7 @@ msgid "This type of bedroom can accommodate up to %d guests per room."
 msgstr "Этот тип комнаты расчитан на %d гостей."
 
 #: ../code/application/views/property_rooms_avail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:553
+#: ../code/application/views/hw/booking_avail_view.php:558
 #: ../code/application/views/hb/booking_avail_view.php:546
 #: ../code/application/views/helpfile/pofields.php:709
 #: ../code/application/views/helpfile/pofields.php~:709
@@ -3434,7 +3457,7 @@ msgid "Bedroom"
 msgstr "Спальня"
 
 #: ../code/application/views/property_rooms_avail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:553
+#: ../code/application/views/hw/booking_avail_view.php:558
 #: ../code/application/views/hb/booking_avail_view.php:546
 #: ../code/application/views/helpfile/pofields.php:710
 #: ../code/application/views/helpfile/pofields.php~:710
@@ -3444,7 +3467,7 @@ msgstr "Комнаты"
 
 #: ../code/application/views/property_rooms_avail.php:503
 #: ../code/application/views/property_detail.php:480
-#: ../code/application/views/hw/booking_avail_view.php:796
+#: ../code/application/views/hw/booking_avail_view.php:805
 #: ../code/application/views/hb/booking_avail_view.php:762
 #: ../code/application/views/helpfile/pofields.php:289
 #: ../code/application/views/helpfile/pofields.php~:289
@@ -3454,7 +3477,7 @@ msgstr "Лучшая цена. Мы гарантируем."
 
 #: ../code/application/views/property_rooms_avail.php:504
 #: ../code/application/views/property_detail.php:481
-#: ../code/application/views/hw/booking_avail_view.php:797
+#: ../code/application/views/hw/booking_avail_view.php:806
 #: ../code/application/views/hb/booking_avail_view.php:763
 #: ../code/application/views/helpfile/pofields.php:290
 #: ../code/application/views/helpfile/pofields.php~:290
@@ -3501,6 +3524,44 @@ msgstr "Опубликованный"
 #: ../code/application/views/restricted/user_ratings.php:85
 msgid "Vous n'avez fait aucune évaluation d'auberge de jeunesse à ce jour."
 msgstr "Вы еще не оценили места проживания."
+
+#: ../code/application/views/restricted/user_favorite_properties.php:23
+#: ../code/application/views/hw/booking_end_view.php:52
+#: ../code/application/views/hw/booking_end_view.php:110
+#: ../code/application/views/hw/booking_avail_view.php:933
+#: ../code/application/views/hw/booking_avail_view.php:950
+#: ../code/application/views/hw/booking_view.php:158
+#: ../code/application/views/hw/booking_view.php:227
+#: ../code/application/views/hb/booking_end_view.php:33
+#: ../code/application/views/hb/booking_avail_view.php:828
+#: ../code/application/views/hb/booking_avail_view.php:845
+#: ../code/application/views/hb/booking_view.php:108
+#: ../code/application/views/email/new_transaction.php:284
+#: ../code/application/views/email/new_transaction.php:397
+#: ../code/application/views/email/new_transaction_hb.php:107
+#: ../code/application/views/email/admin/new_group_request.php:23
+msgid "Date"
+msgstr "День"
+
+#: ../code/application/views/restricted/user_favorite_properties.php:24
+msgid "Name"
+msgstr ""
+
+#: ../code/application/views/restricted/user_favorite_properties.php:40
+#: ../code/application/views/city_view.php:210
+#: ../code/application/views/city_view.php:362
+#: ../code/application/views/mustache/property_list.php:161
+msgid "of"
+msgstr " из "
+
+#: ../code/application/views/restricted/user_favorite_properties.php:42
+#: ../code/application/views/city_view.php:212
+#: ../code/application/views/city_view.php:364
+#: ../code/application/views/helpfile/pofields.php:645
+#: ../code/application/views/helpfile/pofields.php~:645
+#, php-format
+msgid "Results"
+msgstr "Результаты"
 
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
@@ -3554,9 +3615,9 @@ msgid "Group booking quote information"
 msgstr "Информация о групповом бронировании"
 
 #: ../code/application/views/restricted/user_group_quote.php:152
-#: ../code/application/views/hw/hostel_view.php:662
-#: ../code/application/views/hw/booking_avail_view.php:801
-#: ../code/application/views/hb/hostel_view.php:864
+#: ../code/application/views/hw/hostel_view.php:684
+#: ../code/application/views/hw/booking_avail_view.php:810
+#: ../code/application/views/hb/hostel_view.php:884
 #: ../code/application/views/hb/booking_avail_view.php:769
 #: ../code/application/views/email/share_page-txt.php:27
 #: ../code/application/views/email/share_page-html.php:62
@@ -3595,8 +3656,8 @@ msgstr "Ваши предложения"
 
 #: ../code/application/views/restricted/user_group_quote.php:196
 #: ../code/application/views/property_detail.php:88
-#: ../code/application/views/hb/hostel_view.php:734
-#: ../code/application/views/mustache/property_list.php:218
+#: ../code/application/views/hb/hostel_view.php:754
+#: ../code/application/views/mustache/property_list.php:233
 msgid "What's Included"
 msgstr "Включено"
 
@@ -4120,36 +4181,36 @@ msgstr "Произошла ошибка, запрос не может быть �
 #: ../code/application/views/property_detail.php:93
 #: ../code/application/views/property_detail.php:98
 #: ../code/application/views/property_detail.php:104
-#: ../code/application/views/hb/hostel_view.php:745
-#: ../code/application/views/hb/hostel_view.php:750
-#: ../code/application/views/hb/hostel_view.php:756
+#: ../code/application/views/hb/hostel_view.php:765
+#: ../code/application/views/hb/hostel_view.php:770
+#: ../code/application/views/hb/hostel_view.php:776
 #: ../code/application/views/hb/booking_view.php:240
-#: ../code/application/views/mustache/property_list.php:223
+#: ../code/application/views/mustache/property_list.php:238
 msgid "Free"
 msgstr "Бесплатно"
 
 #: ../code/application/views/property_detail.php:161
 #: ../code/application/views/city_view.php:337
-#: ../code/application/views/hw/hostel_view.php:257
-#: ../code/application/views/hw/hostel_view.php:680
-#: ../code/application/views/hb/hostel_view.php:326
-#: ../code/application/views/hb/hostel_view.php:898
+#: ../code/application/views/hw/hostel_view.php:260
+#: ../code/application/views/hw/hostel_view.php:702
+#: ../code/application/views/hb/hostel_view.php:329
+#: ../code/application/views/hb/hostel_view.php:918
 #: ../code/application/views/helpfile/pofields.php:447
 #: ../code/application/views/helpfile/pofields.php~:447
 #: ../code/application/views/mustache/property_list.php:172
-#: ../code/application/views/mustache/property_list.php:315
+#: ../code/application/views/mustache/property_list.php:330
 #, php-format
 msgid "Districts"
 msgstr "Районы"
 
 #: ../code/application/views/property_detail.php:186
 #: ../code/application/views/city_view.php:341
-#: ../code/application/views/hw/hostel_view.php:281
-#: ../code/application/views/hw/hostel_view.php:705
-#: ../code/application/views/hb/hostel_view.php:350
-#: ../code/application/views/hb/hostel_view.php:922
+#: ../code/application/views/hw/hostel_view.php:284
+#: ../code/application/views/hw/hostel_view.php:726
+#: ../code/application/views/hb/hostel_view.php:353
+#: ../code/application/views/hb/hostel_view.php:942
 #: ../code/application/views/mustache/property_list.php:180
-#: ../code/application/views/mustache/property_list.php:325
+#: ../code/application/views/mustache/property_list.php:340
 msgid "Landmarks (within 2km)"
 msgstr "Достопримечательности (в пределах 2 км)"
 
@@ -4177,19 +4238,20 @@ msgstr "Максимальное количество людей в этой к�
 
 #: ../code/application/views/property_detail.php:479
 #: ../code/application/views/property_detail.php:487
-#: ../code/application/views/mustache/property_list.php:317
-#: ../code/application/views/mustache/property_list.php:327
-#: ../code/application/views/mustache/property_list.php:335
+#: ../code/application/views/mustache/saved_property_item.php:20
+#: ../code/application/views/mustache/property_list.php:332
+#: ../code/application/views/mustache/property_list.php:342
+#: ../code/application/views/mustache/property_list.php:350
 msgid "Plus sur ce logement"
 msgstr "Подробнее об этом месте проживания"
 
 #: ../code/application/views/property_detail.php:492
 #: ../code/application/views/property_detail.php:506
-#: ../code/application/views/hw/hostel_view.php:325
-#: ../code/application/views/hb/hostel_view.php:394
+#: ../code/application/views/hw/hostel_view.php:328
+#: ../code/application/views/hb/hostel_view.php:397
 #: ../code/application/views/helpfile/pofields.php:262
 #: ../code/application/views/helpfile/pofields.php~:262
-#: ../code/application/views/mustache/property_list.php:204
+#: ../code/application/views/mustache/property_list.php:218
 #, php-format
 msgid "Read more…"
 msgstr "Читать далее..."
@@ -4200,13 +4262,13 @@ msgstr "Читать далее..."
 #: ../code/application/views/helpfile/pofields.php:256
 #: ../code/application/views/helpfile/pofields.php~:256
 #: ../code/application/views/mustache/property_list.php:36
-#: ../code/application/views/mustache/property_list.php:307
+#: ../code/application/views/mustache/property_list.php:322
 #, php-format
 msgid "Latest Reviews"
 msgstr "Обзоры"
 
 #: ../code/application/views/property_detail.php:564
-#: ../code/application/views/hb/hostel_view.php:71
+#: ../code/application/views/hb/hostel_view.php:74
 #: ../code/application/views/group_request.php:214
 #: ../code/application/views/helpfile/pofields.php:193
 #: ../code/application/views/helpfile/pofields.php:630
@@ -4217,14 +4279,14 @@ msgid "Location"
 msgstr "Местоположение"
 
 #: ../code/application/views/property_detail.php:586
-#: ../code/application/views/hb/hostel_view.php:93
+#: ../code/application/views/hb/hostel_view.php:96
 msgid "N/A"
 msgstr "Не доступно"
 
 #: ../code/application/views/property_detail.php:598
 #: ../code/application/views/property_detail.php:642
 #: ../code/application/views/hw/reviews.php:5
-#: ../code/application/views/hb/hostel_view.php:983
+#: ../code/application/views/hb/hostel_view.php:1003
 #: ../code/application/views/hb/reviews.php:1
 #: ../code/application/views/review_empty.php:1
 #: ../code/application/views/city_ajax_view.php:194
@@ -4239,45 +4301,45 @@ msgid "Par %s"
 msgstr "По %s"
 
 #: ../code/application/views/property_detail.php:623
-#: ../code/application/views/hw/hostel_view.php:417
-#: ../code/application/views/hb/hostel_view.php:498
+#: ../code/application/views/hw/hostel_view.php:439
+#: ../code/application/views/hb/hostel_view.php:518
 #: ../code/application/views/helpfile/pofields.php:418
 #: ../code/application/views/helpfile/pofields.php~:418
-#: ../code/application/libraries/Hb_engine.php:982
-#: ../code/application/libraries/Hw_engine.php:717
+#: ../code/application/libraries/Hb_engine.php:862
+#: ../code/application/libraries/Hw_engine.php:719
 #, php-format
 msgid "Good"
 msgstr "Хорошо"
 
 #: ../code/application/views/property_detail.php:627
-#: ../code/application/views/hw/hostel_view.php:419
-#: ../code/application/views/hb/hostel_view.php:500
+#: ../code/application/views/hw/hostel_view.php:441
+#: ../code/application/views/hb/hostel_view.php:520
 #: ../code/application/views/helpfile/pofields.php:417
 #: ../code/application/views/helpfile/pofields.php~:417
-#: ../code/application/libraries/Hb_engine.php:986
-#: ../code/application/libraries/Hw_engine.php:721
+#: ../code/application/libraries/Hb_engine.php:865
+#: ../code/application/libraries/Hw_engine.php:723
 #, php-format
 msgid "Very good"
 msgstr "Очень хорошо"
 
 #: ../code/application/views/property_detail.php:631
-#: ../code/application/views/hw/hostel_view.php:421
-#: ../code/application/views/hb/hostel_view.php:502
+#: ../code/application/views/hw/hostel_view.php:443
+#: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/helpfile/pofields.php:601
 #: ../code/application/views/helpfile/pofields.php~:601
-#: ../code/application/libraries/Hb_engine.php:990
-#: ../code/application/libraries/Hw_engine.php:725
+#: ../code/application/libraries/Hb_engine.php:868
+#: ../code/application/libraries/Hw_engine.php:727
 #, php-format
 msgid "Great"
 msgstr "Замечательно"
 
 #: ../code/application/views/property_detail.php:635
-#: ../code/application/views/hw/hostel_view.php:423
-#: ../code/application/views/hb/hostel_view.php:504
+#: ../code/application/views/hw/hostel_view.php:445
+#: ../code/application/views/hb/hostel_view.php:524
 #: ../code/application/views/helpfile/pofields.php:602
 #: ../code/application/views/helpfile/pofields.php~:602
-#: ../code/application/libraries/Hb_engine.php:993
-#: ../code/application/libraries/Hw_engine.php:728
+#: ../code/application/libraries/Hb_engine.php:870
+#: ../code/application/libraries/Hw_engine.php:730
 #, php-format
 msgid "Fantastic"
 msgstr "Превосходно"
@@ -4393,20 +4455,6 @@ msgstr "Самые популярные"
 msgid "Liste des logements pas chers à %s"
 msgstr "Хостелы и дешевое проживание - %s"
 
-#: ../code/application/views/city_view.php:210
-#: ../code/application/views/city_view.php:362
-#: ../code/application/views/mustache/property_list.php:161
-msgid "of"
-msgstr " из "
-
-#: ../code/application/views/city_view.php:212
-#: ../code/application/views/city_view.php:364
-#: ../code/application/views/helpfile/pofields.php:645
-#: ../code/application/views/helpfile/pofields.php~:645
-#, php-format
-msgid "Results"
-msgstr "Результаты"
-
 #: ../code/application/views/city_view.php:224
 #: ../code/application/views/hw/booking_end_view.php:35
 #: ../code/application/views/hb/booking_end_view.php:28
@@ -4417,8 +4465,8 @@ msgid "Nombre de Nuits: %s"
 msgstr "Кол-во ночей: %s"
 
 #: ../code/application/views/city_view.php:227
-#: ../code/application/views/hw/hostel_view.php:28
-#: ../code/application/views/hb/hostel_view.php:27
+#: ../code/application/views/hw/hostel_view.php:31
+#: ../code/application/views/hb/hostel_view.php:30
 msgid "Voir la carte"
 msgstr "Показать карту"
 
@@ -4471,22 +4519,22 @@ msgstr "Центр города"
 msgid "Selected filters:"
 msgstr "Выбранные фильтры:"
 
-#: ../code/application/views/city_view.php:416
+#: ../code/application/views/city_view.php:418
 msgid "Please Wait"
 msgstr "Пожалуйста подождите"
 
-#: ../code/application/views/city_view.php:421
+#: ../code/application/views/city_view.php:423
 msgid "From"
 msgstr "От"
 
-#: ../code/application/views/city_view.php:422
+#: ../code/application/views/city_view.php:424
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr ""
 "Только 5 свойств могут быть сопоставлены. Пожалуйста, удалите свойство из "
 "списка."
 
-#: ../code/application/views/hw/hostel_view.php:10
-#: ../code/application/views/hb/hostel_view.php:9
+#: ../code/application/views/hw/hostel_view.php:13
+#: ../code/application/views/hb/hostel_view.php:12
 #: ../code/application/views/helpfile/pofields.php:213
 #: ../code/application/views/helpfile/pofields.php:259
 #: ../code/application/views/helpfile/pofields.php~:213
@@ -4495,69 +4543,69 @@ msgstr ""
 msgid "Back to search results"
 msgstr "Вернуться к результатам поиска"
 
-#: ../code/application/views/hw/hostel_view.php:53
-#: ../code/application/views/hb/hostel_view.php:126
+#: ../code/application/views/hw/hostel_view.php:56
+#: ../code/application/views/hb/hostel_view.php:129
 msgid "Erreur de requête"
 msgstr "Ошибка приложения"
 
-#: ../code/application/views/hw/hostel_view.php:103
-#: ../code/application/views/hb/hostel_view.php:158
-#: ../code/application/controllers/cmain.php:1760
+#: ../code/application/views/hw/hostel_view.php:106
+#: ../code/application/views/hb/hostel_view.php:161
+#: ../code/application/controllers/cmain.php:1801
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "Ваш комментарий был отправлен нашей команде на утверждение. Спасибо!"
 
-#: ../code/application/views/hw/hostel_view.php:110
-#: ../code/application/views/hb/hostel_view.php:164
+#: ../code/application/views/hw/hostel_view.php:113
+#: ../code/application/views/hb/hostel_view.php:167
 #, php-format
 msgid "Laissez vos impressions sur %s"
 msgstr "Оставить ваши впечатления на %s."
 
-#: ../code/application/views/hw/hostel_view.php:119
-#: ../code/application/views/hb/hostel_view.php:173
+#: ../code/application/views/hw/hostel_view.php:122
+#: ../code/application/views/hb/hostel_view.php:176
 msgid "Votre Prénom:"
 msgstr "Ваше имя:"
 
-#: ../code/application/views/hw/hostel_view.php:130
-#: ../code/application/views/hb/hostel_view.php:184
+#: ../code/application/views/hw/hostel_view.php:133
+#: ../code/application/views/hb/hostel_view.php:187
 msgid "Votre Nom (ne sera pas publié):"
 msgstr "Ваша фамилия (не публикуется):"
 
-#: ../code/application/views/hw/hostel_view.php:142
-#: ../code/application/views/hb/hostel_view.php:196
+#: ../code/application/views/hw/hostel_view.php:145
+#: ../code/application/views/hb/hostel_view.php:199
 msgid "Votre Email (ne sera pas publié):"
 msgstr "Адрес Вашей электронной почты (не публикуется):"
 
-#: ../code/application/views/hw/hostel_view.php:167
-#: ../code/application/views/hb/hostel_view.php:221
+#: ../code/application/views/hw/hostel_view.php:170
+#: ../code/application/views/hb/hostel_view.php:224
 msgid "Veuillez évaluer votre expérience:"
 msgstr "Пожалуйста, оцените ваш опыт:"
 
-#: ../code/application/views/hw/hostel_view.php:186
-#: ../code/application/views/hb/hostel_view.php:240
+#: ../code/application/views/hw/hostel_view.php:189
+#: ../code/application/views/hb/hostel_view.php:243
 #, php-format
 msgid "Vos commentaires sur %s :"
 msgstr "Отзывы о %s:"
 
-#: ../code/application/views/hw/hostel_view.php:198
-#: ../code/application/views/hb/hostel_view.php:252
+#: ../code/application/views/hw/hostel_view.php:201
+#: ../code/application/views/hb/hostel_view.php:255
 msgid "La date de votre dernier séjour à cet endroit :"
 msgstr "Дата вашего последнего пребывания в этом месте:"
 
-#: ../code/application/views/hw/hostel_view.php:330
-#: ../code/application/views/hw/hostel_view.php:577
-#: ../code/application/views/hw/hostel_view.php:644
-#: ../code/application/views/hw/hostel_view.php:740
+#: ../code/application/views/hw/hostel_view.php:333
+#: ../code/application/views/hw/hostel_view.php:599
+#: ../code/application/views/hw/hostel_view.php:666
+#: ../code/application/views/hw/hostel_view.php:761
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1039
-#: ../code/application/views/hb/hostel_view.php:399
-#: ../code/application/views/hb/hostel_view.php:664
-#: ../code/application/views/hb/hostel_view.php:737
-#: ../code/application/views/hb/hostel_view.php:769
-#: ../code/application/views/hb/hostel_view.php:825
+#: ../code/application/views/hb/hostel_view.php:402
+#: ../code/application/views/hb/hostel_view.php:684
+#: ../code/application/views/hb/hostel_view.php:757
+#: ../code/application/views/hb/hostel_view.php:789
 #: ../code/application/views/hb/hostel_view.php:845
-#: ../code/application/views/hb/hostel_view.php:956
+#: ../code/application/views/hb/hostel_view.php:865
+#: ../code/application/views/hb/hostel_view.php:976
 #: ../code/application/views/hb/reviews.php:5
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -4566,21 +4614,21 @@ msgstr "Дата вашего последнего пребывания в эт�
 msgid "Voir la version traduite"
 msgstr "См. перевод"
 
-#: ../code/application/views/hw/hostel_view.php:331
-#: ../code/application/views/hw/hostel_view.php:578
-#: ../code/application/views/hw/hostel_view.php:645
-#: ../code/application/views/hw/hostel_view.php:741
+#: ../code/application/views/hw/hostel_view.php:334
+#: ../code/application/views/hw/hostel_view.php:600
+#: ../code/application/views/hw/hostel_view.php:667
+#: ../code/application/views/hw/hostel_view.php:762
 #: ../code/application/views/hw/reviews.php:12
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1039
-#: ../code/application/views/hb/hostel_view.php:400
-#: ../code/application/views/hb/hostel_view.php:665
-#: ../code/application/views/hb/hostel_view.php:738
-#: ../code/application/views/hb/hostel_view.php:770
-#: ../code/application/views/hb/hostel_view.php:826
+#: ../code/application/views/hb/hostel_view.php:403
+#: ../code/application/views/hb/hostel_view.php:685
+#: ../code/application/views/hb/hostel_view.php:758
+#: ../code/application/views/hb/hostel_view.php:790
 #: ../code/application/views/hb/hostel_view.php:846
-#: ../code/application/views/hb/hostel_view.php:957
+#: ../code/application/views/hb/hostel_view.php:866
+#: ../code/application/views/hb/hostel_view.php:977
 #: ../code/application/views/hb/reviews.php:6
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
@@ -4589,43 +4637,55 @@ msgstr "См. перевод"
 msgid "Voir l'original"
 msgstr "Посмотреть оригинал"
 
-#: ../code/application/views/hw/hostel_view.php:403
-#: ../code/application/views/hb/hostel_view.php:484
-#: ../code/application/views/mustache/property_list.php:9
-msgid "Info"
-msgstr "Информация"
+#: ../code/application/views/hw/hostel_view.php:360
+#: ../code/application/views/hb/hostel_view.php:428
+#: ../code/application/views/helpfile/pofields.php:815
+#: ../code/application/views/helpfile/pofields.php~:815
+#: ../code/application/views/mustache/property_list.php:209
+#, php-format
+msgid "Add to my favorites"
+msgstr "Добавить в избранное"
 
-#: ../code/application/views/hw/hostel_view.php:405
-#: ../code/application/views/hb/hostel_view.php:486
+#: ../code/application/views/hw/hostel_view.php:365
+#: ../code/application/views/hb/hostel_view.php:433
+#: ../code/application/views/helpfile/pofields.php:814
+#: ../code/application/views/helpfile/pofields.php~:814
+#: ../code/application/views/mustache/property_list.php:214
+#, php-format
+msgid "Saved to my favorites"
+msgstr "Добавлено в избранное"
+
+#: ../code/application/views/hw/hostel_view.php:427
+#: ../code/application/views/hb/hostel_view.php:506
 msgid "Info & Prix"
 msgstr "Информация и цены"
 
-#: ../code/application/views/hw/hostel_view.php:548
-#: ../code/application/views/hb/hostel_view.php:629
+#: ../code/application/views/hw/hostel_view.php:570
+#: ../code/application/views/hb/hostel_view.php:649
 msgid "Rechercher"
 msgstr "Поиск"
 
-#: ../code/application/views/hw/hostel_view.php:555
-#: ../code/application/views/hb/hostel_view.php:640
-#: ../code/application/views/mustache/property_list.php:302
+#: ../code/application/views/hw/hostel_view.php:577
+#: ../code/application/views/hb/hostel_view.php:660
+#: ../code/application/views/mustache/property_list.php:317
 msgid "Recherche de disponibilités..."
 msgstr "Поиск наличия..."
 
-#: ../code/application/views/hw/hostel_view.php:563
-#: ../code/application/views/hb/hostel_view.php:653
+#: ../code/application/views/hw/hostel_view.php:585
+#: ../code/application/views/hb/hostel_view.php:673
 #: ../code/application/views/helpfile/pofields.php:694
 #: ../code/application/views/helpfile/pofields.php~:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
 msgstr "Хотите получить или отправить PDF копию этой цитаты?"
 
-#: ../code/application/views/hw/hostel_view.php:674
-#: ../code/application/views/hb/hostel_view.php:892
+#: ../code/application/views/hw/hostel_view.php:696
+#: ../code/application/views/hb/hostel_view.php:912
 msgid "Cartes"
 msgstr "Карты"
 
-#: ../code/application/views/hw/hostel_view.php:730
-#: ../code/application/views/hb/hostel_view.php:947
+#: ../code/application/views/hw/hostel_view.php:751
+#: ../code/application/views/hb/hostel_view.php:967
 msgid "Street View"
 msgstr "Вид с улицы"
 
@@ -4658,29 +4718,12 @@ msgstr "Войти в аккаунт"
 msgid "Arrivée: %s à %s"
 msgstr "Прибытие: %s в %s."
 
-#: ../code/application/views/hw/booking_end_view.php:52
-#: ../code/application/views/hw/booking_end_view.php:110
-#: ../code/application/views/hw/booking_avail_view.php:924
-#: ../code/application/views/hw/booking_avail_view.php:941
-#: ../code/application/views/hw/booking_view.php:158
-#: ../code/application/views/hw/booking_view.php:227
-#: ../code/application/views/hb/booking_end_view.php:33
-#: ../code/application/views/hb/booking_avail_view.php:828
-#: ../code/application/views/hb/booking_avail_view.php:845
-#: ../code/application/views/hb/booking_view.php:108
-#: ../code/application/views/email/new_transaction.php:284
-#: ../code/application/views/email/new_transaction.php:397
-#: ../code/application/views/email/new_transaction_hb.php:107
-#: ../code/application/views/email/admin/new_group_request.php:23
-msgid "Date"
-msgstr "День"
-
 #: ../code/application/views/hw/booking_end_view.php:165
 msgid "Amount already paid"
 msgstr "Уже выплаченная сумма"
 
 #: ../code/application/views/hw/booking_end_view.php:202
-#: ../code/application/views/hw/booking_avail_view.php:1005
+#: ../code/application/views/hw/booking_avail_view.php:1014
 #: ../code/application/views/hb/booking_end_view.php:143
 #: ../code/application/views/hb/booking_avail_view.php:909
 #: ../code/application/views/email/new_transaction.php:934
@@ -4728,7 +4771,7 @@ msgstr ""
 "части этой страницы."
 
 #: ../code/application/views/hw/booking_avail_view.php:231
-#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:507
 #: ../code/application/views/hb/booking_avail_view.php:289
 #, php-format
 msgid "Dorm Availability"
@@ -4750,21 +4793,21 @@ msgstr "Общежития, которые вы будете занимать:"
 msgid "The lowest price per person per night in a dorm in this property: %s"
 msgstr "Самая низкая цена на человека за ночь в общежитии в этом отеле: %s"
 
-#: ../code/application/views/hw/booking_avail_view.php:308
-#: ../code/application/views/hw/booking_avail_view.php:577
+#: ../code/application/views/hw/booking_avail_view.php:311
+#: ../code/application/views/hw/booking_avail_view.php:585
 #: ../code/application/views/hb/booking_avail_view.php:299
 #: ../code/application/views/hb/booking_avail_view.php:558
 #: ../code/application/views/helpfile/pofields.php:691
 #: ../code/application/views/helpfile/pofields.php:723
 #: ../code/application/views/helpfile/pofields.php~:691
 #: ../code/application/views/helpfile/pofields.php~:723
-#: ../code/application/views/mustache/property_list.php:317
-#: ../code/application/views/mustache/property_list.php:327
+#: ../code/application/views/mustache/property_list.php:332
+#: ../code/application/views/mustache/property_list.php:342
 #, php-format
 msgid "Select"
 msgstr "Выберите"
 
-#: ../code/application/views/hw/booking_avail_view.php:318
+#: ../code/application/views/hw/booking_avail_view.php:321
 #: ../code/application/views/hb/booking_avail_view.php:308
 #: ../code/application/views/helpfile/pofields.php:724
 #: ../code/application/views/helpfile/pofields.php~:724
@@ -4772,7 +4815,7 @@ msgstr "Выберите"
 msgid "You will use 1 full dorm."
 msgstr "Вы будете использовать 1 полное общежитие."
 
-#: ../code/application/views/hw/booking_avail_view.php:320
+#: ../code/application/views/hw/booking_avail_view.php:323
 #: ../code/application/views/hb/booking_avail_view.php:310
 #: ../code/application/views/helpfile/pofields.php:725
 #: ../code/application/views/helpfile/pofields.php~:725
@@ -4780,9 +4823,9 @@ msgstr "Вы будете использовать 1 полное общежит
 msgid "You will use %d full dorms."
 msgstr "Вы будете использовать %d полных общежития."
 
-#: ../code/application/views/hw/booking_avail_view.php:322
-#: ../code/application/views/hw/booking_avail_view.php:335
-#: ../code/application/views/hw/booking_avail_view.php:597
+#: ../code/application/views/hw/booking_avail_view.php:325
+#: ../code/application/views/hw/booking_avail_view.php:337
+#: ../code/application/views/hw/booking_avail_view.php:604
 #: ../code/application/views/hb/booking_avail_view.php:312
 #: ../code/application/views/hb/booking_avail_view.php:325
 #: ../code/application/views/hb/booking_avail_view.php:578
@@ -4790,7 +4833,7 @@ msgstr "Вы будете использовать %d полных общежи�
 msgid "%d %s ( %s )"
 msgstr ""
 
-#: ../code/application/views/hw/booking_avail_view.php:326
+#: ../code/application/views/hw/booking_avail_view.php:329
 #: ../code/application/views/hb/booking_avail_view.php:316
 #: ../code/application/views/helpfile/pofields.php:726
 #: ../code/application/views/helpfile/pofields.php~:726
@@ -4798,7 +4841,7 @@ msgstr ""
 msgid "You will partially use 1 dorm."
 msgstr "Вы будете частично использовать 1 общежитие."
 
-#: ../code/application/views/hw/booking_avail_view.php:329
+#: ../code/application/views/hw/booking_avail_view.php:332
 #: ../code/application/views/hb/booking_avail_view.php:319
 #: ../code/application/views/helpfile/pofields.php:727
 #: ../code/application/views/helpfile/pofields.php~:727
@@ -4806,7 +4849,7 @@ msgstr "Вы будете частично использовать 1 общеж
 msgid "You will use 1 full dorm and 1 partially."
 msgstr "Вы будете использовать 1 общежитие полностью и 1 частично."
 
-#: ../code/application/views/hw/booking_avail_view.php:331
+#: ../code/application/views/hw/booking_avail_view.php:334
 #: ../code/application/views/hb/booking_avail_view.php:321
 #: ../code/application/views/helpfile/pofields.php:728
 #: ../code/application/views/helpfile/pofields.php~:728
@@ -4814,7 +4857,7 @@ msgstr "Вы будете использовать 1 общежитие полн
 msgid "You will use %d full dorms and 1 partially."
 msgstr "Вы будете использовать %d общежитий полностью и 1 частично."
 
-#: ../code/application/views/hw/booking_avail_view.php:502
+#: ../code/application/views/hw/booking_avail_view.php:507
 #: ../code/application/views/hb/booking_avail_view.php:550
 #: ../code/application/views/helpfile/pofields.php:738
 #: ../code/application/views/helpfile/pofields.php~:738
@@ -4822,12 +4865,12 @@ msgstr "Вы будете использовать %d общежитий пол�
 msgid "Bedrooms you will occupy:"
 msgstr "Спальня, которую вы будете занимать:"
 
-#: ../code/application/views/hw/booking_avail_view.php:526
+#: ../code/application/views/hw/booking_avail_view.php:531
 #, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
 msgstr "%d гостей в %d Комнатах (1 гость в каждой комнате)."
 
-#: ../code/application/views/hw/booking_avail_view.php:536
+#: ../code/application/views/hw/booking_avail_view.php:541
 #: ../code/application/views/hb/booking_avail_view.php:529
 #: ../code/application/views/helpfile/pofields.php:758
 #: ../code/application/views/helpfile/pofields.php~:758
@@ -4837,19 +4880,19 @@ msgid ""
 msgstr ""
 "Самая низкая цена на человека за ночь в отдельной комнате этого отеля: %s"
 
-#: ../code/application/views/hw/booking_avail_view.php:591
+#: ../code/application/views/hw/booking_avail_view.php:599
 #: ../code/application/views/hb/booking_avail_view.php:518
 #, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
 msgstr "%d гостей в %d Комнатах (1 гость в каждой комнате)."
 
-#: ../code/application/views/hw/booking_avail_view.php:624
+#: ../code/application/views/hw/booking_avail_view.php:633
 #: ../code/application/views/hb/booking_avail_error_view.php:14
 #: ../code/application/views/hb/booking_avail_view.php:598
 msgid "No Beds Found"
 msgstr "Нет свободных мест"
 
-#: ../code/application/views/hw/booking_avail_view.php:629
+#: ../code/application/views/hw/booking_avail_view.php:638
 #: ../code/application/views/hb/booking_avail_error_view.php:21
 #: ../code/application/views/hb/booking_avail_view.php:603
 msgid ""
@@ -4859,10 +4902,10 @@ msgstr ""
 "По вашему запросу не найдено свободных мест. Пожалуйста, смените даты и "
 "попробуйте еще раз."
 
-#: ../code/application/views/hw/booking_avail_view.php:665
-#: ../code/application/views/hw/booking_avail_view.php:719
-#: ../code/application/views/hw/booking_avail_view.php:929
-#: ../code/application/views/hw/booking_avail_view.php:946
+#: ../code/application/views/hw/booking_avail_view.php:674
+#: ../code/application/views/hw/booking_avail_view.php:728
+#: ../code/application/views/hw/booking_avail_view.php:938
+#: ../code/application/views/hw/booking_avail_view.php:955
 #: ../code/application/views/hb/booking_avail_view.php:639
 #: ../code/application/views/hb/booking_avail_view.php:691
 #: ../code/application/views/hb/booking_avail_view.php:833
@@ -4873,8 +4916,8 @@ msgstr ""
 msgid "Number of guests"
 msgstr "Количество гостей"
 
-#: ../code/application/views/hw/booking_avail_view.php:667
-#: ../code/application/views/hw/booking_avail_view.php:721
+#: ../code/application/views/hw/booking_avail_view.php:676
+#: ../code/application/views/hw/booking_avail_view.php:730
 #: ../code/application/views/hb/booking_avail_view.php:641
 #: ../code/application/views/hb/booking_avail_view.php:693
 #: ../code/application/views/helpfile/pofields.php:760
@@ -4883,12 +4926,12 @@ msgstr "Количество гостей"
 msgid "Number of guests for %d nights"
 msgstr "Количество гостей для %d ночей"
 
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hb/booking_avail_view.php:714
 msgid "Your Selection"
 msgstr "Ваш Выбор"
 
-#: ../code/application/views/hw/booking_avail_view.php:744
+#: ../code/application/views/hw/booking_avail_view.php:753
 #: ../code/application/views/hw/booking_view.php:125
 #: ../code/application/views/hw/booking_view.php:1047
 #, php-format
@@ -4903,12 +4946,12 @@ msgstr ""
 "Контактную информацию о месте проживания (емэйл, адрес, телефон…) вы "
 "получите в письме, после того, как сделаете бронирование. "
 
-#: ../code/application/views/hw/booking_avail_view.php:749
+#: ../code/application/views/hw/booking_avail_view.php:758
 #: ../code/application/views/hb/booking_avail_view.php:719
 msgid "Number of guests selected"
 msgstr "Выбранное количество гостей"
 
-#: ../code/application/views/hw/booking_avail_view.php:769
+#: ../code/application/views/hw/booking_avail_view.php:778
 #: ../code/application/views/hb/booking_avail_view.php:737
 #: ../code/application/views/helpfile/pofields.php:291
 #: ../code/application/views/helpfile/pofields.php~:291
@@ -4916,14 +4959,15 @@ msgstr "Выбранное количество гостей"
 msgid "You got the best price"
 msgstr "Вы получили наилучшую цену"
 
-#: ../code/application/views/hw/booking_avail_view.php:769
+#: ../code/application/views/hw/booking_avail_view.php:778
 #: ../code/application/views/hw/booking_view.php:303
+#: ../code/application/views/helpfile/pofields.php:822
 #, php-format
 msgid "Deposit to be paid now (%d%%)"
 msgstr "Сумма первого взноса (%d%%)"
 
-#: ../code/application/views/hw/booking_avail_view.php:790
-#: ../code/application/views/hw/booking_avail_view.php:886
+#: ../code/application/views/hw/booking_avail_view.php:799
+#: ../code/application/views/hw/booking_avail_view.php:895
 #: ../code/application/views/hb/booking_avail_view.php:756
 #: ../code/application/views/hb/booking_avail_view.php:790
 #: ../code/application/views/helpfile/pofields.php:729
@@ -4932,7 +4976,7 @@ msgstr "Сумма первого взноса (%d%%)"
 msgid "Confirmation Email Preview"
 msgstr "Предварительный просмотр электронного письма"
 
-#: ../code/application/views/hw/booking_avail_view.php:792
+#: ../code/application/views/hw/booking_avail_view.php:801
 #: ../code/application/views/hb/booking_avail_view.php:758
 #: ../code/application/views/helpfile/pofields.php:748
 #: ../code/application/views/helpfile/pofields.php~:748
@@ -4942,7 +4986,7 @@ msgstr ""
 "Пожалуйста, нажмите здесь, чтобы просмотреть подтверждение по электронной "
 "почте"
 
-#: ../code/application/views/hw/booking_avail_view.php:805
+#: ../code/application/views/hw/booking_avail_view.php:814
 #: ../code/application/views/hw/booking_view.php:973
 #: ../code/application/views/hw/booking_view.php:975
 #: ../code/application/views/hb/booking_avail_view.php:771
@@ -4951,7 +4995,7 @@ msgstr ""
 msgid "sécurisé"
 msgstr "Безопасный"
 
-#: ../code/application/views/hw/booking_avail_view.php:867
+#: ../code/application/views/hw/booking_avail_view.php:876
 #: ../code/application/views/hb/booking_avail_error_view.php:27
 #: ../code/application/views/helpfile/pofields.php:552
 #: ../code/application/views/helpfile/pofields.php~:552
@@ -4959,7 +5003,7 @@ msgstr "Безопасный"
 msgid "Search for more properties in %s"
 msgstr "Поиск больше хотелей в %s "
 
-#: ../code/application/views/hw/booking_avail_view.php:893
+#: ../code/application/views/hw/booking_avail_view.php:902
 #: ../code/application/views/hb/booking_avail_view.php:797
 #: ../code/application/views/helpfile/pofields.php:730
 #: ../code/application/views/helpfile/pofields.php~:730
@@ -4971,8 +5015,8 @@ msgstr ""
 "Ваш единый номер бронирования будет предоставлен сразу после бронирования. "
 "Ваш заказ будет немедленным и гарантированным."
 
-#: ../code/application/views/hw/booking_avail_view.php:927
-#: ../code/application/views/hw/booking_avail_view.php:944
+#: ../code/application/views/hw/booking_avail_view.php:936
+#: ../code/application/views/hw/booking_avail_view.php:953
 #: ../code/application/views/hw/booking_view.php:162
 #: ../code/application/views/hb/booking_end_view.php:35
 #: ../code/application/views/hb/booking_avail_view.php:831
@@ -4982,14 +5026,15 @@ msgstr ""
 msgid "Prix (lit)"
 msgstr "Цена"
 
-#: ../code/application/views/hw/booking_avail_view.php:978
+#: ../code/application/views/hw/booking_avail_view.php:987
+#: ../code/application/views/helpfile/pofields.php:824
 #, php-format
 msgid "Deposit (%d%%)"
 msgstr "Первый взнос (%d%%)"
 
-#: ../code/application/views/hw/booking_avail_view.php:1007
-#: ../code/application/views/hw/booking_avail_view.php:1013
-#: ../code/application/views/hw/booking_avail_view.php:1019
+#: ../code/application/views/hw/booking_avail_view.php:1016
+#: ../code/application/views/hw/booking_avail_view.php:1022
+#: ../code/application/views/hw/booking_avail_view.php:1028
 #: ../code/application/views/hb/booking_avail_view.php:911
 #: ../code/application/views/hb/booking_avail_view.php:917
 #: ../code/application/views/hb/booking_avail_view.php:923
@@ -4999,7 +5044,7 @@ msgstr "Первый взнос (%d%%)"
 msgid "Provided after reservation"
 msgstr "Предоставляется с момента оформления заказа"
 
-#: ../code/application/views/hw/booking_avail_view.php:1023
+#: ../code/application/views/hw/booking_avail_view.php:1032
 #: ../code/application/views/hb/booking_avail_view.php:927
 #: ../code/application/views/helpfile/pofields.php:744
 #: ../code/application/views/helpfile/pofields.php~:744
@@ -5011,7 +5056,7 @@ msgstr ""
 "С полной контактной информацией, вы сможете связаться с отелем, в случае, "
 "если у вас есть какие-то особые пожелания."
 
-#: ../code/application/views/hw/booking_avail_view.php:1030
+#: ../code/application/views/hw/booking_avail_view.php:1039
 #: ../code/application/views/hb/booking_avail_view.php:934
 #: ../code/application/views/helpfile/pofields.php:743
 #: ../code/application/views/helpfile/pofields.php~:743
@@ -5023,7 +5068,7 @@ msgstr ""
 "Когда это возможно, мы будем предоставлять информацию о том, как добраться "
 "до отеля, включая общественный транспорт и аэропорт."
 
-#: ../code/application/views/hw/booking_avail_view.php:1037
+#: ../code/application/views/hw/booking_avail_view.php:1046
 #: ../code/application/views/hb/booking_avail_view.php:941
 #: ../code/application/views/helpfile/pofields.php:741
 #: ../code/application/views/helpfile/pofields.php~:741
@@ -5037,8 +5082,8 @@ msgstr ""
 
 #: ../code/application/views/hw/property_list.php:89
 #: ../code/application/views/hb/property_list.php:137
-#: ../code/application/views/mustache/property_list.php:209
-#: ../code/application/views/mustache/property_list.php:219
+#: ../code/application/views/mustache/property_list.php:224
+#: ../code/application/views/mustache/property_list.php:234
 msgid "close"
 msgstr "Закрыть"
 
@@ -5277,23 +5322,23 @@ msgstr "Транзакция защищена и закодирована"
 msgid "Please make sure all required fields are filled out correctly"
 msgstr "Пожалуйста, убедитесь, что все обязательные поля заполнены правильно"
 
-#: ../code/application/views/hb/hostel_view.php:766
+#: ../code/application/views/hb/hostel_view.php:786
 msgid "Purchasable Extras"
 msgstr "Можно купить дополнительно"
 
-#: ../code/application/views/hb/hostel_view.php:801
+#: ../code/application/views/hb/hostel_view.php:821
 msgid "Check-In/Out Details"
 msgstr "Детали регистрации/выезда"
 
-#: ../code/application/views/hb/hostel_view.php:806
+#: ../code/application/views/hb/hostel_view.php:826
 msgid "Check-in:"
 msgstr "Регистрация"
 
-#: ../code/application/views/hb/hostel_view.php:810
+#: ../code/application/views/hb/hostel_view.php:830
 msgid "Check-out:"
 msgstr "Выезд"
 
-#: ../code/application/views/hb/hostel_view.php:822
+#: ../code/application/views/hb/hostel_view.php:842
 #: ../code/application/views/hb/booking_end_view.php:180
 #: ../code/application/views/email/new_transaction_hb.php:703
 msgid "Cancellation Policy"
@@ -5833,9 +5878,9 @@ msgstr ""
 #: ../code/application/views/group_request.php:15
 #: ../code/application/views/helpfile/pofields.php:144
 #: ../code/application/views/helpfile/pofields.php~:144
-#: ../code/application/controllers/cform_ajax.php:75
-#: ../code/application/controllers/cmain.php:788
-#: ../code/application/controllers/cmain.php:801
+#: ../code/application/controllers/cform_ajax.php:76
+#: ../code/application/controllers/cmain.php:789
+#: ../code/application/controllers/cmain.php:802
 #, php-format
 msgid "Group Booking"
 msgstr "Бронирование для групп"
@@ -5862,7 +5907,7 @@ msgstr "Бронировать до 500 человек!"
 #: ../code/application/views/group_request.php:31
 #: ../code/application/views/helpfile/pofields.php:147
 #: ../code/application/views/helpfile/pofields.php~:147
-#: ../code/application/controllers/cmain.php:794
+#: ../code/application/controllers/cmain.php:795
 #, php-format
 msgid ""
 "If you are looking for a hostel, a Youth hostel, a hotel, a B&B or a cheap "
@@ -6103,14 +6148,14 @@ msgstr "Посмотреть все %s места проживания"
 
 #: ../code/application/views/helpfile/pofields.php:13
 #: ../code/application/views/helpfile/pofields.php~:13
-#: ../code/application/views/mustache/property_list.php:249
+#: ../code/application/views/mustache/property_list.php:264
 #, php-format
 msgid "Dorms from %s"
 msgstr "Общежития %s"
 
 #: ../code/application/views/helpfile/pofields.php:14
 #: ../code/application/views/helpfile/pofields.php~:14
-#: ../code/application/views/mustache/property_list.php:263
+#: ../code/application/views/mustache/property_list.php:278
 #, php-format
 msgid "Private rooms from %s"
 msgstr "Частныx комнаты / Стоимость за человека %s"
@@ -6971,9 +7016,9 @@ msgstr "Версия для мобильного"
 
 #: ../code/application/views/helpfile/pofields.php:190
 #: ../code/application/views/helpfile/pofields.php~:190
-#: ../code/application/libraries/Hb_engine.php:863
-#: ../code/application/libraries/Hw_engine.php:741
-#: ../code/application/libraries/Hw_engine.php:1296
+#: ../code/application/libraries/Hb_engine.php:758
+#: ../code/application/libraries/Hw_engine.php:743
+#: ../code/application/libraries/Hw_engine.php:1298
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -7025,15 +7070,15 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:198
 #: ../code/application/views/helpfile/pofields.php~:198
-#: ../code/application/libraries/Hw_engine.php:1295
+#: ../code/application/libraries/Hw_engine.php:1297
 #, php-format
 msgid "Property availability error"
 msgstr "Произошла ошибка  при проверки наличия свободных мест"
 
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/views/helpfile/pofields.php~:199
-#: ../code/application/libraries/Hb_engine.php:513
-#: ../code/application/libraries/Hb_engine.php:1037
+#: ../code/application/libraries/Hb_engine.php:456
+#: ../code/application/libraries/Hb_engine.php:909
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "Данные недоступны. Пожалуйста, попробуйте снова."
@@ -7041,7 +7086,7 @@ msgstr "Данные недоступны. Пожалуйста, попробу�
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1293
+#: ../code/application/libraries/Hb_engine.php:1128
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "На выбранные ночи комнат в наличии нету."
@@ -7326,8 +7371,8 @@ msgstr "Бесплатный Интернет"
 
 #: ../code/application/views/helpfile/pofields.php:287
 #: ../code/application/views/helpfile/pofields.php~:287
-#: ../code/application/views/mustache/property_list.php:240
-#: ../code/application/views/mustache/property_list.php:257
+#: ../code/application/views/mustache/property_list.php:255
+#: ../code/application/views/mustache/property_list.php:272
 #, php-format
 msgid "Deal of the Day"
 msgstr "Сделка Дня"
@@ -8414,7 +8459,7 @@ msgstr "Бронь гарантирована"
 
 #: ../code/application/views/helpfile/pofields.php:517
 #: ../code/application/views/helpfile/pofields.php~:517
-#: ../code/application/controllers/cform_ajax.php:75
+#: ../code/application/controllers/cform_ajax.php:76
 #, php-format
 msgid "People:"
 msgstr "Человек:"
@@ -8986,7 +9031,7 @@ msgstr "Показать меньше"
 
 #: ../code/application/views/helpfile/pofields.php:660
 #: ../code/application/views/helpfile/pofields.php~:660
-#: ../code/application/controllers/cmain.php:1438
+#: ../code/application/controllers/cmain.php:1456
 #, php-format
 msgid "Not enough parameters"
 msgstr "Не достаточно параметров"
@@ -8995,14 +9040,14 @@ msgstr "Не достаточно параметров"
 #: ../code/application/views/helpfile/pofields.php:769
 #: ../code/application/views/helpfile/pofields.php~:661
 #: ../code/application/views/helpfile/pofields.php~:769
-#: ../code/application/controllers/cmain.php:1442
+#: ../code/application/controllers/cmain.php:1460
 #, php-format
 msgid "Fill in the email"
 msgstr "Заполнить электронную почту"
 
 #: ../code/application/views/helpfile/pofields.php:662
 #: ../code/application/views/helpfile/pofields.php~:662
-#: ../code/application/controllers/cmain.php:1445
+#: ../code/application/controllers/cmain.php:1463
 #, php-format
 msgid "Invalid email recipient"
 msgstr "Неверный электронный адрес получателя"
@@ -9011,7 +9056,7 @@ msgstr "Неверный электронный адрес получателя"
 #: ../code/application/views/helpfile/pofields.php:770
 #: ../code/application/views/helpfile/pofields.php~:663
 #: ../code/application/views/helpfile/pofields.php~:770
-#: ../code/application/controllers/cmain.php:1449
+#: ../code/application/controllers/cmain.php:1467
 #, php-format
 msgid "Fill in the subject"
 msgstr "Введите тему"
@@ -9020,28 +9065,28 @@ msgstr "Введите тему"
 #: ../code/application/views/helpfile/pofields.php:771
 #: ../code/application/views/helpfile/pofields.php~:664
 #: ../code/application/views/helpfile/pofields.php~:771
-#: ../code/application/controllers/cmain.php:1452
+#: ../code/application/controllers/cmain.php:1470
 #, php-format
 msgid "Fill in the message"
 msgstr "Введите сообщение"
 
 #: ../code/application/views/helpfile/pofields.php:665
 #: ../code/application/views/helpfile/pofields.php~:665
-#: ../code/application/controllers/cmain.php:1455
+#: ../code/application/controllers/cmain.php:1473
 #, php-format
 msgid "Fill in the \"From\" name"
 msgstr "Введите \"От\" имя"
 
 #: ../code/application/views/helpfile/pofields.php:666
 #: ../code/application/views/helpfile/pofields.php~:666
-#: ../code/application/controllers/cmain.php:1458
+#: ../code/application/controllers/cmain.php:1476
 #, php-format
 msgid "Fill in the \"From\" email"
 msgstr "Введите \"От\" электронный адрес"
 
 #: ../code/application/views/helpfile/pofields.php:667
 #: ../code/application/views/helpfile/pofields.php~:667
-#: ../code/application/controllers/cmain.php:1461
+#: ../code/application/controllers/cmain.php:1479
 #, php-format
 msgid "Invalid \"From\" email"
 msgstr "Неправильный формат поля \"От\""
@@ -9271,14 +9316,14 @@ msgstr "Фильтр по ориентирам (-2км)"
 
 #: ../code/application/views/helpfile/pofields.php:785
 #: ../code/application/views/helpfile/pofields.php~:785
-#: ../code/application/views/mustache/property_list.php:255
+#: ../code/application/views/mustache/property_list.php:270
 #, php-format
 msgid "Lowest price per night per person in a dorm"
 msgstr "Самая низкая цена за ночь за человека в общежитии"
 
 #: ../code/application/views/helpfile/pofields.php:786
 #: ../code/application/views/helpfile/pofields.php~:786
-#: ../code/application/views/mustache/property_list.php:264
+#: ../code/application/views/mustache/property_list.php:279
 #, php-format
 msgid "Lowest price per night per person in a private room"
 msgstr "Самая низкая цена на человека за ночь в отдельной комнате"
@@ -9368,6 +9413,7 @@ msgstr ""
 "сделаете бронирование. "
 
 #: ../code/application/views/helpfile/pofields.php:800
+#: ../code/application/views/helpfile/pofields.php:834
 #: ../code/application/views/helpfile/pofields.php~:800
 #, php-format
 msgid ""
@@ -9378,6 +9424,7 @@ msgstr ""
 "Условиями предоставления услуг и Политикой конфиденциальности."
 
 #: ../code/application/views/helpfile/pofields.php:801
+#: ../code/application/views/helpfile/pofields.php:835
 #: ../code/application/views/helpfile/pofields.php~:801
 #, php-format
 msgid "Create account"
@@ -9406,6 +9453,7 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php:805
 #: ../code/application/views/helpfile/pofields.php~:805
+#: ../code/application/views/mustache/save_property_dialog.php:32
 #, php-format
 msgid "Your private notes (optional)"
 msgstr "Ваши личные заметки (опционально)"
@@ -9424,21 +9472,17 @@ msgstr "Обновление Примечаний"
 
 #: ../code/application/views/helpfile/pofields.php:808
 #: ../code/application/views/helpfile/pofields.php~:808
+#: ../code/application/views/mustache/save_property_dialog.php:46
 #, php-format
 msgid "Remove from my favorites"
 msgstr "Удалить из списка избранных"
 
 #: ../code/application/views/helpfile/pofields.php:809
 #: ../code/application/views/helpfile/pofields.php~:809
+#: ../code/application/views/mustache/save_property_dialog.php:53
 #, php-format
 msgid "Cancel"
 msgstr "Отмена"
-
-#: ../code/application/views/helpfile/pofields.php:810
-#: ../code/application/views/helpfile/pofields.php~:810
-#, php-format
-msgid "My favorite properties"
-msgstr "Мои любимые свойства"
 
 #: ../code/application/views/helpfile/pofields.php:811
 #: ../code/application/views/helpfile/pofields.php~:811
@@ -9454,21 +9498,10 @@ msgstr "Мои короткие заметки об отелях"
 
 #: ../code/application/views/helpfile/pofields.php:813
 #: ../code/application/views/helpfile/pofields.php~:813
+#: ../code/application/views/mustache/saved_property_item.php:16
 #, php-format
 msgid "Edit or remove"
 msgstr "Изменить или Удалить"
-
-#: ../code/application/views/helpfile/pofields.php:814
-#: ../code/application/views/helpfile/pofields.php~:814
-#, php-format
-msgid "Saved to my favorites"
-msgstr "Добавлено в избранное"
-
-#: ../code/application/views/helpfile/pofields.php:815
-#: ../code/application/views/helpfile/pofields.php~:815
-#, php-format
-msgid "Add to my favorites"
-msgstr "Добавить в избранное"
 
 #: ../code/application/views/helpfile/pofields.php:816
 #: ../code/application/views/helpfile/pofields.php~:816
@@ -9516,13 +9549,106 @@ msgstr ""
 msgid "Saved favorite properties"
 msgstr "Сохраненные любимые свойства"
 
-#: ../code/application/views/helpfile/pofields.php:822
+#: ../code/application/views/helpfile/pofields.php:823
+#, fuzzy, php-format
+msgid ""
+"You only pay the deposit (%d%% of total amount) to confirm and secure your "
+"reservation now. The remaining amount (%d%%) is payable upon arrival. You "
+"will find the property's contact information (email, address, telephone "
+"number…) in your confirmation email after you have made your reservation."
+msgstr ""
+"Сейчас вы оплачиваете только первый взнос (%d от общей суммы) для того, "
+"чтобы подтвердить вашу бронь. Остаток суммы (%d) оплачивается по прибытии. "
+"Контактную информацию о месте проживания (емэйл, адрес, телефон…) вы "
+"получите в письме, после того, как сделаете бронирование. "
+
+#: ../code/application/views/helpfile/pofields.php:825
+#: ../code/application/views/helpfile/pofields.php~:825
+#, php-format
+msgid "Amount already paid:"
+msgstr "Уже оплаченная сумма:"
+
+#: ../code/application/views/helpfile/pofields.php:830
+#, php-format
+msgid ""
+"This is the time your room will be ready the day of your arrival and the "
+"time you will need to leave your room the day of your departure. Most "
+"properties will store your luggage in a safe space if you arrive early or "
+"leave later and are open 24 hours a day. Please review the list of services "
+"offered by this particular property to confirm they are available."
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:831
+#, fuzzy, php-format
+msgid "Existing account"
+msgstr "Создать аккаунт"
+
+#: ../code/application/views/helpfile/pofields.php:832
+#, fuzzy, php-format
+msgid "Create new account"
+msgstr "Создать аккаунт"
+
+#: ../code/application/views/helpfile/pofields.php:833
+#, php-format
+msgid "New password"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:836
+#, php-format
+msgid "Show room types"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:837
+#, php-format
+msgid "Hide room types"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:838
+#, php-format
+msgid ""
+"We are sorry but the maximum number of favorite properties you can save to "
+"your account is 30"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:839
+#, fuzzy, php-format
+msgid ""
+"This property has been saved in your \"My account\" section. You can now "
+"easily book it at a later date if you wish."
+msgstr ""
+"Вы можете сохранить это свойство в список избранных в вашей учетной записи, "
+"чтобы вы могли легко забронировать его на более поздний срок, если вы хотите."
+
+#: ../code/application/views/helpfile/pofields.php:840
+#, fuzzy, php-format
+msgid "Most Popular Amenities"
+msgstr "Важные замечания "
+
+#: ../code/application/views/helpfile/pofields.php:841
+#, fuzzy, php-format
+msgid "Most Popular Types"
+msgstr "Важные замечания "
+
+#: ../code/application/views/helpfile/pofields.php:842
+#, fuzzy, php-format
+msgid "Save"
+msgstr "Обновление Примечаний"
+
+#: ../code/application/views/helpfile/pofields.php:843
+#, fuzzy, php-format
+msgid "Last name"
+msgstr "Имя"
+
+#: ../code/application/views/helpfile/pofields.php:844
+#, php-format
+msgid "Newsletter subscription"
+msgstr ""
+
 #: ../code/application/views/helpfile/pofields.php~:822
 #, php-format
 msgid "Deposit to be paid now (%d)"
 msgstr "Взнос, который должен быть внесен сейчас (%d)"
 
-#: ../code/application/views/helpfile/pofields.php:823
 #: ../code/application/views/helpfile/pofields.php~:823
 #, php-format
 msgid ""
@@ -9536,17 +9662,10 @@ msgstr ""
 "Контактную информацию о месте проживания (емэйл, адрес, телефон…) вы "
 "получите в письме, после того, как сделаете бронирование. "
 
-#: ../code/application/views/helpfile/pofields.php:824
 #: ../code/application/views/helpfile/pofields.php~:824
 #, php-format
 msgid "Deposit (%d)"
 msgstr "Первый взнос (%d)"
-
-#: ../code/application/views/helpfile/pofields.php:825
-#: ../code/application/views/helpfile/pofields.php~:825
-#, php-format
-msgid "Amount already paid:"
-msgstr "Уже оплаченная сумма:"
 
 #: ../code/application/views/home_view.php:15
 msgid "30,000 Auberges et logements pas chers"
@@ -9573,6 +9692,42 @@ msgstr ""
 "континент, чтобы увидеть все страны, где вы можете найти лучший для вас "
 "вариант проживания в последнюю минуту... Вы можете также выбрать страну из "
 "списка ниже:"
+
+#: ../code/application/views/mustache/save_property_dialog.php:19
+#: ../code/application/views/mustache/saved_property_item.php:11
+#, fuzzy
+msgid "Arrival:"
+msgstr "День приезда"
+
+#: ../code/application/views/mustache/save_property_dialog.php:25
+#: ../code/application/views/mustache/saved_property_item.php:11
+#, fuzzy
+msgid "Number of nights:"
+msgstr "Количество гостей"
+
+#: ../code/application/views/mustache/save_property_dialog.php:38
+#, fuzzy
+msgid "character left"
+msgstr "Остаток символов:"
+
+#: ../code/application/views/mustache/save_property_dialog.php:39
+#, fuzzy
+msgid "characters left"
+msgstr "Остаток символов:"
+
+#: ../code/application/views/mustache/save_property_dialog.php:45
+#, fuzzy
+msgid "Update Note"
+msgstr "Обновление Примечаний"
+
+#: ../code/application/views/mustache/save_property_dialog.php:50
+#, fuzzy
+msgid "Save Note"
+msgstr "Обновление Примечаний"
+
+#: ../code/application/views/mustache/property_list.php:9
+msgid "Info"
+msgstr "Информация"
 
 #: ../code/application/views/mustache/property_list.php:21
 msgid "Disponibility and Price"
@@ -9607,42 +9762,77 @@ msgstr "Условия договора"
 msgid "Votre réservation sur %s!"
 msgstr "%s"
 
-#: ../code/application/controllers/cmain.php:1695
+#: ../code/application/controllers/cmain.php:1736
 #: ../code/application/language/multi/tank_auth_lang.php:51
 msgid "Courriel"
 msgstr "Электронная почта"
 
-#: ../code/application/controllers/cmain.php:1698
+#: ../code/application/controllers/cmain.php:1739
 msgid "Évaluation"
 msgstr "Оценка"
 
-#: ../code/application/controllers/cmain.php:1699
+#: ../code/application/controllers/cmain.php:1740
 msgid "Mois"
 msgstr "Месяц"
 
-#: ../code/application/controllers/cmain.php:1700
+#: ../code/application/controllers/cmain.php:1741
 msgid "Année"
 msgstr "Год"
 
-#: ../code/application/controllers/cmain.php:1739
+#: ../code/application/controllers/cmain.php:1780
 #, php-format
 msgid "Demande de modération pour la propriété %s"
 msgstr "Посмотреть запрос о месте проживания %s"
 
-#: ../code/application/controllers/cmain.php:1821
+#: ../code/application/controllers/cmain.php:1862
 msgid "Accept terms and conditions agreement to proceed"
 msgstr "Принять условия соглашения и продолжить "
+
+#: ../code/application/controllers/cmain.php:2285
+#, fuzzy
+msgid "Please log in"
+msgstr "Пожалуйста подождите"
+
+#: ../code/application/controllers/cmain.php:2311
+#, fuzzy
+msgid "Invalid property"
+msgstr "Неправильный формат"
+
+#: ../code/application/controllers/cmain.php:2349
+#, fuzzy
+msgid "Property not found"
+msgstr "Номер места проживания"
+
+#: ../code/application/controllers/cmain.php:2358
+#, fuzzy
+msgid "Property is favorite already"
+msgstr "Добавить вариант в избранное"
+
+#: ../code/application/controllers/cmain.php:2367
+#, fuzzy
+msgid "Invalid number of nights"
+msgstr "Неправильно указан номер телефона"
+
+#: ../code/application/controllers/cmain.php:2384
+#, fuzzy
+msgid "Invalid date"
+msgstr "Неправильный формат"
+
+#: ../code/application/controllers/cmain.php:2391
+#, php-format
+msgid "Notes are exceeding maximum of %d chars"
+msgstr ""
 
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:337
 #: ../code/application/controllers/chostel.php:356
-#: ../code/application/libraries/Hw_engine.php:1692
+#: ../code/application/libraries/Hw_engine.php:1694
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Сервер недоступен. Пожалуйста, повторите попытку позднее."
 
 #: ../code/application/controllers/chostelbk.php:549
 #: ../code/application/controllers/chostel.php:767
-#: ../code/application/libraries/Hw_engine.php:2035
+#: ../code/application/libraries/Hw_engine.php:2037
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "В данный момент сервер недоступен. Пожалуйста, попробуйте еще раз."
 
@@ -9664,13 +9854,13 @@ msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "Расскажите нам о вашем пребывании!"
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2025
+#: ../code/application/libraries/Hw_engine.php:2027
 msgid "Erreur lors de la réservation"
 msgstr "Ошибка при забронировании"
 
-#: ../code/application/libraries/Hb_engine.php:189
-#: ../code/application/libraries/Hb_engine.php:216
-#: ../code/application/libraries/Hb_engine.php:662
+#: ../code/application/libraries/Hb_engine.php:168
+#: ../code/application/libraries/Hb_engine.php:194
+#: ../code/application/libraries/Hb_engine.php:581
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
 #: ../code/application/libraries/Hw_engine.php:566
@@ -9678,7 +9868,7 @@ msgstr "Ошибка при забронировании"
 msgid "Hostels in %s - %s"
 msgstr "Хостелы в %s - %s"
 
-#: ../code/application/libraries/Hb_engine.php:286
+#: ../code/application/libraries/Hb_engine.php:257
 #: ../code/application/libraries/Hw_engine.php:217
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
@@ -9686,13 +9876,13 @@ msgstr ""
 "Неправильно выбрана дата и кол-во ночей. Данные игнорируются в процессе "
 "поиска."
 
-#: ../code/application/libraries/Hb_engine.php:1237
-#: ../code/application/libraries/Hw_engine.php:1063
+#: ../code/application/libraries/Hb_engine.php:1082
+#: ../code/application/libraries/Hw_engine.php:1065
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:1984
+#: ../code/application/libraries/Hw_engine.php:1986
 msgid "Card not supported please choose another card"
 msgstr "Карта не действительна, пожалуйста, выберите другую карту"
 
@@ -9882,14 +10072,6 @@ msgstr "Оставайтесь на связи"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "Код подтверждения "
-
-#, fuzzy
-#~ msgid "Most Popular Types"
-#~ msgstr "Важные замечания "
-
-#, fuzzy
-#~ msgid "Most Popular Amenities"
-#~ msgstr "Важные замечания "
 
 #~ msgid "All"
 #~ msgstr "Все"

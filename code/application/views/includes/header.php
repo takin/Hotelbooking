@@ -806,7 +806,7 @@ var citymap = {
   $this->carabiner->js('tabs.js');
   if($current_view != "group_request")
   {
-    $this->carabiner->js('sitetools.js');
+    $this->carabiner->js('sitetools.js?v=' . time());
   }
   $this->carabiner->js('map.js');
   $this->carabiner->js('slide.js');
@@ -998,7 +998,7 @@ $(document).ready(function()
 		</div>
 	</div>
 </div>
-<div class="wrapper container_16 group">
+<div id="main_container" class="wrapper container_16 group">
 <?php if(isset($google_map_enable)&&($google_map_enable===true)): ?>
 <img src="<?php echo site_url("images/map-marker.png"); ?>" style="display:none" />
 <img src="<?php echo site_url("images/map-marker-shadow.png"); ?>" style="display:none" />

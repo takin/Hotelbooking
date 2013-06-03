@@ -657,7 +657,7 @@ class Hb_engine {
             $json_data["property_list"][$i]["city_name"] = $data["city_info"]->city_lname_en; // set the city name
             // -------Translate the propertyType----------------------------------//
             $this->CI->load->model('Db_term_translate');
-            $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"], $this->CI->site_lang);
+            $json_data["property_list"][$i]['propertyTypeTranslate'] = (string)$this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"], $this->CI->site_lang);
             //  $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
 
             $json_data["property_list"][$i]['propertyType'] = $json_data["property_list"][$i]["propertyType"];

@@ -401,10 +401,11 @@ QuickView.prototype.setMap = function() {
 	} catch(err) {}
 
 	function autoselect() {
+		GoogleMap.setZoom(13);
+
 		if ($('input[name="distrinct_landmark"]:checked').length > 0) {
 			try {
 				QuickView.pweb_map.changeDistrictLayer( $('input[name="distrinct_landmark"]:checked').val() );
-				GoogleMap.setZoom(13);
 			} catch(err) {}
 		}
 

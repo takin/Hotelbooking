@@ -322,13 +322,29 @@ class CHostelbk extends I18n_site
 
       //remove last pipe  character
       if(!empty($roomsIDS)) $roomsIDS = substr($roomsIDS, 0, -1);
-      $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDate( $propertyNumber,
+            
+      if (in_array($_SERVER['HTTP_HOST'], $this->config->item('hbChargeBookingFee'))) {
+          
+          $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDateWithBookingFee( $propertyNumber,
+                                                                                             $roomsIDS,
+                                                                                             $dateStart->format('d-M-Y'),
+                                                                                             $numNights,
+                                                                                             $this->api_functions_lang,
+                                                                                             $bookCurrency);
+          
+          $data['booking_fee'] = $response["RESPONSE"]["FEE"];
+          $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
+          
+        } else {
+            
+            $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDate( $propertyNumber,
                                                                            $roomsIDS,
                                                                            $dateStart->format('d-M-Y'),
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
-
+            
+        }         
 
       $inputok = true;
       if($response === false)
@@ -354,7 +370,6 @@ class CHostelbk extends I18n_site
           $data['api_error'] = false;
           $data['api_error_msg'] = "";
           //Ensure array of room per date is sorted by soonest date first
-//          ksort($response["RESPONSE"]);
           $this->_sort_hb_rooms_response($response["RESPONSE"]);
           $this->Hb_api_translate->translate_PropertyRoomPricingPerDate($response["RESPONSE"]);
         }
