@@ -405,8 +405,6 @@ class Db_hostels
 
     if (($startProcess) && ($needReload))
     {
-      $wgetOptions = "--read-timeout=0";
-
       if ((isset($_SERVER['PHP_AUTH_USER'])) && (isset($_SERVER['PHP_AUTH_PW'])))
       {
         $wgetOptions = "-user=".$_SERVER['PHP_AUTH_USER']." -password=".$_SERVER['PHP_AUTH_PW'];
