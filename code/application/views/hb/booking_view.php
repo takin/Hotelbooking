@@ -211,6 +211,7 @@ $SPACE = '&nbsp;';
            $settle_deposit_usd        = number_format($booking_total_usd_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_eur        = number_format($booking_total_eur_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_cad        = number_format($booking_total_cad_price*$hb_arrhes_rate,2,'.','');
+           $settle_percent_booking    = number_format($booking_total_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_booking    = number_format(($booking_total_price*$hb_arrhes_rate)+(isset($booking_fee['CUSTOMER']['AMOUNT'])?$booking_fee['CUSTOMER']['AMOUNT']:0),2,'.','');
 
             // Find the CADDepositAMount to put in the hidden field 'analytic-value'
@@ -232,7 +233,7 @@ $SPACE = '&nbsp;';
                </tr>
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?>:</td>
-               <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></td>
+               <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_percent_booking;?></span></td>
               </tr>							
               
               <?php if (isset($booking_fee)): ?>
