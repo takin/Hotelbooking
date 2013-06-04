@@ -449,9 +449,9 @@ $customercursymbol = currency_symbol($booking->payment->currencies->customer->cu
 
 			<?php
 			if($isCustomCurrency){?>
-				10% Deposit (<?php echo $settlecur." ".number_format(floatval($booking->payment->currencies->gbp->amountTaken),2,'.','');?>)
+				Amount already paid (<?php echo $settlecur." ".number_format(floatval($booking->payment->currencies->gbp->amountTaken),2,'.','');?>) :
 			<?php }else{?>
-				10% Deposit <?php echo $booking->payment->currencyPaymentTakenIn;?>
+				Amount already paid <?php echo $booking->payment->currencyPaymentTakenIn;?> :
 			<?php }?>
 
       </span></p>
