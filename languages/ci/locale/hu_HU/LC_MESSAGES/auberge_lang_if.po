@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-04 00:27+0300\n"
-"PO-Revision-Date: 2013-05-30 22:18+0200\n"
+"PO-Revision-Date: 2013-06-04 11:11+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6203,39 +6202,41 @@ msgid "Best rating"
 msgstr "Legjobb értékelés"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:850
-#, fuzzy, php-format
+#, php-format
 msgid "Great location"
-msgstr "Helyszín"
+msgstr "Nagyszerű elhelyezkedés"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:851
-#, fuzzy, php-format
+#, php-format
 msgid "Good location"
-msgstr "Helyszín"
+msgstr "Jó elhelyezkedés"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:852
-#, fuzzy, php-format
+#, php-format
 msgid "Safe"
-msgstr "Biztonság"
+msgstr "Biztonságos"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
-msgstr ""
+msgstr "Nagyon biztonságos"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:854
-#, fuzzy, php-format
+#, php-format
 msgid "Youth hostels only"
-msgstr "Ifjúsági Szállás"
+msgstr "Kizárólag ifjúsági szállások"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:855
 #, php-format
 msgid "Check this box to see new search results as you move the map"
 msgstr ""
+"Jelölje meg ezt a négyzetet, ha ahogy mozog a térképen, szeretné "
+"megjeleníteni a keresési eredményeket"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:856
 #, php-format
 msgid "Redo search in map"
-msgstr ""
+msgstr "Újrakeresés a térképen"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/helpfile/pofields.php:857
 #, php-format
@@ -8496,7 +8497,7 @@ msgstr "Jelszó módosítása"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/restricted/user_favorite_properties.php:35
 msgid "No properties were saved."
-msgstr ""
+msgstr "Egy ingatlan sem lett elmentve."
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/restricted/user_favorite_properties.php:41
 #: /home/adrian/work/mcwebmanagement/source/code/application/views/city_view.php:245
@@ -9860,7 +9861,7 @@ msgid "Invalid date"
 msgstr "Érvénytelen dátum"
 
 #: /home/adrian/work/mcwebmanagement/source/code/application/controllers/cmain.php:2514
-#, fuzzy, php-format
+#, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "A megjegyzés meghaladja a maximális %d karakter hosszúságot"
 
