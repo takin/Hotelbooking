@@ -17,7 +17,7 @@ password=""
 
 # functions
 
-parseParameters() {
+function parseParameters() {
     for arg in $args
     do
         case $arg in
@@ -37,7 +37,7 @@ parseParameters() {
     done
 }
 
-checkParameters() {
+function checkParameters() {
     if [ -z "$host" ]; then
         exitWithError "Host is invalid"
     fi
@@ -46,7 +46,7 @@ checkParameters() {
     fi
 }
 
-exittWithError() {
+function exitWithError() {
     echo "------------------- Failed ----------------------"
     echo $@
     echo "-------------------------------------------------"
@@ -57,13 +57,18 @@ function log {
     echo `date` $* | tee -a /opt/logs/cachehomepage.log
 }
 
-makeCall() {
+function makeCall() {
+(
+    flock 200
+
     log $host $currency
     if [ -z "$user" ] || [ -z "$password" ];  then
         wget --no-cache --read-timeout=0 "http://$host/?currency=$currency&cacherun=run"
     else
         wget --no-cache --read-timeout=0 --user=$user --password=$password "http://$host/?currency=$currency&cacherun=run"
     fi
+
+) 200>/tmp/.cachehomepage.exclusivelock
 }
 
 # execution
