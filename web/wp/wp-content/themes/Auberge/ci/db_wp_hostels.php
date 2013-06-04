@@ -412,7 +412,7 @@ class Db_hostels
 
       //start process to load new key in DB
       $cmd = "/opt/scripts/cachehomepage.sh -host=".$_SERVER["HTTP_HOST"]." -currency=".$currency_code." ".$wgetOptions;
-      exec($cmd);
+      exec($cmd . " > /dev/null &");
     }
 
     return $results;
