@@ -13,25 +13,24 @@
 // 
 function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 
-	this.map_div = document.getElementById(map_div_id);
-	
-	this.map_lang   = lang || 'en';
-	
-	this.default_lat   = default_lat || 0;
-	this.default_lng   = default_lng || 0;
-	this.default_zoom  = default_zoom || 8;
-	
-	window.gmap       = null;
-        window.cityCircle = null;
-	this.markers    = Array();
-	this.gbounds    = null;
-	
-	this.marker_id_to_focus  = -1;
-	
-	this.glib_loaded = false;
-	
-	//info window should be global too bad!
-	window.gInfoWin   = null;
+    this.map_div = document.getElementById(map_div_id);
+
+    this.map_lang = lang || 'en';
+
+    this.default_lat = default_lat || 0;
+    this.default_lng = default_lng || 0;
+    this.default_zoom = default_zoom || 8;
+
+    window.gmap = null;
+    window.cityCircle = null;
+    window.markers = Array();
+    window.gmarkers = Array();
+    this.gbounds = null;
+
+    this.marker_id_to_focus = -1;
+
+    //info window should be global too bad!
+    window.gInfoWin = null;
 
 } // end GoogleMap() constructor 
 
@@ -39,87 +38,99 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 // Make sure this is run after google map script has loaded
 // return N/A 
 // 
-GoogleMap.prototype.init = function() { 
-	
-	this.map_div.style.display = "block";
-	this.map_div.style.width = "100%";
-	this.map_div.style.height = "400px";
+GoogleMap.prototype.init = function() {
 
-    if (this.map_div.id === "filter_map_rightSide"){
+    this.map_div.style.display = "block";
+    this.map_div.style.width = "100%";
+    this.map_div.style.height = "400px";
+
+    if (this.map_div.id === "filter_map_rightSide") {
         this.map_div.style.height = "100%";
-//        this.default_zoom = 10;
     }
-        	
+
+    if (this.map_div.id === "city_side_map_container") {
+        this.map_div.style.height = "280px";
+        this.map_div.style.width = "auto";
+    }
+
     var myOptions = {
-	      zoom:      this.default_zoom,
-	      center:    new google.maps.LatLng(this.default_lat, this.default_lng),
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
+        zoom: this.default_zoom,
+        center: new google.maps.LatLng(this.default_lat, this.default_lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    window.gmap = new google.maps.Map(this.map_div, myOptions);
+    this.gbounds = new google.maps.LatLngBounds();
+
+    // get map center before adding markers (map resize)
+    var originalMapCenter = window.gmap.getCenter();
+
+    //add infowindow to map
+    this.initInfoWin();
+
+    this.drawMarkers();
+
+    this.marker_focus();
+
+    if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
+    {
+        window.gmap.setCenter(this.gbounds.getCenter());
+        window.gmap.fitBounds(this.gbounds);
+    }
+
+    // first get the property number
+    var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
+
+    // check if there is any radio button
+    if ($("#frmDistrict_" + property_number + " input:radio:first").length > 0)
+    {
+        // make first district checked
+        $("#frmDistrict_" + property_number + " input:radio:first").attr('checked', true);
+    }
+
+
+    // check if there is a district radio button and checked
+    // if yes call the district function to show district boundries
+    if ($("#frmDistrict_" + property_number + " input:radio:checked").length > 0)
+    {
+        var district_um_ids = $("#frmDistrict_" + property_number + " input:radio:checked").val();
+        // call the function to show the district
+        this.changeDistrictLayer(district_um_ids);
+    }
+    else
+    {
+        $("#frmDistrict_" + property_number).hide();
+    }
+
+    // Start  Landmark Shows on map
+    // check if there is any radio button
+    if ($("#divLandmark_" + property_number + " input:radio:first").length > 0)
+    {
+        // make first district checked
+        $("#divLandmark_" + property_number + " input:radio:first").attr('checked', true);
+    }
+
+
+    // check if there is a district radio button and checked
+    // if yes call the district function to show district boundries
+    if ($("#divLandmark_" + property_number + " input:radio:checked").length > 0)
+    {
+        var landmark_latlng = $("#divLandmark_" + property_number + " input:radio:checked").val();
+        // call the function to show the district
+        this.changeLandmarkLayer(landmark_latlng);
+    }
+    else
+    {
+        $("#divLandmark_" + property_number).hide();
+    }
+    // End  Landmark Shows on map 
     
-        window.gmap    = new google.maps.Map(this.map_div, myOptions);
-	this.gbounds = new google.maps.LatLngBounds();
-	
-	//add infowindow to map
-	this.initInfoWin();
-
-	this.drawMarkers();
-    
-	this.marker_focus();
-	
-	if((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
-	{
-		window.gmap.setCenter(this.gbounds.getCenter());
-	    window.gmap.fitBounds(this.gbounds);
-	}	
-	
-     // first get the property number
-        var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
-
-        // check if there is any radio button
-        if ($("#frmDistrict_"+property_number+" input:radio:first").length > 0)
-            {
-                 // make first district checked
-                $("#frmDistrict_"+property_number+" input:radio:first").attr('checked', true);
-            }
-       
-
-        // check if there is a district radio button and checked
-        // if yes call the district function to show district boundries
-        if($("#frmDistrict_"+property_number+" input:radio:checked").length > 0)
-            {
-              var district_um_ids =   $("#frmDistrict_"+property_number+" input:radio:checked").val();
-              // call the function to show the district
-             this.changeDistrictLayer(district_um_ids);
-            }
-           else
-            {
-                 $("#frmDistrict_"+property_number).hide();
-            }
-            
-            // Start  Landmark Shows on map
-               // check if there is any radio button
-        if ($("#divLandmark_"+property_number+" input:radio:first").length > 0)
-            {
-                 // make first district checked
-                $("#divLandmark_"+property_number+" input:radio:first").attr('checked', true);
-            }
-       
-
-        // check if there is a district radio button and checked
-        // if yes call the district function to show district boundries
-        if($("#divLandmark_"+property_number+" input:radio:checked").length > 0)
-            {
-              var landmark_latlng =   $("#divLandmark_"+property_number+" input:radio:checked").val();
-              // call the function to show the district
-             this.changeLandmarkLayer(landmark_latlng);
-            }
-           else
-            {
-                 $("#divLandmark_"+property_number).hide();
-            }
-          // End  Landmark Shows on map 
+    if (this.map_div.id === "city_side_map_container") {
+         google.maps.event.trigger(window.gmap, 'resize');
+         window.gmap.panTo(originalMapCenter);
+    }
+   
 }; // end init() 
-
 GoogleMap.prototype.clearMapDiv = function()
 {
 	var parentDiv = this.map_div.parentNode;
@@ -138,12 +149,12 @@ GoogleMap.prototype.setFocusMarkerID = function(id)
 };
 GoogleMap.prototype.marker_focus = function()
 {
-	if(this.marker_id_to_focus > -1)
-	{
-		window.gmap.setZoom(14);
-		window.gmap.setCenter(this.markers[this.marker_id_to_focus].gmarker.position);
-		this.openInfoWindow(this.markers[this.marker_id_to_focus].gmarker,this.markers[this.marker_id_to_focus].gmarker.custom_content);
-	}
+    if (this.marker_id_to_focus > -1)
+    {
+        window.gmap.setZoom(14);
+        window.gmap.setCenter(window.markers[this.marker_id_to_focus].gmarker.position);
+        this.openInfoWindow(window.markers[this.marker_id_to_focus].gmarker, window.markers[this.marker_id_to_focus].gmarker.custom_content);
+    }
 };
 GoogleMap.prototype.drawMap = function()
 {
@@ -173,80 +184,208 @@ GoogleMap.prototype.drawMap = function()
 
 GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, image, iconshadow)
 {
-	var marker = {
-                      title: title,
-		      lat: lat,
-		      lng: lng,
-		      content: content,
-		      gmarker: null
-		    };
-	this.markers[index] = marker ;
+    var marker = {
+        title: title,
+        lat: lat,
+        lng: lng,
+        content: content,
+        gmarkvarer: null
+    };
+    window.markers[index] = marker;
 };
-GoogleMap.prototype.clearMap = function () //, image, iconshadow)
+GoogleMap.prototype.clearMap = function() //, image, iconshadow)
 {
 	this.clearMarkers();
 	this.gbounds = null;
 };
-GoogleMap.prototype.clearMarkers = function () //, image, iconshadow)
+GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 {
-	this.markers = Array();
-	this.marker_id_to_focus  = -1;
+    window.markers = Array();
+    this.marker_id_to_focus = -1;
+
+    if (window.gmarkers) {
+        for (i in window.gmarkers) {
+            window.gmarkers[i].setMap(null);
+        }
+        window.gmarkers.length = 0;
+    }
+
 };
 
-GoogleMap.prototype.drawMarkers = function () //, image, iconshadow)
+GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 {
-	var that = this;
-
-	//TODO support custom image in addMarker function
-	for (var i in this.markers) {
-		//initialize icon of marker
-		var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map-marker.png',
-			        new google.maps.Size(28, 28),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(0, 29));
-		
-		//Add marker to map
-		var gmarker = new google.maps.Marker({
-	        position: new google.maps.LatLng(this.markers[i].lat,this.markers[i].lng), 
-	        map: window.gmap,
-	        title:this.markers[i].title,
-	        icon: image,
-	        custom_content: this.markers[i].content
-	        
-	    }); 
-		
-		this.markers[i].gmarker = gmarker;
-		
-		//On marker click, open info window and set marker content
-		google.maps.event.addListener(gmarker, 'click', function() {
-			that.openInfoWindow(this,this.custom_content);
-	      });
-		
-		this.gbounds.extend(gmarker.position);
-	}
+    this.clearMap();
+    this.fillMakersArray();
+    
+    // draw markers 
+    this.addMarkersToMap();
 };
-GoogleMap.prototype.removeMap = function () //, image, iconshadow)
+GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
-	this.map_div.style.display = "none";
+    if (window.gmap.getDiv().id === "filter_map_rightSide") {
+        var result = {
+            property_list: $('#property_list').children(),
+            start_from: 0
+        };
+
+        return result;
+    }
+    // number of hostels to show per page
+    var show_per_page = parseInt($('#show_per_page').val());
+    // number of hostels currently shown
+    var page_num = 0;
+    if ($('#page_navigation .active_page').length > 0) {
+        page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    }
+
+    // start hostel number like from 1 to 20
+    var start_from = page_num * show_per_page;
+    // end hostel number like from 1 to 20
+    var end_on = start_from + show_per_page;
+
+    var result = {
+        property_list: $('#property_list').children().slice(start_from, end_on),
+        start_from: start_from
+    };
+    
+    return result;
+//    return $('#property_list').children().slice(start_from, end_on);
+};
+GoogleMap.prototype.fillMakersArray = function() 
+{
+    var that = this;
+    // clear markers on the map
+    // includes that.clearMarkers();
+    that.clearMap();
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
+    
+    // for now just going to make markers always shows from 1 to 20
+    // on side map
+//    var start_from = resultInPage.start_from;
+    var start_from = 0;
+
+    $.each(property_list, function(index, value) {
+// fill the window.markers array to be used to draw markers
+        var property_number = $(value).attr("rel");
+        $("#city_map_view_"+property_number).html("");
+
+        var markerIndex = index +  parseInt(start_from); 
+        that.addMarker( markerIndex 
+                , $("#input_geo_latitude_"+property_number).val()
+                , $("#input_geo_longitude_"+property_number).val()
+                , $.trim($("#hostel_title_"+property_number).text())
+                , $.trim($("#map_InfoWindow_"+property_number).html())
+                , property_number
+                );   
+    });
+      
+return window.markers;
+};
+GoogleMap.prototype.addMarkersToMap = function()
+{
+    if (window.markers.length < 1)
+    {
+        window.markers = this.fillMakersArray();
+    }
+
+    var that = this;
+
+    if (this.gbounds === null)
+    {
+        this.gbounds = new google.maps.LatLngBounds();
+    }
+    //TODO support custom image in addMarker function
+    for (var i in window.markers) {
+//
+//     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/unselected/marker_'+(parseInt(i)+1)+'.png',
+//             new google.maps.Size(20, 30),
+//            new google.maps.Point(0, 0),
+//            new google.maps.Point(0, 29));
+//
+//    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/selected/marker_selected_'+(parseInt(i)+1)+'.png',
+//             new google.maps.Size(20, 30),
+//            new google.maps.Point(0, 0),
+//            new google.maps.Point(0, 29));
+//            
+
+        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+        var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
+//          check if it is the tham map on the left
+        if (window.gmap.getDiv().id === "city_side_map_container") {
+
+             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
+             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+        }
+       
+        //Add marker to map
+        window.gmarkers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),
+            map: window.gmap,
+            title: window.markers[i].title,
+            icon: image,
+            custom_content: window.markers[i].content
+        });
+
+        window.markers[i].gmarker = window.gmarkers[i];
+
+        //On marker click, open info window and set marker content
+        google.maps.event.addListener(window.gmarkers[i], 'click', function() {
+
+            if (window.gmap.getDiv().id === "city_side_map_container") {
+                that.goToHostelDiv(this);
+            }
+            else {
+                that.openInfoWindow(this, this.custom_content);
+            }
+
+        });
+
+        google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
+
+            this.setIcon(image_selected);
+            this.setZIndex(100000);
+            that.changeHostelBackground(this, "mouseover");
+
+        });
+
+        google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
+
+            this.setIcon(image);
+            this.setZIndex(0);
+            that.changeHostelBackground(this, "mouseout");
+        });
+        
+        this.gbounds.extend(window.gmarkers[i].position);
+
+    }
+    
+};
+GoogleMap.prototype.removeMap = function() //, image, iconshadow)
+{
+    this.map_div.style.display = "none";
 };
 
 GoogleMap.prototype.closeInfoWindow = function() {
-	window.gInfoWin.close();
+    window.gInfoWin.close();
 };
 
-GoogleMap.prototype.openInfoWindow = function(marker,content) {
+GoogleMap.prototype.openInfoWindow = function(marker, content) {
 //	var markerLatLng = marker.getPosition();
-	
-	window.gInfoWin.setContent([content].join(''));
-	window.gInfoWin.open(window.gmap, marker);
+
+    window.gInfoWin.setContent([content].join(''));
+    window.gInfoWin.open(window.gmap, marker);
 };
 
 GoogleMap.prototype.initInfoWin = function() {
-	// Create single instance of a Google Map.
-	window.gInfoWin = new google.maps.InfoWindow({
+    // Create single instance of a Google Map.
+    window.gInfoWin = new google.maps.InfoWindow({
 //		maxWidth: 300
-	});
-	google.maps.event.addListener(window.gmap, 'click', function () {window.gInfoWin.close();});
+    });
+    google.maps.event.addListener(window.gmap, 'click', function() {
+        window.gInfoWin.close();
+    });
 };
 GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
@@ -382,4 +521,137 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 	        icon: image	        
 	    }); 
             
+};
+GoogleMap.prototype.centerMapMarker = function() {
+
+    if (window.markers.length !== 0) {
+
+        for (var i in window.markers) {
+
+            if (window.markers[i].gmarker !== null)
+            {
+                if (window.markers[i].gmarker.getZIndex() === 100000) {
+                    // set map to center on marker
+                    window.gmap.setCenter(window.markers[i].gmarker.getPosition());
+                }
+
+            }
+        }
+    }
+};
+GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
+
+    var property_number = $(pDiv).attr("rel");
+    var hostel_title = $.trim($("#hostel_title_" + property_number).text());
+
+    var imagePath = null;
+
+    if (pIconType === "selected")
+    {
+        imagePath = '/images/map_markers/selected/marker_selected_';
+    }
+    else
+    {
+        imagePath = '/images/map_markers/unselected/marker_';
+    }
+
+    $("#city_info_" + property_number).removeClass('property_info_hover');
+    // change the marker that appears between the property image and the property name 
+    var imageSrc = $("#property_marker_number_" + property_number).attr('src');
+    imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
+
+    $("#property_marker_number_" + property_number).attr("src", imageSrc);
+    if (pIconType === "selected")
+    {
+        $("#city_info_" + property_number).addClass('property_info_hover');
+        // change the marker that appears between the property image and the property name 
+        imageSrc = imageSrc.replace("unselected/marker_", "selected/marker_selected_");
+        $("#property_marker_number_" + property_number).attr("src", imageSrc);
+    }
+    
+    
+    if (window.markers.length !== 0) {
+
+        for (var i in window.markers) {
+
+            if (window.markers[i].gmarker !== null)
+            {
+                if (window.markers[i].gmarker.getZIndex() === 100000) {
+                    window.markers[i].gmarker.setZIndex(0);
+                }
+
+                if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
+                {
+//                    var image = new google.maps.MarkerImage("http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png',
+//                            new google.maps.Size(20, 30),
+//                            new google.maps.Point(0, 0),
+//                            new google.maps.Point(0, 29));
+                    var image = "http://" + window.location.host + imagePath + '0.png';
+                    
+                    if (window.gmap.getDiv().id === "city_side_map_container") {
+                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+                    }
+ 
+                    window.markers[i].gmarker.setZIndex(100000);
+                    window.markers[i].gmarker.setIcon(image);
+                }
+            }
+
+        }
+    }
+};
+GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigger) {
+
+    var that = this;
+
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
+
+    $.each(property_list, function(index, value) {
+
+        if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
+        {
+            $(value).trigger(pDivEventToTrigger);
+        }
+    });
+
+};
+GoogleMap.prototype.goToHostelDiv = function(pMarker) {
+// if div exists
+// then animate to it
+    var that = this;
+
+    var resultInPage = that.getItemsInPage();
+
+    var property_list = resultInPage.property_list;
+
+    $.each(property_list, function(index, value) {
+
+        if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
+        {
+            $('html,body').animate({
+                scrollTop: $(value).offset().top},
+            'slow');
+        }
+    });
+
+};
+GoogleMap.prototype.removeMarker = function(property_number) {
+
+    var hostel_title = $.trim($("#hostel_title_" + property_number).text());
+    if (window.markers.length !== 0) {
+
+        for (var i in window.markers) {
+
+            if (window.markers[i].gmarker !== null)
+            {
+                if (window.markers[i].gmarker.getZIndex() === 100000 ||
+                        hostel_title === $.trim(window.markers[i].gmarker.getTitle())) {
+                    window.markers[i].gmarker.setMap(null);
+                }
+
+            }
+        }
+    }
 };

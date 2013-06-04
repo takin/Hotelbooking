@@ -578,7 +578,8 @@ a.modify_search.collapse {
 
 .city_view_search #side_search_wrap, .hostel_view_side #side_search_wrap{display:none;}
 
-.box_content.side_search, .box_content.main_search{	
+.box_content.side_search, .box_content.main_search
+,#filter_links_container{	
 	border:1px solid #80B422;
 	background-color: #EAF0DE;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F7EF), to(#EAF0DE));
@@ -764,8 +765,10 @@ div.mapbubble p.price span{ color:red; display:inline;}
 
 #city_search_title_bar{width: 100%;height:22px;margin-bottom:15px;padding-bottom:5px;border-bottom:1px dashed #AAAAAA;}
 #city_search_title_bar h1{float:left;border:0px;}
-#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none; height: 86px;}
-.top_search_result{line-height: 65px;}
+#city_results_count{margin:0px 0px 15px 0px; font-weight:bold; display:none; 
+                    /*height: 86px;*/
+}
+/*.top_search_result{line-height: 65px;}*/
 #city_results_count .view_map{float:right;font-weight:normal;
 color:#3087C9;
 background:url(../images/V2/icon_view_map_green.png) no-repeat center left;
@@ -775,7 +778,7 @@ padding:2px 0px 2px 23px;}
 #city_results_count_total{}
 #city_results_arrive{margin:0px; font-weight:normal;}
 #city_results_arrive_date{font-weight:bold;}
-#city_results_numnights{margin:0px 0px 0px 30px; font-weight:normal;}
+#city_results_numnights{margin:0px 0px 0px 20px; font-weight:normal;}
 #city_results_numnights_selected{font-weight:bold;}
 #city_map_hide{display:none;}
 
@@ -2372,6 +2375,7 @@ a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
 	padding: 4px 3px 4px 1px;
 	position: absolute;
 	top: 11px;
+        /*z-index: 1;*/
 }
 .searchcenter{
 width: 100%;
@@ -3059,4 +3063,33 @@ width: 275px;}
 #login-connect-page,
 #register-page {
 	cursor: pointer;
+}
+
+/* change hostel background*/
+.property_info_hover{
+    background-color: #F9F9F9;
+}
+
+#sidebar.fix_sidebar_position{
+    left: 122px;
+    position: fixed;
+    /*width: 23%;*/
+    top: 0;
+}
+
+#city_side_map_container.map_button_box span{
+    display:none;	
+}
+
+.property_marker_number{
+    height: 40px;
+    margin-right: 10px;
+    float: left;
+}
+
+.group_filter_links_container li{
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+    width: 40%;
 }
