@@ -60,9 +60,9 @@ function log {
 makeCall() {
     log $host $currency
     if [ -z "$user" ] || [ -z "$password" ];  then
-        wget --no-cache --spider  --read-timeout=0 http://$host/?currency=$currency&cacherun=run
+        wget --no-cache --spider  --read-timeout=0 "http://$host/?currency=$currency&cacherun=run"
     else
-        wget --no-cache --spider  --read-timeout=0 --user=$user --password=$password http://$host/?currency=$currency&cacherun=run
+        wget --no-cache --spider  --read-timeout=0 --user=$user --password=$password "http://$host/?currency=$currency&cacherun=run"
     fi
 }
 
