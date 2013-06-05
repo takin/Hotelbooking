@@ -323,18 +323,51 @@ PWebFilterApp.prototype.update = function() {
 		this.$sort_controls_div.show();
 
 		this.$data_div.html(output);
+                
+// **************** start IE tabs fixing **************************
+//this part is here because calling $('ul.ui-tabs-nav').tabs();
+// in IE it will reset the tabs to default one 
+// so I have to do this first
+// and then after calling $('ul.ui-tabs-nav').tabs();
+// set the tab to previously selected one
+        var li_id_toShow = null;
+        var li_id_toHide = null;
+        var map_filter_index = null;
 
-		//Init jquery UI tabs
-		$('ul.ui-tabs-nav').tabs();
+        if ($("#ul_map_filter_tabs").is(":visible")) {
+            $('#ul_map_filter_tabs li').each(function(index) {
 
-		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(':input').each(function() {
-                    var type_val = $(this).is(':checked');
-                    var type_input = $(this).attr('id');
+                if ($(this).hasClass("ui-tabs-selected")) {
+                    // li that holds the tabs
+                    li_id_toShow = $(this).find("a").attr("href");
+                    li_id_toShow = li_id_toShow.split('#')[1];
+                    map_filter_index = index;
+                }
+                else {
+                    li_id_toHide = $(this).find("a").attr("href");
+                    li_id_toHide = li_id_toHide.split('#')[1];
+                }
+            });
+        }
+        
+        //Init jquery UI tabs
+        $('ul.ui-tabs-nav').tabs();
+
+        if ($("#ul_map_filter_tabs").is(":visible")) {
+            $("#ul_map_filter_tabs").tabs({selected: map_filter_index});
+            $("#" + li_id_toShow).show();
+            $("#" + li_id_toHide).hide();
+        }
+// ************ End IE tabs fixing **********************
+
+        $('#applied_filter_hosting_property').hide();
+        $('#cb_group_type_filter li').find(':input').each(function() {
+            var type_val = $(this).is(':checked');
+            var type_input = $(this).attr('id');
                     if(type_val === false){
-                        $('#applied_filter_hosting_property').show();
-                    }
-                });
+                $('#applied_filter_hosting_property').show();
+            }
+        });
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
