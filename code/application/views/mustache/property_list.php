@@ -29,7 +29,7 @@ onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');"
         </div>
     </div>
 	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
-		<ul class="box_round ui-tabs-nav">
+		<ul class="box_round ui-tabs-nav ui-hostels_tabs-nav">
 			<li class="first ui-tabs-selected">
                 <a id="first_tab_{{propertyNumber}}" class="tab_price"
                    href="#city_info_{{propertyNumber}}">
