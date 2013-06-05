@@ -294,30 +294,21 @@ class Db_hw_hostel extends CI_Model
     $currency   = $this->db->escape_str($currency);
     $limit      = $this->db->escape($limit);
 
-    $sql = "SELECT *,hw_hostel.geo_longitude as hostel_geo_long,hw_hostel.geo_latitude as hostel_geo_lat FROM ".self::HW_HOSTEL_TABLE;
-    $sql.= " LEFT JOIN ".self::HW_CITY_TABLE."    ON ".self::HW_HOSTEL_TABLE.".hw_city_id  = ".self::HW_CITY_TABLE.".hw_city_id";
-    $sql.= " LEFT JOIN ".self::HW_COUNTRY_TABLE." ON ".self::HW_CITY_TABLE.".hw_country_id = ".self::HW_COUNTRY_TABLE.".hw_country_id";
-    $sql.= " LEFT JOIN ".self::HW_HOSTEL_PRICE_TABLE." ON ".self::HW_HOSTEL_TABLE.".hw_hostel_id = ".self::HW_HOSTEL_PRICE_TABLE.".hw_hostel_id";
-    $sql.= " LEFT JOIN ".self::HW_HOSTEL_DESC_TABLE."  ON ".self::HW_HOSTEL_TABLE.".hw_hostel_id = ".self::HW_HOSTEL_DESC_TABLE.".hw_hostel_id";
-    $sql.= " LEFT JOIN ";
-    $sql.= "     ( SELECT ".self::HW_HOSTEL_TABLE.".hw_hostel_id, langage AS requested_lang, short_description as translated_desc FROM ".self::HW_HOSTEL_TABLE;
-    $sql.= "       LEFT JOIN ".self::HW_CITY_TABLE."    ON ".self::HW_HOSTEL_TABLE.".hw_city_id  = ".self::HW_CITY_TABLE.".hw_city_id";
-    $sql.= "       LEFT JOIN ".self::HW_COUNTRY_TABLE." ON ".self::HW_CITY_TABLE.".hw_country_id = ".self::HW_COUNTRY_TABLE.".hw_country_id";
-    $sql.= "       LEFT JOIN ".self::HW_HOSTEL_DESC_TABLE." ON ".self::HW_HOSTEL_TABLE.".hw_hostel_id = ".self::HW_HOSTEL_DESC_TABLE.".hw_hostel_id";
-    $sql.= "       WHERE hw_country LIKE'$hw_country' AND hw_city LIKE'$hw_city' AND ".self::HW_HOSTEL_DESC_TABLE.".langage LIKE'$langage'";
-    $sql.= "     ) AS hostel_translated";
-    $sql.= "     ON ".self::HW_HOSTEL_TABLE.".hw_hostel_id = hostel_translated.hw_hostel_id";
+    $sql = "SELECT *, hw_hostel.geo_longitude as hostel_geo_long, hw_hostel.geo_latitude as hostel_geo_lat";
+    $sql.= " FROM hw_hostel";
+    $sql.= " LEFT JOIN hw_city ON hw_hostel.hw_city_id = hw_city.hw_city_id";
+    $sql.= " LEFT JOIN hw_country ON hw_city.hw_country_id = hw_country.hw_country_id";
+    $sql.= " LEFT JOIN hw_hostel_price ON hw_hostel.hw_hostel_id = hw_hostel_price.hw_hostel_id";
+    $sql.= " LEFT JOIN hw_hostel_description ON hw_hostel.hw_hostel_id = hw_hostel_description.hw_hostel_id";
     $sql.= $landmark_join;
     $sql.= $district_join;
     $sql.= " WHERE hw_hostel_price.bed_price > 0";
-    $sql.= "   AND hw_hostel.minNights <= 2";
-    //This to make sure price is valid on upcoming date
-    // It prevent no more available cheap hostel show up in high results
-    $sql.= "   AND DATEDIFF(hw_hostel_price.date_start,curdate()) > 0";
-    $sql.= "   AND hw_country LIKE'$hw_country'";
-    $sql.= "   AND hw_city LIKE'$hw_city'";
-    $sql.= "   AND ".self::HW_HOSTEL_DESC_TABLE.".langage LIKE'English'";
-    $sql.= "   AND ".self::HW_HOSTEL_PRICE_TABLE.".currency_price LIKE'$currency'";
+    $sql.= " AND hw_hostel.minNights <= 2";
+    $sql.= " AND hw_hostel_price.date_start > curdate()";
+    $sql.= " AND hw_country = '$hw_country'";
+    $sql.= " AND hw_city = '$hw_city'";
+    $sql.= " AND hw_hostel_description.langage = '$langage'";
+    $sql.= " AND hw_hostel_price.currency_price = '$currency'";
     $sql.= $property_type_where;
     $sql.= $landmark_where;
     $sql.= $district_where;
@@ -332,7 +323,7 @@ class Db_hw_hostel extends CI_Model
     //If no results try without the price date validation constraint
     if ($query->num_rows() == 0)
     {
-      $sql = str_replace("AND DATEDIFF(hw_hostel_price.date_start,curdate()) > 0","",$sql);
+      $sql = str_replace("AND hw_hostel_price.date_start > curdate()","",$sql);
       $query = $this->db->query($sql);
     }
 
@@ -1123,7 +1114,7 @@ class Db_hw_hostel extends CI_Model
     $popularFacilitiesById = $this->config->item("hwMostPopularFacilitiesById");
     $mostPopularAmenities = array();
     $amenities = array();
-    
+
     if($query->num_rows() > 0)
     {
       foreach($query->result() as $row)
@@ -1132,9 +1123,9 @@ class Db_hw_hostel extends CI_Model
         $amenity->facility_id = $row->facility_id;
         $amenity->amenity_id = $amenity->facility_id;
         $amenity->facility_name = (string)$row->facility_name;
-        
+
         $amenity->id_to_display = $this->getFacilityIdToDisplay($amenity);
-        
+
         $popularAmenityKey = array_search($amenity->facility_id, $popularFacilitiesById);
         if ($popularAmenityKey !== FALSE) {
             $mostPopularAmenities[$popularAmenityKey] = $amenity;
@@ -1143,25 +1134,25 @@ class Db_hw_hostel extends CI_Model
         }
       }
     }
-    
+
     $amenityGroups = array(
         "mostPopularAmenities" => $mostPopularAmenities,
         "amenities" => $amenities
     );
-    
+
     return $amenityGroups;
   }
-  
+
   private function getFacilityIdToDisplay($amenity) {
       if ($amenity->facility_name == 'Breakfast Included' || $amenity->facility_name == 'Breakfast') {
         $idToDisplay = 'free-breakfast';
     } else {
         $idToDisplay = $amenity->facility_id;
     }
-    
+
     return $idToDisplay;
   }
-  
+
   public function get_amenities_by_city_id($city_id)
   {
     $city_id = $this->db->escape_str($city_id);
@@ -1185,7 +1176,7 @@ class Db_hw_hostel extends CI_Model
   public function get_districts_by_city_id($city_id)
   {
     $city_id = $this->db->escape_str($city_id);
-    $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`um_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HW_HOSTEL_TABLE."`.`property_number`) as `district_count`     
+    $sql = "SELECT `".self::DISTRICTS_TABLE."`.`district_id`, `".self::DISTRICTS_TABLE."`.`um_id`, `".self::DISTRICTS_TABLE."`.`district_name`, COUNT(`".self::HW_HOSTEL_TABLE."`.`property_number`) as `district_count`
             FROM (`".self::HW_HOSTEL_TABLE."`)
             RIGHT JOIN `".self::HW_HOSTEL_DISTRICT_TABLE."` ON `".self::HW_HOSTEL_TABLE."`.`property_number` = `".self::HW_HOSTEL_DISTRICT_TABLE."`.`property_number`
             RIGHT JOIN `".self::DISTRICTS_TABLE."` ON `".self::DISTRICTS_TABLE."`.`district_id` = `".self::HW_HOSTEL_DISTRICT_TABLE."`.`district_id`
@@ -1575,7 +1566,7 @@ class Db_hw_hostel extends CI_Model
 	$this->CI->db->limit(1);
 	$query=$this->CI->db->get();
 	return $query->row_array();
-  } 
+  }
   public function compare_property_facelity($property_number)
   {
     $this->CI->db->select("hw_fact.hw_facility_id,hw_facility.description");
