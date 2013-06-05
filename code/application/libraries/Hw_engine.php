@@ -230,6 +230,8 @@ class Hw_engine {
       if(!empty($cache_time))
       {
         $this->CI->output->cache($cache_time);
+        $this->CI->output->set_header('Cache-Control: public');
+        $this->CI->output->set_header('Expires: ' . gmdate('D, d M Y H:i:s', gmdate("U") + $cache_time) . ' GMT');
       }
 
       //Landmark data for landmark landing page
@@ -1369,7 +1371,7 @@ class Hw_engine {
           $cheapest_prices['min_room_price'] = (float)$cheapest_room_date['price']*$bedsincrement;
           $cheapest_prices['min_room_people'] = $bedsincrement;
         }
-        
+
         if(empty($cheapest_prices['min_room_per_person_price']))
         {
           $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];
