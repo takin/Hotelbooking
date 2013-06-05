@@ -232,6 +232,7 @@ class Hw_engine {
         $this->CI->output->cache($cache_time);
         $this->CI->output->set_header('Cache-Control: public');
         $this->CI->output->set_header('Expires: ' . gmdate('D, d M Y H:i:s', gmdate("U") + $cache_time) . ' GMT');
+        $this->CI->output->set_header('Vary:*');
       }
 
       //Landmark data for landmark landing page
