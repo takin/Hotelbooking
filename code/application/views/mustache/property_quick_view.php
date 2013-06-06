@@ -64,8 +64,8 @@
 		</div>
 
 		<div class="top-map-left">
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/quick_view.css" media="all" />
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.ad-gallery.css" media="all" />
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/quick_view.css?v=<?php echo time(); ?>" media="all" />
+			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.ad-gallery.css?v=<?php echo time(); ?>" media="all" />
 	
 			<div id="gallery" class="ad-gallery">
 				<div class="ad-image-wrapper"></div>
