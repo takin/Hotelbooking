@@ -1019,7 +1019,7 @@ $(document).ready(function()
 					<span class="bubble_blue_right_inner">
                                             <?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){?>
                                             <?php if($this->wordpress->get_option('aj_hb_charge_booking_fees') == 'true'): ?>
-                                            <?php echo _('Book on your mobile')?>
+                                            <?php printf(gettext("100%% sécurisé."));?>
                                             <?php else: ?>
                                             <?php echo _('No Booking fees')?>
                                             <?php endif; ?>
