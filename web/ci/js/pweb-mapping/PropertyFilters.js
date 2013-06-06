@@ -1141,6 +1141,21 @@ PWebFilterApp.prototype.setup = function(data)
 		}
 	}
 
+	// right about here load the QuickView
+	if (typeof(data.property_list) != 'undefined') {
+		if (typeof(data.property_list) == 'object') {
+			for (var i in data.property_list) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+
+		if (data.property_list.length) {
+			for (var i = 0; i < data.property_list.length; i++) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+	}
+
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
 	
@@ -1548,7 +1563,7 @@ PWebFilterMap.prototype.isMapEnable = function()
 
 //UPDATE map data
 PWebFilterMap.prototype.updateMarkers = function(markers_data) 
-{ 
+{
 	//clear all previous added marker and focus
 	this.gmap.clearMap();
 
@@ -1558,8 +1573,8 @@ PWebFilterMap.prototype.updateMarkers = function(markers_data)
 		if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
 		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
 		{
-			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
+//			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, '');
 			
 			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
 			{
@@ -1645,12 +1660,14 @@ $(document).ready(function() {
 			'transitionOut'	: 'none'
 	  });
 	
-	  $(".box_content").hover(
-	  	function(){   
-	  	$(this).find('.quick_view_bg').slideDown(500);   
-		},function(){
-		$(this).find('.quick_view_bg').slideUp(300);      
-	    });
+	  $(".box_content").live({
+		mouseenter: function(){   
+	    	    $(this).find('.quick_view_bg').slideDown(500);   
+		},
+		mouseleave: function(){
+		    $(this).find('.quick_view_bg').slideUp(300);      
+	        }
+	   });
 		
 	  var cookie_value = getCookie('compare');
 	  var total_property =    cookie_value.split(",");
@@ -1679,12 +1696,14 @@ $(document).ready(function() {
 });
 /*code by deep*/
 
-$(".quick_view_bg_link,.pre_next_arrows").live('click', function(){
+//$(".quick_view_bg_link,.pre_next_arrows").live('click', function(event){
+$(".quick_view_bg_link").live('click', function(event){
+	event.preventDefault();
 
-	pweb_filter = new PWebFilterApp();
-	pweb_filter.pweb_maps = new Array();
-    pweb_filter.property_compare_detail(this);
-	pweb_map = new GoogleMap();
+//	pweb_filter = new PWebFilterApp();
+//	pweb_filter.pweb_maps = new Array();
+	pweb_filter.showQuickView(this);
+//	pweb_map = new GoogleMap();
 });
   
 PWebFilterApp.prototype.getAllPropertyIds = function() {
@@ -1696,6 +1715,26 @@ var allproids = '';
     return pweb_filter.allproids;
 };
   
+PWebFilterApp.prototype.showQuickView = function(that) {
+	var proid      =   $(that).attr('value');
+
+	var wait_message = $('#wait_message').val();
+	var nextid     =   $('#prop_tab_box_'+proid ).next().attr('rel');
+	var preid      =   $('#prop_tab_box_'+proid ).prev().attr('rel');
+	var numnight   =   $('#city_results_numnights_selected').html();
+	var procur     =   $('#propertycur_'+proid ).val();
+
+	var quickView = QuickView.getObject(proid);
+
+	if (!quickView) {
+		this.property_compare_detail(that);
+
+		return;
+	}
+
+	quickView.getContent();
+};
+
 PWebFilterApp.prototype.property_compare_detail = function(that) {
 var proid      =   $(that).attr('value');
 var wait_message = $('#wait_message').val();
@@ -1794,8 +1833,10 @@ PWebFilterApp.prototype.handle_delete = function() {
 		var animate = {bottom: '-=350', marginLeft: '-=140'};
 		var timer   = 1000;
 
+		var number = null;
+
 		if (obj.hasClass('remove_property_permanentely')) {
-			var number = id.replace('remove_property_permanentely_', '');
+			number = id.replace('remove_property_permanentely_', '');
 
 			pweb_setCookie('remove_' + number, number, 8765);
 
@@ -1805,7 +1846,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
-				var number = id.replace('remove_property_one_day_', '');
+				number = id.replace('remove_property_one_day_', '');
 
 				pweb_setCookie('remove_' + number, number, 24);
 
@@ -1814,7 +1855,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
-					var number = id.replace('remove_property_one_week_', '');
+					number = id.replace('remove_property_one_week_', '');
 
 					pweb_setCookie('remove_' + number, number, 168);
 
@@ -1823,6 +1864,11 @@ PWebFilterApp.prototype.handle_delete = function() {
 				}
 			}
 		}
+
+		if (number != null) {
+			QuickView.remove(number);
+		}
+
                 // clear marker after removing property
                 var n = this.id.lastIndexOf('_');
                 var property_number = this.id.substring(n + 1);

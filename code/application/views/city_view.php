@@ -455,6 +455,9 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <?php
 }
 ?>
+
+<script type="text/javascript" src="<?php echo base_url();?>js/ad-gallery.js"></script>
+
 <script id="template-infow" type="text/html">
 <?php
   $this->load->view('mustache/city_map_property_infow');
@@ -465,12 +468,17 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
   $this->load->view('mustache/property_list');
 ?>
 </script>
+<script id="template-property-quick-view" type="text/html">
+<?php
+  $this->load->view('mustache/property_quick_view');
+?>
+</script>
 
 <?php $this->load->view('includes/save_property'); ?>
 
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">
-			<div id="quick_preview_div" style="min-height:600px;overflow:auto; width:880px;">
+			<div id="quick_preview_div" style="min-height:450px;overflow:hidden; width:1100px;">
 			</div>
 </div>
 <input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
