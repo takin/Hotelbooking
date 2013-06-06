@@ -533,7 +533,7 @@ class Hostelbookers_api extends CI_Model {
 
         $booking_object = new SimpleXMLElement("<bookingData></bookingData>");
         $booking_object->addChild("acceptedTermsAndConditions", "true");
-        if (in_array($_SERVER['HTTP_HOST'], $this->config->item('hbChargeBookingFee'))) {
+        if ($this->wordpress->get_option("aj_hb_charge_booking_fees") == 'true') {
             $booking_object->addChild("chargeBookingFee", "true");
         }        
         $booking_object->addChild("property", $property_number);

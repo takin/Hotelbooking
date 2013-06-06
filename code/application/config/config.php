@@ -453,27 +453,6 @@ $config["hwMostPopularFacilitiesById"] = array(
     33  // 24 hour reception - hw_facility
 );
 
-
-/*
- * HB sites that import Reviews from HW
- */
-$config["hbImporthwReviews"] = array(
-    'www.hbsitetest.com',
-    'www.retkeilymajoja.com',
-    'www.alberguesjuveniles.es',
-    'www.alberguesjuveniles.com'
-);
-
-/*
- * HB sites that charge Booking Fee
- */
-$config["hbChargeBookingFee"] = array(
-    'www.hbsitetest.com',
-    'www.retkeilymajoja.com',
-    'www.alberguesjuveniles.es',
-    'www.alberguesjuveniles.com'
-);
-
 /* End of file config.php */
 /* Location: ./application/config/config.php */
 
