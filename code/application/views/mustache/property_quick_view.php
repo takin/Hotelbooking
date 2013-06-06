@@ -26,8 +26,8 @@
 	</div>
 
 	<div class="top-map">
-		<div class="bottom-feature-data" style="float: left; width: 220px; margin-right: 20px">
-			<p><b><?php echo _("Services");?></b></p>
+		<div class="bottom-feature-data" style="float: left; width: 250px; margin-right: 18px">
+			<!-- <p><b><?php echo _("Services");?></b></p> -->
 			{{#allAmenities}}
 				{{#to_display}}
 					<span class="icon_facility icon_facility_{{facility_id}} group">
@@ -43,7 +43,7 @@
 			{{/landmarks}}
 
 			{{#hasIncludes}}
-				<p style="clear: both"><b><?php echo _("What's Included");?></b></p>							
+				<!-- <p style="clear: both"><b><?php echo _("What's Included");?></b></p> -->
 				<div class="group">
 					<ul class="green-li increase1 translated">
 						{{#includes}}
@@ -54,7 +54,7 @@
 			{{/hasIncludes}}
 
 			{{#hasAmenities}}
-				<p style="clear: both"><b><?php echo _("Commodité");?></b></p>
+				<!-- <p style="clear: both"><b><?php echo _("Commodité");?></b></p> -->
 				<div class="list-left">
 					{{#amenities}}
 					<div class="check">{{description}}</div>
