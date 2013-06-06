@@ -67,8 +67,8 @@ class Db_reviews extends CI_Model {
     }
 
     function get_property_reviews($property_number, $approved = '1') {
-
-        if (in_array($_SERVER['HTTP_HOST'], $this->config->item('hbImporthwReviews'))) {
+        
+        if ($this->wordpress->get_option("aj_hb_import_hw_reviews") == 'true') {
             $property_number = $this->get_property_number($property_number);
         }
 

@@ -324,17 +324,18 @@ PWebFilterApp.prototype.update = function() {
 
 		this.$data_div.html(output);
 
-		//Init jquery UI tabs
-		$('ul.ui-tabs-nav').tabs();
+//                //Init jquery UI tabs
+                  $('ul.ui-hostels_tabs-nav').tabs();
+//
 
-		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(':input').each(function() {
-                    var type_val = $(this).is(':checked');
-                    var type_input = $(this).attr('id');
+        $('#applied_filter_hosting_property').hide();
+        $('#cb_group_type_filter li').find(':input').each(function() {
+            var type_val = $(this).is(':checked');
+            var type_input = $(this).attr('id');
                     if(type_val === false){
-                        $('#applied_filter_hosting_property').show();
-                    }
-                });
+                $('#applied_filter_hosting_property').show();
+            }
+        });
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
@@ -1227,15 +1228,12 @@ PWebFilterApp.prototype.setup = function(data)
             if ($('#filter_map_leftSide').length < 1) {
                 $('#filter_map_rightSide_container').removeClass("tabs_exist");
                 $('#filter_map_rightSide_container').addClass("no_tabs");
-                // make green button wide
-                $('#filter_map_showProperties').css("width", "880px");
+
             }
             else {
                 $('#filter_map_rightSide_container').addClass("tabs_exist");
                 $('#filter_map_rightSide_container').removeClass("no_tabs");
-                // make green button wide
-                $('#filter_map_showProperties').css("width", "400px");
-
+   
                 $("#ul_map_filter_tabs").tabs('select', -1);
                 $(".ui-tabs-selected").removeClass("ui-state-active").removeClass("ui-tabs-selected");
                 // trigger tab according to the link that fire the fancybox

@@ -62,7 +62,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
  <?php } ?>
     <div id="filter_map_rightSide_container" class="tabs_exist">
         <div id="filter_map_rightSide"></div>
-        <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
+            <div class="cls_showProperties">
+                <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
+            </div>
     </div>
 </div>
 <div id="sidebar" class="grid_4 city_view_search">
@@ -77,8 +79,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
     	<?php if(isset($city_info->city_geo_lat)){?>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 		<?php }?>
-                    <div id="filter_links_container" class="box_content box_round group side_search">
-                        <ul class="group_filter_links_container">
+                    
      <?php
         $filterBy_flag = "both";
         if (empty($city_landmarks) && empty($city_districts)) {
@@ -89,26 +90,35 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         } elseif (empty($city_districts)) {
             $filterBy_flag = "landmarks";
         }
+        $filterby_container_start = '<div id="filter_links_container" class="box_content box_round group side_search">
+                        <ul class="group_filter_links_container">';
+        $filterby_container_end = '</ul></div>';
+        
         $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
         $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by Landmarks") . '</a></li>';
         switch ($filterBy_flag) {
             case "both":
+                echo $filterby_container_start;
                 echo $filter_by_districts_link . $filter_by_landmarks_link;
+                 echo $filterby_container_end;
                 break;
             
             case "districts":
+                echo $filterby_container_start;
                 echo $filter_by_districts_link;
+                echo $filterby_container_end;
                 break;
             
             case "landmarks":
+                echo $filterby_container_start;
                 echo $filter_by_landmarks_link;
+                echo $filterby_container_end;
                 break;
 
             default:
                 break;
         } ?>
-                            </ul>
-</div>
+                            
 	<div id="search_load">	
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<?php //TODO show filter reset;?>
@@ -476,6 +486,14 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
+       
+       $("#current_page").live("change", function()
+    {   
+        GoogleMap.prototype.drawMarkers(); 
+
+        return false;
+    }); 
+    
        // on window resize
        $(window).resize(function() {
             changeSidebar_width();
@@ -487,7 +505,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
        
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
-        var page_height = $(Document).height();
+        var page_height = $(document).height();
         var fix_height_position =  ( page_height - $("#sidebar").height() - 385 ) ;
         var scroll_position = $(window).scrollTop();
         // whole div container
