@@ -144,7 +144,6 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<div id="slider_rating"></div>
 			</div>
 
->>>>>>> master
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -395,8 +394,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 						<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span>
 					</div>
 				</li>
-				<!--
-					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
+
+				<!-- <li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
 					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
 
