@@ -323,7 +323,7 @@ class CHostelbk extends I18n_site
       //remove last pipe  character
       if(!empty($roomsIDS)) $roomsIDS = substr($roomsIDS, 0, -1);
             
-      if (in_array($_SERVER['HTTP_HOST'], $this->config->item('hbChargeBookingFee'))) {
+      if ($this->wordpress->get_option("aj_hb_charge_booking_fees") == 'true') {
           
           $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDateWithBookingFee( $propertyNumber,
                                                                                              $roomsIDS,
@@ -463,11 +463,6 @@ class CHostelbk extends I18n_site
        $data['book_phone_number']  = $user_info['phone_number'];
        $data['book_nationality']   = $user_info['home_country'];
       }
-//      $data['book_ccname']        = $ajaxdata['book_ccname'];
-//      $data['book_ccnumber']      = $ajaxdata['book_ccnumber'];
-//      $data['book_cctype']        = $ajaxdata['book_cctype'];
-//      $data['book_ccexpiry_m']    = $ajaxdata['book_ccexpiry_m'];
-//      $data['book_ccexpiry_y']    = $ajaxdata['book_ccexpiry_y'];
 
       $data['current_view_dir'] = $this->api_view_dir;
       $data['current_view'] = "booking_view";
