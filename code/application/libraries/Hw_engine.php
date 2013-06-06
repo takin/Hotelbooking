@@ -909,12 +909,7 @@ class Hw_engine {
       $data['availability_check'] = true;
       $data['google_map_enable']  = true;
       $data['google_map_address']  = $data['hostel_data']->address1.", ".$data['hostel_data']->city.", ".$data['hostel_data']->country.", ".$data['hostel_data']->postCode;
-
-      if(($data['hostel_data']->Geo->Latitude != 0) && ($data['hostel_data']->Geo->Longitude != 0))
-      {
-        $data['google_map_geo_latlng'] = $data['hostel_data']->Geo->Latitude .", ". $data['hostel_data']->Geo->Longitude;
-      }
-
+      
       $data['bc_continent']  = $this->CI->Db_country->get_continent_of_country($data['hostel_data']->country,$this->CI->site_lang);
       if(is_null($data['bc_continent']))
       {
@@ -933,7 +928,31 @@ class Hw_engine {
       $data['hostel']->property_name          = (string) $property_name;
       $data['hostel']->property_type          = (string)$data['hostel_data']->propertyType;
       $data['hostel']->rating                 = $this->CI->Db_hw_rating->get_hw_rating($data['hostel_data']->propertyNumber);
-      $data['hostel']->PropertyImages         = $data['hostel_data']->PropertyImages;
+      $data['hostel']->PropertyImages         = $data['hostel_data']->PropertyImages;      
+      $data['hostel']->geolatitude            = 0;
+      $data['hostel']->geolongitude           = 0;
+
+      if(( floatval($data['hostel_data']->Geo->Latitude) != 0) && ( floatval($data['hostel_data']->Geo->Longitude) != 0))
+      {  
+        $data['google_map_geo_latlng'] = $data['hostel_data']->Geo->Latitude .", " . $data['hostel_data']->Geo->Longitude ;
+        $data['hostel']->geolatitude             = (string) $data['hostel_data']->Geo->Latitude;
+        $data['hostel']->geolongitude            = (string) $data['hostel_data']->Geo->Longitude;
+      }
+        else{
+                // load hw_hostel mode
+                $this->CI->load->model('Db_hw_hostel');
+                $property_geos = $this->CI->Db_hw_hostel->get_hostel_geos($data['property_number']);
+
+                if ($property_geos != false) {
+                    if (( floatval($property_geos->geo_latitude) != 0) && ( floatval($property_geos->geo_longitude) != 0)) {
+
+                        $data['google_map_geo_latlng'] = $property_geos->geo_latitude . ", " . $property_geos->geo_longitude;
+                        $data['hostel']->geolatitude            = (string) $property_geos->geo_latitude;
+                        $data['hostel']->geolongitude           = (string) $property_geos->geo_longitude;
+                    }
+                }
+            }
+            
       if(!empty($data['hostel']->PropertyImages))
       {
         $data['hostel']->PropertyImages = xmlobj2arr($data['hostel_data']->PropertyImages);
@@ -963,9 +982,6 @@ class Hw_engine {
       $data['hostel']->address2               = (string) $data['hostel_data']->address2 ;
       $data['hostel']->city                   = (string) $data['hostel_data']->city;
       $data['hostel']->country                = (string) $data['hostel_data']->country;
-
-      $data['hostel']->geolatitude            = (string) $data['hostel_data']->Geo->Latitude;
-      $data['hostel']->geolongitude           = (string) $data['hostel_data']->Geo->Longitude;
 
       //TEMP variable to support backward compatibility
 //      $data['propertyNumber'] = $data['hostel_data']->propertyNumber;

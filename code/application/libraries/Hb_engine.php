@@ -973,9 +973,30 @@ class Hb_engine {
             $data['google_map_enable'] = true;
             $data['google_map_address'] = $response["RESPONSE"]["ADDRESS"]["STREET1"] . ", " . $response["RESPONSE"]["ADDRESS"]["CITY"] . ", " . $response["RESPONSE"]["ADDRESS"]["COUNTRY"] . ", " . $response["RESPONSE"]["ADDRESS"]["ZIP"];
 
-            if (($response["RESPONSE"]["GPS"]["LAT"] != 0) && ($response["RESPONSE"]["GPS"]["LON"] != 0)) {
-                $data['google_map_geo_latlng'] = str_replace(",", ".", $response["RESPONSE"]["GPS"]["LAT"]) . ", " . str_replace(",", ".", $response["RESPONSE"]["GPS"]["LON"]);
+             $data['hostel']['geolatitude']            = 0;
+             $data['hostel']['geolongitude']           = 0;
+
+           if(( floatval($response["RESPONSE"]["GPS"]["LAT"]) != 0) && ( floatval($response["RESPONSE"]["GPS"]["LON"]) != 0))
+            {  
+              $data['google_map_geo_latlng'] = str_replace(",", ".", $response["RESPONSE"]["GPS"]["LAT"]) . ", " . str_replace(",", ".", $response["RESPONSE"]["GPS"]["LON"]);
+              $data['hostel']['geolatitude']             = (string) str_replace(",", ".", $response["RESPONSE"]["GPS"]["LAT"]);
+              $data['hostel']['geolongitude']            = (string) str_replace(",", ".", $response["RESPONSE"]["GPS"]["LON"]);
+             
             }
+              else{
+                    // load hb_hostel model
+                    $this->CI->load->model('Db_hb_hostel');
+                    $property_geos = $this->CI->Db_hb_hostel->get_hostel_geos($data['property_number']);
+
+                    if ($property_geos != false) {
+                        if (( floatval($property_geos->geo_latitude) != 0) && ( floatval($property_geos->geo_longitude) != 0)) {
+
+                            $data['google_map_geo_latlng'] = $property_geos->geo_latitude . ", " . $property_geos->geo_longitude;
+                            $data['hostel']['geolatitude']            = (string) $property_geos->geo_latitude;
+                            $data['hostel']['geolongitude']           = (string) $property_geos->geo_longitude;
+                        }
+                    }
+                  }
 
             $data['bc_continent'] = $this->CI->Db_hb_country->get_continent($response["RESPONSE"]["ADDRESS"]["COUNTRY"], $this->CI->site_lang);
             if (empty($data['bc_continent'])) {
