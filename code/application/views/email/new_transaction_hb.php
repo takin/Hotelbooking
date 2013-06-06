@@ -236,12 +236,7 @@ $customercursymbol = currency_symbol($booking->payment->currencies->customer->cu
       <p  align=right style="text-align:right;line-height:18px"><span
       style="font-size:12px;color:#2F2F2F">
 
-      		<?php
-					if($isCustomCurrency){
-						printf(gettext("10%% Arrhes facturé en %s:"),"(". $settlecur." ".number_format(floatval($booking->payment->currencies->gbp->amountTaken),2,'.',''). ")");
-					}else{
-						printf(gettext("10%% Arrhes facturé en %s:"),$booking->payment->currencyPaymentTakenIn);
-					}?>
+      		<?php echo _('Amount already paid:');?>
 
       </span></p>
       </td>
@@ -447,12 +442,7 @@ $customercursymbol = currency_symbol($booking->payment->currencies->customer->cu
       <p  align=right style="text-align:right;line-height:18px"><span
       style="font-size:12px;color:#2F2F2F">
 
-			<?php
-			if($isCustomCurrency){?>
-				10% Deposit (<?php echo $settlecur." ".number_format(floatval($booking->payment->currencies->gbp->amountTaken),2,'.','');?>)
-			<?php }else{?>
-				10% Deposit <?php echo $booking->payment->currencyPaymentTakenIn;?>
-			<?php }?>
+			Amount already paid:
 
       </span></p>
       </td>

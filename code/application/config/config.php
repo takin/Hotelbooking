@@ -459,7 +459,9 @@ $config["hwMostPopularFacilitiesById"] = array(
  */
 $config["hbImporthwReviews"] = array(
     'www.hbsitetest.com',
-    'www.retkeilymajoja.com'
+    'www.retkeilymajoja.com',
+    'www.alberguesjuveniles.es',
+    'www.alberguesjuveniles.com'
 );
 
 /*
@@ -467,7 +469,9 @@ $config["hbImporthwReviews"] = array(
  */
 $config["hbChargeBookingFee"] = array(
     'www.hbsitetest.com',
-    'www.retkeilymajoja.com'
+    'www.retkeilymajoja.com',
+    'www.alberguesjuveniles.es',
+    'www.alberguesjuveniles.com'
 );
 
 /* End of file config.php */

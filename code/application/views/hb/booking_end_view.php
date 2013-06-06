@@ -74,7 +74,7 @@
             </tr>
             <tr class="light first">
              <td align="right" colspan="4">
-             <?php printf(gettext('10%% Arrhes facturé en %s à votre carte'),$booking->payment->currencyPaymentTakenIn); ?>:
+             <?php echo _('Amount already paid:');?>
              </td>
 
              <td>

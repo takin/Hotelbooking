@@ -505,7 +505,7 @@ if ($api_error == false) {
         </div>
 
         <nav class="hostel_tabs group" id="hostels_tabs">
-            <ul class="box_round ui-tabs-nav green_gradient_faded">
+            <ul class="box_round ui-tabs-nav green_gradient_faded ui-hostels_tabs-nav">
                 <li class="first">
                     <a class="tab_price" href="#hostel_info_home">
                         <?php
