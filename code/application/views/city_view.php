@@ -308,13 +308,18 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best Location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs"><input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
-					<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
+				<li class="inputs">
+					<div id="hostels_filter">
+						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
+						<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
+					</div>
+					<div id="breakfast_filter">
+						<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
+						<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span>
+					</div>
 				</li>
 
-<!--  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
-					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
-					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
+				<!-- <li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
 					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
 
@@ -429,4 +434,3 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 </div>
 <input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
 <input type= "hidden" name="limit_compare_message" value="<?php echo  _('Only 5 properties can be compared. Please remove a property from list.');?>" id= "limit_compare_message" />
-
