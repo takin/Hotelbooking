@@ -314,7 +314,11 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 			<div class="bubble_blue_right_position<?php if(get_option('aj_api_site_data') == 'hb'){echo ' hb-bubble';}?>">
 				<div class="bubble_blue_right">
 					<span class="bubble_blue_right_inner"><?php if(get_option('aj_api_site_data') == 'hb'){?>
+                                            <?php if(get_option('hb_charge_booking_fees') != 'true'): ?>
 						<?php _e('No Booking fees','auberge');?>
+                                            <?php else: ?>
+                                            <?php _e('Check your reservation on your mobile','auberge');?>
+                                            <?php endif; ?>
 						<?php }else{?>
 						<?php _e('Check your reservation on your mobile','auberge');?>
 						<?php }?></span>
