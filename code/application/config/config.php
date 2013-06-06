@@ -9,10 +9,10 @@ $config['displaySharePDF']   = FALSE;
 
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
-$config['displayQuickPreview'] = FALSE;
+$config['displayQuickPreview'] = true;
 
 /* set variable to show property compare feature*/
-$config['displayCompareProperty'] = true;
+$config['displayCompareProperty'] = TRUE;
 
 /* set variable to show remove from search */
 $config['displayRemoveFromSearch'] = TRUE;
@@ -29,11 +29,11 @@ $config['recent_view_number_cookies'] = 5;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
-	$config['bingTranslation'] = FALSE;
+	$config['bingTranslation'] = TRUE;
 }
 else
 {
-	$config['bingTranslation'] = FALSE;
+	$config['bingTranslation'] = TRUE;
 }
 
 $config['companies_strings_to_replace'] = array(
@@ -452,7 +452,6 @@ $config["hwMostPopularFacilitiesById"] = array(
     27, // "Internet / Wi-Fi" - hw_facility
     33  // 24 hour reception - hw_facility
 );
-
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

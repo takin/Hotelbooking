@@ -45,10 +45,10 @@ $SPACE = '&nbsp;';
 		 <li id="secure"><img src="<?php echo secure_site_url();?>images/hb-icons-secure.png" alt="" />
 		 <span><strong><?php printf(gettext("100%% sécurisé."));?></strong> <?php echo _("Paiements sécurisés et encryptés pour votre sécurité.");?></span></li>
 		 <li id="bestprice"><img src="<?php echo secure_site_url();?>images/hb-icons-10percent.png" alt="" /><span><?php echo _("Seulement 10% pour garantir votre réservation.");?></span></li>
-		<?php /*?><li id="support"><img height="38px" src="<?php echo secure_site_url();?>images/sideinfo-support.png" alt="" /><br /><span><?php printf(gettext("Un service clientèle de qualité disponible %s prêt à vous guider à tout moment."),"<b>"._("24h/24, 7j/7")."</b>");?></span></li><?php */?>
 		 <li id="support"><img src="<?php echo secure_site_url();?>images/hb-icons-cell.png" alt="" /><span><br /><?php echo _('Text/SMS (FREE)')?></span></li>
-		 <?php /*?><li id="forall"><img height="38px" src="<?php echo secure_site_url();?>images/sideinfo-forall.png" alt="" /><br /><span><?php echo _("Pour tous les âges: ni maximum ni minimum.");?></span></li><?php */?>
+                 <?php if($this->wordpress->get_option('aj_hb_charge_booking_fees') != 'true'): ?>
 		 <li id="forall"><img src="<?php echo secure_site_url();?>images/hb-icons-nofee.png" alt="" /><span><br /><?php echo _('No Booking fees')?></span></li>
+                 <?php endif; ?>
 		 <li class="last" id="member"><img src="<?php echo secure_site_url();?>images/hb-icons-save.png" alt="" /><span><?php printf(gettext("%s Pas besoin de carte de membre pour recevoir les meilleurs prix du Net."),"<strong>".$this->config->item('site_name')."</strong>");?></span></li>
 		</ul>
 	</div>
@@ -211,7 +211,8 @@ $SPACE = '&nbsp;';
            $settle_deposit_usd        = number_format($booking_total_usd_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_eur        = number_format($booking_total_eur_price*$hb_arrhes_rate,2,'.','');
            $settle_deposit_cad        = number_format($booking_total_cad_price*$hb_arrhes_rate,2,'.','');
-           $settle_deposit_booking        = number_format($booking_total_price*$hb_arrhes_rate,2,'.','');
+           $settle_percent_booking    = number_format($booking_total_price*$hb_arrhes_rate,2,'.','');
+           $settle_deposit_booking    = number_format(($booking_total_price*$hb_arrhes_rate)+(isset($booking_fee['CUSTOMER']['AMOUNT'])?$booking_fee['CUSTOMER']['AMOUNT']:0),2,'.','');
 
             // Find the CADDepositAMount to put in the hidden field 'analytic-value'
             $CADDepositAmount = (float)$settle_deposit_booking * 0.6;
@@ -232,39 +233,28 @@ $SPACE = '&nbsp;';
                </tr>
               <tr class="light">
                <td class="first" align="right"><?php echo _('10% Arrhes / Dépôt sera facturé en');?>:</td>
-               <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></td>
-              </tr>
+               <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_percent_booking;?></span></td>
+              </tr>							
+              
+              <?php if (isset($booking_fee)): ?>
+              <tr class="light">
+                                    <td class="first" align="right">
 
-							<tr class="light">
+                                        <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
+                                    <td>
+                                        <span style="display: inline;">
+                                            <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
+                                        </span>
+
+                                    </td>
+                                </tr>
+              <?php else: ?>                  
+                                <tr class="light">
                <td class="first" align="right"><span id="bookingFeeDesc"><?php echo _('No Booking fees')?>:</span></td>
 							 <td><span style="display: inline;"><b><span class="cur book selected"><?php echo _('Free')?></span></b></span></td>
               </tr>
-
-              <?php /*?><tr class="light">
-               <td  align="right">
-
-                   <span id="bookingFeeDesc"><strong>
-									 <?php
-										 $member_gbp = $cur.' 12.00';
-										 $member_eur = currency_symbol('EUR').' 14.00 ';
-										 $member_usd = currency_symbol('USD').' 20.00';
-                  	?>
-                   <span class="cur gbp selected"><?php printf(gettext("%s yearly membership card - waived:"),$member_gbp); ?></span>
-									 <span class="cur usd"><?php printf(gettext("%s yearly membership card - waived:"),$member_usd); ?></span>
-									 <span class="cur eur"><?php printf(gettext("%s yearly membership card - waived:"),$member_eur); ?></span>
-									 </strong></span>
-									 </td>
-                   <td>
-                   <span style="display: inline;">
-                     <b>
-										 <span class="cur book selected"><?php echo $bookCurSymbol;?> 0.00</span>
-                     </b>
-                   </span>
-
-               </td>
-              </tr><?php */?>
-
-
+              <?php endif; ?>
+              
               <tr class="end-total">
                <td class="first" align="right"><strong><?php echo _('Total à payer maintenant');?>:</strong></td>
                <td><span style="display: inline;"><b><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_deposit_booking;?></span></b></span></td>

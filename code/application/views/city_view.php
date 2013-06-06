@@ -62,7 +62,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
  <?php } ?>
     <div id="filter_map_rightSide_container" class="tabs_exist">
         <div id="filter_map_rightSide"></div>
-        <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();">Show properties</button>
+            <div class="cls_showProperties">
+                <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
+            </div>
     </div>
 </div>
 <div id="sidebar" class="grid_4 city_view_search">
@@ -74,9 +76,75 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-	<div id="search_load">
+
+    	<?php if(isset($city_info->city_geo_lat)){?>
+		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
+		<?php }?>
+                    
+     <?php
+        $filterBy_flag = "both";
+        if (empty($city_landmarks) && empty($city_districts)) {
+
+            $filterBy_flag = "none";
+        } elseif (empty($city_landmarks)) {
+            $filterBy_flag = "districts";
+        } elseif (empty($city_districts)) {
+            $filterBy_flag = "landmarks";
+        }
+        $filterby_container_start = '<div id="filter_links_container" class="box_content box_round group side_search">
+                        <ul class="group_filter_links_container">';
+        $filterby_container_end = '</ul></div>';
+        
+        $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
+        $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by Landmarks") . '</a></li>';
+        switch ($filterBy_flag) {
+            case "both":
+                echo $filterby_container_start;
+                echo $filter_by_districts_link . $filter_by_landmarks_link;
+                 echo $filterby_container_end;
+                break;
+            
+            case "districts":
+                echo $filterby_container_start;
+                echo $filter_by_districts_link;
+                echo $filterby_container_end;
+                break;
+            
+            case "landmarks":
+                echo $filterby_container_start;
+                echo $filter_by_landmarks_link;
+                echo $filterby_container_end;
+                break;
+
+            default:
+                break;
+        } ?>
+                            
+	<div id="search_load">	
 		<?php $this->load->view('includes/group-booking'); ?>
-		<div class="filter_block box_content box_round" id="filter_choices">	
+		<div class="filter_block box_content box_round" id="filter_choices">
+			<?php //TODO show filter reset;?>
+			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
+			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
+			<span class="filter_title box_round"><strong><?php echo _('Price')?></strong></span>
+			<div class="filter_content">
+				<p class="group">
+					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
+					<span id="filter_price" class="slide_filter"/></span>
+				</p>
+			<div id="slider_price"></div>
+			</div>
+
+			<span class="filter_title box_round"><strong><?php echo _('Rating')?></strong></span>
+				<div class="filter_content">
+				<p class="group">
+					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
+					<span id="filter_rating" class="slide_filter"/></span>
+				</p>
+				<div id="slider_rating"></div>
+			</div>
+
+>>>>>>> master
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -157,6 +225,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
 			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
 		</div>
+                <?php $this->load->view('includes/group-booking'); ?>
 	</div>
 	<?php }?>
 
@@ -223,49 +292,57 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 <!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
 				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
-                       <?php if(isset($city_info->city_geo_lat)) { ?>
+                       <?php // if(isset($city_info->city_geo_lat)) { ?>
                         <?php
-                            $filterBy_flag = "both";
-                            $span_style = null;
-                             if ( empty($city_landmarks) && empty($city_districts) ) {
-
-                                 $filterBy_flag = "none";
-                             }
-                             elseif ( empty($city_landmarks) ) {
-                                  $filterBy_flag = "districts";
-                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }
-                             elseif ( empty($city_districts) ) {
-                                  $filterBy_flag = "landmarks";
-                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-                             }?>
-                    <div id="map_filter_button" class="box_content map_button_box box_round">
-                         <a id="city_map_filter" href="#">
-                            <?php if ($filterBy_flag !== "none") {
-                                    ?>
-                                    <span><strong <?php echo $span_style; ?>>
+//                            $filterBy_flag = "both";
+//                            $span_style = null;
+//                             if ( empty($city_landmarks) && empty($city_districts) ) {
+//
+//                                 $filterBy_flag = "none";
+//                             }
+//                             elseif ( empty($city_landmarks) ) {
+//                                  $filterBy_flag = "districts";
+//                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+//                             }
+//                             elseif ( empty($city_districts) ) {
+//                                  $filterBy_flag = "landmarks";
+//                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
+//                             }?>
+                        <?php // if ($filterBy_flag !== "none") { ?>
+<!--                            <div id="map_filter_button" class="box_content map_button_box box_round">
+                                <a id="city_map_filter" href="#">
+                                    <span><strong <?php echo $span_style; ?>>-->
                                             <?php
-                                            switch ($filterBy_flag) {
-                                                case "districts":
-                                                    echo _("Filter by Districts");
-
-                                                    break;
-                                                case "landmarks":
-                                                    echo _("Filter by Landmarks");
-
-                                                    break;
-                                                default:
-                                                    echo _("Filter by Districts or Landmarks");
-                                                    break;
-                                            }
-                                            ?></strong></span>
-                                    <?php } ?>
+//                                            switch ($filterBy_flag) {
+//                                                case "districts":
+//                                                    echo _("Filter by Districts");
+//
+//                                                    break;
+//                                                case "landmarks":
+//                                                    echo _("Filter by Landmarks");
+//
+//                                                    break;
+//                                                default:
+//                                                    echo _("Filter by Districts or Landmarks");
+//                                                    break;
+//                                            }
+                                            ?>
+<!--                                        </strong></span>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
-                         </div>
-                    <?php } ?>
+                            </div>-->
+                        <?php // } 
+//                        else{ ?>
+<!--                      <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#city_results_count").css({'height' : '15px'});
+                            $(".top_search_result").css({'line-height' : 0});
+                        });      
+                     </script>      -->
+                       <?php //}
+                        ?>        
+                    <?php //} ?>
 			</div>
-
 
 		<!-- research code -->
 	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
@@ -308,12 +385,17 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best Location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs"><input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
-					<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px">
+					<div>
+						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
+						<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
+					</div>
+					<div>
+	  					<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
+						<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span>
+					</div>
 				</li>
-
-<!--  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
-					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
+				<!--
 					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
 					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
@@ -409,6 +491,9 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <?php
 }
 ?>
+
+<script type="text/javascript" src="<?php echo base_url();?>js/ad-gallery.js"></script>
+
 <script id="template-infow" type="text/html">
 <?php
   $this->load->view('mustache/city_map_property_infow');
@@ -419,14 +504,91 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
   $this->load->view('mustache/property_list');
 ?>
 </script>
+<script id="template-property-quick-view" type="text/html">
+<?php
+  $this->load->view('mustache/property_quick_view');
+?>
+</script>
 
 <?php $this->load->view('includes/save_property'); ?>
 
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">
-			<div id="quick_preview_div" style="min-height:600px;overflow:auto; width:880px;">
+			<div id="quick_preview_div" style="min-height:450px;overflow:hidden; width:1100px;">
 			</div>
 </div>
 <input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />
 <input type= "hidden" name="limit_compare_message" value="<?php echo  _('Only 5 properties can be compared. Please remove a property from list.');?>" id= "limit_compare_message" />
 
+<script type="text/javascript">
+   $(document).ready(function(){
+       
+       $("#current_page").live("change", function()
+    {   
+        GoogleMap.prototype.drawMarkers(); 
+
+        return false;
+    }); 
+    
+       // on window resize
+       $(window).resize(function() {
+            changeSidebar_width();
+        });
+        // this part is related to fixing the map position
+        $(window).scroll(function () { 
+            changeSidebar_width();
+       });
+       
+       function changeSidebar_width(){
+        // fix sidebar to make side map always visible
+        var page_height = $(document).height();
+        var fix_height_position =  ( page_height - $("#sidebar").height() - 385 ) ;
+        var scroll_position = $(window).scrollTop();
+        // whole div container
+        var main_container_leftPosition = $("#main_container").offset().left;
+        var main_container_width = $("#main_container").width();
+
+        var sidebar_width = ( parseInt(main_container_width) * 0.23 );
+
+        //we're scrolling our ,position is greater than 0 from the top of the page.
+        if( scroll_position < 230 ){
+            $("#side_search_box").show();
+            
+            $("#sidebar").removeClass("fix_sidebar_position");
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : ''});
+            
+            $("#main").css({'float' : 'auto'});
+         }
+        else if( scroll_position > 230 && scroll_position < fix_height_position ){
+            $("#side_search_box").hide();
+            
+            $("#sidebar").addClass("fix_sidebar_position");
+            $("#sidebar").removeClass("container_16");
+            $("#sidebar").removeClass("grid_4");
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'width' : sidebar_width});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : (parseInt(main_container_leftPosition) + 10 ) });
+            
+            $("#main").css({'float' : 'right'});
+         }
+         else  if( scroll_position > fix_height_position ){
+            $("#side_search_box").show();
+            
+            $("#sidebar").css({'position' : 'relative'});
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
+            $("#sidebar").css({'left' : 0});
+            if( fix_height_position > 0 ){
+                $("#sidebar").css({'top' : fix_height_position - 245 });
+            }
+            $("#main").css({'float' : 'auto'});
+         } 
+       }
+       
+   });      
+</script>

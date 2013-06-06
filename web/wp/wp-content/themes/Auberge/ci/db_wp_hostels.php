@@ -79,7 +79,7 @@ class Db_hostels
     return $query;
   }
 
-  function get_top_hw_hostels($booker_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
+  function get_top_hw_hostels($currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
 
     $since_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
@@ -94,20 +94,6 @@ class Db_hostels
     $api_lang = $this->db->escape($this->hw_lang_code_convert($lang));
 
     $currency = $this->db->escape($currency);
-
-    $booker_country = "";
-//     if(!empty($booker_country_code))
-//     {
-//       $booker_country_code = $this->db->escape($booker_country_code);
-
-//       $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-//       $booker_country_code = $this->db->get_var($query);
-
-//       if(!empty($booker_country_code))
-//       {
-//         $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-//       }
-//     }
 
     if($include_test_bookings == true)
     {
@@ -213,7 +199,6 @@ class Db_hostels
                   WHERE  LOWER(API_booked) LIKE LOWER('hw')
                      $include_test_bookings
                      $domain
-                     $booker_country
                      AND hw_city.hw_city IS NOT NULL
                      AND DATE(booking_time) > '$since_date'
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
@@ -235,20 +220,16 @@ class Db_hostels
               WHERE base_desc_table.langage = 'English'
               AND hw_hostel_price.currency_price = 'EUR'";
 
-    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     //Booker country assumes to be always the same no longer in key
-    $old_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W",$last_week_date);
-    $key_var     = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W");
+    //-- is there to use cache created with old key
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $old_cache_key = "tophostelhw_".md5($old_key_var);
-    $cache_key     = "tophostelhw_".md5($key_var);
-
-    $results = $this->get_db_results_with_cached($query,$cache_key,$old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhw_", $query, $generic_key_var,$currency_code, TRUE);
 
     return $results;
   }
 
-  function get_top_hb_hostels($booker_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
+  function get_top_hb_hostels($currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
     $since_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
     if($include_test_bookings == TRUE)
@@ -262,20 +243,6 @@ class Db_hostels
     $currency = $this->db->escape($currency);
 
     $api_lang = $this->db->escape($this->hb_lang_code_convert($lang));
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     //force test booking includes for starting the site
     $include_test_bookings = true;
@@ -353,7 +320,7 @@ class Db_hostels
                   SELECT API_booked, transactions_hostelworld.site_domain_id, site_domain,
                          IF(LOCATE(',',hb_city.lname_en)>0,TRIM(LEFT(hb_city.lname_en,LOCATE(',',hb_city.lname_en)-1)),hb_city.lname_en)as property_city,
                          hb_country.lname_en as property_country,
-              			hb_city.hb_id as property_city_hb_id,
+                    hb_city.hb_id as property_city_hb_id,
               --           `continent_fr` as translated_continent,
               --           `continent_en`,
                          count(*) as property_booking_count
@@ -367,7 +334,6 @@ class Db_hostels
                     $include_test_bookings
                     $domain
                    -- AND hb_city.lname_en IS NOT NULL
-                    $booker_country
                     --  AND LOWER(`continent_en`) LIKE LOWER('asia')
                       AND DATE(booking_time) > '$since_date'
                    GROUP BY property_city_hb_id
@@ -387,134 +353,93 @@ class Db_hostels
                 ON hb_hostel.property_number = hostel_translated.hostel_hb_id
               WHERE base_desc_table.language = 'en'
               AND hb_hostel_price.currency_code = 'EUR'
-    					GROUP BY top_hostel_of_city
+              GROUP BY top_hostel_of_city
               ORDER BY property_booking_count DESC, min_price ASC";
 
-
-    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
-
     //Booker country assumes to be always the same no longer in key
-    $old_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W",$last_week_date);
-    $key_var     = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain-$booker_country-$top_count-".date("Y-W");
+    //-- is there to use cache created with old key
+    $generic_key_var = "$currency_code-$lang-$api_lang-$include_test_bookings-$domain--$top_count";
 
-    $old_cache_key = "tophostelhb_".md5($old_key_var);
-    $cache_key     = "tophostelhb_".md5($key_var);
-
-    $results = array();
-    $results = $this->get_db_results_with_cached($query,$cache_key,$old_cache_key,$currency_code);
+    $results = $this->get_db_results_with_cached("tophostelhb_", $query, $generic_key_var, $currency_code, TRUE);
 
     return $results;
   }
 
-  function get_db_results_with_cached($query, $cache_key, $old_cache_key, $currency_code)
+  function get_db_results_with_cached($key_prefix, $query, $generic_key_var, $currency_code, $startProcess)
   {
     $results = array();
+    $needReload = FALSE;
 
-//     debug_dump($cache_key,"70.55.166.30");
+    $last_week_date = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+    $old_key_var = "$generic_key_var-".date("Y-W",$last_week_date);
+    $key_var     = "$generic_key_var-".date("Y-W");
 
-    //If forcing refresh of caching
+    $generic_cache_key = $key_prefix.md5($generic_key_var);
+    $old_cache_key = $key_prefix.md5($old_key_var);
+    $cache_key     = $key_prefix.md5($key_var);
+
+   //If forcing refresh of caching
     if (!empty($_GET['cacherun']) && ($_GET['cacherun'] == 'run') )
     {
       $results = $this->db->get_results($query);
-      // 7 days = 604800 sec
       set_transient( $cache_key, $results, 0);
+      set_transient( $generic_cache_key, $results, 0);
 
-      //Delete old cache key no more useful
+      //delete old cache key no more useful
       if(get_transient( $old_cache_key ) !== false)
       {
         delete_transient($old_cache_key);
       }
     }
+    //no cache for the current key
     elseif ( false === ( $results = get_transient( $cache_key ) ) )
     {
-      //If old key is cached serve old key cached results and start a process to update cache with new key
-      if( false === ( $results = get_transient( $old_cache_key ) ) )
-      {
-        //Old key not cached so cache results of new key
-        $results = $this->db->get_results($query);
-        // 7 days = 604800 sec
-        // 30 days = 2592000
-        if(!empty($results))
-        {
-          set_transient( $cache_key, $results, 0);
-        }
-//         debug_dump("Wait no old key","70.55.166.30");
+      //generic key
+      $results = get_transient( $generic_cache_key );
 
-//         debug_dump($old_cache_key,"70.55.166.30");
-//         debug_dump($cache_key,"70.55.166.30");
-//         debug_dump($query,"70.55.166.30");
-      }
-      else
-      {
-        //start parallel process to load new key in DB
-        //TONOTICE prevent more than one process like this to run?????? check to see if already running before?
-        //TONOTICE function should be independant from URL now only on homepage
-        // LIKE adding $_SERVER["REQUEST_URI"] at the end and then append to query string if any
-        $cmd = "/usr/bin/wget \"http://".$_SERVER["HTTP_HOST"] ."/?currency=".$currency_code."&cacherun=run\" -O ".CI_ABSPATH."cache_queries/cache_processes/last_index_cached.html";
-        $outputfile = CI_ABSPATH."cache_queries/cache_processes/cachinghomepage.html";
-        $pidfile    = CI_ABSPATH."cache_queries/cache_processes/cachinghomepagePID.txt";
+      //for now store the generic result (or empty) while the cache is updated
+      set_transient( $cache_key, $results, 0);
 
-        $cmd = sprintf("%s > %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile);
-        exec($cmd);
-//         debug_dump("CMD","70.55.166.30");
-      }
+      $needReload = TRUE;
     }
-    else
+
+    if (($startProcess) && ($needReload))
     {
-      //taken cached results
-//       debug_dump("Cached","70.55.166.30");
-//       debug_dump($cache_key,"70.55.166.30");
-//       debug_dump($results,"70.55.166.30");
+      if ((isset($_SERVER['PHP_AUTH_USER'])) && (isset($_SERVER['PHP_AUTH_PW'])))
+      {
+        $wgetOptions = "-user=".$_SERVER['PHP_AUTH_USER']." -password=".$_SERVER['PHP_AUTH_PW'];
+      }
+
+      //start process to load new key in DB
+      $cmd = "/opt/scripts/cachehomepage.sh -host=".$_SERVER["HTTP_HOST"]." -currency=".$currency_code." ".$wgetOptions;
+      exec($cmd . " > /dev/null &");
     }
 
     return $results;
   }
+
   function get_top_hostels($API = "hw", $user_country_code = "", $currency_code = "EUR", $lang = "en", $include_test_bookings = false, $domain = "", $top_count = 6)
   {
     $tophostels = array();
     if(strcasecmp($API,"hb") == 0)
     {
-      $tophostels = $this->get_top_hb_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      if(empty($tophostels))
-      {
-        $tophostels = $this->get_top_hb_hostels("", $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      }
-      return $tophostels;
+      $tophostels = $this->get_top_hb_hostels($currency_code, $lang, $include_test_bookings, $domain, $top_count);
     }
     else
     {
-      $tophostels = $this->get_top_hw_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      if(empty($tophostels)  || count($tophostels) < 4)
-      {
-        $tophostels = $this->get_top_hw_hostels("", $currency_code, $lang, $include_test_bookings, $domain, $top_count);
-      }
-      return $tophostels;
+      $tophostels = $this->get_top_hw_hostels($currency_code, $lang, $include_test_bookings, $domain, $top_count);
     }
 
-    return $this->get_top_hw_hostels($user_country_code, $currency_code, $lang, $include_test_bookings, $domain, $top_count);
+    return $tophostels;
   }
 
-  function get_hw_top_cities_of_continent($booker_country_code = "", $currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
+  function get_hw_top_cities_of_continent($currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
   {
     $since_date = mktime(0, 0, 0, date("m")-6, date("d"),   date("Y"));
     $since_date = date("Y-m-d",$since_date);
 
     $lang         = $this->db->escape($lang);
     $currency_code     = $this->db->escape($currency_code);
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     if(!empty($domain))
     {
@@ -615,7 +540,6 @@ class Db_hostels
                 $domain
                 AND hw_city.hw_city IS NOT NULL
                 $continent_en
-                $booker_country
                 AND DATE(booking_time) > '$since_date'
               GROUP BY property_country, property_city
               ORDER BY property_booking_count DESC
@@ -623,37 +547,18 @@ class Db_hostels
               ) as top_cities
               LEFT JOIN cities2 ON (top_cities.property_city = cities2.city_en AND top_cities.property_country = cities2.country_en)";
 
-    $key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count-".date("Y-W");
-    $cache_key = "topcitieshw_".md5($key_var);
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain--$continent_en-$top_count";
 
-    if ( false === ( $results = get_transient( $cache_key ) ) )
-    {
-      // It wasn't cached, so regenerate the data and save the transient
-      $results = $this->db->get_results($query);
-      set_transient( $cache_key, $results, 604800);
-    }
+    $results = $this->get_db_results_with_cached("topcitieshw_", $query, $generic_key_var, "", FALSE);
+
     return $results;
   }
 
 
-  function get_hb_top_cities_of_continent($booker_country_code = "", $currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
+  function get_hb_top_cities_of_continent($currency_code = "EUR", $lang = "en", $continent_en = "", $include_test_bookings = false,$domain = "", $top_count = 4)
   {
     $lang          = $this->db->escape($lang);
     $currency_code = $this->db->escape($currency_code);
-
-    $booker_country = "";
-    if(!empty($booker_country_code))
-    {
-      $booker_country_code = $this->db->escape($booker_country_code);
-
-      $query = "SELECT country_en FROM cities2 WHERE LOWER(country_iso_code_2) LIKE LOWER('$booker_country_code') GROUP BY country_iso_code_2 LIMIT 1";
-      $booker_country_code = $this->db->get_var($query);
-
-      if(!empty($booker_country_code))
-      {
-        $booker_country = "AND LOWER(home_country) LIKE LOWER('$booker_country_code') ";
-      }
-    }
 
     if(!empty($domain))
     {
@@ -684,19 +589,19 @@ class Db_hostels
                      property_country,
                      translated_city,
                      translated_country,
-                		 top_cities_translated.city_hb_id,
-                   	 translated_continent,
+                     top_cities_translated.city_hb_id,
+                     translated_continent,
                      continent_en,
                      city_booking_count,
-        							ROUND(
+                      ROUND(
                          MIN(bed_price)
                          * (SELECT hb_equivalent FROM currencies WHERE currency_code = '$currency_code' LIMIT 1)
                          / (SELECT hb_equivalent FROM currencies WHERE currency_code = 'EUR' LIMIT 1)
                          ,2
                        ) as converted_city_min_price,
                        '$currency_code' as converted_currency
-    					FROM
-    					(
+              FROM
+              (
                SELECT API_booked,
                        site_domain_id, site_domain,
                        city_en_name as property_city,
@@ -743,7 +648,6 @@ class Db_hostels
                   $include_test_bookings
                   $domain
                   $continent_en
-                  $booker_country
                 GROUP BY hb_hostel.city_hb_id
                 ORDER BY city_booking_count DESC
                 LIMIT $top_count
@@ -755,17 +659,10 @@ class Db_hostels
               WHERE  hb_hostel_price.currency_code LIKE'EUR'
               GROUP BY top_cities_translated.city_hb_id";
 
-    $key_var = "$currency_code-$lang-$include_test_bookings-$domain-$booker_country-$continent_en-$top_count-".date("Y-W");
-    //Added _fixed_ to force transient update on all site after a query fix
-    $cache_key = "topcitieshb_".md5($key_var);
+    $generic_key_var = "$currency_code-$lang-$include_test_bookings-$domain--$continent_en-$top_count";
 
-    $results = array();
-    if ( false === ( $results = get_transient( $cache_key ) ) )
-    {
-      // It wasn't cached, so regenerate the data and save the transient
-      $results = $this->db->get_results($query);
-      set_transient( $cache_key, $results, 604800);
-    }
+    $results = $this->get_db_results_with_cached("topcitieshb_", $query, $generic_key_var, "", FALSE);
+
     return $results;
   }
 
@@ -775,24 +672,14 @@ class Db_hostels
     $topcities = array();
     if(strcasecmp($API,"hb") == 0)
     {
-      $topcities = $this->get_hb_top_cities_of_continent($user_country_code, $currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
-      if(empty($topcities))
-      {
-        $topcities = $this->get_hb_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
-      }
-      return $topcities;
+      $topcities = $this->get_hb_top_cities_of_continent($currency_code, $lang, $continent_en, $include_test_bookings,$domain, $top_count);
     }
     else
     {
-      $topcities = $this->get_hw_top_cities_of_continent($user_country_code, $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
-      if(empty($topcities))
-      {
-        $topcities = $this->get_hw_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
-      }
-      return $topcities;
+      $topcities = $this->get_hw_top_cities_of_continent($currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
     }
 
-    return $this->get_hw_top_cities_of_continent("", $currency_code, $lang, $continent_en, $include_test_bookings, $domain, $top_count);
+    return $topcities;
   }
   /**
    * HW Api handle the following langages:

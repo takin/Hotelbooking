@@ -280,31 +280,10 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 		</div>
 	</div>
 	<div id="wrapper" class="container_16 group">
-	<?php /*?><div id="top-area">
-    <div id="top-login-form" class="clearfix" style="display: none;">
-        <form method="post" action="<?php echo get_option('aj_api_url'). get_ci_link('connect');?>">
-          <div>
-            <label><?php _e('Courriel :','auberge');?></label>
-            <input class="text" type="text" name="login" value="" />
-            <label><?php _e('Mot de passe :','auberge');?></label>
-            <input class="text pwd" type="password" name="password" value=""/>
-            <input type="checkbox" class="checkbox" name="remember" value="true"/>
-            <label><?php _e('Rester connecté','auberge');?></label>
-            <input type="submit" id="login-connect" name="connection" value="<?php _e('Connexion','auberge');?>"/>
-            <input id="login-submit" type="hidden" name="ref_url" value="" />
-          </div>
-
-        </form>
-        <a class="forgot" href="<?php echo get_option('aj_api_url'). get_ci_link('user_forgot_pass');?>"><?php _e('Mot de passe oublié','auberge');?></a>
-
-    </div>
-  </div><?php */?>
 
 	<header class="grid_16 header_v2">
 			<a class="logo" title="<?php _e('Plus de 30,000 Auberges de Jeunesse disponible en ligne','auberge');?>" href="<?php echo $apiurl; ?>"><img src="<?php echo $apiurl; ?>/images/<?php echo $csspath; ?>/logo.png" class="logo" alt="<?php echo get_option('aj_api_name');?>"></a>
-			<?php /*?><ul class="site-meta">
-				<li><a href="">Se connecter</a></li>
-			</ul><?php */?>
+
 			<div class="bubble_blue_position<?php if(get_option('aj_api_site_data') == 'hb'){echo ' hb_bubble';}?>">
 				<div class="bubble_blue">
 					<span class="bubble_blue_inner"><?php _e('Free SMS','auberge');?></span>
@@ -314,7 +293,11 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 			<div class="bubble_blue_right_position<?php if(get_option('aj_api_site_data') == 'hb'){echo ' hb-bubble';}?>">
 				<div class="bubble_blue_right">
 					<span class="bubble_blue_right_inner"><?php if(get_option('aj_api_site_data') == 'hb'){?>
+                                            <?php if(get_option('aj_hb_charge_booking_fees') != 'true'): ?>
 						<?php _e('No Booking fees','auberge');?>
+                                            <?php else: ?>
+                                            <?php _e('Check your reservation on your mobile','auberge');?>
+                                            <?php endif; ?>
 						<?php }else{?>
 						<?php _e('Check your reservation on your mobile','auberge');?>
 						<?php }?></span>
@@ -353,31 +336,6 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 				<li class="right"><a class="chat_support" href="http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue" target="OnlineChatSoftware"  onClick="this.newWindow = window.open('http://service.velaro.com/visitor/requestchat.aspx?siteid=7548&showwhen=inqueue', 'OnlineChatSoftware', 'toolbar=no,location=no,directories=no,menubar=no,status=no,scrollbars=no,resizable=yes,replace=no');this.newWindow.focus();this.newWindow.opener=window;return false;"><img alt="OnlineChatSoftware" src="http://service.velaro.com/visitor/check.aspx?siteid=7548&showwhen=inqueue" border="0"></a></li>
 				<?php }
 				           }?>
-
-
-				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li>
-
-
-				<li class="shareit">
-					<a style="padding:0px; line-height:0; height:auto;" id="fbLike" fb:like:locale="<?php echo str_replace('-','_',get_option('aj_lang_code')); ?>" fb:like:width="120" class="addthis_button_facebook_like" fb:like:href="<?php echo $apiurl; ?>"></a>
-
-				</li>
-
-				<?php if (get_option('aj_api_ascii')==""){?>
-				<li class="shareit">
-					<!-- Place this tag where you want the +1 button to render -->
-					<g:plusone size="medium" href="<?php echo $apiurl; ?>"></g:plusone>
-
-					<!-- Place this render call where appropriate -->
-					<script type="text/javascript">
-						(function() {
-							var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-							po.src = 'https://apis.google.com/js/plusone.js';
-							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-						})();
-					</script>
-				</li>
-				<?php }?><?php */?>
 
 			</ul>
 		</nav>

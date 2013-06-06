@@ -72,3 +72,38 @@ function hidePropertyRoomsAvail(propertyNumber) {
 	$("#show_city_avail_" + propertyNumber).show();
 	$("#hide_city_avail_" + propertyNumber + ', #city_avail_' + propertyNumber).hide();
 }
+
+function showPropertyRatings() {
+	$('.hostel_list .rating .yellow-bg').live('mouseover', function() {
+		var obj = $(this);
+		var number = obj.attr('rel');
+
+		$('#prop_tab_box_' + number).find('.displaySaveProperty').hide();
+		$('#prop_tab_box_' + number).find('.amenities').hide();
+		$('#prop_tab_box_' + number).find('.city_hostel_landmarks').hide();
+		$('#prop_tab_box_' + number).find('.city_hostel_districts').hide();
+		$('#prop_tab_box_' + number).find('.amenities_included').hide();
+		$('#prop_tab_box_' + number).find('.displayRemoveFromSearch').hide();
+
+		$('#property_ratings_' + number).show();
+	});
+
+	$('.hostel_list .rating .yellow-bg').live('mouseout', function() {
+		var obj = $(this);
+		var number = obj.attr('rel');
+
+		$('#prop_tab_box_' + number).find('.displaySaveProperty').show();
+		$('#prop_tab_box_' + number).find('.amenities').show();
+		$('#prop_tab_box_' + number).find('.city_hostel_landmarks').show();
+		$('#prop_tab_box_' + number).find('.city_hostel_districts').show();
+		$('#prop_tab_box_' + number).find('.amenities_included').show();
+		$('#prop_tab_box_' + number).find('.displayRemoveFromSearch').show();
+
+		$('#property_ratings_' + obj.attr('rel')).hide();
+	});
+
+}
+
+$(document).ready(function() {
+	showPropertyRatings();
+});

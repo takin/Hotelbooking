@@ -469,6 +469,17 @@ class Hb_engine {
                     log_message("debug", "search mode = 1: " . print_r($data["property_list"], true));
 
                     foreach ($data['property_list'] as $property_id => $property) {
+                        $propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
+                        $this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
+
+                        $data['property_list'][$property_id]["propertyInfo"] = !empty($propInfoData) && !empty($propInfoData['RESPONSE'])
+                            ? array(
+                                'BIGIMAGES'            => $propInfoData['RESPONSE']['BIGIMAGES'],
+                                'IMPORTANTINFORMATION' => $propInfoData['RESPONSE']['IMPORTANTINFORMATION']
+                                //'IMPORTANTINFORMATION' => domain_name_replace($propInfoData['RESPONSE']['IMPORTANTINFORMATION'])
+                            )
+                            : array();
+
                         $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link(
                                 $property["type"], $property["name"], $property["id"], $this->CI->site_lang);
                         $data['amenities'][(int) $property["id"]] = $this->CI->Db_hb_hostel->get_hostel_facilities($property["id"]);
@@ -646,7 +657,7 @@ class Hb_engine {
             $json_data["property_list"][$i]["city_name"] = $data["city_info"]->city_lname_en; // set the city name
             // -------Translate the propertyType----------------------------------//
             $this->CI->load->model('Db_term_translate');
-            $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"], $this->CI->site_lang);
+            $json_data["property_list"][$i]['propertyTypeTranslate'] = (string)$this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"], $this->CI->site_lang);
             //  $json_data["property_list"][$i]['propertyTypeTranslate']       = $propertyType;
 
             $json_data["property_list"][$i]['propertyType'] = $json_data["property_list"][$i]["propertyType"];

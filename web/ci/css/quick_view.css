@@ -8,7 +8,7 @@ body {
 	margin:0px;
 }
 .main-cotainer {
-	width:844px;
+	width: 100%;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -69,10 +69,8 @@ body {
 	width: 100%;
 }
 .bottom-feature-data {
-	background-color: #fff;
 	display: inline-block;
-	padding: 10px 10px;
-	width: 95%;
+	width: 100%;
 }
 .bottom-feature-data p {
 	border-bottom: 1px dashed #AAAAAA;
@@ -104,11 +102,12 @@ body {
 	float: left;
 	width: 100%;
 }
-.bottom-feature-data .list-left .check{
+
+.list-left .check{
 	float: left;
-    padding-bottom: 10px;
-    width: 42%;
-	padding-left: 20px;
+	padding-bottom: 8px;
+	margin-right: 10px;
+	padding-left: 18px;
 	background: url("../images/V2/icon-check-green.png") no-repeat scroll 0 4px transparent;
 }
 .bottom-feature-data .list-right {
@@ -278,11 +277,12 @@ span.free-breakfast {
 .bottom-feature-data1 {
 	background-color: #fff;
     display: inline-block;
-    max-height: 400px;
+ /*   max-height: 400px;
     min-height: 100px;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden;*/
     padding: 10px 17px;
+    padding-right: 0;
     width: 96%;
 }
 .group {
@@ -295,6 +295,10 @@ span.free-breakfast {
     margin-top:1em;
     padding: 0;
 }
+#hostel_info_direction .content_block {
+	width: 100%;
+}
+
 .content_block {
    position: relative;
 	display: inline-block;
@@ -312,6 +316,7 @@ h2 {
     float: left;
     margin: 7px 0 8px 9px;
     padding: 10px 10px 10px 40px;
+    font-size: 1.5em;
 }
 .readmore {
     background-image: url("../images/V2/icon_tab_reviews.png");
@@ -433,7 +438,7 @@ background-color:#fff;
 .amenities{ margin-left:126px;}
 .hb_frame .amenities{ margin-left:126px;}
 .amenities.no-indent{margin-left:0px;}
-span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:5px; height:30px; line-height:30px; margin-right:15px; margin-top:5px;}
+span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:1px !important; height:30px; line-height:30px; margin-right:15px; margin-top:1px !important;}
 /*span.icon_facility span{display: block; float: left;padding: 8px 0 8px 0px;}*/
 span.icon_facility_26{background:url(../images/V2/icon-coffee.png) no-repeat top left; padding-left:28px;}
 .lang-de-DE span.icon_facility_extra3 span{background: url("../images/V2/freebreakfast_de.png") no-repeat scroll left center transparent;display: block; float:right;padding: 0px 0 0px 64px;}
@@ -495,7 +500,7 @@ span.rating-value{font-size:0.9em;font-weight:bold;display:block; position:absol
 
 
 a.reserve {
-    border-bottom-right-radius: 5px;
+    border-radius: 7px;
     bottom: 0;
     font-size: 1em;
     padding: 12px 15px;
@@ -513,6 +518,7 @@ a.reserve {
     padding: 7px 10px;
     text-shadow: 1px 1px 1px #416305;
 }
+.hostel_mapView_landmarks b,
 .hostel_mapView_districts b{
 	display: block;
     padding: 6px 0;

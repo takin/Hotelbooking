@@ -1,83 +1,50 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}">
-	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber" name="hostel_propertyNumber" />
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected');" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original');">
+	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
-	<nav class="city_tabs group" id="city_tabs_{{propertyNumber}}">
-		<div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBox">
-			{{^isRatingsEmpty}}    
-			{{#Ratings}}
-			<div class="propertyRatingsContainer">
-				<h3><?php echo _("évaluation moyenne") . " - " ._("As rated by bookers like you") . ": ";?> {{overall_rating}} %</h3>
-
-				<?php
-				$ratingCategories = array(
-					"atmosphere", "staff", "location", "cleanliness",
-					"facilities", "safety", "value");
-				?>
-				<?php foreach ($ratingCategories as $ratingCategory): ?>
-					{{#<?php echo $ratingCategory; ?>}}
-					<div class="bar-back group">
-						<div class="bar-top darkYellow" style="width:{{<?php echo $ratingCategory; ?>}}%"></div>
-						<?php $imgSrcUrl = base_url() . "images/rating-" . $ratingCategory . ".png"; ?>
-						<img alt="" src="<?php echo $imgSrcUrl; ?>"/>
-						<span class="rating-cat"><?php echo _(ucfirst($ratingCategory)); ?></span>
-						<span class="rating-value">{{<?php echo $ratingCategory; ?>}} %</span>
-					</div>
-
-					{{/<?php echo $ratingCategory; ?>}}
-				<?php endforeach; ?>
-			</div>
-			{{/Ratings}}
-			{{/isRatingsEmpty}}
-		</div>
-	</nav>
+	{{#Geo}}
+		<input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
+		<input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
+	{{/Geo}}
 
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-					<div class="picture_number" id="{{propertyNumber}}">0</div>
+					<div id="{{propertyNumber}}" class="picture_number">0</div>
 					<a href="{{property_page_url}}" style="position:relative;">
 						{{#PropertyImages}}
 						<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
 						{{/PropertyImages}}
+
 						<?php $displayQuickPreview = $this->config->item('displayQuickPreview');
 						if ($displayQuickPreview == 1) { ?>
 							<div class="quick_view_bg" id="quick_view_bg_{{propertyNumber}}" style="display:none;">
 								<div id="quick_view_bg_link_{{propertyNumber}}" class="display_preview quick_view_bg_link" href="#quick_preview_div" value="{{propertyNumber}}"><?php echo _('Quick View'); ?></div>
 							</div>
 						<?php } ?>
+
 						<input type="hidden" name="propertycur{{propertyNumber}}" id="propertycur_{{propertyNumber}}" value="{{currency_code}}"/>
 					</a>
+
 					<span class="info_type">{{propertyType}}</span>
 				</div>
 
-				<div class="info_indent">
-					<h2><a href="{{property_page_url}}" style="vertical-align: middle">{{propertyName}}</a></h2>
+				<div class="info_indent min-nights">
+					<h2>
+						<img id ="property_marker_number_{{propertyNumber}}" class="property_marker_number" src="<?php echo site_url(); ?>images/map_markers/unselected/marker_1.png" alt="" onmouseover="GoogleMap.prototype.centerMapMarker();" />
+						<a href="{{property_page_url}}" style="vertical-align: middle">
+							<span id="hostel_title_{{propertyNumber}}" class="hostel_title">{{propertyName}}</span>
+						</a>
 
-					<div style="color: gray; font-size:0.7em; vertical-align: middle">({{propertyTypeTranslate}})</div>
+						<br /><span style="color: gray; font-size:0.7em; vertical-align: middle;">({{propertyTypeTranslate}})</span>
+					</h2>
 
 					<p class="address">{{address1}} - {{city_name}}</p>
 
 					{{#isMinNightNeeded}}
-					<p class="minnight">{{minNightsMessage}}</p>
+						<p class="minnight">{{minNightsMessage}}</p>
 					{{/isMinNightNeeded}}
-				</div>
-
-				<div class="amenities group">
-					{{#amenities}}
-						{{#to_display}}
-						<span class="icon_facility icon_facility_{{facility_id}} group"><span>{{description}}</span></span>
-						{{/to_display}}
-					{{/amenities}}
-					{{#landmarks}}
-						{{#to_display}}
-						<span class="icon_facility icon_landmark group"><span>{{landmark_name}}</span></span>
-						{{/to_display}}
-					{{/landmarks}}
-					{{#safety80}}
-						<span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
-					{{/safety80}}
 				</div>
 
 				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
@@ -94,7 +61,25 @@
 					</p>
 				</div>
 
-				<div class="info_indent">
+				<div class="amenities group" style="margin-left:120px;">
+					{{#amenities}}
+						{{#to_display}}
+							<span class="icon_facility icon_facility_{{facility_id}} group">
+								<span>{{description}}</span>
+							</span>
+						{{/to_display}}
+					{{/amenities}}
+					{{#landmarks}}
+						{{#to_display}}
+							<span class="icon_facility icon_landmark group"><span>{{landmark_name}}</span></span>
+						{{/to_display}}
+					{{/landmarks}}
+					{{#safety80}}
+						<span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
+					{{/safety80}}
+				</div>
+
+				<div class="info_indent displaySaveProperty">
 					<?php if ($this->config->item('displaySaveProperty')) { ?>
 					<p style="width: 250px; float: left">
 						<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
@@ -115,126 +100,109 @@
 <?php } ?>
 				</div>
 
-				<div class="prop_more_info_wrap amenities_included" id="prop_more_info_wrap_{{propertyNumber}}">
-					<h2 class="margbot10"><?php echo _("Commodité"); ?></h2>
-					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
+				<div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBoxd" style="display: none">
+					{{^isRatingsEmpty}}
+						{{#Ratings}}
+							<div class="propertyRatingsContainer">
+								<!--<h3>
+									<?php echo _("évaluation moyenne") . " - " . _("As rated by bookers like you") . ": "; ?>
+									{{overall_rating}} %
+								</h3> -->
 
-					<div class="group">
-						<ul class="float-list green-li increase1 translated">
-							{{#amenities}}
-							<li>{{description}}</li>
-							{{/amenities}}
-						</ul>
-					</div>
-					{{#extras}}
-					<h2 class="margbot10" style="border-bottom: 1px dashed #AAAAAA;padding-bottom: 3px;"><?php echo _("What's Included"); ?></h2>
-					<a href="#" rel="{{propertyNumber}}" class="prop_more_info_close">[<?php echo _('close'); ?>]</a>
+								<?php
+								$ratingCategories = array(
+									"atmosphere", "staff", "location", "cleanliness",
+									"facilities", "safety", "value"
+								); ?>
 
-					<div class="group">
-						<ul class="float-list green-li increase1 translated">
-							{{#extra}}
-							<li>{{.}} <?php echo ':<strong>' . _("Free") . '</strong>'; ?></li>
-							{{/extra}}
-						</ul>
-					</div>
-					{{/extras}}
+								<?php foreach ($ratingCategories as $ratingCategory): ?>
+									{{#<?php echo $ratingCategory; ?>}}
+									<div class="bar-back group">
+										<div class="bar-top darkYellow" style="width:{{<?php echo $ratingCategory; ?>}}%"></div>
+
+										<?php $imgSrcUrl = base_url() . "images/rating-" . $ratingCategory . ".png"; ?>
+										<img alt="" src="<?php echo $imgSrcUrl; ?>"/>
+
+										<span class="rating-cat"><?php echo _(ucfirst($ratingCategory)); ?></span>
+										<span class="rating-value">{{<?php echo $ratingCategory; ?>}} %</span>
+									</div>
+									{{/<?php echo $ratingCategory; ?>}}
+								<?php endforeach; ?>
+							</div>
+						{{/Ratings}}
+					{{/isRatingsEmpty}}
 				</div>
 			</div>
 
 			<?php if ($this->config->item('displayRemoveFromSearch')) { ?>
-				<a href="javascript:void(0);" class="remove_from_search_trigger" id="remove_from_search_{{propertyNumber}}" onclick="$('.remove_from_search_options').hide(); $('#remove_from_search_options_{{propertyNumber}}').toggle();">
-					<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
-				</a>
+				<div class="displayRemoveFromSearch">
+					<a href="javascript:void(0);" class="remove_from_search_trigger" id="remove_from_search_{{propertyNumber}}" onclick="$('.remove_from_search_options').hide(); $('#remove_from_search_options_{{propertyNumber}}').toggle();">
+						<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
+					</a>
 
-				<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">
-					<ul class="remove_from_search_option">
-						<li class="remove_from_search_option">
-							<a href="javascript:void(0);" class="remove_from_search remove_property_permanentely" id="remove_property_permanentely_{{propertyNumber}}">
-								<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" class="remove_from_search_icon" />
-								<?php echo _('Remove from this search'); ?>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" class="remove_from_search remove_property_one_day" id="remove_property_one_day_{{propertyNumber}}">
-								<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
-								<?php echo _('Remove from any searches for next 24 hours'); ?>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:void(0);" class="remove_from_search remove_property_one_week" id="remove_property_one_week_{{propertyNumber}}">
-								<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
-								<?php echo _('Remove from any searches for 1 week'); ?>
-							</a>
-						</li>
-					</ul>
+					<div class="remove_from_search_options" id="remove_from_search_options_{{propertyNumber}}">
+						<ul class="remove_from_search_option">
+							<li class="remove_from_search_option">
+								<a href="javascript:void(0);" class="remove_from_search remove_property_permanentely" id="remove_property_permanentely_{{propertyNumber}}">
+									<img src="<?php echo site_url(); ?>/images/remove_permanentely.png" alt="remove" class="remove_from_search_icon" />
+									<?php echo _('Remove from this search'); ?>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="remove_from_search remove_property_one_day" id="remove_property_one_day_{{propertyNumber}}">
+									<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
+									<?php echo _('Remove from any searches for next 24 hours'); ?>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="remove_from_search remove_property_one_week" id="remove_property_one_week_{{propertyNumber}}">
+									<img src="<?php echo site_url(); ?>/images/remove_temporarly.png" alt="remove" />
+									<?php echo _('Remove from any searches for 1 week'); ?>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			<?php } ?>
 
 			<div class="rating">
 				{{#overall_rating}}
-				<ul class="box_round rating">
-				{{#isRatingsEmpty}}
-					<li data-propertyNumber="{{propertyNumber}}" class="first last noRatings">
-				{{/isRatingsEmpty}}
-
-				{{^isRatingsEmpty}}
-					<li data-propertyNumber="{{propertyNumber}}" class="first last">
-				{{/isRatingsEmpty}}
-
+				<div style="text-align: left; margin-bottom: 20px;">
 					{{#display_alternate_rating}}
 						{{#ratings_safety_safe}}
-						<span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_safety}}%</strong> <?php echo _('Safety'); ?></span>
 							<strong class="txt-mid green"><?php echo _('Safe'); ?></strong>
-							<strong>{{ratings_safety}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_safe}}
 						{{#ratings_safety_very_safe}}
-						<span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_safety}}%</strong> <?php echo _('Safety'); ?></span>
 							<strong class="txt-mid green"><?php echo _('Very safe'); ?></strong>
-							<strong>{{ratings_safety}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_very_safe}}
 						{{#ratings_safety_under}}
-						<span>
+							<span><strong>{{ratings_safety}}%</strong> <?php echo _('Safety'); ?></span>
 							<strong class="txt-mid green"></strong>
-							<strong>{{ratings_safety}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_under}}
 						{{#ratings_location_good}}
-						<span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_location}}%</strong> <?php echo _('Location'); ?></span>
 							<strong class="txt-mid green"><?php echo _('Good location'); ?></strong>
-							<strong>{{ratings_location}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_good}}
 						{{#ratings_location_great}}
-						<span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_location}}%</strong> <?php echo _('Location'); ?></span>
 							<strong class="txt-mid green"><?php echo _('Great location'); ?></strong>
-							<strong>{{ratings_location}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_great}}
 						{{#ratings_location_under}}
-						<span>
+							<span><strong>{{ratings_location}}%</strong><?php echo _('Location'); ?></span>
 							<strong class="txt-mid green"></strong>
-							<strong>{{ratings_location}}%</strong>
-						</span>
-						<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_under}}
 						{{/display_alternate_rating}}
 					{{^display_alternate_rating}}
 
 						<span>
-							<strong class="txt-mid green">{{rating}}</strong>
 							<strong>{{overall_rating}} %</strong>
+							<span class="averageRatingCaption"><?php echo _("évaluation moyenne"); ?></span>
+							<strong class="txt-mid green">{{rating}}</strong>
 						</span>
-						<span class="averageRatingCaption"><?php echo _("évaluation moyenne"); ?></span>
 					{{/display_alternate_rating}}
-					</li>
-				</ul>
+				</div>
 				{{/overall_rating}}
 
 				<div class="price group">
@@ -282,7 +250,7 @@
 			</div>
 
 			<div class="prices_toggle">
-				<a id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); return false;'>
+				<a style="display: block; border-bottom: 5px solid #3087C9" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); return false;'>
 					<img src="<?php echo site_url('/images/V2/icon_sort_down.png') ?>" />
 					<?php echo _('Show prices'); ?>
 				</a>

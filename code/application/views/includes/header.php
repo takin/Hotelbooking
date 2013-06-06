@@ -54,7 +54,7 @@
 
         if (!empty($print) && $print == 'pdf') {
     	    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css?v='.time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v=' . time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
 	    $this->carabiner->css('pdf.css');
@@ -65,7 +65,7 @@
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css?v='.time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v=' . time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
             $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
             
@@ -998,7 +998,7 @@ $(document).ready(function()
 		</div>
 	</div>
 </div>
-<div class="wrapper container_16 group">
+<div id="main_container" class="wrapper container_16 group">
 <?php if(isset($google_map_enable)&&($google_map_enable===true)): ?>
 <img src="<?php echo site_url("images/map-marker.png"); ?>" style="display:none" />
 <img src="<?php echo site_url("images/map-marker-shadow.png"); ?>" style="display:none" />
@@ -1007,9 +1007,7 @@ $(document).ready(function()
 
 		<header class="grid_16 header_v2">
 			<a class="logo" title="<?php echo _("Plus de 30,000 Auberges de Jeunesse disponible en ligne");?>" href="<?php echo site_url(); ?>"><img src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" class="logo" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"></a>
-			<?php /*?><ul class="site-meta">
-				<li><a href="">Se connecter</a></li>
-			</ul><?php */?>
+
 			<div class="bubble_blue_position<?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){echo ' hb_bubble';}?>">
 				<div class="bubble_blue">
 					<span class="bubble_blue_inner"><?php echo _('Free SMS')?></span>
@@ -1018,7 +1016,17 @@ $(document).ready(function()
 
 			<div class="bubble_blue_right_position<?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){echo ' hb-bubble';}?>">
 				<div class="bubble_blue_right">
-					<span class="bubble_blue_right_inner"><?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){?><?php echo _('No Booking fees')?><?php }else{?><?php echo _('Book on your mobile')?><?php }?></span>
+					<span class="bubble_blue_right_inner">
+                                            <?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){?>
+                                            <?php if($this->wordpress->get_option('aj_hb_charge_booking_fees') == 'true'): ?>
+                                            <?php echo _('Book on your mobile')?>
+                                            <?php else: ?>
+                                            <?php echo _('No Booking fees')?>
+                                            <?php endif; ?>
+                                            <?php }else{?>
+                                            <?php echo _('Book on your mobile')?>
+                                            <?php }?>
+                                        </span>
 				</div>
 			</div>
 
@@ -1056,20 +1064,3 @@ $(document).ready(function()
 		</nav>
 
 		<div id="warning" class="grid_16"></div>
-  <?php /*?><div id="top-area">
-    <div id="top-login-form" class="clearfix" style="display: none;">
-      <form method="post" action="<?php echo site_url($this->Db_links->get_link("connect"));?>">
-      <div>
-    		<label><?php echo _("Courriel:");?></label>
-        <input class="text" type="text" name="login" value="" />
-        <label><?php echo _("Mot de passe:");?></label>
-        <input class="text pwd" type="password" name="password" value=""/>
-        <input type="checkbox" class="checkbox" name="remember" value="true"/>
-        <label><?php echo _("Rester connecté");?></label>
-        <input type="submit" id="login-connect" name="connection" value="<?php echo _("Connexion");?>"/>
-        <input id="login-submit" type="hidden" name="ref_url" value="<?php echo current_url(); ?>" />
-      </div>
-      </form>
-      <a class="forgot" href="<?php echo site_url($this->Db_links->get_link("user_forgot_pass"));?>"><?php echo _("Mot de passe oublié");?></a>
-    </div>
-	</div><?php */?>

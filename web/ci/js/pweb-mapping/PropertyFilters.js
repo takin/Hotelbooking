@@ -1,4 +1,3 @@
-
 //PWeb filter app
 function PWebFilterApp()
 {
@@ -395,17 +394,18 @@ PWebFilterApp.prototype.update = function() {
 
 		this.$data_div.html(output);
 
-		//Init jquery UI tabs
-		$('ul.ui-tabs-nav').tabs();
+//                //Init jquery UI tabs
+                  $('ul.ui-hostels_tabs-nav').tabs();
+//
 
-		$('#applied_filter_hosting_property').hide();
-		$('#cb_group_type_filter li').find(':input').each(function() {
-                    var type_val = $(this).is(':checked');
-                    var type_input = $(this).attr('id');
+        $('#applied_filter_hosting_property').hide();
+        $('#cb_group_type_filter li').find(':input').each(function() {
+            var type_val = $(this).is(':checked');
+            var type_input = $(this).attr('id');
                     if(type_val === false){
-                        $('#applied_filter_hosting_property').show();
-                    }
-                });
+                $('#applied_filter_hosting_property').show();
+            }
+        });
 		
 		//Map tab events
 		that.tabs_map_binded = new Array();
@@ -420,6 +420,22 @@ PWebFilterApp.prototype.update = function() {
 			index = index +1;
 			$(this).html(index);
 		});
+                
+                // change the marker that appears between the property image and the property name 
+                 // for now always show markers from 1 to 20
+                 var tempIndex = 0;
+                $(".property_marker_number").each(function(index, value) {
+                   
+                    if ( tempIndex === 20 ){
+                        tempIndex = 0;
+                    }
+			tempIndex = tempIndex +1;
+                        // get image src
+                    	var imageSrc = $(this).attr('src');
+//                      replace it with image index
+                        imageSrc = imageSrc.replace("marker_1.png", "marker_"+tempIndex+".png"); 
+                        $(this).attr("src", imageSrc);    
+                });
 			
 	}
 	
@@ -1221,10 +1237,16 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 			that.sort_hits(rowname, jOrder.asc, true);
 		}
 
+                // refresh map markers after sorting
+                 that.updateMarkers('city');
+
 		return false;
 	});
 };
-
+PWebFilterApp.prototype.updateMarkers = function(map_slug)
+{
+    this.pweb_maps[map_slug].reDrawMarkers();
+};
 PWebFilterApp.prototype.refresh = function(more_results) {
 	more_results   = more_results || 0;
 	
@@ -1233,11 +1255,11 @@ PWebFilterApp.prototype.refresh = function(more_results) {
 };
 PWebFilterApp.prototype.toggleMap = function(map_slug) {
 	this.pweb_maps[map_slug].toggle();
-	
-	if(this.pweb_maps[map_slug].isMapEnable() === true)
-	{
-		this.pweb_maps[map_slug].updateMarkers(this.jtable_hits);
-	}
+
+    //	if(this.pweb_maps[map_slug].isMapEnable() === true)
+    //	{
+    //		this.pweb_maps[map_slug].updateMarkers(this.jtable_hits);
+    //	}
 };
 
 PWebFilterApp.prototype.setup = function(data) 
@@ -1257,13 +1279,28 @@ PWebFilterApp.prototype.setup = function(data)
 		}
 	}
 
+	// right about here load the QuickView
+	if (typeof(data.property_list) != 'undefined') {
+		if (typeof(data.property_list) == 'object') {
+			for (var i in data.property_list) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+
+		if (data.property_list.length) {
+			for (var i = 0; i < data.property_list.length; i++) {
+				QuickView.addProperty(data.property_list[i]);
+			}
+		}
+	}
+
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
 	
 
-	this.addFilterMap('city', 'city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
-        this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+    this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 
 	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
@@ -1315,13 +1352,14 @@ PWebFilterApp.prototype.setup = function(data)
         });
     });
 
-    $('#city_map_filter').click(function() {
+    $('.city_map_filter').click(function() {
+       
         // click on filter by Districts and Landmarks will trigger fancy box 
         // on div map_filter_popup
-        $('#map_filter_popup').trigger('click');
+        $('#map_filter_popup').trigger('click',[this.id]);
     });
 
-    $('#map_filter_popup').click(function() {
+    $('#map_filter_popup').click(function(event, link_id) {
         // for some reason div reloads when ckicked inside it
         if ($('#map_filter_popup').is(":visible")) {
             return false;
@@ -1331,14 +1369,28 @@ PWebFilterApp.prototype.setup = function(data)
             if ($('#filter_map_leftSide').length < 1) {
                 $('#filter_map_rightSide_container').removeClass("tabs_exist");
                 $('#filter_map_rightSide_container').addClass("no_tabs");
-                // make green button wide
-                $('#filter_map_showProperties').css("width", "880px");
+
             }
-            else{
+            else {
                 $('#filter_map_rightSide_container').addClass("tabs_exist");
                 $('#filter_map_rightSide_container').removeClass("no_tabs");
-                // make green button wide
-                $('#filter_map_showProperties').css("width", "400px");
+   
+                $("#ul_map_filter_tabs").tabs('select', -1);
+                $(".ui-tabs-selected").removeClass("ui-state-active").removeClass("ui-tabs-selected");
+                // trigger tab according to the link that fire the fancybox
+                if (link_id === "city_map_filter_districts") {
+                    // trigger the district tab
+                    $("#ul_map_filter_tabs").tabs('select', 0);
+                    $("#filter_content_districts_popup").show();
+                    $("#filter_content_landmarks_popup").hide();
+                }
+                else {
+                    // trigger the landmark tab
+                    $("#ul_map_filter_tabs").tabs('select', 1);
+                    $("#filter_content_districts_popup").hide();
+                    $("#filter_content_landmarks_popup").show();
+                }
+
             }
             
             $("#map_filter_popup").fancybox({
@@ -1352,12 +1404,14 @@ PWebFilterApp.prototype.setup = function(data)
 //                },
                 beforeShow: function() {
                     pweb_filter.toggleMap('cityFilterMap');
+                    pweb_filter.toggleMap('city');
                 },
 //                afterLoad  :   function() {
 //                   
 //                },
                 beforeClose: function() {
                     pweb_filter.toggleMap('cityFilterMap');
+                    pweb_filter.toggleMap('city');
                 }
             });//fancybox
             var filterByDistricts = false;
@@ -1381,23 +1435,36 @@ PWebFilterApp.prototype.setup = function(data)
             }
         }
     });
-    
-    $('#city_map_show_2').click(function()
-    {
+    // check if this city has latitude and longitude to display the right side map
+    if (  $("#city_geo_lat").val() !== "" &&  $("#city_geo_lng").val() !== ""){
         pweb_filter.toggleMap('city');
-        $(this).hide();
-        $('#map_button_side').hide();
-        $('#city_map_hide').show();
-        return false;
-    });
-    $('#city_map_hide').click(function()
-    {
-        pweb_filter.toggleMap('city');
-        $(this).hide();
-        $('#city_map_show_2').show();
-        $('#map_button_side').show();
-        return false;
-    });
+    }
+     
+        
+//	$('#city_map_show_1').click(function()
+//	{
+//		pweb_filter.toggleMap('city');
+//		$('#map_button_side').hide();
+//		$('#city_map_show_2').hide();
+//		$('#city_map_hide').show();
+//		return false;
+//	});
+//	$('#city_map_show_2').click(function()
+//	{
+//		pweb_filter.toggleMap('city');
+//		$(this).hide();
+//		$('#map_button_side').hide();
+//		$('#city_map_hide').show();
+//		return false;
+//	});
+//	$('#city_map_hide').click(function()
+//	{
+//		pweb_filter.toggleMap('city');
+//		$(this).hide();
+//		$('#city_map_show_2').show();
+//		$('#map_button_side').show();
+//		return false;
+//	});
 	
 	$('#reset_filters').click(function()
 			{
@@ -1589,7 +1656,7 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
   
   $('#property_list').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');  
   $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');  
-  $('#current_page').val(page_num);  
+  $('#current_page').val(page_num).change();  
 };
 
 
@@ -1615,7 +1682,20 @@ PWebFilterMap.prototype.reDraw = function ()
 		this.gmap.drawMap();
 	}
 };
-
+PWebFilterMap.prototype.reDrawMarkers = function ()
+{
+	if(this.enabled === true)
+	{
+		this.gmap.drawMarkers();
+	}
+};
+PWebFilterMap.prototype.removeMarker = function(property_number)
+{
+    if (this.enabled === true)
+    {
+        this.gmap.removeMarker(property_number);
+    }
+};
 PWebFilterMap.prototype.toggle = function ()
 {
 	if(this.enabled === false)
@@ -1649,18 +1729,18 @@ PWebFilterMap.prototype.isMapEnable = function()
 
 //UPDATE map data
 PWebFilterMap.prototype.updateMarkers = function(markers_data) 
-{ 
+{
 	//clear all previous added marker and focus
 	this.gmap.clearMap();
-	
+
 	//Add filtered markers to map
 //	for (var i = 0; i < markers_data.length; i++) {
 	for (var i in markers_data) {
 		if(parseFloat(markers_data[i].Geo.Latitude) != 0.00 &&
 		   parseFloat(markers_data[i].Geo.Longitude) != 0.00)
 		{
-			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
-			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, content);
+//			var content = Mustache.to_html(this.infow_template, { "property": markers_data[i]});
+			this.gmap.addMarker(i,markers_data[i].Geo.Latitude,markers_data[i].Geo.Longitude,markers_data[i].propertyName, '');
 			
 			if((this.prop_number_to_focus > 0) && (markers_data[i].propertyNumber == this.prop_number_to_focus))
 			{
@@ -1711,7 +1791,7 @@ $(document).ready(function() {
 
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
-    
+  
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();
@@ -1746,12 +1826,14 @@ $(document).ready(function() {
 			'transitionOut'	: 'none'
 	  });
 	
-	  $(".box_content").hover(
-	  	function(){   
-	  	$(this).find('.quick_view_bg').slideDown(500);   
-		},function(){
-		$(this).find('.quick_view_bg').slideUp(300);      
-	    });
+	  $(".box_content").live({
+		mouseenter: function(){   
+	    	    $(this).find('.quick_view_bg').slideDown(500);   
+		},
+		mouseleave: function(){
+		    $(this).find('.quick_view_bg').slideUp(300);      
+	        }
+	   });
 		
 	  var cookie_value = getCookie('compare');
 	  var total_property =    cookie_value.split(",");
@@ -1780,12 +1862,14 @@ $(document).ready(function() {
 });
 /*code by deep*/
 
-$(".quick_view_bg_link,.pre_next_arrows").live('click', function(){
+//$(".quick_view_bg_link,.pre_next_arrows").live('click', function(event){
+$(".quick_view_bg_link").live('click', function(event){
+	event.preventDefault();
 
-	pweb_filter = new PWebFilterApp();
-	pweb_filter.pweb_maps = new Array();
-    pweb_filter.property_compare_detail(this);
-	pweb_map = new GoogleMap();
+//	pweb_filter = new PWebFilterApp();
+//	pweb_filter.pweb_maps = new Array();
+	pweb_filter.showQuickView(this);
+//	pweb_map = new GoogleMap();
 });
   
 PWebFilterApp.prototype.getAllPropertyIds = function() {
@@ -1797,6 +1881,26 @@ var allproids = '';
     return pweb_filter.allproids;
 };
   
+PWebFilterApp.prototype.showQuickView = function(that) {
+	var proid      =   $(that).attr('value');
+
+	var wait_message = $('#wait_message').val();
+	var nextid     =   $('#prop_tab_box_'+proid ).next().attr('rel');
+	var preid      =   $('#prop_tab_box_'+proid ).prev().attr('rel');
+	var numnight   =   $('#city_results_numnights_selected').html();
+	var procur     =   $('#propertycur_'+proid ).val();
+
+	var quickView = QuickView.getObject(proid);
+
+	if (!quickView) {
+		this.property_compare_detail(that);
+
+		return;
+	}
+
+	quickView.getContent();
+};
+
 PWebFilterApp.prototype.property_compare_detail = function(that) {
 var proid      =   $(that).attr('value');
 var wait_message = $('#wait_message').val();
@@ -1864,6 +1968,8 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 };
 
 PWebFilterApp.prototype.handle_delete = function() {
+    var that = this;
+    
 	$(document).click(function(event) { 
 		var clickedElement = $(event.target);
 
@@ -1893,8 +1999,10 @@ PWebFilterApp.prototype.handle_delete = function() {
 		var animate = {bottom: '-=350', marginLeft: '-=140'};
 		var timer   = 1000;
 
+		var number = null;
+
 		if (obj.hasClass('remove_property_permanentely')) {
-			var number = id.replace('remove_property_permanentely_', '');
+			number = id.replace('remove_property_permanentely_', '');
 
 			pweb_setCookie('remove_' + number, number, 8765);
 
@@ -1904,7 +2012,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
-				var number = id.replace('remove_property_one_day_', '');
+				number = id.replace('remove_property_one_day_', '');
 
 				pweb_setCookie('remove_' + number, number, 24);
 
@@ -1913,7 +2021,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
-					var number = id.replace('remove_property_one_week_', '');
+					number = id.replace('remove_property_one_week_', '');
 
 					pweb_setCookie('remove_' + number, number, 168);
 
@@ -1922,5 +2030,20 @@ PWebFilterApp.prototype.handle_delete = function() {
 				}
 			}
 		}
+
+		if (number != null) {
+			QuickView.remove(number);
+		}
+
+                // clear marker after removing property
+                var n = this.id.lastIndexOf('_');
+                var property_number = this.id.substring(n + 1);
+                
+                that.removeMarker("city", property_number);
+                that.removeMarker("cityFilterMap", property_number);  
 	});
-}
+};
+PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
+{
+    this.pweb_maps[map_slug].removeMarker(property_number);
+};

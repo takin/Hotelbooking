@@ -426,7 +426,30 @@ class Hw_engine {
 
         foreach($data['property_list'] as $hostel_id => $hostel)
         {
+/*
+                  $api = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'), (int)$hostel->propertyNumber, $this->api_functions_lang);
+                  $propInfoData = $api[0]==true ? array() : $this->CI->Hw_api_translate->translate_PropertyInformation($api[1][0]);
+       
+                  $PropertyImages = empty($propInfoData) ? array() : $propInfoData->PropertyImages;
+                  if (!empty($PropertyImages)) {
+                      $PropertyImages = xmlobj2arr($PropertyImages);
 
+                      $PropertyImages = $PropertyImages["PropertyImage"];
+                      foreach ($PropertyImages as $key => $image) {
+                          $PropertyImages[$key] = (object) $image;
+                          //PATCH to cover HW API wrong URLs
+                          $PropertyImages[$key]->imageURL = str_replace("http://images.webresint.com", "", $PropertyImages[$key]->imageURL);
+                      }
+                  }
+
+		  $data['propertyInfo'][(int)$hostel->propertyNumber] = empty($propInfoData)
+                      ? array()
+                      : array(
+                          'PropertyImages'       => $PropertyImages,
+                          'conditions'           => empty($propInfoData) ? '' : (string) domain_name_replace($propInfoData->conditions),
+                          'conditionsTranslated' => empty($propInfoData) ? '' : (string) domain_name_replace($propInfoData->conditionsTranslated)
+                      );
+*/
 		  $data['propertyType'][(int)$hostel->propertyNumber] = $hostel->propertyType;
 		  $hostel->overallHWRating = $this->CI->Db_hw_rating->get_hw_rating((int)$hostel->propertyNumber);
           if($prop_reviews === TRUE)
@@ -640,7 +663,7 @@ class Hw_engine {
 
 	   // -------Translate the propertyType----------------------------------//
 	    $this->CI->load->model('Db_term_translate');
-	  $json_data["property_list"][$i]['propertyTypeTranslate'] = $this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
+	  $json_data["property_list"][$i]['propertyTypeTranslate'] = (string)$this->CI->Db_term_translate->get_term_translation($data['propertyType'][$prop["propertyNumber"]],$this->CI->site_lang);
 	  // $json_data["property_list"][$i]['propertyTypeTranslate'] = $propertyType;
        $json_data["property_list"][$i]["city_name"]   = $data["city_info"]->city_name; // set the city name
 	  foreach($json_data["property_list"][$i]['amenities'] as $a => $amenity)
@@ -1369,7 +1392,7 @@ class Hw_engine {
           $cheapest_prices['min_room_price'] = (float)$cheapest_room_date['price']*$bedsincrement;
           $cheapest_prices['min_room_people'] = $bedsincrement;
         }
-        
+
         if(empty($cheapest_prices['min_room_per_person_price']))
         {
           $cheapest_prices['min_room_per_person_price'] = (float)$cheapest_room_date['price'];

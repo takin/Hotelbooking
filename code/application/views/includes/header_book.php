@@ -8,7 +8,7 @@
 <?php
 if (!empty($print) && strtolower($print) == 'pdf') {
     $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-    $this->carabiner->css('mainv2.css?v='.time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css?v=' . time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('jquery.fancybox.css','all','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
@@ -17,7 +17,7 @@ if (!empty($print) && strtolower($print) == 'pdf') {
 }
 else {
     $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-    $this->carabiner->css('mainv2.css?v='.time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
+    $this->carabiner->css('mainv2.css?v=' . time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('print.css','print','print.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
     $this->carabiner->css('jquery.fancybox.css','screen','jquery.fancybox.css',FALSE,FALSE,"full_site_global");
@@ -164,7 +164,17 @@ $this->carabiner->js('jquery.mousewheel.js');
 
 			<div class="bubble_blue_right_position<?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){echo ' hb-bubble';}?>">
 				<div class="bubble_blue_right">
-					<span class="bubble_blue_right_inner"><?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){?><?php echo _('No Booking fees')?><?php }else{?><?php echo _('Book on your mobile')?><?php }?></span>
+					<span class="bubble_blue_right_inner">
+                                            <?php if($this->wordpress->get_option('aj_api_site_data') == 'hb'){?>
+                                            <?php if($this->wordpress->get_option('aj_hb_charge_booking_fees') == 'true'): ?>
+                                            <?php echo _('Book on your mobile')?>
+                                            <?php else: ?>
+                                            <?php echo _('No Booking fees')?>
+                                            <?php endif; ?>                                            
+                                            <?php }else{?>
+                                            <?php echo _('Book on your mobile')?>
+                                            <?php }?>
+                                        </span>
 				</div>
 			</div>
 
@@ -172,7 +182,6 @@ $this->carabiner->js('jquery.mousewheel.js');
 
 		<nav class="main grid_16 box_round box_shadow box_gradient_dark_blue">
 			<ul class="group">
-				<?php /*?><li class="right"><a class="icon-chathelp" href="">Live Chat Help</a></li>			<?php */?>
 				<?php
 				$displayVelaro = $this->config->item('displayVelaro');
 				if($displayVelaro == 1)
