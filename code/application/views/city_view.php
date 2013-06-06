@@ -468,7 +468,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <input type="hidden" name="wait_message" id="wait_message" value="<?php echo _("Please Wait");?>"/>
 <div style="display:none;">
-			<div id="quick_preview_div" style="min-height:600px;overflow:hidden; width:880px;">
+			<div id="quick_preview_div" style="min-height:450px;overflow:hidden; width:1100px;">
 			</div>
 </div>
 <input type= "hidden" name="var_from" value="<?php echo  _('From');?>" id= "var_from" />

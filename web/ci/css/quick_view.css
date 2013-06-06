@@ -8,7 +8,7 @@ body {
 	margin:0px;
 }
 .main-cotainer {
-	width:844px;
+	width: 100%;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -104,7 +104,8 @@ body {
 	float: left;
 	width: 100%;
 }
-.bottom-feature-data .list-left .check{
+
+.list-left .check{
 	float: left;
     padding-bottom: 10px;
     width: 42%;
@@ -439,7 +440,7 @@ background-color:#fff;
 .amenities{ margin-left:126px;}
 .hb_frame .amenities{ margin-left:126px;}
 .amenities.no-indent{margin-left:0px;}
-span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:5px; height:30px; line-height:30px; margin-right:15px; margin-top:5px;}
+span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:1px !important; height:30px; line-height:30px; margin-right:15px; margin-top:1px !important;}
 /*span.icon_facility span{display: block; float: left;padding: 8px 0 8px 0px;}*/
 span.icon_facility_26{background:url(../images/V2/icon-coffee.png) no-repeat top left; padding-left:28px;}
 .lang-de-DE span.icon_facility_extra3 span{background: url("../images/V2/freebreakfast_de.png") no-repeat scroll left center transparent;display: block; float:right;padding: 0px 0 0px 64px;}

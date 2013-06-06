@@ -26,10 +26,47 @@
 	</div>
 
 	<div class="top-map">
+		<div class="bottom-feature-data" style="float: left; width: 220px; margin-right: 20px">
+			<p><b><?php echo _("Services");?></b></p>
+			{{#allAmenities}}
+				{{#to_display}}
+					<span class="icon_facility icon_facility_{{facility_id}} group">
+                        			<span>{{description}}</span>
+                    			</span>
+				{{/to_display}}
+			{{/allAmenities}}
+
+			{{#landmarks}}
+				{{#to_display}}
+					<span class="icon_facility icon_landmark group"><span>{{landmark_name}}</span></span>
+				{{/to_display}}
+			{{/landmarks}}
+
+			{{#hasIncludes}}
+				<p style="clear: both"><b><?php echo _("What's Included");?></b></p>							
+				<div class="group">
+					<ul class="green-li increase1 translated">
+						{{#includes}}
+						<li>{{description}}{{#isHB}}: <?php echo '<strong>' . _("Free") . '</strong>'; ?>{{/isHB}}</li>
+						{{/includes}}
+					</ul>
+				</div>
+			{{/hasIncludes}}
+
+			{{#hasAmenities}}
+				<p style="clear: both"><b><?php echo _("Commodité");?></b></p>
+				<div class="list-left">
+					{{#amenities}}
+					<div class="check">{{description}}</div>
+					{{/amenities}}
+				</div>
+			{{/hasAmenities}}
+		</div>
+
 		<div class="top-map-left">
 			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/quick_view.css" media="all" />
 			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.ad-gallery.css" media="all" />
-
+	
 			<div id="gallery" class="ad-gallery">
 				<div class="ad-image-wrapper"></div>
 
@@ -55,48 +92,6 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-
-			<div class="bottom-feature">
-				<div class="amenities no-indent">
-					{{#allAmenities}}
-						{{#to_display}}
-							<span class="icon_facility icon_facility_{{facility_id}} group">
-                        					<span>{{description}}</span>
-                    					</span>
-						{{/to_display}}
-					{{/allAmenities}}
-
-					{{#landmarks}}
-						{{#to_display}}
-							<span class="icon_facility icon_landmark group"><span>{{landmark_name}}</span></span>
-						{{/to_display}}
-					{{/landmarks}}
-				</div>
-
-				{{#hasIncludes}}
-					<div class="bottom-feature-data">
-						<p><b><?php echo _("What's Included");?></b></p>							
-						<div class="group">
-							<ul class="green-li increase1 translated">
-								{{#includes}}
-									<li>{{description}}{{#isHB}}: <?php echo '<strong>' . _("Free") . '</strong>'; ?>{{/isHB}}</li>
-								{{/includes}}
-							</ul>
-						</div>
-					</div>
-				{{/hasIncludes}}
-
-				{{#hasAmenities}}
-					<div class="bottom-feature-data">
-						<p><b><?php echo _("Commodité");?></b></p>
-						<div class="list-left">
-							{{#amenities}}
-									<div class="check">{{description}}</div>
-							{{/amenities}}
-						</div>
-					</div>
-				{{/hasAmenities}}
 			</div>
 		</div>
 
@@ -149,7 +144,7 @@
 			</div>
 
 			{{#propertyHasImportantInfo}}
-				<div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?> <span class="showmore_plus_sign"><strong>+</strong></span> <span class="showmore_minus_sign" style="display:none"><strong>-</strong></span></div>
+				<!-- <div class="readmore readmore-image" id="showmore"><?php echo _('Informations Importantes'); ?> <span class="showmore_plus_sign"><strong>+</strong></span> <span class="showmore_minus_sign" style="display:none"><strong>-</strong></span></div>
 				<div class="bottom-feature1" id="bottomfeature1">
 					<div class="bottom-feature-data1">
 						<div class="group">
@@ -167,7 +162,7 @@
 							{{/hasPropertyInfo}}
 						</div>
 					</div>
-				</div>
+				</div> -->
 			{{/propertyHasImportantInfo}}
 		</div>
 	</div>
