@@ -101,124 +101,80 @@ class Db_hostels
     }
     else
     {
-      $include_test_bookings = "AND customer_booking_reference NOT LIKE '%TEST%' AND (test_booked != 1 OR (test_booked IS NULL))";
+      $include_test_bookings = "AND th2.customer_booking_reference NOT LIKE '%TEST%' AND (th2.test_booked != 1 OR (th2.test_booked IS NULL))";
     }
 
     if(!empty($domain))
     {
       $domain = $this->db->escape($domain);
-      $domain = "AND LOWER(site_domain) LIKE LOWER('$domain')";
+      $domain = "AND LOWER(sd.site_domain) LIKE LOWER('$domain')";
     }
 
-    $query = "SELECT API_booked,
-                         site_domain_id, site_domain,
-                         property_city,
-                         property_country,
-                         translated_city,
-                         translated_country,
-              --           translated_continent,
-              --           continent_en,
-                         property_booking_count,
-                         top_hostel_of_city,
-                         top_hostel_of_city as property_number,
-                         hw_hostel.property_type as property_type,
-                         hw_hostel.property_name as property_name,
-                         hw_hostel.property_number as property_number,
-                         hw_hostel.imageURL as image_url,
-                         short_description as hostel_desc_en,
-                         translated_desc,
-                         bed_price as min_price,
-                         hw_hostel_price.currency_price as price_currency,
-                         (
-                            SELECT hw_hostel_id
-                            FROM
-                                (
-                                SELECT count(DISTINCT currency_price) as price_count, hw_hostel_id
-                                FROM hw_hostel_price
-                                GROUP BY hw_hostel_id
-                                ORDER BY price_count DESC
-                                LIMIT 1
-                                ) as converting_hostel
-                        ) as converting_hostel_id,
-                        ROUND(bed_price/
-                        (
-                            SELECT bed_price
-                             FROM hw_hostel_price
-                             WHERE (hw_hostel_id = converting_hostel_id AND currency_price LIKE(price_currency)) LIMIT 1
-                        )
-                        *
-                        (
-                            SELECT bed_price
-                             FROM hw_hostel_price
-                             WHERE (hw_hostel_id = converting_hostel_id AND currency_price LIKE'$currency_code') LIMIT 1
-                        ) , 2 ) as converted_price,
-                        '$currency_code' as converted_currency
-              FROM
-              (
-                  SELECT API_booked,
-                         site_domain_id, site_domain,
-                         property_city,
-                         property_country,
-                         `city_$lang` as translated_city,
-                         `country_$lang` as translated_country,
-              --           translated_continent,
-               --          continent_en,
-                         property_booking_count,
-                         (
-                             SELECT  transactions_hostelworld.property_number
-                              FROM transactions_hostelworld
-                              LEFT JOIN hw_hostel ON transactions_hostelworld.property_number = hw_hostel.property_number
-                              LEFT JOIN hw_city ON hw_hostel.hw_city_id = hw_city.hw_city_id
-                              LEFT JOIN hw_country ON hw_city.hw_country_id = hw_country.hw_country_id
-                              LEFT JOIN continents ON continents.continent_id = hw_country.continent_id
-                              WHERE  LOWER(API_booked) LIKE LOWER('hw')
-                                 $include_test_bookings
-                                 AND LOWER(hw_city.hw_city) LIKE LOWER(property_city)
-                                 AND LOWER(hw_country.hw_country) LIKE LOWER(property_country)
-                                 AND DATE(booking_time) > '$since_date'
-                                GROUP BY transactions_hostelworld.property_number
-                               ORDER BY count(*) DESC
-                               LIMIT 1
-                         ) as top_hostel_of_city
-
-
-                  FROM
-                  (
-                  SELECT API_booked, transactions_hostelworld.site_domain_id, site_domain,
-                         hw_city.hw_city as property_city,
-                         hw_country.hw_country as property_country,
-              --           `continent_fr` as translated_continent,
-              --           `continent_en`,
-                         count(*) as property_booking_count
-                  FROM transactions_hostelworld
-                  LEFT JOIN site_domains ON transactions_hostelworld.site_domain_id = site_domains.site_domain_id
-                  LEFT JOIN hw_hostel ON transactions_hostelworld.property_number = hw_hostel.property_number
-                  LEFT JOIN hw_city ON hw_hostel.hw_city_id = hw_city.hw_city_id
-                  LEFT JOIN hw_country ON hw_city.hw_country_id = hw_country.hw_country_id
-              --    LEFT JOIN continents ON continents.continent_id = hw_country.continent_id
-                  WHERE  LOWER(API_booked) LIKE LOWER('hw')
-                     $include_test_bookings
-                     $domain
-                     AND hw_city.hw_city IS NOT NULL
-                     AND DATE(booking_time) > '$since_date'
-                    --  AND LOWER(`continent_en`) LIKE LOWER('asia')
-
-                   GROUP BY property_country, property_city
-                   ORDER BY property_booking_count DESC
-                   LIMIT $top_count
-                  ) as top_cities
-                  LEFT JOIN cities2 ON (top_cities.property_city = cities2.city_en AND top_cities.property_country = cities2.country_en)
-              ) top_cities_with_top_hostel
-              LEFT JOIN hw_hostel ON top_cities_with_top_hostel.top_hostel_of_city = hw_hostel.property_number
-              LEFT JOIN hw_hostel_price ON hw_hostel.hw_hostel_id = hw_hostel_price.hw_hostel_id
-              LEFT JOIN hw_hostel_description as base_desc_table ON hw_hostel.hw_hostel_id = base_desc_table.hw_hostel_id
-              LEFT JOIN
-                ( SELECT hw_hostel_id,langage as requested_lang,short_description as translated_desc FROM hw_hostel_description
-                  WHERE  hw_hostel_description.langage LIKE'$api_lang'
-                ) AS hostel_translated
-                ON hw_hostel.hw_hostel_id = hostel_translated.hw_hostel_id
-              WHERE base_desc_table.langage = 'English'
-              AND hw_hostel_price.currency_price = 'EUR'";
+    $query = "SELECT tc.API_booked, tc.site_domain_id, tc.site_domain, tc.property_city, tc.property_country,
+		tc.translated_city, tc.translated_country, tc.property_booking_count, tc.top_hostel_of_city,
+		tc.top_hostel_of_city AS property_number, h.property_type, h.property_name, h.property_number,
+		h.imageURL AS image_url, hd.short_description AS hostel_desc_en, hd2.short_description AS translated_desc,
+		hp.bed_price as min_price, hp.currency_price as price_currency, ch.converting_hostel_id,
+		ROUND(hp.bed_price / (SELECT MIN(bed_price)
+					FROM hw_hostel_price
+					WHERE hw_hostel_id = ch.converting_hostel_id AND currency_price = hp.currency_price)
+							* (SELECT MIN(bed_price)
+					FROM hw_hostel_price
+					WHERE hw_hostel_id = converting_hostel_id AND currency_price = '$currency_code'),
+				2) as converted_price,
+		'$currency_code' as converted_currency
+		FROM
+			(SELECT th1.API_booked,th1.site_domain_id,sd.site_domain,ci.hw_city as property_city,
+					co.hw_country as property_country,ci2.city_$lang as translated_city,ci2.country_$lang as translated_country,
+					COUNT(th1.transaction_id) property_booking_count,
+					(SELECT t.property_number
+						FROM
+							(SELECT h2.hw_city_id,th2.property_number,count(th2.transaction_id) cnt
+						FROM transactions_hostelworld th2
+						JOIN hw_hostel h2 ON th2.property_number = h2.property_number
+						WHERE
+							th2.booking_time > '$since_date'
+								$include_test_bookings
+								AND UPPER(th2.API_booked) = 'HW'
+						GROUP BY h2.hw_city_id , th2.property_number
+						ORDER BY cnt DESC) t
+						WHERE
+							t.hw_city_id = h1.hw_city_id
+						GROUP BY t.hw_city_id) AS top_hostel_of_city
+			FROM
+				transactions_hostelworld th1
+			JOIN hw_hostel h1 ON th1.property_number = h1.property_number
+			LEFT JOIN site_domains sd ON th1.site_domain_id = sd.site_domain_id
+			JOIN hw_city ci ON h1.hw_city_id = ci.hw_city_id
+			JOIN hw_country co ON ci.hw_country_id = co.hw_country_id
+			LEFT JOIN cities2 ci2 ON ci.hw_city = ci2.city_en
+				AND co.hw_country = ci2.country_en
+			WHERE
+				th1.booking_time > '$since_date' AND UPPER(th1.API_booked) = 'HW'
+				$domain
+			GROUP BY h1.hw_city_id
+			ORDER BY property_booking_count DESC
+			LIMIT $top_count) tc
+				JOIN
+			hw_hostel h ON tc.top_hostel_of_city = h.property_number
+				LEFT JOIN
+			hw_hostel_description hd ON h.hw_hostel_id = hd.hw_hostel_id
+				AND hd.langage = 'English'
+				LEFT JOIN
+			hw_hostel_description hd2 ON h.hw_hostel_id = hd2.hw_hostel_id
+				AND hd2.langage = '$api_lang'
+				JOIN
+			hw_hostel_price hp ON h.hw_hostel_id = hp.hw_hostel_id
+				CROSS JOIN
+			(SELECT
+				hw_hostel_id AS converting_hostel_id
+			FROM
+				hw_hostel_price hp1
+			GROUP BY hw_hostel_id
+			ORDER BY count(DISTINCT currency_price) DESC
+			LIMIT 1) ch
+		WHERE
+			hp.currency_price = 'EUR';";
 
     //Booker country assumes to be always the same no longer in key
     //-- is there to use cache created with old key
