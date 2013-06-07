@@ -790,6 +790,7 @@ nav.city-tools{
 nav.city-tools ul{	
 	line-height:20px;
 	float:left;
+	width: 100%;
 }
 
 nav.city-tools ul li{
@@ -856,12 +857,12 @@ nav.city-tools select{
 }
 nav.city-tools ul li.inputs{ padding:7px 15px; line-height:20px; font-weight:normal;}
 nav.city-tools ul li.inputs input.checkbox {
-		float: left;
+		float: right;
 		margin:0px;
-		margin-right: 4px;
+		margin-left: 4px;
 		margin-top:2px;
 }
-nav.city-tools ul li.inputs span{ padding-top:5px; padding-bottom:5px;}
+nav.city-tools ul li.inputs span{ padding-top:0 !important; padding-bottom:0 !important; color: #000 !important}
 nav.city-tools ul li.inputs span span{ padding-top:0px; padding-bottom:0px;}
 .loading_city{
 	font-weight:bold;
@@ -941,7 +942,16 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .propertyRatingsContainer {
-	float: left;
+	float: right;
+	width: 410px;
+}
+
+.prices_border {
+	border-bottom: 5px solid #3087C9;
+	clear: both;
+	float: right;
+	width: 250px;
+	margin-right: -11px;
 }
 
 .propertyRatingsContainer h3 {
@@ -950,12 +960,12 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .propertyRatingsContainer .bar-back.group {
-	width: 215px;
+	width: 165px;
 	float: left;
 	clear: none;
-    color:black;
-    display:block;
-    margin:7px auto 10px 40px;
+	color:black;
+	display:block;
+	margin:4px auto 3px 35px;
 }
 
 .city_hostel{}
@@ -2904,7 +2914,8 @@ width: 275px;}
 
 .remove_from_search_options {
 	position: absolute;
-	margin-left: 560px;
+	margin-left: 485px;
+	width: 280px;
 	background-color: #fff;
 	border: 1px solid #ccccc7;
 	padding: 10px;

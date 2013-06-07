@@ -7,7 +7,7 @@
 		<input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
 	{{/Geo}}
 
-	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}">
+	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}" style="padding-bottom: 0">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
@@ -47,21 +47,7 @@
 					{{/isMinNightNeeded}}
 				</div>
 
-				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
-					<p>
-						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
-						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
-					</p>
-				</div>
-
-				<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
-					<p>
-						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
-						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
-					</p>
-				</div>
-
-				<div class="amenities group" style="margin-left:120px;">
+				<div class="amenities group">
 					{{#amenities}}
 						{{#to_display}}
 							<span class="icon_facility icon_facility_{{facility_id}} group">
@@ -77,6 +63,20 @@
 					{{#safety80}}
 						<span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
 					{{/safety80}}
+				</div>
+
+				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
+					<p>
+						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
+						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
+					</p>
+				</div>
+
+				<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
+					<p>
+						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
+						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+					</p>
 				</div>
 
 				<div class="info_indent displaySaveProperty">
@@ -166,8 +166,8 @@
 			<?php } ?>
 
 			<div class="rating">
+				<div style="text-align: left; margin-bottom: 20px; height: 30px;">
 				{{#overall_rating}}
-				<div style="text-align: left; margin-bottom: 20px;">
 					{{#display_alternate_rating}}
 						{{#ratings_safety_safe}}
 							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_safety}}%</strong> <?php echo _('Safety'); ?></span>
@@ -202,8 +202,8 @@
 							<strong class="txt-mid green">{{rating}}</strong>
 						</span>
 					{{/display_alternate_rating}}
-				</div>
 				{{/overall_rating}}
+				</div>
 
 				<div class="price group">
 					{{^dual_price}}
@@ -214,7 +214,7 @@
 
 					{{display_currency}} <strong>{{display_price_formatted}}</strong>
 					{{#original_price}}
-					<div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div>
+					<!-- <div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div> -->
 					{{/original_price}}
 					{{/dual_price}}
 					{{#dual_price}}
@@ -250,7 +250,7 @@
 			</div>
 
 			<div class="prices_toggle">
-				<a style="display: block; border-bottom: 5px solid #3087C9" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); return false;'>
+				<a style="display: block;" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); $("#prices_border_{{propertyNumber}}").hide(); return false;'>
 					<img src="<?php echo site_url('/images/V2/icon_sort_down.png') ?>" />
 					<?php echo _('Show prices'); ?>
 				</a>
@@ -260,10 +260,12 @@
 					<?php echo _('Hide prices'); ?>
 				</a>
 			</div>
+
+			<div class="prices_border" id="prices_border_{{propertyNumber}}"></div>
 		</div>
 
 		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none">
-			<h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3>
+			<!-- <h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3> -->
 			<div class="amenities group no-indent">
 				{{#amenities}}
 					{{#to_display}}

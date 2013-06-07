@@ -121,29 +121,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         } ?>
                             
 	<div id="search_load">	
-		<?php $this->load->view('includes/group-booking'); ?>
-		<div class="filter_block box_content box_round" id="filter_choices">
-			<?php //TODO show filter reset;?>
-			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
-			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
-			<span class="filter_title box_round"><strong><?php echo _('Price')?></strong></span>
-			<div class="filter_content">
-				<p class="group">
-					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
-					<span id="filter_price" class="slide_filter"/></span>
-				</p>
-			<div id="slider_price"></div>
-			</div>
-
-			<span class="filter_title box_round"><strong><?php echo _('Rating')?></strong></span>
-				<div class="filter_content">
-				<p class="group">
-					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
-					<span id="filter_rating" class="slide_filter"/></span>
-				</p>
-				<div id="slider_rating"></div>
-			</div>
-
+		<div class="filter_block box_content box_round" id="filter_choices">	
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -213,7 +191,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				</p>
 				<div id="slider_price"></div>
 			</div>
-			<br />
+
 			<div class="filter_content">
 				<p class="group">
 					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
@@ -384,14 +362,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best Location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px">
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 230px; float: right; text-align: right">
 					<div>
+						<span class="type_hostels yellow-bg"><span><?php echo _("Hostels only");?></span></span>
 						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
-						<span class="type_hostels"><span><?php echo _("Hostels only");?></span></span>
 					</div>
 					<div>
+						<span class="icon_facility_extra3d yellow-bg"><span><?php echo _("Only free breakfast");?></span></span>
 	  					<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
-						<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span>
 					</div>
 				</li>
 
