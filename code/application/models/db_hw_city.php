@@ -428,6 +428,8 @@ class Db_hw_city extends CI_Model
 
   function get_hw_cities_of_country_name($continent_name = NULL, $country_name = NULL, $lang = "en")
   {
+    log_message('debug', "enter get_hw_cities_of_country_name $continent_name $country_name $lang");
+
      $this->CI->load->model('Db_country');
 
     $lang = $this->CI->Db_country->lang_code_convert($lang);
@@ -459,20 +461,20 @@ class Db_hw_city extends CI_Model
     {
       $this->db->where(self::HW_COUNTRY_TABLE.".hw_country",$country_name);
 
-      $country_name_escaped = $this->db->escape_str($country_name);
+      $country_name_escaped = strtolower($this->db->escape_str($country_name));
       foreach($this->CI->Db_country->get_country_fields() as $country_field)
       {
-          $this->db->or_where("LOWER(`$country_field`) LIKE LOWER('$country_name_escaped')");
+          $this->db->or_where("LOWER(`$country_field`)='$country_name_escaped'");
       }
     }
     elseif(!empty($continent_name))
     {
       $this->db->where(self::CONTINENT_TABLE.".continent_en",$continent_name);
 
-      $continent_name_escaped = $this->db->escape_str($continent_name);
+      $continent_name_escaped = strtolower($this->db->escape_str($continent_name));
       foreach($this->CI->Db_country->get_continent_fields() as $continent_field)
       {
-          $this->db->or_where("LOWER(`$continent_field`) LIKE LOWER('$continent_name_escaped')");
+          $this->db->or_where("LOWER(`$continent_field`)='$continent_name_escaped'");
       }
     }
 
@@ -483,8 +485,10 @@ class Db_hw_city extends CI_Model
 //    debug_dump( $this->db->last_query() );
     if($query->num_rows() > 0)
     {
+      log_message('debug', "exit get_hw_cities_of_country_name with ".$query->num_rows());
       return $query->result();
     }
+    log_message('debug', "exit get_hw_cities_of_country_name with null");
     return NULL;
   }
 
