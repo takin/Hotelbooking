@@ -459,28 +459,26 @@ class Db_hw_city extends CI_Model
     {
       $this->db->where(self::HW_COUNTRY_TABLE.".hw_country",$country_name);
 
-      $country_name_escaped = $this->db->escape_str($country_name);
+      $country_name_escaped = strtolower($this->db->escape_str($country_name));
       foreach($this->CI->Db_country->get_country_fields() as $country_field)
       {
-          $this->db->or_where("LOWER(`$country_field`) LIKE LOWER('$country_name_escaped')");
+          $this->db->or_where("LOWER(`$country_field`)='$country_name_escaped'");
       }
     }
     elseif(!empty($continent_name))
     {
       $this->db->where(self::CONTINENT_TABLE.".continent_en",$continent_name);
 
-      $continent_name_escaped = $this->db->escape_str($continent_name);
+      $continent_name_escaped = strtolower($this->db->escape_str($continent_name));
       foreach($this->CI->Db_country->get_continent_fields() as $continent_field)
       {
-          $this->db->or_where("LOWER(`$continent_field`) LIKE LOWER('$continent_name_escaped')");
+          $this->db->or_where("LOWER(`$continent_field`)='$continent_name_escaped'");
       }
     }
 
     $this->db->order_by("country_name_translated ASC, city_name_translated ASC");
 
-//     $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::HW_CITY_TABLE);
-//    debug_dump( $this->db->last_query() );
     if($query->num_rows() > 0)
     {
       return $query->result();
