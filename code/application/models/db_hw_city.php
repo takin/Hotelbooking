@@ -428,6 +428,8 @@ class Db_hw_city extends CI_Model
 
   function get_hw_cities_of_country_name($continent_name = NULL, $country_name = NULL, $lang = "en")
   {
+    log_message('debug', "enter get_hw_cities_of_country_name $continent_name $country_name $lang");
+
      $this->CI->load->model('Db_country');
 
     $lang = $this->CI->Db_country->lang_code_convert($lang);
@@ -478,11 +480,15 @@ class Db_hw_city extends CI_Model
 
     $this->db->order_by("country_name_translated ASC, city_name_translated ASC");
 
+//     $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
     $query = $this->db->get(self::HW_CITY_TABLE);
+//    debug_dump( $this->db->last_query() );
     if($query->num_rows() > 0)
     {
+      log_message('debug', "exit get_hw_cities_of_country_name with ".$query->num_rows());
       return $query->result();
     }
+    log_message('debug', "exit get_hw_cities_of_country_name with null");
     return NULL;
   }
 
