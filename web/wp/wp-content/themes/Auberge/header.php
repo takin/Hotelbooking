@@ -296,7 +296,7 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                                             <?php if(get_option('aj_hb_charge_booking_fees') != 'true'): ?>
 						<?php _e('No Booking fees','auberge');?>
                                             <?php else: ?>
-                                            <?php _e('Check your reservation on your mobile','auberge');?>
+                                            <?php echo sprintf(__('100%% sécurisé.','auberge')); ?>
                                             <?php endif; ?>
 						<?php }else{?>
 						<?php _e('Check your reservation on your mobile','auberge');?>

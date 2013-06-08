@@ -24,12 +24,12 @@ echo form_hidden('switch_api', $switch_api);
         $bc_city = NULL;
     $this->load->view('includes/side_search_box', array('date_selected' => $date_selected, 'current_view' => $current_view, 'numnights_selected' => $numnights_selected, 'bc_continent' => $bc_continent, 'bc_country' => $bc_country, 'bc_city' => $bc_city));
     ?>
-<?php if (isset($hostel->geolatitude) && isset($hostel->geolongitude)) { ?>
+<?php if (isset($google_map_geo_latlng)) { ?>
         <div class="box_content map_button_box box_round" id="map_button_side">
             <a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click');
                                     $(document).scrollTop($('#show_full_map').offset().top);">
                 <span><strong><?php echo _("Voir la carte"); ?></strong></span>
-                <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $hostel->geolatitude; ?>,<?php echo $hostel->geolongitude; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=<?php echo $hostel->geolatitude; ?>,<?php echo $hostel->geolongitude; ?>" />
+                <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=<?php echo $google_map_geo_latlng; ?>" />
             </a>
         </div>
     <?php } ?>
@@ -261,7 +261,7 @@ if ($api_error == false) {
                             <span class="hostel_districts_values">
         <?php
         foreach ($district_info as $key => $district) {
-//                                die(var_dump(count($district_info), $key));
+
             echo $district->district_name;
 
             if (count($district_info) != $key + 1) {
@@ -285,7 +285,7 @@ if ($api_error == false) {
                             <span class="hostel_landmarks_values">
         <?php
         foreach ($landmarks as $key => $landmark) {
-//                                die(var_dump($landmark, count($landmarks), $key, $landmarks));
+
             echo $landmark->landmark_name;
 
             if (count($landmarks) != $key + 1) {

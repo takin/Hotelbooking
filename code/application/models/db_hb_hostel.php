@@ -2816,4 +2816,23 @@ class Db_hb_hostel extends CI_Model
 	return $query->row_array();
   }
   //compare property function end
+    /**
+     * get property geo by property number
+     * @param int $hostel_number
+     * @return stdClass if exists or false if not exists
+     */
+    function get_hostel_geos($hostel_number) {
+        $this->db->select('geo_longitude');
+        $this->db->select('geo_latitude');
+        $this->db->where("property_number", $hostel_number);
+        $query = $this->db->get(self::HOSTEL_TABLE);
+
+        $result = $query->row();
+
+        if (empty($result)) {
+            $result = false;
+        }
+        return $result;
+    }
+    
 }
