@@ -368,13 +368,11 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<?php } ?>
 
 				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 230px; float: right; text-align: right">
-					<?php if ($this->api_used == HB_API) { ?>
 					<div>
 						<span class="type_hostels yellow-bg"><span><?php echo _("Hostels only");?></span></span>
 						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
 					</div>
-					<?php } ?>
-					<div<?php echo $this->api_used == HB_API ? '' : ' style="margin-top: 12px;"' ?>>
+					<div>
 						<span class="icon_facility_extra3d yellow-bg"><span><?php echo _("Only free breakfast");?></span></span>
 	  					<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
 					</div>

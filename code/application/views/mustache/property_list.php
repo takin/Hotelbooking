@@ -61,7 +61,7 @@
 						{{/to_display}}
 					{{/landmarks}}
 					{{#safety80}}
-						<span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
+						<!-- <span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span> -->
 					{{/safety80}}
 				</div>
 
@@ -219,7 +219,7 @@
 					{{#dual_price}}
 
 					{{#display_shared_price}}
-					<div class="group">
+					<div class="group" style="clear: both">
 						<span class="nbpeople">
 							<span class="icon-nbpeople nbpeople-1" title=""><?php printf(gettext('Dorms from %s'), ''); ?></span>
 						</span>
@@ -236,7 +236,7 @@
 					{{/display_shared_price}}
 
 					{{#display_private_price}}
-					<div class="group">
+					<div class="group" style="clear: both">
 						<span class="nbpeople" title="">
 							<span class="private-people icon-nbpeople nbpeople-1">1 x</span>
 							<span class="nbpeople-text"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
