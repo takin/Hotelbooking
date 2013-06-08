@@ -34,6 +34,8 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
 
 } // end GoogleMap() constructor 
 
+GoogleMap.markers = [];
+
 // Function init() is a member function to initialize the Google Map object.
 // Make sure this is run after google map script has loaded
 // return N/A 
@@ -51,6 +53,12 @@ GoogleMap.prototype.init = function() {
     if (this.map_div.id === "city_side_map_container") {
         this.map_div.style.height = "280px";
         this.map_div.style.width = "auto";
+    }
+
+    if (this.map_div.className === "map_quickview") {
+        this.map_div.style.height = "285px";
+        this.map_div.style.width = "100%";
+        this.map_div.style.width = "auto"; 
     }
 
     var myOptions = {
@@ -200,7 +208,6 @@ GoogleMap.prototype.clearMap = function() //, image, iconshadow)
 };
 GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 {
-    window.markers = Array();
     this.marker_id_to_focus = -1;
 
     if (window.gmarkers) {
@@ -387,6 +394,21 @@ GoogleMap.prototype.initInfoWin = function() {
         window.gInfoWin.close();
     });
 };
+
+GoogleMap.clearDistrictLandmark = function() {
+	if (window.gmap && window.gmap.overlayMapTypes) {
+		window.gmap.overlayMapTypes.setAt(1, null); 
+	}
+
+	if (window.cityCircle !== null) {
+		window.cityCircle.setMap(null);
+	}
+
+	for (var i = 0; i < GoogleMap.markers.length; i++ ) {
+		GoogleMap.markers[i].setMap(null);
+	}
+};
+
 GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
 
     // working with mapinfulence
@@ -394,6 +416,11 @@ GoogleMap.prototype.changeDistrictLayer = function(district_um_ids){
     MF.initialize({
         apiKey: urbanmapping_key
     });
+        // remove any old districts
+        //map.overlayMapTypes.push(null);
+   if (window.gmap && window.gmap.overlayMapTypes) {
+      window.gmap.overlayMapTypes.setAt(1, null); 
+   }
     // remove any old districts
     window.gmap.overlayMapTypes.setAt(0, null);
 
@@ -479,8 +506,12 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
             }
         this.addLandmarkLayer(landmark_LatLng);
     }
-
 };
+
+GoogleMap.setZoom = function(zoom) {
+	window.gmap.setZoom(zoom || 13);
+};
+
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
    
     var point = landmark_LatLng.split("###");
@@ -520,8 +551,10 @@ var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/
 //	        title:this.markers[i].title,
 	        icon: image	        
 	    }); 
-            
+
+	GoogleMap.markers.push(gmarker);            
 };
+
 GoogleMap.prototype.centerMapMarker = function() {
 
     if (window.markers.length !== 0) {

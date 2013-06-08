@@ -9,7 +9,7 @@ $config['displaySharePDF']   = FALSE;
 
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
-$config['displayQuickPreview'] = FALSE;
+$config['displayQuickPreview'] = true;
 
 /* set variable to show property compare feature*/
 $config['displayCompareProperty'] = TRUE;
@@ -451,27 +451,6 @@ $config["hwMostPopularFacilitiesById"] = array(
     26,  // Breakfast - hw_facility
     27, // "Internet / Wi-Fi" - hw_facility
     33  // 24 hour reception - hw_facility
-);
-
-
-/*
- * HB sites that import Reviews from HW
- */
-$config["hbImporthwReviews"] = array(
-    'www.hbsitetest.com',
-    'www.retkeilymajoja.com',
-    'www.alberguesjuveniles.es',
-    'www.alberguesjuveniles.com'
-);
-
-/*
- * HB sites that charge Booking Fee
- */
-$config["hbChargeBookingFee"] = array(
-    'www.hbsitetest.com',
-    'www.retkeilymajoja.com',
-    'www.alberguesjuveniles.es',
-    'www.alberguesjuveniles.com'
 );
 
 /* End of file config.php */

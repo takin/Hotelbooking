@@ -915,6 +915,7 @@ class CMain extends I18n_site {
                     $this->carabiner->js('pweb/includes/mustache.js');
 
                     $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+                    $this->carabiner->js('property_quickview.js?v=' . time());
                     $this->carabiner->js('pweb-mapping/PropertyFilters.js');
                     $this->carabiner->js('save_property.js?v='. time());
                     $this->carabiner->js('pweb/libs/GoogleMap.js');
@@ -979,6 +980,7 @@ class CMain extends I18n_site {
                         $this->carabiner->js('pweb/includes/mustache.js');
 
                         $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+                        $this->carabiner->js('property_quickview.js?v=' . time());
                         $this->carabiner->js('pweb-mapping/PropertyFilters.js');
                         $this->carabiner->js('save_property.js?v=' . time());
                         $this->carabiner->js('pweb/libs/GoogleMap.js');
@@ -1111,6 +1113,12 @@ class CMain extends I18n_site {
                 'expire' => time() + 1209600,
                 'path' => '/'
             );
+            $this->carabiner->js('property_quickview.js?v=' . time());
+            $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
+            $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+            $this->carabiner->js('pweb/libs/GoogleMap.js');
+			$this->carabiner->js('properties_compare.js');
+		    $this->carabiner->js('compare_property.js');
 
             set_cookie($property_cookie); // set cookies name as array  and will expire in 2 weeks
 
@@ -2568,8 +2576,45 @@ class CMain extends I18n_site {
           exit();
       }
 
-      echo json_encode(array('hasErrors' => 1));
+    echo json_encode(array('hasErrors' => 1));
+
 
       exit();
   }
+
+  //property detail page start
+ function ajax_property_details($property_number) {
+	 $this->layout= null;
+
+	 $alldata = array();
+
+	 $data['property_number'] = $property_number;
+
+	 $this->load->model('i18n/db_translation_cache');
+
+	 if ($this->api_used == HB_API) {   
+		 $this->load->library('hb_engine');
+		 $data['current_view_dir'] = $this->api_view_dir;
+		 $this->load->model('db_hb_hostel');
+
+		 $alldata = $this->hb_engine->property_info($data, $property_number);
+	 }
+	 else {
+		 $this->load->model('db_hw_hostel');
+		 $this->load->library('hw_engine');
+
+		 $alldata = $this->hw_engine->property_info($data, $property_number);
+	}
+
+	$seconds_to_cache = 3600 * 24 * 10;
+	$ts = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
+
+	header("Expires: $ts");
+	header("Pragma: cache");
+	header("Cache-Control: max-age=$seconds_to_cache");
+	header('Content-type: application/json');
+
+	echo json_encode($alldata);
+ }
+  
 }
