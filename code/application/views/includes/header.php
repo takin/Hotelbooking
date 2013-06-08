@@ -225,10 +225,12 @@ var cityCircle = null;
 
     <?php if(isset($google_map_geo_latlng)):?>
 
-    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
-        new google.maps.Size(28, 28),
-        new google.maps.Point(0,0),
-        new google.maps.Point(0, 29));
+//    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
+//        new google.maps.Size(28, 28),
+//        new google.maps.Point(0,0),
+//        new google.maps.Point(0, 29));
+    
+    var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
 
     var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
             new google.maps.Size(43, 28),
@@ -238,8 +240,8 @@ var cityCircle = null;
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        icon: image,
-        shadow: iconshadow
+        icon: image
+//        ,shadow: iconshadow
     });
 
     streetViewPanInit("street_panel",latlng);
@@ -329,11 +331,14 @@ var citymap = {
   center: new google.maps.LatLng( lat, Lng )
 };
 
+    var circle_color  = "#FF0000";
+    
     var LandmarkOptions = {
       strokeColor: "#4E89C9",
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: "#4E89C9",
+//      fillColor: "#4E89C9",
+      fillColor: circle_color,
       fillOpacity: 0.35,
       map: map,
       center: citymap.center,
@@ -347,10 +352,12 @@ var citymap = {
   function codeAddress() {
 	    var address = "<?php echo $google_map_address;?>";
 
-	    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
-	        new google.maps.Size(28, 28),
-	        new google.maps.Point(0,0),
-	        new google.maps.Point(0, 29));
+//	    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
+//	        new google.maps.Size(28, 28),
+//	        new google.maps.Point(0,0),
+//	        new google.maps.Point(0, 29));
+
+            var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
 
 	    var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
 	            new google.maps.Size(43, 28),
@@ -365,8 +372,8 @@ var citymap = {
 	          var marker = new google.maps.Marker({
 	              map: map,
 	              position: results[0].geometry.location,
-	              icon: image,
-	              shadow: iconshadow
+	              icon: image
+//                      ,shadow: iconshadow
 	          });
 	          streetViewPanInit("street_panel",results[0].geometry.location);
 	        } else {
@@ -404,7 +411,7 @@ var citymap = {
         position: new google.maps.LatLng(lat, lng),
         map: map,
         icon: image,
-        shadow: iconshadow,
+//        shadow: iconshadow,
         title: name
     });
 
@@ -430,10 +437,12 @@ var citymap = {
 
 		var bounds = new google.maps.LatLngBounds();
 
-		var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
-	      new google.maps.Size(28, 28),
-	      new google.maps.Point(0,0),
-	      new google.maps.Point(0, 29));
+//		var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
+//	      new google.maps.Size(28, 28),
+//	      new google.maps.Point(0,0),
+//	      new google.maps.Point(0, 29));
+            
+        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
 
 	  var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
 	          new google.maps.Size(43, 28),
@@ -604,10 +613,12 @@ var citymap = {
 
     var bounds = new google.maps.LatLngBounds();
 
-    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
-        new google.maps.Size(28, 28),
-        new google.maps.Point(0,0),
-        new google.maps.Point(0, 29));
+//    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
+//        new google.maps.Size(28, 28),
+//        new google.maps.Point(0,0),
+//        new google.maps.Point(0, 29));
+    
+    var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
 
     var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
             new google.maps.Size(43, 28),
@@ -705,10 +716,12 @@ var citymap = {
 
     var bounds = new google.maps.LatLngBounds();
 
-    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
-        new google.maps.Size(28, 28),
-        new google.maps.Point(0,0),
-        new google.maps.Point(0, 29));
+//    var image = new google.maps.MarkerImage('<?php echo site_url('images/map-marker.png'); ?>',
+//        new google.maps.Size(28, 28),
+//        new google.maps.Point(0,0),
+//        new google.maps.Point(0, 29));
+
+    var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
 
     var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
             new google.maps.Size(43, 28),
