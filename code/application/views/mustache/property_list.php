@@ -14,7 +14,7 @@
 					<div id="{{propertyNumber}}" class="picture_number">0</div>
 					<a href="{{property_page_url}}" style="position:relative;">
 						{{#PropertyImages}}
-						<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
+							<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
 						{{/PropertyImages}}
 
 						<?php $displayQuickPreview = $this->config->item('displayQuickPreview');
@@ -66,22 +66,18 @@
 				</div>
 
 				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
-					<p>
-						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
-						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
-					</p>
+					<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
+					<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
 				</div>
 
 				<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
-					<p>
-						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
-						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
-					</p>
+					<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
+					<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
 				</div>
 
-				<div class="info_indent displaySaveProperty">
+				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px">
 					<?php if ($this->config->item('displaySaveProperty')) { ?>
-					<p style="width: 250px; float: left">
+					<div style="width: 250px; float: left; margin; 0">
 						<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
 							<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 							<?php echo _('Add to my favorites'); ?>
@@ -91,47 +87,51 @@
 							<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png" />
 							<?php echo _('Saved to my favorites'); ?>
 						</a>
-					</p>
+					</div>
 					<?php } ?>
 
 					<?php $displayCompareProperty = $this->config->item('displayCompareProperty');
 					if ($displayCompareProperty == 1) { ?>
-						<div class="com_div"><input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label></div>
+						<div class="com_div" style="margin-top: 2px">
+							<input type="checkbox" name="pro_compare" id="pro_compare_{{propertyNumber}}" value="{{propertyNumber}}" onclick="compare_property('{{propertyNumber}}', null,'{{propertyType}}');" class="propertycompare"/><label><?php echo _('Compare'); ?> (<span id="compare_count_{{propertyNumber}}" class="compare_count">0</span> <?php echo _('of'); ?> 5)</label>
+						</div>
 <?php } ?>
 				</div>
 
+				<?php if ($this->api_used == HB_API) { ?>
+				{{^isRatingsEmpty}}
 				<div id="property_ratings_{{propertyNumber}}" class="propertyRatingsBoxd" style="display: none">
-					{{^isRatingsEmpty}}
-						{{#Ratings}}
-							<div class="propertyRatingsContainer">
-								<!--<h3>
-									<?php echo _("évaluation moyenne") . " - " . _("As rated by bookers like you") . ": "; ?>
-									{{overall_rating}} %
-								</h3> -->
+					{{#Ratings}}
+						<div class="propertyRatingsContainer">
+							<!--<h3>
+								<?php echo _("évaluation moyenne") . " - " . _("As rated by bookers like you") . ": "; ?>
+								{{overall_rating}} %
+							</h3> -->
 
-								<?php
-								$ratingCategories = array(
-									"atmosphere", "staff", "location", "cleanliness",
-									"facilities", "safety", "value"
-								); ?>
+							<?php
+							$ratingCategories = array(
+								"atmosphere", "staff", "location", "cleanliness",
+								"facilities", "safety", "value"
+							); ?>
 
-								<?php foreach ($ratingCategories as $ratingCategory): ?>
-									{{#<?php echo $ratingCategory; ?>}}
-									<div class="bar-back group">
-										<div class="bar-top darkYellow" style="width:{{<?php echo $ratingCategory; ?>}}%"></div>
+							<?php foreach ($ratingCategories as $ratingCategory): ?>
+								{{#<?php echo $ratingCategory; ?>}}
+								<div class="bar-back group">
+									<div class="bar-top darkYellow" style="width:{{<?php echo $ratingCategory; ?>}}%"></div>
 
-										<?php $imgSrcUrl = base_url() . "images/rating-" . $ratingCategory . ".png"; ?>
-										<img alt="" src="<?php echo $imgSrcUrl; ?>"/>
+									<?php $imgSrcUrl = base_url() . "images/rating-" . $ratingCategory . ".png"; ?>
+									<img alt="" src="<?php echo $imgSrcUrl; ?>"/>
 
-										<span class="rating-cat"><?php echo _(ucfirst($ratingCategory)); ?></span>
-										<span class="rating-value">{{<?php echo $ratingCategory; ?>}} %</span>
-									</div>
-									{{/<?php echo $ratingCategory; ?>}}
-								<?php endforeach; ?>
-							</div>
-						{{/Ratings}}
-					{{/isRatingsEmpty}}
+									<span class="rating-cat"><?php echo _(ucfirst($ratingCategory)); ?></span>
+									<span class="rating-value">{{<?php echo $ratingCategory; ?>}} %</span>
+								</div>
+								{{/<?php echo $ratingCategory; ?>}}
+							<?php endforeach; ?>
+						</div>
+					{{/Ratings}}
 				</div>
+				{{/isRatingsEmpty}}
+				<?php } ?>
 			</div>
 
 			<?php if ($this->config->item('displayRemoveFromSearch')) { ?>
@@ -190,15 +190,14 @@
 							<strong class="txt-mid green"><?php echo _('Great location'); ?></strong>
 						{{/ratings_location_great}}
 						{{#ratings_location_under}}
-							<span><strong>{{ratings_location}}%</strong><?php echo _('Location'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{ratings_location}}%</strong><?php echo _('Location'); ?></span>
 							<strong class="txt-mid green"></strong>
 						{{/ratings_location_under}}
 						{{/display_alternate_rating}}
 					{{^display_alternate_rating}}
 
 						<span>
-							<strong>{{overall_rating}} %</strong>
-							<span class="averageRatingCaption"><?php echo _("évaluation moyenne"); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}"><strong>{{overall_rating}} %</strong> <?php echo _("évaluation moyenne"); ?></span></span>
 							<strong class="txt-mid green">{{rating}}</strong>
 						</span>
 					{{/display_alternate_rating}}
@@ -232,7 +231,7 @@
 					<span class="dorms_currency" style="display: inline">{{display_currency}}</span> <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>" class="dorms_price">{{display_shared_price_formatted}}</strong>
 
 					{{#original_price}}
-					<div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div>
+					<!-- <div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div> -->
 					{{/original_price}}
 					{{/display_shared_price}}
 
@@ -266,7 +265,7 @@
 
 		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none">
 			<!-- <h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3> -->
-			<div class="amenities group no-indent">
+			<!-- <div class="amenities group no-indent">
 				{{#amenities}}
 					{{#to_display}}
 					<span class="icon_facility icon_facility_{{facility_id}} group"><span>{{description}}</span></span>
@@ -282,7 +281,7 @@
 				{{#safety80}}
 					<span class="icon_facility icon_safety group"><span><?php echo _("Safety"); ?></span></span>
 				{{/safety80}}
-			</div>
+			</div>-->
 
 			<div class="loading-dispo-city" id="loading-dispo-{{propertyNumber}}">
 				<p><?php echo _('Recherche de disponibilités...'); ?></p>

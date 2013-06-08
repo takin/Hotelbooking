@@ -819,12 +819,13 @@ nav.city-tools ul li a {
 	text-align: center;
 }
 
-#sortname-tous {
-	padding-left: 5px;
-}
-
 nav.city-tools ul li a:hover span{
 	text-decoration:underline;
+}
+
+#sortname-tous {
+	padding-left: 3px;
+	padding-right: 0;
 }
 
 nav.city-tools ul li a span{
@@ -835,15 +836,14 @@ nav.city-tools ul li a span{
 
 nav.city-tools ul li a.activesort{
 	background:#dee4d3;
-	border-right:1px solid #D0DAE0;
 }
 
 nav.city-tools ul li a span.asc{
-	background:url(../images/V2/icon_sort_up.png) no-repeat right 11px;
-	padding-right:20px;
+	background:url(../images/V2/icon_sort_up.png) no-repeat right 13px;
+	padding-right:17px;
 }
 nav.city-tools ul li a span.desc{
-	background:url(../images/V2/icon_sort_down.png) no-repeat right 11px;
+	background:url(../images/V2/icon_sort_down.png) no-repeat right 13px;
 	padding-right:20px;
 }
 
@@ -1018,13 +1018,22 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .info_indent{
-	margin-left:126px;
 }
 
-.hb_frame .info_indent{
-	margin-left:25px;
+.hb_frame #property_list .info_indent,
+.hb_frame #property_list .amenities,
+.hb_frame #property_list .city_hostel_districts,
+.hb_frame #property_list .city_hostel_landmarks {
 	float: right;
-	width: 405px;
+	width: 390px !important;
+}
+
+.city-search #property_list .info_indent,
+.city-search #property_list .amenities,
+.city-search #property_list .city_hostel_districts,
+.city-search #property_list .city_hostel_landmarks {
+	width: 410px !important;
+	float: right;
 }
 
 .hostel_list .info h2{
@@ -1086,10 +1095,12 @@ ul.avail li {
 }
 .hb_frame .amenities{
 	float: right;
-	width: 405px;	
+	width: 390px;
+	margin-top: 2px;
+	margin-bottom: 2px;
 }
 .amenities.no-indent{margin-left:0px;}
-span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:5px; height:30px; line-height:30px; margin-right:15px; margin-top:5px;}
+span.icon_facility{display:block; float:left; text-align:right; padding:0px; height:24px; line-height:24px; margin-right:15px; }
 /*span.icon_facility span{display: block; float: left;padding: 8px 0 8px 0px;}*/
 span.icon_facility_26{background:url(../images/V2/icon-coffee.png) no-repeat top left; padding-left:28px;}
 .lang-de-DE span.icon_facility_extra3 span{background: url("../images/V2/freebreakfast_de.png") no-repeat scroll left center transparent;display: block; float:right;padding: 0px 0 0px 64px;}
@@ -2581,7 +2592,8 @@ text-align: -webkit-center;
  
 .city_hostel_districts , .city_hostel_landmarks{
 	float: right;
-	width: 405px;
+	width: 390px;
+	margin-top: 4px;
 }
 
 .city_hostel_districts_district , .city_hostel_landmarks_landmark{
@@ -2914,8 +2926,8 @@ width: 275px;}
 
 .remove_from_search_options {
 	position: absolute;
-	margin-left: 485px;
-	width: 280px;
+	margin-left: 455px;
+	width: 315px;
 	background-color: #fff;
 	border: 1px solid #ccccc7;
 	padding: 10px;
@@ -2931,7 +2943,7 @@ width: 275px;}
 }
 
 .remove_from_search_options ul li {
-	font-size: 0.7em;
+	font-size: 1em;
 	vertical-align: middle !important;
 }
 

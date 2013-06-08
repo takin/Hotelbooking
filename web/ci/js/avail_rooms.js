@@ -79,6 +79,10 @@ function showPropertyRatings() {
 		var obj = $(this);
 		var number = obj.attr('rel');
 
+		if (!$('#property_ratings_' + number).length || !$('#property_ratings_' + number).html()) {
+			return;
+		}
+
 		$('#prop_tab_box_' + number).find('.displaySaveProperty').hide();
 		$('#prop_tab_box_' + number).find('.address').hide();
 		$('#prop_tab_box_' + number).find('.amenities').hide();
@@ -92,6 +96,10 @@ function showPropertyRatings() {
 	$('.hostel_list .rating .yellow-bg').live('mouseout', function() {
 		var obj = $(this);
 		var number = obj.attr('rel');
+
+		if (!$('#property_ratings_' + number).length || !$('#property_ratings_' + number).html()) {
+			return;
+		}
 
 		$('#prop_tab_box_' + number).find('.displaySaveProperty').show();
 		$('#prop_tab_box_' + number).find('.show').hide();
