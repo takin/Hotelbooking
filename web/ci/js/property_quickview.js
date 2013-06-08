@@ -363,45 +363,14 @@ QuickView.prototype.getContent = function() {
 QuickView.prototype.setMap = function() {
 
         var that  = this;
-
-	QuickView.pweb_map = new GoogleMap('map_canvas');
-	QuickView.pweb_filter = new PWebFilterApp();
-	QuickView.pweb_filter.pweb_maps = new Array();
-
-
-        QuickView.pweb_filter.pweb_maps = new Array();
-
 	
 	var lat = this.data.Geo.Latitude;
 	var lng = this.data.Geo.Longitude;
 
-	QuickView.pweb_filter.addFilterMap('city', 'map_canvas', 'en', lat, lng);
-	QuickView.pweb_filter.addFilterMap('property', 'map_canvas', 'en', lat, lng);
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].prop_number_to_focus     = this.data.propertyNumber;
-	} catch(err) {}
-
-
-	try {
-		QuickView.pweb_filter.pweb_maps['property'].prop_number_to_focus = this.data.propertyNumber;
-	} catch(err) {}
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].updateMarkers([{
-			Geo                     : this.data.Geo,
-			PropertyImages          : this.data.PropertyImages,
-			property_page_url       : this.data.property_page_url,
-			display_price_formatted : this.data.display_price_formatted,
-			propertyNumber          : this.data.propertyNumber,
-			propertyName            : this.data.propertyName,
-			overall_rating          : this.data.overall_rating
-		}]);
-	} catch(err) {}
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].enableMap();
-	} catch(err) {}
+            pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en',  lat, lng);
+            pweb_filter.toggleMap('hostel_quickview');
+            pweb_filter.toggleMap('city');
+            
 
 	function autoselect() {
 		GoogleMap.setZoom(13);
@@ -416,12 +385,12 @@ QuickView.prototype.setMap = function() {
 	}
 
        $("#quick_preview_div").bind("mouseover", function(){
-            QuickView.pweb_map.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'selected');
+            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'selected');
 
         });
         
          $("#quick_preview_div").bind("mouseout", function(){
-            QuickView.pweb_map.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'original');
+            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'original');
 
         });
         
