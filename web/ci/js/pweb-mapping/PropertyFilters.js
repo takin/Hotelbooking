@@ -1659,7 +1659,7 @@ $(document).ready(function() {
             'titlePosition' : 'inside',
             'transitionIn'	: 'none',
             'transitionOut'	: 'none',
-                ,beforeClose: function() {
+             beforeClose: function() {
                     pweb_filter.toggleMap('city');
                     pweb_filter.toggleMap('hostel_quickview');
                 }
