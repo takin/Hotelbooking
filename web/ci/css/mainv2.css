@@ -936,7 +936,10 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	display:block;
 	line-height:180%;
 	color: rgb(112,146,190);
-	font-weight: bold;
+}
+
+.averageRatingCaptionHW {
+	color: #999 !important;
 }
 
 .propertyRatingsBox {
@@ -1158,8 +1161,6 @@ div.price strong {
 }
 
 div.price span{
-	display:block;
-	font-weight:bold;
 }
 
 span.rebate-price {
@@ -3179,4 +3180,13 @@ width: 275px;}
 	display: inline;
 	padding: 0;
 	margin: 0;
+}
+
+#property_list .box_content {
+	padding: 0 !important;
+}
+
+#property_list .box_content .city_hostel {
+	padding: 10px;
+	padding-bottom: 0;
 }

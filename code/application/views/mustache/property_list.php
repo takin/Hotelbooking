@@ -167,45 +167,46 @@
 
 			<div class="rating">
 				<div style="text-align: left; margin-bottom: 20px; height: 30px;">
+				<?php $extraCaptionClass = $this->api_used == HB_API ? '' : ' averageRatingCaptionHW';?>
 				{{#overall_rating}}
 					{{#display_alternate_rating}}
 						{{#ratings_safety_safe}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
-							<strong class="txt-mid green"><?php echo _('Safe'); ?></strong>
-							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"><?php echo _('Safe'); ?></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_safe}}
 						{{#ratings_safety_very_safe}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
-							<strong class="txt-mid green"><?php echo _('Very safe'); ?></strong>
-							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"><?php echo _('Very safe'); ?></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_very_safe}}
 						{{#ratings_safety_under}}
-							<span>{{ratings_safety}}%</span>
-							<strong class="txt-mid green"></strong>
-							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
+							<span class="showRatings" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_under}}
 						{{#ratings_location_good}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
-							<strong class="txt-mid green"><?php echo _('Good location'); ?></strong>
-							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{ratings_location}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"><?php echo _('Good location'); ?></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Location'); ?></span>
 						{{/ratings_location_good}}
 						{{#ratings_location_great}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
-							<strong class="txt-mid green"><?php echo _('Great location'); ?></strong>
-							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{ratings_location}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"><?php echo _('Great location'); ?></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Location'); ?></span>
 						{{/ratings_location_great}}
 						{{#ratings_location_under}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
-							<strong class="txt-mid green"></strong>
-							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{ratings_location}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}"></strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Location'); ?></span>
 						{{/ratings_location_under}}
 						{{/display_alternate_rating}}
 					{{^display_alternate_rating}}
 
 						<span>
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{overall_rating}}%</span>
-							<strong class="txt-mid green">{{rating}}</strong>
-							<span class="averageRatingCaption"><?php echo _('Overall evaluation'); ?></span>
+							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{overall_rating}}%</span>
+							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}">{{rating}}</strong>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Overall evaluation'); ?></span>
 						</span>
 					{{/display_alternate_rating}}
 				{{/overall_rating}}
@@ -226,13 +227,9 @@
 					{{#dual_price}}
 
 					{{#display_shared_price}}
-					<div class="group" style="clear: both">
-						<span class="nbpeople">
-							<span class="icon-nbpeople nbpeople-1" title=""><?php printf(gettext('Dorms from %s'), ''); ?></span>
-						</span>
-					</div>
+					<span><?php printf(gettext('Dorms from %s'), ''); ?></span>
 					{{#original_price}}
-					<span class="rebate-price"> {{display_currency}} {{original_price}}</span>
+					<span class="rebate-price" style="display: inline"> {{display_currency}} {{original_price}}</span>
 					{{/original_price}}
 
 					<span class="dorms_currency" style="display: inline">{{display_currency}}</span> <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>" class="dorms_price">{{display_shared_price_formatted}}</strong>
@@ -243,13 +240,10 @@
 					{{/display_shared_price}}
 
 					{{#display_private_price}}
-					<div class="group" style="clear: both">
-						<span class="nbpeople" title="">
-							<span class="private-people icon-nbpeople nbpeople-1">1 x</span>
-							<span class="nbpeople-text"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
-							<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
-						</span>
-					</div>
+						<br style="clear: both" />
+						<span class="private-people">1 x</span>
+						<span class="nbpeople-textd"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
+						<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
 					{{/display_private_price}}
 					{{/dual_price}}
 				</div>

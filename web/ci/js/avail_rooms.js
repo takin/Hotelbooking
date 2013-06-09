@@ -75,7 +75,7 @@ function hidePropertyRoomsAvail(propertyNumber) {
 }
 
 function showPropertyRatings() {
-	$('.hostel_list .rating .yellow-bg').live('mouseover', function() {
+	$('.hostel_list .rating .showRatings').live('mouseover', function() {
 		var obj = $(this);
 		var number = obj.attr('rel');
 
@@ -93,7 +93,7 @@ function showPropertyRatings() {
 		$('#property_ratings_' + number).show();
 	});
 
-	$('.hostel_list .rating .yellow-bg').live('mouseout', function() {
+	$('.hostel_list .rating .showRatings').live('mouseout', function() {
 		var obj = $(this);
 		var number = obj.attr('rel');
 
