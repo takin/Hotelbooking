@@ -535,6 +535,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
         //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
             $("#side_search_box").show();
+            $("#filter_links_container").show();
             
             $("#sidebar").removeClass("fix_sidebar_position");
             $("#sidebar").addClass("container_16");
@@ -547,6 +548,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#side_search_box").hide();
+            $("#filter_links_container").hide();
             
             $("#sidebar").addClass("fix_sidebar_position");
             $("#sidebar").removeClass("container_16");
