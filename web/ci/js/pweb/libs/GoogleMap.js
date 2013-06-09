@@ -229,7 +229,7 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 };
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
-    if (window.gmap && window.gmap.getDiv().id === "filter_map_rightSide") {
+    if (window.gmap.getDiv().id === "filter_map_rightSide") {
         var result = {
             property_list: $('#property_list').children(),
             start_from: 0
@@ -292,7 +292,6 @@ return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
 {
-return;
     if (window.markers.length < 1)
     {
         window.markers = this.fillMakersArray();
