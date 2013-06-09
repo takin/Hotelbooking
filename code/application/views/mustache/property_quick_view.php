@@ -47,7 +47,7 @@
 				<div class="group">
 					<ul class="green-li increase1 translated">
 						{{#includes}}
-						<li>{{description}}{{#isHB}}: <?php echo '<strong>' . _("Free") . '</strong>'; ?>{{/isHB}}</li>
+						<li>{{description}}{{#isHB}}: <span class="yellow-bg"><?php echo  _("Free"); ?></span>{{/isHB}}</li>
 						{{/includes}}
 					</ul>
 				</div>

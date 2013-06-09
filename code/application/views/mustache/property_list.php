@@ -43,7 +43,7 @@
 
 
 					{{#isMinNightNeeded}}
-						<p class="minnight">{{minNightsMessage}}</p>
+						<!-- <p class="minnight">{{minNightsMessage}}</p> -->
 					{{/isMinNightNeeded}}
 				</div>
 
@@ -51,7 +51,7 @@
 					{{#amenities}}
 						{{#to_display}}
 							<span class="icon_facility icon_facility_{{facility_id}} group">
-								<span>{{description}}</span>
+								<span style="line-height: 20px">{{description}}</span>
 							</span>
 						{{/to_display}}
 					{{/amenities}}
@@ -170,35 +170,42 @@
 				{{#overall_rating}}
 					{{#display_alternate_rating}}
 						{{#ratings_safety_safe}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}% <?php echo _('Safety'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
 							<strong class="txt-mid green"><?php echo _('Safe'); ?></strong>
+							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_safe}}
 						{{#ratings_safety_very_safe}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}% <?php echo _('Safety'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_safety}}%</span>
 							<strong class="txt-mid green"><?php echo _('Very safe'); ?></strong>
+							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_very_safe}}
 						{{#ratings_safety_under}}
-							<span>{{ratings_safety}}% <?php echo _('Safety'); ?></span>
+							<span>{{ratings_safety}}%</span>
 							<strong class="txt-mid green"></strong>
+							<span class="averageRatingCaption"><?php echo _('Safety'); ?></span>
 						{{/ratings_safety_under}}
 						{{#ratings_location_good}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}% <?php echo _('Location'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
 							<strong class="txt-mid green"><?php echo _('Good location'); ?></strong>
+							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_good}}
 						{{#ratings_location_great}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}% <?php echo _('Location'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
 							<strong class="txt-mid green"><?php echo _('Great location'); ?></strong>
+							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_great}}
 						{{#ratings_location_under}}
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}% <?php echo _('Location'); ?></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{ratings_location}}%</span>
 							<strong class="txt-mid green"></strong>
+							<span class="averageRatingCaption"><?php echo _('Location'); ?></span>
 						{{/ratings_location_under}}
 						{{/display_alternate_rating}}
 					{{^display_alternate_rating}}
 
 						<span>
-							<span class="yellow-bg" rel="{{propertyNumber}}">{{overall_rating}}% <?php echo _("évaluation moyenne"); ?></span></span>
+							<span class="yellow-bg" rel="{{propertyNumber}}">{{overall_rating}}%</span>
 							<strong class="txt-mid green">{{rating}}</strong>
+							<span class="averageRatingCaption"><?php echo _('Overall evaluation'); ?></span>
 						</span>
 					{{/display_alternate_rating}}
 				{{/overall_rating}}

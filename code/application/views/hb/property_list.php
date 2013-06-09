@@ -1,6 +1,9 @@
 <?php
 // Link to hostel page below if needed
 // echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang); ?>
+
+<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
+
 <div class="hostel_list search_list">
 	<div class="box_content box_round">
 		<div class="city_hostel group" id="city_info_<?php echo $hostel["id"]; ?>">

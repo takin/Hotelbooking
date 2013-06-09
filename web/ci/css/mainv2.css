@@ -931,10 +931,12 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
     background-color:white;
 }
 
-.city_tabs ul.rating .averageRatingCaption {
-    font-size:.9em;
-    display:block;
-    line-height:180%;
+.averageRatingCaption {
+	font-size:.9em;
+	display:block;
+	line-height:180%;
+	color: rgb(112,146,190);
+	font-weight: bold;
 }
 
 .propertyRatingsBox {
@@ -2920,7 +2922,7 @@ width: 275px;}
 	float: right;
 	text-align: left;
 	width: 225px;
-	margin-top: -14px;
+	margin-top: -18px;
 }
 
 .remove_from_search_options {
@@ -3160,9 +3162,21 @@ width: 275px;}
     margin: 0;
 }
 
-#property_list span.icon_facility_extra3 span {
+#quick_preview_div span.icon_facility_extra3 span,
+.city-search span.icon_facility_extra3 span,
+.auberges span.icon_facility_extra3 span {
 	background: none;
 	display: inline;
-	float: none;
+	float: left;
+	line-height: 14px;
+	margin-right: 5px;
 	padding: 0;
+}
+
+#quick_preview_div span.icon_facility_extra3 p,
+.city-search span.icon_facility_extra3 p,
+.auberges span.icon_facility_extra3 p {
+	display: inline;
+	padding: 0;
+	margin: 0;
 }
