@@ -16,9 +16,12 @@
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>">
 				<img width="inherit" height="inherit" src="<?php echo $hb_list_image; ?>"  title="" style="width: 100px; height: 100px;">
 				</a>
+
+				<span class="info_type" style="color: #999"><?php echo $this->Db_term_translate->get_term_translation($hostel["type"],$this->site_lang); ?></span>
+
 				</div>
 				<div class="info_indent">
-					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>"><?php echo $hostel["name"]; ?>, <?php echo $city_selected;?></a>	 <span class="info_type">(<?php echo $this->Db_term_translate->get_term_translation($hostel["type"],$this->site_lang); ?>)</span></h2>
+					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>"><?php echo $hostel["name"]; ?>, <?php echo $city_selected;?></a></h2>
 				<p>
 				<?php
 				//TONOTICE Unfortunately, HB API does not use the same variables names for a get location data VS a get location availability

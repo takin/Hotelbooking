@@ -27,7 +27,7 @@
 						<input type="hidden" name="propertycur{{propertyNumber}}" id="propertycur_{{propertyNumber}}" value="{{currency_code}}"/>
 					</a>
 
-					<span class="info_type">({{propertyTypeTranslate}})</span>
+					<span class="info_type" style="color: #999">{{propertyTypeTranslate}}</span>
 				</div>
 
 				<div class="info_indent min-nights">

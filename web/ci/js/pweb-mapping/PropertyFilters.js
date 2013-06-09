@@ -486,6 +486,9 @@ PWebFilterApp.prototype.update = function() {
         this.cleanupDistrcitsAndLandmarks();
 	
 	this.initpaging();
+
+	var freeHtml = $('.free').html();
+	$(freeHtml).prependTo('#property_list .icon_facility_extra3');
 	
 }; // end init() 
 

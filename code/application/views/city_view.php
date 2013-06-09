@@ -2,6 +2,7 @@
 	<input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
 	<input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
 
+	<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
 <?php
 if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	<div id="filter_map_leftSide">
