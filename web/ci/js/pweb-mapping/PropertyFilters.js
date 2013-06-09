@@ -1162,8 +1162,9 @@ PWebFilterApp.prototype.setup = function(data)
 
 	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
-    this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
-
+        this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+        this.addFilterMap('hostel_quickview', "map_canvas", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+       
 	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
 	this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
@@ -1655,9 +1656,13 @@ $(document).ready(function() {
       $('#wrap').show();
 	  
 	   $(".display_preview").fancybox({
-			'titlePosition' : 'inside',
-			'transitionIn'	: 'none',
-			'transitionOut'	: 'none'
+            'titlePosition' : 'inside',
+            'transitionIn'	: 'none',
+            'transitionOut'	: 'none',
+             beforeClose: function() {
+                    pweb_filter.toggleMap('city');
+                    pweb_filter.toggleMap('hostel_quickview');
+                }
 	  });
 	
 	  $(".box_content").live({
@@ -1772,7 +1777,7 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 			$('#nexturl').html(nexturl);
 			pweb_filter.addFilterMap('city', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			pweb_filter.addFilterMap('property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
-			
+			 
 			pweb_filter.pweb_maps['city'].prop_number_to_focus = proid;
 			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
 			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);

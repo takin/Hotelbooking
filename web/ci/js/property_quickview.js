@@ -77,14 +77,14 @@ QuickView.getObject = function(propertyNumber) {
 	return QuickView.propertyList[index];
 }
 
-QuickView.prototype.getContent = function() {
+QuickView.prototype.getContent = function() {        
 	var wait_message = $('#wait_message').val();
 
 	if (this.data.isHW) {
 		var text =  '<div class="loading-dispo-city loading-quick-preview" id="loading-pics"><p>'+wait_message+'</p></div>';
 	        $('#quick_preview_div').empty().append(text);
 	}
-
+        
 	QuickView.currentPropertyIndex = QuickView.propertyNumberToIndex[ this.data.propertyNumber.toString() ];
 
 	var nextid = $('#prop_tab_box_' + this.data.propertyNumber.toString() ).next().attr('rel');
@@ -361,44 +361,16 @@ QuickView.prototype.getContent = function() {
 }
 
 QuickView.prototype.setMap = function() {
-	QuickView.pweb_map = new GoogleMap('map_canvas');
-	QuickView.pweb_filter = new PWebFilterApp();
-	QuickView.pweb_filter.pweb_maps = new Array();
 
-
-        QuickView.pweb_filter.pweb_maps = new Array();
-
+        var that  = this;
 	
 	var lat = this.data.Geo.Latitude;
 	var lng = this.data.Geo.Longitude;
 
-	QuickView.pweb_filter.addFilterMap('city', 'map_canvas', 'en', lat, lng);
-	QuickView.pweb_filter.addFilterMap('property', 'map_canvas', 'en', lat, lng);
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].prop_number_to_focus     = this.data.propertyNumber;
-	} catch(err) {}
-
-
-	try {
-		QuickView.pweb_filter.pweb_maps['property'].prop_number_to_focus = this.data.propertyNumber;
-	} catch(err) {}
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].updateMarkers([{
-			Geo                     : this.data.Geo,
-			PropertyImages          : this.data.PropertyImages,
-			property_page_url       : this.data.property_page_url,
-			display_price_formatted : this.data.display_price_formatted,
-			propertyNumber          : this.data.propertyNumber,
-			propertyName            : this.data.propertyName,
-			overall_rating          : this.data.overall_rating
-		}]);
-	} catch(err) {}
-
-	try {
-		QuickView.pweb_filter.pweb_maps['city'].enableMap();
-	} catch(err) {}
+            pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en',  lat, lng);
+            pweb_filter.toggleMap('hostel_quickview');
+            pweb_filter.toggleMap('city');
+            
 
 	function autoselect() {
 		GoogleMap.setZoom(13);
@@ -412,6 +384,16 @@ QuickView.prototype.setMap = function() {
 		$('#map_canvas').css('height', '285px !important');
 	}
 
+       $("#quick_preview_div").bind("mouseover", function(){
+            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'selected');
+
+        });
+        
+         $("#quick_preview_div").bind("mouseout", function(){
+            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'original');
+
+        });
+        
 	window.setTimeout(function() { autoselect(); }, 2200);
 }
 
