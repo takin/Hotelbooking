@@ -548,7 +548,7 @@ class Hb_engine {
             }
         }
 
-        log_message("debug", "post ifs: " . print_r($data["property_list"], true));
+//        log_message("debug", "post ifs: " . print_r($data["property_list"], true));
 
 //    debug_dump($data['property_list']);
 
@@ -988,11 +988,11 @@ class Hb_engine {
              $data['hostel']['geolongitude']           = 0;
 
            if(( floatval($response["RESPONSE"]["GPS"]["LAT"]) != 0) && ( floatval($response["RESPONSE"]["GPS"]["LON"]) != 0))
-            {  
+            {
               $data['google_map_geo_latlng'] = str_replace(",", ".", $response["RESPONSE"]["GPS"]["LAT"]) . ", " . str_replace(",", ".", $response["RESPONSE"]["GPS"]["LON"]);
               $data['hostel']['geolatitude']             = (string) str_replace(",", ".", $response["RESPONSE"]["GPS"]["LAT"]);
               $data['hostel']['geolongitude']            = (string) str_replace(",", ".", $response["RESPONSE"]["GPS"]["LON"]);
-             
+
             }
               else{
                     // load hb_hostel model

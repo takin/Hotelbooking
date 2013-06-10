@@ -430,59 +430,58 @@ class Db_hw_city extends CI_Model
   {
     log_message('debug', "enter get_hw_cities_of_country_name $continent_name $country_name $lang");
 
-     $this->CI->load->model('Db_country');
+    $countrySQL = "";
+    $continentSQL = "";
 
+    $this->CI->load->model('Db_country');
     $lang = $this->CI->Db_country->lang_code_convert($lang);
-
-    $this->db->select(self::CONTINENT_TABLE.".continent_code as continent_code");
-    $this->db->select(self::HW_CITY_TABLE.".hw_city_id");
-    $this->db->select(self::HW_COUNTRY_TABLE.".hw_country_id");
-    $this->db->select(self::CITY_TRANSLATION_TABLE.".lng AS city_geo_longitude");
-    $this->db->select(self::CITY_TRANSLATION_TABLE.".lat AS city_geo_latitude");
-    $this->db->select(self::CITY_TRANSLATION_TABLE.".lng AS country_geo_longitude");
-    $this->db->select(self::CITY_TRANSLATION_TABLE.".lat AS country_geo_latitude");
-    $this->db->select(self::HW_CITY_TABLE.".hw_city AS city_name");
-    $this->db->select(self::HW_COUNTRY_TABLE.".hw_country AS country_name");
-
-    //TONOTICE If translation of country and city does not exist return the api normal english name, this prevent null values that affect the sorting on order by
-//    $this->db->select(self::CITY_TRANSLATION_TABLE.".`city_$lang` AS city_name_translated");
-    $this->db->select("IFNULL(`city_$lang`,".self::HW_CITY_TABLE.".hw_city) AS city_name_translated",false);
-//    $this->db->select(self::CITY_TRANSLATION_TABLE.".`country_$lang` AS country_name_translated");
-    $this->db->select("IFNULL(`country_$lang`,IFNULL((SELECT `country_$lang` FROM ".self::CITY_TRANSLATION_TABLE." WHERE LOWER(".self::CITY_TRANSLATION_TABLE.".country_en) LIKE LOWER(".self::HW_COUNTRY_TABLE.".hw_country) LIMIT 1),hw_country)) AS country_name_translated",false);
-    $this->db->select(self::CONTINENT_TABLE.".`continent_en` AS continent_name");
-    $this->db->select(self::CONTINENT_TABLE.".`continent_$lang` AS continent_name_translated");
-    $this->db->select(self::HW_COUNTRY_TABLE.".country_iso_code_2");
-
-    $this->db->join(self::HW_COUNTRY_TABLE, self::HW_COUNTRY_TABLE.'.hw_country_id = '.self::HW_CITY_TABLE.'.hw_country_id', 'left');
-    $this->db->join(self::CONTINENT_TABLE, self::CONTINENT_TABLE.'.continent_id = '.self::HW_COUNTRY_TABLE.'.continent_id', 'left');
-    $this->db->join(self::CITY_TRANSLATION_TABLE,self::HW_COUNTRY_TABLE.".hw_country = ".self::CITY_TRANSLATION_TABLE.".country_en AND ".self::HW_CITY_TABLE.".hw_city = ".self::CITY_TRANSLATION_TABLE.".city_en","left");
 
     if(!empty($country_name))
     {
-      $this->db->where(self::HW_COUNTRY_TABLE.".hw_country",$country_name);
+       $country_name_escaped = strtolower($this->db->escape_str($country_name));
+       $countrySQL = "WHERE LOWER(co.hw_country) = '$country_name_escaped'";
 
-      $country_name_escaped = strtolower($this->db->escape_str($country_name));
-      foreach($this->CI->Db_country->get_country_fields() as $country_field)
-      {
-          $this->db->or_where("LOWER(`$country_field`)='$country_name_escaped'");
-      }
+       foreach($this->CI->Db_country->get_country_fields() as $country_field)
+       {
+          $countrySQL = $countrySQL." OR LOWER(ci2.`$country_field`) = '$country_name_escaped'";
+       }
     }
     elseif(!empty($continent_name))
     {
-      $this->db->where(self::CONTINENT_TABLE.".continent_en",$continent_name);
+       $continent_name_escaped = strtolower($this->db->escape_str($continent_name));
+       $continentSQL = "WHERE LOWER(continent_en) = '$continent_name_escaped'";
 
-      $continent_name_escaped = strtolower($this->db->escape_str($continent_name));
-      foreach($this->CI->Db_country->get_continent_fields() as $continent_field)
-      {
-          $this->db->or_where("LOWER(`$continent_field`)='$continent_name_escaped'");
-      }
+       foreach($this->CI->Db_country->get_continent_fields() as $continent_field)
+       {
+          $continentSQL = $continentSQL." OR LOWER(`$continent_field`) = '$continent_name_escaped'";
+       }
+
     }
 
-    $this->db->order_by("country_name_translated ASC, city_name_translated ASC");
+    $sql = "SELECT c.continent_code,
+              ci.hw_city_id, co.hw_country_id,
+              ci2.lng AS city_geo_longitude, ci2.lat AS city_geo_latitude,
+              ci2.lng AS country_geo_longitude, ci2.lat AS country_geo_latitude,
+              ci.hw_city AS city_name, co.hw_country AS country_name,
+              IFNULL(ci2.city_$lang, ci.hw_city) AS city_name_translated,
+              IFNULL(ci2.country_$lang, IFNULL(co_$lang.country_$lang, co.hw_country)) AS country_name_translated,
+              c.continent_en AS continent_name, c.continent_$lang AS continent_name_translated,
+              co.country_iso_code_2
+         FROM hw_city ci
+           JOIN hw_country co ON co.hw_country_id = ci.hw_country_id
+           JOIN continents c ON c.continent_id = co.continent_id
+           LEFT JOIN cities2 ci2 ON co.hw_country = ci2.country_en AND ci.hw_city = ci2.city_en
+           LEFT JOIN (
+                     SELECT country_en, country_$lang
+                       FROM cities2
+                       WHERE country_$lang IS NOT NULL
+                       GROUP BY country_en
+              ) co_$lang ON co.hw_country = co_$lang.country_en
+         $countrySQL
+         $continentSQL
+         ORDER BY country_name_translated ASC, city_name_translated ASC";
 
-//     $this->db->model_cache_single(__CLASS__ , __FUNCTION__);
-    $query = $this->db->get(self::HW_CITY_TABLE);
-//    debug_dump( $this->db->last_query() );
+    $query = $this->db->query($sql);
     if($query->num_rows() > 0)
     {
       log_message('debug', "exit get_hw_cities_of_country_name with ".$query->num_rows());

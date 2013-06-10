@@ -67,6 +67,8 @@ class Db_hb_hostel extends CI_Model
 
   function get_location_properties($country_system_name, $city_system_name, $language_code = "en", $strCurrencyCode = "GBP", $limit = 0, $filters = array())
   {
+    log_message('debug', "enter get_location_properties $country_system_name $city_system_name $language_code $strCurrencyCode");
+
     $property_type_where = "";
     if(!empty($filters["type"]))
     {
@@ -112,36 +114,35 @@ class Db_hb_hostel extends CI_Model
     $api_db_cur_code        = $this->db->escape_str($api_db_cur_code);
     $limit                  = $this->db->escape($limit);
 
-    $sql = "SELECT hb_hostel.property_number, property_name, property_type, round(rating_overall) as rating,hb_hostel.geo_latitude, hb_hostel.geo_longitude,
-                   currency_code, bed_price as min_price, type as price_type,
-                   hb_hostel_image.url as image_url, hb_hostel_description.short_description,
-                   hostel_translated.requested_lang, hostel_translated.translated_desc
-            FROM hb_hostel
-            LEFT JOIN hb_city ON hb_city.hb_id = hb_hostel.city_hb_id
-            LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id
-            LEFT JOIN hb_hostel_image ON hb_hostel_image.hostel_hb_id = hb_hostel.property_number
-            LEFT JOIN hb_hostel_description ON hb_hostel_description.hostel_hb_id = hb_hostel.property_number
-            LEFT JOIN hb_hostel_price ON hb_hostel_price.hostel_hb_id = hb_hostel.property_number
-            LEFT JOIN
-            ( SELECT hb_hostel.property_number, language AS requested_lang, hb_hostel_description.short_description as translated_desc FROM hb_hostel
-                   LEFT JOIN hb_city    ON hb_city.hb_id  = hb_hostel.city_hb_id
-                   LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id
-                   LEFT JOIN hb_hostel_description ON hb_hostel.property_number = hb_hostel_description.hostel_hb_id
-                   WHERE hb_city.system_name LIKE('$city_system_name') AND hb_country.system_name LIKE('$country_system_name') AND hb_hostel_description.language LIKE'$language_code'
-                   ) AS hostel_translated
-                   ON hb_hostel.property_number = hostel_translated.property_number
-            $landmark_join
-            $district_join
-            WHERE hb_hostel_price.bed_price > 0
-            AND hb_city.system_name LIKE('$city_system_name')
-            AND hb_country.system_name LIKE('$country_system_name')
-            AND hb_hostel_description.language ='en'
-            AND currency_code = '$api_db_cur_code'
-            $property_type_where
-            $landmark_where
-            $district_where
-            GROUP BY hb_hostel.property_number
-    				ORDER BY min_price ASC";
+	$sql = "SELECT
+		h.property_number, h.property_name, h.property_type,
+		round(h.rating_overall) AS rating, h.geo_latitude,
+		h.geo_longitude, hp.currency_code, hp.bed_price AS min_price,
+		hp.`type` AS price_type, hi.url AS image_url,
+		hd.short_description
+	FROM hb_hostel h
+	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
+	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
+	  LEFT JOIN hb_hostel_image hi ON hi.hostel_hb_id = h.property_number
+	  JOIN hb_hostel_description hd ON hd.hostel_hb_id = h.property_number
+	  JOIN hb_hostel_price hp ON hp.hostel_hb_id = h.property_number
+	  LEFT JOIN hb_hostel h_tr ON h_tr.property_number = h.property_number
+	  JOIN hb_city ci_tr ON ci_tr.hb_id = h_tr.city_hb_id
+	  JOIN hb_country co_tr ON co_tr.hb_country_id = ci_tr.hb_country_id
+	  $landmark_join
+      $district_join
+	WHERE hp.bed_price > 0
+	  AND ci.system_name = '$city_system_name'
+	  AND co.system_name = '$country_system_name'
+	  AND hd.`language` = 'en'
+	  AND hp.currency_code = '$api_db_cur_code'
+	  AND ci_tr.system_name = '$city_system_name'
+	  AND co_tr.system_name = '$country_system_name'
+	  $property_type_where
+	  $landmark_where
+      $district_where
+	GROUP BY h.property_number
+	ORDER BY min_price ASC";
 
     if(!empty($limit) && ($limit > 0))
     {
@@ -159,12 +160,7 @@ class Db_hb_hostel extends CI_Model
       {
         $response["response"]["properties"][$index]["name"] = $hostel->property_name;
         $response["response"]["properties"][$index]["id"] = $hostel->property_number;
-
         $response["response"]["properties"][$index]["intro"] = $hostel->short_description;
-        if(!empty($hostel->translated_desc) )
-        {
-          $response["response"]["properties"][$index]["intro"] = $hostel->translated_desc;
-        }
         $response["response"]["properties"][$index]["image"] = $hostel->image_url;
         $response["response"]["properties"][$index]["rating"] = $hostel->rating;
         $response["response"]["properties"][$index]["type"] = $hostel->property_type;
@@ -198,8 +194,13 @@ class Db_hb_hostel extends CI_Model
         $index++;
       }
 
+      log_message('debug', "exit get_location_properties");
+
       return $response;
     }
+
+    log_message('debug', "exit get_location_properties NULL");
+
     return NULL;
   }
 
@@ -479,23 +480,23 @@ class Db_hb_hostel extends CI_Model
     public function update_hostel_from_array(array $hostel) {
         $propertyNumber = $hostel["property_number"];
         unset($hostel["property_number"]);
-        
+
         if (empty($propertyNumber)) {
             throw new Exception(sprintf(
                     "Error updating hostel named %s: no property number",
                     $hostel["property_name"]));
         }
-        
+
         $this->CI->db->where("property_number", $propertyNumber);
         $isUpdated = $this->CI->db->update(self::HOSTEL_TABLE, $hostel);
-                
+
         if (!$isUpdated) {
             throw new Exception(sprintf(
                 "Hostel with property number %s unable to be updated.",
                 $propertyNumber));
         }
     }
-  
+
   function update_hostel($xml_hostel, $city_id)
   {
     $this->feed_trace(self::FEED_INFO,print_r($xml_hostel,true));
@@ -637,11 +638,11 @@ class Db_hb_hostel extends CI_Model
     return $this->CI->db->update(self::HOSTEL_DESC_TABLE);
 
   }
-  
+
   /**
-   * 
+   *
    * Update HB translations
-   * 
+   *
    * @param type $hostel_id
    * @param array $translations
    * @return type
@@ -854,64 +855,64 @@ class Db_hb_hostel extends CI_Model
 
     return $return;
   }
-    
+
     public function delete_all_images_for_property($propertyNumber) {
         $isDeleted = $this->CI->db->delete(
-                self::HOSTEL_IMAGE_TABLE, 
+                self::HOSTEL_IMAGE_TABLE,
                 array('hostel_hb_id' => $propertyNumber));
-        
+
         if (!$isDeleted) {
             throw new Exception(sprintf(
                 "Error occurred while deleting images for hb hostel with property number %s",
                 $propertyNumber));
         }
     }
-    
+
     public function delete_all_extras_for_property($propertyNumber) {
         $isDeleted = $this->CI->db->delete(
-                self::HOSTEL_EXTRA_TABLE, 
+                self::HOSTEL_EXTRA_TABLE,
                 array('hostel_hb_id' => $propertyNumber));
-        
+
         if (!$isDeleted) {
             throw new Exception(sprintf(
                 "Error occurred while deleting extras for hb hostel with property number %s",
                 $propertyNumber));
         }
     }
-    
+
     public function delete_all_facilities_for_property($propertyNumber) {
         $isDeleted = $this->CI->db->delete(
-                self::HOSTEL_FEATURE_TABLE, 
+                self::HOSTEL_FEATURE_TABLE,
                 array('hostel_hb_id' => $propertyNumber));
-        
+
         if (!$isDeleted) {
             throw new Exception(sprintf(
                 "Error occurred while deleting facilities/features for hb hostel with property number %s",
                 $propertyNumber));
         }
     }
-    
+
     public function delete_all_prices_for_property($propertyNumber) {
         $isDeleted = $this->CI->db->delete(
-                self::HOSTEL_PRICE_TABLE, 
+                self::HOSTEL_PRICE_TABLE,
                 array('hostel_hb_id' => $propertyNumber));
-        
+
         if (!$isDeleted) {
             throw new Exception(sprintf(
                 "Error occurred while deleting prices for hb hostel with property number %s",
                 $propertyNumber));
         }
     }
-  
+
     public function insert_prices(array $prices) {
         if (empty($prices)) return true;
-      
+
         $isInserted = $this->CI->db->insert_batch(self::HOSTEL_PRICE_TABLE, $prices);
         if (!$isInserted) {
             throw new Exception("Error inserting prices into database for hb properties");
         }
     }
-  
+
   function update_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
@@ -1088,25 +1089,25 @@ class Db_hb_hostel extends CI_Model
 
         return true;
   }
-  
+
   public function update_hb_hostel_sync_status($status) {
         $this->update_sync_status($status);
         $this->update_features_status($status);
         $this->update_extras_status($status);
   }
-  
+
   private function does_city_exist($cityId) {
         $this->CI->load->model("db_hb_city");
         $city = $this->CI->db_hb_city->get_hb_city_from_hbid($cityId);
         if (empty($city)) return false;
         else return true;
   }
-  
+
   private function update_hostel_data(array $hostelData) {
         $property = $hostelData["property"];
         $propertyNumber = $property["property_number"];
         unset($property["city_hb_id"]);
-        
+
         $this->update_hostel_from_array($property);
 
         $this->delete_all_prices_for_property($propertyNumber);
@@ -1121,38 +1122,38 @@ class Db_hb_hostel extends CI_Model
         $this->delete_all_facilities_for_property($propertyNumber);
         $this->insert_hb_facilities($hostelData["facilities"]);
   }
-  
+
   private function insert_hb_hostel_data(array $hostelData) {
         $hostel = $hostelData["property"];
         $prices = $hostelData["prices"];
         $hostel["added"] = date("Y-m-d");
-        
+
         if (isset($hostel["hb_hostel_id"])) unset($hostel["hb_hostel_id"]);
-        
+
         $this->insert_hostel_from_array($hostel);
         $this->insert_prices($prices);
         $this->insert_hb_images($hostelData["images"]);
         $this->insert_hb_extras_to_hostel_from_array($hostelData["extras"]);
         $this->insert_hb_facilities($hostelData["facilities"]);
   }
-  
+
   function insert_hostel_from_array(array $hostel) {
     if (empty($hostel)) return true;
-      
+
     $isInserted = $this->CI->db->insert(self::HOSTEL_TABLE, $hostel);
 
     if (!$isInserted) {
         die("Error inserting hostel: " . print_r($hostel));
 
         throw new Exception(sprintf(
-              "Error inserting hostel (property number %s in db", 
+              "Error inserting hostel (property number %s in db",
                 $hostel["property_number"]));
     }
 
     return $this->CI->db->insert_id();
-      
+
   }
-  
+
   function insert_hostel($xml_hostel, $city_id)
   {
 
@@ -1273,10 +1274,10 @@ class Db_hb_hostel extends CI_Model
 
     return $this->CI->db->insert(self::HOSTEL_TABLE);
   }
-  
+
   /**
    * Insert HB translations
-   * 
+   *
    * @param int $hostel_id
    * @param array $translations
    * @return boolean
@@ -1285,12 +1286,12 @@ class Db_hb_hostel extends CI_Model
   function insert_hb_translations($hostel_id, $translations)
   {
     $hostelId = $this->get_hostel_id($hostel_id);
-            
+
     if (!isset($hostelId) || empty($hostelId)) {
         throw new Exception("Error inserting short description: hostel with property number $hostel_id doesn't exist");
         return true;
     }
-      
+
     $this->CI->db->set('hostel_hb_id', $hostel_id);
     $this->CI->db->set('language', (string)$translations['language']);
     $this->CI->db->set('short_description', (string)$translations['short_description']);
@@ -1305,12 +1306,12 @@ class Db_hb_hostel extends CI_Model
   function insert_hb_short_desc($hostel_id, $langage, $short_description)
   {
     $hostelId = $this->get_hostel_id($hostel_id);
-            
+
     if (!isset($hostelId) || empty($hostelId)) {
         throw new Exception("Error inserting short description: hostel with property number $hostel_id doesn't exist");
         return true;
     }
-      
+
     $this->CI->db->set('hostel_hb_id', $hostel_id);
     $this->CI->db->set('language', (string)$langage);
     $this->CI->db->set('short_description', (string)$short_description);
@@ -1381,17 +1382,17 @@ class Db_hb_hostel extends CI_Model
 
     return $return;
   }
-  
+
   public function insert_hb_extras_to_hostel_from_array(array $extras) {
       if (empty($extras)) return true;
-      
+
       $isInserted = $this->CI->db->insert_batch(self::HOSTEL_EXTRA_TABLE, $extras);
-      
+
       if (!$isInserted) {
           throw new Exception("Error inserting hb extras into database");
       }
   }
-  
+
   function insert_hb_extras_to_hostel($hostel_id, $extras)
   {
     $return = true;
@@ -1447,22 +1448,22 @@ class Db_hb_hostel extends CI_Model
 
   public function insert_hb_images($images) {
       if (empty($images)) return true;
-      
+
       $isInserted = $this->CI->db->insert_batch(self::HOSTEL_IMAGE_TABLE, $images);
       if (!$isInserted) {
           throw new Exception("Error inserting images into database for hb properties");
       }
   }
-  
+
   public function insert_hb_facilities($facilities) {
       if (empty($facilities)) return true;
-      
+
       $isInserted = $this->CI->db->insert_batch(self::HOSTEL_FEATURE_TABLE, $facilities);
       if (!$isInserted) {
           throw new Exception("Error inserting facilities/features into database for hb properties");
       }
   }
-    
+
   function insert_hb_images_to_hostel($hostel_id, $images)
   {
     $return = true;
@@ -1483,7 +1484,7 @@ class Db_hb_hostel extends CI_Model
     }
     return $return;
   }
-  
+
   function insert_hb_prices($hostel_id, $property_xml)
   {
     $return = true;
@@ -1778,7 +1779,7 @@ class Db_hb_hostel extends CI_Model
 							WHERE cost = 0
     					--	AND desc_order IS NOT NULL
     					ORDER BY -(desc_order) DESC";
-    
+
 
 	$query = $this->CI->db->query($query);
 
@@ -1882,9 +1883,9 @@ class Db_hb_hostel extends CI_Model
         $amenity->type        = (string)$row->type;
         $amenity->facility_name = (string)$row->facility_name;
         $amenity->filter_order  = (int)$row->filter_order;
-        
+
         $amenity->id_to_display = $this->getFacilityIdToDisplay($amenity);
-        
+
         $popularAmenityKey = array_search($amenity->amenity_id, $popularFacilitiesById);
         if ($popularAmenityKey !== FALSE) {
             $mostPopularAmenities[$popularAmenityKey] = $amenity;
@@ -1893,23 +1894,23 @@ class Db_hb_hostel extends CI_Model
         }
       }
     }
-    
+
     return array(
         "mostPopularAmenities" => $mostPopularAmenities,
         "amenities" => $amenities
     );
   }
-  
+
   private function getFacilityIdToDisplay($amenity) {
       if ($amenity->facility_name == 'Breakfast Included' || $amenity->facility_name == 'Breakfast') {
         $idToDisplay = 'free-breakfast';
     } else {
         $idToDisplay = $amenity->facility_id;
     }
-    
+
     return $idToDisplay;
   }
-          
+
   function get_property_type($property_number)
   {
   	$this->CI->db->select("property_type");
@@ -1939,7 +1940,7 @@ class Db_hb_hostel extends CI_Model
     return NULL;
 
   }
-  
+
   function get_hb_short_desc($property_number, $lang = "en")
   {
     $this->CI->db->where('language', $lang);
@@ -1954,7 +1955,7 @@ class Db_hb_hostel extends CI_Model
     return NULL;
 
   }
-  
+
   function get_hb_translations($property_number, $lang = "en")
   {
     $this->CI->db->where('language', $lang);
@@ -1972,10 +1973,10 @@ class Db_hb_hostel extends CI_Model
   public function get_feature_by_id($featureId) {
       $this->CI->db->where("hb_feature_id", $featureId);
       $query = $this->CI->db->get(self::FEATURE_TABLE, 1);
-      
+
       return $query->result();
   }
-  
+
   function get_feature_id($feature)
   {
     $feature = $this->CI->db->escape_str($feature);
@@ -2071,7 +2072,7 @@ class Db_hb_hostel extends CI_Model
     }
     return false;
   }
-  
+
 	// Need to work to get all the extras not just one row
 	function get_hostel_extras($hostel_hb_id)
   {
@@ -2345,10 +2346,10 @@ class Db_hb_hostel extends CI_Model
                 $property["ratings"] = $this->getRatingsFromDbProperty($db_property);
             }
         }
-        
+
         return $hostelList;
     }
-  
+
     private function getRatingsFromDbProperty($property) {
         $ratings = array(
             "atmosphere" => round($property->rating_atmosphere),
@@ -2359,10 +2360,10 @@ class Db_hb_hostel extends CI_Model
             "safety" => round($property->rating_safety),
             "value" => round($property->rating_value),
         );
-        
+
         return $ratings;
     }
-    
+
   function append_geo_location_data(&$hbhostellist)
   {
     foreach($hbhostellist as $key => $property)
@@ -2744,7 +2745,7 @@ class Db_hb_hostel extends CI_Model
     }
     return $return;
   }
-  
+
   //compare property function
   public function compare_property($property_number)
   {
@@ -2755,7 +2756,7 @@ class Db_hb_hostel extends CI_Model
   	$this->CI->db->where("hb_hostel.property_number",$property_number);
 	$query=$this->CI->db->get();
 	return $query->result();
-  } 
+  }
   public function compare_property_extra($property_number)
   {
     $this->CI->db->select("hb_ext.hb_extra_id,hb_extra.description");
@@ -2834,5 +2835,5 @@ class Db_hb_hostel extends CI_Model
         }
         return $result;
     }
-    
+
 }
