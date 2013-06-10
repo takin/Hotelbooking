@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function log {
-    /bin/echo `date` $* | tee -a /opt/logs/clearoscachecron.log
+    /bin/echo `date` $* | /usr/bin/tee -a /opt/logs/clearoscachecron.log
 }
 
 function clearLocal {
