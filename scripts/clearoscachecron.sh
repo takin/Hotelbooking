@@ -14,7 +14,7 @@ function clear {
   log $1 OS Cache Clear
 }
 
-clearLocal mcweb01
+clearLocal mcdev01
 clear mclb01
 clear mcweb01
 clear mcweb02
