@@ -136,11 +136,11 @@ class Db_hb_hostel extends CI_Model
 	WHERE hp.bed_price > 0
 	  AND ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
-	  AND hd.`language` = '$language_code'
+	  AND hd.`language` = 'en'
 	  AND hp.currency_code = '$api_db_cur_code'
 	  AND ci_tr.system_name = '$city_system_name'
 	  AND co_tr.system_name = '$country_system_name'
-	  AND hd_tr.`language` = 'en'
+	  AND hd_tr.`language` = '$language_code'
 	  $property_type_where
 	  $landmark_where
       $district_where
