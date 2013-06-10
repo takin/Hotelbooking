@@ -65,10 +65,8 @@ class Db_hb_hostel extends CI_Model
   }
 
 
-  function get_location_properties($country_system_name, $city_system_name, $language_code = "en", $strCurrencyCode = "GBP", $limit = 0, $filters = array())
+ function get_location_properties($country_system_name, $city_system_name, $language_code = "en", $strCurrencyCode = "GBP", $limit = 0, $filters = array())
   {
-    log_message('debug', "enter get_location_properties $country_system_name $city_system_name $language_code $strCurrencyCode");
-
     $property_type_where = "";
     if(!empty($filters["type"]))
     {
@@ -114,45 +112,41 @@ class Db_hb_hostel extends CI_Model
     $api_db_cur_code        = $this->db->escape_str($api_db_cur_code);
     $limit                  = $this->db->escape($limit);
 
-	$sql = "SELECT
-		h.property_number, h.property_name, h.property_type,
-		round(h.rating_overall) AS rating, h.geo_latitude,
-		h.geo_longitude, hp.currency_code, hp.bed_price AS min_price,
-		hp.`type` AS price_type, hi.url AS image_url,
-		hd.short_description, hd_tr.`language` AS requested_lang,
-		hd_tr.short_description AS translated_desc
-	FROM hb_hostel h
-	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
-	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
-	  LEFT JOIN hb_hostel_image hi ON hi.hostel_hb_id = h.property_number
-	  JOIN hb_hostel_description hd ON hd.hostel_hb_id = h.property_number
-	  JOIN hb_hostel_price hp ON hp.hostel_hb_id = h.property_number
-	  LEFT JOIN hb_hostel h_tr ON h_tr.property_number = h.property_number
-	  JOIN hb_city ci_tr ON ci_tr.hb_id = h_tr.city_hb_id
-	  JOIN hb_country co_tr ON co_tr.hb_country_id = ci_tr.hb_country_id
-	  JOIN hb_hostel_description hd_tr ON h_tr.property_number = hd_tr.hostel_hb_id
-	  $landmark_join
-      $district_join
-	WHERE hp.bed_price > 0
-	  AND ci.system_name = '$city_system_name'
-	  AND co.system_name = '$country_system_name'
-	  AND hd.`language` = 'en'
-	  AND hp.currency_code = '$api_db_cur_code'
-	  AND ci_tr.system_name = '$city_system_name'
-	  AND co_tr.system_name = '$country_system_name'
-	  AND hd_tr.`language` = '$language_code'
-	  $property_type_where
-	  $landmark_where
-      $district_where
-	GROUP BY h.property_number
-	ORDER BY min_price ASC";
+    $sql = "SELECT hb_hostel.property_number, property_name, property_type, round(rating_overall) as rating,hb_hostel.geo_latitude, hb_hostel.geo_longitude,
+                   currency_code, bed_price as min_price, type as price_type,
+                   hb_hostel_image.url as image_url, hb_hostel_description.short_description,
+                   hostel_translated.requested_lang, hostel_translated.translated_desc
+            FROM hb_hostel
+            LEFT JOIN hb_city ON hb_city.hb_id = hb_hostel.city_hb_id
+            LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id
+            LEFT JOIN hb_hostel_image ON hb_hostel_image.hostel_hb_id = hb_hostel.property_number
+            LEFT JOIN hb_hostel_description ON hb_hostel_description.hostel_hb_id = hb_hostel.property_number
+            LEFT JOIN hb_hostel_price ON hb_hostel_price.hostel_hb_id = hb_hostel.property_number
+            LEFT JOIN
+            ( SELECT hb_hostel.property_number, language AS requested_lang, hb_hostel_description.short_description as translated_desc FROM hb_hostel
+                   LEFT JOIN hb_city    ON hb_city.hb_id  = hb_hostel.city_hb_id
+                   LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id
+                   LEFT JOIN hb_hostel_description ON hb_hostel.property_number = hb_hostel_description.hostel_hb_id
+                   WHERE hb_city.system_name LIKE('$city_system_name') AND hb_country.system_name LIKE('$country_system_name') AND hb_hostel_description.language LIKE'$language_code'
+                   ) AS hostel_translated
+                   ON hb_hostel.property_number = hostel_translated.property_number
+            $landmark_join
+            $district_join
+            WHERE hb_hostel_price.bed_price > 0
+            AND hb_city.system_name LIKE('$city_system_name')
+            AND hb_country.system_name LIKE('$country_system_name')
+            AND hb_hostel_description.language ='en'
+            AND currency_code = '$api_db_cur_code'
+            $property_type_where
+            $landmark_where
+            $district_where
+            GROUP BY hb_hostel.property_number
+    				ORDER BY min_price ASC";
 
     if(!empty($limit) && ($limit > 0))
     {
       $sql.= " LIMIT $limit";
     }
-
-    log_message('debug', "$sql");
 
     $query = $this->CI->db->query($sql);
 
@@ -165,16 +159,18 @@ class Db_hb_hostel extends CI_Model
       {
         $response["response"]["properties"][$index]["name"] = $hostel->property_name;
         $response["response"]["properties"][$index]["id"] = $hostel->property_number;
+
         $response["response"]["properties"][$index]["intro"] = $hostel->short_description;
+        if(!empty($hostel->translated_desc) )
+        {
+          $response["response"]["properties"][$index]["intro"] = $hostel->translated_desc;
+        }
         $response["response"]["properties"][$index]["image"] = $hostel->image_url;
         $response["response"]["properties"][$index]["rating"] = $hostel->rating;
         $response["response"]["properties"][$index]["type"] = $hostel->property_type;
         $response["response"]["properties"][$index]["geo_latitude"] = $hostel->geo_latitude;
         $response["response"]["properties"][$index]["geo_longitude"] = $hostel->geo_longitude;
-        if(!empty($hostel->translated_desc) )
-        {
-          $response["response"]["properties"][$index]["intro"] = $hostel->translated_desc;
-        }
+
 
         if($api_db_cur_code == 'GBP')
         {
@@ -202,13 +198,8 @@ class Db_hb_hostel extends CI_Model
         $index++;
       }
 
-      log_message('debug', "exit get_location_properties");
-
       return $response;
     }
-
-    log_message('debug', "exit get_location_properties NULL");
-
     return NULL;
   }
 
