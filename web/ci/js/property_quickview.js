@@ -373,7 +373,7 @@ QuickView.prototype.setMap = function() {
             
 
 	function autoselect() {
-		GoogleMap.setZoom(13);
+		GoogleMap.setZoom(12);
 
 		if ($('input[name="distrinct_landmark"]:checked').length > 0) {
 			try {
