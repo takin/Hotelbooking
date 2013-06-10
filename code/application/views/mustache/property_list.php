@@ -241,7 +241,6 @@
 
 					{{#display_private_price}}
 						<br style="clear: both" />
-						<span class="private-people">1 x</span>
 						<span class="nbpeople-textd"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
 						<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
 					{{/display_private_price}}
