@@ -216,6 +216,8 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
         }
         window.gmarkers.length = 0;
     }
+    // Clear markers array
+    window.markers = [];
 
 };
 
@@ -287,7 +289,7 @@ GoogleMap.prototype.fillMakersArray = function()
                 , property_number
                 );   
     });
-      
+
 return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
