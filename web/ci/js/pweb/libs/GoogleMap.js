@@ -216,6 +216,8 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
         }
         window.gmarkers.length = 0;
     }
+    
+    window.markers = [];
 
 };
 
