@@ -119,7 +119,8 @@ class Db_hb_hostel extends CI_Model
 		round(h.rating_overall) AS rating, h.geo_latitude,
 		h.geo_longitude, hp.currency_code, hp.bed_price AS min_price,
 		hp.`type` AS price_type, hi.url AS image_url,
-		hd.short_description
+		hd.short_description, hd_tr.`language` AS requested_lang,
+		hd_tr.short_description AS translated_desc
 	FROM hb_hostel h
 	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
 	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
@@ -129,15 +130,17 @@ class Db_hb_hostel extends CI_Model
 	  LEFT JOIN hb_hostel h_tr ON h_tr.property_number = h.property_number
 	  JOIN hb_city ci_tr ON ci_tr.hb_id = h_tr.city_hb_id
 	  JOIN hb_country co_tr ON co_tr.hb_country_id = ci_tr.hb_country_id
+	  JOIN hb_hostel_description hd_tr ON h_tr.property_number = hd_tr.hostel_hb_id
 	  $landmark_join
       $district_join
 	WHERE hp.bed_price > 0
 	  AND ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
-	  AND hd.`language` = 'en'
+	  AND hd.`language` = '$language_code'
 	  AND hp.currency_code = '$api_db_cur_code'
 	  AND ci_tr.system_name = '$city_system_name'
 	  AND co_tr.system_name = '$country_system_name'
+	  AND hd_tr.`language` = 'en'
 	  $property_type_where
 	  $landmark_where
       $district_where
@@ -148,6 +151,8 @@ class Db_hb_hostel extends CI_Model
     {
       $sql.= " LIMIT $limit";
     }
+
+    log_message('debug', "$sql");
 
     $query = $this->CI->db->query($sql);
 
@@ -166,7 +171,10 @@ class Db_hb_hostel extends CI_Model
         $response["response"]["properties"][$index]["type"] = $hostel->property_type;
         $response["response"]["properties"][$index]["geo_latitude"] = $hostel->geo_latitude;
         $response["response"]["properties"][$index]["geo_longitude"] = $hostel->geo_longitude;
-
+        if(!empty($hostel->translated_desc) )
+        {
+          $response["response"]["properties"][$index]["intro"] = $hostel->translated_desc;
+        }
 
         if($api_db_cur_code == 'GBP')
         {
