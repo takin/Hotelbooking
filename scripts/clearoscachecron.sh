@@ -10,7 +10,7 @@ function clearLocal {
 }
 
 function clear {
-  /usr/bin/ssh -t admin@$1 'sudo /opt/scripts/clearoscache.sh'
+  /usr/bin/ssh -t admin@$1 '/usr/bin/sudo /opt/scripts/clearoscache.sh'
   log $1 OS Cache Clear
 }
 
