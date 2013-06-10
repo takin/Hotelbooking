@@ -359,7 +359,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
-					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
+					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc">&nbsp;<?php echo _("Hostel Name");?></span></a></li>
 					<li><a class="sorting activesort asc" id="sortprice-tous" href="#"><?php echo _("Best Price");?></a></li>
 					<li><a class="sorting desc" id="sortcote-tous" href="#"><?php echo _("Best rating");?></a></li>
 

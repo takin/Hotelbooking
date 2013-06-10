@@ -22,6 +22,7 @@ else
 				<img alt="" src="<?php echo $image_url ?>" />
 				</a>
 				<span class="info_type" style="color: #999"><?php echo $this->Db_term_translate->get_term_translation($hostel->propertyType,$this->site_lang); ?></span>
+				<br />
 				</div>
 				<div class="info_indent" style="float: right; width: 380px">
 					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>"><?php echo $hostel->propertyName[0]; ?>, <?php echo $city_selected;?></a></h2>

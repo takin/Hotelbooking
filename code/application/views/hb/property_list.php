@@ -21,7 +21,7 @@
 				</a>
 
 				<span class="info_type" style="color: #999"><?php echo $this->Db_term_translate->get_term_translation($hostel["type"],$this->site_lang); ?></span>
-
+				<br />
 				</div>
 				<div class="info_indent">
 					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>"><?php echo $hostel["name"]; ?>, <?php echo $city_selected;?></a></h2>
@@ -95,7 +95,7 @@
 				    elseif($service->service_type == 'breakfast')
 				    {
               ?>
-              <span class="icon_facility icon_facility_extra3 group"><span><?php echo$service->description; ?></span></span>
+              <span class="icon_facility icon_facility_extra3 group"><span style="line-height: 22px"><?php echo$service->description; ?></span></span>
               <?php
 				    }
 				    elseif($service->service_type == 'downtown')
