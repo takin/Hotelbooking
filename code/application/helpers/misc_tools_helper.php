@@ -447,7 +447,7 @@ function select_day($day_id,$day_name,$day_selected = '01')
 function select_nights($label_title,$id,$name,$value, $hb_api_used = FALSE)
 {
   
-  $total_nights = ($hb_api_used) ? 30 : 18;
+  $total_nights = ($hb_api_used) ? 30 : 31;
   ?>
   <label for="<?php echo $id; ?>"><?php echo $label_title; ?></label>
   <select id="<?php echo $id; ?>" name="<?php echo $name; ?>">
