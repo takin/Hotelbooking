@@ -898,7 +898,7 @@ class CMain extends I18n_site {
                 }
 
                 $this->carabiner->load_group_assets('search_box_scripts');
-                $this->carabiner->js('avail_rooms.js');
+                $this->carabiner->js('avail_rooms.js?v=' . time());
                 $this->carabiner->js('property_images.js');
 
                 $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
@@ -916,7 +916,7 @@ class CMain extends I18n_site {
 
                     $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                     $this->carabiner->js('property_quickview.js?v=' . time());
-                    $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                    $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                     $this->carabiner->js('save_property.js?v='. time());
                     $this->carabiner->js('pweb/libs/GoogleMap.js');
                     $this->carabiner->js('properties_compare.js');
@@ -962,7 +962,7 @@ class CMain extends I18n_site {
                         return;
                     }
                     $this->carabiner->load_group_assets('search_box_scripts');
-                    $this->carabiner->js('avail_rooms.js');
+                    $this->carabiner->js('avail_rooms.js?v=' . time());
                     $this->carabiner->js('property_images.js');
 
                     $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
@@ -981,7 +981,7 @@ class CMain extends I18n_site {
 
                         $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                         $this->carabiner->js('property_quickview.js?v=' . time());
-                        $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                        $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                         $this->carabiner->js('save_property.js?v=' . time());
                         $this->carabiner->js('pweb/libs/GoogleMap.js');
                         $this->carabiner->js('properties_compare.js');
@@ -1115,7 +1115,7 @@ class CMain extends I18n_site {
             );
             $this->carabiner->js('property_quickview.js?v=' . time());
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
-            $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+            $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
             $this->carabiner->js('pweb/libs/GoogleMap.js');
 			$this->carabiner->js('properties_compare.js');
 		    $this->carabiner->js('compare_property.js');
