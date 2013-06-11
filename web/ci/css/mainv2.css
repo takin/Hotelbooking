@@ -790,27 +790,42 @@ nav.city-tools{
 nav.city-tools ul{	
 	line-height:20px;
 	float:left;
+	width: 100%;
 }
 
 nav.city-tools ul li{
 	display:inline;
 	float:left;
-	margin-right:0px;
+	margin: 0px;
+	padding: 0;
+	border-right: 1px solid #D0DAE0;
 }
 
-nav.city-tools ul li.title{padding:7px 15px;border-right:1px solid #D0DAE0;}
+nav.city-tools ul li.inputs {
+	border-right: none;
+}
 
-nav.city-tools ul li a{
+nav.city-tools ul li.title{padding:7px 2px; line-height: 33px;}
+
+nav.city-tools ul li a {
 	font-weight:bold;
 	color:#3087C9;
 	float:left;
-	padding:7px 15px;
+	padding-top:7px;
+	padding-bottom:7px;
+	line-height: 33px;
 	display:block;
-	border-right:1px solid #D0DAE0;
+	width: 100%;
+	text-align: center;
 }
 
 nav.city-tools ul li a:hover span{
 	text-decoration:underline;
+}
+
+#sortname-tous {
+	padding-left: 3px;
+	padding-right: 0;
 }
 
 nav.city-tools ul li a span{
@@ -821,15 +836,14 @@ nav.city-tools ul li a span{
 
 nav.city-tools ul li a.activesort{
 	background:#dee4d3;
-	border-right:1px solid #D0DAE0;
 }
 
 nav.city-tools ul li a span.asc{
-	background:url(../images/V2/icon_sort_up.png) no-repeat right 7px;
-	padding-right:20px;
+	background:url(../images/V2/icon_sort_up.png) no-repeat right 13px;
+	padding-right:17px;
 }
 nav.city-tools ul li a span.desc{
-	background:url(../images/V2/icon_sort_down.png) no-repeat right 7px;
+	background:url(../images/V2/icon_sort_down.png) no-repeat right 13px;
 	padding-right:20px;
 }
 
@@ -843,12 +857,12 @@ nav.city-tools select{
 }
 nav.city-tools ul li.inputs{ padding:7px 15px; line-height:20px; font-weight:normal;}
 nav.city-tools ul li.inputs input.checkbox {
-		float: left;
+		float: right;
 		margin:0px;
-    margin-right: 10px;
-		margin-top:5px;
+		margin-left: 4px;
+		margin-top:3px;
 }
-nav.city-tools ul li.inputs span{ padding-top:5px; padding-bottom:5px;}
+nav.city-tools ul li.inputs span{ padding-top:0 !important; padding-bottom:0 !important; color: #000 !important}
 nav.city-tools ul li.inputs span span{ padding-top:0px; padding-bottom:0px;}
 .loading_city{
 	font-weight:bold;
@@ -917,10 +931,16 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
     background-color:white;
 }
 
-.city_tabs ul.rating .averageRatingCaption {
-    font-size:.9em;
-    display:block;
-    line-height:180%;
+.averageRatingCaption {
+	font-size:.9em;
+	display:block;
+	line-height:180%;
+	color: rgb(112,146,190);
+	padding-top: 4px;
+}
+
+.averageRatingCaptionHW {
+	color: #999 !important;
 }
 
 .propertyRatingsBox {
@@ -928,17 +948,16 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .propertyRatingsContainer {
-    margin:15px;
-    position:absolute;
-    top:37px;
-    right:0px;
-    background:white;
-    z-index:32;
-    display:none;
-    width:35%;
-    -webkit-box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
-    box-shadow: -5px -3px 5px 5px rgba(0, 0, 0, .5);
+	float: right;
+	width: 410px;
+}
 
+.prices_border {
+	border-bottom: 5px solid #3087C9;
+	clear: both;
+	float: right;
+	width: 250px;
+	margin-right: -11px;
 }
 
 .propertyRatingsContainer h3 {
@@ -947,10 +966,12 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .propertyRatingsContainer .bar-back.group {
-    width:80%;
-    color:black;
-    display:block;
-    margin:7px auto 10px 40px;
+	width: 165px;
+	float: left;
+	clear: none;
+	color:black;
+	display:block;
+	margin:4px auto 3px 35px;
 }
 
 .city_hostel{}
@@ -1003,11 +1024,22 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .info_indent{
-	margin-left:126px;
 }
 
-.hb_frame .info_indent{
-	margin-left:126px;
+.hb_frame #property_list .info_indent,
+.hb_frame #property_list .amenities,
+.hb_frame #property_list .city_hostel_districts,
+.hb_frame #property_list .city_hostel_landmarks {
+	float: right;
+	width: 390px !important;
+}
+
+.city-search #property_list .info_indent,
+.city-search #property_list .amenities,
+.city-search #property_list .city_hostel_districts,
+.city-search #property_list .city_hostel_landmarks {
+	width: 410px !important;
+	float: right;
 }
 
 .hostel_list .info h2{
@@ -1032,7 +1064,6 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	display:block;
 	text-align:center;
 	margin-top:10px;
-	display:none;
 }
 
 .hostel_list .info p.city-avail{
@@ -1067,10 +1098,14 @@ ul.avail li {
 .loading-dispo-city p{
 	margin-bottom:0px;
 }
-.amenities{ margin-left:126px;}
-.hb_frame .amenities{ margin-left:126px;}
+.hb_frame .amenities{
+	float: right;
+	width: 390px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
 .amenities.no-indent{margin-left:0px;}
-span.icon_facility{display:block; float:left; text-align:right; padding:0px;margin-bottom:5px; height:30px; line-height:30px; margin-right:15px; margin-top:5px;}
+span.icon_facility{display:block; float:left; text-align:right; padding:0px; height:24px; line-height:24px; margin-right:15px; }
 /*span.icon_facility span{display: block; float: left;padding: 8px 0 8px 0px;}*/
 span.icon_facility_26{background:url(../images/V2/icon-coffee.png) no-repeat top left; padding-left:28px;}
 .lang-de-DE span.icon_facility_extra3 span{background: url("../images/V2/freebreakfast_de.png") no-repeat scroll left center transparent;display: block; float:right;padding: 0px 0 0px 64px;}
@@ -1115,22 +1150,18 @@ p.minnight{font-style:italic; font-weight:bold; margin-bottom:0px;}
 
 div.price{
 	text-align:right;
-	margin-bottom:7px;	
-	margin-top:-20px;
 }
 
 div.price strong {
-		color: #6DA903;
-		font-size: 1.6em;
-		font-weight: bold;
-		padding-top:5px;
-		line-height:1.2em;
+	color: #6DA903;
+	font-size: 1.6em;
+	font-weight: bold;
+	padding-top:5px;
+	line-height:1.2em;
+	margin-bottom: 20px;
 }
 
 div.price span{
-	display:block;
-	font-weight:bold;
-	margin-top:20px;
 }
 
 span.rebate-price {
@@ -2412,6 +2443,15 @@ text-align: -webkit-center;
 	float: left;
 }
 
+#share-email img {
+	height: 19px;
+	margin-top: 8px;
+}
+
+#share-pdf img {
+	height: 23px;
+}
+
 #save_property_dialog,
 #share-overlay {
 	position: fixed;
@@ -2554,19 +2594,27 @@ text-align: -webkit-center;
  color:#71AB09;
 }
 .txt-mid{
-  font-size:15px;
+  font-size:13px;
   margin-right:5px;
+}
+
+.remove_from_search_trigger {
+	position: absolute;
+	margin-left: 241px;
+	margin-top: -20px;
 }
 
 /*  start districts and landmarks in city page  */
  
 .city_hostel_districts , .city_hostel_landmarks{
-          margin-left: 126px;
+	float: right;
+	width: 390px;
+	margin-top: 4px;
 }
 
 .city_hostel_districts_district , .city_hostel_landmarks_landmark{
-          font-weight: bold;
-          color: #999999;
+	font-weight: bold;
+	color: #999999;
 }
 
  .city_hostel_districts_values , .city_hostel_landmarks_values {
@@ -2781,6 +2829,9 @@ text-decoration:none;
 }
 /*compare property css end*/
 
+#share_email_form .LV_validation_message {
+	clear: both;
+}
 
 /*#city_map_filter{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
         text-align: right;
@@ -2884,13 +2935,22 @@ width: 275px;}
    }
 /*compare property css end*/
 
+.prices_toggle {
+	clear: both;
+	float: right;
+	text-align: left;
+	width: 225px;
+	margin-top: -18px;
+}
+
 .remove_from_search_options {
 	position: absolute;
-	margin-left: 340px;
+	margin-left: 414px;
+	width: 360px;
 	background-color: #fff;
 	border: 1px solid #ccccc7;
 	padding: 10px;
-	margin-top: -33px;
+	margin-top: 0px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	display: none;
@@ -2902,7 +2962,7 @@ width: 275px;}
 }
 
 .remove_from_search_options ul li {
-	font-size: 0.7em;
+	font-size: 1em;
 	vertical-align: middle !important;
 }
 
@@ -3108,6 +3168,42 @@ width: 275px;}
     width: 40%;
 }
 
+.yellow-bg {
+	background-color: #fccc07 !important;
+	padding: 3px 5px !important;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
 #city_map_show_hostel{
     margin: 0;
+}
+
+#quick_preview_div span.icon_facility_extra3 span,
+.city-search span.icon_facility_extra3 span,
+.auberges span.icon_facility_extra3 span {
+	background: none;
+	display: inline;
+	float: left;
+	line-height: 14px;
+	margin-right: 5px;
+	padding: 0;
+}
+
+#quick_preview_div span.icon_facility_extra3 p,
+.city-search span.icon_facility_extra3 p,
+.auberges span.icon_facility_extra3 p {
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+
+#property_list .box_content {
+	padding: 0 !important;
+}
+
+#property_list .box_content .city_hostel {
+	padding: 10px;
+	padding-bottom: 0;
 }

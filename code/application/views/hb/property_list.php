@@ -1,6 +1,9 @@
 <?php
 // Link to hostel page below if needed
 // echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang); ?>
+
+<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
+
 <div class="hostel_list search_list">
 	<div class="box_content box_round">
 		<div class="city_hostel group" id="city_info_<?php echo $hostel["id"]; ?>">
@@ -16,9 +19,12 @@
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>">
 				<img width="inherit" height="inherit" src="<?php echo $hb_list_image; ?>"  title="" style="width: 100px; height: 100px;">
 				</a>
+
+				<span class="info_type" style="color: #999"><?php echo $this->Db_term_translate->get_term_translation($hostel["type"],$this->site_lang); ?></span>
+				<br />
 				</div>
 				<div class="info_indent">
-					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>"><?php echo $hostel["name"]; ?>, <?php echo $city_selected;?></a>	 <span class="info_type">(<?php echo $this->Db_term_translate->get_term_translation($hostel["type"],$this->site_lang); ?>)</span></h2>
+					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>"><?php echo $hostel["name"]; ?>, <?php echo $city_selected;?></a></h2>
 				<p>
 				<?php
 				//TONOTICE Unfortunately, HB API does not use the same variables names for a get location data VS a get location availability
@@ -89,7 +95,7 @@
 				    elseif($service->service_type == 'breakfast')
 				    {
               ?>
-              <span class="icon_facility icon_facility_extra3 group"><span><?php echo$service->description; ?></span></span>
+              <span class="icon_facility icon_facility_extra3 group"><span style="line-height: 22px"><?php echo$service->description; ?></span></span>
               <?php
 				    }
 				    elseif($service->service_type == 'downtown')

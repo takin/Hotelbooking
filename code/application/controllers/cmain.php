@@ -898,7 +898,7 @@ class CMain extends I18n_site {
                 }
 
                 $this->carabiner->load_group_assets('search_box_scripts');
-                $this->carabiner->js('avail_rooms.js');
+                $this->carabiner->js('avail_rooms.js?v=' . time());
                 $this->carabiner->js('property_images.js');
 
                 $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
@@ -916,7 +916,7 @@ class CMain extends I18n_site {
 
                     $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                     $this->carabiner->js('property_quickview.js?v=' . time());
-                    $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                    $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                     $this->carabiner->js('save_property.js?v='. time());
                     $this->carabiner->js('pweb/libs/GoogleMap.js');
                     $this->carabiner->js('properties_compare.js');
@@ -962,7 +962,7 @@ class CMain extends I18n_site {
                         return;
                     }
                     $this->carabiner->load_group_assets('search_box_scripts');
-                    $this->carabiner->js('avail_rooms.js');
+                    $this->carabiner->js('avail_rooms.js?v=' . time());
                     $this->carabiner->js('property_images.js');
 
                     $data['userIsLoggedIn'] = $this->tank_auth->is_logged_in();
@@ -981,7 +981,7 @@ class CMain extends I18n_site {
 
                         $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
                         $this->carabiner->js('property_quickview.js?v=' . time());
-                        $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+                        $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                         $this->carabiner->js('save_property.js?v=' . time());
                         $this->carabiner->js('pweb/libs/GoogleMap.js');
                         $this->carabiner->js('properties_compare.js');
@@ -1115,7 +1115,7 @@ class CMain extends I18n_site {
             );
             $this->carabiner->js('property_quickview.js?v=' . time());
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
-            $this->carabiner->js('pweb-mapping/PropertyFilters.js');
+            $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
             $this->carabiner->js('pweb/libs/GoogleMap.js');
 			$this->carabiner->js('properties_compare.js');
 		    $this->carabiner->js('compare_property.js');
@@ -1545,9 +1545,35 @@ class CMain extends I18n_site {
             $commandCookies = empty($bookingTableSelect) ? '' : ' --cookie bookingTableSelect ' . escapeshellarg($bookingTableSelect);
             $commandCookies .= $cookie_append;
 
-            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
+            $authCommand = '';
+            if (!empty($_SERVER['PHP_AUTH_USER']) && !empty($_SERVER['PHP_AUTH_PW'])) {
+                $authCommand = ' --username ' . escapeshellarg($_SERVER['PHP_AUTH_USER']) . ' ';
+                $authCommand .= ' --password ' . escapeshellarg($_SERVER['PHP_AUTH_PW']) . ' ';
+            }
+
+            $this->load->model('db_links');
+
+            $hostel = null;
+            $data = array();
+            if ($this->api_used == HB_API) {
+                $this->load->library('hb_engine');
+                $hostel = $this->hb_engine->property_info($data, $property_number);
+                $property_type = $hostel['hostel_db_data']->property_type;
+            }
+            else {
+                $this->load->library('hw_engine');
+                $hostel = $this->hw_engine->property_info($data, $property_number);
+                $property_type = $hostel['hostel']->property_type;
+            }
+
+            $hostelurl = $this->Db_links->build_property_page_link($property_type, $property_name, $property_number, $this->site_lang);
+
+//            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
+
+            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg($hostelurl . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
 
             log_message('debug', $command);
+
             // create PDF
             system($command);
 
@@ -1580,7 +1606,10 @@ class CMain extends I18n_site {
         $this->email->send();
 
         if ($pdf_path) {
-            unlink($pdf_path);
+            if (file_exists($pdf_path)) {
+                unlink($pdf_path);
+            }
+
             rmdir($temp_dir);
         }
 
@@ -1655,6 +1684,7 @@ class CMain extends I18n_site {
 
         $this->load->view('includes/recent_property_view_cookie');
     }
+
 
     function property_rooms_avail() {
 //     $this->output->set_header('Content-Type: text/html; charset=utf-8');

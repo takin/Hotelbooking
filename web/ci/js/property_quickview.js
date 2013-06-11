@@ -241,6 +241,9 @@ QuickView.prototype.getContent = function() {
 
 
 				self.setMap();
+
+				var freeHtml = $('.free').html();
+			        $(freeHtml).prependTo('#quick_preview_div .icon_facility_extra3');
 			}
 		});
 	}
@@ -360,6 +363,9 @@ QuickView.prototype.getContent = function() {
 			//$('#hostel_mapView_landmarks input[type="radio"]').eq(0).attr('checked', true);
 
 			self.setMap();
+
+			var freeHtml = $('.free').html();
+		        $(freeHtml).prependTo('#quick_preview_div .icon_facility_extra3');
 		}, 200);
 	}
 }
