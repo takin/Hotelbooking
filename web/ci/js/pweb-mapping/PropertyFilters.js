@@ -1919,19 +1919,14 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 			$('#quick_preview_div').empty().html(data['html']);
 			$('#preurl').html(preurl);
 			$('#nexturl').html(nexturl);
-			pweb_filter.addFilterMap('city', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
-			pweb_filter.addFilterMap('property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			
+			pweb_filter.addFilterMap('compare_property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			 
-			pweb_filter.pweb_maps['city'].prop_number_to_focus = proid;
-			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
-			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
-			pweb_filter.pweb_maps['city'].enableMap();
                         
-                        if(this.pweb_maps['cityFilterMap'].enabled === true)
-                        {
-                            pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
-                            pweb_filter.pweb_maps['cityFilterMap'].enableMap();
-                         }
+                        pweb_filter.toggleMap('compare_property');
+                        pweb_filter.toggleMap('city'); 
+                        
+                        
 
 	if($("#distrinct:radio:checked").length > 0)
            { 
