@@ -82,7 +82,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-                    
+
      <?php
         $filterBy_flag = "both";
         if (empty($city_landmarks) && empty($city_districts)) {
@@ -96,7 +96,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         $filterby_container_start = '<div id="filter_links_container" class="box_content box_round group side_search">
                         <ul class="group_filter_links_container">';
         $filterby_container_end = '</ul></div>';
-        
+
         $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
         $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by Landmarks") . '</a></li>';
         switch ($filterBy_flag) {
@@ -105,13 +105,13 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                 echo $filter_by_districts_link . $filter_by_landmarks_link;
                  echo $filterby_container_end;
                 break;
-            
+
             case "districts":
                 echo $filterby_container_start;
                 echo $filter_by_districts_link;
                 echo $filterby_container_end;
                 break;
-            
+
             case "landmarks":
                 echo $filterby_container_start;
                 echo $filter_by_landmarks_link;
@@ -126,8 +126,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 	<?php } ?>
 
-	<div id="search_load">	
-		<div class="filter_block box_content box_round" id="filter_choices">	
+	<div id="search_load">
+		<div class="filter_block box_content box_round" id="filter_choices">
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -314,26 +314,18 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                     <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
                                 </a>
                             </div>-->
-                        <?php // } 
+                        <?php // }
 //                        else{ ?>
 <!--                      <script type="text/javascript">
                         $(document).ready(function(){
                             $("#city_results_count").css({'height' : '15px'});
                             $(".top_search_result").css({'line-height' : 0});
-                        });      
+                        });
                      </script>      -->
                        <?php //}
-                        ?>        
+                        ?>
                     <?php //} ?>
 			</div>
-
-		<!-- research code -->
-	<?PHP	$this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
-	?>
-		<!-- end -->
-
-
-
                        <a href="#" id="city_map_hide" class="view_map"
                           title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
                          <span id ="close_map_button"> </span>
@@ -505,23 +497,23 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
-       
+
        $("#current_page").live("change", function()
-    {   
-        GoogleMap.prototype.drawMarkers(); 
+    {
+        GoogleMap.prototype.drawMarkers();
 
         return false;
-    }); 
-    
+    });
+
        // on window resize
        $(window).resize(function() {
             changeSidebar_width();
         });
         // this part is related to fixing the map position
-        $(window).scroll(function () { 
+        $(window).scroll(function () {
             changeSidebar_width();
        });
-       
+
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(document).height();
@@ -537,20 +529,20 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
         if( scroll_position < 230 ){
             $("#side_search_box").show();
             $("#filter_links_container").show();
-            
+
             $("#sidebar").removeClass("fix_sidebar_position");
             $("#sidebar").addClass("container_16");
             $("#sidebar").addClass("grid_4");
             $("#sidebar").css({'position' : ''});
             $("#sidebar").css({'top' : ''});
             $("#sidebar").css({'left' : ''});
-            
+
             $("#main").css({'float' : 'auto'});
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#side_search_box").hide();
             $("#filter_links_container").hide();
-            
+
             $("#sidebar").addClass("fix_sidebar_position");
             $("#sidebar").removeClass("container_16");
             $("#sidebar").removeClass("grid_4");
@@ -558,12 +550,12 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             $("#sidebar").css({'width' : sidebar_width});
             $("#sidebar").css({'top' : ''});
             $("#sidebar").css({'left' : (parseInt(main_container_leftPosition) + 10 ) });
-            
+
             $("#main").css({'float' : 'right'});
          }
          else  if( scroll_position > fix_height_position ){
             $("#side_search_box").show();
-            
+
             $("#sidebar").css({'position' : 'relative'});
             $("#sidebar").addClass("container_16");
             $("#sidebar").addClass("grid_4");
@@ -572,8 +564,8 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
                 $("#sidebar").css({'top' : fix_height_position - 245 });
             }
             $("#main").css({'float' : 'auto'});
-         } 
+         }
        }
-       
-   });      
+
+   });
 </script>
