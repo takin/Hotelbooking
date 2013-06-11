@@ -1805,6 +1805,7 @@ $(document).ready(function() {
              beforeClose: function() {
                     pweb_filter.toggleMap('city');
                     pweb_filter.toggleMap('hostel_quickview');
+                    $('body').unbind('mouseover mouseout');
                 }
 	  });
 	
