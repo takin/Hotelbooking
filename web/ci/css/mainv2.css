@@ -2442,6 +2442,15 @@ text-align: -webkit-center;
 	float: left;
 }
 
+#share-email img {
+	height: 19px;
+	margin-top: 8px;
+}
+
+#share-pdf img {
+	height: 23px;
+}
+
 #save_property_dialog,
 #share-overlay {
 	position: fixed;
@@ -2819,6 +2828,9 @@ text-decoration:none;
 }
 /*compare property css end*/
 
+#share_email_form .LV_validation_message {
+	clear: both;
+}
 
 /*#city_map_filter{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
         text-align: right;
