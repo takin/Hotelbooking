@@ -102,7 +102,7 @@ function showPropertyRatings() {
 		}
 
 		$('#prop_tab_box_' + number).find('.displaySaveProperty').show();
-		$('#prop_tab_box_' + number).find('.show').hide();
+		$('#prop_tab_box_' + number).find('.address').show();
 		$('#prop_tab_box_' + number).find('.amenities').show();
 		$('#prop_tab_box_' + number).find('.city_hostel_landmarks').show();
 		$('#prop_tab_box_' + number).find('.city_hostel_districts').show();
