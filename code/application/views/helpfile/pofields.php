@@ -855,3 +855,7 @@
 <?php echo _('Check this box to see new search results as you move the map');?>
 <?php echo _('Redo search in map');?>
 <?php echo _('%d Bed Female Dorm Shared Bathroom');?>
+<?php echo _('Show prices');?>
+<?php echo _('Hide prices');?>
+<?php echo _('Overall evaluation');?>
+<?php echo _('Hostels only');?>
