@@ -522,7 +522,7 @@ SimpleXMLElement Object
       <p  align=right style="text-align:right;line-height:18px"><span
       style="font-size:12px;color:#2F2F2F">
 
-      		<?php printf(gettext("10%% Arrhes + frais de service facturé en %s:"),"<strong>".$booking->ChargedCurrency->value."</strong>");?>
+                <?php echo _('Amount already paid:');?>
 
       </span></p>
       </td>
@@ -844,7 +844,7 @@ SimpleXMLElement Object
       <p  align=right style="text-align:right;line-height:18px"><span
       style="font-size:12px;color:#2F2F2F">
 
-      10% Deposit + service charges billed in <strong><?php echo $booking->ChargedCurrency->value;?></strong>:
+      Amount already paid:
 
       </span></p>
       </td>
