@@ -306,18 +306,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds = new google.maps.LatLngBounds();
     }
     //TODO support custom image in addMarker function
-    for (var i in window.markers) {
-//
-//     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/unselected/marker_'+(parseInt(i)+1)+'.png',
-//             new google.maps.Size(20, 30),
-//            new google.maps.Point(0, 0),
-//            new google.maps.Point(0, 29));
-//
-//    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/selected/marker_selected_'+(parseInt(i)+1)+'.png',
-//             new google.maps.Size(20, 30),
-//            new google.maps.Point(0, 0),
-//            new google.maps.Point(0, 29));
-//            
+    for (var i in window.markers) {        
 
         var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
@@ -327,7 +316,7 @@ GoogleMap.prototype.addMarkersToMap = function()
              image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
              image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
         }
-       
+        
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),
@@ -630,7 +619,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
                          image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
                     }
                    // this map is the map that appears after click on Quick view
-                    if (window.gmap.getDiv().id === "map_canvas") {
+                    if (window.gmap.getDiv().className === "map_quickview") {
                          window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
                     }
                     

@@ -133,6 +133,8 @@ QuickView.prototype.getContent = function() {
 					address1: self.data.address1,
 					city_name: self.data.city_name,
 					propertyUrl: self.data.property_page_url,
+                                        Latitude: self.data.Geo.Latitude,
+                                        Longitude: self.data.Geo.Longitude,
 
 	//				PropertyImages: self.data.PropertyImages,
 	//				image: self.data.image,
@@ -250,6 +252,8 @@ QuickView.prototype.getContent = function() {
 			address1: self.data.address1,
 			city_name: self.data.city_name,
 			propertyUrl: self.data.property_page_url,
+                        Latitude: self.data.Geo.Latitude,
+                        Longitude: self.data.Geo.Longitude,
 
 //				PropertyImages: self.data.PropertyImages,
 //				image: self.data.image,
@@ -384,12 +388,12 @@ QuickView.prototype.setMap = function() {
 		$('#map_canvas').css('height', '285px !important');
 	}
 
-       $("#quick_preview_div").bind("mouseover", function(){
+       $("body").bind("mouseover", function(){
             GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'selected');
 
         });
         
-         $("#quick_preview_div").bind("mouseout", function(){
+         $("body").bind("mouseout", function(){
             GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'original');
 
         });
