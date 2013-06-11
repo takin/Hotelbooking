@@ -217,6 +217,7 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
         window.gmarkers.length = 0;
     }
     // Clear markers array
+    
     window.markers = [];
 
 };
@@ -595,10 +596,13 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     }
 
     $("#city_info_" + property_number).removeClass('property_info_hover');
-    // change the marker that appears between the property image and the property name 
-    var imageSrc = $("#property_marker_number_" + property_number).attr('src');
-    imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
+    // change the marker that appears between the property image and the property name
 
+    if ( $("#property_marker_number_" + property_number).length > 0 ) {
+        var imageSrc = $("#property_marker_number_" + property_number).attr('src');
+        imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
+    }
+   
     $("#property_marker_number_" + property_number).attr("src", imageSrc);
     if (pIconType === "selected")
     {
@@ -630,7 +634,11 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
                     if (window.gmap.getDiv().id === "city_side_map_container") {
                          image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
                     }
- 
+                   // this map is the map that appears after click on Quick view
+                    if (window.gmap.getDiv().id === "map_canvas") {
+                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+                    }
+                    
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
                 }
