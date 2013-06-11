@@ -1,72 +1,78 @@
 <div id="map_filter_popup" style="display: none;">
-    <input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
-    <input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
+	<input type="hidden" id="city_geo_lat" value="<?php echo $city_info->city_geo_lat; ?>">
+	<input type="hidden" id="city_geo_lng" value="<?php echo $city_info->city_geo_lng; ?>">
+
+	<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
 <?php
 if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
-    <div id="filter_map_leftSide">
-        <nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
-            <ul id="ul_map_filter_tabs" class="box_round popup_filter_tabs">
-                 <?php if (!empty($city_districts)) {    ?>
-                <li id="li_popup_filter_districts" class="first ui-tabs-selected">
-                    <a id="tab_map_filter_districts" href="#filter_content_districts_popup">
-                           <?php echo _("Filter by Districts"); ?>
-                    </a>
-                </li>
-                 <?php }   ?>
-                <?php
-            if (!empty($city_landmarks)) { ?>
-                <li id="li_popup_filter_landmarks">
-                    <a id="tab_map_filter_landmarks" href="#filter_content_landmarks_popup">
-                           <?php echo _('Filter by Landmarks (within 2km)'); ?>
-                    </a>
-                </li>
-                <?php }   ?>
-            </ul>
-         </nav>
-            <?php
-            $district_count = 0;
-            $total_dsitrict = count($city_districts);
-            ?>
-            <?php if (!empty($city_districts)) {    ?>
-            <div id="filter_content_districts_popup" class="filter_content box_content box_round ui-tabs">
-                    <ul id="cb_group_districts_filter">
-                        <?php
-                        foreach ($city_districts as $district) {
-                            $district_count++;
-                            ?>
-                                <li><input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->um_id; ?>" value="<?php echo $district->district_id; ?>" name="districts" /> <?php echo $district->district_name; ?> <?php ?>(<span id="district-count-<?php echo $district->district_id; ?>">0</span>)<?php ?><input type="hidden" id="hidden_district_<?php echo $district->district_id; ?>" value="<?php echo $district->um_id; ?>" name="hidden_districts_<?php echo $district->district_id; ?>" /></li>
+	<div id="filter_map_leftSide">
+		<nav id="city_map_filter_tabs" class="city_filter_tabs city_tabs  group popup_leftSide">
+			<ul id="ul_map_filter_tabs" class="box_round popup_filter_tabs">
+			<?php if (!empty($city_districts)) {    ?>
+				<li id="li_popup_filter_districts" class="first ui-tabs-selected">
+					<a id="tab_map_filter_districts" href="#filter_content_districts_popup">
+						<?php echo _("Filter by Districts"); ?>
+					</a>
+				</li>
+			<?php }
+			if (!empty($city_landmarks)) { ?>
+				<li id="li_popup_filter_landmarks">
+					<a id="tab_map_filter_landmarks" href="#filter_content_landmarks_popup">
+						<?php echo _('Filter by Landmarks (within 2km)'); ?>
+					</a>
+				</li>
+			<?php } ?>
+			</ul>
+		</nav>
 
-                        <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
-            <?php
-            if (!empty($city_landmarks)) {
-                $land_count = 0;
-                $total_land = count($city_landmarks);
-                ?>
-                <div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
-                        <ul id="cb_group_landmarks_filter">
-                        <?php
-                        foreach ($city_landmarks as $landmark) {
-                            $land_count++;
-                            ?>
-                                <li><input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo $landmark->landmark_name; ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
-                                    <input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>###<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" /></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
+		<?php
+		$district_count = 0;
+		$total_dsitrict = count($city_districts);
 
-    </div>
- <?php } ?>
-    <div id="filter_map_rightSide_container" class="tabs_exist">
-        <div id="filter_map_rightSide"></div>
-            <div class="cls_showProperties">
-                <button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
-            </div>
-    </div>
+		if (!empty($city_districts)) { ?>
+		<div id="filter_content_districts_popup" class="filter_content box_content box_round ui-tabs">
+			<ul id="cb_group_districts_filter">
+			<?php
+			foreach ($city_districts as $district) {
+				$district_count++;
+			?>
+				<li>
+					<input type="checkbox" class="checkbox"  <?php echo ( ($filters_init["district"]["id"] == $district->district_id) ? "checked=\"checked\"" : ""); ?>id="district-<?php echo $district->um_id; ?>" value="<?php echo $district->district_id; ?>" name="districts" /> <?php echo $district->district_name; ?> <?php ?>(<span id="district-count-<?php echo $district->district_id; ?>">0</span>)<?php ?><input type="hidden" id="hidden_district_<?php echo $district->district_id; ?>" value="<?php echo $district->um_id; ?>" name="hidden_districts_<?php echo $district->district_id; ?>" />
+				</li>
+			<?php } ?>
+			</ul>
+		</div>
+		<?php }
+
+		if (!empty($city_landmarks)) {
+			$land_count = 0;
+			$total_land = count($city_landmarks);
+		?>
+		<div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
+			<ul id="cb_group_landmarks_filter">
+			<?php
+			foreach ($city_landmarks as $landmark) {
+				$land_count++;
+			?>
+				<li>
+					<input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo $landmark->landmark_name; ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
+<input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>###<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" />
+				</li>
+			<?php } ?>
+			</ul>
+		</div>
+		<?php } ?>
+	</div>
+<?php } ?>
+
+	<div id="filter_map_rightSide_container" class="tabs_exist">
+		<div id="filter_map_rightSide"></div>
+		<div class="cls_showProperties">
+			<button id="filter_map_showProperties" onclick="parent.$.fancybox.close();"><?php echo _('Show properties'); ?></button>
+		</div>
+	</div>
 </div>
+
 <div id="sidebar" class="grid_4 city_view_search">
 	<?php if($searchmode > 0){?>
 	<?php if(!isset($date_selected))      $date_selected = NULL;
@@ -76,9 +82,6 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-    	<?php if(isset($city_info->city_geo_lat)){?>
-		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
-		<?php }?>
                     
      <?php
         $filterBy_flag = "both";
@@ -117,31 +120,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 
             default:
                 break;
-        } ?>
-                            
+        }
+
+	if(isset($city_info->city_geo_lat)) { ?>
+		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
+	<?php } ?>
+
 	<div id="search_load">	
-		<div class="filter_block box_content box_round" id="filter_choices">
-			<?php //TODO show filter reset;?>
-			<span class="filter_title_top"><?php echo _('Filter by:')?></span>
-			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
-			<span class="filter_title box_round"><strong><?php echo _('Price')?></strong></span>
-			<div class="filter_content">
-				<p class="group">
-					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
-					<span id="filter_price" class="slide_filter"/></span>
-				</p>
-			<div id="slider_price"></div>
-			</div>
-
-			<span class="filter_title box_round"><strong><?php echo _('Rating')?></strong></span>
-				<div class="filter_content">
-				<p class="group">
-					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
-					<span id="filter_rating" class="slide_filter"/></span>
-				</p>
-				<div id="slider_rating"></div>
-			</div>
-
+		<div class="filter_block box_content box_round" id="filter_choices">	
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
 			<div class="filter_content">
 				<ul id="cb_group_type_filter">
@@ -203,6 +189,24 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				</ul>
 			</div>
 			<?php }$district_count=0;$total_dsitrict = count($city_districts);?>
+
+			<div class="filter_content">
+				<p class="group">
+					<label for="filter_price" class="slide_filter"><?php echo _('Price Range:')?></label>
+					<span id="filter_price" class="slide_filter"/></span>
+				</p>
+				<div id="slider_price"></div>
+			</div>
+
+			<div class="filter_content">
+				<p class="group">
+					<label for="filter_rating" class="slide_filter"><?php echo _('Rating Range:')?></label>
+					<span id="filter_rating" class="slide_filter"/></span>
+				</p>
+				<div id="slider_rating"></div>
+			</div>
+
+			<a href="#" id="reset_filters">[<?php echo _('Reset filters')?>]</a>
 		</div>
                 <?php $this->load->view('includes/group-booking'); ?>
 	</div>
@@ -355,13 +359,28 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<nav class="city-tools box_round group green_gradient_faded box_shadow_very_light" id="data_sort_controls" style="display:none">
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
-					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc"><?php echo _("Hostel Name");?></span></a></li>
-					<li><a class="sorting activesort" id="sortprice-tous" href="#"><span class="asc"><?php echo _("Prix");?></span></a></li>
-					<li><a class="sorting" id="sortcote-tous" href="#"><span class="asc"><?php echo _("Cote");?></span></a></li>
-  				<li class="inputs"><input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
-					<span class="icon_facility_extra3"><span><?php echo _("Only free breakfast");?></span></span></li>
-					<li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
-					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li>
+					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc">&nbsp;<?php echo _("Hostel Name");?></span></a></li>
+					<li><a class="sorting activesort asc" id="sortprice-tous" href="#"><?php echo _("Best Price");?></a></li>
+					<li><a class="sorting desc" id="sortcote-tous" href="#"><?php echo _("Best rating");?></a></li>
+
+				<?php if ($this->api_used == HB_API) { ?>
+					<li><a class="sorting desc" id="sortsafest-tous" href="#"><?php echo _("Safest");?></a></li>
+					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best location"); ?></a></li>
+				<?php } ?>
+
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 230px; float: right; text-align: right">
+					<div>
+						<span class="type_hostels yellow-bg"><span><?php echo _("Hostels only");?></span></span>
+						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
+					</div>
+					<div>
+						<span class="icon_facility_extra3d yellow-bg"><span><?php echo _("Only free breakfast");?></span></span>
+	  					<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
+					</div>
+				</li>
+
+				<!-- <li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
+					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
 
 			</nav>
@@ -517,6 +536,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
         //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
             $("#side_search_box").show();
+            $("#filter_links_container").show();
             
             $("#sidebar").removeClass("fix_sidebar_position");
             $("#sidebar").addClass("container_16");
@@ -529,6 +549,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#side_search_box").hide();
+            $("#filter_links_container").hide();
             
             $("#sidebar").addClass("fix_sidebar_position");
             $("#sidebar").removeClass("container_16");

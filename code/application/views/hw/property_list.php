@@ -1,3 +1,5 @@
+<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
+
 <?php
 // Link to hostel page below if needed
 // echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);
@@ -19,9 +21,11 @@ else
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>">
 				<img alt="" src="<?php echo $image_url ?>" />
 				</a>
+				<span class="info_type" style="color: #999"><?php echo $this->Db_term_translate->get_term_translation($hostel->propertyType,$this->site_lang); ?></span>
+				<br />
 				</div>
-				<div class="info_indent">
-					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>"><?php echo $hostel->propertyName[0]; ?>, <?php echo $city_selected;?></a> <span class="info_type">(<?php echo $this->Db_term_translate->get_term_translation($hostel->propertyType,$this->site_lang); ?>)</span></h2>
+				<div class="info_indent" style="float: right; width: 380px">
+					<h2><a href="<?php echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang);?>"><?php echo $hostel->propertyName[0]; ?>, <?php echo $city_selected;?></a></h2>
 					<p>
 						<?php
 						if (isset($searchmode) && $searchmode == 1){$word = 20;}else{$word = 30;}

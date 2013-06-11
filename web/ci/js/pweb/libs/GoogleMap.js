@@ -216,6 +216,7 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
         }
         window.gmarkers.length = 0;
     }
+    // Clear markers array
     
     window.markers = [];
 
@@ -223,11 +224,15 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
 
 GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 {
-    this.clearMap();
-    this.fillMakersArray();
-    
-    // draw markers 
-    this.addMarkersToMap();
+    // do this because sorting has problem in chrome
+    // says getDiv on null in addMarkersToMap
+    if ( window.gmap !== null ){
+        this.clearMap();
+        this.fillMakersArray();
+
+        // draw markers 
+        this.addMarkersToMap();
+    }
 };
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
@@ -289,7 +294,7 @@ GoogleMap.prototype.fillMakersArray = function()
                 , property_number
                 );   
     });
-      
+
 return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
