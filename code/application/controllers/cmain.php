@@ -1541,7 +1541,26 @@ class CMain extends I18n_site {
                 $authCommand .= ' --password ' . escapeshellarg($_SERVER['PHP_AUTH_PW']) . ' ';
             }
 
-            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
+            $this->load->model('db_links');
+
+            $hostel = null;
+            $data = array();
+            if ($this->api_used == HB_API) {
+                $this->load->library('hb_engine');
+                $hostel = $this->hb_engine->property_info($data, $property_number);
+                $property_type = $hostel['hostel_db_data']->property_type;
+            }
+            else {
+                $this->load->library('hw_engine');
+                $hostel = $this->hw_engine->property_info($data, $property_number);
+                $property_type = $hostel['hostel']->property_type;
+            }
+
+            $hostelurl = $this->Db_links->build_property_page_link($property_type, $property_name, $property_number, $this->site_lang);
+
+//            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
+
+            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --quiet -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg($hostelurl . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
 
             log_message('debug', $command);
 
