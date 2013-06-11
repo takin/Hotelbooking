@@ -645,51 +645,48 @@ PWebFilterApp.prototype.compute_counts = function() {
 };
 
 PWebFilterApp.prototype.compute_district_counts = function() {
-	for (var index in this.jtable_hits)
-	{
-		for (var di = 0; di < this.DistrictsCheckBoxes.$checkboxes_li.length; di++)
-		{
-			var current_district_id = this.DistrictsCheckBoxes.$checkboxes_li[di].firstChild.value;
+	for (var index in this.jtable_hits) {
+		for (var di = 0; di < this.DistrictsCheckBoxes.$checkboxes_li.length; di++) {
+			var current_district_id = $(this.DistrictsCheckBoxes.$checkboxes_li[di]).find('[name="districts"]').val();
+
 			if(current_district_id == undefined)
-			current_district_id = 0;
+				current_district_id = 0;
+
 			if(this.FiltersCounts['district-count-'+current_district_id]==undefined)
-			this.FiltersCounts['district-count-'+current_district_id]=0;
-			for (var pdi = 0; pdi < this.jtable_hits[index].districts.length; pdi++)
-			{
-				if( current_district_id == this.jtable_hits[index].districts[pdi].district_id)
-				{
-					this.FiltersCounts['district-count-'+current_district_id]++;
+				this.FiltersCounts['district-count-'+current_district_id]=0;
+
+			for (var pdi = 0; pdi < this.jtable_hits[index].districts.length; pdi++) {
+				if( current_district_id.toString() === this.jtable_hits[index].districts[pdi].district_id.toString()) {
+					this.FiltersCounts['district-count-'+current_district_id.toString()]++;
 				}
 			}
 		}
-		for (var di = 0; di < this.LandmarksCheckBoxes.$checkboxes_li.length; di++)
-		{
-			var current_landmark_id = this.LandmarksCheckBoxes.$checkboxes_li[di].firstChild.value;
+
+		for (var di = 0; di < this.LandmarksCheckBoxes.$checkboxes_li.length; di++) {
+			var current_landmark_id = $(this.LandmarksCheckBoxes.$checkboxes_li[di]).find('[name="landmarks"]').val();
+
 			if(current_landmark_id == undefined)
-			current_landmark_id = 0;
+				current_landmark_id = 0;
+
 			if(this.FiltersCounts['landmark-count-'+current_landmark_id]==undefined)
-			this.FiltersCounts['landmark-count-'+current_landmark_id]=0;
-			for (var pdi = 0; pdi < this.jtable_hits[index].landmarks.length; pdi++)
-			{
-				if( current_landmark_id === this.jtable_hits[index].landmarks[pdi].landmark_id)
-				{
-					this.FiltersCounts['landmark-count-'+current_landmark_id]++;
+				this.FiltersCounts['landmark-count-'+current_landmark_id]=0;
+
+			for (var pdi = 0; pdi < this.jtable_hits[index].landmarks.length; pdi++) {
+				if( current_landmark_id.toString() === this.jtable_hits[index].landmarks[pdi].landmark_id.toString()) {
+					this.FiltersCounts['landmark-count-'+current_landmark_id.toString()]++;
 				}
 			}
 		}
 		
-		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++)
-		{
-			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].
-                            getElementsByTagName("input")[0].value;
+		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++) {
+			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].getElementsByTagName("input")[0].value;
+
 			if(this.FiltersCounts['facility-count-'+current_facility_id]==undefined) {
                             this.FiltersCounts['facility-count-'+current_facility_id]=0;
                         }
 			
-			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++)
-			{
-				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi])
-				{
+			for (var pdi = 0; pdi < this.jtable_hits[index].amenities_filter.length; pdi++) {
+				if( current_facility_id === this.jtable_hits[index].amenities_filter[pdi]) {
 					this.FiltersCounts['facility-count-'+current_facility_id]++;
 				}
 			}
