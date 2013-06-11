@@ -360,7 +360,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				<ul class="sorting">
 					<li class="title"><?php echo _("Classer par:");?></li>
 					<li><a class="sorting" id="sortname-tous" href="#"><span class="asc">&nbsp;<?php echo _("Hostel Name");?></span></a></li>
-					<li><a class="sorting activesort asc" id="sortprice-tous" href="#"><?php echo _("Best Price");?></a></li>
+					<li><a class="sorting activesort asc" id="sortprice-tous" href="#"><?php echo _("Best price");?></a></li>
 					<li><a class="sorting desc" id="sortcote-tous" href="#"><?php echo _("Best rating");?></a></li>
 
 				<?php if ($this->api_used == HB_API) { ?>
@@ -368,9 +368,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 230px; float: right; text-align: right">
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 190px; float: right; text-align: right">
 					<div>
-						<span class="type_hostels yellow-bg"><span><?php echo _("Hostels only");?></span></span>
+						<span class="type_hostels yellow-bg"><span><?php echo _("Youth hostels only");?></span></span>
 						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
 					</div>
 					<div>
