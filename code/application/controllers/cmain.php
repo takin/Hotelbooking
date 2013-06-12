@@ -2306,14 +2306,15 @@ class CMain extends I18n_site {
 */
     function ajax_compare_property($pro_id) {
         $prodIds = explode(",", $pro_id);
-
+        $map_data = $this->get_property_details($pro_id);
+        
         $filter_array = array();
         $data = array();
         $property_extra = array();
         $property_feature = array();
         $property_facelity = array();
 
-        foreach ($prodIds as $property_number) {
+        foreach ($prodIds as $key => $property_number) {
             if ($this->api_used == HB_API) {
                 $this->load->library('hb_engine');
 
@@ -2323,6 +2324,8 @@ class CMain extends I18n_site {
                 $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
                 $hostelData['property_number'] = $property_number;
                 $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
+                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
 
                 if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
                     foreach ($hostelData['property_ratings'] as $type => $val) {
@@ -2376,7 +2379,9 @@ class CMain extends I18n_site {
                 $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
                 $hostelData['rating']        = $hostelData['hostel']->rating;
                 $hostelData['property_number'] = $property_number;
-
+                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                
                 if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
                     $i = 0;
                     foreach ($hostelData['hostel']->facilitiesTranslated as $facility) {
@@ -2397,7 +2402,7 @@ class CMain extends I18n_site {
         }
 
         $jsondata = array();
-        $jsondata['map_data'] = $this->get_property_details($pro_id);
+        $jsondata['map_data'] = $map_data;
         $jsondata['html'] = $this->load->view("compare_property", array(
             'compare_data'      => $data,
             'property_extra'    => $property_extra,
