@@ -29,7 +29,6 @@
 
 					<span class="info_type" style="color: #999">{{propertyTypeTranslate}}</span>
 				</div>
-
 				<div class="info_indent min-nights">
 					<h2>
 						<img id ="property_marker_number_{{propertyNumber}}" class="property_marker_number" src="<?php echo site_url(); ?>images/map_markers/unselected/marker_1.png" alt="" onmouseover="GoogleMap.prototype.centerMapMarker();" />
