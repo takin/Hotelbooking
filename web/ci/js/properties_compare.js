@@ -231,10 +231,10 @@ function property_compare_popup() {
 		type:'GET',
 		dataType: "json",
 		url:'http://'+window.location.host+'/cmain/ajax_compare_property/'+pro_id,
-		success:function(data) {		
+		success:function(data) {
 			$('#property_compare_data').empty().html(data['html']);
 
-			pweb_filter.addFilterMap('compare_property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			
                         pweb_filter.toggleMap('compare_property');
                         pweb_filter.toggleMap('city'); 
