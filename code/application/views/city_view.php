@@ -326,6 +326,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                         ?>
                     <?php //} ?>
 			</div>
+    <?php $this->load->view('includes/city_search_box',array(
+        'date_selected'         => $date_selected, 
+        'current_view'          => $current_view,
+        'numnights_selected'    => $numnights_selected,
+        'bc_continent'          => $bc_continent,
+        'bc_country'            => $bc_country,
+        'bc_city'               => $bc_city));
+	?>
                        <a href="#" id="city_map_hide" class="view_map"
                           title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
                          <span id ="close_map_button"> </span>
