@@ -630,7 +630,7 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 		$('#breakfast_2nd_filter').parent().hide();
 	}
 
-	if ($('#type_hostels').length) {
+	if (parseInt($('#type_hostels').parent().find('span').html(), 10) > 0) {
 		$('#hostels_2nd_filter').parent().show();
 	}
 	else {
