@@ -15,11 +15,11 @@
 			<table>
 				<tr>
 					<td class="label"><?php echo _('From:'); ?></td>
-					<td><strong id="from_feedback" style="width:300px; overflow:hidden;display:block"></strong></td>
+					<td style="width:300px; overflow:hidden;"><strong id="from_feedback"></strong></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('To:'); ?></td>
-					<td><strong id="to_feedback" style="width:300px; overflow:hidden;display:block"></strong></td>
+					<td style="width:300px; overflow:hidden;"><strong id="to_feedback"></strong></td>
 				</tr>
 				<tr>
 					<td class="label"><?php echo _('Subject:'); ?></td>
@@ -38,6 +38,14 @@
 				<!-- <a href="/" id="close-share-conformation_overlay"><?php echo _('Close'); ?></a> -->
 			</p>
 		</div>
+
+		<span style="display: none">
+			<span id="invalidEmailError"><?php echo _('Email is not valid')?></span>
+			<span id="missingEmailError"><?php echo _('Fill in the email')?></span>
+			<span id="missingSubjectError"><?php echo _('Fill in the subject')?></span>
+			<span id="missingMessageError"><?php echo _('Fill in the message')?></span>
+			<span id="missingEmailError"><?php echo _('Fill in the from name')?></span>
+		</span>
 
 		<form action="<?php echo site_url("cmain/property_send_email"); ?>" method="post" id="share_email_form">
 			<p class="title"><?php echo _('Mail this page to someone you know, or send it to yourself as a reminder.'); ?></p>

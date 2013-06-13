@@ -535,7 +535,9 @@ class Hostelbookers_api extends CI_Model {
         $booking_object->addChild("acceptedTermsAndConditions", "true");
         if ($this->wordpress->get_option("aj_hb_charge_booking_fees") == 'true') {
             $booking_object->addChild("chargeBookingFee", "true");
-        }        
+        } else {
+            $booking_object->addChild("chargeBookingFee", "false");
+        }     
         $booking_object->addChild("property", $property_number);
         $booking_object->addChild("arrivalDate", $dateStart);
         $booking_object->addChild("arrivalTime", "$arrival_time:00:00");

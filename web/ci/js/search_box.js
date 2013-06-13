@@ -196,22 +196,7 @@ function loadCitiesMenu(base_url,loading_message,citiesVarName,citiesVar,country
             var selectCountryField = document.getElementById(countryFieldId);
 	      
             var i=0;
-
-            //	      for(i=1;i<7;i++)
-            //	      {
-            //	        var topCountry = selectCountryField.options[i].value;
-            //
-            //	        $(xml).find('Country').each(function(){
-            //	          var countrySelectText = $(this).find('countrySelectText').text();
-            //	          var countrySelectVal = $(this).find('countrySelectVal').text();
-            //	          var countryName = $(this).find('countryName').text();
-            //	          if(topCountry == countryName)
-            //	          {
-            //	            selectCountryField.options[i] = new Option(countrySelectText, countrySelectVal);
-            //	          }
-            //	        });
-            //	      }
-            i++;
+          
             var cookie_country_val = getCookie('country_selected');
             var cookie_city_val    = getCookie('city_selected');
 	      

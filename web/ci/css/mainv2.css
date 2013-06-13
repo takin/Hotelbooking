@@ -1016,30 +1016,23 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 }
 
 .info_pic{
-	width:120px;
-}
-
-.hb_frame .info_pic{
-	width:103px;
+    width:22% ;
 }
 
 .info_indent{
+    width: 74% ;
 }
 
 .hb_frame #property_list .info_indent,
 .hb_frame #property_list .amenities,
 .hb_frame #property_list .city_hostel_districts,
-.hb_frame #property_list .city_hostel_landmarks {
-	float: right;
-	width: 390px !important;
-}
-
+.hb_frame #property_list .city_hostel_landmarks,
 .city-search #property_list .info_indent,
 .city-search #property_list .amenities,
 .city-search #property_list .city_hostel_districts,
-.city-search #property_list .city_hostel_landmarks {
-	width: 410px !important;
+.city-search #property_list .city_hostel_landmarks{
 	float: right;
+	width: 74% !important;
 }
 
 .hostel_list .info h2{
@@ -2443,6 +2436,15 @@ text-align: -webkit-center;
 	float: left;
 }
 
+#share-email img {
+	height: 19px;
+	margin-top: 8px;
+}
+
+#share-pdf img {
+	height: 23px;
+}
+
 #save_property_dialog,
 #share-overlay {
 	position: fixed;
@@ -2820,6 +2822,9 @@ text-decoration:none;
 }
 /*compare property css end*/
 
+#share_email_form .LV_validation_message {
+	clear: both;
+}
 
 /*#city_map_filter{ padding:10px 10px 10px 33px; font-size:1.2em; color:#333333; font-weight:bold;display:block;
         text-align: right;

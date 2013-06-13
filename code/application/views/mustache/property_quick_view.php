@@ -1,5 +1,7 @@
 <div class="main-cotainer"  id="main-div">
-	<div>
+    <input type="hidden" id="quickView_geolatitude" value="{{Latitude}}">
+    <input type="hidden" id="quickView_geolongitude" value="{{Longitude}}">	
+    <div>
 		<div style="float: left;margin: 10px 0;width: 55px;">
 			{{#prevIndex}}
 				<div style="display: inline;float: left;">
