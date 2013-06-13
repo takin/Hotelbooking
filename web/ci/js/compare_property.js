@@ -52,7 +52,7 @@ $(function() {
 
 function printdiv(printpageId) {
 	var printpage  = $('#printpage');
-	var map_canvas = $('#map_canvas');
+	var map_canvas_compareProperty = $('#map_canvas_compareProperty');
 	var static_map = $('#static_map');
 
 	printpage.css("display","none");
@@ -66,7 +66,7 @@ function printdiv(printpageId) {
 		latlon = 'markers=icon:' + img_url + '|' + markers_data[i].Geo.Latitude + ',' + markers_data[i].Geo.Longitude;   
 	}
 
-	$('#map_canvas').css({
+	$('#map_canvas_compareProperty').css({
 		display : 'none',
 		width   : '',
 		height  : ''
@@ -89,7 +89,7 @@ function printdiv(printpageId) {
 	myWindow.focus();
 	myWindow.print();
 
-	map_canvas.css({display:'block',width :'800',height :'350'});
+	map_canvas_compareProperty.css({display:'block',width :'800',height :'350'});
 	static_map.css({display:'none',width :'',height :''});
 	myWindow.close();
 }
