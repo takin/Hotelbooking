@@ -326,6 +326,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                         ?>
                     <?php //} ?>
 			</div>
+    <?php $this->load->view('includes/city_search_box',array(
+        'date_selected'         => $date_selected, 
+        'current_view'          => $current_view,
+        'numnights_selected'    => $numnights_selected,
+        'bc_continent'          => $bc_continent,
+        'bc_country'            => $bc_country,
+        'bc_city'               => $bc_city));
+	?>
                        <a href="#" id="city_map_hide" class="view_map"
                           title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
                          <span id ="close_map_button"> </span>
@@ -360,12 +368,12 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 190px; float: right; text-align: right">
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 160px; float: right; text-align: right; padding-right: 2px; padding-left; 0">
 					<div>
 						<span class="type_hostels yellow-bg"><span><?php echo _("Youth hostels only");?></span></span>
 						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
 					</div>
-					<div>
+					<div style="clear: both">
 						<span class="icon_facility_extra3d yellow-bg"><span><?php echo _("Only free breakfast");?></span></span>
 	  					<input type="checkbox" class="checkbox" id="breakfast_2nd_filter" value="" name="breakfast_2nd_filter" />
 					</div>

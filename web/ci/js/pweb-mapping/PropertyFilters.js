@@ -630,7 +630,7 @@ PWebFilterApp.prototype.display_extra_filters = function() {
 		$('#breakfast_2nd_filter').parent().hide();
 	}
 
-	if ($('#type_hostels').length) {
+	if (parseInt($('#type_hostels').parent().find('span').html(), 10) > 0) {
 		$('#hostels_2nd_filter').parent().show();
 	}
 	else {
@@ -1915,23 +1915,18 @@ var allproid   =   pweb_filter.getAllPropertyIds();
                 cache: true,
 		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
 		success:function(data){ 
-		   
+
 			$('#quick_preview_div').empty().html(data['html']);
 			$('#preurl').html(preurl);
 			$('#nexturl').html(nexturl);
-			pweb_filter.addFilterMap('city', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
-			pweb_filter.addFilterMap('property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			
+			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			 
-			pweb_filter.pweb_maps['city'].prop_number_to_focus = proid;
-			pweb_filter.pweb_maps['property'].prop_number_to_focus = proid;
-			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
-			pweb_filter.pweb_maps['city'].enableMap();
                         
-                        if(this.pweb_maps['cityFilterMap'].enabled === true)
-                        {
-                            pweb_filter.pweb_maps['cityFilterMap'].updateMarkers(data.map_data);
-                            pweb_filter.pweb_maps['cityFilterMap'].enableMap();
-                         }
+                        pweb_filter.toggleMap('compare_property');
+                        pweb_filter.toggleMap('city'); 
+                        
+                        
 
 	if($("#distrinct:radio:checked").length > 0)
            { 
@@ -1967,6 +1962,8 @@ PWebFilterApp.prototype.handle_delete = function() {
 			$('.remove_from_search_options').hide();
 		}
 	});
+
+	var me = this;
 
 	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
 		event.preventDefault();
@@ -2016,6 +2013,15 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 		if (number != null) {
 			QuickView.remove(number);
+
+			for (var i = 0; i < me.jtable_hits.length; i++) {
+				if (me.jtable_hits[i] && me.jtable_hits[i]['propertyNumber'] && me.jtable_hits[i]['propertyNumber'] == number) {
+					me.jtable_hits.splice(i, 1);
+
+					// go back one element
+					i -= 1;
+				}
+			}
 		}
 
                 // clear marker after removing property

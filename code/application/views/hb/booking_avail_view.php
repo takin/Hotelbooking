@@ -111,13 +111,32 @@ foreach ($booking_rooms as $hostel_room) {
             if ($i == ($numNights - 1)) {
                 $sharedRoomsCluetipTable .= "<th class='last'>";
             } else {
-                $sharedRoomsCluetipTable .= "<th>";
+                if (floor($numNights / 2) - 1) {
+                    $sharedRoomsCluetipTable .= "<th class='last'>";
+                } else {
+                    $sharedRoomsCluetipTable .= "<th>";
+                }
             }
 
             $sharedRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $_date->format('U')), 0, 3, 'UTF-8'));
             $sharedRoomsCluetipTable .= strftime("<br /> %d", $_date->format('U'));
-            $_date->modify("+1 day");
             $sharedRoomsCluetipTable .= "</th>";
+
+            if ($numNights > 13) {
+                if ($i == floor($numNights / 2)) {
+                    $sharedRoomsCluetipTable .= "</tr><tr>";
+                }
+            }
+            $_date->modify("+1 day");
+        }
+
+        if ($numNights > 13) {
+            if ($numNights % 2 != 0) {
+                $sharedRoomsCluetipTable .= "<th class='last'></th>";
+            } else {
+                $sharedRoomsCluetipTable .= "<th></th>";
+                $sharedRoomsCluetipTable .= "<th class='last'></th>";
+            }
         }
 
         $sharedRoomsCluetipTable .= "</tr><tr>";
@@ -153,8 +172,6 @@ foreach ($booking_rooms as $hostel_room) {
                             <td class="" style="text-align : right;">' . currency_symbol($room_night["CUSTOMER"]["CURRENCY"]) . ' <span></span></td>
                             </tr>';
 
-                $nights_count++;
-
                 if ($min_price_shared == $room_night["CUSTOMER"]["MINPRICE"]) {
 
                     $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_shared, 2, '.', '') . '</span>';
@@ -165,13 +182,24 @@ foreach ($booking_rooms as $hostel_room) {
                     $lowest_style = '';
                 }
 
-                if ($i == 0) {
+                if ($nights_count == 0) {
                     $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
                 } else {
-                    $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    if ($nights_count == floor($numNights / 2) + 1) {
+                        $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    } else {
+                        $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    }
+                }
+
+                if ($numNights > 13) {
+                    if ($nights_count == floor($numNights / 2)) {
+                        $sharedRoomsCluetipTable .= "</tr><tr>";
+                    }
                 }
 
                 $date->modify("+1 day");
+                $nights_count++;
             }
         } else {
             for ($i = 0; $i < $numNights; $i++) {
@@ -331,6 +359,14 @@ foreach ($booking_rooms as $hostel_room) {
 
         $sharedRoomsTable.= "</tr>\n";
         $sharedRoomsTableSelect.= "</tr>\n";
+        if ($numNights > 13) {
+            if ($numNights % 2 != 0) {
+                $sharedRoomsCluetipTable .= "<td class='last'></td>";
+            } else {
+                $sharedRoomsCluetipTable .= "<td></td>";
+                $sharedRoomsCluetipTable .= "<td class='last'></td>";
+            }
+        }
         $sharedRoomsCluetipTable.= "</tr></table>";
     }
     $ajaxTableID++;
@@ -375,13 +411,33 @@ foreach ($booking_rooms as $hostel_room) {
             if ($i == ($numNights - 1)) {
                 $privateRoomsCluetipTable .= "<th class='last'>";
             } else {
-                $privateRoomsCluetipTable .= "<th>";
+                if (floor($numNights / 2) - 1) {
+                    $privateRoomsCluetipTable .= "<th class='last'>";
+                } else {
+                    $privateRoomsCluetipTable .= "<th>";
+                }
             }
 
             $privateRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $_date->format('U')), 0, 3, 'UTF-8'));
             $privateRoomsCluetipTable .= strftime("<br /> %d", $_date->format('U'));
-            $_date->modify("+1 day");
             $privateRoomsCluetipTable .= "</th>";
+
+            if ($numNights > 13) {
+                if ($i == floor($numNights / 2)) {
+                    $privateRoomsCluetipTable .= "</tr><tr>";
+                }
+            }
+
+            $_date->modify("+1 day");
+        }
+
+        if ($numNights > 13) {
+            if ($numNights % 2 != 0) {
+                $privateRoomsCluetipTable .= "<th class='last'></th>";
+            } else {
+                $privateRoomsCluetipTable .= "<th></th>";
+                $privateRoomsCluetipTable .= "<th class='last'></th>";
+            }
         }
 
         $privateRoomsCluetipTable .= "</tr><tr>";
@@ -427,8 +483,6 @@ foreach ($booking_rooms as $hostel_room) {
                             <td class="" style="text-align : right;">' . currency_symbol($room_night["CUSTOMER"]["CURRENCY"]) . ' <span></span></td>
                             </tr>';
 
-                $nights_count++;
-
                 if ($min_price_private == $room_night["CUSTOMER"]["MINPRICE"]) {
 
                     $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $display_currency . ' ' . number_format($min_price_private, 2, '.', '') . '</span>';
@@ -440,13 +494,24 @@ foreach ($booking_rooms as $hostel_room) {
                     $lowest_style = '';
                 }
 
-                if ($i == 0) {
+                if ($nights_count == 0) {
                     $privateRoomsCluetipTable.= '<td align="center" class="first private" per_person="' . $date_msg_pp . '" per_room="' . $date_msg_pr . '" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg_pr . '</td>';
                 } else {
-                    $privateRoomsCluetipTable.= '<td align="center" class="private" per_person="' . $date_msg_pp . '" per_room="' . $date_msg_pr . '" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg_pr . '</td>';
+                    if ($nights_count == floor($numNights / 2) + 1) {
+                        $privateRoomsCluetipTable.= '<td align="center" class="first private" per_person="' . $date_msg_pp . '" per_room="' . $date_msg_pr . '" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg_pr . '</td>';
+                    } else {
+                        $privateRoomsCluetipTable.= '<td align="center" class="private" per_person="' . $date_msg_pp . '" per_room="' . $date_msg_pr . '" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg_pr . '</td>';
+                    }
+                }
+
+                if ($numNights > 13) {
+                    if ($nights_count == floor($numNights / 2)) {
+                        $privateRoomsCluetipTable .= "</tr><tr>";
+                    }
                 }
 
                 $date->modify("+1 day");
+                $nights_count++;
             }
         } else {
             for ($i = 0; $i < $numNights; $i++) {
@@ -583,6 +648,14 @@ foreach ($booking_rooms as $hostel_room) {
         $privateRoomsTable.= "</td>";
         $privateRoomsTable.= "</tr>\n";
         $privateRoomsTableSelect.= "</tr>\n";
+        if ($numNights > 13) {
+            if ($numNights % 2 != 0) {
+                $privateRoomsCluetipTable .= "<td class='last'></td>";
+            } else {
+                $privateRoomsCluetipTable .= "<td></td>";
+                $privateRoomsCluetipTable .= "<td class='last'></td>";
+            }
+        }
         $privateRoomsCluetipTable .= "</tr></table>";
     }
     $ajaxTableID++;
@@ -788,173 +861,173 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
     }
     ?>
 
-<?php if (empty($print)) { ?>
-    <!-- modal content -->
-    <div id="basic-modal-content">
-        <h3 style="color: #6DA903; text-align: center;">
-            <strong>
-                <?php echo _("Confirmation Email Preview"); ?>
-            </strong>            
-        </h3>
-        <div style="padding: 10px; border-bottom: solid 5px grey;">
-            <p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath; ?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name'); ?>"/></p>
-        </div>
-        <div style="padding: 10px;">
-            <h3 style="color: #6DA903;"><?php echo _("Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed."); ?></h3>
-        </div>
-        <div style="padding: 10px;">
-            <p><?php echo _('Arrivée'); ?>: <b><?php echo $datetop; ?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?>: <b><?php echo $numNights; ?></b></p>
-        </div>
+    <?php if (empty($print)) { ?>
+        <!-- modal content -->
+        <div id="basic-modal-content">
+            <h3 style="color: #6DA903; text-align: center;">
+                <strong>
+                    <?php echo _("Confirmation Email Preview"); ?>
+                </strong>            
+            </h3>
+            <div style="padding: 10px; border-bottom: solid 5px grey;">
+                <p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath; ?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name'); ?>"/></p>
+            </div>
+            <div style="padding: 10px;">
+                <h3 style="color: #6DA903;"><?php echo _("Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed."); ?></h3>
+            </div>
+            <div style="padding: 10px;">
+                <p><?php echo _('Arrivée'); ?>: <b><?php echo $datetop; ?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?>: <b><?php echo $numNights; ?></b></p>
+            </div>
 
-        <style type="text/css">
-            table.emailpreview {
-                background: white;
-                color: gray;
-            }
+            <style type="text/css">
+                table.emailpreview {
+                    background: white;
+                    color: gray;
+                }
 
-            table.emailpreview thead {
-                background: gray;
-                color: white;
-            }
+                table.emailpreview thead {
+                    background: gray;
+                    color: white;
+                }
 
-            table.emailpreview td {
-                padding: 10px;
-                text-align: center;
-            }
+                table.emailpreview td {
+                    padding: 10px;
+                    text-align: center;
+                }
 
-            table.emailpreview th {
-                padding: 10px;
-                text-align: center;
-            }
+                table.emailpreview th {
+                    padding: 10px;
+                    text-align: center;
+                }
 
-        </style>
-        <table id="sharedemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
-            <thead>
-                <tr valign="middle" align="center">
-                    <th width="150" class="first-cell green-th"><?php echo _('Date'); ?></th>
-                    <th width="350" class="green-th"><?php echo _('Chambres partagées - Dortoirs'); ?></th>
-                    <th class="green-th">
-                        <?php echo _('Prix (lit)'); ?>										
-                    </th>
-                    <th class="green-th"><?php echo _('Number of guests'); ?></th>
-                    <th width="80" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php echo $sharedreservationTable; ?>
-            </tbody>
-        </table>
+            </style>
+            <table id="sharedemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+                <thead>
+                    <tr valign="middle" align="center">
+                        <th width="150" class="first-cell green-th"><?php echo _('Date'); ?></th>
+                        <th width="350" class="green-th"><?php echo _('Chambres partagées - Dortoirs'); ?></th>
+                        <th class="green-th">
+                            <?php echo _('Prix (lit)'); ?>										
+                        </th>
+                        <th class="green-th"><?php echo _('Number of guests'); ?></th>
+                        <th width="80" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo $sharedreservationTable; ?>
+                </tbody>
+            </table>
 
-        <table id="privateemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
-            <thead>
-                <tr valign="middle" align="center">
-                    <th width="150" class="first-cell green-th"><?php echo _('Date'); ?></th>
-                    <th width="350" class="green-th"><?php echo _('Chambres privées'); ?></th>
-                    <th class="green-th">
-                        <?php echo _('Prix (lit)'); ?>										
-                    </th>
-                    <th class="green-th"><?php echo _('Number of guests'); ?></th>
-                    <th width="80" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php echo $privatereservationTable; ?>
-            </tbody>
-        </table> 
+            <table id="privateemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+                <thead>
+                    <tr valign="middle" align="center">
+                        <th width="150" class="first-cell green-th"><?php echo _('Date'); ?></th>
+                        <th width="350" class="green-th"><?php echo _('Chambres privées'); ?></th>
+                        <th class="green-th">
+                            <?php echo _('Prix (lit)'); ?>										
+                        </th>
+                        <th class="green-th"><?php echo _('Number of guests'); ?></th>
+                        <th width="80" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php echo $privatereservationTable; ?>
+                </tbody>
+            </table> 
 
-        <table>  
-            <tr>
-                <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
-                    <p align=right style="text-align:right;line-height:18px; font-size:13px;">
-                        <strong>
-                            <?php echo _('Total'); ?> (<?php echo $currency; ?>):
-                        </strong>
-                    </p>
-                </td>
-                <td width="80" style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
-                    <p align=right style="text-align:right;line-height:18px">
-                        <b>
-                            <span style="font-size:10.0pt;">
-                                <?php echo currency_symbol($currency); ?> <span id="totalarrival_email"></span>
-                            </span>
-                        </b>
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
-                    <p align=right style="text-align:right;line-height:18px">
-                        <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
-                            <?php echo _('10% Arrhes / Dépôt sera facturé en'); ?> <strong><?php echo $currency; ?></strong>:
-                        </span>
-                    </p>
-                </td>
-                <td style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
-                    <p align=right style="text-align:right;line-height:18px">
-                        <span style="font-size:12px; color:#2F2F2F">
+            <table>  
+                <tr>
+                    <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
+                        <p align=right style="text-align:right;line-height:18px; font-size:13px;">
+                            <strong>
+                                <?php echo _('Total'); ?> (<?php echo $currency; ?>):
+                            </strong>
+                        </p>
+                    </td>
+                    <td width="80" style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
+                        <p align=right style="text-align:right;line-height:18px">
                             <b>
-                                <?php echo currency_symbol($currency); ?> <span id="totaldeposit_email" style="color: #175291; font-size: 18px;"></span>
-                            </b>    	
-                        </span>
-                    </p>
-                </td>
-            </tr>
-        </table>
+                                <span style="font-size:10.0pt;">
+                                    <?php echo currency_symbol($currency); ?> <span id="totalarrival_email"></span>
+                                </span>
+                            </b>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
+                        <p align=right style="text-align:right;line-height:18px">
+                            <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
+                                <?php echo _('10% Arrhes / Dépôt sera facturé en'); ?> <strong><?php echo $currency; ?></strong>:
+                            </span>
+                        </p>
+                    </td>
+                    <td style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
+                        <p align=right style="text-align:right;line-height:18px">
+                            <span style="font-size:12px; color:#2F2F2F">
+                                <b>
+                                    <?php echo currency_symbol($currency); ?> <span id="totaldeposit_email" style="color: #175291; font-size: 18px;"></span>
+                                </b>    	
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
 
-        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-            <?php echo _("Information sur l'établissement"); ?>:
-        </div>
-        <div style="border: solid 1px gray; padding: 10px;">
-            <div style="padding: 10px;">
-                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Nom de l'établissement"); ?>:</span>        
-                <span style="padding: 10px; color: #6DA903;">
-                    <?php echo $propertyName; ?>
-                </span>
-            </div> 
-            <div style="padding: 10px;">
-                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Phone number"); ?>:</span>        
-                <span style="padding: 10px; color: #6DA903;">
-                    <?php echo _("Provided after reservation"); ?>
-                </span>
+            <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+                <?php echo _("Information sur l'établissement"); ?>:
             </div>
-            <div style="padding: 10px;">
-                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Adresse"); ?>:</span>        
-                <span style="padding: 10px; color: #6DA903;">
-                    <?php echo _("Provided after reservation"); ?>
-                </span>
+            <div style="border: solid 1px gray; padding: 10px;">
+                <div style="padding: 10px;">
+                    <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Nom de l'établissement"); ?>:</span>        
+                    <span style="padding: 10px; color: #6DA903;">
+                        <?php echo $propertyName; ?>
+                    </span>
+                </div> 
+                <div style="padding: 10px;">
+                    <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Phone number"); ?>:</span>        
+                    <span style="padding: 10px; color: #6DA903;">
+                        <?php echo _("Provided after reservation"); ?>
+                    </span>
+                </div>
+                <div style="padding: 10px;">
+                    <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Adresse"); ?>:</span>        
+                    <span style="padding: 10px; color: #6DA903;">
+                        <?php echo _("Provided after reservation"); ?>
+                    </span>
+                </div>
+                <div style="padding: 10px;">
+                    <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Email"); ?>:</span>        
+                    <span style="padding: 10px; color: #6DA903;">
+                        <?php echo _("Provided after reservation"); ?>
+                    </span>
+                </div>
+                <div style="padding: 20px; color: #6DA903;">
+                    <?php echo _("With full contact information, you will be able to contact the property in case you have any special requests."); ?>
+                </div>
             </div>
-            <div style="padding: 10px;">
-                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Email"); ?>:</span>        
-                <span style="padding: 10px; color: #6DA903;">
-                    <?php echo _("Provided after reservation"); ?>
-                </span>
+            <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+                <?php echo _("Directions"); ?>:
             </div>
-            <div style="padding: 20px; color: #6DA903;">
-                <?php echo _("With full contact information, you will be able to contact the property in case you have any special requests."); ?>
+            <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
+                <?php echo _("When available, we will provide directions on how to get to the property including public transportation and airport information."); ?>
             </div>
-        </div>
-        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-            <?php echo _("Directions"); ?>:
-        </div>
-        <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
-            <?php echo _("When available, we will provide directions on how to get to the property including public transportation and airport information."); ?>
-        </div>
 
-        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-            <?php echo _("Informations Importantes"); ?>:
-        </div>
-        <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
-            <?php echo _("We will provide all important information to make sure you really enjoy your stay."); ?>
-        </div>
+            <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+                <?php echo _("Informations Importantes"); ?>:
+            </div>
+            <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
+                <?php echo _("We will provide all important information to make sure you really enjoy your stay."); ?>
+            </div>
 
-    </div>
-<?php } ?>
+        </div>
+    <?php } ?>
 
     <script>
-        $(function(){
-            $("#dispo-form").hide();
-            $("#change-dates").show();
-        });
+                            $(function() {
+                                $("#dispo-form").hide();
+                                $("#change-dates").show();
+                            });
     </script>
     <p class="red-error" id="formerror"> <?php echo _('Please enter at least one choice in the above table to book a room.'); ?> </p>
     <?php
@@ -966,99 +1039,86 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
 ?>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/calcprice.js"></script> 
 <script type="text/javascript">
-    
+
     $('a.basic-modal').bind('click', function() {
-        
+
         var srows = 0;
-            
-        $('table tr[class^="sreservation sreservation_"] td:nth-child(4) span').each(function () {
-                
-            if( parseInt($(this).html()) > 0 ) {
+
+        $('table tr[class^="sreservation sreservation_"] td:nth-child(4) span').each(function() {
+
+            if (parseInt($(this).html()) > 0) {
                 srows++;
             } else {
                 $(this).parent().parent().hide();
             }
-   
+
         });
-            
-        if(srows == 0) {
+
+        if (srows == 0) {
             $('table#sharedemailreservationView').hide();
         }
-            
-        var prows = 0;     
-            
-        $('table tr[class^="preservation preservation_"] td:nth-child(4) span').each(function () {
-                
-            if( parseInt($(this).html()) > 0 ) {
+
+        var prows = 0;
+
+        $('table tr[class^="preservation preservation_"] td:nth-child(4) span').each(function() {
+
+            if (parseInt($(this).html()) > 0) {
                 prows++;
             } else {
                 $(this).parent().parent().hide();
             }
-   
+
         });
-            
-        if(prows == 0) {
+
+        if (prows == 0) {
             $('table#privateemailreservationView').hide();
         }
-        
+
         $('#basic-modal-content').modal();
-                    
+
         return false;
-        
+
     });
-        
+
     var sharedrowCount = $('table#sharedemailreservationView tr').length;
-    if(sharedrowCount > 1) {
-        $("table#sharedemailreservationView").tablesorter({ 
+    if (sharedrowCount > 1) {
+        $("table#sharedemailreservationView").tablesorter({
             // sort on the first column and third column, order asc 
-            sortList: [[0,0]] 
+            sortList: [[0, 0]]
         });
     }
-    
+
 
     var privaterowCount = $('table#privateemailreservationView tr').length;
-    if(privaterowCount > 1) {
-        $("table#privateemailreservationView").tablesorter({ 
+    if (privaterowCount > 1) {
+        $("table#privateemailreservationView").tablesorter({
             // sort on the first column and third column, order asc 
-            sortList: [[0,0]] 
+            sortList: [[0, 0]]
         });
-    }    
-    
-    $('table#sharedemailreservationView tr.preservation').each(function () {
+    }
+
+    $('table#sharedemailreservationView tr.preservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#privateemailreservationView tr.preservation').each(function () {
+
+    $('table#privateemailreservationView tr.preservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#sharedemailreservationView tr.sreservation').each(function () {
+
+    $('table#sharedemailreservationView tr.sreservation').each(function() {
         $(this).hide();
     });
-    
-    $('table#privateemailreservationView tr.sreservation').each(function () {
+
+    $('table#privateemailreservationView tr.sreservation').each(function() {
         $(this).hide();
     });
-    
+
     $('div.confirmationEmail').hide();
-    
+
     $('a.title').cluetip({
         width: '400px',
-        splitTitle: '|', 
-        local:true, 
-        cursor: 'pointer',
-        arrows: false,
-        dropShadow: false,
-        sticky: false,
-        positionBy: 'bottomTop',
-        cluetipClass: 'mcweb',
-        tracking: true,
-        topOffset: 10
-    });
-    
-    $('a.ajaxTable').cluetip({
-        width: '600px', 
-        local:true, 
+        splitTitle: '|',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
@@ -1069,20 +1129,35 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         topOffset: 10
     });
 
-    $(function(){$("#booking-table").show();});
+    $('a.ajaxTable').cluetip({
+        width: '640px',
+        local: true,
+        cursor: 'pointer',
+        arrows: false,
+        dropShadow: false,
+        sticky: false,
+        positionBy: 'bottomTop',
+        cluetipClass: 'mcweb',
+        tracking: true,
+        topOffset: 10
+    });
+
+    $(function() {
+        $("#booking-table").show();
+    });
     $("#booking-table form").submit(function() {
         var noerror = false;
         $("#formerror").hide();
-        $("#booking-table select").each(function () {
-            if ($(this).val() != 0){
+        $("#booking-table select").each(function() {
+            if ($(this).val() != 0) {
                 noerror = true;
             }
         });
 
-        if (noerror == true){
+        if (noerror == true) {
             noerror = true;
             return true;
-        }else{
+        } else {
             $("#formerror").show();
             return false;
         }
@@ -1105,132 +1180,132 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         $("#booking-table").hide();
         return false;
     });
-    
+
     $('#complete_dorms').bind('click', function() {
-        
-        if($(this).is(':checked')) {
-           
+
+        if ($(this).is(':checked')) {
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().hide();
                 }
             });
-            
+
             $("select.sharedsel > option[complete$='false']").hide();
-            
+
         } else {
-            
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('not_complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().show();
                 }
-            });            
-            
+            });
+
             $("select.sharedsel > option[complete$='false']").show();
-            
+
         }
-        
+
         var dorm_rows = $('tr.dorm_row').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(dorm_rows == 0) {
+
+        if (dorm_rows == 0) {
             $('tr.no_dorms').show();
         } else {
             $('tr.no_dorms').hide();
         }
-        
+
     });
-    
-    if( $('input[name="price_selection"]').val() == 'per_person' ) {
-        
+
+    if ($('input[name="price_selection"]').val() == 'per_person') {
+
         $('span.private').each(function() {
             $(this).html($(this).attr('per_person'));
-        });  
-            
+        });
+
         $('th.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
+
         $('td.private').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
+
         $('a.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
-        $('a.per_tooltip').each(function() {            
+
+        $('a.per_tooltip').each(function() {
             $(this).attr('title', $(this).attr('per_person'));
         });
-        
+
         $('span.lowest_night').each(function() {
             $(this).show();
         });
-    
-    }    
-    
+
+    }
+
     $('input[name="price_selection"]').bind('click', function() {
 
-        if($(this).val() == 'per_person') {
-            
+        if ($(this).val() == 'per_person') {
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_person'));
-            });  
-            
+            });
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('td.private').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_person'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).show();
             });
-            
+
         } else if ($(this).val() == 'per_room') {
-            
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('td.private').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_room'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).hide();
             });
-            
+
         }
-        
+
         $('a.ajaxTable').cluetip({
-            width: '600px', 
-            local:true, 
+            width: '600px',
+            local: true,
             cursor: 'pointer',
             arrows: false,
             dropShadow: false,
@@ -1240,13 +1315,19 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
             tracking: true,
             topOffset: 10
         });
-            
+
     });
-    
+
     $('tr.no_dorms').hide();
-    
+
     $('table.ajaxTable').each(function() {
         $(this).hide();
+    });
+
+    $('table.ajaxTable').find('tr').each(function() {
+        if ($(this).index() == 2) {
+            $(this).insertBefore($(this).prev());
+        }
     });
 
 </script> 
