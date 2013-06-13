@@ -859,3 +859,30 @@
 <?php echo _('Hide prices');?>
 <?php echo _('Overall evaluation');?>
 <?php echo _('Hostels only');?>
+<?php echo _('Customers can easily cancel their reservation free of charge up to %d Days before arrival. Deposits paid are non refundable.');?>
+<?php echo _('Customers can easily cancel their reservation free of charge up to 1 Day before arrival. Deposits paid are non refundable.');?>
+<?php echo _('No properties were saved.');?>
+<?php echo _('Mon Compte - Réservation Auberges De Jeunesse');?>
+<?php echo _('Please read carefully');?>
+<?php echo _('I agree');?>
+<?php echo _('I do not agree and I will select another property');?>
+<?php echo _('Benefits of booking fee ?');?>
+<?php echo _('Local customer service you can trust in your language available 24 hours a day');?>
+<?php echo _('Secured payment: your credit card is protected');?>
+<?php echo _('No spam emails after you have booked and your information will stay private');?>
+<?php echo _('You have access to millions of real reviews from travellers like you');?>
+<?php echo _('And finally, you get the best price!');?>
+<?php echo _('Best price guarantee');?>
+<?php echo _('Free breakfast only');?>
+<?php echo _('Click here to book');?>
+<?php echo _('1 million reviews');?>
+<?php echo _('You can compare pricing, services and location on the map for up to 5 properties');?>
+<?php echo _('Please click here to compare');?>
+<?php echo _('Click here to select this property');?>
+<?php echo _('Lowest price for a bed in a dorm at this property for the selected dates');?>
+<?php echo _('Lowest price per person in a private room at this property for the selected dates');?>
+<?php echo _('Click here to see pricing for each type of room and the maximum number of available beds in each room');?>
+<?php echo _('You can filter the results based on their specific districts');?>
+<?php echo _('You can filter the results based how close there are to specific landmarks, train stations and airports');?>
+<?php echo _('Click here to view pricing for this property');?>
+<?php echo _('Overall evaluation');?>
