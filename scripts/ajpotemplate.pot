@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-12 17:05+0300\n"
+"POT-Creation-Date: 2013-06-13 16:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,8 +65,8 @@ msgid "Commodité"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:169
-#: ../code/application/views/compare_property.php:387
-#: ../code/application/views/compare_property.php:390
+#: ../code/application/views/compare_property.php:395
+#: ../code/application/views/compare_property.php:398
 #: ../code/application/views/mustache/property_quick_view.php:104
 #: ../code/application/views/helpfile/pofields.php~:623
 #: ../code/application/views/helpfile/pofields.php:623
@@ -77,11 +77,11 @@ msgstr ""
 #: ../code/application/views/property_detail.php:184
 #: ../code/application/views/hw/hostel_view.php:260
 #: ../code/application/views/hw/hostel_view.php:705
-#: ../code/application/views/mustache/property_list.php:69
+#: ../code/application/views/mustache/property_list.php:68
 #: ../code/application/views/mustache/property_quick_view.php:114
 #: ../code/application/views/hb/hostel_view.php:335
 #: ../code/application/views/hb/hostel_view.php:939
-#: ../code/application/views/city_view.php:401
+#: ../code/application/views/city_view.php:409
 #: ../code/application/views/helpfile/pofields.php~:447
 #: ../code/application/views/helpfile/pofields.php:447
 #, php-format
@@ -91,11 +91,11 @@ msgstr ""
 #: ../code/application/views/property_detail.php:213
 #: ../code/application/views/hw/hostel_view.php:284
 #: ../code/application/views/hw/hostel_view.php:729
-#: ../code/application/views/mustache/property_list.php:74
+#: ../code/application/views/mustache/property_list.php:73
 #: ../code/application/views/mustache/property_quick_view.php:130
 #: ../code/application/views/hb/hostel_view.php:359
 #: ../code/application/views/hb/hostel_view.php:963
-#: ../code/application/views/city_view.php:405
+#: ../code/application/views/city_view.php:413
 msgid "Landmarks (within 2km)"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 #: ../code/application/views/property_detail.php:566
 #: ../code/application/views/property_detail.php:669
 #: ../code/application/views/hw/hostel_view.php:452
-#: ../code/application/views/mustache/property_list.php:107
+#: ../code/application/views/mustache/property_list.php:106
 #: ../code/application/views/mustache/city_map_property_infow.php:12
 #: ../code/application/views/hb/hostel_view.php:53
 #: ../code/application/views/hb/hostel_view.php:548
@@ -313,7 +313,7 @@ msgid "évaluation moyenne"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:588
-#: ../code/application/views/compare_property.php:238
+#: ../code/application/views/compare_property.php:246
 #: ../code/application/views/hb/hostel_view.php:74
 #: ../code/application/views/helpfile/pofields.php~:638
 #: ../code/application/views/helpfile/pofields.php:638
@@ -322,7 +322,7 @@ msgid "Atmosphere"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:591
-#: ../code/application/views/compare_property.php:244
+#: ../code/application/views/compare_property.php:252
 #: ../code/application/views/hb/hostel_view.php:77
 #: ../code/application/views/helpfile/pofields.php~:639
 #: ../code/application/views/helpfile/pofields.php:639
@@ -331,9 +331,9 @@ msgid "Staff"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:594
-#: ../code/application/views/mustache/property_list.php:191
-#: ../code/application/views/mustache/property_list.php:196
-#: ../code/application/views/mustache/property_list.php:201
+#: ../code/application/views/mustache/property_list.php:190
+#: ../code/application/views/mustache/property_list.php:195
+#: ../code/application/views/mustache/property_list.php:200
 #: ../code/application/views/group_request.php:214
 #: ../code/application/views/hb/hostel_view.php:80
 #: ../code/application/views/helpfile/pofields.php~:193
@@ -345,7 +345,7 @@ msgid "Location"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:597
-#: ../code/application/views/compare_property.php:256
+#: ../code/application/views/compare_property.php:264
 #: ../code/application/views/hb/hostel_view.php:83
 #: ../code/application/views/helpfile/pofields.php~:641
 #: ../code/application/views/helpfile/pofields.php:641
@@ -354,10 +354,10 @@ msgid "Cleanliness"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:600
-#: ../code/application/views/compare_property.php:279
+#: ../code/application/views/compare_property.php:287
 #: ../code/application/views/hb/hostel_view.php:86
 #: ../code/application/views/city_view.php:156
-#: ../code/application/views/city_view.php:397
+#: ../code/application/views/city_view.php:405
 #: ../code/application/views/helpfile/pofields.php~:448
 #: ../code/application/views/helpfile/pofields.php~:657
 #: ../code/application/views/helpfile/pofields.php:448
@@ -367,12 +367,12 @@ msgid "Facilities"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:603
-#: ../code/application/views/compare_property.php:268
-#: ../code/application/views/mustache/property_list.php:64
-#: ../code/application/views/mustache/property_list.php:176
-#: ../code/application/views/mustache/property_list.php:181
-#: ../code/application/views/mustache/property_list.php:186
-#: ../code/application/views/mustache/property_list.php:282
+#: ../code/application/views/compare_property.php:276
+#: ../code/application/views/mustache/property_list.php:63
+#: ../code/application/views/mustache/property_list.php:175
+#: ../code/application/views/mustache/property_list.php:180
+#: ../code/application/views/mustache/property_list.php:185
+#: ../code/application/views/mustache/property_list.php:281
 #: ../code/application/views/hb/hostel_view.php:89
 #: ../code/application/views/hb/hostel_view.php:472
 #: ../code/application/views/hb/property_list.php:110
@@ -383,7 +383,7 @@ msgid "Safety"
 msgstr ""
 
 #: ../code/application/views/property_detail.php:606
-#: ../code/application/views/compare_property.php:274
+#: ../code/application/views/compare_property.php:282
 #: ../code/application/views/hb/hostel_view.php:92
 #: ../code/application/views/helpfile/pofields.php~:644
 #: ../code/application/views/helpfile/pofields.php:644
@@ -736,7 +736,7 @@ msgid "Voir l'original"
 msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:361
-#: ../code/application/views/mustache/property_list.php:81
+#: ../code/application/views/mustache/property_list.php:80
 #: ../code/application/views/hb/hostel_view.php:441
 #: ../code/application/views/helpfile/pofields.php~:816
 #: ../code/application/views/helpfile/pofields.php:816
@@ -747,7 +747,7 @@ msgid ""
 msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:363
-#: ../code/application/views/mustache/property_list.php:83
+#: ../code/application/views/mustache/property_list.php:82
 #: ../code/application/views/hb/hostel_view.php:443
 #: ../code/application/views/helpfile/pofields.php~:815
 #: ../code/application/views/helpfile/pofields.php:815
@@ -756,7 +756,7 @@ msgid "Add to my favorites"
 msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:366
-#: ../code/application/views/mustache/property_list.php:86
+#: ../code/application/views/mustache/property_list.php:85
 #: ../code/application/views/hb/hostel_view.php:446
 #: ../code/application/views/helpfile/pofields.php~:839
 #: ../code/application/views/helpfile/pofields.php:839
@@ -767,7 +767,7 @@ msgid ""
 msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:368
-#: ../code/application/views/mustache/property_list.php:88
+#: ../code/application/views/mustache/property_list.php:87
 #: ../code/application/views/hb/hostel_view.php:448
 #: ../code/application/views/helpfile/pofields.php~:814
 #: ../code/application/views/helpfile/pofields.php:814
@@ -805,7 +805,7 @@ msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:535
 #: ../code/application/views/hw/hostel_view.php:574
-#: ../code/application/views/mustache/property_list.php:252
+#: ../code/application/views/mustache/property_list.php:251
 #: ../code/application/views/hb/hostel_view.php:631
 #: ../code/application/views/hb/hostel_view.php:670
 #: ../code/application/views/includes/city_search_box.php:16
@@ -871,7 +871,7 @@ msgid "Rechercher"
 msgstr ""
 
 #: ../code/application/views/hw/hostel_view.php:580
-#: ../code/application/views/mustache/property_list.php:287
+#: ../code/application/views/mustache/property_list.php:286
 #: ../code/application/views/hb/hostel_view.php:680
 msgid "Recherche de disponibilités..."
 msgstr ""
@@ -961,7 +961,7 @@ msgid ""
 msgstr ""
 
 #: ../code/application/views/hw/booking_avail_view.php:10
-#: ../code/application/views/mustache/property_list.php:267
+#: ../code/application/views/mustache/property_list.php:266
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:9
 #: ../code/application/views/mobile/hw/booking_avail_view.php:3
@@ -1242,7 +1242,7 @@ msgstr ""
 #: ../code/application/views/hb/booking_avail_view.php:640
 #: ../code/application/views/hb/booking_avail_view.php:692
 #: ../code/application/views/hb/booking_avail_view.php:725
-#: ../code/application/views/city_view.php:385
+#: ../code/application/views/city_view.php:393
 #: ../code/application/views/property_rooms_avail.php:126
 #: ../code/application/views/property_rooms_avail.php:330
 msgid "Price"
@@ -2507,7 +2507,7 @@ msgid ""
 msgstr ""
 
 #: ../code/application/views/hw/property_list.php:80
-#: ../code/application/views/mustache/property_list.php:217
+#: ../code/application/views/mustache/property_list.php:216
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 #: ../code/application/views/hb/property_list.php:128
 #: ../code/application/views/mobile/property_list.php:13
@@ -2877,7 +2877,7 @@ msgstr ""
 msgid "Il n'y a aucun commentaire. Soyez le premier à évaluer cette auberge!"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:42
+#: ../code/application/views/compare_property.php:43
 #: ../code/application/views/helpfile/pofields.php~:460
 #: ../code/application/views/helpfile/pofields.php~:632
 #: ../code/application/views/helpfile/pofields.php:460
@@ -2886,64 +2886,64 @@ msgstr ""
 msgid "See Map"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:48
-#: ../code/application/views/compare_property.php:53
-#: ../code/application/views/compare_property.php:62
-#: ../code/application/views/compare_property.php:63
-#: ../code/application/views/compare_property.php:67
-#: ../code/application/views/compare_property.php:68
+#: ../code/application/views/compare_property.php:50
+#: ../code/application/views/compare_property.php:55
+#: ../code/application/views/compare_property.php:64
+#: ../code/application/views/compare_property.php:65
+#: ../code/application/views/compare_property.php:69
+#: ../code/application/views/compare_property.php:70
 #: ../code/application/views/helpfile/pofields.php~:631
 #: ../code/application/views/helpfile/pofields.php:631
 #, php-format
 msgid "Not available"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:185
+#: ../code/application/views/compare_property.php:193
 #: ../code/application/views/helpfile/pofields.php~:633
 #: ../code/application/views/helpfile/pofields.php:633
 #, php-format
 msgid "Print"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:188
+#: ../code/application/views/compare_property.php:196
 #: ../code/application/views/helpfile/pofields.php~:634
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:221
-#: ../code/application/views/compare_property.php:341
+#: ../code/application/views/compare_property.php:229
+#: ../code/application/views/compare_property.php:349
 #: ../code/application/views/helpfile/pofields.php~:635
 #: ../code/application/views/helpfile/pofields.php:635
 #, php-format
 msgid "Dorms From"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:225
-#: ../code/application/views/compare_property.php:346
+#: ../code/application/views/compare_property.php:233
+#: ../code/application/views/compare_property.php:354
 #: ../code/application/views/helpfile/pofields.php~:636
 #: ../code/application/views/helpfile/pofields.php:636
 #, php-format
 msgid "Privates From"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:231
-#: ../code/application/views/compare_property.php:351
+#: ../code/application/views/compare_property.php:239
+#: ../code/application/views/compare_property.php:359
 #: ../code/application/views/helpfile/pofields.php~:637
 #: ../code/application/views/helpfile/pofields.php:637
 #, php-format
 msgid "Rating Overall"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:250
+#: ../code/application/views/compare_property.php:258
 #: ../code/application/views/helpfile/pofields.php~:640
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:262
+#: ../code/application/views/compare_property.php:270
 #: ../code/application/views/mustache/property_quick_view.php:32
 #: ../code/application/views/helpfile/pofields.php~:642
 #: ../code/application/views/helpfile/pofields.php:642
@@ -2951,7 +2951,7 @@ msgstr ""
 msgid "Services"
 msgstr ""
 
-#: ../code/application/views/compare_property.php:279
+#: ../code/application/views/compare_property.php:287
 #: ../code/application/views/helpfile/pofields.php~:658
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
@@ -3352,7 +3352,7 @@ msgstr ""
 #: ../code/application/views/search_results.php:120
 #: ../code/application/views/search_results.php:146
 #: ../code/application/views/search_results.php:171
-#: ../code/application/views/city_view.php:353
+#: ../code/application/views/city_view.php:361
 #: ../code/application/views/city_ajax_view.php:348
 #: ../code/application/views/city_ajax_view.php:448
 #: ../code/application/views/city_ajax_view.php:537
@@ -3382,15 +3382,15 @@ msgid "No properties were saved."
 msgstr ""
 
 #: ../code/application/views/restricted/user_favorite_properties.php:41
-#: ../code/application/views/mustache/property_list.php:96
+#: ../code/application/views/mustache/property_list.php:95
 #: ../code/application/views/city_view.php:259
-#: ../code/application/views/city_view.php:426
+#: ../code/application/views/city_view.php:434
 msgid "of"
 msgstr ""
 
 #: ../code/application/views/restricted/user_favorite_properties.php:43
 #: ../code/application/views/city_view.php:261
-#: ../code/application/views/city_view.php:428
+#: ../code/application/views/city_view.php:436
 #: ../code/application/views/helpfile/pofields.php~:645
 #: ../code/application/views/helpfile/pofields.php:645
 #, php-format
@@ -3643,69 +3643,69 @@ msgstr ""
 msgid "Quick View"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:96
-#: ../code/application/views/city_view.php:340
+#: ../code/application/views/mustache/property_list.php:95
+#: ../code/application/views/city_view.php:348
 #: ../code/application/views/helpfile/pofields.php~:626
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:107
+#: ../code/application/views/mustache/property_list.php:106
 #: ../code/application/views/mobile/property_list.php:28
 msgid "As rated by bookers like you"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:148
+#: ../code/application/views/mustache/property_list.php:147
 #: ../code/application/views/helpfile/pofields.php~:773
 #: ../code/application/views/helpfile/pofields.php:773
 #, php-format
 msgid "Remove from this search"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:154
+#: ../code/application/views/mustache/property_list.php:153
 #: ../code/application/views/helpfile/pofields.php~:774
 #: ../code/application/views/helpfile/pofields.php:774
 #, php-format
 msgid "Remove from any searches for next 24 hours"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:160
+#: ../code/application/views/mustache/property_list.php:159
 #: ../code/application/views/helpfile/pofields.php~:775
 #: ../code/application/views/helpfile/pofields.php:775
 #, php-format
 msgid "Remove from any searches for 1 week"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:175
+#: ../code/application/views/mustache/property_list.php:174
 #: ../code/application/views/helpfile/pofields.php~:852
 #: ../code/application/views/helpfile/pofields.php:852
 #, php-format
 msgid "Safe"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:180
+#: ../code/application/views/mustache/property_list.php:179
 #: ../code/application/views/helpfile/pofields.php~:853
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:190
+#: ../code/application/views/mustache/property_list.php:189
 #: ../code/application/views/helpfile/pofields.php~:851
 #: ../code/application/views/helpfile/pofields.php:851
 #, php-format
 msgid "Good location"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:195
+#: ../code/application/views/mustache/property_list.php:194
 #: ../code/application/views/helpfile/pofields.php~:850
 #: ../code/application/views/helpfile/pofields.php:850
 #, php-format
 msgid "Great location"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:209
+#: ../code/application/views/mustache/property_list.php:208
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
@@ -3713,50 +3713,50 @@ msgstr ""
 msgid "Overall evaluation"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:224
-#: ../code/application/views/mustache/property_list.php:238
+#: ../code/application/views/mustache/property_list.php:223
+#: ../code/application/views/mustache/property_list.php:237
 #: ../code/application/views/helpfile/pofields.php~:287
 #: ../code/application/views/helpfile/pofields.php:287
 #, php-format
 msgid "Deal of the Day"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:230
+#: ../code/application/views/mustache/property_list.php:229
 #: ../code/application/views/helpfile/pofields.php~:13
 #: ../code/application/views/helpfile/pofields.php:13
 #, php-format
 msgid "Dorms from %s"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:235
+#: ../code/application/views/mustache/property_list.php:234
 #: ../code/application/views/helpfile/pofields.php~:785
 #: ../code/application/views/helpfile/pofields.php:785
 #, php-format
 msgid "Lowest price per night per person in a dorm"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:244
+#: ../code/application/views/mustache/property_list.php:243
 #: ../code/application/views/helpfile/pofields.php~:14
 #: ../code/application/views/helpfile/pofields.php:14
 #, php-format
 msgid "Private rooms from %s"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:245
+#: ../code/application/views/mustache/property_list.php:244
 #: ../code/application/views/helpfile/pofields.php~:786
 #: ../code/application/views/helpfile/pofields.php:786
 #, php-format
 msgid "Lowest price per night per person in a private room"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:254
+#: ../code/application/views/mustache/property_list.php:253
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
 #, php-format
 msgid "Show prices"
 msgstr ""
 
-#: ../code/application/views/mustache/property_list.php:259
+#: ../code/application/views/mustache/property_list.php:258
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
 #, php-format
@@ -4434,7 +4434,7 @@ msgstr ""
 #: ../code/application/views/search_results.php:121
 #: ../code/application/views/search_results.php:147
 #: ../code/application/views/search_results.php:172
-#: ../code/application/views/city_view.php:354
+#: ../code/application/views/city_view.php:362
 #: ../code/application/views/mobile/city_view.php:43
 #: ../code/application/views/city_ajax_view.php:349
 #: ../code/application/views/city_ajax_view.php:449
@@ -4815,7 +4815,7 @@ msgid "To view prices and availability, please enter your dates."
 msgstr ""
 
 #: ../code/application/views/city_lp.php:228
-#: ../code/application/views/city_view.php:412
+#: ../code/application/views/city_view.php:420
 #: ../code/application/views/mobile/city_view.php:84
 #: ../code/application/views/city_ajax_view.php:238
 #: ../code/application/views/city_ajax_view.php:400
@@ -4852,7 +4852,7 @@ msgid "Filter by Landmarks"
 msgstr ""
 
 #: ../code/application/views/city_view.php:131
-#: ../code/application/views/city_view.php:393
+#: ../code/application/views/city_view.php:401
 #: ../code/application/views/helpfile/pofields.php~:444
 #: ../code/application/views/helpfile/pofields.php:444
 #, php-format
@@ -4925,67 +4925,67 @@ msgid "Liste des logements pas chers à %s"
 msgstr ""
 
 #: ../code/application/views/city_view.php:277
-#: ../code/application/views/city_view.php:330
+#: ../code/application/views/city_view.php:338
 msgid "Close Map"
 msgstr ""
 
-#: ../code/application/views/city_view.php:339
+#: ../code/application/views/city_view.php:347
 #: ../code/application/views/helpfile/pofields.php~:649
 #: ../code/application/views/helpfile/pofields.php:649
 #, php-format
 msgid "Quick Compare (5 properties maximum)"
 msgstr ""
 
-#: ../code/application/views/city_view.php:342
+#: ../code/application/views/city_view.php:350
 #: ../code/application/views/helpfile/pofields.php~:650
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Remove All"
 msgstr ""
 
-#: ../code/application/views/city_view.php:355
+#: ../code/application/views/city_view.php:363
 #: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
 #, php-format
 msgid "Best price"
 msgstr ""
 
-#: ../code/application/views/city_view.php:356
+#: ../code/application/views/city_view.php:364
 #: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
 msgstr ""
 
-#: ../code/application/views/city_view.php:359
+#: ../code/application/views/city_view.php:367
 #: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
 #, php-format
 msgid "Safest"
 msgstr ""
 
-#: ../code/application/views/city_view.php:360
+#: ../code/application/views/city_view.php:368
 #: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
 #, php-format
 msgid "Best location"
 msgstr ""
 
-#: ../code/application/views/city_view.php:365
+#: ../code/application/views/city_view.php:373
 #: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
 #, php-format
 msgid "Youth hostels only"
 msgstr ""
 
-#: ../code/application/views/city_view.php:369
+#: ../code/application/views/city_view.php:377
 #: ../code/application/views/helpfile/pofields.php~:555
 #: ../code/application/views/helpfile/pofields.php:555
 #, php-format
 msgid "Only free breakfast"
 msgstr ""
 
-#: ../code/application/views/city_view.php:375
+#: ../code/application/views/city_view.php:383
 #: ../code/application/views/helpfile/pofields.php~:556
 #: ../code/application/views/helpfile/pofields.php:556
 #: ../code/application/views/includes/top_filter.php:28
@@ -4993,14 +4993,14 @@ msgstr ""
 msgid "Only downtown"
 msgstr ""
 
-#: ../code/application/views/city_view.php:382
+#: ../code/application/views/city_view.php:390
 #: ../code/application/views/helpfile/pofields.php~:604
 #: ../code/application/views/helpfile/pofields.php:604
 #, php-format
 msgid "Selected filters:"
 msgstr ""
 
-#: ../code/application/views/city_view.php:389
+#: ../code/application/views/city_view.php:397
 #: ../code/application/views/helpfile/pofields.php~:443
 #: ../code/application/views/helpfile/pofields.php~:655
 #: ../code/application/views/helpfile/pofields.php:443
@@ -5009,15 +5009,15 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#: ../code/application/views/city_view.php:490
+#: ../code/application/views/city_view.php:498
 msgid "Please Wait"
 msgstr ""
 
-#: ../code/application/views/city_view.php:495
+#: ../code/application/views/city_view.php:503
 msgid "From"
 msgstr ""
 
-#: ../code/application/views/city_view.php:496
+#: ../code/application/views/city_view.php:504
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr ""
 
@@ -9006,7 +9006,7 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:838
 #: ../code/application/views/helpfile/pofields.php:838
-#: ../code/application/controllers/cmain.php:2461
+#: ../code/application/controllers/cmain.php:2466
 #, php-format
 msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
@@ -9569,31 +9569,31 @@ msgstr ""
 msgid "Accept terms and conditions agreement to proceed"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2435
+#: ../code/application/controllers/cmain.php:2440
 msgid "Please log in"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2472
+#: ../code/application/controllers/cmain.php:2477
 msgid "Invalid property"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2510
+#: ../code/application/controllers/cmain.php:2515
 msgid "Property not found"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2519
+#: ../code/application/controllers/cmain.php:2524
 msgid "Property is favorite already"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2528
+#: ../code/application/controllers/cmain.php:2533
 msgid "Invalid number of nights"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2545
+#: ../code/application/controllers/cmain.php:2550
 msgid "Invalid date"
 msgstr ""
 
-#: ../code/application/controllers/cmain.php:2552
+#: ../code/application/controllers/cmain.php:2557
 #, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr ""
