@@ -190,13 +190,14 @@ GoogleMap.prototype.drawMap = function()
     }
 };
 
-GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, image, iconshadow)
+GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, propertyNumber) //, image, iconshadow)
 {
     var marker = {
         title: title,
         lat: lat,
         lng: lng,
         content: content,
+        propertyNumber: propertyNumber,
         gmarkvarer: null
     };
     window.markers[index] = marker;
@@ -236,32 +237,32 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 };
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
+    var result = [];
     if (window.gmap.getDiv().id === "filter_map_rightSide") {
-        var result = {
+        result = {
             property_list: $('#property_list').children(),
             start_from: 0
         };
-
-        return result;
     }
-    // number of hostels to show per page
-    var show_per_page = parseInt($('#show_per_page').val());
-    // number of hostels currently shown
-    var page_num = 0;
-    if ($('#page_navigation .active_page').length > 0) {
-        page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    else {
+        // number of hostels to show per page
+        var show_per_page = parseInt($('#show_per_page').val());
+        // number of hostels currently shown
+        var page_num = 0;
+        if ($('#page_navigation .active_page').length > 0) {
+            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+        }
+
+        // start hostel number like from 1 to 20
+        var start_from = page_num * show_per_page;
+        // end hostel number like from 1 to 20
+        var end_on = start_from + show_per_page;
+        result = {
+            property_list: $('#property_list').children().slice(start_from, end_on),
+            start_from: start_from
+        };
     }
 
-    // start hostel number like from 1 to 20
-    var start_from = page_num * show_per_page;
-    // end hostel number like from 1 to 20
-    var end_on = start_from + show_per_page;
-
-    var result = {
-        property_list: $('#property_list').children().slice(start_from, end_on),
-        start_from: start_from
-    };
-    
     return result;
 //    return $('#property_list').children().slice(start_from, end_on);
 };
@@ -298,7 +299,10 @@ GoogleMap.prototype.fillMakersArray = function()
 return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
-{
+{       
+     var comparePropertyLatLng = this.getCompaPropertyLatlng();
+     var compare_index = 0;
+     
     if (window.markers.length < 1)
     {
         window.markers = this.fillMakersArray();
@@ -312,7 +316,7 @@ GoogleMap.prototype.addMarkersToMap = function()
     }
     //TODO support custom image in addMarker function
     for (var i in window.markers) {        
-
+        var isCompare_property = false;
         var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 //          check if it is the tham map on the left
@@ -320,6 +324,21 @@ GoogleMap.prototype.addMarkersToMap = function()
 
              image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
              image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+        }
+        else if (window.gmap.getDiv().id === "map_canvas_compareProperty") {
+           
+            for (var j in comparePropertyLatLng) {
+                if (comparePropertyLatLng[j].lat === window.markers[i].lat
+                        && comparePropertyLatLng[j].lng === window.markers[i].lng) {
+                    compare_index = compare_index + 1;
+                    image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + compare_index + '.png';
+                    image_selected = image;
+                    // remove property detail from array
+                    comparePropertyLatLng.splice(j, 1);
+                    // make this marker as one of compared property
+                    isCompare_property = true;
+                }
+            }
         }
         
         //Add marker to map
@@ -332,7 +351,11 @@ GoogleMap.prototype.addMarkersToMap = function()
         });
 
         window.markers[i].gmarker = window.gmarkers[i];
-
+        
+        if (isCompare_property === true) {
+            window.gmarkers[i].setZIndex(100000);
+        }
+            
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
@@ -344,29 +367,31 @@ GoogleMap.prototype.addMarkersToMap = function()
             }
 
         });
+        if (isCompare_property === false) {
+            google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
-        google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
-            this.setIcon(image_selected);
-            this.setZIndex(100000);
-            that.changeHostelBackground(this, "mouseover");
+                this.setIcon(image_selected);
+                this.setZIndex(100000);
+                that.changeHostelBackground(this, "mouseover");
 
-        });
 
-        google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
+            });
 
-            this.setIcon(image);
-            this.setZIndex(0);
-            that.changeHostelBackground(this, "mouseout");
-        });
-        
+            google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
+
+                this.setIcon(image);
+                this.setZIndex(0);
+                that.changeHostelBackground(this, "mouseout");
+
+            });
+        }
         this.gbounds.extend(window.gmarkers[i].position);
-
+        isCompare_property = false;
     }
     
 };
-GoogleMap.prototype.removeMap = function() //, image, iconshadow)
-{
+GoogleMap.prototype.removeMap = function(){
     this.map_div.style.display = "none";
 };
 
@@ -690,4 +715,26 @@ GoogleMap.prototype.removeMarker = function(property_number) {
             }
         }
     }
+};
+GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
+
+    // add compare properties if exists
+    var compare_properties = [];
+    if ($('#compareProperty_geoLatLng').length > 0) {
+        $('#compareProperty_geoLatLng input').each(function() {
+            var geoLatLng = $(this).val();
+
+            var LatLngPoints = geoLatLng.split(",");
+            var lat = LatLngPoints[0];
+            var lng = LatLngPoints[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+
+            compare_properties.push(newElement);
+//         compare_properties = 
+        });
+    }
+    return compare_properties;
 };

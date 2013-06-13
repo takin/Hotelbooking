@@ -20,7 +20,7 @@ $eleven         = '';
 $space          = '&nbsp;';
 $maplink        = '';
 $question_alert = '????';
-$mapGeo = '';
+$mapGeo = null;
 
 for ($i = 0; $i < count($compare_data); $i++) {
 	$protype = $compare_data[$i]['property_type'];
@@ -41,7 +41,7 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	$proname       .= '<td  class="control_button" style="width: 115px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
 	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
 	$maplink       .= '<td  class="control_button"><span class="link_color"><a href="#map_td">' . _('See Map') . '</a><span></td>';
-        $mapGeo        .= '<input type="hidden" id="compare_GeoLat_'.$compare_data[$i]['property_number'].'" class="compare_GeoLat" value="'.$compare_data[$i]['geoLatitude'].','.$compare_data[$i]['geoLongitude'].'">';
+        $mapGeo        .= '<input type="hidden" id="compare_geoLatLng_'.$compare_data[$i]['property_number'].'" value="'.$compare_data[$i]['geoLatitude'].','.$compare_data[$i]['geoLongitude'].'">';
 
         $property_number = $compare_data[$i]['property_number'];
 
@@ -182,7 +182,12 @@ for ($i = 0; $i < count($compare_data); $i++) {
 <div id="div_print">
 	<div class="quick_compare">
 		<div class="quick_compare_scroll" id="quick_compare_scroll">
+                    <?php 
+                    if( $mapGeo !== null ){ ?>
+                    <div id="compareProperty_geoLatLng" style="display: none;">
                     <?php echo $mapGeo; ?>
+                    </div>
+                    <?php } ?>
 			<div class="quick_compare_head">         
 				<span class="head_remove_button"></span>
 				<!-- <span class="printpage" id="printpage" onClick="printdiv('div_print');"><?php echo  _('Print');?></span> -->
