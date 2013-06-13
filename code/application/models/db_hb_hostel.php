@@ -150,8 +150,6 @@ class Db_hb_hostel extends CI_Model
       $sql.= " LIMIT $limit";
     }
 
-    log_message('debug', "$sql");
-
     $query = $this->CI->db->query($sql);
 
     $response["response"]["properties"] = Array();
