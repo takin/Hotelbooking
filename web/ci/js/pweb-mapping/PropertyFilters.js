@@ -1963,6 +1963,8 @@ PWebFilterApp.prototype.handle_delete = function() {
 		}
 	});
 
+	var me = this;
+
 	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
 		event.preventDefault();
 
@@ -2011,6 +2013,15 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 		if (number != null) {
 			QuickView.remove(number);
+
+			for (var i = 0; i < me.jtable_hits.length; i++) {
+				if (me.jtable_hits[i] && me.jtable_hits[i]['propertyNumber'] && me.jtable_hits[i]['propertyNumber'] == number) {
+					me.jtable_hits.splice(i, 1);
+
+					// go back one element
+					i -= 1;
+				}
+			}
 		}
 
                 // clear marker after removing property
