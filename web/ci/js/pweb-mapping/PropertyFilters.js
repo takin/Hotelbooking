@@ -1915,12 +1915,12 @@ var allproid   =   pweb_filter.getAllPropertyIds();
                 cache: true,
 		url: 'http://'+window.location.host+'/cmain/ajax_property_detail/'+proid+'/'+numnight+'/'+allproid+'/'+procur,
 		success:function(data){ 
-		   
+
 			$('#quick_preview_div').empty().html(data['html']);
 			$('#preurl').html(preurl);
 			$('#nexturl').html(nexturl);
 			
-			pweb_filter.addFilterMap('compare_property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			 
                         
                         pweb_filter.toggleMap('compare_property');
