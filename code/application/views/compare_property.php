@@ -20,7 +20,6 @@ $eleven         = '';
 $space          = '&nbsp;';
 $maplink        = '';
 $question_alert = '????';
-//$mapGeo = null;
 
 for ($i = 0; $i < count($compare_data); $i++) {
 	$protype = $compare_data[$i]['property_type'];
@@ -37,7 +36,6 @@ for ($i = 0; $i < count($compare_data); $i++) {
 
 	$close_property           .= '<th  class="control_button"><div class="closeCompareProperty_btn" id="' . $a . '">x</div></th>';
 	$propertyno_geo    .= '<th  class="control_button" > <span class="column_order">' . $a . '</span><input type="hidden" id="compare_geoLatLng_'.$compare_data[$i]['property_number'].'" value="'.$compare_data[$i]['geoLatitude'].','.$compare_data[$i]['geoLongitude'].'"> </th>';
-//        $mapGeo        .= '<th  class="control_button"><input type="hidden" id="compare_geoLatLng_'.$compare_data[$i]['property_number'].'" value="'.$compare_data[$i]['geoLatitude'].','.$compare_data[$i]['geoLongitude'].'"></th>';
 
 	$proname       .= '<td  class="control_button" style="width: 115px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
 	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
