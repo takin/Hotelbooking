@@ -280,7 +280,7 @@ GoogleMap.prototype.fillMakersArray = function()
     // on side map
 //    var start_from = resultInPage.start_from;
     var start_from = 0;
-
+    
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
@@ -639,10 +639,6 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
-//                    var image = new google.maps.MarkerImage("http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png',
-//                            new google.maps.Size(20, 30),
-//                            new google.maps.Point(0, 0),
-//                            new google.maps.Point(0, 29));
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
