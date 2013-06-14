@@ -64,14 +64,16 @@
 					{{/safety80}}
 				</div>
 
-				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
-					<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
-					<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
-				</div>
+				<div class="city_hostel_districts_landmarks_zone">
+					<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
+						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
+						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
+					</div>
 
-				<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
-					<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
-					<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+					<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
+						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
+						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+					</div>
 				</div>
 
 				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; display: none">
