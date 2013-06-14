@@ -7,11 +7,6 @@ $config['displayVelaro'] = TRUE;
 $config['displayShareEmail'] = true;
 $config['displaySharePDF']   = true;
 
-// HTTP basic auth credentials
-$config['httpAuthUsername']  = '';
-$config['httpAuthPassword']  = '';
-
-
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
 $config['displayQuickPreview'] = true;
@@ -34,11 +29,11 @@ $config['recent_view_number_cookies'] = 5;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
-	$config['bingTranslation'] = TRUE;
+	$config['bingTranslation'] = FALSE;
 }
 else
 {
-	$config['bingTranslation'] = TRUE;
+	$config['bingTranslation'] = FALSE;
 }
 
 $config['companies_strings_to_replace'] = array(
