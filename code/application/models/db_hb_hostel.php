@@ -81,13 +81,15 @@ class Db_hb_hostel extends CI_Model
     $district_join = "";
     $district_where = "";
 
+    log_message('debug', "filters district ".$filters["district"]);
+
     if(!empty($filters["district"]))
     {
       $this->CI->load->model('Db_districts');
       $filters["district"] = $this->CI->Db_districts->create_slug($filters["district"]);
       $filters["district"] = $this->db->escape_str($filters["district"]);
 
-      $district_join = "  LEFT JOIN hb_hostel_district ON hb_hostel.property_number = hb_hostel_district.property_number
+      $district_join = "  LEFT JOIN hb_hostel_district ON h.property_number = hb_hostel_district.property_number
     												LEFT JOIN districts ON hb_hostel_district.district_id = districts.district_id";
       $district_where = " AND districts.slug LIKE '".$filters["district"]."'";
     }
@@ -95,12 +97,14 @@ class Db_hb_hostel extends CI_Model
     $landmark_join = "";
     $landmark_where = "";
 
+    log_message('debug', "filters landmark ".$filters["landmark"]);
+
     if(!empty($filters["landmark"]))
     {
       $this->CI->load->model('Db_landmarks');
       $filters["landmark"] = $this->db->escape_str($filters["landmark"]);
 
-      $landmark_join = "  LEFT JOIN hb_hostel_landmark ON hb_hostel.property_number = hb_hostel_landmark.property_number
+      $landmark_join = "  LEFT JOIN hb_hostel_landmark ON h.property_number = hb_hostel_landmark.property_number
     												LEFT JOIN landmarks ON hb_hostel_landmark.landmark_id = landmarks.landmark_id";
       $landmark_where = " AND landmarks.slug LIKE '".$filters["landmark"]."'";
     }
@@ -149,6 +153,8 @@ class Db_hb_hostel extends CI_Model
     {
       $sql.= " LIMIT $limit";
     }
+
+    log_message('debug', "$sql");
 
     $query = $this->CI->db->query($sql);
 
