@@ -717,13 +717,11 @@ GoogleMap.prototype.removeMarker = function(property_number) {
     }
 };
 GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
-
     // add compare properties if exists
     var compare_properties = [];
-    if ($('#compareProperty_geoLatLng').length > 0) {
-        $('#compareProperty_geoLatLng input').each(function() {
-            var geoLatLng = $(this).val();
-
+    if ($('.compareProperty_geoLatLng th').length > 0) {
+        $('.compareProperty_geoLatLng th.control_button').each(function() {
+            var geoLatLng = $(this).find("input").val();
             var LatLngPoints = geoLatLng.split(",");
             var lat = LatLngPoints[0];
             var lng = LatLngPoints[1];
@@ -733,7 +731,7 @@ GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
             newElement['lng'] = lng;
 
             compare_properties.push(newElement);
-//         compare_properties = 
+
         });
     }
     return compare_properties;
