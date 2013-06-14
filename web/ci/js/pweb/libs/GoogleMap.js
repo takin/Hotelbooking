@@ -12,7 +12,6 @@
 // TODO support multiple infowindow and multiple map in one document
 // 
 function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
-
     this.map_div = document.getElementById(map_div_id);
 
     this.map_lang = lang || 'en';
@@ -41,6 +40,9 @@ GoogleMap.markers = [];
 // return N/A 
 // 
 GoogleMap.prototype.init = function() {
+    if (!this.map_div) {
+        return;
+    }
 
     this.map_div.style.display = "block";
     this.map_div.style.width = "100%";
