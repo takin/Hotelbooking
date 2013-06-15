@@ -286,12 +286,18 @@ GoogleMap.prototype.fillMakersArray = function()
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
-        $("#city_map_view_"+property_number).html("");
-
+        var latitude = $("#input_geo_latitude_"+property_number).val();
+        var longitude = $("#input_geo_longitude_"+property_number).val();
+        
+        
+        if ( $(value).hasClass("clsRemoveFromSearch") ){
+             latitude = 0;
+             longitude = 0;
+        }
         var markerIndex = index +  parseInt(start_from); 
         that.addMarker( markerIndex 
-                , $("#input_geo_latitude_"+property_number).val()
-                , $("#input_geo_longitude_"+property_number).val()
+                , latitude
+                , longitude
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
@@ -317,7 +323,12 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds = new google.maps.LatLngBounds();
     }
     //TODO support custom image in addMarker function
-    for (var i in window.markers) {        
+    for (var i in window.markers) {     
+        if ( window.markers[i].lat === 0 || window.markers[i].lng === 0 ){
+            window.markers[i].gmarker = null;
+        }
+        else{
+        // check if it is a property used in compare
         var isCompare_property = false;
         var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
@@ -391,7 +402,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds.extend(window.gmarkers[i].position);
         isCompare_property = false;
     }
-    
+  }
 };
 GoogleMap.prototype.removeMap = function(){
     this.map_div.style.display = "none";

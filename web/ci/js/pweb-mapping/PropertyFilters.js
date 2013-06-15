@@ -1968,14 +1968,20 @@ PWebFilterApp.prototype.handle_delete = function() {
 	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
 		event.preventDefault();
 
-		var obj = $(this);
-		var id = obj.attr('id');
-
 		var css = {
 			position  : 'absolute',
 			'z-index' : 300
 		};
-
+                
+                var obj = $(this);
+		var id = obj.attr('id');
+                // split id to get property Number
+                var arr_id_str = id.split("_");
+                // get property number
+                var property_number = arr_id_str.pop();
+                // add class to main property to indicated as a removed property
+                $("#prop_tab_box_"+property_number).addClass("clsRemoveFromSearch");
+                
 		var animate = {bottom: '-=350', marginLeft: '-=140'};
 		var timer   = 1000;
 
