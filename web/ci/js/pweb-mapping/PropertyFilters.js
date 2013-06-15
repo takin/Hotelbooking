@@ -1770,6 +1770,12 @@ $(document).ready(function() {
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
   
+    $("#current_page").live("change", function()
+    {
+        pweb_filter.updateMarkers("city");
+        return false;
+    });
+    
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();

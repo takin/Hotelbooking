@@ -509,13 +509,6 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <script type="text/javascript">
    $(document).ready(function(){
 
-       $("#current_page").live("change", function()
-    {
-        GoogleMap.prototype.drawMarkers();
-
-        return false;
-    });
-
        // on window resize
        $(window).resize(function() {
             changeSidebar_width();
