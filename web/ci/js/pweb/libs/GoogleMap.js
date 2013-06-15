@@ -86,8 +86,13 @@ GoogleMap.prototype.init = function() {
     {
         window.gmap.setCenter(this.gbounds.getCenter());
         window.gmap.fitBounds(this.gbounds);
+        if (this.map_div.id === "city_side_map_container") {
+            if (window.gmap.getZoom() > 10)
+            {
+                window.gmap.setZoom(10);
+            }
+        }
     }
-
     // first get the property number
     var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
 
