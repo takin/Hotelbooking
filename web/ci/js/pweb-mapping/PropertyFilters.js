@@ -1988,7 +1988,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 			css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
 
-			$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+			$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); } );
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
@@ -1997,7 +1997,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 				pweb_setCookie('remove_' + number, number, 24);
 
 				css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
-				$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+				$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); });
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
@@ -2006,7 +2006,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 					pweb_setCookie('remove_' + number, number, 168);
 
 					css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
-					$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+					$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); });
 				}
 			}
 		}
