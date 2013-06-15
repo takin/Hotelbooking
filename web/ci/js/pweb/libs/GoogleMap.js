@@ -282,7 +282,7 @@ GoogleMap.prototype.fillMakersArray = function()
     // on side map
 //    var start_from = resultInPage.start_from;
     var start_from = 0;
-
+    
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
@@ -641,10 +641,6 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
-//                    var image = new google.maps.MarkerImage("http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png',
-//                            new google.maps.Size(20, 30),
-//                            new google.maps.Point(0, 0),
-//                            new google.maps.Point(0, 29));
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
@@ -719,13 +715,11 @@ GoogleMap.prototype.removeMarker = function(property_number) {
     }
 };
 GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
-
     // add compare properties if exists
     var compare_properties = [];
-    if ($('#compareProperty_geoLatLng').length > 0) {
-        $('#compareProperty_geoLatLng input').each(function() {
-            var geoLatLng = $(this).val();
-
+    if ($('.compareProperty_geoLatLng th').length > 0) {
+        $('.compareProperty_geoLatLng th.control_button').each(function() {
+            var geoLatLng = $(this).find("input").val();
             var LatLngPoints = geoLatLng.split(",");
             var lat = LatLngPoints[0];
             var lng = LatLngPoints[1];
@@ -735,7 +729,7 @@ GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
             newElement['lng'] = lng;
 
             compare_properties.push(newElement);
-//         compare_properties = 
+
         });
     }
     return compare_properties;
