@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-13 16:57+0300\n"
-"PO-Revision-Date: 2013-05-30 22:20+0200\n"
+"PO-Revision-Date: 2013-06-15 20:56+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3532,7 +3531,7 @@ msgstr "Liegenschaftsname"
 #: ../code/application/views/helpfile/pofields.php:864
 #, php-format
 msgid "No properties were saved."
-msgstr ""
+msgstr "Keine Immobilien wurden gespeichert."
 
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 #: ../code/application/views/mustache/property_list.php:95
@@ -3787,9 +3786,9 @@ msgstr "Lädt..."
 
 #: ../code/application/views/restricted/user_view.php:6
 #: ../code/application/views/helpfile/pofields.php:865
-#, fuzzy, php-format
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "Ihr Konto"
+msgstr "Mein Konto"
 
 #: ../code/application/views/restricted/user_view.php:8
 #: ../code/application/views/helpfile/pofields.php~:608
@@ -3944,16 +3943,16 @@ msgstr "Niedrigster Preis pro Nacht pro Person in einem Privatzimmer"
 #: ../code/application/views/mustache/property_list.php:253
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
-#, fuzzy, php-format
+#, php-format
 msgid "Show prices"
-msgstr "Immobilien anzeigen"
+msgstr "Preise anzeigen"
 
 #: ../code/application/views/mustache/property_list.php:258
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
-#, fuzzy, php-format
+#, php-format
 msgid "Hide prices"
-msgstr "Bester Preis"
+msgstr "Preise nicht anzeigen"
 
 #: ../code/application/views/mustache/saved_property_item.php:11
 msgid "Arrival:"
@@ -9538,12 +9537,14 @@ msgstr "Newsletter-Abonnement"
 #, php-format
 msgid "Check this box to see new search results as you move the map"
 msgstr ""
+"Klicken Sie hier an um neue Suchresultate anzuzeigen sobald Sie sich auf der "
+"Karte bewegen"
 
 #: ../code/application/views/helpfile/pofields.php~:856
 #: ../code/application/views/helpfile/pofields.php:856
 #, php-format
 msgid "Redo search in map"
-msgstr ""
+msgstr "Suche auf Karte erneuern"
 
 #: ../code/application/views/helpfile/pofields.php~:857
 #: ../code/application/views/helpfile/pofields.php:857
@@ -9553,9 +9554,9 @@ msgstr "%d-Betten weibliches Mehrbettzimmer mit geteiltem Bad"
 
 #: ../code/application/views/helpfile/pofields.php~:861
 #: ../code/application/views/helpfile/pofields.php:861
-#, fuzzy, php-format
+#, php-format
 msgid "Hostels only"
-msgstr "Nur Jugendherbergen"
+msgstr "Nur Herbergen"
 
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
@@ -9563,6 +9564,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to %d Days "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Kunden können ganz einfach ihre Reservationsgebühren gratis bis zu %d Tage "
+"vor Ankunft stornieren. HInterlegte Kautionen sind nicht rückerstattbar."
 
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
@@ -9570,6 +9573,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to 1 Day "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Kunden können ganz einfach ihre Reservationsgebühren gratis bis zu 1 Tag vor "
+"Ankunft stornieren. HInterlegte Kautionen sind nicht rückerstattbar."
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
