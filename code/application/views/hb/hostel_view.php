@@ -460,7 +460,10 @@ if ($api_error == false) {
                                 <?php
                             } elseif ($service->service_type == 'breakfast') {
                                 ?>
-                                <span class="icon_facility icon_facility_extra3 group"><span><?php echo$service->description; ?></span></span>
+                                <span class="icon_facility icon_facility_extra3 group" style="padding-top:2px">
+					<span class="yellow-bg"><?php echo _('Free'); ?></span>
+					<span><?php echo$service->description; ?></span>
+				</span>
                                 <?php
                             } elseif ($service->service_type == 'downtown') {
                                 ?>
