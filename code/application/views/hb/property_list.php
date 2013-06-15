@@ -2,8 +2,6 @@
 // Link to hostel page below if needed
 // echo $this->Db_links->build_property_page_link($hostel->propertyType,$hostel->propertyName,$hostel->propertyNumber[0],$this->site_lang); ?>
 
-<span class="free" style="display: none"><span class="yellow-bg"><?php echo _('Free'); ?></span></span>
-
 <div class="hostel_list search_list">
 	<div class="box_content box_round">
 		<div class="city_hostel group" id="city_info_<?php echo $hostel["id"]; ?>">
@@ -95,7 +93,10 @@
 				    elseif($service->service_type == 'breakfast')
 				    {
               ?>
-              <span class="icon_facility icon_facility_extra3 group"><span style="line-height: 22px"><?php echo$service->description; ?></span></span>
+              <span class="icon_facility icon_facility_extra3 group">
+			<span class="yellow-bg"><?php echo _('Free'); ?></span>
+			<span style="line-height: 22px"><?php echo$service->description; ?></span>
+		</span>
               <?php
 				    }
 				    elseif($service->service_type == 'downtown')
@@ -107,7 +108,10 @@
 				    elseif(($service->service_type == 'security_rating') &&
 				           ((float)$service->description >= 80))
 				    {?>
-              <span class="icon_facility icon_safety group"><span><?php echo _("Safety");?></span></span>
+              	<span class="icon_facility icon_safetyd group">
+			<span class="yellow-bg"><?php echo _('80% +'); ?></span>
+			<span><?php echo _("Safety");?></span>
+		</span>
               <?php
 				    }
 

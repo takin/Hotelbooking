@@ -113,6 +113,8 @@ function showPropertyRatings() {
 $(document).ready(function() {
 	showPropertyRatings();
 
-	var freeHtml = $('.free').html();
-	$(freeHtml).prependTo('#property_list .icon_facility_extra3');
+	if ($('.free').length) {
+		var freeHtml = $('.free').html();
+		$(freeHtml).prependTo('#property_list .icon_facility_extra3');
+	}
 });
