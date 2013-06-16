@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-13 16:57+0300\n"
-"PO-Revision-Date: 2013-05-30 22:31+0200\n"
+"PO-Revision-Date: 2013-06-16 22:25+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -3501,7 +3501,7 @@ msgstr "Název zařízení"
 #: ../code/application/views/helpfile/pofields.php:864
 #, php-format
 msgid "No properties were saved."
-msgstr ""
+msgstr "Žádné zařízení nebylo uloženo."
 
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 #: ../code/application/views/mustache/property_list.php:95
@@ -3746,9 +3746,9 @@ msgstr "Načítání..."
 
 #: ../code/application/views/restricted/user_view.php:6
 #: ../code/application/views/helpfile/pofields.php:865
-#, fuzzy, php-format
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "Váš účet"
+msgstr "Můj účet - rezervace ubytoven pro mládež"
 
 #: ../code/application/views/restricted/user_view.php:8
 #: ../code/application/views/helpfile/pofields.php~:608
@@ -3831,30 +3831,30 @@ msgstr "Odeberte ze všech výsledků vyhledávání na 1 týden"
 #: ../code/application/views/mustache/property_list.php:174
 #: ../code/application/views/helpfile/pofields.php~:852
 #: ../code/application/views/helpfile/pofields.php:852
-#, fuzzy, php-format
+#, php-format
 msgid "Safe"
-msgstr "Bezpečnost"
+msgstr "Bezpečné"
 
 #: ../code/application/views/mustache/property_list.php:179
 #: ../code/application/views/helpfile/pofields.php~:853
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
-msgstr ""
+msgstr "Velmi bezpečné"
 
 #: ../code/application/views/mustache/property_list.php:189
 #: ../code/application/views/helpfile/pofields.php~:851
 #: ../code/application/views/helpfile/pofields.php:851
-#, fuzzy, php-format
+#, php-format
 msgid "Good location"
-msgstr "Umístění"
+msgstr "Dobrá poloha"
 
 #: ../code/application/views/mustache/property_list.php:194
 #: ../code/application/views/helpfile/pofields.php~:850
 #: ../code/application/views/helpfile/pofields.php:850
-#, fuzzy, php-format
+#, php-format
 msgid "Great location"
-msgstr "Umístění"
+msgstr "Výborná poloha"
 
 #: ../code/application/views/mustache/property_list.php:208
 #: ../code/application/views/helpfile/pofields.php~:860
@@ -3903,16 +3903,16 @@ msgstr "Nejnižší cena za osobu a noc v soukromém pokoji"
 #: ../code/application/views/mustache/property_list.php:253
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
-#, fuzzy, php-format
+#, php-format
 msgid "Show prices"
-msgstr "Ukaž víc"
+msgstr "Ukaž ceny"
 
 #: ../code/application/views/mustache/property_list.php:258
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
-#, fuzzy, php-format
+#, php-format
 msgid "Hide prices"
-msgstr "Kuchyně pro hosty"
+msgstr "Skryj ceny"
 
 #: ../code/application/views/mustache/saved_property_item.php:11
 msgid "Arrival:"
@@ -5071,9 +5071,9 @@ msgstr "Filtrovat podle význačných bodů (v okruhu 2 km)"
 #: ../code/application/views/city_view.php:71
 #: ../code/application/views/helpfile/pofields.php~:845
 #: ../code/application/views/helpfile/pofields.php:845
-#, fuzzy, php-format
+#, php-format
 msgid "Show properties"
-msgstr "Ukaž víc"
+msgstr "Ukažte zařízení"
 
 #: ../code/application/views/city_view.php:100
 #: ../code/application/views/helpfile/pofields.php~:783
@@ -5181,37 +5181,37 @@ msgstr "Zrušit všechny"
 #: ../code/application/views/city_view.php:363
 #: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
-#, fuzzy, php-format
+#, php-format
 msgid "Best price"
-msgstr "Kuchyně pro hosty"
+msgstr "Nejlepší cena"
 
 #: ../code/application/views/city_view.php:364
 #: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
-msgstr ""
+msgstr "Nejlepší hodnocení"
 
 #: ../code/application/views/city_view.php:367
 #: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
-#, fuzzy, php-format
+#, php-format
 msgid "Safest"
-msgstr "Bezpečnost"
+msgstr "Nejbezpečnější"
 
 #: ../code/application/views/city_view.php:368
 #: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
-#, fuzzy, php-format
+#, php-format
 msgid "Best location"
-msgstr "Umístění"
+msgstr "Nejlepší poloha"
 
 #: ../code/application/views/city_view.php:373
 #: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
-#, fuzzy, php-format
+#, php-format
 msgid "Youth hostels only"
-msgstr "Hostel"
+msgstr "Pouze ubytovny pro mládež"
 
 #: ../code/application/views/city_view.php:377
 #: ../code/application/views/helpfile/pofields.php~:555
@@ -9407,27 +9407,27 @@ msgstr "Uložit"
 
 #: ../code/application/views/helpfile/pofields.php~:843
 #: ../code/application/views/helpfile/pofields.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Last name"
-msgstr "Křestní jméno"
+msgstr "Příjmení"
 
 #: ../code/application/views/helpfile/pofields.php~:844
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "Registrace pro zasílání novinek"
 
 #: ../code/application/views/helpfile/pofields.php~:855
 #: ../code/application/views/helpfile/pofields.php:855
 #, php-format
 msgid "Check this box to see new search results as you move the map"
-msgstr ""
+msgstr "Zaškrtněte pro zobrazení výsledků nového vyhledávání při posunu mapy"
 
 #: ../code/application/views/helpfile/pofields.php~:856
 #: ../code/application/views/helpfile/pofields.php:856
 #, php-format
 msgid "Redo search in map"
-msgstr ""
+msgstr "Zopakujte vyhledávání v mapě"
 
 #: ../code/application/views/helpfile/pofields.php~:857
 #: ../code/application/views/helpfile/pofields.php:857
@@ -9437,9 +9437,9 @@ msgstr "Ženská ložnice se %d lůžky a sdílenou koupelnou"
 
 #: ../code/application/views/helpfile/pofields.php~:861
 #: ../code/application/views/helpfile/pofields.php:861
-#, fuzzy, php-format
+#, php-format
 msgid "Hostels only"
-msgstr "Hostel"
+msgstr "Pouze ubytovny"
 
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
@@ -9447,6 +9447,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to %d Days "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Zákazníci mohou snadno zdarma zrušit rezervaci až do %d dnů před příjezdem. "
+"Zaplacená záloha je nevratná."
 
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
@@ -9454,6 +9456,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to 1 Day "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Zákazníci mohou snadno zdarma zrušit rezervaci až do 1 dne před příjezdem. "
+"Zaplacená záloha je nevratná."
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
@@ -9990,7 +9994,7 @@ msgid "Invalid date"
 msgstr "Neplatné datum"
 
 #: ../code/application/controllers/cmain.php:2557
-#, fuzzy, php-format
+#, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "Poznámky překračují maximum %d znaků"
 
