@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-13 16:57+0300\n"
-"PO-Revision-Date: 2013-05-02 22:26+0200\n"
+"PO-Revision-Date: 2013-06-15 23:06+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3519,7 +3518,7 @@ msgstr "Название объекта"
 #: ../code/application/views/helpfile/pofields.php:864
 #, php-format
 msgid "No properties were saved."
-msgstr ""
+msgstr "Свойства не были сохранены."
 
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 #: ../code/application/views/mustache/property_list.php:95
@@ -3862,7 +3861,7 @@ msgstr "Безопасность"
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
-msgstr ""
+msgstr "Очень безопасный"
 
 #: ../code/application/views/mustache/property_list.php:189
 #: ../code/application/views/helpfile/pofields.php~:851
@@ -4456,6 +4455,11 @@ msgid ""
 "leave later and are open 24 hours a day. Please review the list of services "
 "offered by this particular property to confirm they are available."
 msgstr ""
+"Это время, когда ваша комната будет готова в день вашего прибытия и время, "
+"когда вы должны освободить номер в день вашего отъезда. Большинство отелей "
+"сохранят ваш багаж в безопасном месте, если вы приедете раньше или уедите "
+"позже и открыты 24 часа в сутки. Пожалуйста, ознакомьтесь с перечнем услуг, "
+"предлагаемыми данным отелем, чтобы подтвердить, что они доступны."
 
 #: ../code/application/views/hb/hostel_view.php:847
 msgid "Check-in:"
@@ -5223,7 +5227,7 @@ msgstr "Кухня для Гостей"
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
-msgstr ""
+msgstr "Лучший рейтинг"
 
 #: ../code/application/views/city_view.php:367
 #: ../code/application/views/helpfile/pofields.php~:848
@@ -9416,19 +9420,19 @@ msgstr "Создать аккаунт"
 #: ../code/application/views/helpfile/pofields.php:833
 #, php-format
 msgid "New password"
-msgstr ""
+msgstr "Новый пароль"
 
 #: ../code/application/views/helpfile/pofields.php~:836
 #: ../code/application/views/helpfile/pofields.php:836
 #, php-format
 msgid "Show room types"
-msgstr ""
+msgstr "Показать типы номеров"
 
 #: ../code/application/views/helpfile/pofields.php~:837
 #: ../code/application/views/helpfile/pofields.php:837
 #, php-format
 msgid "Hide room types"
-msgstr ""
+msgstr "Скрыть типы номеров"
 
 #: ../code/application/views/helpfile/pofields.php~:838
 #: ../code/application/views/helpfile/pofields.php:838
@@ -9438,6 +9442,8 @@ msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
 "your account is 30"
 msgstr ""
+"Нам жаль, но максимальное количество любимых отелей, которые можно сохранить "
+"в своей учетной записи 30"
 
 #: ../code/application/views/helpfile/pofields.php~:840
 #: ../code/application/views/helpfile/pofields.php:840
@@ -9467,19 +9473,21 @@ msgstr "Имя"
 #: ../code/application/views/helpfile/pofields.php:844
 #, php-format
 msgid "Newsletter subscription"
-msgstr ""
+msgstr "Подписка на новости"
 
 #: ../code/application/views/helpfile/pofields.php~:855
 #: ../code/application/views/helpfile/pofields.php:855
 #, php-format
 msgid "Check this box to see new search results as you move the map"
 msgstr ""
+"Установите этот флажок, чтобы показать новые результаты поиска с "
+"передвижением по карте"
 
 #: ../code/application/views/helpfile/pofields.php~:856
 #: ../code/application/views/helpfile/pofields.php:856
 #, php-format
 msgid "Redo search in map"
-msgstr ""
+msgstr "Новый поиск по карте"
 
 #: ../code/application/views/helpfile/pofields.php~:857
 #: ../code/application/views/helpfile/pofields.php:857
@@ -9499,6 +9507,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to %d Days "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Пользователи могут легко отменить бронирование бесплатно за %d дней до "
+"прибытия. Первый взнос не подлежит возврату."
 
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
@@ -9506,21 +9516,23 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to 1 Day "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"Пользователи могут легко отменить бронирование бесплатно за 1 день до "
+"прибытия. Первый взнос не подлежит возврату."
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
-msgstr ""
+msgstr "Пожалуйста, внимательно прочитайте"
 
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
-msgstr ""
+msgstr "Я согласен"
 
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr ""
+msgstr "Я не согласен, и я выберу другой отель"
 
 #: ../code/application/views/helpfile/pofields.php:869
 #, fuzzy, php-format
@@ -9532,23 +9544,27 @@ msgstr "Бесплатное бронироние"
 msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
-msgstr ""
+msgstr "Местное обслуживание клиентов на вашем языке доступно 24 часа в сутки"
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "Гарантированный платеж: ваша кредитная карта защищена"
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
 msgstr ""
+"Нет спама после того как вы забронировали, и ваша информация будет "
+"оставаться частной"
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
 msgstr ""
+"У вас есть доступ к миллионам реальных отзывов от путешественников, таких "
+"как Вы"
 
 #: ../code/application/views/helpfile/pofields.php:874
 #, fuzzy, php-format
@@ -9568,19 +9584,19 @@ msgstr "Бесплатный Завтрак"
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "Кликните здесь, чтобы забронировать"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "1 миллион отзывов"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
 msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
-msgstr ""
+msgstr "Вы можете сравнить цены, услуги и расположение на карте до 5 отелей"
 
 #: ../code/application/views/helpfile/pofields.php:880
 #, fuzzy, php-format
@@ -9614,11 +9630,13 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"Нажмите сюда, чтобы увидеть цены для каждого типа комнаты и максимальное "
+"число доступных кроватей в каждой комнате"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "Вы можете фильтровать результаты исходя из их конкретных районов"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
@@ -9626,6 +9644,8 @@ msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
 msgstr ""
+"Вы можете фильтровать результаты, основанные на том, как близко есть "
+"конкретные ориентиры, вокзалы и аэропорты"
 
 #: ../code/application/views/helpfile/pofields.php:887
 #, fuzzy, php-format
@@ -10056,7 +10076,7 @@ msgstr "Неправильный формат"
 #: ../code/application/controllers/cmain.php:2557
 #, php-format
 msgid "Notes are exceeding maximum of %d characters"
-msgstr ""
+msgstr "Примечания превышают максимум %d символов"
 
 #: ../code/application/controllers/user.php:105
 msgid "Erreur lors de la mise à jour de votre profil."
