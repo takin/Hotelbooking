@@ -300,13 +300,12 @@ GoogleMap.prototype.fillMakersArray = function()
         var latitude = $("#input_geo_latitude_"+property_number).val();
         var longitude = $("#input_geo_longitude_"+property_number).val();
         //************* to solve problem when property is deleted from search
-        var property_index = $("#picture_number_"+property_number).html();
-//        console.info(resultInPage.page_num);
+        var propertyIndex = parseInt($("#picture_number_"+property_number).html());
+
         if(resultInPage.page_num > 0){
             var real_property_number = $("#picture_number_"+property_number).html();
-            // calculate property_index to always start from 1
-            property_index = parseInt(real_property_number) - ( parseInt(resultInPage.start_from) );
-//            console.log("real_property_number=="+real_property_number+"::::resultInPage.start_from"+resultInPage.start_from+":::::property_index"+property_index+"::::");
+            // calculate propertyIndex to always start from 1
+            propertyIndex = parseInt(parseInt(real_property_number) - ( parseInt(resultInPage.start_from) ));
         }
         
         var markerIndex = index +  parseInt(start_from); 
@@ -316,7 +315,7 @@ GoogleMap.prototype.fillMakersArray = function()
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
-                , property_index
+                , propertyIndex
                 );   
     });
 
@@ -350,9 +349,9 @@ GoogleMap.prototype.addMarkersToMap = function()
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 //          check if it is the tham map on the left
         if (window.gmap.getDiv().id === "city_side_map_container") {
-            
-             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + ( parseInt(window.markers[i].propertyIndex) ) + '.png';
-             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + ( parseInt(window.markers[i].propertyIndex) ) + '.png';
+            var imageIndex = window.markers[i].propertyIndex;
+             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + imageIndex + '.png';
+             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + imageIndex + '.png';
         }
         else if (window.gmap.getDiv().id === "map_canvas_compareProperty") {
            
@@ -668,11 +667,14 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
+                    // index of property in page
+                    var imageIndex = window.markers[i].propertyIndex;
+
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
 //                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
-                         image = "http://" + window.location.host + imagePath + parseInt(window.markers[i].propertyIndex) + '.png';
+                         image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
                     if (window.gmap.getDiv().className === "map_quickview") {
