@@ -31,7 +31,7 @@
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-					<div id="{{propertyNumber}}" class="picture_number">0</div>
+					<div id="picture_number_{{propertyNumber}}" class="picture_number">0</div>
 					<a href="{{property_page_url}}" style="position:relative;">
 						{{#PropertyImages}}
 							<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />

@@ -86,8 +86,13 @@ GoogleMap.prototype.init = function() {
     {
         window.gmap.setCenter(this.gbounds.getCenter());
         window.gmap.fitBounds(this.gbounds);
+        if (this.map_div.id === "city_side_map_container") {
+            if (window.gmap.getZoom() > 10)
+            {
+                window.gmap.setZoom(10);
+            }
+        }
     }
-
     // first get the property number
     var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
 
@@ -192,15 +197,16 @@ GoogleMap.prototype.drawMap = function()
     }
 };
 
-GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, propertyNumber) //, image, iconshadow)
+GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, propertyNumber, propertyIndex)
 {
     var marker = {
-        title: title,
-        lat: lat,
-        lng: lng,
-        content: content,
-        propertyNumber: propertyNumber,
-        gmarkvarer: null
+        title           :   title,
+        lat             :   lat,
+        lng             :   lng,
+        content         :   content,
+        propertyNumber  :   propertyNumber,
+        propertyIndex   :   propertyIndex,
+        gmarkvarer      :   null
     };
     window.markers[index] = marker;
 };
@@ -260,8 +266,13 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
         // end hostel number like from 1 to 20
         var end_on = start_from + show_per_page;
         result = {
-            property_list: $('#property_list').children().slice(start_from, end_on),
-            start_from: start_from
+//            property_list   : $('#property_list').children(":visible").slice(start_from, end_on),
+            property_list   : $('#property_list').children(":visible"),
+            start_from      : start_from,
+            end_on          : end_on,
+            page_num        : page_num,
+            show_per_page   : show_per_page
+        
         };
     }
 
@@ -286,15 +297,25 @@ GoogleMap.prototype.fillMakersArray = function()
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
-        $("#city_map_view_"+property_number).html("");
+        var latitude = $("#input_geo_latitude_"+property_number).val();
+        var longitude = $("#input_geo_longitude_"+property_number).val();
+        //************* to solve problem when property is deleted from search
+        var propertyIndex = parseInt($("#picture_number_"+property_number).html());
 
+        if(resultInPage.page_num > 0){
+            var real_property_number = $("#picture_number_"+property_number).html();
+            // calculate propertyIndex to always start from 1
+            propertyIndex = parseInt(parseInt(real_property_number) - ( parseInt(resultInPage.start_from) ));
+        }
+        
         var markerIndex = index +  parseInt(start_from); 
         that.addMarker( markerIndex 
-                , $("#input_geo_latitude_"+property_number).val()
-                , $("#input_geo_longitude_"+property_number).val()
+                , latitude
+                , longitude
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
+                , propertyIndex
                 );   
     });
 
@@ -317,15 +338,20 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds = new google.maps.LatLngBounds();
     }
     //TODO support custom image in addMarker function
-    for (var i in window.markers) {        
+    for (var i in window.markers) {     
+        if ( window.markers[i].lat === 0 || window.markers[i].lng === 0 ){
+            window.markers[i].gmarker = null;
+        }
+        else{
+        // check if it is a property used in compare
         var isCompare_property = false;
         var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 //          check if it is the tham map on the left
         if (window.gmap.getDiv().id === "city_side_map_container") {
-
-             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
-             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+            var imageIndex = window.markers[i].propertyIndex;
+             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + imageIndex + '.png';
+             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + imageIndex + '.png';
         }
         else if (window.gmap.getDiv().id === "map_canvas_compareProperty") {
            
@@ -391,7 +417,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         this.gbounds.extend(window.gmarkers[i].position);
         isCompare_property = false;
     }
-    
+  }
 };
 GoogleMap.prototype.removeMap = function(){
     this.map_div.style.display = "none";
@@ -599,7 +625,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
     var property_number = $(pDiv).attr("rel");
     var hostel_title = $.trim($("#hostel_title_" + property_number).text());
-
+    
     var imagePath = null;
 
     if (pIconType === "selected")
@@ -641,10 +667,14 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
+                    // index of property in page
+                    var imageIndex = window.markers[i].propertyIndex;
+
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
-                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+//                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+                         image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
                     if (window.gmap.getDiv().className === "map_quickview") {

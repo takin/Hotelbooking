@@ -10,7 +10,7 @@ $(document).ready(function(){
 		$("#quick_com_data th:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#quick_com_data td:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#map_td").removeClass("hiddencolumn");
-                pweb_filter.updateMarkers("compare_property")
+                pweb_filter.updateMarkers("compare_property");
 	});
 
 	$('.restore').click(function() { 

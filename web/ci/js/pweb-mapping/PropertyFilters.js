@@ -1770,6 +1770,12 @@ $(document).ready(function() {
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
   
+    $("#current_page").live("change", function()
+    {
+        pweb_filter.updateMarkers("city");
+        return false;
+    });
+    
   $("ul.rating li").live('mouseover', function(){
     var container = getPropertyRatingsContainer(this);
     container.show();
@@ -1968,14 +1974,20 @@ PWebFilterApp.prototype.handle_delete = function() {
 	$('.remove_from_search_options .remove_from_search').live('click', function(event) {
 		event.preventDefault();
 
-		var obj = $(this);
-		var id = obj.attr('id');
-
 		var css = {
 			position  : 'absolute',
 			'z-index' : 300
 		};
-
+                
+                var obj = $(this);
+		var id = obj.attr('id');
+                // split id to get property Number
+                var arr_id_str = id.split("_");
+                // get property number
+                var property_number = arr_id_str.pop();
+                // add class to main property to indicated as a removed property
+                $("#prop_tab_box_"+property_number).addClass("clsRemoveFromSearch");
+                
 		var animate = {bottom: '-=350', marginLeft: '-=140'};
 		var timer   = 1000;
 
@@ -1988,7 +2000,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 
 			css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
 
-			$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+			$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); } );
 		}
 		else {
 			if (obj.hasClass('remove_property_one_day')) {
@@ -1997,7 +2009,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 				pweb_setCookie('remove_' + number, number, 24);
 
 				css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
-				$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+				$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); });
 			}
 			else {
 				if (obj.hasClass('remove_property_one_week')) {
@@ -2006,7 +2018,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 					pweb_setCookie('remove_' + number, number, 168);
 
 					css['bottom'] = '-' + $('#prop_tab_box_' + number).offset().top + 'px';
-					$('#prop_tab_box_' + number).css(css).animate(animate, timer, this.remove);
+					$('#prop_tab_box_' + number).css(css).animate(animate, timer, function() { $('#prop_tab_box_' + number).hide(); $('#prop_tab_box_' + number).remove(); });
 				}
 			}
 		}
