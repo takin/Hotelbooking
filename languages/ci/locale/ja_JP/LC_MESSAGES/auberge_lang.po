@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-13 16:57+0300\n"
-"PO-Revision-Date: 2013-06-04 11:20+0200\n"
+"PO-Revision-Date: 2013-06-16 20:54+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3722,9 +3721,9 @@ msgstr "ダンロード"
 
 #: ../code/application/views/restricted/user_view.php:6
 #: ../code/application/views/helpfile/pofields.php:865
-#, fuzzy, php-format
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "アカウント - ユースホステルの予約"
+msgstr "マイアカウント"
 
 #: ../code/application/views/restricted/user_view.php:8
 #: ../code/application/views/helpfile/pofields.php~:608
@@ -3836,9 +3835,9 @@ msgstr "素晴らしいロケーション"
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
-#, fuzzy, php-format
+#, php-format
 msgid "Overall evaluation"
-msgstr "マイレビュー"
+msgstr "全体評価"
 
 #: ../code/application/views/mustache/property_list.php:223
 #: ../code/application/views/mustache/property_list.php:237
@@ -3879,16 +3878,16 @@ msgstr "プライベートルームでのお1人様一泊最安値料金"
 #: ../code/application/views/mustache/property_list.php:253
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
-#, fuzzy, php-format
+#, php-format
 msgid "Show prices"
-msgstr "施設を表示する"
+msgstr "値段を見る"
 
 #: ../code/application/views/mustache/property_list.php:258
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
-#, fuzzy, php-format
+#, php-format
 msgid "Hide prices"
-msgstr "最安値"
+msgstr "値段を隠す"
 
 #: ../code/application/views/mustache/saved_property_item.php:11
 msgid "Arrival:"
@@ -9344,9 +9343,9 @@ msgstr "女性用%dベッドルーム共用バスルーム"
 
 #: ../code/application/views/helpfile/pofields.php~:861
 #: ../code/application/views/helpfile/pofields.php:861
-#, fuzzy, php-format
+#, php-format
 msgid "Hostels only"
-msgstr "ユースホステルのみ"
+msgstr "ホステルのみ"
 
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
@@ -9354,6 +9353,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to %d Days "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"到着日の%d日間前までのキャンセルは簡単にキャンセル料無しで取り消せます。預か"
+"り金は返金できません。"
 
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
@@ -9361,105 +9362,107 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to 1 Day "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"到着日の1日前までのキャンセルは簡単にキャンセル料無しで取り消せます。預かり金"
+"は返金できません。"
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
-msgstr ""
+msgstr "よくご覧下さい"
 
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
-msgstr ""
+msgstr "同意します"
 
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr ""
+msgstr "同意しません、別な施設を選択します"
 
 #: ../code/application/views/helpfile/pofields.php:869
-#, fuzzy, php-format
+#, php-format
 msgid "Benefits of booking fee ?"
-msgstr "予約手数料無料"
+msgstr "予約手数料を払う利点は？"
 
 #: ../code/application/views/helpfile/pofields.php:870
 #, php-format
 msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
-msgstr ""
+msgstr "日本語対応可能な現地カスタマーサービスは24時間ご利用可能。"
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "安全な支払い方法：あなたのクレジットカードは安全です。"
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
 msgstr ""
+"予約後に迷惑メールがくることはありません。あなたの個人情報も保護されます。"
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
-msgstr ""
+msgstr "お客様のように実際の旅行者からの何百万件のレビューをご覧いただけます。"
 
 #: ../code/application/views/helpfile/pofields.php:874
-#, fuzzy, php-format
+#, php-format
 msgid "And finally, you get the best price!"
-msgstr "あなたは最高の価格を手に入れました"
+msgstr "ついに最もお得な料金になりました！"
 
 #: ../code/application/views/helpfile/pofields.php:875
-#, fuzzy, php-format
+#, php-format
 msgid "Best price guarantee"
-msgstr "最高の価格です。我々が保証します。"
+msgstr "最安値料金保証"
 
 #: ../code/application/views/helpfile/pofields.php:876
-#, fuzzy, php-format
+#, php-format
 msgid "Free breakfast only"
-msgstr "無料の朝食"
+msgstr "無料朝食のみ"
 
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "ご予約はこちらをクリック"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "100万件のレビュー"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
 msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
-msgstr ""
+msgstr "地図上の5件の施設まで料金、サービス、位置の比較ができます。"
 
 #: ../code/application/views/helpfile/pofields.php:880
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to compare"
-msgstr ""
-"ご予約確認メールのプレビューをご覧になるにはこちらをクリックしてください。"
+msgstr "比較はこちらをクリック"
 
 #: ../code/application/views/helpfile/pofields.php:881
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to select this property"
-msgstr "このプロパーティを削除"
+msgstr "この施設を選択するにはこちらをクリック"
 
 #: ../code/application/views/helpfile/pofields.php:882
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
-msgstr "当施設の1ドーム1泊お一人様あたり最低料金: %s"
+msgstr "選択された日付でこの施設にある1ベット付きドーム最安値"
 
 #: ../code/application/views/helpfile/pofields.php:883
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price per person in a private room at this property for the selected "
 "dates"
-msgstr "当施設の1プライベートドーム1泊お一人様あたり最低料金: %s"
+msgstr "選択された日付でこの施設にある個室料金お1人様最安値"
 
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
@@ -9467,23 +9470,25 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"各部屋の料金と、各部屋でご利用可能な最大ベッド数を確認するにはこちらをクリッ"
+"ク"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "地区別に結果をフィルターにかけられます。"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
 msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
-msgstr ""
+msgstr "施設からランドマーク、駅や空港への距離別にフィルターをかけられます。"
 
 #: ../code/application/views/helpfile/pofields.php:887
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to view pricing for this property"
-msgstr "お部屋は、このプロパティには使用できません。"
+msgstr "この施設の料金確認はこちらをクリック"
 
 #: ../code/application/views/property_rooms_avail.php:413
 #, php-format

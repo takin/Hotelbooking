@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-13 16:57+0300\n"
-"PO-Revision-Date: 2013-06-04 11:16+0200\n"
+"PO-Revision-Date: 2013-06-16 20:45+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3705,9 +3704,9 @@ msgstr "로드 중입니다 ..."
 
 #: ../code/application/views/restricted/user_view.php:6
 #: ../code/application/views/helpfile/pofields.php:865
-#, fuzzy, php-format
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "당신의 계정"
+msgstr "내 계정"
 
 #: ../code/application/views/restricted/user_view.php:8
 #: ../code/application/views/helpfile/pofields.php~:608
@@ -3819,9 +3818,9 @@ msgstr "최적의 위치"
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
-#, fuzzy, php-format
+#, php-format
 msgid "Overall evaluation"
-msgstr "나의 리뷰"
+msgstr "전체적인 평가"
 
 #: ../code/application/views/mustache/property_list.php:223
 #: ../code/application/views/mustache/property_list.php:237
@@ -3862,16 +3861,16 @@ msgstr "개인 전용 룸 1 박 기준 1인당 최저 가격"
 #: ../code/application/views/mustache/property_list.php:253
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
-#, fuzzy, php-format
+#, php-format
 msgid "Show prices"
-msgstr "호텔 표시"
+msgstr "가격 표시"
 
 #: ../code/application/views/mustache/property_list.php:258
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
-#, fuzzy, php-format
+#, php-format
 msgid "Hide prices"
-msgstr "최상의 가격"
+msgstr "가격 숨기기"
 
 #: ../code/application/views/mustache/saved_property_item.php:11
 msgid "Arrival:"
@@ -9329,9 +9328,9 @@ msgstr "%d 베드 여성 기숙사 공용 욕실"
 
 #: ../code/application/views/helpfile/pofields.php~:861
 #: ../code/application/views/helpfile/pofields.php:861
-#, fuzzy, php-format
+#, php-format
 msgid "Hostels only"
-msgstr "유스 호스텔만"
+msgstr "호스텔만"
 
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
@@ -9339,6 +9338,8 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to %d Days "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"도착일 %d일 전까지는  무료로 쉽게 예약을 취소할 수 있습니다.  이미 납부하신 "
+"보증금은 환불되지 않습니다."
 
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
@@ -9346,26 +9347,28 @@ msgid ""
 "Customers can easily cancel their reservation free of charge up to 1 Day "
 "before arrival. Deposits paid are non refundable."
 msgstr ""
+"도착일 1일 전까지는  무료로 쉽게 예약을 취소할 수 있습니다.  이미 납부하신 보"
+"증금은 환불되지 않습니다."
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
-msgstr ""
+msgstr "주의 깊게 읽어주십시오"
 
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
-msgstr ""
+msgstr "동의합니다"
 
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr ""
+msgstr "동의하지 않고 또 다른 호텔을 선택할 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:869
-#, fuzzy, php-format
+#, php-format
 msgid "Benefits of booking fee ?"
-msgstr "예약 수수료 없음"
+msgstr "예약 수수료의 잇점 ?"
 
 #: ../code/application/views/helpfile/pofields.php:870
 #, php-format
@@ -9373,77 +9376,79 @@ msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
 msgstr ""
+"하루 24시간 각국의 언어로 제공되는  지역 고객 서비스를 신뢰하실 수 있습니다."
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "보안 결제 : 당신의 신용 카드는 안전합니다."
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
-msgstr ""
+msgstr "예약 후 스팸메일은 없으며  귀하의 정보는 공개되지 않을 것입니다."
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
 msgstr ""
+"당신과 같은 여행자가 쓴, 수백만개의  실제 이용 후기에 액세스 할 수 있습니다"
 
 #: ../code/application/views/helpfile/pofields.php:874
-#, fuzzy, php-format
+#, php-format
 msgid "And finally, you get the best price!"
-msgstr "최저의 가격을 제공합니다!"
+msgstr "마침내, 당신은 최적의 가격을 만납습니다 !"
 
 #: ../code/application/views/helpfile/pofields.php:875
-#, fuzzy, php-format
+#, php-format
 msgid "Best price guarantee"
-msgstr "최저 가격을 보장합니다."
+msgstr "최저 가격 보장"
 
 #: ../code/application/views/helpfile/pofields.php:876
-#, fuzzy, php-format
+#, php-format
 msgid "Free breakfast only"
-msgstr "무료 아침식사"
+msgstr "아침 식사만 무료"
 
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "예약을 위해  여기를 클릭하십시오"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "1 백만개의 리뷰"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
 msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
-msgstr ""
+msgstr "지도상에서 최대 5개 호텔의 가격, 서비스 및 위치를 비교할 수 있습니다"
 
 #: ../code/application/views/helpfile/pofields.php:880
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to compare"
-msgstr "확인 이메일 미리 보기를 하려면 여기를 클릭하십시오."
+msgstr "비교하기 위해 여기를 클릭하십시오"
 
 #: ../code/application/views/helpfile/pofields.php:881
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to select this property"
-msgstr "삭제하기"
+msgstr "이 호텔을 선택하려면 여기를 클릭하십시오"
 
 #: ../code/application/views/helpfile/pofields.php:882
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
-msgstr "이 호텔의 기숙사 중 가장 저렴한 인당 숙박비: %s "
+msgstr "선택한 날짜에,  본 숙박 시설의 기숙사 침대 최저가"
 
 #: ../code/application/views/helpfile/pofields.php:883
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price per person in a private room at this property for the selected "
 "dates"
-msgstr "이 호텔의 개인 전용룸 중 가장 저렴당 인당 숙박비: %s"
+msgstr "선택한 날짜에, 본 숙박 시설 개인실의 인당 최저 가격"
 
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
@@ -9451,11 +9456,13 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"객실 각 유형의 가격과  객실에 사용 가능한 침대의 최대 수를 보려면 여기를 클릭"
+"하십시오"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "당신은  특정한 지역에 따라 결과를 필터링 할 수 있습니다"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
@@ -9463,11 +9470,13 @@ msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
 msgstr ""
+"특정 랜드 마크, 기차역과 공항에서  얼마나 가까운 지를 기준으로 필터링 할 수 "
+"있습니다"
 
 #: ../code/application/views/helpfile/pofields.php:887
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to view pricing for this property"
-msgstr "선택하신 곳에 룸이 없습니다."
+msgstr "이 호텔의 가격을 보려면 여기를 클릭하십시오"
 
 #: ../code/application/views/property_rooms_avail.php:413
 #, php-format
@@ -9870,7 +9879,7 @@ msgid "Invalid date"
 msgstr "유효하지 않은 날짜"
 
 #: ../code/application/controllers/cmain.php:2557
-#, fuzzy, php-format
+#, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "메모 내용이 최대 %d개의 문자를 초과했습니다."
 
