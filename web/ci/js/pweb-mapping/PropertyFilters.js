@@ -1775,6 +1775,9 @@ PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) {
 PWebFilterMap.prototype.changeDistrictLayer = function( district_um_ids ) { 
        this.gmap.changeDistrictLayer( district_um_ids );     	
 };
+PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) { 
+       this.gmap.changeLandmarkLayer( landmark_LatLng );     	
+};
 
 
 $(document).ready(function() { 
@@ -2067,5 +2070,11 @@ PWebFilterApp.prototype.changeDistrictLayer = function(map_slug, district_um_ids
     if (this.pweb_maps[map_slug].enabled === true)
     {
         this.pweb_maps[map_slug].changeDistrictLayer(district_um_ids);
+    }
+};
+PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeLandmarkLayer(landmark_LatLng);
     }
 };
