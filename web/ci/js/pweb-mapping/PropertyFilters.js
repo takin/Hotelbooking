@@ -1432,16 +1432,24 @@ PWebFilterApp.prototype.setup = function(data)
     });
 
         // check if this city has latitude and longitude to display the right side map
-        if (  $("#city_geo_lat").val() !== "" &&  $("#city_geo_lng").val() !== ""){
-            pweb_filter.toggleMap('city');
-        }
+    if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
+        pweb_filter.toggleMap('city');
+    }
         
-	$('#reset_filters').click(function()
-			{
-				pweb_filter.reset_filters();
-				pweb_filter.apply_filters();
-				return false;
-			});
+    $('.hostel_info_box').bind('mouseover', function() {
+        pweb_filter.changeMarkerIcon("city", $(this), 'selected');
+    });
+
+    $('.hostel_info_box').bind('mouseout', function() {
+        pweb_filter.changeMarkerIcon("city", $(this),'original');
+    });
+    
+    $('#reset_filters').click(function()
+    {
+        pweb_filter.reset_filters();
+        pweb_filter.apply_filters();
+        return false;
+    });
 
 	// handle the delete links
 	this.handle_delete();
@@ -1631,7 +1639,7 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
 PWebFilterApp.prototype.changeMarkerIcon = function(map_slug, pDiv, pIcon) {
     if (this.pweb_maps[map_slug].enabled === true)
     {
-        this.pweb_maps[map_slug].changeMarkerIcon( pDiv, pIcon );
+        this.pweb_maps[map_slug].changeMarkerIcon(pDiv, pIcon);
     }
 };
 
@@ -2050,8 +2058,14 @@ PWebFilterApp.prototype.handle_delete = function() {
 };
 PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
 {
-    this.pweb_maps[map_slug].removeMarker(property_number);
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].removeMarker(property_number);
+    }
 };
-PWebFilterApp.prototype.changeDistrictLayer = function( map_slug, district_um_ids ) { 
-     this.pweb_maps[map_slug].changeDistrictLayer( district_um_ids );    	
+PWebFilterApp.prototype.changeDistrictLayer = function(map_slug, district_um_ids) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeDistrictLayer(district_um_ids);
+    }
 };
