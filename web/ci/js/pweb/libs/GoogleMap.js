@@ -323,7 +323,7 @@ return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
 {       
-     var comparePropertyLatLng = this.getCompaPropertyLatlng();
+     var comparePropertyLatLng = this.getComparePropertyLatlng();
      var compare_index = 0;
      
     if (window.markers.length < 1)
@@ -345,6 +345,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         else{
         // check if it is a property used in compare
         var isCompare_property = false;
+        var isQuickView_property = false;
         var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
         var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 //          check if it is the tham map on the left
@@ -368,6 +369,19 @@ GoogleMap.prototype.addMarkersToMap = function()
                 }
             }
         }
+            else if (window.gmap.getDiv().className === "map_quickview") {
+                var arrQuickViewLatLng = that.getQuickViewLatlng();
+
+                if (arrQuickViewLatLng[0].lat === window.markers[i].lat
+                        && arrQuickViewLatLng[0].lng === window.markers[i].lng) {
+                    
+                    image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
+                    image_selected = image;
+                    // make this marker as one of quick view property
+                    isQuickView_property = true;
+                }
+            }
+        
         
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
@@ -380,9 +394,14 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         window.markers[i].gmarker = window.gmarkers[i];
         
-        if (isCompare_property === true) {
-            window.gmarkers[i].setZIndex(100000);
+        if (isCompare_property === true || isQuickView_property === true) {
+            window.gmarkers[i].setZIndex(200000);
         }
+        
+        if ( isQuickView_property === true ) {        
+            window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+        }
+        
             
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
@@ -395,14 +414,13 @@ GoogleMap.prototype.addMarkersToMap = function()
             }
 
         });
+        
         if (isCompare_property === false) {
             google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
-
 
                 this.setIcon(image_selected);
                 this.setZIndex(100000);
                 that.changeHostelBackground(this, "mouseover");
-
 
             });
 
@@ -416,6 +434,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         }
         this.gbounds.extend(window.gmarkers[i].position);
         isCompare_property = false;
+        isQuickView_property = false;
     }
   }
 };
@@ -566,8 +585,6 @@ GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
-        
-//alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
         center: new google.maps.LatLng(lat, Lng)
@@ -640,6 +657,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     $("#city_info_" + property_number).removeClass('property_info_hover');
     // change the marker that appears between the property image and the property name
 
+    var imageSrc = null;
+    
     if ( $("#property_marker_number_" + property_number).length > 0 ) {
         var imageSrc = $("#property_marker_number_" + property_number).attr('src');
         imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
@@ -661,10 +680,12 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
             if (window.markers[i].gmarker !== null)
             {
-                if (window.markers[i].gmarker.getZIndex() === 100000) {
-                    window.markers[i].gmarker.setZIndex(0);
+                if (window.gmap.getDiv().id === "city_side_map_container" ||
+                        window.gmap.getDiv().id === "filter_map_rightSide") {
+                    if (window.markers[i].gmarker.getZIndex() === 100000) {
+                        window.markers[i].gmarker.setZIndex(0);
+                    }
                 }
-
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
                     // index of property in page
@@ -678,7 +699,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
                     }
                    // this map is the map that appears after click on Quick view
                     if (window.gmap.getDiv().className === "map_quickview") {
-                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+//                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+                          image = "http://" + window.location.host + imagePath +  '0.png';
                     }
                     
                     window.markers[i].gmarker.setZIndex(100000);
@@ -744,7 +766,7 @@ GoogleMap.prototype.removeMarker = function(property_number) {
         }
     }
 };
-GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
+GoogleMap.prototype.getComparePropertyLatlng = function(property_number) {
     // add compare properties if exists
     var compare_properties = [];
     if ($('.compareProperty_geoLatLng th').length > 0) {
@@ -763,4 +785,20 @@ GoogleMap.prototype.getCompaPropertyLatlng = function(property_number) {
         });
     }
     return compare_properties;
+};
+GoogleMap.prototype.getQuickViewLatlng = function(property_number) {
+    // add quick view property if exists
+    var arrQuickView = [];
+    if ( $('#quickView_geolatitude').length > 0 && $('#quickView_geolongitude').length > 0 ) {
+
+            var lat = $('#quickView_geolatitude').val();
+            var lng = $('#quickView_geolongitude').val();
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+
+            arrQuickView.push(newElement);
+    }
+    return arrQuickView;
 };
