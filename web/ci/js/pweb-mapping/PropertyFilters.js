@@ -1400,18 +1400,10 @@ PWebFilterApp.prototype.setup = function(data)
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',
                 'showLoading': true,
-//                beforeLoad: function() {
-//                    alert('beforeLoad!');
-//                    $.fancybox.showLoading();
-//                    pweb_filter.toggleMap('cityFilterMap');
-//                },
                 beforeShow: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                     pweb_filter.toggleMap('city');
                 },
-//                afterLoad  :   function() {
-//                   
-//                },
                 beforeClose: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                     pweb_filter.toggleMap('city');
@@ -2060,6 +2052,6 @@ PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
 {
     this.pweb_maps[map_slug].removeMarker(property_number);
 };
-PWebFilterApp.prototype.changeDistrictLayer = function( district_um_ids ) { 
-       this.gmap.changeDistrictLayer( district_um_ids );     	
+PWebFilterApp.prototype.changeDistrictLayer = function( map_slug, district_um_ids ) { 
+     this.pweb_maps[map_slug].changeDistrictLayer( district_um_ids );    	
 };

@@ -378,16 +378,16 @@ QuickView.prototype.setMap = function() {
 	var lng = this.data.Geo.Longitude;
 
             pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en',  lat, lng);
+            pweb_filter.toggleMap('city');       
             pweb_filter.toggleMap('hostel_quickview');
-            pweb_filter.toggleMap('city');
             
-
+            
 	function autoselect() {
 		GoogleMap.setZoom(12);
 
 		if ($('input[name="distrinct_landmark"]:checked').length > 0) {
 			try {
-				QuickView.pweb_map.changeDistrictLayer( $('input[name="distrinct_landmark"]:checked').val() );
+				pweb_filter.changeDistrictLayer( "hostel_quickview", $('input[name="distrinct_landmark"]:checked').val() );
 			} catch(err) {}
 		}
 
