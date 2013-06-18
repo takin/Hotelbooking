@@ -1636,7 +1636,12 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
   $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');  
   $('#current_page').val(page_num).change();  
 };
-
+PWebFilterApp.prototype.changeMarkerIcon = function(map_slug, pDiv, pIcon) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeMarkerIcon( pDiv, pIcon );
+    }
+};
 
 
 //PWeb map wrapper for map in filter
@@ -1763,6 +1768,13 @@ PWebFilterMap.prototype.showfilteredLandmark = function() {
        this.gmap.changeLandmarkLayer(values);
        	
 };
+PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) { 
+       this.gmap.changeMarkerIcon( pDiv, pIcon );
+       	
+};
+PWebFilterMap.prototype.changeDistrictLayer = function( district_um_ids ) { 
+       this.gmap.changeDistrictLayer( district_um_ids );     	
+};
 
 
 $(document).ready(function() { 
@@ -1811,7 +1823,7 @@ $(document).ready(function() {
              beforeClose: function() {
                     pweb_filter.toggleMap('city');
                     pweb_filter.toggleMap('hostel_quickview');
-                    $('body').unbind('mouseover mouseout');
+                    pweb_filter.updateMarkers("city");
                 }
 	  });
 	
@@ -2047,4 +2059,7 @@ PWebFilterApp.prototype.handle_delete = function() {
 PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
 {
     this.pweb_maps[map_slug].removeMarker(property_number);
+};
+PWebFilterApp.prototype.changeDistrictLayer = function( district_um_ids ) { 
+       this.gmap.changeDistrictLayer( district_um_ids );     	
 };

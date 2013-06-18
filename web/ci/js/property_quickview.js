@@ -24,7 +24,7 @@ QuickView.remove = function(propertyNumber) {
 	for (var i = 0; i < QuickView.propertyList.length; i++) {
 		QuickView.propertyNumberToIndex[ QuickView.propertyList[i].data.propertyNumber ] = i;
 	}
-}
+};
 
 QuickView.addProperty = function(data) {
 	var currentIndex = QuickView.propertyList.length;
@@ -53,7 +53,7 @@ QuickView.addProperty = function(data) {
 	));
 
 	QuickView.propertyNumberToIndex[data.propertyNumber.toString()] = currentIndex;
-}
+};
 
 QuickView.moveToIndex = function(index) {
 	if (index == undefined || typeof(QuickView.propertyList[index]) == 'undefined') {
@@ -65,7 +65,7 @@ QuickView.moveToIndex = function(index) {
 	$('#quick_preview_div').empty().html( obj.getContent() );
 
 	obj.setMap();
-}
+};
 
 QuickView.getObject = function(propertyNumber) {
 	var index = QuickView.propertyNumberToIndex[propertyNumber];
@@ -75,7 +75,7 @@ QuickView.getObject = function(propertyNumber) {
 	}
 
 	return QuickView.propertyList[index];
-}
+};
 
 QuickView.prototype.getContent = function() {        
 	var wait_message = $('#wait_message').val();
@@ -368,7 +368,7 @@ QuickView.prototype.getContent = function() {
 		        $(freeHtml).prependTo('#quick_preview_div .icon_facility_extra3');
 		}, 200);
 	}
-}
+};
 
 QuickView.prototype.setMap = function() {
 
@@ -393,24 +393,9 @@ QuickView.prototype.setMap = function() {
 
 		$('#map_canvas').css('height', '285px !important');
 	}
-
-       $("body").bind("mouseover", function(){
-            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'selected');
-
-        });
-        
-         $("body").bind("mouseout", function(){
-            GoogleMap.prototype.changeMarkerIcon($("#prop_tab_box_"+that.data.propertyNumber), 'original');
-
-        });
         
 	window.setTimeout(function() { autoselect(); }, 2200);
-}
-
-
-
-
-
+};
 
 /**
  * Helper for QuickView
@@ -420,7 +405,7 @@ function QuickViewHelper() {
 
 QuickViewHelper.prototype.init = function() {
 	this.bind();
-}
+};
 
 QuickViewHelper.prototype.bind = function() {
 	$('a.show-room-info').click(function() {
@@ -489,11 +474,11 @@ QuickViewHelper.prototype.bind = function() {
 			return false;
 		}
 	);
-}
+};
 
 QuickViewHelper.prototype.showImage = function(imageurl) {
 	document.getElementById("largeimage").src = imageurl;
-}
+};
 
 $(document).ready(function(){
 	var quickViewHelper = new QuickViewHelper();
