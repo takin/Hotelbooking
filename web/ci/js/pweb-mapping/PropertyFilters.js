@@ -1400,18 +1400,10 @@ PWebFilterApp.prototype.setup = function(data)
                 'transitionIn': 'elastic',
                 'transitionOut': 'elastic',
                 'showLoading': true,
-//                beforeLoad: function() {
-//                    alert('beforeLoad!');
-//                    $.fancybox.showLoading();
-//                    pweb_filter.toggleMap('cityFilterMap');
-//                },
                 beforeShow: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                     pweb_filter.toggleMap('city');
                 },
-//                afterLoad  :   function() {
-//                   
-//                },
                 beforeClose: function() {
                     pweb_filter.toggleMap('cityFilterMap');
                     pweb_filter.toggleMap('city');
@@ -1440,16 +1432,24 @@ PWebFilterApp.prototype.setup = function(data)
     });
 
         // check if this city has latitude and longitude to display the right side map
-        if (  $("#city_geo_lat").val() !== "" &&  $("#city_geo_lng").val() !== ""){
-            pweb_filter.toggleMap('city');
-        }
+    if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
+        pweb_filter.toggleMap('city');
+    }
         
-	$('#reset_filters').click(function()
-			{
-				pweb_filter.reset_filters();
-				pweb_filter.apply_filters();
-				return false;
-			});
+    $('.hostel_info_box').bind('mouseover', function() {
+        pweb_filter.changeMarkerIcon("city", $(this), 'selected');
+    });
+
+    $('.hostel_info_box').bind('mouseout', function() {
+        pweb_filter.changeMarkerIcon("city", $(this),'original');
+    });
+    
+    $('#reset_filters').click(function()
+    {
+        pweb_filter.reset_filters();
+        pweb_filter.apply_filters();
+        return false;
+    });
 
 	// handle the delete links
 	this.handle_delete();
@@ -1636,7 +1636,12 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
   $('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');  
   $('#current_page').val(page_num).change();  
 };
-
+PWebFilterApp.prototype.changeMarkerIcon = function(map_slug, pDiv, pIcon) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeMarkerIcon(pDiv, pIcon);
+    }
+};
 
 
 //PWeb map wrapper for map in filter
@@ -1763,6 +1768,16 @@ PWebFilterMap.prototype.showfilteredLandmark = function() {
        this.gmap.changeLandmarkLayer(values);
        	
 };
+PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) { 
+       this.gmap.changeMarkerIcon( pDiv, pIcon );
+       	
+};
+PWebFilterMap.prototype.changeDistrictLayer = function( district_um_ids ) { 
+       this.gmap.changeDistrictLayer( district_um_ids );     	
+};
+PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) { 
+       this.gmap.changeLandmarkLayer( landmark_LatLng );     	
+};
 
 
 $(document).ready(function() { 
@@ -1811,7 +1826,7 @@ $(document).ready(function() {
              beforeClose: function() {
                     pweb_filter.toggleMap('city');
                     pweb_filter.toggleMap('hostel_quickview');
-                    $('body').unbind('mouseover mouseout');
+                    pweb_filter.updateMarkers("city");
                 }
 	  });
 	
@@ -2046,5 +2061,20 @@ PWebFilterApp.prototype.handle_delete = function() {
 };
 PWebFilterApp.prototype.removeMarker = function(map_slug, property_number)
 {
-    this.pweb_maps[map_slug].removeMarker(property_number);
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].removeMarker(property_number);
+    }
+};
+PWebFilterApp.prototype.changeDistrictLayer = function(map_slug, district_um_ids) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeDistrictLayer(district_um_ids);
+    }
+};
+PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng) {
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        this.pweb_maps[map_slug].changeLandmarkLayer(landmark_LatLng);
+    }
 };

@@ -1,5 +1,5 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').show();" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').hide();">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').show();" onmouseout="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').hide();">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
 	{{#Geo}}
