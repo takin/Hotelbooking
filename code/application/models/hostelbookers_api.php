@@ -325,7 +325,7 @@ class Hostelbookers_api extends CI_Model {
             $total_time = ($response_time - $request_time) * 1000;
             $total_time = floor($total_time);
             $total_time = $total_time . " ms ";
-            $this->custom_log->log("audit", 'HB API getLocationAvailability ' . $total_time);
+            $this->custom_log->log("audit", 'HB API getPropertyAvailability4 ' . $total_time);
 
             if ($this->tracing) {
                 log_message('debug', "last API response " . $this->hbapi->__getLastResponse());
@@ -358,7 +358,7 @@ class Hostelbookers_api extends CI_Model {
             $total_time = ($response_time - $request_time) * 1000;
             $total_time = floor($total_time);
             $total_time = $total_time . " ms ";
-            $this->custom_log->log("audit", 'HB API getLocationAvailabilityCheapRoom ' . $total_time);
+            $this->custom_log->log("audit", 'HB API getPropertyAvailability5 ' . $total_time);
             if ($this->tracing) {
                 log_message('debug', "last API response " . $this->hbapi->__getLastResponse());
             }
@@ -388,7 +388,7 @@ class Hostelbookers_api extends CI_Model {
             $total_time = ($response_time - $request_time) * 1000;
             $total_time = floor($total_time);
             $total_time = $total_time . " ms ";
-            $this->custom_log->log("audit", 'HB API getPropertyPricingPerDate ' . $total_time);
+            $this->custom_log->log("audit", 'HB API getPropertyPricing2 ' . $total_time);
             if ($this->tracing) {
                 log_message('debug', "last API response " . $this->hbapi->__getLastResponse());
             }
@@ -449,7 +449,7 @@ class Hostelbookers_api extends CI_Model {
             $total_time = ($response_time - $request_time) * 1000;
             $total_time = floor($total_time);
             $total_time = $total_time . " ms ";
-            $this->custom_log->log("audit", 'HB API getPropertyRoomPricingPerDate ' . $total_time);
+            $this->custom_log->log("audit", 'HB API getPropertyRoomPricing2 ' . $total_time);
             return $return;
         } catch (SoapFault $exception) {
             log_message("Error", __FUNCTION__ . ' error: "' . $exception->faultcode . '" - ' . $exception->faultstring);
@@ -537,7 +537,7 @@ class Hostelbookers_api extends CI_Model {
             $booking_object->addChild("chargeBookingFee", "true");
         } else {
             $booking_object->addChild("chargeBookingFee", "false");
-        }     
+        }
         $booking_object->addChild("property", $property_number);
         $booking_object->addChild("arrivalDate", $dateStart);
         $booking_object->addChild("arrivalTime", "$arrival_time:00:00");
