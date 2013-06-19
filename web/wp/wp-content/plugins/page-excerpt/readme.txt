@@ -3,8 +3,8 @@ Contributors: jkmassel
 Donate link: http://masseltech.com/donate/
 Tags: excerpt, page, page excerpt, advanced options, CMS, content management
 Requires at least: 2.6
-Tested up to: 3.1
-Stable tag: 1.2
+Tested up to: 3.5.1
+Stable tag: 1.3
 
 This plugin adds the same functionality of the excerpt feature in posts to pages.
 
@@ -21,6 +21,10 @@ This plugin adds the same functionality of the excerpt feature in posts to pages
 
 
 == Changelog ==
+
+= 1.3=
+* Verified 3.5.1 Compatibility
+* Updated Screenshot
 
 = 1.2 =
 * Fixes a bug in v 1.1
