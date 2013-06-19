@@ -1,5 +1,5 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').show();" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').hide();">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
 	{{#Geo}}
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 
-				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; display: none">
+				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; visibility:hidden">
 					<?php if ($this->config->item('displaySaveProperty')) { ?>
 					<div style="width: 250px; float: left; margin; 0">
 						<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
@@ -213,7 +213,9 @@
 						<span>
 							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{overall_rating}}%</span>
 							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}">{{rating}}</strong>
-							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Overall evaluation'); ?></span>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"{{#isRatingsEmpty}} style="color: #000"{{/isRatingsEmpty}}>
+								<?php echo _('Overall evaluation'); ?>
+							</span>
 						</span>
 					{{/display_alternate_rating}}
 				{{/overall_rating}}
@@ -255,7 +257,7 @@
 				</div>
 			</div>
 
-			<div class="prices_toggle" style="display:none">
+			<div class="prices_toggle" style="visibility:hidden">
 				<a style="display: block;" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); $("#prices_border_{{propertyNumber}}").hide(); return false;'>
 					<img src="<?php echo site_url('/images/V2/icon_sort_down.png') ?>" />
 					<?php echo _('Show prices'); ?>
@@ -270,7 +272,7 @@
 			<div class="prices_border" style="display: none" id="prices_border_{{propertyNumber}}"></div>
 		</div>
 
-		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none">
+		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none; margin-top: 3px">
 			<!-- <h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3> -->
 			<!-- <div class="amenities group no-indent">
 				{{#amenities}}

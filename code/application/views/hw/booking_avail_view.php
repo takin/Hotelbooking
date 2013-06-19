@@ -1150,7 +1150,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
         tracking: true,
-        topOffset: 10
+        topOffset: 20
     });
 
     $('a.ajaxTable').cluetip({
@@ -1163,7 +1163,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
         tracking: true,
-        topOffset: 10
+        topOffset: 20
     });
 
     $(function() {
@@ -1367,7 +1367,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
             positionBy: 'bottomTop',
             cluetipClass: 'mcweb',
             tracking: true,
-            topOffset: 10
+            topOffset: 20
         });
 
     });

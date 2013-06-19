@@ -1053,7 +1053,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
         tracking: true,
-        topOffset: 10
+        topOffset: 30
     });
     
     $('a.ajaxTable').cluetip({
@@ -1066,7 +1066,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
         tracking: true,
-        topOffset: 10
+        topOffset: 30
     });
 
     $(function(){$("#booking-table").show();});
@@ -1238,7 +1238,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
             positionBy: 'bottomTop',
             cluetipClass: 'mcweb',
             tracking: true,
-            topOffset: 10
+            topOffset: 30
         });
             
     });
