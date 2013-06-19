@@ -969,7 +969,7 @@ background-image:         linear-gradient(to bottom, #F5F7EF, #EAF0DE);
 	clear: none;
 	color:black;
 	display:block;
-	margin:4px auto 3px 35px;
+	margin:3px auto 2px 35px;
 }
 
 .city_hostel{}
@@ -2612,6 +2612,9 @@ text-align: -webkit-center;
         color: #999999;
      }
      
+.city_hostel_districts_values .content, .city_hostel_landmarks_values .content {
+	text-align: justify !important;
+}
 /*  End districts and landmarks in city page */
 
 /* start districts and landmarks in  hostel page */
@@ -3192,9 +3195,32 @@ width: 275px;}
 
 #property_list .box_content {
 	padding: 0 !important;
+	min-height: 175px;
 }
 
 #property_list .box_content .city_hostel {
 	padding: 10px;
 	padding-bottom: 0;
+}
+
+#property_list .city_hostel_landmarks {
+	overflow: hidden;
+	height: 25px;
+}
+
+#property_list .city_hostel_districts {
+	overflow: hidden;
+	height: 13px;
+}
+
+#property_list .show_more {
+	float: right;
+	margin-top: 12px;
+	margin-right: 29px;
+	color: #3087C9;
+	cursor: pointer;
+}
+
+#property_list .show_more_districts {
+	margin-top: 0;
 }
