@@ -886,3 +886,6 @@
 <?php echo _('You can filter the results based how close there are to specific landmarks, train stations and airports');?>
 <?php echo _('Click here to view pricing for this property');?>
 <?php echo _('Overall evaluation');?>
+<?php echo _('The benefits');?>
+<?php echo _('Click here to see info and prices');?>
+<?php echo _('Save this property as favorite');?>
