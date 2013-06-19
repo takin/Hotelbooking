@@ -595,7 +595,7 @@ echo $privateRoomsCluetipTable;
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
 
     $('a.privateTable').cluetip({
@@ -607,7 +607,7 @@ echo $privateRoomsCluetipTable;
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
 
     $('a.sharedTable').cluetip({
@@ -619,7 +619,7 @@ echo $privateRoomsCluetipTable;
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
 
     $('table.sharedTable').each(function() {
@@ -787,7 +787,7 @@ echo $privateRoomsCluetipTable;
             sticky: false,
             positionBy: 'bottomTop',
             cluetipClass: 'mcweb',
-            topOffset: 10
+            topOffset: 30
         });
 
     });
