@@ -273,67 +273,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                     <?php printf( '<span id="city_results_numnights" class="top_search_result">'.gettext('Nombre de Nuits: %s').'</span>', '<span id="city_results_numnights_selected">'.$numnights_selected.'</span>');?>
                     <a id="change-dates" href="#" class="top_search_result">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
-<!--				<a href="#" id="city_map_show_2" class="view_map"><?php echo _("Voir la carte");?></a>-->
-				<!--<a href="#" id="city_map_hide" class="view_map"><?php echo _("Close Map");?></a>-->
-                       <?php // if(isset($city_info->city_geo_lat)) { ?>
-                        <?php
-//                            $filterBy_flag = "both";
-//                            $span_style = null;
-//                             if ( empty($city_landmarks) && empty($city_districts) ) {
-//
-//                                 $filterBy_flag = "none";
-//                             }
-//                             elseif ( empty($city_landmarks) ) {
-//                                  $filterBy_flag = "districts";
-//                                  $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-//                             }
-//                             elseif ( empty($city_districts) ) {
-//                                  $filterBy_flag = "landmarks";
-//                                   $span_style = 'style="margin-left: 0px; padding-left: 30px;"';
-//                             }?>
-                        <?php // if ($filterBy_flag !== "none") { ?>
-<!--                            <div id="map_filter_button" class="box_content map_button_box box_round">
-                                <a id="city_map_filter" href="#">
-                                    <span><strong <?php echo $span_style; ?>>-->
-                                            <?php
-//                                            switch ($filterBy_flag) {
-//                                                case "districts":
-//                                                    echo _("Filter by Districts");
-//
-//                                                    break;
-//                                                case "landmarks":
-//                                                    echo _("Filter by Landmarks");
-//
-//                                                    break;
-//                                                default:
-//                                                    echo _("Filter by Districts or Landmarks");
-//                                                    break;
-//                                            }
-                                            ?>
-<!--                                        </strong></span>
-                                    <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat; ?>,<?php echo $city_info->city_geo_lng; ?>&zoom=10&size=275x80&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>" />
-                                </a>
-                            </div>-->
-                        <?php // }
-//                        else{ ?>
-<!--                      <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#city_results_count").css({'height' : '15px'});
-                            $(".top_search_result").css({'line-height' : 0});
-                        });
-                     </script>      -->
-                       <?php //}
-                        ?>
-                    <?php //} ?>
-			</div>
-    <?php $this->load->view('includes/city_search_box',array(
-        'date_selected'         => $date_selected, 
-        'current_view'          => $current_view,
-        'numnights_selected'    => $numnights_selected,
-        'bc_continent'          => $bc_continent,
-        'bc_country'            => $bc_country,
-        'bc_city'               => $bc_city));
-	?>
+		  </div>
                        <a href="#" id="city_map_hide" class="view_map"
                           title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
                          <span id ="close_map_button"> </span>
@@ -379,8 +319,6 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					</div>
 				</li>
 
-				<!-- <li class="inputs"><input type="checkbox" class="checkbox" id="downtown_2nd_filter" value="" name="downtown_2nd_filter" />
-					<span class="icon_landmark"><?php echo _("Only downtown");?></span></li> -->
 				</ul>
 
 			</nav>
