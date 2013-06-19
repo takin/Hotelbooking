@@ -4,7 +4,7 @@ Plugin Name: Page Excerpt
 Plugin URI: http://masseltech.com/plugins/page-excerpt/
 Description: Adds support for page excerpts - uses WordPress code
 Author: Jeremy Massel
-Version: 1.2
+Version: 1.3
 Author URI: http://www.masseltech.com/
 */
 

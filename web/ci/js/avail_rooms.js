@@ -86,8 +86,7 @@ function showPropertyRatings() {
 		$('#prop_tab_box_' + number).find('.displaySaveProperty').hide();
 		$('#prop_tab_box_' + number).find('.address').hide();
 		$('#prop_tab_box_' + number).find('.amenities').hide();
-		$('#prop_tab_box_' + number).find('.city_hostel_landmarks').hide();
-		$('#prop_tab_box_' + number).find('.city_hostel_districts').hide();
+		$('#prop_tab_box_' + number).find('.city_hostel_districts_landmarks_zone').hide();
 		$('#prop_tab_box_' + number).find('.amenities_included').hide();
 
 		$('#property_ratings_' + number).show();
@@ -104,8 +103,7 @@ function showPropertyRatings() {
 		$('#prop_tab_box_' + number).find('.displaySaveProperty').show();
 		$('#prop_tab_box_' + number).find('.address').show();
 		$('#prop_tab_box_' + number).find('.amenities').show();
-		$('#prop_tab_box_' + number).find('.city_hostel_landmarks').show();
-		$('#prop_tab_box_' + number).find('.city_hostel_districts').show();
+		$('#prop_tab_box_' + number).find('.city_hostel_districts_landmarks_zone').show();
 		$('#prop_tab_box_' + number).find('.amenities_included').show();
 
 		$('#property_ratings_' + obj.attr('rel')).hide();
@@ -115,6 +113,8 @@ function showPropertyRatings() {
 $(document).ready(function() {
 	showPropertyRatings();
 
-	var freeHtml = $('.free').html();
-	$(freeHtml).prependTo('#property_list .icon_facility_extra3');
+	if ($('.free').length) {
+		var freeHtml = $('.free').html();
+		$(freeHtml).prependTo('#property_list .icon_facility_extra3');
+	}
 });

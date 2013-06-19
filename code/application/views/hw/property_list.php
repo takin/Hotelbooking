@@ -50,7 +50,7 @@ else
 				if(!empty($main_services[(int)$hostel->propertyNumber]))
 				{
 				  ?>
-				  <div class="amenities group">
+				  <div class="amenities group" style="float: right; width: 380px">
 				  <?php
 				  foreach($main_services[(int)$hostel->propertyNumber] as $service)
 				  {

@@ -4,12 +4,13 @@ $(document).ready(function(){
 		$("#" + rowid).fadeOut("slow");    
 	});
 
-	$('.close_btn').live('click', function() {
+	$('.closeCompareProperty_btn').live('click', function() {
 		var procloseid = parseInt($(this).attr('id')) + 1;
 
 		$("#quick_com_data th:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#quick_com_data td:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#map_td").removeClass("hiddencolumn");
+                pweb_filter.updateMarkers("compare_property");
 	});
 
 	$('.restore').click(function() { 

@@ -1,17 +1,37 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').show();" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').hide();">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
 	{{#Geo}}
 		<input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
 		<input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
 	{{/Geo}}
-
+        <div id="map_InfoWindow_{{propertyNumber}}" class="map_InfoWindow"  style="display: none;">
+        <div class="mapbubble">
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');">
+                  {{#PropertyImages}}
+                  <img class="alignleft" alt="{{propertyName}}" 
+                                          src="{{#PropertyImage}}{{imageThumbnailURL}}{{/PropertyImage}}" />
+                  {{/PropertyImages}}
+                </a>
+                <h2>
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');">{{propertyName}}</a>
+                </h2>
+                <p class="price">
+                <?php echo _('à partir de'); ?><span> {{display_price_formatted}}</span> {{display_currency}}
+                {{#overall_rating}}
+                 - <?php echo _("évaluation moyenne"); ?> {{overall_rating}}%
+                {{/overall_rating}}
+                </p>
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');" class="more-info"><?php echo _("Plus d'information"); ?> &raquo;</a>
+                <div class="clear"></div>
+        </div>
+    </div>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}" style="padding-bottom: 0">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-					<div id="{{propertyNumber}}" class="picture_number">0</div>
+					<div id="picture_number_{{propertyNumber}}" class="picture_number">0</div>
 					<a href="{{property_page_url}}" style="position:relative;">
 						{{#PropertyImages}}
 							<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
@@ -64,19 +84,27 @@
 					{{/safety80}}
 				</div>
 
-				<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
-					<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
-					<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">{{#districts}}{{district_name}}, {{/districts}}</span>
+				<div class="city_hostel_districts_landmarks_zone">
+					<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
+						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
+						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">
+							<span class="show_more show_more_districts" title="<?php echo _('Districts'); ?>|{{#districts}}{{district_name}}, {{/districts}}"><strong>+</strong></span>
+							<span class="content">{{#districts}}{{district_name}}, {{/districts}}</span>
+						</span>
+					</div>
+
+					<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
+						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
+						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">
+							<span class="show_more show_more_landmarks" title="<?php echo _('Landmarks (within 2km)'); ?>|{{#landmarks}}{{translation_name}}, {{/landmarks}}"><strong>+</strong></span>
+							<span class="content">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+						</span>
+					</div>
 				</div>
 
-				<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
-					<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
-					<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
-				</div>
-
-				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; display: none">
+				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; visibility:hidden">
 					<?php if ($this->config->item('displaySaveProperty')) { ?>
-					<div style="width: 250px; float: left; margin; 0">
+					<div style="width: 250px; float: left; margin: 0;">
 						<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
 							<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 							<?php echo _('Add to my favorites'); ?>
@@ -205,7 +233,9 @@
 						<span>
 							<span class="yellow-bg showRatings" rel="{{propertyNumber}}">{{overall_rating}}%</span>
 							<strong class="txt-mid green showRatings" rel="{{propertyNumber}}">{{rating}}</strong>
-							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"><?php echo _('Overall evaluation'); ?></span>
+							<span class="averageRatingCaption showRatings<?php echo $extraCaptionClass; ?>" rel="{{propertyNumber}}"{{#isRatingsEmpty}} style="color: #000"{{/isRatingsEmpty}}>
+								<?php echo _('Overall evaluation'); ?>
+							</span>
 						</span>
 					{{/display_alternate_rating}}
 				{{/overall_rating}}
@@ -247,7 +277,7 @@
 				</div>
 			</div>
 
-			<div class="prices_toggle" style="display:none">
+			<div class="prices_toggle" style="visibility:hidden">
 				<a style="display: block;" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); $("#prices_border_{{propertyNumber}}").hide(); return false;'>
 					<img src="<?php echo site_url('/images/V2/icon_sort_down.png') ?>" />
 					<?php echo _('Show prices'); ?>
@@ -262,7 +292,7 @@
 			<div class="prices_border" style="display: none" id="prices_border_{{propertyNumber}}"></div>
 		</div>
 
-		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none">
+		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none; margin-top: 3px">
 			<!-- <h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3> -->
 			<!-- <div class="amenities group no-indent">
 				{{#amenities}}
