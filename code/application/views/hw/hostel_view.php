@@ -752,6 +752,8 @@ if ($api_error == false) {
         <div class="content_block">
             <h2><?php echo _("Cartes"); ?></h2>
             <?php
+              $checked = "";
+              $districtChecked = false;
             if (is_array($district_info) && !empty($district_info)) {
                 ?>
                 <div id="hostel_mapView_districts" class="hostel_mapView_districts">
@@ -759,18 +761,22 @@ if ($api_error == false) {
                         <span class="mapView_districtWord"><?php echo _('Districts'); ?>:</span>
 
                         <?php
+                      
                         foreach ($district_info as $key => $district) {
-                            $checked = "";
-
+                            
                             if ($key == 0) {
                                 $checked = "checked";
+                                $districtChecked = true;
                             }
                             ?>
-                            <input type="radio" id="distrinct" name="distrinct" <?php echo $checked; ?>
+                            <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
                                    value="<?php echo $district->um_id; ?>"
-                                   onchange="changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
+                                   onchange="ClearlandmarkAndDistrict(); changeDistrictLayer(<?php echo $district->um_id; ?>);"><?php echo $district->district_name; ?>
 
-                        <?php }//end Foreach  ?>
+                        <?php 
+                            }//end Foreach  
+                            $checked = "";
+                            ?>
                     </p>
                 </div>
             <?php }// end if  ?>
@@ -785,15 +791,15 @@ if ($api_error == false) {
 
                         <?php
                         foreach ($landmarks as $key => $landmark) {
-                            $checked = "";
-
-                            if ($key == 0) {
-                                $checked = "checked";
+                            if ($districtChecked === false) {                            
+                                if ($key == 0) {
+                                    $checked = "checked";
+                                }
                             }
                             ?>
-                            <input type="radio" id="landmark" name="landmark" <?php echo $checked; ?>
+                            <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
                                    value="<?php echo $landmark->geo_latitude . "###" . $landmark->geo_longitude; ?>"
-                                   onchange="changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "###" . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "###" . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
 
                         <?php }//end Foreach   ?>
                     </p>
