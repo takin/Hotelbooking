@@ -1505,7 +1505,7 @@ class CMain extends I18n_site {
             $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
                 "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
                 "â€”", "â€“", ",", "<", ".", ">", "/", "?");
-            $clean = trim(str_replace($strip, "", strip_tags($string)));
+            $clean = trim(str_replace($strip, "-", strip_tags($string)));
             $clean = preg_replace('/\s+/', "-", $clean);
             $clean = preg_replace("/[^a-zA-Z0-9]/", "", $clean);
 
@@ -1514,11 +1514,10 @@ class CMain extends I18n_site {
             $temp_dir = empty($temp_dir) ? '/tmp' : $this->config->item('temp_dir');
 
             $temp_dir = rtrim($temp_dir, '/') . '/dir_' . uniqid();
-
             // make the temp dir	
-            mkdir($temp_dir, 0700);
+            mkdir($temp_dir, 0777);
 
-            $pdf_path = $temp_dir . '/' . $string . '.pdf';
+            $pdf_path = $temp_dir . '/' . $clean . '.pdf';
 
             $cookie_append = '';
             $append = '';
