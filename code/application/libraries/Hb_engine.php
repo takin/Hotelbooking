@@ -552,14 +552,6 @@ class Hb_engine {
 
 //    debug_dump($data['property_list']);
 
-        $userdata = array(
-            'country_selected' => $country_select,
-            'city_selected' => $city_select,
-            'date_selected' => $dateStart,
-            'numnights_selected' => $numNights
-        );
-
-        $this->CI->session->set_userdata($userdata);
         //Sets cookies so we could access this from wordpress environment
         $cookie = array('name' => 'country_selected',
             'value' => $country_select,

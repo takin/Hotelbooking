@@ -429,7 +429,7 @@ class Hw_engine {
 /*
                   $api = $this->CI->Hostel_api_model->PropertyInformation($this->CI->config->item('hostelworld_userID'), (int)$hostel->propertyNumber, $this->api_functions_lang);
                   $propInfoData = $api[0]==true ? array() : $this->CI->Hw_api_translate->translate_PropertyInformation($api[1][0]);
-       
+
                   $PropertyImages = empty($propInfoData) ? array() : $propInfoData->PropertyImages;
                   if (!empty($PropertyImages)) {
                       $PropertyImages = xmlobj2arr($PropertyImages);
@@ -540,14 +540,6 @@ class Hw_engine {
 
       }
     }
-    $userdata = array(
-                 'country_selected'  => $country,
-                 'city_selected'     => $city,
-                 'date_selected'     => $dateStart,
-                 'numnights_selected'     => $numNights
-             );
-
-    $this->CI->session->set_userdata($userdata);
     //Sets cookies so we could access this from wordpress environment
     $this->CI->load->helper('cookie');
     $cookie = array('name'   => 'country_selected',
@@ -932,7 +924,7 @@ class Hw_engine {
       $data['availability_check'] = true;
       $data['google_map_enable']  = true;
       $data['google_map_address']  = $data['hostel_data']->address1.", ".$data['hostel_data']->city.", ".$data['hostel_data']->country.", ".$data['hostel_data']->postCode;
-      
+
       $data['bc_continent']  = $this->CI->Db_country->get_continent_of_country($data['hostel_data']->country,$this->CI->site_lang);
       if(is_null($data['bc_continent']))
       {
@@ -951,12 +943,12 @@ class Hw_engine {
       $data['hostel']->property_name          = (string) $property_name;
       $data['hostel']->property_type          = (string)$data['hostel_data']->propertyType;
       $data['hostel']->rating                 = $this->CI->Db_hw_rating->get_hw_rating($data['hostel_data']->propertyNumber);
-      $data['hostel']->PropertyImages         = $data['hostel_data']->PropertyImages;      
+      $data['hostel']->PropertyImages         = $data['hostel_data']->PropertyImages;
       $data['hostel']->geolatitude            = 0;
       $data['hostel']->geolongitude           = 0;
 
       if(( floatval($data['hostel_data']->Geo->Latitude) != 0) && ( floatval($data['hostel_data']->Geo->Longitude) != 0))
-      {  
+      {
         $data['google_map_geo_latlng'] = $data['hostel_data']->Geo->Latitude .", " . $data['hostel_data']->Geo->Longitude ;
         $data['hostel']->geolatitude             = (string) $data['hostel_data']->Geo->Latitude;
         $data['hostel']->geolongitude            = (string) $data['hostel_data']->Geo->Longitude;
@@ -975,7 +967,7 @@ class Hw_engine {
                     }
                 }
             }
-            
+
       if(!empty($data['hostel']->PropertyImages))
       {
         $data['hostel']->PropertyImages = xmlobj2arr($data['hostel_data']->PropertyImages);
