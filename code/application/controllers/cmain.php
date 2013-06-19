@@ -918,7 +918,7 @@ class CMain extends I18n_site {
                     $this->carabiner->js('property_quickview.js?v=' . time());
                     $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                     $this->carabiner->js('save_property.js?v='. time());
-                    $this->carabiner->js('pweb/libs/GoogleMap.js');
+                    $this->carabiner->js('pweb/libs/GoogleMap.js?v=' . time());
                     $this->carabiner->js('properties_compare.js');
                     $this->carabiner->js('compare_property.js');
 
@@ -983,7 +983,7 @@ class CMain extends I18n_site {
                         $this->carabiner->js('property_quickview.js?v=' . time());
                         $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
                         $this->carabiner->js('save_property.js?v=' . time());
-                        $this->carabiner->js('pweb/libs/GoogleMap.js');
+                        $this->carabiner->js('pweb/libs/GoogleMap.js?v=' . time());
                         $this->carabiner->js('properties_compare.js');
                         $this->carabiner->js('compare_property.js');
 
@@ -1116,7 +1116,7 @@ class CMain extends I18n_site {
             $this->carabiner->js('property_quickview.js?v=' . time());
             $this->carabiner->js('pweb/jlibs/GroupCheckBoxes.js');
             $this->carabiner->js('pweb-mapping/PropertyFilters.js?v=' . time());
-            $this->carabiner->js('pweb/libs/GoogleMap.js');
+            $this->carabiner->js('pweb/libs/GoogleMap.js?v=' . time());
 			$this->carabiner->js('properties_compare.js');
 		    $this->carabiner->js('compare_property.js');
 
@@ -1515,7 +1515,7 @@ class CMain extends I18n_site {
             $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
                 "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
                 "â€”", "â€“", ",", "<", ".", ">", "/", "?");
-            $clean = trim(str_replace($strip, "", strip_tags($string)));
+            $clean = trim(str_replace($strip, "-", strip_tags($string)));
             $clean = preg_replace('/\s+/', "-", $clean);
             $clean = preg_replace("/[^a-zA-Z0-9]/", "", $clean);
 
@@ -1524,11 +1524,10 @@ class CMain extends I18n_site {
             $temp_dir = empty($temp_dir) ? '/tmp' : $this->config->item('temp_dir');
 
             $temp_dir = rtrim($temp_dir, '/') . '/dir_' . uniqid();
-
             // make the temp dir	
-            mkdir($temp_dir, 0700);
+            mkdir($temp_dir, 0777);
 
-            $pdf_path = $temp_dir . '/' . $string . '.pdf';
+            $pdf_path = $temp_dir . '/' . $clean . '.pdf';
 
             $cookie_append = '';
             $append = '';
@@ -2306,14 +2305,15 @@ class CMain extends I18n_site {
 */
     function ajax_compare_property($pro_id) {
         $prodIds = explode(",", $pro_id);
-
+        $map_data = $this->get_property_details($pro_id);
+        
         $filter_array = array();
         $data = array();
         $property_extra = array();
         $property_feature = array();
         $property_facelity = array();
 
-        foreach ($prodIds as $property_number) {
+        foreach ($prodIds as $key => $property_number) {
             if ($this->api_used == HB_API) {
                 $this->load->library('hb_engine');
 
@@ -2323,6 +2323,8 @@ class CMain extends I18n_site {
                 $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
                 $hostelData['property_number'] = $property_number;
                 $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
+                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
 
                 if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
                     foreach ($hostelData['property_ratings'] as $type => $val) {
@@ -2376,7 +2378,9 @@ class CMain extends I18n_site {
                 $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
                 $hostelData['rating']        = $hostelData['hostel']->rating;
                 $hostelData['property_number'] = $property_number;
-
+                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                
                 if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
                     $i = 0;
                     foreach ($hostelData['hostel']->facilitiesTranslated as $facility) {
@@ -2397,7 +2401,7 @@ class CMain extends I18n_site {
         }
 
         $jsondata = array();
-        $jsondata['map_data'] = $this->get_property_details($pro_id);
+        $jsondata['map_data'] = $map_data;
         $jsondata['html'] = $this->load->view("compare_property", array(
             'compare_data'      => $data,
             'property_extra'    => $property_extra,

@@ -1,17 +1,37 @@
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup" rel="{{propertyNumber}}" onmouseover="GoogleMap.prototype.changeMarkerIcon($(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="GoogleMap.prototype.changeMarkerIcon($(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="$('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
 	{{#Geo}}
 		<input type="hidden" value="{{Latitude}}" id="input_geo_latitude_{{propertyNumber}}" class="input_geo_latitude" name="input_geo_latitude_{{propertyNumber}}" />
 		<input type="hidden" value="{{Longitude}}" id="input_geo_longitude_{{propertyNumber}}" class="input_geo_longitude" name="input_geo_longitude_{{propertyNumber}}" />
 	{{/Geo}}
-
+        <div id="map_InfoWindow_{{propertyNumber}}" class="map_InfoWindow"  style="display: none;">
+        <div class="mapbubble">
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');">
+                  {{#PropertyImages}}
+                  <img class="alignleft" alt="{{propertyName}}" 
+                                          src="{{#PropertyImage}}{{imageThumbnailURL}}{{/PropertyImage}}" />
+                  {{/PropertyImages}}
+                </a>
+                <h2>
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');">{{propertyName}}</a>
+                </h2>
+                <p class="price">
+                <?php echo _('à partir de'); ?><span> {{display_price_formatted}}</span> {{display_currency}}
+                {{#overall_rating}}
+                 - <?php echo _("évaluation moyenne"); ?> {{overall_rating}}%
+                {{/overall_rating}}
+                </p>
+                <a href="{{property_page_url}}" onclick="window.location.assign('{{property_page_url}}');" class="more-info"><?php echo _("Plus d'information"); ?> &raquo;</a>
+                <div class="clear"></div>
+        </div>
+    </div>
 	<div class="box_content box_round ui-tabs" id="prop_box_{{propertyNumber}}" style="padding-bottom: 0">
 		<div class="city_hostel group" id="city_info_{{propertyNumber}}">
 			<div class="info">
 				<div class="left info_pic">
-					<div id="{{propertyNumber}}" class="picture_number">0</div>
+					<div id="picture_number_{{propertyNumber}}" class="picture_number">0</div>
 					<a href="{{property_page_url}}" style="position:relative;">
 						{{#PropertyImages}}
 							<img alt="" src="{{#PropertyImage}}{{imageListURL}}{{/PropertyImage}}" />
@@ -84,7 +104,7 @@
 
 				<div class="info_indent displaySaveProperty" style="clear: both; margin-top: 10px; visibility:hidden">
 					<?php if ($this->config->item('displaySaveProperty')) { ?>
-					<div style="width: 250px; float: left; margin; 0">
+					<div style="width: 250px; float: left; margin: 0;">
 						<a href="#" class="save_to_favorites" id="save_to_favorites_{{propertyNumber}}" style="vertical-align: middle; {{#savedToFavorites}}display: none;{{/savedToFavorites}}" rel="{{propertyName}}" title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
 							<img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png" />
 							<?php echo _('Add to my favorites'); ?>

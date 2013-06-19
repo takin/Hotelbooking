@@ -33,14 +33,14 @@
 			{{#allAmenities}}
 				{{#to_display}}
 					<span class="icon_facility icon_facility_{{facility_id}} group">
-                        			<span>{{description}}</span>
+                        			<span class="description">{{description}}</span>
                     			</span>
 				{{/to_display}}
 			{{/allAmenities}}
 
 			{{#landmarks}}
 				{{#to_display}}
-					<span class="icon_facility icon_landmark group"><span>{{landmark_name}}</span></span>
+					<span class="icon_facility icon_landmark group"><span class="landmark_name">{{landmark_name}}</span></span>
 				{{/to_display}}
 			{{/landmarks}}
 
@@ -66,9 +66,6 @@
 		</div>
 
 		<div class="top-map-left">
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/quick_view.css?v=<?php echo time(); ?>" media="all" />
-			<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>css/jquery.ad-gallery.css?v=<?php echo time(); ?>" media="all" />
-	
 			<div id="gallery" class="ad-gallery">
 				<div class="ad-image-wrapper"></div>
 
@@ -114,7 +111,7 @@
 									<b><span class="mapView_districtWord"><?php echo _('Districts');?>:</span></b>
 									{{#districts}}
 										<p>
-											<input type="radio" name="distrinct_landmark" value="{{um_id}}" onchange="GoogleMap.clearDistrictLandmark(); GoogleMap.prototype.changeDistrictLayer('{{um_id}}'); GoogleMap.setZoom(12)">
+											<input type="radio" name="distrinct_landmark" value="{{um_id}}" onchange="GoogleMap.clearDistrictLandmark(); pweb_filter.changeDistrictLayer( 'hostel_quickview','{{um_id}}');">
 											{{district_name}}
 										</p>
 									{{/districts}}
@@ -130,7 +127,7 @@
 									<b><span class="mapView_districtWord"><?php echo _('Landmarks (within 2km)');?>:</span></b>
 									{{#landmarks}}
 										<p>
-											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}}###{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); GoogleMap.prototype.changeLandmarkLayer('{{geo_latitude}}###{{geo_longitude}}'); GoogleMap.setZoom(12);">
+											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}}###{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); pweb_filter.changeLandmarkLayer('hostel_quickview','{{geo_latitude}}###{{geo_longitude}}');">
 											{{translation_name}}
 										</p>
 									{{/landmarks}}

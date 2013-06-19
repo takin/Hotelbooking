@@ -4,12 +4,13 @@ $(document).ready(function(){
 		$("#" + rowid).fadeOut("slow");    
 	});
 
-	$('.close_btn').live('click', function() {
+	$('.closeCompareProperty_btn').live('click', function() {
 		var procloseid = parseInt($(this).attr('id')) + 1;
 
 		$("#quick_com_data th:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#quick_com_data td:nth-child(" + procloseid + ")").removeClass("control_button").addClass("hiddencolumn");
 		$("#map_td").removeClass("hiddencolumn");
+                pweb_filter.updateMarkers("compare_property");
 	});
 
 	$('.restore').click(function() { 
@@ -52,7 +53,7 @@ $(function() {
 
 function printdiv(printpageId) {
 	var printpage  = $('#printpage');
-	var map_canvas = $('#map_canvas');
+	var map_canvas_compareProperty = $('#map_canvas_compareProperty');
 	var static_map = $('#static_map');
 
 	printpage.css("display","none");
@@ -66,7 +67,7 @@ function printdiv(printpageId) {
 		latlon = 'markers=icon:' + img_url + '|' + markers_data[i].Geo.Latitude + ',' + markers_data[i].Geo.Longitude;   
 	}
 
-	$('#map_canvas').css({
+	$('#map_canvas_compareProperty').css({
 		display : 'none',
 		width   : '',
 		height  : ''
@@ -89,7 +90,7 @@ function printdiv(printpageId) {
 	myWindow.focus();
 	myWindow.print();
 
-	map_canvas.css({display:'block',width :'800',height :'350'});
+	map_canvas_compareProperty.css({display:'block',width :'800',height :'350'});
 	static_map.css({display:'none',width :'',height :''});
 	myWindow.close();
 }

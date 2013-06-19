@@ -117,13 +117,32 @@ if ($api_error == false) {
                 if ($i == ($numNights - 1)) {
                     $sharedRoomsCluetipTable .= "<th class='last'>";
                 } else {
-                    $sharedRoomsCluetipTable .= "<th>";
+                    if (floor($numNights / 2) - 1) {
+                        $sharedRoomsCluetipTable .= "<th class='last'>";
+                    } else {
+                        $sharedRoomsCluetipTable .= "<th>";
+                    }
                 }
 
                 $sharedRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $_date->format('U')), 0, 3, 'UTF-8'));
                 $sharedRoomsCluetipTable .= strftime("<br /> %d", $_date->format('U'));
-                $_date->modify("+1 day");
                 $sharedRoomsCluetipTable .= "</th>";
+
+                if ($numNights > 13) {
+                    if ($i == floor($numNights / 2)) {
+                        $sharedRoomsCluetipTable .= "</tr><tr>";
+                    }
+                }
+                $_date->modify("+1 day");
+            }
+
+            if ($numNights > 13) {
+                if ($numNights % 2 != 0) {
+                    $sharedRoomsCluetipTable .= "<th class='last'></th>";
+                } else {
+                    $sharedRoomsCluetipTable .= "<th></th>";
+                    $sharedRoomsCluetipTable .= "<th class='last'></th>";
+                }
             }
 
             $sharedRoomsCluetipTable .= "</tr><tr>";
@@ -185,7 +204,17 @@ if ($api_error == false) {
                 if ($i == 0) {
                     $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
                 } else {
-                    $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    if ($i == floor($numNights / 2) + 1) {
+                        $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    } else {
+                        $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    }
+                }
+
+                if ($numNights > 13) {
+                    if ($i == floor($numNights / 2)) {
+                        $sharedRoomsCluetipTable .= "</tr><tr>";
+                    }
                 }
 
                 $date->modify("+1 day");
@@ -348,6 +377,14 @@ if ($api_error == false) {
             $sharedRoomsTable.= "</td>";
             $sharedRoomsTable.= "</tr>\n";
             $sharedRoomsTableSelect.= "</tr>\n";
+            if ($numNights > 13) {
+                if ($numNights % 2 != 0) {
+                    $sharedRoomsCluetipTable .= "<td class='last'></td>";
+                } else {
+                    $sharedRoomsCluetipTable .= "<td></td>";
+                    $sharedRoomsCluetipTable .= "<td class='last'></td>";
+                }
+            }
             $sharedRoomsCluetipTable.= "</tr></table>";
         }
         $ajaxTableID++;
@@ -394,13 +431,32 @@ if ($api_error == false) {
                 if ($i == ($numNights - 1)) {
                     $privateRoomsCluetipTable .= "<th class='last'>";
                 } else {
-                    $privateRoomsCluetipTable .= "<th>";
+                    if (floor($numNights / 2) - 1) {
+                        $privateRoomsCluetipTable .= "<th class='last'>";
+                    } else {
+                        $privateRoomsCluetipTable .= "<th>";
+                    }
                 }
 
                 $privateRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $_date->format('U')), 0, 3, 'UTF-8'));
                 $privateRoomsCluetipTable .= strftime("<br /> %d", $_date->format('U'));
-                $_date->modify("+1 day");
                 $privateRoomsCluetipTable .= "</th>";
+
+                if ($numNights > 13) {
+                    if ($i == floor($numNights / 2)) {
+                        $privateRoomsCluetipTable .= "</tr><tr>";
+                    }
+                }
+                $_date->modify("+1 day");
+            }
+
+            if ($numNights > 13) {
+                if ($numNights % 2 != 0) {
+                    $privateRoomsCluetipTable .= "<th class='last'></th>";
+                } else {
+                    $privateRoomsCluetipTable .= "<th></th>";
+                    $privateRoomsCluetipTable .= "<th class='last'></th>";
+                }
             }
 
             $privateRoomsCluetipTable .= "</tr><tr>";
@@ -466,7 +522,17 @@ if ($api_error == false) {
                 if ($i == 0) {
                     $privateRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
                 } else {
-                    $privateRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    if ($i == floor($numNights / 2) + 1) {
+                        $privateRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    } else {
+                        $privateRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                    }
+                }
+
+                if ($numNights > 13) {
+                    if ($i == floor($numNights / 2)) {
+                        $privateRoomsCluetipTable .= "</tr><tr>";
+                    }
                 }
 
                 $date->modify("+1 day");
@@ -616,6 +682,14 @@ if ($api_error == false) {
 
             $privateRoomsTable.= "</tr>\n";
             $privateRoomsTableSelect.= "</tr>\n";
+            if ($numNights > 13) {
+                if ($numNights % 2 != 0) {
+                    $privateRoomsCluetipTable .= "<td class='last'></td>";
+                } else {
+                    $privateRoomsCluetipTable .= "<td></td>";
+                    $privateRoomsCluetipTable .= "<td class='last'></td>";
+                }
+            }
             $privateRoomsCluetipTable .= "</tr></table>";
         }
         $ajaxTableID++;
@@ -894,165 +968,165 @@ if (empty($csspath)) {
 ?>
 
 <?php if (empty($print)) { ?>
-<!-- modal content -->
-<div id="basic-modal-content">
-    <h3 style="color: #6DA903; text-align: center;">
-        <strong>
-            <?php echo _("Confirmation Email Preview"); ?>
-        </strong>
-    </h3>
-    <div style="padding: 10px; border-bottom: solid 5px grey;">
-        <p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath; ?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name'); ?>"/></p>
-    </div>
-    <div style="padding: 10px;">
-        <h3 style="color: #6DA903;"><?php echo _("Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed."); ?></h3>
-    </div>
-    <div style="padding: 10px;">
-        <p><?php echo _('Arrivée'); ?>: <b><?php echo $datetop; ?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?>: <b><?php echo $numNights; ?></b></p>
-    </div>
+    <!-- modal content -->
+    <div id="basic-modal-content">
+        <h3 style="color: #6DA903; text-align: center;">
+            <strong>
+                <?php echo _("Confirmation Email Preview"); ?>
+            </strong>
+        </h3>
+        <div style="padding: 10px; border-bottom: solid 5px grey;">
+            <p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath; ?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name'); ?>"/></p>
+        </div>
+        <div style="padding: 10px;">
+            <h3 style="color: #6DA903;"><?php echo _("Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed."); ?></h3>
+        </div>
+        <div style="padding: 10px;">
+            <p><?php echo _('Arrivée'); ?>: <b><?php echo $datetop; ?></b> &nbsp;&nbsp; <?php echo _('Nombre de Nuits'); ?>: <b><?php echo $numNights; ?></b></p>
+        </div>
 
-    <style type="text/css">
-        table.emailpreview {
-            background: white;
-            color: gray;
-        }
+        <style type="text/css">
+            table.emailpreview {
+                background: white;
+                color: gray;
+            }
 
-        table.emailpreview thead {
-            background: gray;
-            color: white;
-        }
+            table.emailpreview thead {
+                background: gray;
+                color: white;
+            }
 
-        table.emailpreview td {
-            padding: 10px;
-            text-align: center;
-        }
+            table.emailpreview td {
+                padding: 10px;
+                text-align: center;
+            }
 
-        table.emailpreview th {
-            padding: 10px;
-            text-align: center;
-        }
+            table.emailpreview th {
+                padding: 10px;
+                text-align: center;
+            }
 
-    </style>
-    <table id="sharedemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
-        <thead>
-            <tr valign="middle" align="center">
-                <th class="first-cell green-th"><?php echo _('Date'); ?></th>
-                <th class="green-th"><?php echo _('Chambres partagées - Dortoirs'); ?></th>
-                <th class="green-th">
-                    <?php echo _('Prix (lit)'); ?>										
-                </th>
-                <th class="green-th"><?php echo _('Number of guests'); ?></th>
-                <th width="18%" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php echo $sharedreservationTable; ?>
-        </tbody>
-    </table>
+        </style>
+        <table id="sharedemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+            <thead>
+                <tr valign="middle" align="center">
+                    <th class="first-cell green-th"><?php echo _('Date'); ?></th>
+                    <th class="green-th"><?php echo _('Chambres partagées - Dortoirs'); ?></th>
+                    <th class="green-th">
+                        <?php echo _('Prix (lit)'); ?>										
+                    </th>
+                    <th class="green-th"><?php echo _('Number of guests'); ?></th>
+                    <th width="18%" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $sharedreservationTable; ?>
+            </tbody>
+        </table>
 
-    <table id="privateemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
-        <thead>
-            <tr valign="middle" align="center">
-                <th class="first-cell green-th"><?php echo _('Date'); ?></th>
-                <th class="green-th"><?php echo _('Chambres privées'); ?></th>
-                <th class="green-th">
-                    <?php echo _('Prix (lit)'); ?>										
-                </th>
-                <th class="green-th"><?php echo _('Number of guests'); ?></th>
-                <th width="18%" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php echo $privatereservationTable; ?>
-        </tbody>
-    </table> 
+        <table id="privateemailreservationView" class="emailpreview" cellpadding="0" cellspacing="0" style="margin-top: 10px;">
+            <thead>
+                <tr valign="middle" align="center">
+                    <th class="first-cell green-th"><?php echo _('Date'); ?></th>
+                    <th class="green-th"><?php echo _('Chambres privées'); ?></th>
+                    <th class="green-th">
+                        <?php echo _('Prix (lit)'); ?>										
+                    </th>
+                    <th class="green-th"><?php echo _('Number of guests'); ?></th>
+                    <th width="18%" class="last-cell green-th" style="text-align : right;"><?php echo _('Total'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $privatereservationTable; ?>
+            </tbody>
+        </table> 
 
-    <table>  
-        <tr>
-            <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
-                <p align=right style="text-align:right;line-height:18px; font-size:13px;">
-                    <strong>
-                        <?php echo _('Total'); ?>:
-                    </strong>
-                </p>
-            </td>
-            <td width="120" style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
-                <p align=right style="text-align:right;line-height:18px">
-                    <b>
-                        <span style="font-size:10.0pt;">
-                            <?php echo currency_symbol($currency); ?> <span id="totalarrival_email"></span>
-                        </span>
-                    </b>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
-                <p align=right style="text-align:right;line-height:18px">
-                    <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
-                        <?php echo sprintf(gettext('Deposit (%d%%)'), (int) $booking_info->depositPercent); ?>:
-                    </span>
-                </p>
-            </td>
-            <td style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
-                <p align=right style="text-align:right;line-height:18px">
-                    <span style="font-size:12px; color:#2F2F2F">
+        <table>  
+            <tr>
+                <td colspan=4 style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
+                    <p align=right style="text-align:right;line-height:18px; font-size:13px;">
+                        <strong>
+                            <?php echo _('Total'); ?>:
+                        </strong>
+                    </p>
+                </td>
+                <td width="120" style="border:none; color: black; padding:4.5pt 6.75pt 4.5pt 6.75pt">
+                    <p align=right style="text-align:right;line-height:18px">
                         <b>
-                            <?php echo currency_symbol($currency); ?> <span id="totaldeposit_email" style="color: #175291; font-size: 18px;"></span>
-                        </b>    	
-                    </span>
-                </p>
-            </td>
-        </tr>
-    </table>
+                            <span style="font-size:10.0pt;">
+                                <?php echo currency_symbol($currency); ?> <span id="totalarrival_email"></span>
+                            </span>
+                        </b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=4 style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
+                    <p align=right style="text-align:right;line-height:18px">
+                        <span style="font-size:12px;color:#2F2F2F;font-weight:bold;">
+                            <?php echo sprintf(gettext('Deposit (%d%%)'), (int) $booking_info->depositPercent); ?>:
+                        </span>
+                    </p>
+                </td>
+                <td style="background:#eaeff1;border:none;padding:2.25pt 6.75pt 2.25pt 6.75pt">
+                    <p align=right style="text-align:right;line-height:18px">
+                        <span style="font-size:12px; color:#2F2F2F">
+                            <b>
+                                <?php echo currency_symbol($currency); ?> <span id="totaldeposit_email" style="color: #175291; font-size: 18px;"></span>
+                            </b>    	
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-    <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-        <?php echo _("Information sur l'établissement"); ?>:
-    </div>
-    <div style="border: solid 1px gray; padding: 10px;">
-        <div style="padding: 10px;">
-            <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Nom de l'établissement"); ?>:</span>        
-            <span style="padding: 10px; color: #6DA903;">
-                <?php echo $propertyName; ?>
-            </span>
-        </div>            
-        <div style="padding: 10px;">
-            <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Phone number"); ?>:</span>        
-            <span style="padding: 10px; color: #6DA903;">
-                <?php echo _("Provided after reservation"); ?>
-            </span>
+        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+            <?php echo _("Information sur l'établissement"); ?>:
         </div>
-        <div style="padding: 10px;">
-            <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Adresse"); ?>:</span>        
-            <span style="padding: 10px; color: #6DA903;">
-                <?php echo _("Provided after reservation"); ?>
-            </span>
+        <div style="border: solid 1px gray; padding: 10px;">
+            <div style="padding: 10px;">
+                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Nom de l'établissement"); ?>:</span>        
+                <span style="padding: 10px; color: #6DA903;">
+                    <?php echo $propertyName; ?>
+                </span>
+            </div>            
+            <div style="padding: 10px;">
+                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Phone number"); ?>:</span>        
+                <span style="padding: 10px; color: #6DA903;">
+                    <?php echo _("Provided after reservation"); ?>
+                </span>
+            </div>
+            <div style="padding: 10px;">
+                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Adresse"); ?>:</span>        
+                <span style="padding: 10px; color: #6DA903;">
+                    <?php echo _("Provided after reservation"); ?>
+                </span>
+            </div>
+            <div style="padding: 10px;">
+                <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Email"); ?>:</span>        
+                <span style="padding: 10px; color: #6DA903;">
+                    <?php echo _("Provided after reservation"); ?>
+                </span>
+            </div>
+            <div style="padding: 20px; color: #6DA903;">
+                <?php echo _("With full contact information, you will be able to contact the property in case you have any special requests."); ?>
+            </div>
         </div>
-        <div style="padding: 10px;">
-            <span style="padding: 10px; font-weight: bold; color: black;"><?php echo _("Email"); ?>:</span>        
-            <span style="padding: 10px; color: #6DA903;">
-                <?php echo _("Provided after reservation"); ?>
-            </span>
+        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+            <?php echo _("Directions"); ?>:
         </div>
-        <div style="padding: 20px; color: #6DA903;">
-            <?php echo _("With full contact information, you will be able to contact the property in case you have any special requests."); ?>
+        <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
+            <?php echo _("When available, we will provide directions on how to get to the property including public transportation and airport information."); ?>
         </div>
-    </div>
-    <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-        <?php echo _("Directions"); ?>:
-    </div>
-    <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
-        <?php echo _("When available, we will provide directions on how to get to the property including public transportation and airport information."); ?>
-    </div>
 
-    <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
-        <?php echo _("Informations Importantes"); ?>:
-    </div>
-    <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
-        <?php echo _("We will provide all important information to make sure you really enjoy your stay."); ?>
-    </div>
+        <div style="border: solid 1px gray; background: gray; padding: 10px; margin-top: 20px; color: white;">
+            <?php echo _("Informations Importantes"); ?>:
+        </div>
+        <div style="border: solid 1px gray; padding: 30px; color: #6DA903;">
+            <?php echo _("We will provide all important information to make sure you really enjoy your stay."); ?>
+        </div>
 
-</div>
+    </div>
 <?php } ?>
 <br />
 
@@ -1154,7 +1228,7 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
     });
 
     $('a.ajaxTable').cluetip({
-        width: '600px',
+        width: '640px',
         local: true,
         cursor: 'pointer',
         arrows: false,
@@ -1377,6 +1451,12 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
 
     $('table.ajaxTable').each(function() {
         $(this).hide();
+    });
+
+    $('table.ajaxTable').find('tr').each(function() {
+        if ($(this).index() == 2) {
+            $(this).insertBefore($(this).prev());
+        }
     });
 
 </script>
