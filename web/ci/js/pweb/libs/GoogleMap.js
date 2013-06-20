@@ -416,29 +416,19 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         });
         
-        if (isCompare_property === false) {
-            google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
+            if (isCompare_property === false) {
+                google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
-                var icon_selected = this.getIcon();
-                icon_selected = icon_selected.replace("unselected/marker_", "selected/marker_selected_");
-                this.setIcon( icon_selected );
-                this.setZIndex(100000);
-                that.changeHostelBackground(this, "mouseover");
+                    that.changeHostelBackground(this, "mouseover");
 
-            });
+                });
 
                 google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
 
-                    var icon = this.getIcon();
-                    icon = icon.replace("selected/marker_selected_", "unselected/marker_");
-                    this.setIcon( icon );
-
-                    this.setIcon(that.getMarkerIcon(false, i));
-                    this.setZIndex(0);
                     that.changeHostelBackground(this, "mouseout");
 
                 });
-        }
+            }
         this.gbounds.extend(window.gmarkers[i].position);
         isCompare_property = false;
         isQuickView_property = false;
@@ -741,7 +731,7 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigge
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
             $(value).trigger(pDivEventToTrigger);
-        }
+            }
     });
 
 };
