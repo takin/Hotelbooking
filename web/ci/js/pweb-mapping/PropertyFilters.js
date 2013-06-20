@@ -1435,14 +1435,6 @@ PWebFilterApp.prototype.setup = function(data)
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
         pweb_filter.toggleMap('city');
     }
-        
-    $('.hostel_info_box').bind('mouseover', function() {
-        pweb_filter.changeMarkerIcon("city", $(this), 'selected');
-    });
-
-    $('.hostel_info_box').bind('mouseout', function() {
-        pweb_filter.changeMarkerIcon("city", $(this),'original');
-    });
     
     $('#reset_filters').click(function()
     {
