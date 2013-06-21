@@ -278,7 +278,7 @@
 			</div>
 
 			<div class="prices_toggle" style="visibility:hidden">
-				<a style="display: block;" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); $("#prices_border_{{propertyNumber}}").hide(); return false;'>
+				<a style="display: block;" id="show_city_avail_{{propertyNumber}}" href="#city_avail_{{propertyNumber}}" onClick='checkPropertyRoomsAvail("<?php echo site_url(); ?>","{{propertyNumber}}","datepick",document.getElementById("search-night").value,"","{{currency_code}}","<?php echo _("Date invalide"); ?>","{{minNights}}", "city_avail_table_{{propertyNumber}}"); $("#city_avail_table_{{propertyNumber}}").removeClass("ui-tabs-hide"); $("#prices_border_{{propertyNumber}}").css("visibility", "hidden"); return false;'>
 					<img src="<?php echo site_url('/images/V2/icon_sort_down.png') ?>" />
 					<?php echo _('Show prices'); ?>
 				</a>
@@ -289,10 +289,10 @@
 				</a>
 			</div>
 
-			<div class="prices_border" style="display: none" id="prices_border_{{propertyNumber}}"></div>
+			<div class="prices_border" style="visibility: hidden" id="prices_border_{{propertyNumber}}"></div>
 		</div>
 
-		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none; margin-top: 3px">
+		<div class="city_hostel" id="city_avail_{{propertyNumber}}" style="padding-top: 10px; border-top: 1px solid #ccc; display: none;">
 			<!-- <h3><a href="{{property_page_url}}">{{propertyName}}</a> - <?php echo _('Disponibilités'); ?> <span>(<?php echo $currency; ?>)</span></h3> -->
 			<!-- <div class="amenities group no-indent">
 				{{#amenities}}
