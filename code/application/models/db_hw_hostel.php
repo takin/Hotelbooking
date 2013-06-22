@@ -1240,10 +1240,13 @@ class Db_hw_hostel extends CI_Model
                    `".self::LANDMARKS_TABLE."`.`landmark_name`,
                    `".self::LANDMARKS_TABLE."`.`geo_latitude`,
                    `".self::LANDMARKS_TABLE."`.`geo_longitude`,
+                   `".self::LANDMARK_TYPE_TABLE."`.`type`,
                    SUM(if( distance <= $range_km,1,0)) as landmark_count
             FROM ".self::HW_HOSTEL_TABLE."
             RIGHT JOIN `".self::HW_HOSTEL_LANDMARK_TABLE."` ON `".self::HW_HOSTEL_LANDMARK_TABLE."`.`property_number` = `".self::HW_HOSTEL_TABLE."`.`property_number`
             LEFT JOIN `".self::LANDMARKS_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::HW_HOSTEL_LANDMARK_TABLE."`.`landmark_id`
+            LEFT JOIN `".self::LANDMARK_OF_TYPE_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_id`
+            LEFT JOIN `".self::LANDMARK_TYPE_TABLE."`  ON `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_type_id` = `".self::LANDMARK_TYPE_TABLE."`.`landmark_type_id` 
             WHERE `".self::HW_HOSTEL_TABLE."`.`hw_city_id` = $city_id
             	AND `".self::LANDMARKS_TABLE."`.source = $landmark_source_id
             GROUP BY `".self::LANDMARKS_TABLE."`.`landmark_id`
