@@ -469,16 +469,16 @@ class Hb_engine {
                     log_message("debug", "search mode = 1: " . print_r($data["property_list"], true));
 
                     foreach ($data['property_list'] as $property_id => $property) {
-                        $propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
-                        $this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
+                        
+                        //$propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
+                        //$this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
 
-                        $data['property_list'][$property_id]["propertyInfo"] = !empty($propInfoData) && !empty($propInfoData['RESPONSE'])
-                            ? array(
-                                'BIGIMAGES'            => $propInfoData['RESPONSE']['BIGIMAGES'],
-                                'IMPORTANTINFORMATION' => $propInfoData['RESPONSE']['IMPORTANTINFORMATION']
-                                //'IMPORTANTINFORMATION' => domain_name_replace($propInfoData['RESPONSE']['IMPORTANTINFORMATION'])
-                            )
-                            : array();
+                        //$data['property_list'][$property_id]["propertyInfo"] = !empty($propInfoData) && !empty($propInfoData['RESPONSE'])
+                        //    ? array(
+                        //        'BIGIMAGES'            => $propInfoData['RESPONSE']['BIGIMAGES'],
+                        //        'IMPORTANTINFORMATION' => $propInfoData['RESPONSE']['IMPORTANTINFORMATION']
+                        //    )
+                        //    : array();
 
                         $data['property_list'][$property_id]["property_page_url"] = $this->CI->Db_links->build_property_page_link(
                                 $property["type"], $property["name"], $property["id"], $this->CI->site_lang);

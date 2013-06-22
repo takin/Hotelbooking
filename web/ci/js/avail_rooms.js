@@ -71,7 +71,7 @@ function checkPropertyRoomsAvail(base_url, propertyNumber, dateId, n, propertyNa
 function hidePropertyRoomsAvail(propertyNumber) {
 	$("#show_city_avail_" + propertyNumber).show();
 	$("#hide_city_avail_" + propertyNumber + ', #city_avail_' + propertyNumber).hide();
-	$("#prices_border_" + propertyNumber).show();
+	$("#prices_border_" + propertyNumber).css('visibility', 'visible');
 }
 
 function showPropertyRatings() {
