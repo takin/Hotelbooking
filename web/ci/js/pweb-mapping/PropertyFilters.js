@@ -1435,14 +1435,6 @@ PWebFilterApp.prototype.setup = function(data)
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
         pweb_filter.toggleMap('city');
     }
-        
-    $('.hostel_info_box').bind('mouseover', function() {
-        pweb_filter.changeMarkerIcon("city", $(this), 'selected');
-    });
-
-    $('.hostel_info_box').bind('mouseout', function() {
-        pweb_filter.changeMarkerIcon("city", $(this),'original');
-    });
     
     $('#reset_filters').click(function()
     {
@@ -1508,35 +1500,80 @@ PWebFilterApp.prototype.closeFilter = function(type)
 	pweb_filter.apply_filters();
 };
 
-PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function() 
-{
-      $('.hostel_list').each(function() {
-        if($(this).find(".city_hostel_districts_values").html() == "")
-	{
-		$(this).find(".city_hostel_districts").hide();
-	}
-	else
-	{
-		// remove last "," from districts
-		var strDistricts = $(this).find(".city_hostel_districts_values").html();
-		strDistricts = strDistricts.slice(0,-2);
-		$(this).find(".city_hostel_districts_values").html(strDistricts+".");
-	}
+PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function()  {
+	$('.hostel_list').each(function() {
+		if ($(this).find(".city_hostel_districts_values .content").html() == "") {
+			$(this).find(".city_hostel_districts").hide();
+			$(this).find(".city_hostel_districts_values .show_more").hide();
+		}
+		else {
+			// remove last "," from districts
+			var strDistricts = $(this).find(".city_hostel_districts_values .content").html();
+			strDistricts = strDistricts.slice(0,-2);
+			$(this).find(".city_hostel_districts_values .content").html(strDistricts + ".");
+			$(this).find(".city_hostel_districts_values .show_more").attr('title', $(this).find(".city_hostel_districts_values .show_more").attr('title').replace(/,\s*$/, '.'));
 
-	// remove landmarks if there are no landmarks
-	// remove extra "," from the end of the values
-	if($(this).find(".city_hostel_landmarks_values").html() == "")
-	{
-		$(this).find(".city_hostel_landmarks").hide();
-	}
-	else
-	{
-		// remove last "," from landmarks
-		var strDistricts = $(this).find(".city_hostel_landmarks_values").html();
-		strDistricts = strDistricts.slice(0,-2);
-		$(this).find(".city_hostel_landmarks_values").html(strDistricts+".");
-	}
-      });
+			if (
+				!$(this).find(".city_hostel_districts_values .content").html()
+				|| $(this).find(".city_hostel_districts_values .content").html().length + $(this).find(".city_hostel_districts_district").html().length < 60
+			) {
+				$(this).find(".city_hostel_districts_values .show_more").hide();
+			}
+		}
+
+		// remove landmarks if there are no landmarks
+		// remove extra "," from the end of the values
+		if ($(this).find(".city_hostel_landmarks_values .content").html() == "") {
+			$(this).find(".city_hostel_landmarks").hide();
+			$(this).find(".city_hostel_landmarks_values .show_more").hide();
+		}
+		else {
+			// remove last "," from landmarks
+			var strDistricts = $(this).find(".city_hostel_landmarks_values .content").html();
+			strDistricts = strDistricts.slice(0,-2);
+			$(this).find(".city_hostel_landmarks_values .content").html(strDistricts+".");
+			$(this).find(".city_hostel_landmarks_values .show_more").attr('title', $(this).find(".city_hostel_landmarks_values .show_more").attr('title').replace(/,\s*$/, '.'));
+
+			if (
+				!$(this).find(".city_hostel_landmarks_values .content").html()
+				|| ($(this).find(".city_hostel_landmarks_values .content").html().length + $(this).find(".city_hostel_landmarks_landmark").html().length) < 130
+			) {
+				$(this).find(".city_hostel_landmarks_values .show_more").hide();
+			}
+		}
+
+		$(this).find(".city_hostel_landmarks_values .show_more").cluetip({
+			width: '350px',
+			local:true,
+			cursor: 'pointer',
+			arrows: false,
+			dropShadow: false,
+			sticky: false,
+			positionBy: 'auto',
+			cluetipClass: 'mcweb',
+			tracking: true,
+			splitTitle: '|',
+			onShow: function(ct, ci) {
+	//			ci.css('color', '#3087C9');
+			}
+		});
+
+		$(this).find(".city_hostel_districts_values .show_more").cluetip({
+			width: '350px',
+			local:true,
+			cursor: 'pointer',
+			arrows: false,
+			dropShadow: false,
+			sticky: false,
+			positionBy: 'auto',
+			cluetipClass: 'mcweb',
+			tracking: true,
+			splitTitle: '|',
+			onShow: function(ct, ci) {
+	//			ci.css('color', '#3087C9');
+			}
+		});
+	});
 };
 
 PWebFilterApp.prototype.initpaging = function() 

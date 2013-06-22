@@ -274,11 +274,6 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                     <a id="change-dates" href="#" class="top_search_result">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 		  </div>
-                       <a href="#" id="city_map_hide" class="view_map"
-                          title="<?php echo _("Close Map");?>" style="z-index: 500; position: relative;">
-                         <span id ="close_map_button"> </span>
-                         </a>
-			<div id="city_map_container" class="box_round box_shadow_very_light"></div>
 					<!--property compare code start-->
 					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ;
 						if($displayCompareProperty == 1) { ?>

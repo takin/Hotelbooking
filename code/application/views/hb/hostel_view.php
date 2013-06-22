@@ -1,6 +1,5 @@
 <script type="text/javascript" src="<?php echo site_url('js/pweb/includes/mustache.js'); ?>" charset="UTF-8"></script>
-<script type="text/javascript" src="<?php echo site_url('js/save_property.js?v=' . time()); ?>"
-        charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo site_url('js/save_property.js?v=' . time()); ?>"charset="UTF-8"></script>
 
 <?php
 $switch_api = false;
@@ -976,6 +975,7 @@ if ($api_error == false) {
         <?php if (!empty($hostel['ADDRESS'])) { ?>
             <div class="content_block">
                 <h2><?php echo _("Adresse"); ?></h2>
+		<a href="#hostel_info_home" onclick="$('.tab_price').trigger('click'); return false;" class="booking-form-submit button-green box_round hoverit" style="display: inline; float: right"><?php echo _('Click here to see info and prices'); ?></a>
 
                 <p>
                     <?php
