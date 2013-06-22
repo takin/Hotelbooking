@@ -342,10 +342,6 @@ var landmark_cityMarkers = [];
         }
  function changeLandmarkLayer(landmark_LatLng){
 
-    if(cityCircle !== null)
-    {
-        cityCircle.setMap(null);
-    }
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
