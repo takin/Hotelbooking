@@ -130,6 +130,7 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 
 // this is used to create circles in map (landmark)
 var cityCircle = null;
+var landmark_cityMarkers = [];
 
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
@@ -322,24 +323,28 @@ var cityCircle = null;
 
  function ClearlandmarkAndDistrict(){
      // clear any landmark circle
-        if(cityCircle != null)
+        if(cityCircle !== null)
         {
             cityCircle.setMap(null);
+        }
+        
+        // check if landmark bin exists
+        // if exist remove them
+        if (landmark_cityMarkers.length > 0)
+        {
+            for (var i in landmark_cityMarkers ) 
+            { 
+                landmark_cityMarkers[i].setMap(null);
+            }
         }
         // clear any district
         map.overlayMapTypes.setAt(1, null);
         }
  function changeLandmarkLayer(landmark_LatLng){
 
-    if(cityCircle != null)
-    {
-        cityCircle.setMap(null);
-    }
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
-
-    //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
     //  center: new google.maps.LatLng(53.477001,-2.230000)
@@ -361,6 +366,19 @@ var cityCircle = null;
         };
         cityCircle = new google.maps.Circle(LandmarkOptions);
 
+        //landmark_marker_blue.png
+        var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
+			        new google.maps.Size(28, 28),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(0, 29));
+                                
+	var gmarker = new google.maps.Marker({
+	        position: new google.maps.LatLng(lat, Lng), 
+	        map: map,
+	        icon: image	        
+	    }); 
+
+	landmark_cityMarkers.push(gmarker);          
       }
 
   <?php if(isset($google_map_address)):?>
