@@ -45,8 +45,8 @@ GoogleMap.prototype.init = function() {
     }
 
     this.map_div.style.display = "block";
-    this.map_div.style.width = "100%";
-    this.map_div.style.height = "400px";
+    this.map_div.style.width   = "100%";
+    this.map_div.style.height  = "400px";
 
     if (this.map_div.id === "filter_map_rightSide") {
         this.map_div.style.height = "100%";
@@ -54,13 +54,12 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "city_side_map_container") {
         this.map_div.style.height = "280px";
-        this.map_div.style.width = "auto";
+        this.map_div.style.width  = "auto";
     }
 
     if (this.map_div.className === "map_quickview") {
         this.map_div.style.height = "285px";
-        this.map_div.style.width = "100%";
-        this.map_div.style.width = "auto"; 
+        this.map_div.style.width  = "auto"; 
     }
 
     var myOptions = {
@@ -82,17 +81,20 @@ GoogleMap.prototype.init = function() {
 
     this.marker_focus();
 
-    if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
-    {
-        window.gmap.setCenter(this.gbounds.getCenter());
-        window.gmap.fitBounds(this.gbounds);
-        if (this.map_div.id === "city_side_map_container") {
-            if (window.gmap.getZoom() > 10)
-            {
-                window.gmap.setZoom(10);
+    if (this.map_div.className !== "map_quickview") {
+        if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
+        {
+            window.gmap.setCenter(this.gbounds.getCenter());
+            window.gmap.fitBounds(this.gbounds);
+            if (this.map_div.id === "city_side_map_container") {
+                if (window.gmap.getZoom() > 10)
+                {
+                    window.gmap.setZoom(10);
+                }
             }
         }
     }
+    
     // first get the property number
     var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
 
@@ -205,7 +207,7 @@ GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, prope
         lng             :   lng,
         content         :   content,
         propertyNumber  :   propertyNumber,
-        propertyIndex   :   propertyIndex,
+        propertyIndex   :   parseInt(propertyIndex),
         gmarkvarer      :   null
     };
     window.markers[index] = marker;
@@ -315,7 +317,7 @@ GoogleMap.prototype.fillMakersArray = function()
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
-                , propertyIndex
+                , parseInt(propertyIndex)
                 );   
     });
 
@@ -323,39 +325,45 @@ return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
 {       
-     var comparePropertyLatLng = this.getComparePropertyLatlng();
-     var compare_index = 0;
-     
+    var that = this;
+    var comparePropertyLatLng = this.getComparePropertyLatlng();
+    var arrQuickViewLatLng = this.getQuickViewLatlng();
+    var compare_index = 0;
+    // get map Div
+    var map_div = window.gmap.getDiv();
+    var map_divID = map_div.id;
+    // check if it is a property used in compare
+    var isCompare_property = false;
+    var isQuickView_map = false;
+
     if (window.markers.length < 1)
     {
         window.markers = this.fillMakersArray();
     }
 
-    var that = this;
-
     if (this.gbounds === null)
     {
         this.gbounds = new google.maps.LatLngBounds();
     }
-    //TODO support custom image in addMarker function
+    
     for (var i in window.markers) {    
            
-        if ( window.markers[i].lat === 0 || window.markers[i].lng === 0 ){
+        var image = this.getMarkerIcon(false, 0);
+        var image_selected = this.getMarkerIcon(true, 0);
+            
+        if (window.markers[i].lat === 0 || window.markers[i].lng === 0) {
             window.markers[i].gmarker = null;
         }
         else{
-        // check if it is a property used in compare
-        var isCompare_property = false;
-        var isQuickView_property = false;
-        var image = that.getMarkerIcon(false, 0);
-        var image_selected = that.getMarkerIcon(true, 0);
-//          check if it is the tham map on the left
-            if (window.gmap.getDiv().id === "city_side_map_container") {
+
+            // check if it is the map on the left
+            if ( map_divID === "city_side_map_container") {
                 var imageIndex = window.markers[i].propertyIndex;
                 image = that.getMarkerIcon(false, imageIndex);
                 image_selected = that.getMarkerIcon(true, imageIndex);
             }
-            else if (window.gmap.getDiv().id === "map_canvas_compareProperty") {
+            // check if it is compare map
+            else if ( map_divID === "map_canvas_compareProperty") {
 
                 for (var j in comparePropertyLatLng) {
                     if (comparePropertyLatLng[j].lat === window.markers[i].lat
@@ -370,20 +378,23 @@ GoogleMap.prototype.addMarkersToMap = function()
                     }
                 }
             }
-            else if (window.gmap.getDiv().className === "map_quickview") {
-                var arrQuickViewLatLng = that.getQuickViewLatlng();
-
+            // check if it is quick view map
+            else if ( $(map_div).hasClass("map_quickview") === true ) {
+                 // make this marker as one of quick view property
+                 isQuickView_map = true;
+                // should set marker to center or not
+                var isQuickView_property = false;
+ 
                 if (arrQuickViewLatLng[0].lat === window.markers[i].lat
                         && arrQuickViewLatLng[0].lng === window.markers[i].lng) {
 
                     image = that.getMarkerIcon(true, 0);
                     image_selected = image;
-                    // make this marker as one of quick view property
                     isQuickView_property = true;
+                    
                 }
             }
 
-        
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),
@@ -394,13 +405,14 @@ GoogleMap.prototype.addMarkersToMap = function()
         });
 
         window.markers[i].gmarker = window.gmarkers[i];
-        
+              
         if (isCompare_property === true || isQuickView_property === true) {
             window.gmarkers[i].setZIndex(200000);
         }
         
-        if ( isQuickView_property === true ) {        
-            window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+        if ( isQuickView_property === true ) {     
+            window.gmap.setZoom(12);
+            window.gmap.setCenter( window.gmarkers[i].getPosition() );            
         }
         
             
@@ -416,7 +428,7 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         });
         
-            if (isCompare_property === false) {
+            if (isCompare_property === false && isQuickView_map === false ) {
                 google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
                     that.changeHostelBackground(this, "mouseover");
@@ -433,7 +445,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         isCompare_property = false;
         isQuickView_property = false;
     }
-  }
+  }         
 };
 GoogleMap.prototype.removeMap = function(){
     this.map_div.style.display = "none";
@@ -701,7 +713,6 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
-//                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
                          image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
@@ -709,7 +720,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 //                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
                           image = "http://" + window.location.host + imagePath +  '0.png';
                     }
-                    
+
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
                 }
