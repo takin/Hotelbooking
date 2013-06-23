@@ -207,7 +207,7 @@ GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, prope
         lng             :   lng,
         content         :   content,
         propertyNumber  :   propertyNumber,
-        propertyIndex   :   propertyIndex,
+        propertyIndex   :   parseInt(propertyIndex),
         gmarkvarer      :   null
     };
     window.markers[index] = marker;
@@ -317,7 +317,7 @@ GoogleMap.prototype.fillMakersArray = function()
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
-                , propertyIndex
+                , parseInt(propertyIndex)
                 );   
     });
 
@@ -713,7 +713,6 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
-//                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
                          image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
@@ -721,7 +720,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 //                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
                           image = "http://" + window.location.host + imagePath +  '0.png';
                     }
-                    
+
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
                 }
