@@ -365,7 +365,7 @@ QuickView.prototype.getContent = function() {
 };
 
 QuickView.prototype.setMap = function() {
-
+    $('#map_canvas').css('height', '285px !important');
     var that = this;
 
     var lat = this.data.Geo.Latitude;
@@ -377,7 +377,6 @@ QuickView.prototype.setMap = function() {
 
 
     function autoselect() {
-        GoogleMap.setZoom(12);
 
         if ($('input[name="distrinct_landmark"]:checked').length > 0) {
             try {
@@ -386,7 +385,7 @@ QuickView.prototype.setMap = function() {
             }
         }
 
-        $('#map_canvas').css('height', '285px !important');
+        
     }
 
     window.setTimeout(function() {
