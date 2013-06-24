@@ -204,7 +204,7 @@ else {
 					<tr>
 						<td valign="top" class="first"><?php echo form_label(_('Abonnement newsletter'), $mail_subscription['id']); ?></td>
 						<td valign="top"><?php
-							echo form_checkbox($mail_subscription); echo '<span style="color: #000">', _('We will never sell your personal information - You can unsubscribe anytime.'), '</span>'; ?>
+							echo form_checkbox($mail_subscription); echo '<span style="color: #000">&nbsp;&nbsp; ', _('We will never sell your personal information - You can unsubscribe anytime.'), '</span>'; ?>
 							<span style="color: red;"><?php echo form_error($mail_subscription['name']); ?><?php echo isset($errors[$mail_subscription['name']]) ? $errors[$mail_subscription['name']] : '' ; ?></span>
 						</td>
 					</tr>
