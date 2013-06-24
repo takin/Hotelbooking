@@ -869,20 +869,20 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
 
             image = {
                 url: 'http://' + window.location.host + '/images/map/train.png',
-                size: new google.maps.Size(71, 71),
+                size: new google.maps.Size(25, 31),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
+                scaledSize: new google.maps.Size(20, 25)
             };
         }
         else {
 //            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
             image = {
                 url: 'http://' + window.location.host + '/images/map/air-plane.png',
-                size: new google.maps.Size(71, 71),
+                size: new google.maps.Size(28, 25),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(25, 25)
+                scaledSize: new google.maps.Size(28, 25)
             };
 
         }
