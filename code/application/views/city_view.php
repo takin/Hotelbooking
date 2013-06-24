@@ -285,6 +285,9 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                     <a id="change-dates" href="#" class="top_search_result">[<?php echo _('Change Dates'); ?>]</a>
 				<?php /*?>Showing <span id="city_results_count_current">0</span> results out of <span id="city_results_count_total">0</span><?php */?>
 		  </div>
+
+		<?php   $this->load->view('includes/city_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city)); ?>
+
 					<!--property compare code start-->
 					<?php  $displayCompareProperty =  $this->config->item('displayCompareProperty') ;
 						if($displayCompareProperty == 1) { ?>

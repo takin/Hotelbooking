@@ -1,4 +1,7 @@
 <?php
+
+set_time_limit(1200);
+
 /*
 New CSV to be create for the campaign based on District with the following field:
 
