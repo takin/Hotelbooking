@@ -265,7 +265,7 @@ var landmark_cityMarkers = [];
 
             var LandmarkOrDistrictValue = $("input:radio[name='landmarkAndDistrict']:checked").val();
 
-                 if(LandmarkOrDistrictValue.indexOf("###") === -1){
+                 if(LandmarkOrDistrictValue.indexOf(",") === -1){
                      changeDistrictLayer(LandmarkOrDistrictValue);
                  }
                  else{
@@ -342,7 +342,7 @@ var landmark_cityMarkers = [];
         }
  function changeLandmarkLayer(landmark_LatLng){
 
-    var point = landmark_LatLng.split("###");
+    var point = landmark_LatLng.split(",");
     var lat = point[0];
     var Lng = point[1];
 

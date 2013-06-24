@@ -798,8 +798,8 @@ if ($api_error == false) {
                             }
                             ?>
                             <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
-                                   value="<?php echo $landmark->geo_latitude . "###" . $landmark->geo_longitude; ?>"
-                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "###" . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+                                   value="<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>"
+                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "," . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
 
                         <?php }//end Foreach   ?>
                     </p>

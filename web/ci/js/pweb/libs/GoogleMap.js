@@ -24,6 +24,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
     window.cityCircle = null;
     window.markers = Array();
     window.gmarkers = Array();
+    window.lmarkers = Array();
     this.gbounds = null;
 
     this.marker_id_to_focus = -1;
@@ -80,6 +81,8 @@ GoogleMap.prototype.init = function() {
     this.drawMarkers();
 
     this.marker_focus();
+    
+    this.drawStaticLandmarks();
 
     if (this.map_div.className !== "map_quickview") {
         if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
@@ -601,7 +604,7 @@ GoogleMap.setZoom = function(zoom) {
 
 GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
    
-    var point = landmark_LatLng.split("###");
+    var point = landmark_LatLng.split(",");
     var lat = point[0];
     var Lng = point[1];
 
@@ -819,4 +822,80 @@ GoogleMap.prototype.getQuickViewLatlng = function(property_number) {
             arrQuickView.push(newElement);
     }
     return arrQuickView;
+};
+GoogleMap.prototype.drawStaticLandmarks = function() {
+
+    var static_landmark_markers = Array();
+//alert("empty array");
+    $("#cb_group_landmarks_filter li").each(function() {
+        var latlng = null;
+        var landmark_type = null;
+        var title = null;
+
+        var landmark_id = $(this).find("input[type='checkbox']").val();
+
+        if ($("#hidden_landmarks_train_station_" + landmark_id).length > 0) {
+            latlng = $("#hidden_landmarks_train_station_" + landmark_id).val();
+            landmark_type = "train_station";
+
+        }
+        if ($("#hidden_landmarks_airport_" + landmark_id).length > 0) {
+            latlng = $("#hidden_landmarks_airport_" + landmark_id).val();
+            landmark_type = "airport";
+        }
+
+        title = $("#landmark_title_" + landmark_id).html();
+
+        if (latlng !== null) {
+            var point = latlng.split(",");
+            var lat = point[0];
+            var lng = point[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+            newElement['title'] = title;
+            newElement['type'] = landmark_type;
+
+            static_landmark_markers.push(newElement);
+        }
+    });
+
+    for (var i in static_landmark_markers) {
+
+        var image = "";
+        if (static_landmark_markers[i].type === "train_station") {
+//            image = 'http://' + window.location.host + '/images/map/Train-station-icon.png';
+
+            image = {
+                url: 'http://' + window.location.host + '/images/map/Train-station-icon.png',
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+        }
+        else {
+            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
+            image = {
+                url: 'http://' + window.location.host + '/images/map/City-Airport-icon.png',
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+
+        }
+       
+        //Add marker to map
+        window.lmarkers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(static_landmark_markers[i].lat, static_landmark_markers[i].lng),
+            map: window.gmap,
+            title: static_landmark_markers[i].title,
+            icon: image
+        });
+
+//        static_landmark_markers[i].lmarker = window.lmarkers[i];
+
+    }// end  for (var i in static_landmark_markers)
 };

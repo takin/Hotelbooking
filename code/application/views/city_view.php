@@ -48,19 +48,30 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			$land_count = 0;
 			$total_land = count($city_landmarks);
 		?>
-		<div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
-			<ul id="cb_group_landmarks_filter">
-			<?php
-			foreach ($city_landmarks as $landmark) {
-				$land_count++;
-			?>
-				<li>
-					<input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> <?php echo $landmark->landmark_name; ?> <?php ?>(<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)<?php ?>
-<input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>###<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" />
-				</li>
-			<?php } ?>
-			</ul>
-		</div>
+            <div id="filter_content_landmarks_popup" class="filter_content box_content box_round ui-tabs ui-tabs-hide">
+                        <ul id="cb_group_landmarks_filter">
+                            <?php
+                            foreach ($city_landmarks as $landmark) {
+                                $land_count++;
+                                ?>
+                                <li>
+                                    <input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> 
+                                    <?php
+                                    if(strtolower($landmark->type) === "train_station"){
+                                        echo '<input type="hidden" id="hidden_landmarks_train_station_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_train_station_'.$landmark->landmark_id.'" />';
+                                        echo '<img src="'.base_url().'images/map/Train-station-icon.png" height="16px" width="16px">';
+                                    }
+                                    else if ( strtolower($landmark->type) === "airport" ){
+                                         echo '<input type="hidden" id="hidden_landmarks_airport_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_airport_'.$landmark->landmark_id.'" />';
+                                         echo '<img src="'.base_url().'images/map/City-Airport-icon.png" height="16px" width="16px">';
+                                    }
+                                    ?>
+                                    <span id="landmark_title_<?php echo $landmark->landmark_id; ?>"><?php echo $landmark->landmark_name; ?></span> (<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)
+                                    <input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>,<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" />
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
 		<?php } ?>
 	</div>
 <?php } ?>
