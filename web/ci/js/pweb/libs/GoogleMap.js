@@ -868,7 +868,7 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
 //            image = 'http://' + window.location.host + '/images/map/Train-station-icon.png';
 
             image = {
-                url: 'http://' + window.location.host + '/images/map/Train-station-icon.png',
+                url: 'http://' + window.location.host + '/images/map/train.png',
                 size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
@@ -876,9 +876,9 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
             };
         }
         else {
-            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
+//            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
             image = {
-                url: 'http://' + window.location.host + '/images/map/City-Airport-icon.png',
+                url: 'http://' + window.location.host + '/images/map/air-plane.png',
                 size: new google.maps.Size(71, 71),
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(17, 34),
