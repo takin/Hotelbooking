@@ -2291,22 +2291,29 @@ class Db_hb_hostel extends CI_Model
   {
     $range_km = $this->db->escape_str($range_km);
 
-    $this->db->select(self::HB_HOSTEL_LANDMARK_TABLE.".landmark_id");
-    $this->db->select(self::LANDMARKS_TABLE.".slug");
-    $this->db->select(self::LANDMARKS_TABLE.".landmark_name");
-    $this->db->select(self::LANDMARKS_TABLE.".geo_latitude");
-    $this->db->select(self::LANDMARKS_TABLE.".geo_longitude");
-    $this->db->join(self::LANDMARKS_TABLE, self::HB_HOSTEL_LANDMARK_TABLE.'.landmark_id = '.self::LANDMARKS_TABLE.'.landmark_id');
-    $this->db->where("property_number",$property_number);
-    $this->db->where("source",$landmark_source_id);
-    $this->db->where("distance <= $range_km");
-
-    $query = $this->db->get(self::HB_HOSTEL_LANDMARK_TABLE);
+     $sql = "SELECT 
+                   ".self::HB_HOSTEL_LANDMARK_TABLE.".landmark_id,
+                   ".self::LANDMARKS_TABLE.".slug,
+                   ".self::LANDMARKS_TABLE.".landmark_name,
+                   ".self::LANDMARK_TYPE_TABLE.".type,
+                   ".self::LANDMARKS_TABLE.".geo_latitude,
+                   ".self::LANDMARKS_TABLE.".geo_longitude
+              FROM ".self::HB_HOSTEL_LANDMARK_TABLE ."
+              INNER JOIN `".self::LANDMARKS_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::HB_HOSTEL_LANDMARK_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_OF_TYPE_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_TYPE_TABLE."`  ON `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_type_id` = `".self::LANDMARK_TYPE_TABLE."`.`landmark_type_id`    
+              WHERE ".self::HB_HOSTEL_LANDMARK_TABLE .".property_number = $property_number
+              	AND ".self::LANDMARKS_TABLE.".source = $landmark_source_id
+                AND ".self::HB_HOSTEL_LANDMARK_TABLE .".distance <= $range_km
+              GROUP BY `".self::LANDMARKS_TABLE."`.`landmark_id`
+              ORDER BY ".self::LANDMARKS_TABLE.".landmark_name ASC";
+     
+     $query = $this->db->query($sql);
 
     $return = array();
     if($query->num_rows() > 0)
     {
-      $return = $query->result();
+      return $query->result();
     }
     return $return;
   }
