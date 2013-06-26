@@ -67,7 +67,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                     }
                                     else if ( strtolower($landmark->landmark_name) === "city center" ){
                                          echo '<input type="hidden" id="hidden_landmarks_city_center_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_city_center_'.$landmark->landmark_id.'" />';
-                                         echo '<img src="'.base_url().'images/map/air-plane.png" class="filter_landmark_image">';
+                                         echo '<img src="'.base_url().'images/map/city_center.png" class="filter_landmark_image">';
                                     }
                                     ?>
                                     <span id="landmark_title_<?php echo $landmark->landmark_id; ?>"><?php echo $landmark->landmark_name; ?></span> (<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)

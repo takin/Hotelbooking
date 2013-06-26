@@ -843,7 +843,12 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
             latlng = $("#hidden_landmarks_airport_" + landmark_id).val();
             landmark_type = "airport";
         }
-
+        
+        if ($("#hidden_landmarks_city_center_" + landmark_id).length > 0) {
+            latlng = $("#hidden_landmarks_city_center_" + landmark_id).val();
+            landmark_type = "city_center";
+        }
+//city_center
         title = $("#landmark_title_" + landmark_id).html();
 
         if (latlng !== null) {
@@ -871,20 +876,29 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
                 url: 'http://' + window.location.host + '/images/map/train.png',
                 size: new google.maps.Size(25, 31),
                 origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
+//                anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(20, 25)
             };
         }
-        else {
+        else if (static_landmark_markers[i].type === "train_station") {
 //            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
             image = {
                 url: 'http://' + window.location.host + '/images/map/air-plane.png',
                 size: new google.maps.Size(28, 25),
                 origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(17, 34),
+//                anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(28, 25)
             };
 
+        }
+        else{
+            image = {
+                url: 'http://' + window.location.host + '/images/map/city_center.png',
+                size: new google.maps.Size(21, 21),
+                origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(21, 21)
+            };
         }
        
         //Add marker to map
