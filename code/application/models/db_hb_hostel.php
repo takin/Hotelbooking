@@ -2313,7 +2313,7 @@ class Db_hb_hostel extends CI_Model
     $return = array();
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      $return = $query->result();
     }
     return $return;
   }
