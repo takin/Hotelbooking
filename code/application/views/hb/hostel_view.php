@@ -842,18 +842,18 @@ if ($api_error == false) {
                     <?php if (!empty($hostel['PROPERTYEXTRAS_included_translated'])) { ?>
                         <ul class="float-list green-li increase1 original" style="display:none;">
                             <?php foreach ($hostel['PROPERTYEXTRAS_included'] as $id => $value) { ?>
-                                <li><?php echo $id . ': <strong>' . _("Free") . '</strong>'; ?></li>
+                                <li><?php echo $id . ': <span class="yellow-bg">' . _("Free") . '</span>'; ?></li>
                             <?php } ?>
                         </ul>
                         <ul class="float-list green-li increase1 translated">
                             <?php foreach ($hostel['PROPERTYEXTRAS_included_translated'] as $id => $value) { ?>
-                                <li><?php echo $id . ': <strong>' . _("Free") . '</strong>'; ?></li>
+                                <li><?php echo $id . ': <span class="yellow-bg">' . _("Free") . '</span>'; ?></li>
                             <?php } ?>
                         </ul>
                     <?php } else { ?>
                         <ul class="float-list green-li increase1 original">
                             <?php foreach ($hostel['PROPERTYEXTRAS_included'] as $id => $value) { ?>
-                                <li><?php echo $id . ': <strong>' . _("Free") . '</strong>'; ?></li>
+                                <li><?php echo $id . ': <span class="yellow-bg">' . _("Free") . '</span>'; ?></li>
                             <?php } ?>
                         </ul>
                     <?php } ?>
