@@ -130,6 +130,7 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 
 // this is used to create circles in map (landmark)
 var cityCircle = null;
+var landmark_cityMarkers = [];
 
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
@@ -322,24 +323,28 @@ var cityCircle = null;
 
  function ClearlandmarkAndDistrict(){
      // clear any landmark circle
-        if(cityCircle != null)
+        if(cityCircle !== null)
         {
             cityCircle.setMap(null);
+        }
+        
+        // check if landmark bin exists
+        // if exist remove them
+        if (landmark_cityMarkers.length > 0)
+        {
+            for (var i in landmark_cityMarkers ) 
+            { 
+                landmark_cityMarkers[i].setMap(null);
+            }
         }
         // clear any district
         map.overlayMapTypes.setAt(1, null);
         }
  function changeLandmarkLayer(landmark_LatLng){
 
-    if(cityCircle != null)
-    {
-        cityCircle.setMap(null);
-    }
     var point = landmark_LatLng.split("###");
     var lat = point[0];
     var Lng = point[1];
-
-    //alert("lat="+lat+"::::Lng="+Lng+"::::");
 
     var citymap = {
     //  center: new google.maps.LatLng(53.477001,-2.230000)
@@ -361,6 +366,19 @@ var cityCircle = null;
         };
         cityCircle = new google.maps.Circle(LandmarkOptions);
 
+        //landmark_marker_blue.png
+        var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
+			        new google.maps.Size(28, 28),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(0, 29));
+                                
+	var gmarker = new google.maps.Marker({
+	        position: new google.maps.LatLng(lat, Lng), 
+	        map: map,
+	        icon: image	        
+	    }); 
+
+	landmark_cityMarkers.push(gmarker);          
       }
 
   <?php if(isset($google_map_address)):?>
@@ -854,6 +872,7 @@ var cityCircle = null;
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
     $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
     $this->carabiner->js('jquery.tablesorter.js', 'jquery.tablesorter.js', TRUE);
+	$this->carabiner->js('backfix.min.js', 'backfix.min.js', TRUE);	
   }
   elseif($current_view == "search_results")
   {
@@ -863,6 +882,7 @@ var cityCircle = null;
   $this->carabiner->js('jquery.cluetip.all.js', 'jquery.cluetip.all.js', TRUE);
   $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
   $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
+  $this->carabiner->js('jquery.cookie.js', 'jquery.cookie.js', TRUE);
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
   <?php
@@ -893,6 +913,15 @@ $sel_class = '';
 	}
 
 ?>
+<?php if($current_view == "hostel_view"): ?>
+	<script type="text/javascript">
+	bajb_backdetect.OnBack = function()
+	{
+		$.cookie('back_search', 'false', { expires: 7, path: '/' });
+	}
+	</script>
+<?php endif; ?>
+
   <script type="text/javascript">
   //City lists
   //Cities array must be a global variable
@@ -965,7 +994,7 @@ $(document).ready(function()
 
 <body class="auberges<?php if($current_view == "hostel_view"){echo ' view-hostel';}elseif($current_view == "city_view"){echo ' city-search';}if($this->api_used == HB_API){echo ' hb_frame';}?> lang-<?php echo $this->html_lang_code; ?>">
 <?php if($current_view == "city_view"){?>
-<div id="city_load">
+<div id="city_load" style="visibility:hidden;">
 	<p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"/></p>
 	<div class="box_content box_round group">
 		<?php if(isset($city_selected) && isset($country_selected)){?>

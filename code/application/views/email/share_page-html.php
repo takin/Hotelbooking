@@ -13,7 +13,13 @@
 					<tr>
 						<td valign="top">
 							<p style="line-height:18px">
-								<img style="margin-top:20px;" border=0 src="<?php echo base_url();?>images/email-head-share.gif" alt="Auberges De Jeunesse" />
+								<?php
+									$csspath = $this->wordpress->get_option('aj_api_ascii');
+									if (empty($csspath)) {
+										$csspath = $this->wordpress->get_option('aj_api_name');
+									}
+								?>
+								<img style="margin-top:20px;" border=0 class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"/>
 							</p>
 						</td>
 						<td valign="middle">
