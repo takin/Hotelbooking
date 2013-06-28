@@ -566,16 +566,16 @@ GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
     window.gmap.overlayMapTypes.setAt((counter + 1), adaptedLayer);
 
 };
-GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
+GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng_type) {
 
     if (window.cityCircle !== null)
     {
         window.cityCircle.setMap(null);
     }
 
-    if ($.isArray(landmark_LatLng)) {
+    if ($.isArray(landmark_LatLng_type)) {
 
-        if (landmark_LatLng.length === 1) {
+        if (landmark_LatLng_type.length === 1) {
             if (window.gmap.getZoom() > 12) {
                 // change map Zoom 
                 window.gmap.setZoom(12);
@@ -583,8 +583,8 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
         }
         // loop through districts um_ids
         var counter;
-        for (counter = 0; counter < landmark_LatLng.length; ++counter) {
-            this.addLandmarkLayer(landmark_LatLng[counter]);
+        for (counter = 0; counter < landmark_LatLng_type.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng_type[counter]);
         }
     }
     else {
@@ -594,7 +594,7 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
                 // change map Zoom 
                 window.gmap.setZoom(13);
             }
-        this.addLandmarkLayer(landmark_LatLng);
+        this.addLandmarkLayer(landmark_LatLng_type);
     }
 };
 
@@ -602,17 +602,19 @@ GoogleMap.setZoom = function(zoom) {
 	window.gmap.setZoom(zoom || 13);
 };
 
-GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
-   
-    var point = landmark_LatLng.split(",");
+GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng_type) {
+
+    var point = landmark_LatLng_type.latlng.split(",");
     var lat = point[0];
-    var Lng = point[1];
+    var lng = point[1];
+
+    var landmark_type = landmark_LatLng_type.type;
 
     var citymap = {
-        center: new google.maps.LatLng(lat, Lng)
+        center: new google.maps.LatLng(lat, lng)
     };
 //var circle_color  = "#4E89C9";
-var circle_color  = "#FF0000";
+    var circle_color = "#FF0000";
 
     var LandmarkOptions = {
         strokeColor: circle_color,
@@ -627,22 +629,50 @@ var circle_color  = "#FF0000";
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
 
-//landmark_marker_blue.png
-var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
-			        new google.maps.Size(28, 28),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(0, 29));
-                                
-	var gmarker = new google.maps.Marker({
-	        position: new google.maps.LatLng(lat, Lng), 
-	        map: window.gmap,
-//	        title:this.markers[i].title,
-	        icon: image	        
-	    }); 
+    //landmark_marker_blue.png
+    image = {
+        url: 'http://' + window.location.host + '/images/map_landmark_marker_blue.png',
+        size: new google.maps.Size(28, 28),
+        origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(28, 28)
+    };
 
-	GoogleMap.markers.push(gmarker);            
+    if (landmark_type === "train_station") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/train.png',
+            size: new google.maps.Size(25, 31),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(20, 25)
+        };
+    }
+    else if (landmark_type === "city_center") {
+        
+          image = {
+            url: 'http://' + window.location.host + '/images/map/city_center.png',
+            size: new google.maps.Size(21, 21),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(21, 21)
+        };
+    }
+    else if (landmark_type === "airport") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/air-plane.png',
+            size: new google.maps.Size(28, 25),
+            origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(28, 25)
+        };
+    }
+
+    var gmarker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: window.gmap,
+        icon: image
+    });
+
+    GoogleMap.markers.push(gmarker);
 };
-
 GoogleMap.prototype.centerMapMarker = function() {
 
     if (window.markers.length !== 0) {
@@ -826,7 +856,7 @@ GoogleMap.prototype.getQuickViewLatlng = function(property_number) {
 GoogleMap.prototype.drawStaticLandmarks = function() {
 
     var static_landmark_markers = Array();
-//alert("empty array");
+
     $("#cb_group_landmarks_filter li").each(function() {
         var latlng = null;
         var landmark_type = null;
@@ -834,21 +864,18 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
 
         var landmark_id = $(this).find("input[type='checkbox']").val();
 
-        if ($("#hidden_landmarks_train_station_" + landmark_id).length > 0) {
-            latlng = $("#hidden_landmarks_train_station_" + landmark_id).val();
-            landmark_type = "train_station";
+        landmark_type = $("#hidden_landmarks_type_" + landmark_id).val();
 
+        if (landmark_type === "train_station") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
         }
-        if ($("#hidden_landmarks_airport_" + landmark_id).length > 0) {
-            latlng = $("#hidden_landmarks_airport_" + landmark_id).val();
-            landmark_type = "airport";
+        else if (landmark_type === "airport") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
         }
-        
-        if ($("#hidden_landmarks_city_center_" + landmark_id).length > 0) {
-            latlng = $("#hidden_landmarks_city_center_" + landmark_id).val();
-            landmark_type = "city_center";
+        else if (landmark_type === "city_center") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
         }
-//city_center
+
         title = $("#landmark_title_" + landmark_id).html();
 
         if (latlng !== null) {
@@ -876,31 +903,27 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
                 url: 'http://' + window.location.host + '/images/map/train.png',
                 size: new google.maps.Size(25, 31),
                 origin: new google.maps.Point(0, 0),
-//                anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(20, 25)
             };
         }
-        else if (static_landmark_markers[i].type === "train_station") {
-//            image = 'http://' + window.location.host + '/images/map/City-Airport-icon.png';
-            image = {
-                url: 'http://' + window.location.host + '/images/map/air-plane.png',
-                size: new google.maps.Size(28, 25),
-                origin: new google.maps.Point(0, 0),
-//                anchor: new google.maps.Point(17, 34),
-                scaledSize: new google.maps.Size(28, 25)
-            };
-
-        }
-        else{
+        else if (static_landmark_markers[i].type === "city_center") {
             image = {
                 url: 'http://' + window.location.host + '/images/map/city_center.png',
                 size: new google.maps.Size(21, 21),
                 origin: new google.maps.Point(0, 0),
-//                anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(21, 21)
             };
+
         }
-       
+        else {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/air-plane.png',
+                size: new google.maps.Size(28, 25),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(28, 25)
+            };
+        }
+
         //Add marker to map
         window.lmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(static_landmark_markers[i].lat, static_landmark_markers[i].lng),

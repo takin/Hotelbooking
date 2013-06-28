@@ -57,19 +57,21 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                 <li>
                                     <input type="checkbox" class="checkbox" <?php echo ( ($filters_init["landmark"]["id"] == $landmark->landmark_id) ? "checked=\"checked\"" : ""); ?> id="landmark-<?php echo ($landmark->original_name == 'City Center') ? 'downtown' : $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_id; ?>" name="landmarks" /> 
                                     <?php
+                                    $type = null;
                                     if(strtolower($landmark->type) === "train_station"){
-                                        echo '<input type="hidden" id="hidden_landmarks_train_station_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_train_station_'.$landmark->landmark_id.'" />';
                                         echo '<img src="'.base_url().'images/map/train.png" class="filter_landmark_image">';
+                                        $type = "train_station";
                                     }
                                     else if ( strtolower($landmark->type) === "airport" ){
-                                         echo '<input type="hidden" id="hidden_landmarks_airport_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_airport_'.$landmark->landmark_id.'" />';
                                          echo '<img src="'.base_url().'images/map/air-plane.png" class="filter_landmark_image">';
+                                         $type = "airport";
                                     }
                                     else if ( strtolower($landmark->landmark_name) === "city center" ){
-                                         echo '<input type="hidden" id="hidden_landmarks_city_center_'.$landmark->landmark_id.'" value="'.$landmark->geo_latitude.','.$landmark->geo_longitude.'" name="hidden_landmarks_city_center_'.$landmark->landmark_id.'" />';
                                          echo '<img src="'.base_url().'images/map/city_center.png" class="filter_landmark_image">';
+                                         $type = "city_center";
                                     }
                                     ?>
+                                    <input type="hidden" id="hidden_landmarks_type_<?php echo $landmark->landmark_id; ?>" value="<?php echo $type; ?>" name="hidden_landmarks_type_<?php echo $landmark->landmark_id; ?>" />
                                     <span id="landmark_title_<?php echo $landmark->landmark_id; ?>"><?php echo $landmark->landmark_name; ?></span> (<span id="landmark-count-<?php echo $landmark->landmark_id; ?>">0</span>)
                                     <input type="hidden" id="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude; ?>,<?php echo $landmark->geo_longitude; ?>" name="hidden_landmarks_<?php echo $landmark->landmark_id; ?>" />
                                 </li>
@@ -321,7 +323,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					<li><a class="sorting desc" id="sortbestlocation-tous" href="#"><?php echo _("Best location"); ?></a></li>
 				<?php } ?>
 
-				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 160px; float: right; text-align: right; padding-right: 2px; padding-left; 0">
+				<li class="inputs" style="padding-top: 3px; padding-bottom: 3px; width: 160px; float: right; text-align: right; padding-right: 2px; padding-left: 0;">
 					<div>
 						<span class="type_hostels yellow-bg"><span><?php echo _("Youth hostels only");?></span></span>
 						<input type="checkbox" class="checkbox" id="hostels_2nd_filter" value="" name="hostels_2nd_filter" />
@@ -342,27 +344,27 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 			<ul class="unstyled" id="applied_filters">
 			<li class="label label-lightblue" id="applied_filter_hosting_price" style="display:none;">
 			<span><?php echo _('Price')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('price')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('price');"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_rating" style="display:none;">
 			<span><?php echo _('Rating')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('rating')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('rating');"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_property" style="display:none;">
 			<span><?php echo _('Property type')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('prop_types')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('prop_types');"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_facilities" style="display:none;">
 			<span><?php echo _('Facilities')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('facilities')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('facilities');"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_districts" style="display:none;">
 			<span><?php echo _('Districts')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('districts')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('districts');"></a>
 			</li>
 			<li class="label label-lightblue" id="applied_filter_hosting_landmarks" style="display:none;">
 			<span><?php echo _('Landmarks (within 2km)')?></span>
-			<a class="filter_x_container" href="javascript:void(0);" onClick="pweb_filter.closeFilter('landmarks')"></a>
+			<a class="filter_x_container" href="javascript:void(0);" onclick="pweb_filter.closeFilter('landmarks');"></a>
 			</li>
 			</ul>
 			</div>
@@ -472,7 +474,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(document).height();
-        var fix_height_position =  ( page_height - $("#sidebar").height() - 385 ) ;
+        var fix_height_position =  ( page_height - $("#sidebar").height() - 385 );
         var scroll_position = $(window).scrollTop();
         // whole div container
         var main_container_leftPosition = $("#main_container").offset().left;
