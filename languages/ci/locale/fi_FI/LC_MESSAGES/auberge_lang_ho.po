@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-19 22:33+0300\n"
-"PO-Revision-Date: 2013-06-16 22:21+0200\n"
+"PO-Revision-Date: 2013-06-28 21:30+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2176,9 +2175,9 @@ msgstr "Mahtava sijainti"
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
-#, fuzzy, php-format
+#, php-format
 msgid "Overall evaluation"
-msgstr "Omat arvioinnit"
+msgstr "Kokonaisarviointi"
 
 #: ../code/application/views/mustache/property_list.php:245
 #: ../code/application/views/mustache/property_list.php:259
@@ -3165,7 +3164,6 @@ msgid "To view prices and availability, please enter your dates."
 msgstr "Nähdäksesi hinnat ja saatavuuden kirjoita tulo- ja lähtöpäivät."
 
 #: ../code/application/views/error400.php:10
-#, fuzzy
 msgid "Erreur 400 - Page Introuvable"
 msgstr "Virhe 404 - Sivua ei löydy"
 
@@ -4296,7 +4294,7 @@ msgstr "Käytät %d kokonaista ylioppilasasuntoa."
 #: ../code/application/views/hb/booking_avail_view.php:643
 #, php-format
 msgid "%d %s ( %s )"
-msgstr ""
+msgstr "%d %s ( %s )"
 
 #: ../code/application/views/hw/booking_avail_view.php:358
 #: ../code/application/views/hb/booking_avail_view.php:344
@@ -4982,7 +4980,7 @@ msgstr ""
 
 #: ../code/application/views/hb/property_list.php:112
 msgid "80% +"
-msgstr ""
+msgstr "80% +"
 
 #: ../code/application/views/hb/hostel_view.php:867
 msgid "Purchasable Extras"
@@ -8500,7 +8498,7 @@ msgstr "Majoituksen nimi"
 
 #: ../code/application/views/helpfile/pofields.php~:747
 #: ../code/application/views/helpfile/pofields.php:747
-#, fuzzy, php-format
+#, php-format
 msgid "Address"
 msgstr "Osoite"
 
@@ -8885,7 +8883,7 @@ msgstr "Tarkista tässä nähdääkseen uuden otsinnon tulokset liikuessa kartal
 #: ../code/application/views/helpfile/pofields.php:856
 #, php-format
 msgid "Redo search in map"
-msgstr ""
+msgstr "Etsi uudestaan kartalta"
 
 #: ../code/application/views/helpfile/pofields.php~:857
 #: ../code/application/views/helpfile/pofields.php:857
@@ -8925,9 +8923,9 @@ msgstr "Yhtäkään majoitusta ei tallennettu."
 
 #: ../code/application/views/helpfile/pofields.php:865
 #: ../code/application/views/restricted/user_view.php:6
-#, fuzzy, php-format
+#, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "Oma tili"
+msgstr "Minun tili"
 
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
@@ -8954,48 +8952,49 @@ msgstr "Varausmaksun hyödyt ?"
 msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
-msgstr ""
+msgstr "Luotettava asiakaspalvelu sinun kielellä 24/7"
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "Varmistettu maksu: sinun luottokortti on suojeltu"
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
 msgstr ""
+"Varauksen jälkeen ei tule roskapostia ja sinun yksityistiedot ovat suojeltu"
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
-msgstr ""
+msgstr "Sinulla on pääsy miljooneille toisten matkustajien arvosteluille"
 
 #: ../code/application/views/helpfile/pofields.php:874
-#, fuzzy, php-format
+#, php-format
 msgid "And finally, you get the best price!"
-msgstr "Sait parhaan tarjouksen"
+msgstr "Lopuksi, sinä saat parhaimman hinnan!"
 
 #: ../code/application/views/helpfile/pofields.php:875
-#, fuzzy, php-format
+#, php-format
 msgid "Best price guarantee"
-msgstr "Parhaat hinnat. Takaamme sen."
+msgstr "Varmistettu paras hinta"
 
 #: ../code/application/views/helpfile/pofields.php:876
-#, fuzzy, php-format
+#, php-format
 msgid "Free breakfast only"
-msgstr "Ilmainen aamiainen"
+msgstr "Vain ilmainen aamiainen"
 
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "Paina tähän varataksesi"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "1 miljoona arvostusta"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
@@ -9003,33 +9002,34 @@ msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
 msgstr ""
+"Voit verrata hintoja,palveluja ja sijaintia kartalla, 5 majoitusta kerralla"
 
 #: ../code/application/views/helpfile/pofields.php:880
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to compare"
-msgstr "Paina tähän saadakseen vahvistuksen sähköpostille"
+msgstr "Ole hyvä ja paina tähän vertaukseksi"
 
 #: ../code/application/views/helpfile/pofields.php:881
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to select this property"
-msgstr "Poista tämä majoituspaikka"
+msgstr "Paina tähän valitakseen majoituksen"
 
 #: ../code/application/views/helpfile/pofields.php:882
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
 msgstr ""
-"Alhaisin hinta per ihminen per yö ylioppilasasuntolassa tällä kiinteistöllä: "
-"%s"
+"Alhaisin hinta yksi sänkypaikka ylioppilasasuntolassa tässä majoituksessa "
+"valittuina päivinä"
 
 #: ../code/application/views/helpfile/pofields.php:883
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price per person in a private room at this property for the selected "
 "dates"
 msgstr ""
-"Alhaisin hinta per ihminen per yö yksityis majoituksessa tässä "
-"kiinteistössä: %s"
+"Alhaisin hinta yhdelle ihmiselle yksityishuoneessa tässä majoituksessa "
+"valittuina päivinä"
 
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
@@ -9037,11 +9037,13 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"Paina tähän nähdääkseen jokaisen eri tyypi huoneen hinta ja maksimum määrä "
+"vapaita sänkypaikkoja per huoneessa"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "Voit valita majoituksen sijainnin perusteella"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
@@ -9049,24 +9051,26 @@ msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
 msgstr ""
+"Voit valita majoituksen sijainnin perusteella, juna aseman ja lentokentän "
+"mukaan"
 
 #: ../code/application/views/helpfile/pofields.php:887
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to view pricing for this property"
-msgstr "Ei vapaita huoneita tässä majoituspaikassa."
+msgstr "Paina tähän nähdäkseen tämän majoituksen hinnan"
 
 #: ../code/application/views/helpfile/pofields.php:889
 #, php-format
 msgid "The benefits"
-msgstr ""
+msgstr "Hyödyt"
 
 #: ../code/application/views/helpfile/pofields.php:890
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to see info and prices"
-msgstr "Poista tämä majoituspaikka"
+msgstr "Paina tähän nähdääkseen tiedot ja hinnat"
 
 #: ../code/application/views/helpfile/pofields.php:891
-#, fuzzy, php-format
+#, php-format
 msgid "Save this property as favorite"
 msgstr "Tallenna tämä majoitus suosikkina"
 
