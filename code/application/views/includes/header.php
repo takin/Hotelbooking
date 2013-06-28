@@ -917,8 +917,9 @@ $sel_class = '';
 	<script type="text/javascript">
 	bajb_backdetect.OnBack = function()
 	{
-		$.cookie('back_search', 'false', { expires: 7, path: '/' });
+		mySetCookie('back_search', 'false', 1);
 	}
+
 	</script>
 <?php endif; ?>
 
