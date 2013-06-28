@@ -1815,12 +1815,36 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) {
        this.gmap.changeLandmarkLayer( landmark_LatLng );     	
 };
 
+// set and get cookies
+function mySetCookie(c_name, value, exdays) {
+    var exdate = new Date();
+
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+
+    document.cookie = c_name + "=" + c_value + ';path=/';
+}
+
+function myGetCookie(c_name) {
+    var i, x, y, ARRcookies = document.cookie.split(";");
+
+    for (i = 0; i < ARRcookies.length; i++) {
+        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g,"");
+
+        if (x == c_name) {
+            return unescape(y);
+        }
+    }
+}
 
 $(document).ready(function() { 
 	
-	if($.cookie('back_search') == 'false') {
+	if(myGetCookie('back_search') == 'false') {
 			$('#city_load').hide();
-			$.removeCookie('back_search', { path: '/' });
+			delete_cookie ( 'back_search', false )
+			mySetCookie('back_search', 'true', 1);
 	} else {
 			$('#city_load').show();
 			$('#city_load').css('visibility','visible');
