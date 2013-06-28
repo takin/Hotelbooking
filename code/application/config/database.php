@@ -7,7 +7,7 @@ if(ISDEVELOPMENT)
 	$username = "dev_aj_site";
 	$password = "data2016";
 
-	$translationDBHost = "95.142.167.244";
+	$translationDBHost = "127.0.0.1";
 	$translationDBUser = "dev_aj_site";
 	$translationDBPassword = "data2016";
 }
