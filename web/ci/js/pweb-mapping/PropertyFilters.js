@@ -1815,17 +1815,8 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) {
        this.gmap.changeLandmarkLayer( landmark_LatLng );     	
 };
 
-
 $(document).ready(function() { 
 	
-	if($.cookie('back_search') == 'false') {
-			$('#city_load').hide();
-			$.removeCookie('back_search', { path: '/' });
-	} else {
-			$('#city_load').show();
-			$('#city_load').css('visibility','visible');
-	}
-
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
   
@@ -1854,7 +1845,6 @@ $(document).ready(function() {
   {
     type:"GET",
     url:availibility_url,
-    cache: true,
     success:function(data)
     {
       pweb_filter.setup(data);
