@@ -231,7 +231,7 @@ var landmark_cityMarkers = [];
 //        new google.maps.Point(0,0),
 //        new google.maps.Point(0, 29));
     
-      var image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
+    var image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 
       var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
               new google.maps.Size(43, 28),
@@ -475,6 +475,7 @@ var landmark_cityMarkers = [];
 //	      new google.maps.Point(0,0),
 //	      new google.maps.Point(0, 29));
             
+
     var image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 
 	  var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
@@ -917,8 +918,9 @@ $sel_class = '';
 	<script type="text/javascript">
 	bajb_backdetect.OnBack = function()
 	{
-		$.cookie('back_search', 'false', { expires: 7, path: '/' });
+		mySetCookie('back_search', 'false', 1);
 	}
+
 	</script>
 <?php endif; ?>
 
