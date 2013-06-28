@@ -26,19 +26,17 @@ echo form_hidden('switch_api', $switch_api);
     $this->load->view('includes/side_search_box', array('date_selected' => $date_selected, 'current_view' => $current_view, 'numnights_selected' => $numnights_selected, 'bc_continent' => $bc_continent, 'bc_country' => $bc_country, 'bc_city' => $bc_city));
     ?>
     <?php 
-    if (ISDEVELOPMENT) {
-        $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
-    } else {
-        $static_map_icon_base_url = base_url();
-    }
-
+        if (ISDEVELOPMENT) {
+            $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
+        } else {
+            $static_map_icon_base_url = base_url();
+        }
     if (isset($google_map_geo_latlng)) { ?>
         <div class="box_content map_button_box box_round" id="map_button_side">
             <a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click');
                                     $(document).scrollTop($('#show_full_map').offset().top);">
                 <span><strong><?php echo _("Voir la carte"); ?></strong></span>
-                <img class=""
-                     src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=icon:<?php echo $static_map_icon_base_url; ?>images/map_markers/selected/marker_selected_0.png%7C+<?php echo $google_map_geo_latlng; ?>"/>
+                <img class="" src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=icon:<?php echo $static_map_icon_base_url; ?>images/map_markers/selected/marker_selected_0.png%7C+<?php echo $google_map_geo_latlng; ?>"/>
             </a>
         </div>
     <?php } ?>
