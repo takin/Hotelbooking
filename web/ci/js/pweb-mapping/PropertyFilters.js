@@ -1788,21 +1788,28 @@ PWebFilterMap.prototype.showfilteredDistrict = function() {
        this.gmap.changeDistrictLayer(values);
        	
 };
-PWebFilterMap.prototype.showfilteredLandmark = function() { 
+PWebFilterMap.prototype.showfilteredLandmark = function() {
 
-                 var values = [];
-        $("#cb_group_landmarks_filter li").each(function() {
+    var values = [];
+    $("#cb_group_landmarks_filter li").each(function() {
 
-           var inputcheck = $(this).find("input[type='checkbox']");
-            if (inputcheck.is(':checked')) {
-                var landmark_id = inputcheck.val();
-                var landmark_id_lnglat = $("#hidden_landmarks_"+landmark_id).val();
-                values.push(landmark_id_lnglat);
-            }
+        var inputcheck = $(this).find("input[type='checkbox']");
+        if (inputcheck.is(':checked')) {
+            var landmark_id = inputcheck.val();
+            var landmark_id_latlng = $("#hidden_landmarks_" + landmark_id).val();
+            var landmark_type = $("#hidden_landmarks_type_" + landmark_id).val();
 
-     });
-       this.gmap.changeLandmarkLayer(values);
-       	
+
+            var newElement = {};
+            newElement['latlng'] = landmark_id_latlng;
+            newElement['type'] = landmark_type;
+
+            values.push(newElement);
+        }
+
+    });
+    this.gmap.changeLandmarkLayer(values);
+
 };
 PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) { 
        this.gmap.changeMarkerIcon( pDiv, pIcon );
@@ -1811,8 +1818,8 @@ PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) {
 PWebFilterMap.prototype.changeDistrictLayer = function( district_um_ids ) { 
        this.gmap.changeDistrictLayer( district_um_ids );     	
 };
-PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) { 
-       this.gmap.changeLandmarkLayer( landmark_LatLng );     	
+PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_latLng_Type ) { 
+       this.gmap.changeLandmarkLayer( landmark_latLng_Type );     	
 };
 
 $(document).ready(function() { 
@@ -2107,9 +2114,13 @@ PWebFilterApp.prototype.changeDistrictLayer = function(map_slug, district_um_ids
         this.pweb_maps[map_slug].changeDistrictLayer(district_um_ids);
     }
 };
-PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng) {
+PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng, landmark_type) {
     if (this.pweb_maps[map_slug].enabled === true)
     {
-        this.pweb_maps[map_slug].changeLandmarkLayer(landmark_LatLng);
+        var newElement = {};
+            newElement['latlng'] = landmark_LatLng;
+            newElement['type'] = landmark_type;
+            
+        this.pweb_maps[map_slug].changeLandmarkLayer(newElement);
     }
 };

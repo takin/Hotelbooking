@@ -127,7 +127,7 @@
 									<b><span class="mapView_districtWord"><?php echo _('Landmarks (within 2km)');?>:</span></b>
 									{{#landmarks}}
 										<p>
-											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}}###{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); pweb_filter.changeLandmarkLayer('hostel_quickview','{{geo_latitude}}###{{geo_longitude}}');">
+											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}},{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); pweb_filter.changeLandmarkLayer('hostel_quickview','{{geo_latitude}},{{geo_longitude}}','{{type}}');">
 											{{translation_name}}
 										</p>
 									{{/landmarks}}
