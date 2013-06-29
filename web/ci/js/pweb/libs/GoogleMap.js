@@ -932,7 +932,7 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
             icon: image
         });
 
-//        static_landmark_markers[i].lmarker = window.lmarkers[i];
+        window.lmarkers[i].setZIndex(500000);
 
     }// end  for (var i in static_landmark_markers)
 };
