@@ -671,6 +671,7 @@ GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng_type) {
         icon: image
     });
 
+    gmarker.setZIndex(15000);
     GoogleMap.markers.push(gmarker);
 };
 GoogleMap.prototype.centerMapMarker = function() {
@@ -932,7 +933,7 @@ GoogleMap.prototype.drawStaticLandmarks = function() {
             icon: image
         });
 
-        window.lmarkers[i].setZIndex(500000);
+        window.lmarkers[i].setZIndex(10000);
 
     }// end  for (var i in static_landmark_markers)
 };
