@@ -412,7 +412,7 @@ if ($api_error == false) {
                                 <?php
                                 foreach ($landmarks as $key => $landmark) {
 
-                                    echo $landmark->landmark_name;
+                                    echo '<span class="landmark_type_'.$landmark->type .'"></span>'.$landmark->landmark_name;
 
                                     if (count($landmarks) != $key + 1) {
                                         echo ", ";
@@ -1071,7 +1071,9 @@ function show_landmark_in_map(landmark_latlng, landmark_type){
                             ?>
                             <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
                                    value="<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>"
-                                   onchange="ClearlandmarkAndDistrict(); show_landmark_in_map('<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>','<?php echo $landmark->type; ?>');"><?php echo $landmark->landmark_name; ?>
+                                   onchange="ClearlandmarkAndDistrict(); show_landmark_in_map('<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>','<?php echo $landmark->type; ?>');">
+                                       <span class="landmark_type_<?php echo $landmark->type; ?>"></span>
+                                       <?php echo $landmark->landmark_name; ?>
 
                         <?php }//end Foreach   ?>
                     </p>
