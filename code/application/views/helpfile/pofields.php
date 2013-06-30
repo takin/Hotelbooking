@@ -889,3 +889,5 @@
 <?php echo _('The benefits');?>
 <?php echo _('Click here to see info and prices');?>
 <?php echo _('Save this property as favorite');?>
+<?php echo _('Filter by Landmarks, train stations, airports...');?>
+<?php echo _('Expand the map');?>
