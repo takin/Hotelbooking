@@ -395,12 +395,14 @@ class Db_hb_city extends CI_Model
 		JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
 		JOIN continents cn ON cn.continent_hb_code = co.continent_hb_code
 		LEFT JOIN cities2 ci2 ON co.lname_en = ci2.country_en AND ci2.city_en = TRIM(SUBSTRING_INDEX(ci.lname_en, ',', 1))
-		LEFT JOIN (SELECT DISTINCT country_en, country_$lang FROM cities2) co2 ON co.lname_en = co2.country_en
+		LEFT JOIN (SELECT DISTINCT country_$lang FROM cities2) co2 ON co.lname_en = co2.country_en
 
       $where_continent
       $where_country
 
 	  ORDER BY hb_country_name_translated, hb_city_name_translated;";
+
+    log_message('debug', "sql: ".$sql);
 
     $query = $this->db->query($sql);
     if($query->num_rows() > 0)
