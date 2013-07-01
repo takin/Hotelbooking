@@ -402,7 +402,7 @@ class Db_hb_city extends CI_Model
 
 	  ORDER BY hb_country_name_translated, hb_city_name_translated;";
 
-    log_message('debug', "sql: ".$sql);
+//    log_message('debug', "sql: ".$sql);
 
     $query = $this->db->query($sql);
     if($query->num_rows() > 0)
