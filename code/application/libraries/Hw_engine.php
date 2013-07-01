@@ -920,11 +920,16 @@ class Hw_engine {
 
       $property_name = $data['hostel_data']->propertyName;
       $hostel_city = $this->CI->Db_country->get_city($data['hostel_data']->country,$data['hostel_data']->city,$this->CI->site_lang);
-
+//die(var_dump($hostel_city));
+      
+//        if (!empty($hostel_city)) {
+//            $data['city_landmarks'] = $this->CI->Db_hw_hostel->get_featured_landmarks_by_city_id($hostel_city->city_id, 2);
+//        }
+                        
       $data['availability_check'] = true;
       $data['google_map_enable']  = true;
       $data['google_map_address']  = $data['hostel_data']->address1.", ".$data['hostel_data']->city.", ".$data['hostel_data']->country.", ".$data['hostel_data']->postCode;
-
+      
       $data['bc_continent']  = $this->CI->Db_country->get_continent_of_country($data['hostel_data']->country,$this->CI->site_lang);
       if(is_null($data['bc_continent']))
       {
