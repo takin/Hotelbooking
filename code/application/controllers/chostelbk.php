@@ -166,12 +166,7 @@ class CHostelbk extends I18n_site
     $data["property_cards"] = $this->input->post("propertyCards",TRUE);
 
     $response = $this->Hostelbookers_api->getPropertyPricingPerDate($propertyNumber,$dateStart->format('d-M-Y'),$numNights, $this->api_functions_lang, $currency);
-    $userdata = array(
-                   'date_selected'      => $dateStart->format('Y-m-d'),
-                   'numnights_selected' => $numNights
-               );
 
-    $this->session->set_userdata($userdata);
     set_cookie('currency_selected', $currency, 2592000);
     $cookie = array('name'   => 'date_selected',
                       'value'  => $dateStart->format('Y-m-d'),
@@ -322,29 +317,29 @@ class CHostelbk extends I18n_site
 
       //remove last pipe  character
       if(!empty($roomsIDS)) $roomsIDS = substr($roomsIDS, 0, -1);
-            
+
       if ($this->wordpress->get_option("aj_hb_charge_booking_fees") == 'true') {
-          
+
           $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDateWithBookingFee( $propertyNumber,
                                                                                              $roomsIDS,
                                                                                              $dateStart->format('d-M-Y'),
                                                                                              $numNights,
                                                                                              $this->api_functions_lang,
                                                                                              $bookCurrency);
-          
+
           $data['booking_fee'] = $response["RESPONSE"]["FEE"];
           $response['RESPONSE'] = $response['RESPONSE']['PRICE'];
-          
+
         } else {
-            
+
             $response = $this->Hostelbookers_api->getPropertyRoomPricingPerDate( $propertyNumber,
                                                                            $roomsIDS,
                                                                            $dateStart->format('d-M-Y'),
                                                                            $numNights,
                                                                            $this->api_functions_lang,
                                                                            $bookCurrency);
-            
-        }         
+
+        }
 
       $inputok = true;
       if($response === false)
@@ -932,38 +927,6 @@ class CHostelbk extends I18n_site
     }
 
     usort($hbresponse, "cmp");
-  }
-
-  function _searchBoxInit(&$data)
-  {
-    echo "deprecated!";
-
-    $this->carabiner->load_group_assets('search_box_scripts');
-
-    if(!isset($data)) $data = array();
-
-    $country   = $this->session->userdata('country_selected');
-    $city      = $this->session->userdata('city_selected');
-    $dateStart = $this->session->userdata('date_selected');
-    $numNights = $this->session->userdata('numnights_selected');
-
-    //TONOTICE Remember to Search in cookie, if those values becomes to be set outside CI
-    if($country!=false)
-    {
-      $data['country_selected'] = $country;
-    }
-    if($city!=false)
-    {
-      $data['city_selected'] = $city;
-    }
-    if($dateStart!=false)
-    {
-      $data['date_selected'] = $dateStart;
-    }
-    if($numNights!=false)
-    {
-      $data['numnights_selected'] = $numNights;
-    }
   }
 
   function _set_tr_continent_data(&$data)
