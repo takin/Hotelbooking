@@ -4,8 +4,8 @@
 $config['displayVelaro'] = TRUE;
 
 /* Display or not the share PDF and Email */
-$config['displayShareEmail'] = FALSE;
-$config['displaySharePDF']   = FALSE;
+$config['displayShareEmail'] = true;
+$config['displaySharePDF']   = true;
 
 
 /* Set True to display Quick Preview functionality and false to hide Quick Preview Functionality */
@@ -29,11 +29,11 @@ $config['recent_view_number_cookies'] = 5;
 /* bing translation log for ON and OFF (TRUE=ON, FALSE=OFF)*/
 if (ISDEVELOPMENT)
 {
-	$config['bingTranslation'] = TRUE;
+	$config['bingTranslation'] = FALSE;
 }
 else
 {
-	$config['bingTranslation'] = TRUE;
+	$config['bingTranslation'] = FALSE;
 }
 
 $config['companies_strings_to_replace'] = array(

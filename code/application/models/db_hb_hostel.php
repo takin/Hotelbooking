@@ -81,13 +81,15 @@ class Db_hb_hostel extends CI_Model
     $district_join = "";
     $district_where = "";
 
+    log_message('debug', "filters district ".$filters["district"]);
+
     if(!empty($filters["district"]))
     {
       $this->CI->load->model('Db_districts');
       $filters["district"] = $this->CI->Db_districts->create_slug($filters["district"]);
       $filters["district"] = $this->db->escape_str($filters["district"]);
 
-      $district_join = "  LEFT JOIN hb_hostel_district ON hb_hostel.property_number = hb_hostel_district.property_number
+      $district_join = "  LEFT JOIN hb_hostel_district ON h.property_number = hb_hostel_district.property_number
     												LEFT JOIN districts ON hb_hostel_district.district_id = districts.district_id";
       $district_where = " AND districts.slug LIKE '".$filters["district"]."'";
     }
@@ -95,12 +97,14 @@ class Db_hb_hostel extends CI_Model
     $landmark_join = "";
     $landmark_where = "";
 
+    log_message('debug', "filters landmark ".$filters["landmark"]);
+
     if(!empty($filters["landmark"]))
     {
       $this->CI->load->model('Db_landmarks');
       $filters["landmark"] = $this->db->escape_str($filters["landmark"]);
 
-      $landmark_join = "  LEFT JOIN hb_hostel_landmark ON hb_hostel.property_number = hb_hostel_landmark.property_number
+      $landmark_join = "  LEFT JOIN hb_hostel_landmark ON h.property_number = hb_hostel_landmark.property_number
     												LEFT JOIN landmarks ON hb_hostel_landmark.landmark_id = landmarks.landmark_id";
       $landmark_where = " AND landmarks.slug LIKE '".$filters["landmark"]."'";
     }
@@ -149,8 +153,6 @@ class Db_hb_hostel extends CI_Model
     {
       $sql.= " LIMIT $limit";
     }
-
-    log_message('debug', "$sql");
 
     $query = $this->CI->db->query($sql);
 
@@ -2264,10 +2266,13 @@ class Db_hb_hostel extends CI_Model
                    `".self::LANDMARKS_TABLE."`.`landmark_name`,
                    `".self::LANDMARKS_TABLE."`.`geo_latitude`,
                    `".self::LANDMARKS_TABLE."`.`geo_longitude`,
+                   `".self::LANDMARK_TYPE_TABLE."`.`type`,
                      SUM(if( distance <= $range_km,1,0)) as landmark_count
               FROM ".self::HOSTEL_TABLE."
               RIGHT JOIN `".self::HB_HOSTEL_LANDMARK_TABLE."` ON `".self::HB_HOSTEL_LANDMARK_TABLE."`.`property_number` = `".self::HOSTEL_TABLE."`.`property_number`
               LEFT JOIN `".self::LANDMARKS_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::HB_HOSTEL_LANDMARK_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_OF_TYPE_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_TYPE_TABLE."`  ON `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_type_id` = `".self::LANDMARK_TYPE_TABLE."`.`landmark_type_id`    
               WHERE `".self::HOSTEL_TABLE."`.`city_hb_id` = $city_id
               	AND `".self::LANDMARKS_TABLE."`.source = $landmark_source_id
               GROUP BY `".self::LANDMARKS_TABLE."`.`landmark_id`
@@ -2286,17 +2291,24 @@ class Db_hb_hostel extends CI_Model
   {
     $range_km = $this->db->escape_str($range_km);
 
-    $this->db->select(self::HB_HOSTEL_LANDMARK_TABLE.".landmark_id");
-    $this->db->select(self::LANDMARKS_TABLE.".slug");
-    $this->db->select(self::LANDMARKS_TABLE.".landmark_name");
-    $this->db->select(self::LANDMARKS_TABLE.".geo_latitude");
-    $this->db->select(self::LANDMARKS_TABLE.".geo_longitude");
-    $this->db->join(self::LANDMARKS_TABLE, self::HB_HOSTEL_LANDMARK_TABLE.'.landmark_id = '.self::LANDMARKS_TABLE.'.landmark_id');
-    $this->db->where("property_number",$property_number);
-    $this->db->where("source",$landmark_source_id);
-    $this->db->where("distance <= $range_km");
-
-    $query = $this->db->get(self::HB_HOSTEL_LANDMARK_TABLE);
+     $sql = "SELECT 
+                   ".self::HB_HOSTEL_LANDMARK_TABLE.".landmark_id,
+                   ".self::LANDMARKS_TABLE.".slug,
+                   ".self::LANDMARKS_TABLE.".landmark_name,
+                   ".self::LANDMARK_TYPE_TABLE.".type,
+                   ".self::LANDMARKS_TABLE.".geo_latitude,
+                   ".self::LANDMARKS_TABLE.".geo_longitude
+              FROM ".self::HB_HOSTEL_LANDMARK_TABLE ."
+              INNER JOIN `".self::LANDMARKS_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::HB_HOSTEL_LANDMARK_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_OF_TYPE_TABLE."` ON `".self::LANDMARKS_TABLE."`.`landmark_id` = `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_id`
+              LEFT JOIN `".self::LANDMARK_TYPE_TABLE."`  ON `".self::LANDMARK_OF_TYPE_TABLE."`.`landmark_type_id` = `".self::LANDMARK_TYPE_TABLE."`.`landmark_type_id`    
+              WHERE ".self::HB_HOSTEL_LANDMARK_TABLE .".property_number = $property_number
+              	AND ".self::LANDMARKS_TABLE.".source = $landmark_source_id
+                AND ".self::HB_HOSTEL_LANDMARK_TABLE .".distance <= $range_km
+              GROUP BY `".self::LANDMARKS_TABLE."`.`landmark_id`
+              ORDER BY ".self::LANDMARKS_TABLE.".landmark_name ASC";
+     
+     $query = $this->db->query($sql);
 
     $return = array();
     if($query->num_rows() > 0)

@@ -13,7 +13,13 @@
 					<tr>
 						<td valign="top">
 							<p style="line-height:18px">
-								<img style="margin-top:20px;" border=0 src="<?php echo base_url();?>images/email-head-share.gif" alt="Auberges De Jeunesse" />
+								<?php
+									$csspath = $this->wordpress->get_option('aj_api_ascii');
+									if (empty($csspath)) {
+										$csspath = $this->wordpress->get_option('aj_api_name');
+									}
+								?>
+								<img style="margin-top:20px;" border=0 class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"/>
 							</p>
 						</td>
 						<td valign="middle">
@@ -32,9 +38,9 @@
 						<td valign="top">
 							<p style="line-height:18px">
 								<br />
-								<span style="color: #003580"><?php echo sprintf(_("%s has sent you a message:"), var_check($from_name, '')); ?></span>
+								<span style="color: #003580"><?php echo sprintf(_("%s has sent you a message:"), htmlspecialchars(strip_tags($from_name), ENT_QUOTES)); ?></span>
 								<br /><br />
-								<span style="color:#003580; margin-left:20px">"<?php echo var_check($message, ''); ?>"</span>
+								<span style="color:#003580; margin-left:20px">"<?php echo nl2br(htmlspecialchars(strip_tags($message), ENT_QUOTES)); ?>"</span>
 								<br /><br />
 								<?php echo '<br />' .  _("Here is the link to see the prices, description, maps and much more:"); ?>
 								<br /><br />

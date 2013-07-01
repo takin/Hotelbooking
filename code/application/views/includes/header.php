@@ -54,7 +54,7 @@
 
         if (!empty($print) && $print == 'pdf') {
     	    $this->carabiner->css('reset.css','all','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css?v=' . time(),'all','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v=' . time(),'all','mainv2.css?v=' . time(),FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','all','tools.css',FALSE,FALSE,"full_site_global");
 
 	    $this->carabiner->css('pdf.css');
@@ -65,7 +65,7 @@
         }
         else {
 	    $this->carabiner->css('reset.css','screen','reset.css',FALSE,FALSE,"full_site_global");
-            $this->carabiner->css('mainv2.css?v=' . time(),'screen','mainv2.css',FALSE,FALSE,"full_site_global");
+            $this->carabiner->css('mainv2.css?v=' . time(),'screen','mainv2.css?v=' . time(),FALSE,FALSE,"full_site_global");
 	    $this->carabiner->css('tools.css','screen','tools.css',FALSE,FALSE,"full_site_global");
             $this->carabiner->css('compare_property_print.css','screen','compare_property_print.css',FALSE,FALSE,"full_site_global");
             
@@ -130,6 +130,7 @@ var urbanmapping_key = "<?php echo $this->config->item('urbanmapping_key');  ?>"
 
 // this is used to create circles in map (landmark)
 var cityCircle = null;
+var landmark_cityMarkers = [];
 
   InfoW.closeInfoWindow = function() {
     InfoW.infoWindow.close();
@@ -254,21 +255,27 @@ var cityCircle = null;
     <?php elseif(!empty($google_map_country_list)):?>
     markCountryList();
     <?php endif;?>
-  // check if there is a district radio button and checked
-        // if yes call the district function to show district boundries
-           if($("#distrinct:radio:checked").length > 0)
-           {
-            changeDistrictLayer($("#distrinct:radio:checked").val());
-           }
-
-
-             if($("#landmark:radio:checked").length > 0)
-           {
-            changeLandmarkLayer($("#landmark:radio:checked").val());
-           }
+  window.setTimeout(function() { loadchanged_landmarkAndDistrict(); }, 2200);
+//  loadchanged_landmarkAndDistrict();
   }
 
-  function changeDistrictLayer(district_um_id){
+        function loadchanged_landmarkAndDistrict(){
+      // check if there is a district or landmark radio button and checked
+        if($("input:radio[name='landmarkAndDistrict']:checked").length > 0){
+
+            var LandmarkOrDistrictValue = $("input:radio[name='landmarkAndDistrict']:checked").val();
+
+                 if(LandmarkOrDistrictValue.indexOf(",") === -1){
+                     changeDistrictLayer(LandmarkOrDistrictValue);
+                 }
+                 else{
+                     changeLandmarkLayer(LandmarkOrDistrictValue);
+                 }
+            }
+      
+     }
+        
+    function changeDistrictLayer(district_um_id){
 
     // working with mapinfulence
     // Initialize Mapfluence with your API key.
@@ -314,39 +321,65 @@ var cityCircle = null;
        map.overlayMapTypes.setAt(1, adaptedLayer);
   }
 
-    function changeLandmarkLayer(landmark_LatLng){
+ function ClearlandmarkAndDistrict(){
+     // clear any landmark circle
+        if(cityCircle !== null)
+        {
+            cityCircle.setMap(null);
+        }
+        
+        // check if landmark bin exists
+        // if exist remove them
+        if (landmark_cityMarkers.length > 0)
+        {
+            for (var i in landmark_cityMarkers ) 
+            { 
+                landmark_cityMarkers[i].setMap(null);
+            }
+        }
+        // clear any district
+        map.overlayMapTypes.setAt(1, null);
+        }
+ function changeLandmarkLayer(landmark_LatLng){
 
-if(cityCircle != null)
-{
-    cityCircle.setMap(null);
-}
-var point = landmark_LatLng.split("###");
-var lat = point[0];
-var Lng = point[1];
+    var point = landmark_LatLng.split(",");
+    var lat = point[0];
+    var Lng = point[1];
 
-//alert("lat="+lat+"::::Lng="+Lng+"::::");
-
-var citymap = {
-//  center: new google.maps.LatLng(53.477001,-2.230000)
-  center: new google.maps.LatLng( lat, Lng )
-};
-
-    var circle_color  = "#FF0000";
-    
-    var LandmarkOptions = {
-      strokeColor: "#4E89C9",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-//      fillColor: "#4E89C9",
-      fillColor: circle_color,
-      fillOpacity: 0.35,
-      map: map,
-      center: citymap.center,
-      radius:  2000
+    var citymap = {
+    //  center: new google.maps.LatLng(53.477001,-2.230000)
+      center: new google.maps.LatLng( lat, Lng )
     };
-    cityCircle = new google.maps.Circle(LandmarkOptions);
 
-  }
+        var circle_color  = "#FF0000";
+        
+        var LandmarkOptions = {
+          strokeColor: "#4E89C9",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+    //      fillColor: "#4E89C9",
+          fillColor: circle_color,
+          fillOpacity: 0.35,
+          map: map,
+          center: citymap.center,
+          radius:  2000
+        };
+        cityCircle = new google.maps.Circle(LandmarkOptions);
+
+        //landmark_marker_blue.png
+        var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
+			        new google.maps.Size(28, 28),
+			        new google.maps.Point(0,0),
+			        new google.maps.Point(0, 29));
+                                
+	var gmarker = new google.maps.Marker({
+	        position: new google.maps.LatLng(lat, Lng), 
+	        map: map,
+	        icon: image	        
+	    }); 
+
+	landmark_cityMarkers.push(gmarker);          
+      }
 
   <?php if(isset($google_map_address)):?>
   function codeAddress() {
@@ -839,6 +872,7 @@ var citymap = {
     $this->carabiner->js('jquery.calculation.js','jquery.calculation.js',TRUE);
     $this->carabiner->js('hostel_view.js','hostel_view.js',TRUE);
     $this->carabiner->js('jquery.tablesorter.js', 'jquery.tablesorter.js', TRUE);
+
   }
   elseif($current_view == "search_results")
   {
@@ -848,6 +882,7 @@ var citymap = {
   $this->carabiner->js('jquery.cluetip.all.js', 'jquery.cluetip.all.js', TRUE);
   $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
   $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
+
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
   <?php
@@ -878,6 +913,7 @@ $sel_class = '';
 	}
 
 ?>
+
   <script type="text/javascript">
   //City lists
   //Cities array must be a global variable

@@ -3,6 +3,9 @@ if(!isset($isAjax) || ($isAjax == false))
 {
   ?>
   <h2><?php echo _("Commentaires et évaluations de voyageurs");?></h2>
+  <a href="#hostel_info_home" onclick="$('.tab_price').trigger('click'); return false;" class="booking-form-submit button-green box_round hoverit" style="display: inline; float: right"><?php echo _('Click here to see info and prices'); ?></a>
+  <br style="clear: both;" />
+
   <span id="comment-translate-menu"></span>
   <?php
 }

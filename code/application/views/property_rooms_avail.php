@@ -2,19 +2,21 @@
 $randProperty = rand(100000, 999999);
 echo form_hidden('partially_available', _('Partially Available'));
 ?>
-<?php if ($property_api == 'HW'): ?>
-    <span style="float: right; padding-bottom: 5px; padding-top: 5px;">
-        <?php
-        $data = array(
-            'name' => 'fully_available_' . $randProperty,
-            'id' => 'fully_available_' . $randProperty,
-            'value' => 'accept',
-            'checked' => FALSE,
-            'style' => '',
-        );
-        echo form_label(anchor('#', _('Show fully available only'), array('class' => 'title', 'title' => _('Show fully available only') . ' | ' . _('We are displaying rooms with both full and partial availability for your dates. You can select this filter to only see rooms with full availability for your stay.'))) . ' &nbsp; ' . form_checkbox($data), 'fully_available_' . $randProperty);
-        ?>
-    </span>
+<?php if (isset($property_api)): ?>
+    <?php if ($property_api == 'HW'): ?>
+        <span style="float: right; padding-bottom: 5px; padding-top: 5px;">
+            <?php
+            $data = array(
+                'name' => 'fully_available_' . $randProperty,
+                'id' => 'fully_available_' . $randProperty,
+                'value' => 'accept',
+                'checked' => FALSE,
+                'style' => '',
+            );
+            echo form_label(anchor('#', _('Show fully available only'), array('class' => 'title', 'title' => _('Show fully available only') . ' | ' . _('We are displaying rooms with both full and partial availability for your dates. You can select this filter to only see rooms with full availability for your stay.'))) . ' &nbsp; ' . form_checkbox($data), 'fully_available_' . $randProperty);
+            ?>
+        </span>
+    <?php endif; ?>
 <?php endif; ?>
 <script type="text/javascript">
     $('a.show-room-info').click(function() {
@@ -154,16 +156,37 @@ if (!empty($property_rooms["privateRooms"])) {
                     if ($i == ($numNights - 1)) {
                         $sharedRoomsCluetipTable .= "<th class='last'>";
                     } else {
-                        $sharedRoomsCluetipTable .= "<th>";
+                        if (floor($numNights / 2) - 1) {
+                            $sharedRoomsCluetipTable .= "<th class='last'>";
+                        } else {
+                            $sharedRoomsCluetipTable .= "<th>";
+                        }
                     }
 
                     $sharedRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $date->format('U')), 0, 3, 'UTF-8'));
                     $sharedRoomsCluetipTable .= strftime("<br /> %d", $date->format('U'));
-                    $date->modify("+1 day");
                     $sharedRoomsCluetipTable .= "</th>";
+
+                    if ($numNights > 13) {
+                        if ($i == floor($numNights / 2)) {
+                            $sharedRoomsCluetipTable .= "</tr><tr>";
+                        }
+                    }
+
+                    $date->modify("+1 day");
+                }
+
+                if ($numNights > 13) {
+                    if ($numNights % 2 != 0) {
+                        $sharedRoomsCluetipTable .= "<th class='last'></th>";
+                    } else {
+                        $sharedRoomsCluetipTable .= "<th></th>";
+                        $sharedRoomsCluetipTable .= "<th class='last'></th>";
+                    }
                 }
 
                 $sharedRoomsCluetipTable .= "</tr><tr>";
+
                 $date = clone $dateStart;
 
                 $display_currency = '';
@@ -184,7 +207,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_shared == $room["availableDates"][$date->format("Y-m-d")]["price"]) {
-                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '').'</span>';
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_shared, 2, '.', '') . '</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';
@@ -197,13 +220,21 @@ if (!empty($property_rooms["privateRooms"])) {
                     if ($i == 0) {
                         $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
                     } else {
-                        $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        if ($i == floor($numNights / 2) + 1) {
+                            $sharedRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        } else {
+                            $sharedRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        }
                     }
 
+                    if ($numNights > 13) {
+                        if ($i == floor($numNights / 2)) {
+                            $sharedRoomsCluetipTable .= "</tr><tr>";
+                        }
+                    }
                     $date->modify("+1 day");
                 }
 
-                $sharedRoomsCluetipTable .= "</tr>";
                 $dormText = '';
 
                 if (($room["availableBeds"] % $nb_guest_per_room) == 0) {
@@ -281,7 +312,15 @@ if (!empty($property_rooms["privateRooms"])) {
                     </td>
                 </tr>
                 <?php
-                $sharedRoomsCluetipTable.= "</table>";
+                if ($numNights > 13) {
+                    if ($numNights % 2 != 0) {
+                        $sharedRoomsCluetipTable .= "<td class='last'></td>";
+                    } else {
+                        $sharedRoomsCluetipTable .= "<td></td>";
+                        $sharedRoomsCluetipTable .= "<td class='last'></td>";
+                    }
+                }
+                $sharedRoomsCluetipTable.= "</tr></table>";
                 $sharedRoomsID++;
             }
             echo '<tr class="no_dorms"><td class="first" colspan="4">' . _("No dorms available") . '</td></tr>';
@@ -348,13 +387,33 @@ if (!empty($property_rooms["privateRooms"])) {
                     if ($i == ($numNights - 1)) {
                         $privateRoomsCluetipTable .= "<th class='last'>";
                     } else {
-                        $privateRoomsCluetipTable .= "<th>";
+                        if (floor($numNights / 2) - 1) {
+                            $privateRoomsCluetipTable .= "<th class='last'>";
+                        } else {
+                            $privateRoomsCluetipTable .= "<th>";
+                        }
                     }
 
                     $privateRoomsCluetipTable .= my_mb_ucfirst(mb_substr(strftime("%A", $date->format('U')), 0, 3, 'UTF-8'));
                     $privateRoomsCluetipTable .= strftime("<br /> %d", $date->format('U'));
-                    $date->modify("+1 day");
                     $privateRoomsCluetipTable .= "</th>";
+
+                    if ($numNights > 13) {
+                        if ($i == floor($numNights / 2)) {
+                            $privateRoomsCluetipTable .= "</tr><tr>";
+                        }
+                    }
+
+                    $date->modify("+1 day");
+                }
+
+                if ($numNights > 13) {
+                    if ($numNights % 2 != 0) {
+                        $privateRoomsCluetipTable .= "<th class='last'></th>";
+                    } else {
+                        $privateRoomsCluetipTable .= "<th></th>";
+                        $privateRoomsCluetipTable .= "<th class='last'></th>";
+                    }
                 }
 
                 $privateRoomsCluetipTable .= "</tr><tr>";
@@ -379,7 +438,7 @@ if (!empty($property_rooms["privateRooms"])) {
                         $currency_formin = $room["currency"];
 
                         if ($min_price_private == ($room["availableDates"][$date->format("Y-m-d")]["price"] / $room['max_guest_per_unity'])) {
-                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '').'</span>';
+                            $lowest_night = _('Lowest night:') . ' <span style="color: #6DA903;">' . $room["currency"] . ' ' . number_format($min_price_private, 2, '.', '') . '</span>';
                             $lowest_style = 'style="color: #6DA903;"';
                         } else {
                             $lowest_style = '';
@@ -395,13 +454,21 @@ if (!empty($property_rooms["privateRooms"])) {
                     if ($i == 0) {
                         $privateRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
                     } else {
-                        $privateRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        if ($i == floor($numNights / 2) + 1) {
+                            $privateRoomsCluetipTable.= '<td align="center" class="first" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        } else {
+                            $privateRoomsCluetipTable.= '<td align="center" width="' . ((1 / $numNights) * 100) . '%;" title="' . _('Price per bed (not per room)') . '" ' . $lowest_style . '>' . $date_msg . '</td>';
+                        }
+                    }
+
+                    if ($numNights > 13) {
+                        if ($i == floor($numNights / 2)) {
+                            $privateRoomsCluetipTable .= "</tr><tr>";
+                        }
                     }
 
                     $date->modify("+1 day");
                 }
-
-                $privateRoomsCluetipTable .= "</tr>";
 
                 $availableBeds = (int) $room['max_guest_per_unity'] * $room["availableRooms"];
                 $nb_guest_per_room = $room['max_guest_per_unity'];
@@ -483,7 +550,15 @@ if (!empty($property_rooms["privateRooms"])) {
                     </td>
                 </tr>
                 <?php
-                $privateRoomsCluetipTable.= "</table>";
+                if ($numNights > 13) {
+                    if ($numNights % 2 != 0) {
+                        $privateRoomsCluetipTable .= "<td class='last'></td>";
+                    } else {
+                        $privateRoomsCluetipTable .= "<td></td>";
+                        $privateRoomsCluetipTable .= "<td class='last'></td>";
+                    }
+                }
+                $privateRoomsCluetipTable.= "</tr></table>";
                 $privateroomsID++;
             }
             echo '<tr class="no_rooms"><td class="first" colspan="4">' . _("No private room available") . '</td></tr>';
@@ -509,215 +584,227 @@ echo $sharedRoomsCluetipTable;
 echo $privateRoomsCluetipTable;
 ?>
 <script type="text/javascript">
-    
+
     $('a.title').cluetip({
-        width: '400px', 
-        splitTitle: '|', 
-        local:true, 
+        width: '400px',
+        splitTitle: '|',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
 
     $('a.privateTable').cluetip({
-        width: '600px', 
-        local:true, 
+        width: '645px',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
-    
+
     $('a.sharedTable').cluetip({
-        width: '600px', 
-        local:true, 
+        width: '645px',
+        local: true,
         cursor: 'pointer',
         arrows: false,
         dropShadow: false,
         sticky: false,
         positionBy: 'bottomTop',
         cluetipClass: 'mcweb',
-        topOffset: 10
+        topOffset: 30
     });
-    
-    $('table.sharedTable').each(function () {
+
+    $('table.sharedTable').each(function() {
         $(this).hide();
     });
-    
-    $('table.privateTable').each(function () {
+
+    $('table.privateTable').each(function() {
         $(this).hide();
     });
-    
+
     $('input#complete_dorms').bind('click', function() {
-        
-        if($(this).is(':checked')) {
-           
+
+        if ($(this).is(':checked')) {
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().hide();
                 }
             });
-            
+
             $("select.sharedsel > option[complete$='false']").hide();
-            
+
         } else {
-            
+
             $('span.complete').each(function() {
                 $(this).html($(this).attr('not_complete'));
-                if($(this).attr('complete') == 0) {
+                if ($(this).attr('complete') == 0) {
                     $(this).parent().parent().parent().show();
                 }
-            });            
-            
+            });
+
             $("select.sharedsel > option[complete$='false']").show();
-            
+
         }
-        
+
         var dorm_rows = $('tr.dorm_row_<?php echo $randProperty; ?>').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(dorm_rows == 0) {
+
+        if (dorm_rows == 0) {
             $('tr.no_dorms').show();
         } else {
             $('tr.no_dorms').hide();
         }
-        
+
     });
-    
+
     $('#fully_available_<?php echo $randProperty; ?>').bind('click', function() {
-        
-        if($(this).is(':checked')) {
-                        
-            $("tr").find("td:eq(2):contains('"+$("input[type='hidden'][name='partially_available']").val()+"')").each(function(i, v){
+
+        if ($(this).is(':checked')) {
+
+            $("tr").find("td:eq(2):contains('" + $("input[type='hidden'][name='partially_available']").val() + "')").each(function(i, v) {
                 $(v).parent().hide();
             });
-            
+
         } else {
-            
-            $("tr").find("td:eq(2):contains('"+$("input[type='hidden'][name='partially_available']").val()+"')").each(function(i, v){
+
+            $("tr").find("td:eq(2):contains('" + $("input[type='hidden'][name='partially_available']").val() + "')").each(function(i, v) {
                 $(v).parent().show();
             });
-            
+
         }
-        
+
         var dorm_rows = $('tr.dorm_row_<?php echo $randProperty; ?>').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(dorm_rows == 0) {
+
+        if (dorm_rows == 0) {
             $('tr.no_dorms').show();
         } else {
             $('tr.no_dorms').hide();
         }
-        
+
         var room_rows = $('tr.room_row_<?php echo $randProperty; ?>').filter(function() {
-            return this.style.display !== "none";    
+            return this.style.display !== "none";
         }).length;
-        
-        if(room_rows == 0) {
+
+        if (room_rows == 0) {
             $('tr.no_rooms').show();
         } else {
             $('tr.no_rooms').hide();
-        }        
-        
+        }
+
     });
-    
-    if( $('input[name="price_selection"]').val() == 'per_person' ) {
-        
+
+    if ($('input[name="price_selection"]').val() == 'per_person') {
+
         $('span.private').each(function() {
             $(this).html($(this).attr('per_person'));
-        });  
-            
+        });
+
         $('th.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
+
         $('a.per_title').each(function() {
             $(this).html($(this).attr('per_person'));
         });
-        
+
         $('a.per_tooltip').each(function() {
             $(this).attr('title', $(this).attr('per_person'));
         });
-        
+
         $('span.lowest_night').each(function() {
             $(this).show();
         });
-    
-    }    
-    
+
+    }
+
     $('input[name="price_selection"]').bind('click', function() {
 
-        if($(this).val() == 'per_person') {
-            
+        if ($(this).val() == 'per_person') {
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_person'));
-            });  
-            
+            });
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_person'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_person'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).show();
             });
-            
+
         } else if ($(this).val() == 'per_room') {
-            
+
             $('span.private').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('th.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_title').each(function() {
                 $(this).html($(this).attr('per_room'));
             });
-            
+
             $('a.per_tooltip').each(function() {
                 $(this).attr('title', $(this).attr('per_room'));
             });
-            
+
             $('span.lowest_night').each(function() {
                 $(this).hide();
             });
-            
+
         }
-        
+
         $('a.privateTable').cluetip({
-            width: '600px', 
-            local:true, 
+            width: '600px',
+            local: true,
             cursor: 'pointer',
             arrows: false,
             dropShadow: false,
             sticky: false,
             positionBy: 'bottomTop',
             cluetipClass: 'mcweb',
-            topOffset: 10
+            topOffset: 30
         });
-        
-    }); 
-    
+
+    });
+
     $('tr.no_dorms').hide();
     $('tr.no_rooms').hide();
-    
+
+    $('table.sharedTable').find('tr').each(function() {
+        if ($(this).index() == 2) {
+            $(this).insertBefore($(this).prev());
+        }
+    });
+
+    $('table.privateTable').find('tr').each(function() {
+        if ($(this).index() == 2) {
+            $(this).insertBefore($(this).prev());
+        }
+    });
+
 </script>

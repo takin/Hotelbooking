@@ -231,15 +231,14 @@ function property_compare_popup() {
 		type:'GET',
 		dataType: "json",
 		url:'http://'+window.location.host+'/cmain/ajax_compare_property/'+pro_id,
-		success:function(data) {		
+		success:function(data) {
 			$('#property_compare_data').empty().html(data['html']);
 
-			pweb_filter.addFilterMap('city', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
-			pweb_filter.addFilterMap('property', 'map_canvas', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
-			pweb_filter.pweb_maps['city'].prop_number_to_focus = pro_id;
-			pweb_filter.pweb_maps['property'].prop_number_to_focus = pro_id;
-			pweb_filter.pweb_maps['city'].updateMarkers(data.map_data);
-			pweb_filter.pweb_maps['city'].enableMap();
+			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
+			
+                        pweb_filter.toggleMap('compare_property');
+                        pweb_filter.toggleMap('city'); 
+                        
 			$('#map_lat').val(JSON.stringify(data.map_data));
 
                         for (var i = 0; i < chks.length; i++) {
@@ -289,6 +288,10 @@ $(document).ready(function() {
 	$(".compare_displaypopup").fancybox({
 		'titlePosition'		: 'inside',
 		'transitionIn'		: 'none',
-		'transitionOut'		: 'none'
+		'transitionOut'		: 'none',
+             beforeClose: function() {
+                    pweb_filter.toggleMap('city');
+                    pweb_filter.toggleMap('compare_property');
+                }
 	});
 });

@@ -12,7 +12,6 @@
 // TODO support multiple infowindow and multiple map in one document
 // 
 function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
-
     this.map_div = document.getElementById(map_div_id);
 
     this.map_lang = lang || 'en';
@@ -25,6 +24,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
     window.cityCircle = null;
     window.markers = Array();
     window.gmarkers = Array();
+    window.lmarkers = Array();
     this.gbounds = null;
 
     this.marker_id_to_focus = -1;
@@ -41,10 +41,13 @@ GoogleMap.markers = [];
 // return N/A 
 // 
 GoogleMap.prototype.init = function() {
+    if (!this.map_div) {
+        return;
+    }
 
     this.map_div.style.display = "block";
-    this.map_div.style.width = "100%";
-    this.map_div.style.height = "400px";
+    this.map_div.style.width   = "100%";
+    this.map_div.style.height  = "400px";
 
     if (this.map_div.id === "filter_map_rightSide") {
         this.map_div.style.height = "100%";
@@ -52,13 +55,12 @@ GoogleMap.prototype.init = function() {
 
     if (this.map_div.id === "city_side_map_container") {
         this.map_div.style.height = "280px";
-        this.map_div.style.width = "auto";
+        this.map_div.style.width  = "auto";
     }
 
     if (this.map_div.className === "map_quickview") {
         this.map_div.style.height = "285px";
-        this.map_div.style.width = "100%";
-        this.map_div.style.width = "auto"; 
+        this.map_div.style.width  = "auto"; 
     }
 
     var myOptions = {
@@ -79,13 +81,23 @@ GoogleMap.prototype.init = function() {
     this.drawMarkers();
 
     this.marker_focus();
+    
+    this.drawStaticLandmarks();
 
-    if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
-    {
-        window.gmap.setCenter(this.gbounds.getCenter());
-        window.gmap.fitBounds(this.gbounds);
+    if (this.map_div.className !== "map_quickview") {
+        if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
+        {
+            window.gmap.setCenter(this.gbounds.getCenter());
+            window.gmap.fitBounds(this.gbounds);
+            if (this.map_div.id === "city_side_map_container") {
+                if (window.gmap.getZoom() > 10)
+                {
+                    window.gmap.setZoom(10);
+                }
+            }
+        }
     }
-
+    
     // first get the property number
     var property_number = this.map_div.id.substr(this.map_div.id.lastIndexOf("_") + 1);
 
@@ -190,14 +202,16 @@ GoogleMap.prototype.drawMap = function()
     }
 };
 
-GoogleMap.prototype.addMarker = function (index, lat, lng, title, content) //, image, iconshadow)
+GoogleMap.prototype.addMarker = function (index, lat, lng, title, content, propertyNumber, propertyIndex)
 {
     var marker = {
-        title: title,
-        lat: lat,
-        lng: lng,
-        content: content,
-        gmarkvarer: null
+        title           :   title,
+        lat             :   lat,
+        lng             :   lng,
+        content         :   content,
+        propertyNumber  :   propertyNumber,
+        propertyIndex   :   parseInt(propertyIndex),
+        gmarkvarer      :   null
     };
     window.markers[index] = marker;
 };
@@ -217,46 +231,56 @@ GoogleMap.prototype.clearMarkers = function() //, image, iconshadow)
         window.gmarkers.length = 0;
     }
     
+    // Clear markers array
     window.markers = [];
 
 };
 
 GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 {
-    this.clearMap();
-    this.fillMakersArray();
-    
-    // draw markers 
-    this.addMarkersToMap();
+    // do this because sorting has problem in chrome
+    // says getDiv on null in addMarkersToMap
+    if ( window.gmap !== null ){
+        this.clearMap();
+        this.fillMakersArray();
+
+        // draw markers 
+        this.addMarkersToMap();
+    }
 };
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
+    var result = [];
     if (window.gmap.getDiv().id === "filter_map_rightSide") {
-        var result = {
+        result = {
             property_list: $('#property_list').children(),
             start_from: 0
         };
-
-        return result;
     }
-    // number of hostels to show per page
-    var show_per_page = parseInt($('#show_per_page').val());
-    // number of hostels currently shown
-    var page_num = 0;
-    if ($('#page_navigation .active_page').length > 0) {
-        page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+    else {
+        // number of hostels to show per page
+        var show_per_page = parseInt($('#show_per_page').val());
+        // number of hostels currently shown
+        var page_num = 0;
+        if ($('#page_navigation .active_page').length > 0) {
+            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+        }
+
+        // start hostel number like from 1 to 20
+        var start_from = page_num * show_per_page;
+        // end hostel number like from 1 to 20
+        var end_on = start_from + show_per_page;
+        result = {
+//            property_list   : $('#property_list').children(":visible").slice(start_from, end_on),
+            property_list   : $('#property_list').children(":visible"),
+            start_from      : start_from,
+            end_on          : end_on,
+            page_num        : page_num,
+            show_per_page   : show_per_page
+        
+        };
     }
 
-    // start hostel number like from 1 to 20
-    var start_from = page_num * show_per_page;
-    // end hostel number like from 1 to 20
-    var end_on = start_from + show_per_page;
-
-    var result = {
-        property_list: $('#property_list').children().slice(start_from, end_on),
-        start_from: start_from
-    };
-    
     return result;
 //    return $('#property_list').children().slice(start_from, end_on);
 };
@@ -274,60 +298,106 @@ GoogleMap.prototype.fillMakersArray = function()
     // on side map
 //    var start_from = resultInPage.start_from;
     var start_from = 0;
-
+    
     $.each(property_list, function(index, value) {
 // fill the window.markers array to be used to draw markers
         var property_number = $(value).attr("rel");
-        $("#city_map_view_"+property_number).html("");
+        var latitude = $("#input_geo_latitude_"+property_number).val();
+        var longitude = $("#input_geo_longitude_"+property_number).val();
+        //************* to solve problem when property is deleted from search
+        var propertyIndex = parseInt($("#picture_number_"+property_number).html());
 
+        if(resultInPage.page_num > 0){
+            var real_property_number = $("#picture_number_"+property_number).html();
+            // calculate propertyIndex to always start from 1
+            propertyIndex = parseInt(parseInt(real_property_number) - ( parseInt(resultInPage.start_from) ));
+        }
+        
         var markerIndex = index +  parseInt(start_from); 
         that.addMarker( markerIndex 
-                , $("#input_geo_latitude_"+property_number).val()
-                , $("#input_geo_longitude_"+property_number).val()
+                , latitude
+                , longitude
                 , $.trim($("#hostel_title_"+property_number).text())
                 , $.trim($("#map_InfoWindow_"+property_number).html())
                 , property_number
+                , parseInt(propertyIndex)
                 );   
     });
-      
+
 return window.markers;
 };
 GoogleMap.prototype.addMarkersToMap = function()
-{
+{       
+    var that = this;
+    var comparePropertyLatLng = this.getComparePropertyLatlng();
+    var arrQuickViewLatLng = this.getQuickViewLatlng();
+    var compare_index = 0;
+    // get map Div
+    var map_div = window.gmap.getDiv();
+    var map_divID = map_div.id;
+    // check if it is a property used in compare
+    var isCompare_property = false;
+    var isQuickView_map = false;
+
     if (window.markers.length < 1)
     {
         window.markers = this.fillMakersArray();
     }
 
-    var that = this;
-
     if (this.gbounds === null)
     {
         this.gbounds = new google.maps.LatLngBounds();
     }
-    //TODO support custom image in addMarker function
-    for (var i in window.markers) {
-//
-//     var image = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/unselected/marker_'+(parseInt(i)+1)+'.png',
-//             new google.maps.Size(20, 30),
-//            new google.maps.Point(0, 0),
-//            new google.maps.Point(0, 29));
-//
-//    var image_selected = new google.maps.MarkerImage("http://" + window.location.host + '/images/map_markers/selected/marker_selected_'+(parseInt(i)+1)+'.png',
-//             new google.maps.Size(20, 30),
-//            new google.maps.Point(0, 0),
-//            new google.maps.Point(0, 29));
-//            
-
-        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
-        var image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
-//          check if it is the tham map on the left
-        if (window.gmap.getDiv().id === "city_side_map_container") {
-
-             image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + (parseInt(i) + 1) + '.png';
-             image_selected = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + (parseInt(i) + 1) + '.png';
+    
+    for (var i in window.markers) {    
+           
+        var image = this.getMarkerIcon(false, 0);
+        var image_selected = this.getMarkerIcon(true, 0);
+            
+        if (window.markers[i].lat === 0 || window.markers[i].lng === 0) {
+            window.markers[i].gmarker = null;
         }
-       
+        else{
+
+            // check if it is the map on the left
+            if ( map_divID === "city_side_map_container") {
+                var imageIndex = window.markers[i].propertyIndex;
+                image = that.getMarkerIcon(false, imageIndex);
+                image_selected = that.getMarkerIcon(true, imageIndex);
+            }
+            // check if it is compare map
+            else if ( map_divID === "map_canvas_compareProperty") {
+
+                for (var j in comparePropertyLatLng) {
+                    if (comparePropertyLatLng[j].lat === window.markers[i].lat
+                            && comparePropertyLatLng[j].lng === window.markers[i].lng) {
+                        compare_index = compare_index + 1;
+                        image = that.getMarkerIcon(true, compare_index);
+                        image_selected = image;
+                        // remove property detail from array
+                        comparePropertyLatLng.splice(j, 1);
+                        // make this marker as one of compared property
+                        isCompare_property = true;
+                    }
+                }
+            }
+            // check if it is quick view map
+            else if ( $(map_div).hasClass("map_quickview") === true ) {
+                 // make this marker as one of quick view property
+                 isQuickView_map = true;
+                // should set marker to center or not
+                var isQuickView_property = false;
+ 
+                if (arrQuickViewLatLng[0].lat === window.markers[i].lat
+                        && arrQuickViewLatLng[0].lng === window.markers[i].lng) {
+
+                    image = that.getMarkerIcon(true, 0);
+                    image_selected = image;
+                    isQuickView_property = true;
+                    
+                }
+            }
+
         //Add marker to map
         window.gmarkers[i] = new google.maps.Marker({
             position: new google.maps.LatLng(window.markers[i].lat, window.markers[i].lng),
@@ -338,7 +408,17 @@ GoogleMap.prototype.addMarkersToMap = function()
         });
 
         window.markers[i].gmarker = window.gmarkers[i];
-
+              
+        if (isCompare_property === true || isQuickView_property === true) {
+            window.gmarkers[i].setZIndex(200000);
+        }
+        
+        if ( isQuickView_property === true ) {     
+            window.gmap.setZoom(12);
+            window.gmap.setCenter( window.gmarkers[i].getPosition() );            
+        }
+        
+            
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
@@ -350,32 +430,40 @@ GoogleMap.prototype.addMarkersToMap = function()
             }
 
         });
-
-        google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
-
-            this.setIcon(image_selected);
-            this.setZIndex(100000);
-            that.changeHostelBackground(this, "mouseover");
-
-        });
-
-        google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
-
-            this.setIcon(image);
-            this.setZIndex(0);
-            that.changeHostelBackground(this, "mouseout");
-        });
         
-        this.gbounds.extend(window.gmarkers[i].position);
+            if (isCompare_property === false && isQuickView_map === false ) {
+                google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
+                    that.changeHostelBackground(this, "mouseover");
+
+                });
+
+                google.maps.event.addListener(window.gmarkers[i], 'mouseout', function() {
+
+                    that.changeHostelBackground(this, "mouseout");
+
+                });
+            }
+        this.gbounds.extend(window.gmarkers[i].position);
+        isCompare_property = false;
+        isQuickView_property = false;
     }
-    
+  }         
 };
-GoogleMap.prototype.removeMap = function() //, image, iconshadow)
-{
+GoogleMap.prototype.removeMap = function(){
     this.map_div.style.display = "none";
 };
+GoogleMap.prototype.getMarkerIcon = function(pIsSelected, pIndex) {
+    var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+    if (pIsSelected === true) {
+        image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_' + pIndex + '.png';
+    }
+    else {
+        image = "http://" + window.location.host + '/images/map_markers/unselected/marker_' + pIndex + '.png';
 
+    }
+    return image;
+};
 GoogleMap.prototype.closeInfoWindow = function() {
     window.gInfoWin.close();
 };
@@ -478,16 +566,16 @@ GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
     window.gmap.overlayMapTypes.setAt((counter + 1), adaptedLayer);
 
 };
-GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
+GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng_type) {
 
     if (window.cityCircle !== null)
     {
         window.cityCircle.setMap(null);
     }
 
-    if ($.isArray(landmark_LatLng)) {
+    if ($.isArray(landmark_LatLng_type)) {
 
-        if (landmark_LatLng.length === 1) {
+        if (landmark_LatLng_type.length === 1) {
             if (window.gmap.getZoom() > 12) {
                 // change map Zoom 
                 window.gmap.setZoom(12);
@@ -495,8 +583,8 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
         }
         // loop through districts um_ids
         var counter;
-        for (counter = 0; counter < landmark_LatLng.length; ++counter) {
-            this.addLandmarkLayer(landmark_LatLng[counter]);
+        for (counter = 0; counter < landmark_LatLng_type.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng_type[counter]);
         }
     }
     else {
@@ -506,7 +594,7 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
                 // change map Zoom 
                 window.gmap.setZoom(13);
             }
-        this.addLandmarkLayer(landmark_LatLng);
+        this.addLandmarkLayer(landmark_LatLng_type);
     }
 };
 
@@ -514,19 +602,19 @@ GoogleMap.setZoom = function(zoom) {
 	window.gmap.setZoom(zoom || 13);
 };
 
-GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
-   
-    var point = landmark_LatLng.split("###");
+GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng_type) {
+
+    var point = landmark_LatLng_type.latlng.split(",");
     var lat = point[0];
-    var Lng = point[1];
-        
-//alert("lat="+lat+"::::Lng="+Lng+"::::");
+    var lng = point[1];
+
+    var landmark_type = landmark_LatLng_type.type;
 
     var citymap = {
-        center: new google.maps.LatLng(lat, Lng)
+        center: new google.maps.LatLng(lat, lng)
     };
 //var circle_color  = "#4E89C9";
-var circle_color  = "#FF0000";
+    var circle_color = "#FF0000";
 
     var LandmarkOptions = {
         strokeColor: circle_color,
@@ -541,22 +629,51 @@ var circle_color  = "#FF0000";
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
 
-//landmark_marker_blue.png
-var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
-			        new google.maps.Size(28, 28),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(0, 29));
-                                
-	var gmarker = new google.maps.Marker({
-	        position: new google.maps.LatLng(lat, Lng), 
-	        map: window.gmap,
-//	        title:this.markers[i].title,
-	        icon: image	        
-	    }); 
+    //landmark_marker_blue.png
+    image = {
+        url: 'http://' + window.location.host + '/images/map_landmark_marker_blue.png',
+        size: new google.maps.Size(28, 28),
+        origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(28, 28)
+    };
 
-	GoogleMap.markers.push(gmarker);            
+    if (landmark_type === "train_station") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/train.png',
+            size: new google.maps.Size(25, 31),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(20, 25)
+        };
+    }
+    else if (landmark_type === "city_center") {
+        
+          image = {
+            url: 'http://' + window.location.host + '/images/map/city_center.png',
+            size: new google.maps.Size(21, 21),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(21, 21)
+        };
+    }
+    else if (landmark_type === "airport") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/air-plane.png',
+            size: new google.maps.Size(28, 25),
+            origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(28, 25)
+        };
+    }
+
+    var gmarker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: window.gmap,
+        icon: image
+    });
+
+    gmarker.setZIndex(15000);
+    GoogleMap.markers.push(gmarker);
 };
-
 GoogleMap.prototype.centerMapMarker = function() {
 
     if (window.markers.length !== 0) {
@@ -578,7 +695,7 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
     var property_number = $(pDiv).attr("rel");
     var hostel_title = $.trim($("#hostel_title_" + property_number).text());
-
+    
     var imagePath = null;
 
     if (pIconType === "selected")
@@ -593,6 +710,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
     $("#city_info_" + property_number).removeClass('property_info_hover');
     // change the marker that appears between the property image and the property name
 
+    var imageSrc = null;
+    
     if ( $("#property_marker_number_" + property_number).length > 0 ) {
         var imageSrc = $("#property_marker_number_" + property_number).attr('src');
         imageSrc = imageSrc.replace("selected/marker_selected_", "unselected/marker_");
@@ -614,26 +733,28 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
             if (window.markers[i].gmarker !== null)
             {
-                if (window.markers[i].gmarker.getZIndex() === 100000) {
-                    window.markers[i].gmarker.setZIndex(0);
+                if (window.gmap.getDiv().id === "city_side_map_container" ||
+                        window.gmap.getDiv().id === "filter_map_rightSide") {
+                    if (window.markers[i].gmarker.getZIndex() === 100000) {
+                        window.markers[i].gmarker.setZIndex(0);
+                    }
                 }
-
                 if (hostel_title === $.trim(window.markers[i].gmarker.getTitle()))
                 {
-//                    var image = new google.maps.MarkerImage("http://" + window.location.host + imagePath + (parseInt(i)+1) +'.png',
-//                            new google.maps.Size(20, 30),
-//                            new google.maps.Point(0, 0),
-//                            new google.maps.Point(0, 29));
+                    // index of property in page
+                    var imageIndex = window.markers[i].propertyIndex;
+
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
                     if (window.gmap.getDiv().id === "city_side_map_container") {
-                         image = "http://" + window.location.host + imagePath + (parseInt(i) + 1) + '.png';
+                         image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
-                    if (window.gmap.getDiv().id === "map_canvas") {
-                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+                    if (window.gmap.getDiv().className === "map_quickview") {
+//                         window.gmap.setCenter( window.markers[i].gmarker.getPosition() );
+                          image = "http://" + window.location.host + imagePath +  '0.png';
                     }
-                    
+
                     window.markers[i].gmarker.setZIndex(100000);
                     window.markers[i].gmarker.setIcon(image);
                 }
@@ -655,7 +776,7 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigge
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
             $(value).trigger(pDivEventToTrigger);
-        }
+            }
     });
 
 };
@@ -696,4 +817,123 @@ GoogleMap.prototype.removeMarker = function(property_number) {
             }
         }
     }
+};
+GoogleMap.prototype.getComparePropertyLatlng = function(property_number) {
+    // add compare properties if exists
+    var compare_properties = [];
+    if ($('.compareProperty_geoLatLng th').length > 0) {
+        $('.compareProperty_geoLatLng th.control_button').each(function() {
+            var geoLatLng = $(this).find("input").val();
+            var LatLngPoints = geoLatLng.split(",");
+            var lat = LatLngPoints[0];
+            var lng = LatLngPoints[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+
+            compare_properties.push(newElement);
+
+        });
+    }
+    return compare_properties;
+};
+GoogleMap.prototype.getQuickViewLatlng = function(property_number) {
+    // add quick view property if exists
+    var arrQuickView = [];
+    if ( $('#quickView_geolatitude').length > 0 && $('#quickView_geolongitude').length > 0 ) {
+
+            var lat = $('#quickView_geolatitude').val();
+            var lng = $('#quickView_geolongitude').val();
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+
+            arrQuickView.push(newElement);
+    }
+    return arrQuickView;
+};
+GoogleMap.prototype.drawStaticLandmarks = function() {
+
+    var static_landmark_markers = Array();
+
+    $("#cb_group_landmarks_filter li").each(function() {
+        var latlng = null;
+        var landmark_type = null;
+        var title = null;
+
+        var landmark_id = $(this).find("input[type='checkbox']").val();
+
+        landmark_type = $("#hidden_landmarks_type_" + landmark_id).val();
+
+        if (landmark_type === "train_station") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+        else if (landmark_type === "airport") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+        else if (landmark_type === "city_center") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+
+        title = $("#landmark_title_" + landmark_id).html();
+
+        if (latlng !== null) {
+            var point = latlng.split(",");
+            var lat = point[0];
+            var lng = point[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+            newElement['title'] = title;
+            newElement['type'] = landmark_type;
+
+            static_landmark_markers.push(newElement);
+        }
+    });
+
+    for (var i in static_landmark_markers) {
+
+        var image = "";
+        if (static_landmark_markers[i].type === "train_station") {
+//            image = 'http://' + window.location.host + '/images/map/Train-station-icon.png';
+
+            image = {
+                url: 'http://' + window.location.host + '/images/map/train.png',
+                size: new google.maps.Size(25, 31),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(20, 25)
+            };
+        }
+        else if (static_landmark_markers[i].type === "city_center") {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/city_center.png',
+                size: new google.maps.Size(21, 21),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(21, 21)
+            };
+
+        }
+        else {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/air-plane.png',
+                size: new google.maps.Size(28, 25),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(28, 25)
+            };
+        }
+
+        //Add marker to map
+        window.lmarkers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(static_landmark_markers[i].lat, static_landmark_markers[i].lng),
+            map: window.gmap,
+            title: static_landmark_markers[i].title,
+            icon: image
+        });
+
+        window.lmarkers[i].setZIndex(10000);
+
+    }// end  for (var i in static_landmark_markers)
 };

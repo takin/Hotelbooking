@@ -1,4 +1,7 @@
 <?php
+
+set_time_limit(1200);
+
 if(is_admin())
 {
   $today = date("Y-m-d",mktime(0, 0, 0, date("m") , date("d"), date("Y")));
