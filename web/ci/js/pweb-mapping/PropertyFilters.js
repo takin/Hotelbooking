@@ -676,8 +676,8 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 					this.FiltersCounts['landmark-count-'+current_landmark_id.toString()]++;
 				}
 			}
-		}
-		
+		}       
+                
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++) {
 			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].getElementsByTagName("input")[0].value;
 
@@ -705,6 +705,14 @@ PWebFilterApp.prototype.update_counts = function() {
 	{ 
 		
 		$('#'+id).html(this.FiltersCounts[id]);
+                // hide districts and landmarks with 0 in it's count
+                if (id.indexOf("landmark-count-") !== -1
+                  || id.indexOf("district-count-") !== -1)
+                {
+                    if (this.FiltersCounts[id] === 0){
+                        $('#'+id).parent("li").hide();
+                    }
+                }
 	}
 	//city_results_count_current
 };
