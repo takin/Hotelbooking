@@ -1816,6 +1816,12 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) {
 };
 
 $(document).ready(function() { 
+		
+	if(window.name == 'Hostel View') {
+    	window.name = 'City View';   		
+    } else {
+    	$("div#city_load").css("visibility", "visible");
+    }
 	
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();

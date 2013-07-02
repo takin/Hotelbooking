@@ -235,6 +235,10 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 
 </script>
 
+<script type="text/javascript">
+  window.name = 'Wordpress View';
+</script>
+
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php echo get_option('aj_google_analytic');?>
 
