@@ -96,8 +96,12 @@
 					<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
 						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
 						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">
-							<span class="show_more show_more_landmarks" title="<?php echo _('Landmarks (within 2km)'); ?>|{{#landmarks}}{{translation_name}}, {{/landmarks}}"><strong>+</strong></span>
-							<span class="content">{{#landmarks}}{{translation_name}}, {{/landmarks}}</span>
+							<span class="show_more show_more_landmarks filter_landmark_image" title="<?php echo _('Landmarks (within 2km)'); ?>|{{#landmarks}}{{translation_name}}, {{/landmarks}}"><strong>+</strong></span>
+							<span class="content">{{#landmarks}}
+                                                            <span class="landmark_type_{{type}}"></span>
+                                                            {{translation_name}}, 
+                                                            
+                                                            {{/landmarks}}</span>
 						</span>
 					</div>
 				</div>

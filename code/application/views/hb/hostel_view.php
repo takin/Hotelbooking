@@ -25,23 +25,32 @@ echo form_hidden('switch_api', $switch_api);
         $bc_city = NULL;
     $this->load->view('includes/side_search_box', array('date_selected' => $date_selected, 'current_view' => $current_view, 'numnights_selected' => $numnights_selected, 'bc_continent' => $bc_continent, 'bc_country' => $bc_country, 'bc_city' => $bc_city));
     ?>
-    <?php 
-    if (ISDEVELOPMENT) {
-        $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
-    } else {
-        $static_map_icon_base_url = base_url();
-    }
-
-    if (isset($google_map_geo_latlng)) { ?>
+    <?php if (isset($google_map_geo_latlng)) { ?>
         <div class="box_content map_button_box box_round" id="map_button_side">
             <a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click');
                                     $(document).scrollTop($('#show_full_map').offset().top);">
                 <span><strong><?php echo _("Voir la carte"); ?></strong></span>
                 <img class=""
-                     src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=icon:<?php echo $static_map_icon_base_url; ?>images/map_markers/selected/marker_selected_0.png%7C+<?php echo $google_map_geo_latlng; ?>"/>
+                     src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=<?php echo $google_map_geo_latlng; ?>"/>
             </a>
         </div>
     <?php } ?>
+    <?php if (isset($city_landmarks) && !empty($city_landmarks)) { ?>
+        <div id="city_landmarks" style="display: none;">
+            <ul id="ul_city_landmarks">
+                <?php foreach ($city_landmarks as $key => $landmark) { ?>
+                    <li>
+                        <span class="city_landmark_ids"><?php echo $landmark->landmark_id; ?></span>
+                        <input type="hidden" id="city_landmark_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>" />   
+                        <input type="hidden" id="city_landmark_type_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->type; ?>" />   
+                        <input type="hidden" id="city_landmark_title_<?php echo $landmark->landmark_id; ?>" value="<?php echo $landmark->landmark_name; ?>" />   
+                    
+                    </li>
+               <?php } ?>
+            </ul>
+        </div>
+
+      <?php } ?>
     <?php $empty_rating = 0;
     foreach ($property_ratings as $rating_category => $rating_value) {
         if ($rating_value == "" || !(int)$rating_value) {
@@ -403,7 +412,7 @@ if ($api_error == false) {
                                 <?php
                                 foreach ($landmarks as $key => $landmark) {
 
-                                    echo $landmark->landmark_name;
+                                    echo '<span class="landmark_type_'.$landmark->type .'"></span>'.$landmark->landmark_name;
 
                                     if (count($landmarks) != $key + 1) {
                                         echo ", ";
@@ -578,7 +587,7 @@ if ($api_error == false) {
                 </a>
             </li>
             <li><a id="show_full_map" class="tab_direction" href="#hostel_info_direction"
-                   onClick="appendBootstrap()"><?php echo _("Cartes et Directions"); ?></a></li>
+                   onclick="appendBootstrap();"><?php echo _("Cartes et Directions"); ?></a></li>
             <li class="last"><a id="tab_comment" class="tab_review" id="hostel-show-commentaries-tab"
                                 href="#hostel_info_reviews"><?php echo _("Commentaires"); ?></a></li>
         </ul>
@@ -691,9 +700,17 @@ if ($api_error == false) {
                             if (valid_date_cookie) {
                                 checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>', <?php echo $hostel["ID"]; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel["NAME"]); ?>', document.getElementById('book-property-currency').value, '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print ?>');
                             }
-                        }
-                    );
+                                    
+                        });
+     
+function show_landmark_in_map(landmark_latlng, landmark_type){
+    var hostel_landmark = {};
+          hostel_landmark['latlng'] = landmark_latlng;
+          hostel_landmark['type'] = landmark_type;
 
+      changeLandmarkLayer(hostel_landmark);
+  }
+                            
                 </script>
                 <ul class="group">
                     <?php
@@ -1053,8 +1070,10 @@ if ($api_error == false) {
                             }
                             ?>
                             <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
-                                   value="<?php echo $landmark->geo_latitude . "###" . $landmark->geo_longitude; ?>"
-                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "###" . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+                                   value="<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>"
+                                   onchange="ClearlandmarkAndDistrict(); show_landmark_in_map('<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>','<?php echo $landmark->type; ?>');">
+                                       <span class="landmark_type_<?php echo $landmark->type; ?>"></span>
+                                       <?php echo $landmark->landmark_name; ?>
 
                         <?php }//end Foreach   ?>
                     </p>

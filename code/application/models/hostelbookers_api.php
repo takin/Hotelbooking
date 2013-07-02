@@ -320,12 +320,24 @@ class Hostelbookers_api extends CI_Model {
     function getLocationAvailability($location_id, $startDate, $numNights, $language_code = "en", $strCurrencyCode = "") {
         try {
             $request_time = microtime(true);
-            $return = $this->hbapi->getPropertyAvailability4($this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code);
+            
+			if($_SERVER['HTTP_HOST'] == 'www.youth-hostels.eu') {
+				$return = $this->hbapi->getPropertyAvailability6($this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code);
+			} else {
+				$return = $this->hbapi->getPropertyAvailability4($this->apikey, $location_id, $startDate, $numNights, $strCurrencyCode, $language_code);
+			}
+            
             $response_time = microtime(true);
             $total_time = ($response_time - $request_time) * 1000;
             $total_time = floor($total_time);
             $total_time = $total_time . " ms ";
-            $this->custom_log->log("audit", 'HB API getPropertyAvailability4 ' . $total_time);
+			
+			if($_SERVER['HTTP_HOST'] == 'www.youth-hostels.eu') {
+				$this->custom_log->log("audit", 'HB API getPropertyAvailability6 ' . $total_time);
+			} else {
+				$this->custom_log->log("audit", 'HB API getPropertyAvailability4 ' . $total_time);
+			}
+            
 
             if ($this->tracing) {
                 log_message('debug', "last API response " . $this->hbapi->__getLastResponse());
