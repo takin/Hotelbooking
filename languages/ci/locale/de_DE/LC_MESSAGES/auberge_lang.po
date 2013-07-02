@@ -3,10 +3,9 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-19 22:33+0300\n"
-"PO-Revision-Date: 2013-06-15 20:56+0200\n"
+"PO-Revision-Date: 2013-06-28 20:53+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2198,9 +2197,9 @@ msgstr "Tolle Lage"
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
-#, fuzzy, php-format
+#, php-format
 msgid "Overall evaluation"
-msgstr "Meine Bewertungen"
+msgstr "Gesamtbewertung"
 
 #: ../code/application/views/mustache/property_list.php:245
 #: ../code/application/views/mustache/property_list.php:259
@@ -4333,7 +4332,7 @@ msgstr "Sie werden %d ganze Schlafzimmer benutzen."
 #: ../code/application/views/hb/booking_avail_view.php:643
 #, php-format
 msgid "%d %s ( %s )"
-msgstr ""
+msgstr "%d %s ( %s )"
 
 #: ../code/application/views/hw/booking_avail_view.php:358
 #: ../code/application/views/hb/booking_avail_view.php:344
@@ -5033,7 +5032,7 @@ msgstr ""
 
 #: ../code/application/views/hb/property_list.php:112
 msgid "80% +"
-msgstr ""
+msgstr "80% +"
 
 #: ../code/application/views/hb/hostel_view.php:867
 msgid "Purchasable Extras"
@@ -9049,22 +9048,22 @@ msgstr "Mein Konto"
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
-msgstr ""
+msgstr "Bitte sorgfältig lesen"
 
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
-msgstr ""
+msgstr "Ich stimme zu"
 
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr ""
+msgstr "Ich stimme nicht zu und wähle ein anderes Objekt aus"
 
 #: ../code/application/views/helpfile/pofields.php:869
-#, fuzzy, php-format
+#, php-format
 msgid "Benefits of booking fee ?"
-msgstr "Keine Buchungsgebühren"
+msgstr "Vorteile einer Buchungsgebühr?"
 
 #: ../code/application/views/helpfile/pofields.php:870
 #, php-format
@@ -9072,47 +9071,51 @@ msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
 msgstr ""
+"Sie können dem lokalen Kundenservice, der 24 Stunden pro Tag in Ihrer "
+"Sprache zur Verfügung steht, vertrauen"
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "Zahlungssicherheit: Ihre Kreditkarte wird geschützt"
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
-msgstr ""
+msgstr "Keine Spam-Emails nach Ihrer Buchung und Ihre Daten bleiben privat"
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
 msgstr ""
+"Sie haben Zugriff auf Millionen von realen Bewertungen von Reisenden wie "
+"Ihnen"
 
 #: ../code/application/views/helpfile/pofields.php:874
-#, fuzzy, php-format
+#, php-format
 msgid "And finally, you get the best price!"
-msgstr "Sie erhalten den besten Preis!"
+msgstr "Und schlussendlich bekommen Sie den besten Preis!"
 
 #: ../code/application/views/helpfile/pofields.php:875
-#, fuzzy, php-format
+#, php-format
 msgid "Best price guarantee"
-msgstr "Der beste Preis. Wir garantieren dafür."
+msgstr "Best-Preis-Garantie"
 
 #: ../code/application/views/helpfile/pofields.php:876
-#, fuzzy, php-format
+#, php-format
 msgid "Free breakfast only"
-msgstr "Gratis Frühstück"
+msgstr "Frühstück inbegriffen"
 
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "Hier klicken, um zu buchen"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "1 Million Bewertungen"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
@@ -9120,33 +9123,35 @@ msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
 msgstr ""
+"Sie können Preise, Dienstleistungen und Lage von bis zu 5 Objekten auf der "
+"Karte vergleichen"
 
 #: ../code/application/views/helpfile/pofields.php:880
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to compare"
-msgstr "Bitte klicken Sie hier um ihre Bestätigungsemail zu sehen"
+msgstr "Bitte hier klicken, um zu vergleichen"
 
 #: ../code/application/views/helpfile/pofields.php:881
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to select this property"
-msgstr "Diese Unterkunft entfernen"
+msgstr "Hier klicken, um dieses Objekt auszuwählen"
 
 #: ../code/application/views/helpfile/pofields.php:882
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
 msgstr ""
-"Der niedrigste Preis pro Person/Nacht in einem Mehrbettzimmer in dieser "
-"Unterkunft: %s"
+"Günstigster Preis für ein Bett in einem Schlafsaal in diesem Objekt zum "
+"ausgewählten Datum"
 
 #: ../code/application/views/helpfile/pofields.php:883
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price per person in a private room at this property for the selected "
 "dates"
 msgstr ""
-"Der niedrigste Preis pro Person/Nacht in einem privaten Schlafzimmer in "
-"dieser Unterkunft: %s"
+"Günstigster Preis pro Person in einem Privatzimmer in dieser Unterkunft zum "
+"ausgewählten Datum"
 
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
@@ -9154,11 +9159,13 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"Klicken Sie hier, um die Preise für jeden Zimmertyp und die maximale Anzahl "
+"verfügbarer Betten in jedem Zimmer zu sehen"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "Sie können die Ergebnisse anhand spezifischer Stadtteile filtern"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
@@ -9166,21 +9173,23 @@ msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
 msgstr ""
+"Sie können die Ergebnisse anhand der Entfernung zu bestimmten "
+"Sehenswürdigkeiten, Bahnhöfen und Flughäfen filtern"
 
 #: ../code/application/views/helpfile/pofields.php:887
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to view pricing for this property"
-msgstr "Es stehen keine Zimmer für diese Unterkunft zur Verfügung."
+msgstr "Klicken Sie hier, um die Preise für dieses Objekt zu sehen"
 
 #: ../code/application/views/helpfile/pofields.php:889
 #, php-format
 msgid "The benefits"
-msgstr ""
+msgstr "Die Vorteile"
 
 #: ../code/application/views/helpfile/pofields.php:890
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to see info and prices"
-msgstr "Diese Unterkunft entfernen"
+msgstr "Hier klicken, um Informationen und Preise zu sehen"
 
 #: ../code/application/views/helpfile/pofields.php:891
 #, php-format
@@ -10184,7 +10193,7 @@ msgid "Invalid date"
 msgstr "Ungültiges Datum"
 
 #: ../code/application/controllers/cmain.php:2556
-#, fuzzy, php-format
+#, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "Notizen können maximal %d Buchstaben haben"
 

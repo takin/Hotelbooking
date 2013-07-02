@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-19 22:33+0300\n"
-"PO-Revision-Date: 2013-06-16 22:27+0200\n"
+"PO-Revision-Date: 2013-06-28 21:45+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -2186,9 +2186,9 @@ msgstr "Výborná poloha"
 #: ../code/application/views/helpfile/pofields.php~:860
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
-#, fuzzy, php-format
+#, php-format
 msgid "Overall evaluation"
-msgstr "Moje recenze"
+msgstr "Celkové vyhodnocení"
 
 #: ../code/application/views/mustache/property_list.php:245
 #: ../code/application/views/mustache/property_list.php:259
@@ -4297,7 +4297,7 @@ msgstr "Použijete %d celých ložnic."
 #: ../code/application/views/hb/booking_avail_view.php:643
 #, php-format
 msgid "%d %s ( %s )"
-msgstr ""
+msgstr "%d %s ( %s )"
 
 #: ../code/application/views/hw/booking_avail_view.php:358
 #: ../code/application/views/hb/booking_avail_view.php:344
@@ -4987,7 +4987,7 @@ msgstr ""
 
 #: ../code/application/views/hb/property_list.php:112
 msgid "80% +"
-msgstr ""
+msgstr "80% +"
 
 #: ../code/application/views/hb/hostel_view.php:867
 msgid "Purchasable Extras"
@@ -8944,22 +8944,22 @@ msgstr "Můj účet - rezervace ubytoven pro mládež"
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
-msgstr ""
+msgstr "Prosím pozorně si přečtěte"
 
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
-msgstr ""
+msgstr "Souhlasím"
 
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr ""
+msgstr "Nesouhlasím a vyberu si jiné ubytovací zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:869
-#, fuzzy, php-format
+#, php-format
 msgid "Benefits of booking fee ?"
-msgstr "žádné rezervační poplatky"
+msgstr "Výhody rezervačního poplatku ?"
 
 #: ../code/application/views/helpfile/pofields.php:870
 #, php-format
@@ -8967,47 +8967,48 @@ msgid ""
 "Local customer service you can trust in your language available 24 hours a "
 "day"
 msgstr ""
+"Důvěryhodný místní zákaznický servis ve vašem jazyce dostupný 24 hodin denně"
 
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
-msgstr ""
+msgstr "Bezpečné placení:vaše kreditní karta je chráněna"
 
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid ""
 "No spam emails after you have booked and your information will stay private"
-msgstr ""
+msgstr "Žádný spam po vaší rezervaci a vaše informace zůstane soukromá"
 
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
-msgstr ""
+msgstr "Máte přístup k milionům skutečných recenzí od cestovatelů jako jste vy"
 
 #: ../code/application/views/helpfile/pofields.php:874
-#, fuzzy, php-format
+#, php-format
 msgid "And finally, you get the best price!"
-msgstr "Dostali jste nejlepší cenu! "
+msgstr "A nakonec, dostatnet nejlepší cenu !"
 
 #: ../code/application/views/helpfile/pofields.php:875
-#, fuzzy, php-format
+#, php-format
 msgid "Best price guarantee"
-msgstr "Nejlepší cena. Garantováno."
+msgstr "Záruka nejlepší ceny"
 
 #: ../code/application/views/helpfile/pofields.php:876
-#, fuzzy, php-format
+#, php-format
 msgid "Free breakfast only"
-msgstr "Snídaně Zdarma"
+msgstr "Zdarma pouze snídaně"
 
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
-msgstr ""
+msgstr "Klikněte zde pro rezervaci"
 
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
-msgstr ""
+msgstr "1 milion recenzí"
 
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
@@ -9015,31 +9016,34 @@ msgid ""
 "You can compare pricing, services and location on the map for up to 5 "
 "properties"
 msgstr ""
+"Můžete porovnat ceny, služby a umístění na mapě až pro 5 ubytovacích zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:880
-#, fuzzy, php-format
+#, php-format
 msgid "Please click here to compare"
-msgstr "Prosím klikněte pro náhled vašeho potvrzujícího emailu."
+msgstr "Prosím klikněte zde pro porovnání"
 
 #: ../code/application/views/helpfile/pofields.php:881
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to select this property"
-msgstr "Odstraň toto zařízení"
+msgstr "Klikněte zde pro výběr tohoto zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:882
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
-msgstr "Nejnižší cena za osobu a noc v ložnici v tomto ubytovacím zařízení: %s"
+msgstr ""
+"Nejnižší cena za osobu ve společné ložnici v tomto zařízení ve vybraných "
+"datech"
 
 #: ../code/application/views/helpfile/pofields.php:883
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Lowest price per person in a private room at this property for the selected "
 "dates"
 msgstr ""
-"Nejnižší cena za osobu a noc v soukromém pokoji v tomto ubytovacím zařízení: "
-"%s"
+"Nejnižší cena za osobu v soukromém pokoji v tomto zařízení ve vybraných "
+"datech"
 
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
@@ -9047,11 +9051,13 @@ msgid ""
 "Click here to see pricing for each type of room and the maximum number of "
 "available beds in each room"
 msgstr ""
+"Klikněte pro zobrazení ceny u každého typu pokoje a maximálního počtu "
+"dostupných lůžek v každém pokoji"
 
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr ""
+msgstr "Můžete filtrovat výsledky podle specifických oblastí"
 
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
@@ -9059,21 +9065,23 @@ msgid ""
 "You can filter the results based how close there are to specific landmarks, "
 "train stations and airports"
 msgstr ""
+"Můžete filtrovat výsledky podle vzdálenosti od určitých významných bodů,"
+"nádraží a letišť"
 
 #: ../code/application/views/helpfile/pofields.php:887
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to view pricing for this property"
-msgstr "Žádné pokoje nejsou k dispozici pro toto zařízení."
+msgstr "Klikněte zde pro zobrazení ceny v tomto ubytovacím zařízení"
 
 #: ../code/application/views/helpfile/pofields.php:889
 #, php-format
 msgid "The benefits"
-msgstr ""
+msgstr "Výhody"
 
 #: ../code/application/views/helpfile/pofields.php:890
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to see info and prices"
-msgstr "Odstraň toto zařízení"
+msgstr "Klikněte zde pro informace a ceny"
 
 #: ../code/application/views/helpfile/pofields.php:891
 #, php-format
@@ -10055,7 +10063,7 @@ msgid "Invalid date"
 msgstr "Neplatné datum"
 
 #: ../code/application/controllers/cmain.php:2556
-#, fuzzy, php-format
+#, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "Poznámky překračují maximum %d znaků"
 

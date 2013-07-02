@@ -24,6 +24,7 @@ function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
     window.cityCircle = null;
     window.markers = Array();
     window.gmarkers = Array();
+    window.lmarkers = Array();
     this.gbounds = null;
 
     this.marker_id_to_focus = -1;
@@ -80,6 +81,8 @@ GoogleMap.prototype.init = function() {
     this.drawMarkers();
 
     this.marker_focus();
+    
+    this.drawStaticLandmarks();
 
     if (this.map_div.className !== "map_quickview") {
         if ((this.marker_id_to_focus < 0) && !this.gbounds.isEmpty())
@@ -563,16 +566,16 @@ GoogleMap.prototype.addDistrictsBorder = function(MF, pDistricts_umIds, counter)
     window.gmap.overlayMapTypes.setAt((counter + 1), adaptedLayer);
 
 };
-GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
+GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng_type) {
 
     if (window.cityCircle !== null)
     {
         window.cityCircle.setMap(null);
     }
 
-    if ($.isArray(landmark_LatLng)) {
+    if ($.isArray(landmark_LatLng_type)) {
 
-        if (landmark_LatLng.length === 1) {
+        if (landmark_LatLng_type.length === 1) {
             if (window.gmap.getZoom() > 12) {
                 // change map Zoom 
                 window.gmap.setZoom(12);
@@ -580,8 +583,8 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
         }
         // loop through districts um_ids
         var counter;
-        for (counter = 0; counter < landmark_LatLng.length; ++counter) {
-            this.addLandmarkLayer(landmark_LatLng[counter]);
+        for (counter = 0; counter < landmark_LatLng_type.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng_type[counter]);
         }
     }
     else {
@@ -591,7 +594,7 @@ GoogleMap.prototype.changeLandmarkLayer = function(landmark_LatLng) {
                 // change map Zoom 
                 window.gmap.setZoom(13);
             }
-        this.addLandmarkLayer(landmark_LatLng);
+        this.addLandmarkLayer(landmark_LatLng_type);
     }
 };
 
@@ -599,17 +602,19 @@ GoogleMap.setZoom = function(zoom) {
 	window.gmap.setZoom(zoom || 13);
 };
 
-GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng) {
-   
-    var point = landmark_LatLng.split("###");
+GoogleMap.prototype.addLandmarkLayer = function(landmark_LatLng_type) {
+
+    var point = landmark_LatLng_type.latlng.split(",");
     var lat = point[0];
-    var Lng = point[1];
+    var lng = point[1];
+
+    var landmark_type = landmark_LatLng_type.type;
 
     var citymap = {
-        center: new google.maps.LatLng(lat, Lng)
+        center: new google.maps.LatLng(lat, lng)
     };
 //var circle_color  = "#4E89C9";
-var circle_color  = "#FF0000";
+    var circle_color = "#FF0000";
 
     var LandmarkOptions = {
         strokeColor: circle_color,
@@ -624,22 +629,51 @@ var circle_color  = "#FF0000";
     };
     window.cityCircle = new google.maps.Circle(LandmarkOptions);
 
-//landmark_marker_blue.png
-var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
-			        new google.maps.Size(28, 28),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(0, 29));
-                                
-	var gmarker = new google.maps.Marker({
-	        position: new google.maps.LatLng(lat, Lng), 
-	        map: window.gmap,
-//	        title:this.markers[i].title,
-	        icon: image	        
-	    }); 
+    //landmark_marker_blue.png
+    image = {
+        url: 'http://' + window.location.host + '/images/map_landmark_marker_blue.png',
+        size: new google.maps.Size(28, 28),
+        origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(28, 28)
+    };
 
-	GoogleMap.markers.push(gmarker);            
+    if (landmark_type === "train_station") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/train.png',
+            size: new google.maps.Size(25, 31),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(20, 25)
+        };
+    }
+    else if (landmark_type === "city_center") {
+        
+          image = {
+            url: 'http://' + window.location.host + '/images/map/city_center.png',
+            size: new google.maps.Size(21, 21),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(21, 21)
+        };
+    }
+    else if (landmark_type === "airport") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/air-plane.png',
+            size: new google.maps.Size(28, 25),
+            origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(28, 25)
+        };
+    }
+
+    var gmarker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: window.gmap,
+        icon: image
+    });
+
+    gmarker.setZIndex(15000);
+    GoogleMap.markers.push(gmarker);
 };
-
 GoogleMap.prototype.centerMapMarker = function() {
 
     if (window.markers.length !== 0) {
@@ -819,4 +853,87 @@ GoogleMap.prototype.getQuickViewLatlng = function(property_number) {
             arrQuickView.push(newElement);
     }
     return arrQuickView;
+};
+GoogleMap.prototype.drawStaticLandmarks = function() {
+
+    var static_landmark_markers = Array();
+
+    $("#cb_group_landmarks_filter li").each(function() {
+        var latlng = null;
+        var landmark_type = null;
+        var title = null;
+
+        var landmark_id = $(this).find("input[type='checkbox']").val();
+
+        landmark_type = $("#hidden_landmarks_type_" + landmark_id).val();
+
+        if (landmark_type === "train_station") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+        else if (landmark_type === "airport") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+        else if (landmark_type === "city_center") {
+            latlng = $("#hidden_landmarks_" + landmark_id).val();
+        }
+
+        title = $("#landmark_title_" + landmark_id).html();
+
+        if (latlng !== null) {
+            var point = latlng.split(",");
+            var lat = point[0];
+            var lng = point[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+            newElement['title'] = title;
+            newElement['type'] = landmark_type;
+
+            static_landmark_markers.push(newElement);
+        }
+    });
+
+    for (var i in static_landmark_markers) {
+
+        var image = "";
+        if (static_landmark_markers[i].type === "train_station") {
+//            image = 'http://' + window.location.host + '/images/map/Train-station-icon.png';
+
+            image = {
+                url: 'http://' + window.location.host + '/images/map/train.png',
+                size: new google.maps.Size(25, 31),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(20, 25)
+            };
+        }
+        else if (static_landmark_markers[i].type === "city_center") {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/city_center.png',
+                size: new google.maps.Size(21, 21),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(21, 21)
+            };
+
+        }
+        else {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/air-plane.png',
+                size: new google.maps.Size(28, 25),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(28, 25)
+            };
+        }
+
+        //Add marker to map
+        window.lmarkers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(static_landmark_markers[i].lat, static_landmark_markers[i].lng),
+            map: window.gmap,
+            title: static_landmark_markers[i].title,
+            icon: image
+        });
+
+        window.lmarkers[i].setZIndex(10000);
+
+    }// end  for (var i in static_landmark_markers)
 };

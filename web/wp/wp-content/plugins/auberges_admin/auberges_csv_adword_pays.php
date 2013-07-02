@@ -51,38 +51,136 @@ if(is_admin())
   if($_POST["country_api_used"] == "HB")
   {
     $api_digit = "02";
-    $sql_query = "SELECT hb_country.hb_country_id as country_id_from_db,
-    									continent_en,`continent_".$_POST["adword_pays_lang"]."` AS continentlang, hb_country.lname_en as country_en
-                      , IF(`country_".$_POST["adword_pays_lang"]."` IS NULL,(SELECT `country_".$_POST["adword_pays_lang"]."` FROM cities2 WHERE LOWER(cities2.country_en) LIKE LOWER(hb_country.lname_en) LIMIT 1),`country_".$_POST["adword_pays_lang"]."`) AS countrylang
-                      , count(DISTINCT hb_city.lname_en) AS cities_count
-                      , count(DISTINCT hb_hostel.property_number) AS total_property_count
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'EUR',hb_hostel_price.bed_price,NULL)) AS best_eur_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'GBP',hb_hostel_price.bed_price,NULL)) AS best_gbp_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'USD',hb_hostel_price.bed_price,NULL)) AS best_usd_price
-                      ,SUM(IF(LOWER(property_type) LIKE'hostel'    ,IF(hb_hostel_price.currency_code LIKE'EUR',1,IF(hb_hostel_price.currency_code IS NULL,1,0)),0)) AS hostels_count
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'EUR',IF(LOWER(property_type) LIKE'hostel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hostel_eur_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'GBP',IF(LOWER(property_type) LIKE'hostel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hostel_gbp_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'USD',IF(LOWER(property_type) LIKE'hostel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hostel_usd_price
-                      ,SUM(IF(LOWER(property_type) LIKE'hotel'     ,IF(hb_hostel_price.currency_code LIKE'EUR',1,IF(hb_hostel_price.currency_code IS NULL,1,0)),0)) AS hotels_count
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'EUR',IF(LOWER(property_type) LIKE'hotel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hotel_eur_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'GBP',IF(LOWER(property_type) LIKE'hotel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hotel_gbp_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'USD',IF(LOWER(property_type) LIKE'hotel',hb_hostel_price.bed_price,NULL),NULL)) AS best_hotel_usd_price
-                      ,SUM(IF(LOWER(property_type) LIKE'apartment' ,IF(hb_hostel_price.currency_code LIKE'EUR',1,IF(hb_hostel_price.currency_code IS NULL,1,0)),0)) AS apartments_count
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'EUR',IF(LOWER(property_type) LIKE'apartment',hb_hostel_price.bed_price,NULL),NULL)) AS best_apartment_eur_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'GBP',IF(LOWER(property_type) LIKE'apartment',hb_hostel_price.bed_price,NULL),NULL)) AS best_apartment_gbp_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'USD',IF(LOWER(property_type) LIKE'apartment',hb_hostel_price.bed_price,NULL),NULL)) AS best_apartment_usd_price
-                      ,SUM(IF(LOWER(property_type) LIKE'guesthouse',IF(hb_hostel_price.currency_code LIKE'EUR',1,IF(hb_hostel_price.currency_code IS NULL,1,0)),0)) AS guesthouses_count
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'EUR',IF(LOWER(property_type) LIKE'guesthouse',hb_hostel_price.bed_price,NULL),NULL)) AS best_guesthouse_eur_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'GBP',IF(LOWER(property_type) LIKE'guesthouse',hb_hostel_price.bed_price,NULL),NULL)) AS best_guesthouse_gbp_price
-                      ,MIN(IF(hb_hostel_price.currency_code LIKE'USD',IF(LOWER(property_type) LIKE'guesthouse',hb_hostel_price.bed_price,NULL),NULL)) AS best_guesthouse_usd_price
-                    FROM `hb_hostel`
-                    RIGHT JOIN hb_city ON hb_hostel.city_hb_id = hb_city.hb_id
-                    LEFT JOIN hb_country ON hb_city.hb_country_id = hb_country.hb_country_id
-                    LEFT JOIN continents ON continents.continent_hb_code = hb_country.continent_hb_code
-                    LEFT JOIN hb_hostel_price ON hb_hostel.property_number = hb_hostel_price.hostel_hb_id
-                    LEFT JOIN cities2 ON (hb_city.lname_en = cities2.city_en AND hb_country.lname_en = cities2.country_en)
-                    GROUP BY hb_country.lname_en
-                    ORDER BY hb_country.lname_en ASC";
+
+    $sql_query = "SELECT t.hb_country_id AS country_id_from_db,
+	       continent_en,
+	       continent_".$_POST["adword_pays_lang"]." AS continentlang,
+	       t.lname_en AS country_en,
+	       ci2.country_".$_POST["adword_pays_lang"]." AS countrylang,
+
+	       MIN(t.cities_count) AS cities_count,
+	       SUM(t.h_cnt) AS total_property_count,
+	       MIN(t.eur) AS best_eur_price,
+	       MIN(t.gbp) AS best_gbp_price,
+	       MIN(t.usd) AS best_usd_price,
+
+	       SUM(t.hs_cnt) AS hostels_count,
+	       MIN(t.hs_eur) AS best_hostel_eur_price,
+	       MIN(t.hs_gbp) AS best_hostel_gbp_price,
+	       MIN(t.hs_usd) AS best_hostel_usd_price,
+
+		   SUM(t.ht_cnt) AS hotels_count,
+	       MIN(t.ht_eur) AS best_hotel_eur_price,
+	       MIN(t.ht_gbp) AS best_hotel_gbp_price,
+	       MIN(t.ht_usd) AS best_hotel_usd_price,
+
+	       SUM(t.a_cnt) AS apartments_count,
+	       MIN(t.a_eur) AS best_apartment_eur_price,
+	       MIN(t.a_gbp) AS best_apartment_gbp_price,
+	       MIN(t.a_usd) AS best_apartment_usd_price,
+
+	       SUM(t.gh_cnt) AS guesthouses_count,
+	       MIN(t.gh_eur) AS best_guesthouse_eur_price,
+	       MIN(t.gh_gbp) AS best_guesthouse_gbp_price,
+	       MIN(t.gh_usd) AS best_guesthouse_usd_price
+
+	FROM (
+
+	SELECT co.continent_hb_code, co.hb_country_id, co.lname_en,
+	       COUNT(DISTINCT ci.hb_id) AS cities_count,
+	       COUNT(DISTINCT h.property_number) AS h_cnt,
+	       MIN(hp_eur.bed_price) AS eur,
+	       MIN(hp_gbp.bed_price) AS gbp,
+	       MIN(hp_usd.bed_price) AS usd,
+	       COUNT(DISTINCT h.property_number) AS hs_cnt,
+	       MIN(hp_eur.bed_price) AS hs_eur,
+	       MIN(hp_gbp.bed_price) AS hs_gbp,
+	       MIN(hp_usd.bed_price) AS hs_usd,
+	       NULL AS ht_cnt, NULL AS ht_eur, NULL AS ht_gbp, NULL AS ht_usd,
+	       NULL AS a_cnt, NULL AS a_eur, NULL AS a_gbp, NULL AS a_usd,
+		   NULL AS gh_cnt, NULL AS gh_eur, NULL AS gh_gbp, NULL AS gh_usd
+	  FROM hb_country co
+	    JOIN hb_city ci ON co.hb_country_id = ci.hb_country_id
+	    LEFT JOIN hb_hostel h ON ci.hb_id = h.city_hb_id AND h.property_type = 'Hostel'
+	    LEFT JOIN hb_hostel_price hp_eur ON h.property_number = hp_eur.hostel_hb_id AND hp_eur.currency_code = 'EUR'
+	    LEFT JOIN hb_hostel_price hp_gbp ON h.property_number = hp_gbp.hostel_hb_id AND hp_gbp.currency_code = 'GBP'
+	    LEFT JOIN hb_hostel_price hp_usd ON h.property_number = hp_usd.hostel_hb_id AND hp_usd.currency_code = 'USD'
+	  GROUP BY co.hb_country_id
+
+	UNION ALL
+
+	SELECT co.continent_hb_code, co.hb_country_id, co.lname_en,
+	       NULL AS cities_count,
+	       COUNT(DISTINCT h.property_number) AS hcnt,
+	       MIN(hp_eur.bed_price) AS best_eur,
+	       MIN(hp_gbp.bed_price) AS best_gbp,
+	       MIN(hp_usd.bed_price) AS best_usd,
+	       NULL AS hb_cnt, NULL AS hs_eur,NULL AS hs_gbp, NULL AS hs_usd,
+	       COUNT(DISTINCT h.property_number) AS ht_cnt,
+	       MIN(hp_eur.bed_price) AS ht_eur,
+	       MIN(hp_gbp.bed_price) AS ht_gbp,
+	       MIN(hp_usd.bed_price) AS ht_usd,
+	       NULL AS a_cnt, NULL AS a_eur, NULL AS a_gbp, NULL AS a_usd,
+	       NULL AS gh_cnt, NULL AS gh_eur, NULL AS gh_gbp, NULL AS gh_usd
+	  FROM hb_country co
+	    JOIN hb_city ci ON co.hb_country_id = ci.hb_country_id
+	    JOIN hb_hostel h ON ci.hb_id = h.city_hb_id AND h.property_type = 'Hotel'
+	    LEFT JOIN hb_hostel_price hp_eur ON h.property_number = hp_eur.hostel_hb_id AND hp_eur.currency_code = 'EUR'
+	    LEFT JOIN hb_hostel_price hp_gbp ON h.property_number = hp_gbp.hostel_hb_id AND hp_gbp.currency_code = 'GBP'
+	    LEFT JOIN hb_hostel_price hp_usd ON h.property_number = hp_usd.hostel_hb_id AND hp_usd.currency_code = 'USD'
+	  GROUP BY co.hb_country_id
+
+	UNION ALL
+
+	SELECT co.continent_hb_code, co.hb_country_id, co.lname_en,
+	       NULL AS cities_count,
+	       COUNT(DISTINCT h.property_number) AS hcnt,
+	       MIN(hp_eur.bed_price) AS best_eur,
+	       MIN(hp_gbp.bed_price) AS best_gbp,
+	       MIN(hp_usd.bed_price) AS best_usd,
+	       NULL AS hs_cnt, NULL AS hs_eur, NULL AS hs_gbp, NULL AS hs_usd,
+	       NULL AS ht_cnt, NULL AS ht_eur, NULL AS ht_gbp, NULL AS ht_usd,
+	       COUNT(DISTINCT h.property_number) AS a_cnt,
+	       MIN(hp_eur.bed_price) AS a_eur,
+	       MIN(hp_gbp.bed_price) AS a_gbp,
+	       MIN(hp_usd.bed_price) AS a_usd,
+	       NULL AS gh_cnt, NULL AS gh_eur, NULL AS gh_gbp, NULL AS gh_usd
+	  FROM hb_country co
+	    JOIN hb_city ci ON co.hb_country_id = ci.hb_country_id
+	    JOIN hb_hostel h ON ci.hb_id = h.city_hb_id AND h.property_type = 'Apartment'
+	    LEFT JOIN hb_hostel_price hp_eur ON h.property_number = hp_eur.hostel_hb_id AND hp_eur.currency_code = 'EUR'
+	    LEFT JOIN hb_hostel_price hp_gbp ON h.property_number = hp_gbp.hostel_hb_id AND hp_gbp.currency_code = 'GBP'
+	    LEFT JOIN hb_hostel_price hp_usd ON h.property_number = hp_usd.hostel_hb_id AND hp_usd.currency_code = 'USD'
+	  GROUP BY co.hb_country_id
+
+	UNION ALL
+
+	SELECT co.continent_hb_code, co.hb_country_id, co.lname_en,
+	       NULL AS cities_count,
+	       COUNT(DISTINCT h.property_number) AS hcnt,
+	       MIN(hp_eur.bed_price) AS best_eur,
+	       MIN(hp_gbp.bed_price) AS best_gbp,
+	       MIN(hp_usd.bed_price) AS best_usd,
+	       NULL AS hs_cnt, NULL AS hs_eur, NULL AS hs_gbp, NULL AS hs_usd,
+	       NULL AS ht_cnt, NULL AS ht_eur, NULL AS ht_gbp, NULL AS ht_usd,
+	       NULL AS a_cnt, NULL AS a_eur, NULL AS a_gbp, NULL AS a_usd,
+	       COUNT(DISTINCT h.property_number) AS gh_cnt,
+	       MIN(hp_eur.bed_price) AS gh_eur,
+	       MIN(hp_gbp.bed_price) AS gh_gbp,
+	       MIN(hp_usd.bed_price) AS gh_usd
+	  FROM hb_country co
+	    JOIN hb_city ci ON co.hb_country_id = ci.hb_country_id
+	    JOIN hb_hostel h ON ci.hb_id = h.city_hb_id AND h.property_type = 'Guesthouse'
+	    LEFT JOIN hb_hostel_price hp_eur ON h.property_number = hp_eur.hostel_hb_id AND hp_eur.currency_code = 'EUR'
+	    LEFT JOIN hb_hostel_price hp_gbp ON h.property_number = hp_gbp.hostel_hb_id AND hp_gbp.currency_code = 'GBP'
+	    LEFT JOIN hb_hostel_price hp_usd ON h.property_number = hp_usd.hostel_hb_id AND hp_usd.currency_code = 'USD'
+	  GROUP BY co.hb_country_id) t
+
+	    JOIN continents cn ON t.continent_hb_code = cn.continent_hb_code
+	    LEFT JOIN (SELECT DISTINCT country_en, country_".$_POST["adword_pays_lang"]." FROM cities2) ci2 ON t.lname_en = ci2.country_en
+
+   GROUP BY t.hb_country_id;";
+
   }
   CsvCUSTOM($sql_query,$domain,$header,"adwords_".$_POST["country_api_used"]."_countries_".$_POST["adword_pays_lang"]."_".$today.".csv",$_POST["adword_pays_lang"],$api_digit);
 }

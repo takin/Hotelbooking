@@ -222,8 +222,8 @@
                                                      }
 
                                                      ?>
-                                                      <p><input type="radio" id="landmark" name="landmark" <?php echo $checked; ?> value="<?php echo $landmark->geo_latitude . "###". $landmark->geo_longitude; ?>"
-                                                  onchange="GoogleMap.prototype.changeLandmarkLayer(<?php echo "'".$landmark->geo_latitude . "###". $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?></p>
+                                                      <p><input type="radio" id="landmark" name="landmark" <?php echo $checked; ?> value="<?php echo $landmark->geo_latitude . ",". $landmark->geo_longitude; ?>"
+                                                  onchange="GoogleMap.prototype.changeLandmarkLayer(<?php echo "'".$landmark->geo_latitude . ",". $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?></p>
 
                                             <?php  }//end Foreach  ?>
                                              </div>
