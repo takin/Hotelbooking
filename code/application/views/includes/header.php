@@ -885,6 +885,23 @@ var landmark_cityMarkers = [];
 
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
+
+<?php if($current_view == "hostel_view"): ?>
+<script type="text/javascript">
+  window.name = 'Hostel View';
+</script>
+<?php else: ?>
+	<?php if($current_view == "city_view"): ?>
+		<script type="text/javascript">
+
+		</script>
+	<?php else: ?>
+		<script type="text/javascript">
+  			window.name = 'Other View';
+		</script>
+	<?php endif; ?>
+<?php endif; ?>
+
   <?php
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
@@ -986,7 +1003,7 @@ $(document).ready(function()
 
 <body class="auberges<?php if($current_view == "hostel_view"){echo ' view-hostel';}elseif($current_view == "city_view"){echo ' city-search';}if($this->api_used == HB_API){echo ' hb_frame';}?> lang-<?php echo $this->html_lang_code; ?>">
 <?php if($current_view == "city_view"){?>
-<div id="city_load">
+<div id="city_load" style="visibility:hidden;">
 	<p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"/></p>
 	<div class="box_content box_round group">
 		<?php if(isset($city_selected) && isset($country_selected)){?>
