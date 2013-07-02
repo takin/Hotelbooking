@@ -128,7 +128,7 @@
 									{{#landmarks}}
 										<p>
 											<input type="radio" name="distrinct_landmark" value="{{geo_latitude}},{{geo_longitude}}" onchange="GoogleMap.clearDistrictLandmark(); pweb_filter.changeLandmarkLayer('hostel_quickview','{{geo_latitude}},{{geo_longitude}}','{{type}}');">
-											{{translation_name}}
+                                                                                        <span class="landmark_type_{{type}}"></span>{{translation_name}}
 										</p>
 									{{/landmarks}}
 								</div>
