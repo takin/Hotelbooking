@@ -41,7 +41,8 @@ if ($this->session->userdata('switch_api')) {
 <?php elseif (!isset($city_selected) || ($city_selected === NULL)): ?>
                     loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>", "<?php echo _('Chargement...'); ?>", 'cities', cities, 'search-country', 'search-city', "<?php echo $country_selected; ?>");
 <?php else: ?>
-                    loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>", "<?php echo _('Chargement...'); ?>", 'cities', cities, 'search-country', 'search-city', "<?php echo $country_selected; ?>", "<?php echo $city_selected; ?>");
+
+                    loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>", "<?php echo _('Chargement...'); ?>", 'cities', cities, 'search-country', 'search-city', "<?php echo $bc_country; ?>", "<?php echo $bc_city; ?>");
 <?php endif; ?>
             });
             function keyaction(e)
