@@ -49,7 +49,7 @@ $SPACE = '&nbsp;';
 						<th><?php echo _("Nuits");?></th>
 						
 						<th><?php echo _("Total");?></th>
-						<th><?php echo _("Arrhes et frais de service");?></th>
+						<th><?php echo _('Amount already paid');?></th>
 					 <th class="last"><?php echo _("Total du à l'arrivée");?></th>
 						
 				 </tr>
