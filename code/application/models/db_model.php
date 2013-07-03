@@ -394,6 +394,8 @@ class Db_model extends CI_Model
                 $email,
                 $emailsent,
                 $RoomsBooked,
+                $book_currency,
+                $book_amount,
                 $user_id = NULL)
     {
       $this->load->model('Db_currency');
@@ -402,6 +404,7 @@ class Db_model extends CI_Model
 
       $charged_currency = $this->Db_currency->get_currency_id($charged_currency);
       $property_currency = $this->Db_currency->get_currency_id($property_currency);
+	  $book_currency = $this->Db_currency->get_currency_id($book_currency);
 
       //Initialize booker info
       $booker_country_name = NULL;
@@ -470,7 +473,9 @@ class Db_model extends CI_Model
                   'booker_city_name' => $booker_city_name,
                   'booker_region_code' => $booker_region_code,
                   'booker_geo_latitude' => $booker_latitude,
-                  'booker_geo_longitude' => $booker_longitude
+                  'booker_geo_longitude' => $booker_longitude,
+                  'book_currency' => $book_currency,
+                  'book_amount' => $book_amount
               );
 
         if($this->db->insert('transactions_hostelworld', $data) === false)
@@ -618,7 +623,7 @@ class Db_model extends CI_Model
                             SELECT API_booked, transaction_id,booking_time, transactions_hostelworld.email, first_name, last_name, gender ,home_country,
                                     phone_number, customer_booking_reference, arrival_date_time, transactions_hostelworld.property_number,
                                     transactions_hostelworld.property_name, num_nights,property_grand_total, amount_charged, c1.currency_code AS amount_charged_currency,
-                                    property_amount_due, c2.currency_code AS property_currency,
+                                    property_amount_due, c2.currency_code AS property_currency, c3.currency_code AS book_currency, transactions_hostelworld.book_amount,
                                     IFNULL(hw_hostel.property_type,'property') as property_type,
                                     address1 as property_address1,
                                     address2 as property_address2,
@@ -634,6 +639,7 @@ class Db_model extends CI_Model
                             LEFT JOIN genders ON transactions_hostelworld.gender_id = genders.gender_id
                             LEFT OUTER JOIN currencies c1 ON transactions_hostelworld.charged_currency = c1.currency_id
                             LEFT OUTER JOIN currencies c2 ON transactions_hostelworld.property_currency = c2.currency_id
+                            LEFT OUTER JOIN currencies c3 ON transactions_hostelworld.book_currency = c3.currency_id
                             LEFT JOIN hw_hostel ON transactions_hostelworld.property_number = hw_hostel.property_number
                             LEFT JOIN hw_city    ON hw_hostel.hw_city_id  = hw_city.hw_city_id
                             LEFT JOIN hw_country ON hw_city.hw_country_id = hw_country.hw_country_id
@@ -645,7 +651,7 @@ class Db_model extends CI_Model
                             SELECT API_booked, transaction_id,booking_time, transactions_hostelworld.email, first_name, last_name, gender ,home_country,
                                     phone_number, customer_booking_reference, arrival_date_time, transactions_hostelworld.property_number,
                                     transactions_hostelworld.property_name, num_nights,property_grand_total, amount_charged, c1.currency_code AS amount_charged_currency,
-                                    property_amount_due, c2.currency_code AS property_currency,
+                                    property_amount_due, c2.currency_code AS property_currency, c3.currency_code AS book_currency, transactions_hostelworld.book_amount,
                                     IFNULL(hb_hostel.property_type,'property') as property_type,
                                     address1 as property_address1,
                                     address2 as property_address2,
@@ -661,6 +667,7 @@ class Db_model extends CI_Model
                             LEFT JOIN genders ON transactions_hostelworld.gender_id = genders.gender_id
                             LEFT OUTER JOIN currencies c1 ON transactions_hostelworld.charged_currency = c1.currency_id
                             LEFT OUTER JOIN currencies c2 ON transactions_hostelworld.property_currency = c2.currency_id
+                            LEFT OUTER JOIN currencies c3 ON transactions_hostelworld.book_currency = c3.currency_id
                             LEFT JOIN hb_hostel ON transactions_hostelworld.property_number = hb_hostel.property_number
                             LEFT JOIN hb_city ON hb_city.hb_id = hb_hostel.city_hb_id
                             LEFT JOIN hb_country ON hb_country.hb_country_id = hb_city.hb_country_id

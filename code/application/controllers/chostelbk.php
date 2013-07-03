@@ -486,6 +486,7 @@ class CHostelbk extends I18n_site
     $postdata['dateStart']        = new DateTime($this->input->post('dateStart',TRUE));
     $postdata['numNights']        = $this->input->post('numNights',TRUE);
     $postdata['bookCurrency']     = $this->input->post('bookCurrency',TRUE);
+	$postdata['bookAmount']     = $this->input->post('bookAmount',TRUE);
     $postdata['settleCurrency']     = $settlecurrency;
     $postdata['roomPreferences']  = explode(",",$this->input->post('roomPreferences',TRUE));
     $postdata['nbPersons']        = explode(",",$this->input->post('nbPersons',TRUE));
@@ -709,7 +710,9 @@ class CHostelbk extends I18n_site
                         $booking->payment->currencies->property->currency,
                         $ajaxdata['book_email_address'],
                         $emailsent,
-                        $booking->property->roomsBooked);
+                        $booking->property->roomsBooked,
+						$ajaxdata['bookCurrency'],
+						$ajaxdata['bookAmount']);
 
 
     //Add user to db

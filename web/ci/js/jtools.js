@@ -431,7 +431,8 @@ function booking_confirm2(base_url, refresh, settleCurrency)
         issueno = document.getElementById('issueno').value;
     }
     var bookCurrency = document.getElementById('book-currency').value;
-
+    var bookAmount = document.getElementById('book-amount').value;
+    
     //vars for refresh 
     var roomPreferences = document.getElementsByName('book-roomPreferences[]');
     var nbPersons = document.getElementsByName('book-nbPersons[]');
@@ -496,6 +497,7 @@ function booking_confirm2(base_url, refresh, settleCurrency)
             dateStart: dateStart,
             numNights: numNights,
             bookCurrency: bookCurrency,
+            bookAmount: bookAmount,
             settleCurrency: settleCurrency,
             propertyCardTypes: card_types,
             refresh: refresh,

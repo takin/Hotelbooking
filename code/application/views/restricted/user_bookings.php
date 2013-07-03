@@ -86,7 +86,12 @@ $SPACE = '&nbsp;';
 			echo currency_symbol($row->amount_charged_currency).$SPACE.$row->property_grand_total;
 			echo "</td>";
 			echo "<td align=\"center\">";
-			echo currency_symbol($row->amount_charged_currency).$SPACE.$row->amount_charged;
+			if($row->book_amount > 0) {
+				echo currency_symbol($row->book_currency).$SPACE.$row->book_amount.' ('.currency_symbol($row->amount_charged_currency).$SPACE.$row->amount_charged.')';
+			} else {
+				echo currency_symbol($row->amount_charged_currency).$SPACE.$row->amount_charged;
+			}
+			
 			echo "</td>";
 			echo "<td align=\"center\">";
 			echo currency_symbol($row->property_currency).$SPACE.$row->property_amount_due;
