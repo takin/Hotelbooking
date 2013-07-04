@@ -469,7 +469,7 @@ class Hb_engine {
                     log_message("debug", "search mode = 1: " . print_r($data["property_list"], true));
 
                     foreach ($data['property_list'] as $property_id => $property) {
-
+                        
                         //$propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
                         //$this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
 
@@ -672,7 +672,7 @@ class Hb_engine {
             $this->CI->load->model('Db_hb_hostel');
             $json_data["property_list"][$i]["address1"] = $address;
 
-        if (isset($prop["geo_latitude"])) {
+            if (isset($prop["geo_latitude"])) {
                 $json_data["property_list"][$i]["Geo"]["Latitude"] = $prop["geo_latitude"];
             }
             if (isset($prop["geo_longitude"])) {
@@ -994,13 +994,11 @@ class Hb_engine {
             $hostel_city = $this->CI->Db_hb_country->get_city($response["RESPONSE"]["ADDRESS"]["COUNTRY"], $response["RESPONSE"]["ADDRESS"]["CITY"], $this->CI->site_lang);
 
             if (!is_null($hostel_city)) {
-
-                $hbid = $hostel_city->hb_id;
                 $hostel_country = $hostel_city->display_country;
                 $hostel_city = $hostel_city->display_city;
 
 				if(isset($hbid)) {
-					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hbid, 2);
+					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
 				}
             }
 
