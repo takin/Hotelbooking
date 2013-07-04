@@ -982,7 +982,9 @@ class Hb_engine {
             if (!is_null($hostel_city)) {
                 $hostel_country = $hostel_city->display_country;
                 $hostel_city = $hostel_city->display_city;
-                $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
+				if(isset($hostel_city->hb_id)) {
+					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
+				}                
             }
 
             //TODO Translate country and city
