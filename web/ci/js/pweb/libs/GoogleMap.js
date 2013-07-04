@@ -11,6 +11,7 @@
 //
 // TODO support multiple infowindow and multiple map in one document
 // 
+
 function GoogleMap(map_div_id, lang , default_lat, default_lng, default_zoom) {
     this.map_div = document.getElementById(map_div_id);
 

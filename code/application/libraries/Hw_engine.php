@@ -9,6 +9,7 @@
  * @author    Louis-Michel Raynauld
  * @version   0.1
  */
+ 
 class Hw_engine {
 
   var $CI;

@@ -13,6 +13,7 @@ if (!defined('BASEPATH'))
  * @version   0.1
  * @license   Commercial
  */
+ 
 class Hb_engine {
 
     const LANDING_PAGES_DIR = "cache_queries/landing_pages";
