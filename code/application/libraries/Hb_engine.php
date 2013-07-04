@@ -985,7 +985,7 @@ class Hb_engine {
                 $hostel_country = $hostel_city->display_country;
                 $hostel_city = $hostel_city->display_city;
 
-				if(isset($hostel_city->hb_id)) {
+				if(isset($hbid)) {
 					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hbid, 2);
 				}
             }
