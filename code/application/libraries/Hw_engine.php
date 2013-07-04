@@ -624,9 +624,9 @@ class Hw_engine {
     //TODO manage API error!
     $deal_property = array(0 => null,
                            1 => null);
-    // array to add property index that
-    // has no Geo data or invalid data
-    $propert_list_noGeo = array();
+    // array to add property index that has no Geo data or invalid data
+    // and to add property index that has no min price
+    $propert_list_toRemove = array();
 
     foreach($json_data["property_list"] as $i => $prop)
     {
@@ -774,8 +774,8 @@ class Hw_engine {
 	  // validate the price is set otherwise remove the record from list as it's was discuss to skip the propery
 	  if(empty($prices['min_price']))
 	  {
-		  unset($json_data["property_list"][$i]); // just remove the record from the list
-		  continue; //
+            $propert_list_toRemove[] = $i;
+            continue;  
 	  }
       $json_data["property_list"][$i]["dual_price"]            = 1;
       $json_data["property_list"][$i]["display_price"]         = floatval($prices['min_price']);
@@ -830,7 +830,7 @@ class Hw_engine {
       // add property from search if it has no Geolat and Geolng
       // to be removed later
      if($json_data["property_list"][$i]["isGeoValid"] === false){
-        $propert_list_noGeo[] = $i;
+        $propert_list_toRemove[] = $i;
       }
             
       if(!is_array($prop["AvailableDates"]["availableDate"]))
@@ -864,13 +864,15 @@ class Hw_engine {
     }
     
         // *********** remove properties with no Geos **************************
-         foreach ($propert_list_noGeo as  $prop_index) {
-             unset($json_data["property_list"][$prop_index]);
+         foreach ($propert_list_toRemove as  $prop_index) {
+            if (array_key_exists($prop_index, $json_data["property_list"])) {
+                unset($json_data["property_list"][$prop_index]);
+             }
          }
          //reindexing the array 
          $json_data["property_list"] = array_values($json_data["property_list"]); 
          // *********** remove properties with no Geos **************************
-
+         
 //     debug_dump($json_data,"67.68.71.139");
     $data["json_data"] = json_encode($json_data);
 

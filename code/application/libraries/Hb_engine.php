@@ -634,9 +634,9 @@ class Hb_engine {
 
         $deal_property = array(0 => null,
             1 => null);
-        // array to add property index that
-        // has no Geo data or invalid data
-        $propert_list_noGeo = array();
+        // array to add property index that has no Geo data or invalid data
+        // and to add property index that has no min price
+        $propert_list_toRemove = array();
         
         foreach ($json_data["property_list"] as $i => $prop) {
             //Change keys to match HW data
@@ -830,7 +830,7 @@ class Hb_engine {
             // add property from search if it has no Geolat and Geolng
             // to be removed later
             if($json_data["property_list"][$i]["isGeoValid"] === false){
-                $propert_list_noGeo[] =  $i;
+                $propert_list_toRemove[] =  $i;
             }
 
             $json_data["property_list"][$i]["AvailableDates"]["availableDate"] = $avail_dates;
@@ -860,8 +860,10 @@ class Hb_engine {
         }
   
         // *********** remove properties with no Geos **************************
-         foreach ($propert_list_noGeo as  $prop_index) {
-             unset($json_data["property_list"][$prop_index]);
+         foreach ($propert_list_toRemove as  $prop_index) {
+             if (array_key_exists($prop_index, $json_data["property_list"])) {
+                unset($json_data["property_list"][$prop_index]);
+             }
          }
          //reindexing the array 
          $json_data["property_list"] = array_values($json_data["property_list"]); 
