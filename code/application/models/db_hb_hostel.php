@@ -3,6 +3,7 @@
  * @author Louis-Michel
  *
  */
+ 
 class Db_hb_hostel extends CI_Model
 {
   const CURRENCY_TABLE  = 'currencies';
