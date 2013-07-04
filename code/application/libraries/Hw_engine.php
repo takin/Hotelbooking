@@ -624,6 +624,9 @@ class Hw_engine {
     //TODO manage API error!
     $deal_property = array(0 => null,
                            1 => null);
+    // array to add property index that
+    // has no Geo data or invalid data
+    $propert_list_noGeo = array();
 
     foreach($json_data["property_list"] as $i => $prop)
     {
@@ -824,9 +827,10 @@ class Hw_engine {
         $json_data["property_list"][$i]["isGeoValid"] = true;
       }
       
-      // remove property from search if it has no Geolat and Geolng
+      // add property from search if it has no Geolat and Geolng
+      // to be removed later
      if($json_data["property_list"][$i]["isGeoValid"] === false){
-        unset($json_data["property_list"][$i]);
+        $propert_list_noGeo[] = $i;
       }
             
       if(!is_array($prop["AvailableDates"]["availableDate"]))
@@ -858,6 +862,14 @@ class Hw_engine {
     {
       $json_data["property_list"][$deal_property[1]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[1]->index]["display_price"]*1.25, 2, '.', '');;
     }
+    
+        // *********** remove properties with no Geos **************************
+         foreach ($propert_list_noGeo as  $prop_index) {
+             unset($json_data["property_list"][$prop_index]);
+         }
+         //reindexing the array 
+         $json_data["property_list"] = array_values($json_data["property_list"]); 
+         // *********** remove properties with no Geos **************************
 
 //     debug_dump($json_data,"67.68.71.139");
     $data["json_data"] = json_encode($json_data);

@@ -634,6 +634,8 @@ class Hb_engine {
 
         $deal_property = array(0 => null,
             1 => null);
+        // array to add property index that
+        // has no Geo data or invalid data
         $propert_list_noGeo = array();
         
         foreach ($json_data["property_list"] as $i => $prop) {
@@ -825,7 +827,8 @@ class Hb_engine {
             if (($json_data["property_list"][$i]["Geo"]["Latitude"] != 0) && ($json_data["property_list"][$i]["Geo"]["Longitude"] != 0)) {
                 $json_data["property_list"][$i]["isGeoValid"] = true;
             }
-            // remove property from search if it has no Geolat and Geolng
+            // add property from search if it has no Geolat and Geolng
+            // to be removed later
             if($json_data["property_list"][$i]["isGeoValid"] === false){
                 $propert_list_noGeo[] =  $i;
             }
