@@ -2398,6 +2398,7 @@ class Db_hb_hostel extends CI_Model
             if(!is_null($db_property)) {
                 $property["geo_latitude"] = $db_property->geo_latitude;
                 $property["geo_longitude"] = $db_property->geo_longitude;
+                $property["zip"] = $db_property->zip;
                 $property["ratings"] = $this->getRatingsFromDbProperty($db_property);
             }
         }

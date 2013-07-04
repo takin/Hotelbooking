@@ -353,8 +353,8 @@ GoogleMap.prototype.addMarkersToMap = function()
            
         var image = this.getMarkerIcon(false, 0);
         var image_selected = this.getMarkerIcon(true, 0);
-            
-        if (window.markers[i].lat === 0 || window.markers[i].lng === 0) {
+         // should never happen   
+        if (parseFloat(window.markers[i].lat) === 0 && parseFloat(window.markers[i].lng) === 0) {
             window.markers[i].gmarker = null;
         }
         else{
