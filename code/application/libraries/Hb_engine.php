@@ -13,7 +13,6 @@ if (!defined('BASEPATH'))
  * @version   0.1
  * @license   Commercial
  */
- 
 class Hb_engine {
 
     const LANDING_PAGES_DIR = "cache_queries/landing_pages";
@@ -470,7 +469,7 @@ class Hb_engine {
                     log_message("debug", "search mode = 1: " . print_r($data["property_list"], true));
 
                     foreach ($data['property_list'] as $property_id => $property) {
-
+                        
                         //$propInfoData = $this->CI->Hostelbookers_api->getPropertyDataByID($property["id"], "en");
                         //$this->CI->Hb_api_translate->translate_PropertyData($propInfoData["RESPONSE"]);
 
@@ -638,8 +637,6 @@ class Hb_engine {
 
         foreach ($json_data["property_list"] as $i => $prop) {
             //Change keys to match HW data
-            $address = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
-
             $json_data["property_list"][$i]['savedToFavorites'] = empty($prop["savedToFavorites"]) ? false : true;
             $json_data["property_list"][$i]['saveToFavorites'] = empty($prop["savedToFavorites"]) ? true : false;
             $json_data["property_list"][$i]['propertyNumber'] = $prop["id"];
@@ -650,15 +647,6 @@ class Hb_engine {
             $json_data["property_list"][$i]["Geo"]["Latitude"] = null;
             $json_data["property_list"][$i]["Geo"]["Longitude"] = null;
             $json_data["property_list"][$i]["city_name"] = $data["city_info"]->city_lname_en; // set the city name
-            $json_data["property_list"][$i]["country_name"] = $data["city_info"]->country_lname_en; // set the city name
-            $json_data["property_list"][$i]["zip"] = null;
-
-            if (isset($prop["zip"])) {
-                $json_data["property_list"][$i]["zip"] = $prop["zip"];
-            }
-
-//            $json_data["property_list"][$i]['google_map_address'] = $address . ", " . $data["city_info"]->city_lname_en . ", " . $data["city_info"]->country_lname_en . ", " . $json_data["property_list"][$i]["zip"];
-
             // -------Translate the propertyType----------------------------------//
             $this->CI->load->model('Db_term_translate');
             $json_data["property_list"][$i]['propertyTypeTranslate'] = (string)$this->CI->Db_term_translate->get_term_translation($json_data["property_list"][$i]["propertyType"], $this->CI->site_lang);
@@ -668,9 +656,9 @@ class Hb_engine {
 
             // get address for each propety from the hostel table
             $this->CI->load->model('Db_hb_hostel');
-            $json_data["property_list"][$i]["address1"] = $address;
+            $json_data["property_list"][$i]["address1"] = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
 
-        if (isset($prop["geo_latitude"])) {
+            if (isset($prop["geo_latitude"])) {
                 $json_data["property_list"][$i]["Geo"]["Latitude"] = $prop["geo_latitude"];
             }
             if (isset($prop["geo_longitude"])) {
@@ -825,10 +813,6 @@ class Hb_engine {
             if (($json_data["property_list"][$i]["Geo"]["Latitude"] != 0) && ($json_data["property_list"][$i]["Geo"]["Longitude"] != 0)) {
                 $json_data["property_list"][$i]["isGeoValid"] = true;
             }
-            // remove property from search if it has no Geolat and Geolng
-            if($json_data["property_list"][$i]["isGeoValid"] === false){
-                unset($json_data["property_list"][$i]);
-            }
 
             $json_data["property_list"][$i]["AvailableDates"]["availableDate"] = $avail_dates;
 
@@ -975,20 +959,14 @@ class Hb_engine {
 
             //Name for meta description
             $data['property_name'] = $hostel_name;
-            $data['city_landmarks'] = array();
 
             $hostel_country = $response["RESPONSE"]["ADDRESS"]["COUNTRY"];
             $hostel_city = $this->CI->Db_hb_country->get_city($response["RESPONSE"]["ADDRESS"]["COUNTRY"], $response["RESPONSE"]["ADDRESS"]["CITY"], $this->CI->site_lang);
 
             if (!is_null($hostel_city)) {
-
-                $hbid = $hostel_city->hb_id;
                 $hostel_country = $hostel_city->display_country;
+                $data['bc_city_details'] = $hostel_city;
                 $hostel_city = $hostel_city->display_city;
-
-				if(isset($hbid)) {
-					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hbid, 2);
-				}
             }
 
             //TODO Translate country and city
@@ -1092,6 +1070,10 @@ class Hb_engine {
             }
         }
 
+        if (!empty($data['bc_city_details'])) {
+            $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($data['bc_city_details']->hb_id, 2);
+        }
+            
         //Site Currency initialization
         $data['currency'] = $this->CI->site_currency;
         ;
