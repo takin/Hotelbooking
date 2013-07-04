@@ -824,6 +824,10 @@ class Hb_engine {
             if (($json_data["property_list"][$i]["Geo"]["Latitude"] != 0) && ($json_data["property_list"][$i]["Geo"]["Longitude"] != 0)) {
                 $json_data["property_list"][$i]["isGeoValid"] = true;
             }
+            // remove property from search if it has no Geolat and Geolng
+            if($json_data["property_list"][$i]["isGeoValid"] === false){
+                unset($json_data["property_list"][$i]);
+            }
 
             $json_data["property_list"][$i]["AvailableDates"]["availableDate"] = $avail_dates;
 
