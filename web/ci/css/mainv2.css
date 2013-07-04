@@ -2476,9 +2476,14 @@ text-align: -webkit-center;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	font-size: 1.2em;
-	padding-bottom: 10px;
+	padding-bottom: 4px;
 	margin-left: -309px;
 	margin-top: -230px;
+}
+
+#save_property_dialog span p {
+	padding: 0;
+	margin: 0;
 }
 
 #save_property_dialog .content #content {
