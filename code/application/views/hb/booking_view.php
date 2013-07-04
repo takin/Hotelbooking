@@ -486,6 +486,7 @@ $SPACE = '&nbsp;';
 					<input type="hidden" id="book-dateStart" name="book-dateStart" value="<?php echo $dateStart; ?>">
 					<input type="hidden" id="book-numNights" name="book-numNights" value="<?php echo $numNights; ?>">
 					<input type="hidden" id="book-currency" name="book-currency" value="<?php echo $bookCurrency; ?>">
+					<input type="hidden" id="book-amount" name="book-amount" value="<?php echo $settle_deposit_booking; ?>">
 					
 					<input type="hidden" id="analytic-value" name="analytic-value" value="<?php echo $CADDepositAmount; ?>">
 			</div>
