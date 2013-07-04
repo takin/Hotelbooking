@@ -651,11 +651,11 @@ class Hb_engine {
             $json_data["property_list"][$i]["city_name"] = $data["city_info"]->city_lname_en; // set the city name
             $json_data["property_list"][$i]["country_name"] = $data["city_info"]->country_lname_en; // set the city name
             $json_data["property_list"][$i]["zip"] = null;
-            
+
             if (isset($prop["zip"])) {
                 $json_data["property_list"][$i]["zip"] = $prop["zip"];
             }
-            
+
 //            $json_data["property_list"][$i]['google_map_address'] = $address . ", " . $data["city_info"]->city_lname_en . ", " . $data["city_info"]->country_lname_en . ", " . $json_data["property_list"][$i]["zip"];
 
             // -------Translate the propertyType----------------------------------//
@@ -675,7 +675,7 @@ class Hb_engine {
             if (isset($prop["geo_longitude"])) {
                 $json_data["property_list"][$i]["Geo"]["Longitude"] = $prop["geo_longitude"];
             }
-    
+
             if (isset($prop["ratings"])) {
                 $json_data["property_list"][$i]["Ratings"] = $prop["ratings"];
                 $json_data["property_list"][$i]["isRatingsEmpty"] = $this->isRatingsEmpty($prop["ratings"]);
@@ -975,16 +975,19 @@ class Hb_engine {
             //Name for meta description
             $data['property_name'] = $hostel_name;
             $data['city_landmarks'] = array();
-            
+
             $hostel_country = $response["RESPONSE"]["ADDRESS"]["COUNTRY"];
             $hostel_city = $this->CI->Db_hb_country->get_city($response["RESPONSE"]["ADDRESS"]["COUNTRY"], $response["RESPONSE"]["ADDRESS"]["CITY"], $this->CI->site_lang);
-            
+
             if (!is_null($hostel_city)) {
+
+                $hbid = $hostel_city->hb_id;
                 $hostel_country = $hostel_city->display_country;
                 $hostel_city = $hostel_city->display_city;
+
 				if(isset($hostel_city->hb_id)) {
-					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
-				}                
+					$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hbid, 2);
+				}
             }
 
             //TODO Translate country and city
@@ -1087,7 +1090,7 @@ class Hb_engine {
                 $data['city_selected'] = $data['bc_city'];
             }
         }
-        
+
         //Site Currency initialization
         $data['currency'] = $this->CI->site_currency;
         ;
