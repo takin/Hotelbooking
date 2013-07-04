@@ -634,7 +634,8 @@ class Hb_engine {
 
         $deal_property = array(0 => null,
             1 => null);
-
+        $propert_list_noGeo = array();
+        
         foreach ($json_data["property_list"] as $i => $prop) {
             //Change keys to match HW data
             $address = $this->CI->Db_hb_hostel->get_property_address($prop["id"]);
@@ -826,7 +827,7 @@ class Hb_engine {
             }
             // remove property from search if it has no Geolat and Geolng
             if($json_data["property_list"][$i]["isGeoValid"] === false){
-                unset($json_data["property_list"][$i]);
+                $propert_list_noGeo[] =  $i;
             }
 
             $json_data["property_list"][$i]["AvailableDates"]["availableDate"] = $avail_dates;
@@ -854,6 +855,14 @@ class Hb_engine {
             $json_data["property_list"][$deal_property[1]->index]["original_price"] = number_format($json_data["property_list"][$deal_property[1]->index]["display_price"] * 1.25, 2, '.', '');
             ;
         }
+  
+        // *********** remove properties with no Geos **************************
+         foreach ($propert_list_noGeo as  $prop_index) {
+             unset($json_data["property_list"][$prop_index]);
+         }
+         //reindexing the array 
+         $json_data["property_list"] = array_values($json_data["property_list"]); 
+         // *********** remove properties with no Geos **************************
 
         $data["json_data"] = json_encode($json_data);
         return $data;
