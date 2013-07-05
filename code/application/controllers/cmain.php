@@ -1319,11 +1319,6 @@ class CMain extends I18n_site {
             foreach ($data['landmarks'] as $i => $landmark) {
                 $data['landmarks'][$i]->original_name = $landmark->landmark_name;
                 
-                // add type city_center to landmark if landmark name is City center                  
-                if (strtolower($landmark->landmark_name) === "city center") {
-                    $data['landmarks'][$i]->type = "city_center";
-                }
-                
                 $translation = $this->db_translation_cache->get_translation($landmark->landmark_name, $this->site_lang);
 
                 if (!empty($translation)) {
