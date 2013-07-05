@@ -348,10 +348,6 @@ class Hb_engine {
                 $tmp_city_landmarks = array();
                 $tmp_landmarks = array();
                 foreach ($data['city_landmarks'] as $i => $landmark) {
-                    // add type to landmark if landmark name is City center
-                    if (strtolower($data['city_landmarks'][$i]->landmark_name) === "city center") {
-                        $data['city_landmarks'][$i]->type = "city_center";
-                    }
                     $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name, $this->CI->site_lang);
                     $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
                     
@@ -1000,13 +996,7 @@ class Hb_engine {
             if (!is_null($hostel_city)) {
                 $hostel_country = $hostel_city->display_country;
 
-		$data['city_landmarks'] = $this->CI->Db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
-                // add type city_center to landmark if landmark name is City center
-                foreach ($data['city_landmarks'] as $i => $landmark) {                    
-                    if (strtolower($landmark->landmark_name) === "city center") {
-                        $data['city_landmarks'][$i]->type = "city_center";
-                    }
-                }
+		$data['city_landmarks'] = $this->CI->db_hb_hostel->get_featured_landmarks_by_city_id($hostel_city->hb_id, 2);
 
             }
 

@@ -373,10 +373,6 @@ class Hw_engine {
         }
         foreach($data['city_landmarks'] as $i => $landmark)
         {
-          // add type to landmark if landmark name is City center
-          if (strtolower($landmark->landmark_name) === "city center") {
-            $data['city_landmarks'][$i]->type = "city_center";
-          }
           $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name,$this->CI->site_lang);
           $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
           if(!empty($translation))
@@ -941,18 +937,13 @@ class Hw_engine {
 
       $this->CI->load->model('Db_country');
       $this->CI->load->model('Db_reviews');
+      $this->CI->load->model('Db_hw_hostel');
 
       $property_name = $data['hostel_data']->propertyName;
       $hostel_city = $this->CI->Db_country->get_city($data['hostel_data']->country,$data['hostel_data']->city,$this->CI->site_lang);
       
         if (!empty($hostel_city)) {
             $data['city_landmarks'] = $this->CI->Db_hw_hostel->get_featured_landmarks_by_city_id($hostel_city->city_id, 2);
-            // add type city_center to landmark if landmark name is City center
-            foreach ($data['city_landmarks'] as $i => $landmark) {                    
-                if (strtolower($landmark->landmark_name) === "city center") {
-                    $data['city_landmarks'][$i]->type = "city_center";
-                }
-            }
 
         }
                         
@@ -989,8 +980,7 @@ class Hw_engine {
         $data['hostel']->geolongitude            = (string) $data['hostel_data']->Geo->Longitude;
       }
         else{
-                // load hw_hostel mode
-                $this->CI->load->model('Db_hw_hostel');
+
                 $property_geos = $this->CI->Db_hw_hostel->get_hostel_geos($data['property_number']);
 
                 if ($property_geos != false) {
@@ -1077,7 +1067,6 @@ class Hw_engine {
         $data['currency'] = $this->CI->Db_currency->get_currency_code($user_info['favorite_currency']);
       }
     }
-    $this->CI->load->model('Db_hw_hostel');
 
     //Updating facility in DB to make sure it is up to date on cached page
     $this->CI->Db_hw_hostel->update_hw_hostel_facilities($property_number, $data["hostel"]->facilities);

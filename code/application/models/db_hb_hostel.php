@@ -2285,7 +2285,13 @@ class Db_hb_hostel extends CI_Model
     $return = array();
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      $return = $query->result();
+       // add type city_center to landmark if landmark name is City center
+        foreach ($return as $i => $landmark) {                    
+            if (strtolower($landmark->landmark_name) === "city center") {
+                $return[$i]->type = "city_center";
+            }
+        }
     }
     return $return;
   }
@@ -2322,7 +2328,13 @@ class Db_hb_hostel extends CI_Model
     $return = array();
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      $return = $query->result();
+       // add type city_center to landmark if landmark name is City center
+        foreach ($return as $i => $landmark) {                    
+            if (strtolower($landmark->landmark_name) === "city center") {
+                $return[$i]->type = "city_center";
+            }
+        }
     }
     return $return;
   }
@@ -2354,6 +2366,12 @@ class Db_hb_hostel extends CI_Model
     if($query->num_rows() > 0)
     {
       $return = $query->result();
+    // add type city_center to landmark if landmark name is City center
+     foreach ($return as $i => $landmark) {                    
+         if (strtolower($landmark->landmark_name) === "city center") {
+             $return[$i]->type = "city_center";
+         }
+     }
     }
     return $return;
   }
