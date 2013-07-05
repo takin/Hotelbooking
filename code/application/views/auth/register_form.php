@@ -218,7 +218,7 @@ else {
 			}
 		?>
 		<input id="register-page" type="submit" value="<?php echo _("S'enregistrer");?>" name="register">
-		<?php echo form_close(); ?><br />
+		<?php echo form_close(); ?>
 <?php if (!$is_ajax) { ?>
 		<?php echo anchor($this->Db_links->get_link("connect"), _("Se connecter"), $login_attributes); ?>
 	</div>
