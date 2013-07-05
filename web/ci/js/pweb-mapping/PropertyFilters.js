@@ -1829,6 +1829,10 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_latLng_Type ) {
 };
 
 $(document).ready(function() { 
+	
+	if($.browser.msie){
+		$("div#city_load").css("visibility", "visible");
+	}
 		
 	if(window.name == 'Hostel View') {
     	window.name = 'City View';   		
@@ -1863,6 +1867,7 @@ $(document).ready(function() {
   $.ajax(
   {
     type:"GET",
+    cache: true,
     url:availibility_url,
     success:function(data)
     {
