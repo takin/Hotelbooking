@@ -116,7 +116,6 @@ class Db_hb_hostel extends CI_Model
     $language_code          = $this->db->escape_str($language_code);
     $api_db_cur_code        = $this->db->escape_str($api_db_cur_code);
     $limit                  = $this->db->escape($limit);
-	$yesterday = date('Y-m-d h:i:s', strtotime("yesterday"));
 
 	$sql = "SELECT
 		h.property_number, h.property_name, h.property_type,
@@ -144,7 +143,6 @@ class Db_hb_hostel extends CI_Model
 	  AND hp.currency_code = '$api_db_cur_code'
 	  AND ci_tr.system_name = '$city_system_name'
 	  AND co_tr.system_name = '$country_system_name'
-	  AND h.last_update > '$yesterday'
 	  $property_type_where
 	  $landmark_where
       $district_where
