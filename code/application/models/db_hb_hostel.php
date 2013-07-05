@@ -2264,25 +2264,34 @@ class Db_hb_hostel extends CI_Model
     $range_km = $this->db->escape($range_km);
     $landmark_source_id = $this->db->escape($landmark_source_id);
 
-    $sql = "SELECT l.landmark_id,
+   $sql = "SELECT l.landmark_id,
 		   l.landmark_name,
 		   l.geo_latitude,
 		   l.geo_longitude,
+                   lt.type,
 		   SUM(IF(hl.distance < $range_km, 1, 0)) AS landmark_count
 	  FROM hb_hostel_landmark hl
-		JOIN landmarks l ON l.landmark_id = hl.landmark_id
 		JOIN hb_hostel h ON h.property_number = hl.property_number
-	  WHERE l.`source` = $landmark_source_id
+		LEFT JOIN landmarks l ON l.landmark_id = hl.landmark_id
+                LEFT JOIN landmark_of_type lot ON lot.landmark_id = l.landmark_id
+                LEFT JOIN landmark_type lt ON lot.landmark_type_id = lt.landmark_type_id 
+                WHERE l.`source` = $landmark_source_id
 		AND h.city_hb_id = $city_id
 	  GROUP BY l.landmark_id
-	  ORDER BY l.landmark_name;";
+	  ORDER BY l.landmark_name ASC;";
 
     $query = $this->db->query($sql);
 
     $return = array();
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      $return = $query->result();
+       // add type city_center to landmark if landmark name is City center
+        foreach ($return as $i => $landmark) {                    
+            if (strtolower($landmark->landmark_name) === "city center") {
+                $return[$i]->type = "city_center";
+            }
+        }
     }
     return $return;
   }
@@ -2319,7 +2328,13 @@ class Db_hb_hostel extends CI_Model
     $return = array();
     if($query->num_rows() > 0)
     {
-      return $query->result();
+      $return = $query->result();
+       // add type city_center to landmark if landmark name is City center
+        foreach ($return as $i => $landmark) {                    
+            if (strtolower($landmark->landmark_name) === "city center") {
+                $return[$i]->type = "city_center";
+            }
+        }
     }
     return $return;
   }
@@ -2351,6 +2366,12 @@ class Db_hb_hostel extends CI_Model
     if($query->num_rows() > 0)
     {
       $return = $query->result();
+    // add type city_center to landmark if landmark name is City center
+     foreach ($return as $i => $landmark) {                    
+         if (strtolower($landmark->landmark_name) === "city center") {
+             $return[$i]->type = "city_center";
+         }
+     }
     }
     return $return;
   }

@@ -1276,9 +1276,7 @@ PWebFilterApp.prototype.setup = function(data)
 {
     var that = this;
 	data = jQuery.parseJSON(data);
-
-	totalRecords = data.property_list.length;
-
+	
 	// remove from search list
 	for (var i = 0; i < data.property_list.length; i++) {
 		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
