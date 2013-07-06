@@ -219,15 +219,15 @@ class Db_hb_hostel extends CI_Model
 
         $sql = "SELECT
 		 h.geo_latitude,
-		h.geo_longitude
-	FROM hb_hostel h
+		 h.geo_longitude
+	  FROM hb_hostel h
 	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
 	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
-	WHERE 
-	 ci.system_name = '$city_system_name'
+	  WHERE 
+	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
-	GROUP BY h.property_number
-                limit 60;";
+	  GROUP BY h.property_number
+          limit 60;";
         
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
