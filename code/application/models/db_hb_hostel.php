@@ -2496,7 +2496,7 @@ class Db_hb_hostel extends CI_Model {
 	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
 	  GROUP BY h.property_number
-          limit 60;";
+          limit 80;";
 
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
@@ -2505,6 +2505,53 @@ class Db_hb_hostel extends CI_Model {
 
         if ($query->num_rows() > 0) {
             $result = $query->result();
+        }
+        return $result;
+    }
+    
+    public function get_featured_landmarks_by_city_name($country_system_name, $city_system_name, $range_km = 5, $landmark_source = 'manual') {
+        $this->CI->load->model("Db_landmarks");
+        $landmark_source_id = $this->CI->Db_landmarks->get_landmark_source_id($landmark_source);
+
+        $country_system_name = $this->db->escape_str($country_system_name);
+        $city_system_name = $this->db->escape_str($city_system_name);
+        $range_km = $this->db->escape($range_km);
+        $landmark_source_id = $this->db->escape($landmark_source_id);
+
+        $sql = "SELECT 			
+                        l.landmark_id,
+                        l.landmark_name,
+                        l.geo_latitude,
+                        l.geo_longitude,
+                        lt.type,
+                     SUM(if( distance <= $range_km,1,0)) as landmark_count
+              FROM hb_hostel h
+              LEFT JOIN hb_city ci              ON      ci.hb_id = h.city_hb_id
+              JOIN hb_country co                ON      co.hb_country_id = ci.hb_country_id    
+              RIGHT JOIN hb_hostel_landmark hl  ON      hl.property_number = h.property_number
+              LEFT JOIN landmarks l             ON      l.landmark_id = hl.landmark_id
+              LEFT JOIN landmark_of_type lot    ON      l.landmark_id = lot.landmark_id
+              LEFT JOIN landmark_type lt        ON      lot.landmark_type_id = lt.landmark_type_id    
+              WHERE 
+              ci.system_name = '$city_system_name'
+              AND co.system_name = '$country_system_name'
+              AND l.source = $landmark_source_id
+              AND (lt.type IS NOT NULL
+              OR lt.type IS NULL AND l.landmark_name = 'City Center')
+              GROUP BY l.landmark_id
+              ORDER BY l.landmark_name ASC";
+//        debug_dump($sql);
+        $query = $this->db->query($sql);
+
+        $result = array();
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+            // add type city_center to landmark if landmark name is City center
+            foreach ($result as $i => $landmark) {
+                if (strtolower($landmark->landmark_name) === "city center") {
+                    $result[$i]->type = "city_center";
+                }
+            }
         }
         return $result;
     }

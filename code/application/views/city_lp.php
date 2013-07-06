@@ -127,21 +127,48 @@ $(document).ready(function(){
 			<?php //Removed until we can really show the map ?>
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
-                        <?php 
+                        <?php                           
+                            $markers = null;
+
                         if (!empty($property_geos)) {
-                            $markers = "&markers=";
+                             $markers = "&markers=";
                             foreach ($property_geos as $key => $property_geo) {
-                                $markers .= $property_geo->geo_latitude . "," . $property_geo->geo_longitude. "|";
+                                $markers .= round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
+                            }
+                        }
+                        
+                        if (!empty($featured_landmarks)) {
+                            if (ISDEVELOPMENT) {
+                                $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
+                            } else {
+                                $static_map_icon_base_url = base_url();
+                            }
+        
+                            foreach ($featured_landmarks as $featured_landmark) {
+                                switch ($featured_landmark->type) {
+                                    case "city_center":
+                                        $icon = $static_map_icon_base_url.'images/map/city_center.png';
+                                        break;
+                                    
+                                    case "train_station":
+                                        $icon = $static_map_icon_base_url.'images/map/train.png';
+                                        break;
+                                    
+                                    default:
+                                        $icon = $static_map_icon_base_url.'images/map/air-plane.png';
+                                        break;
+                                }
+                                $markers .= "&markers=icon:". $icon ."%7C+". round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2);
                             }
                         }
                         // remove last | in markers variable
-                        $markers = rtrim($markers, '|');
+                        $markers = rtrim($markers, '%7C');
                         // remove &markers= if no markers
                         $markers = rtrim($markers, '&markers=');
                         ?>
 			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
-			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
+			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }else{?>
                         <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }?>
