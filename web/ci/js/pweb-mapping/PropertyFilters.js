@@ -1831,7 +1831,7 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_latLng_Type ) {
 };
 
 $(document).ready(function() { 
-	
+
 	if($.browser.msie){
 		$("div#city_load").css("visibility", "visible");
 	}
@@ -1915,6 +1915,25 @@ $(document).ready(function() {
 	  else {
 		$('.compare_count').html('0');
 	  }
+            //******fix IE No markers on IE after coming from a property page.*******
+            // this part is a hack to fix IE when first load the page 
+            // because left map don't show marker when it is first loaded
+            // and marker don't show when go to property page and then 
+            // go back to city page
+            if ($.browser.msie) {
+                // get sort id and sort class
+                var sortBy_id = $("#data_sort_controls").find(".activesort").attr("id");
+                var sortBy_class = $("#data_sort_controls").find(".activesort").find("span").attr("class");
+                // this var to revert sort class , so when trigger click it will show the same result
+                var change_sortBy_class = "asc";
+                if (sortBy_class === "asc") {
+                    change_sortBy_class = "desc";
+                }
+                $("#data_sort_controls").find(".activesort").find("span").removeClass("sortBy_class").addClass(change_sortBy_class);
+                // trigger sort event
+                $("#" + sortBy_id).trigger("click");
+            }
+            //******fix IE No markers on IE after coming from a property page.*******
     }
   });
 
