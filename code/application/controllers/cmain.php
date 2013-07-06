@@ -846,8 +846,8 @@ class CMain extends I18n_site {
             if (!empty($url_segment_3)) {
                 switch ($url_segment_3) {
                     case 'landmark':
-                        $dateStart = NULL;
-                        $numNights = NULL;
+                $dateStart = NULL;
+                $numNights = NULL;
                         $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(4));
                         break;
                     case 'district':
@@ -868,8 +868,8 @@ class CMain extends I18n_site {
             if (!empty($url_segment_5)) {
                 switch ($url_segment_5) {
                     case 'landmark':
-                        $dateStart = NULL;
-                        $numNights = NULL;
+                $dateStart = NULL;
+                $numNights = NULL;
                         $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(6));
                         break;
                     case 'district':
@@ -906,6 +906,8 @@ class CMain extends I18n_site {
                 $data['current_view'] = "city_view";
 
                 if (empty($dateStart)) {
+                    $this->load->model('Db_hb_hostel');
+                    $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($country, $city);
                     $data['current_view'] = "city_lp";
                     $this->load->view('includes/template-landing-city-page', $data);
                 } else {
@@ -971,6 +973,8 @@ class CMain extends I18n_site {
 
 
                     if (empty($dateStart)) {
+                        $this->load->model('Db_hb_hostel');
+                        $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($country, $city);
                         $data['current_view'] = "city_lp";
                         $this->load->view('includes/template-landing-city-page', $data);
                     } else {

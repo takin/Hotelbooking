@@ -212,6 +212,34 @@ class Db_hb_hostel extends CI_Model
     return NULL;
   }
 
+  function get_location_properties_geos($country_system_name, $city_system_name) {
+        
+        $country_system_name = $this->db->escape_str($country_system_name);
+        $city_system_name = $this->db->escape_str($city_system_name);
+
+        $sql = "SELECT
+		 h.geo_latitude,
+		h.geo_longitude
+	FROM hb_hostel h
+	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
+	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
+	WHERE 
+	 ci.system_name = '$city_system_name'
+	  AND co.system_name = '$country_system_name'
+	GROUP BY h.property_number
+                limit 60;";
+        
+//        debug_dump($sql);
+        $query = $this->CI->db->query($sql);
+
+        $result = array();
+        
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+        }
+        return $result;
+    }
+  
   function parse_static_feed($static_file_content, $verbose = 2)
   {
     $this->feed_error_level_treshold = $verbose;

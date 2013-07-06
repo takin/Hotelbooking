@@ -127,11 +127,23 @@ $(document).ready(function(){
 			<?php //Removed until we can really show the map ?>
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
+                        <?php 
+                        if (!empty($property_geos)) {
+                            $markers = "&markers=";
+                            foreach ($property_geos as $key => $property_geo) {
+                                $markers .= $property_geo->geo_latitude . "," . $property_geo->geo_longitude. "|";
+                            }
+                        }
+                        // remove last | in markers variable
+                        $markers = rtrim($markers, '|');
+                        // remove &markers= if no markers
+                        $markers = rtrim($markers, '&markers=');
+                        ?>
 			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
-			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }else{?>
-                        <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+                        <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }?>
                         </a>
 			<?php /*?></a><?php */?>
