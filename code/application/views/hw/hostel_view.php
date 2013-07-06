@@ -258,7 +258,8 @@ if ($api_error == false) {
             <div class="slideshow" id="slideshow">
                 <div class="slides">
                     <div class="main-pic">
-                        <?php foreach ($main_images as $image): ?>
+                        <?php foreach ($main_images as $image):
+				if (empty($print)) { ?>
                             <a class="openup" rel="<?php echo var_check($hostel->property_name, ""); ?>"
                                href="<?php echo var_check($image, "/test.jpg"); ?>"
                                alt="<?php echo $hostel->property_name; ?>">
@@ -267,7 +268,9 @@ if ($api_error == false) {
                                      alt="<?php echo $hostel->property_name; ?>"/>
                                 <img class="main" width="210" src="<?php echo $image; ?>"
                                      alt="<?php echo $hostel->property_name; ?>"/></a>
-                        <?php endforeach; ?>
+                        <?php } else { ?>
+				<img class="main" width="210" src="<?php echo $image; ?>"alt="<?php echo $hostel->property_name; ?>"/></a>  <?php 
+			} endforeach; ?>
                     </div>
                 </div>
             </div>
