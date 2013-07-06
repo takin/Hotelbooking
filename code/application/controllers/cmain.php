@@ -1565,6 +1565,11 @@ class CMain extends I18n_site {
                 $property_type = $hostel['hostel']->property_type;
             }
 
+            $currency = get_cookie('currency_selected');
+            if ($currency) {
+                $commandCookies .= ' --cookie currency_selected ' . escapeshellarg($currency);
+            }
+
             $hostelurl = $this->Db_links->build_property_page_link($property_type, $property_name, $property_number, $this->site_lang);
             // encode some parts because build_property_page_link doesn't do it
             $parts = explode('/', $hostelurl);
