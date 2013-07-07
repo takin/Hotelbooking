@@ -2481,6 +2481,12 @@ class Db_hb_hostel extends CI_Model {
 		return $result;
 	}
         
+        /**
+         * get all properties in city limit to 80
+         * @param String $country_system_name
+         * @param String $city_system_name
+         * @return array
+         */
         function get_location_properties_geos($country_system_name, $city_system_name) {
 
         $country_system_name = $this->db->escape_str($country_system_name);
@@ -2509,6 +2515,14 @@ class Db_hb_hostel extends CI_Model {
         return $result;
     }
     
+    /**
+     * get all landmarks in city that with type train or airport or name is city center
+     * @param String $country_system_name
+     * @param String $city_system_name
+     * @param int $range_km
+     * @param type $landmark_source
+     * @return array
+     */
     public function get_featured_landmarks_by_city_name($country_system_name, $city_system_name, $range_km = 5, $landmark_source = 'manual') {
         $this->CI->load->model("Db_landmarks");
         $landmark_source_id = $this->CI->Db_landmarks->get_landmark_source_id($landmark_source);
@@ -2555,7 +2569,14 @@ class Db_hb_hostel extends CI_Model {
         }
         return $result;
     }
-
+     
+     /**
+     * get all properties within landmark id
+     * @param String $country_system_name
+     * @param String $city_system_name
+     * @param int $landmark_id
+     * @return array
+     */
      function get_landmark_properties_geos($country_system_name, $city_system_name, $landmark_id) {
 
         $country_system_name = $this->db->escape_str($country_system_name);
@@ -2579,7 +2600,47 @@ class Db_hb_hostel extends CI_Model {
 	  GROUP BY h.property_number
           limit 80;";
 
-        debug_dump($sql);
+//        debug_dump($sql);
+        $query = $this->CI->db->query($sql);
+
+        $result = array();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+        }
+        return $result;
+    }
+    
+    /**
+     * get all properties within district id
+     * @param String $country_system_name
+     * @param String $city_system_name
+     * @param int $district_id
+     * @return array
+     */
+    function get_district_properties_geos($country_system_name, $city_system_name, $district_id) {
+
+        $country_system_name = $this->db->escape_str($country_system_name);
+        $city_system_name = $this->db->escape_str($city_system_name);
+        $district_id = $this->db->escape_str($district_id);
+
+        $sql = "SELECT
+		 h.geo_latitude,
+		 h.geo_longitude
+	  FROM hb_hostel h
+	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
+	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
+          JOIN hb_hostel_district hd ON h.property_number = hd.property_number
+	  JOIN districts d ON d.district_id = hd.district_id
+	  
+          WHERE 
+	  ci.system_name = '$city_system_name'
+	  AND co.system_name = '$country_system_name'
+	  AND hd.district_id = $district_id  
+	  GROUP BY h.property_number
+          limit 80;";
+
+//        debug_dump($sql);
         $query = $this->CI->db->query($sql);
 
         $result = array();

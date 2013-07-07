@@ -915,7 +915,7 @@ class CMain extends I18n_site {
                         $data["property_geos"] = $this->Db_hb_hostel->get_landmark_properties_geos($country, $city, $data["filters"]["landmark"]->landmark_id);
                     }
                     elseif (!empty($data["filters"]["district"])) {
-                        $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($country, $city);
+                        $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($country, $city, $data["filters"]["district"]->district_id);
                     }
                     
                     $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($country, $city);

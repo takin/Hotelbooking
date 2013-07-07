@@ -168,7 +168,7 @@ $(document).ready(function(){
                         ?>
 			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
-			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=icon:<?php echo $static_map_icon_base_url;?>images/map_landmark_marker_blue.png%7C+<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
+			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=icon:<?php echo $static_map_icon_base_url;?>images/map_landmark_marker_blue.png%7C+<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=13&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }else{?>
                         <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }?>
