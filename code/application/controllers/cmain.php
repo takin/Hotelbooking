@@ -917,7 +917,7 @@ class CMain extends I18n_site {
                     elseif (!empty($data["filters"]["district"])) {
                         $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($country, $city, $data["filters"]["district"]->district_id);
                     }
-                    
+                    // get feature landmark
                     $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($country, $city);
                     $data['current_view'] = "city_lp";
                     $this->load->view('includes/template-landing-city-page', $data);
@@ -985,8 +985,19 @@ class CMain extends I18n_site {
 
                     if (empty($dateStart)) {
                         $this->load->model('Db_hb_hostel');
-                        $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($country, $city);
+                         
+                        if (empty($data["filters"]["landmark"]) && empty($data["filters"]["district"])) {
+                        $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($country, $city);    
+                        }
+                        elseif (!empty($data["filters"]["landmark"])) {
+                            $data["property_geos"] = $this->Db_hb_hostel->get_landmark_properties_geos($country, $city, $data["filters"]["landmark"]->landmark_id);
+                        }
+                        elseif (!empty($data["filters"]["district"])) {
+                            $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($country, $city, $data["filters"]["district"]->district_id);
+                        }
+                        // get feature landmark
                         $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($country, $city);
+                        
                         $data['current_view'] = "city_lp";
                         $this->load->view('includes/template-landing-city-page', $data);
                     } else {
