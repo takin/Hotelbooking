@@ -2556,4 +2556,38 @@ class Db_hb_hostel extends CI_Model {
         return $result;
     }
 
+     function get_landmark_properties_geos($country_system_name, $city_system_name, $landmark_id) {
+
+        $country_system_name = $this->db->escape_str($country_system_name);
+        $city_system_name = $this->db->escape_str($city_system_name);
+        $landmark_id = $this->db->escape_str($landmark_id);
+
+        $sql = "SELECT
+		 h.geo_latitude,
+		 h.geo_longitude
+	  FROM hb_hostel h
+	  LEFT JOIN hb_city ci ON ci.hb_id = h.city_hb_id
+	  JOIN hb_country co ON co.hb_country_id = ci.hb_country_id
+          JOIN hb_hostel_landmark hl on h.property_number = hl.property_number
+	  JOIN landmarks l on l.landmark_id = hl.landmark_id
+	  
+          WHERE 
+	  ci.system_name = '$city_system_name'
+	  AND co.system_name = '$country_system_name'
+	  AND hl.landmark_id = $landmark_id
+          AND hl.distance <= 2    
+	  GROUP BY h.property_number
+          limit 80;";
+
+        debug_dump($sql);
+        $query = $this->CI->db->query($sql);
+
+        $result = array();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result();
+        }
+        return $result;
+    }
+    
 }
