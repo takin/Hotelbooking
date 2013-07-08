@@ -166,7 +166,7 @@ $(document).ready(function(){
                         // remove &markers= if no markers
                         $markers = rtrim($markers, '&markers=');
                         ?>
-			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
+			<a id="map_city_landing_page" href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
 			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=icon:<?php echo $static_map_icon_base_url;?>images/map_landmark_marker_blue.png%7C+<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=13&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }else{?>
