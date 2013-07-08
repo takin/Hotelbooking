@@ -922,7 +922,8 @@ class CMain extends I18n_site {
                             $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($city_details->country_system_name, $city_details->system_name, $data["filters"]["district"]->district_id);
                         }
                         // get feature landmark
-                        $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($city_details->country_system_name, $city_details->system_name);
+//                        $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($city_details->country_system_name, $city_details->system_name);
+                        $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_id($city_details->hb_id, 2);
                     }
                    
                     $data['current_view'] = "city_lp";
@@ -1006,7 +1007,8 @@ class CMain extends I18n_site {
                                 $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($city_details->country_system_name, $city_details->system_name, $data["filters"]["district"]->district_id);
                             }
                             // get feature landmark
-                            $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($city_details->country_system_name, $city_details->system_name);
+//                            $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_name($city_details->country_system_name, $city_details->system_name);
+                            $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_id($city_details->hb_id, 2);
                         }
                         
                         $data['current_view'] = "city_lp";
