@@ -504,7 +504,7 @@ if ($api_error == false) {
                    style="vertical-align: middle;<?php echo $addToFav; ?>"
                    rel="<?php echo var_check($hostel["NAME"], ""); ?>"
                    title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
-                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png"/>
+                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite_white.png"/>
                     <?php echo _('Add to my favorites'); ?>
                 </a>
 
@@ -512,7 +512,7 @@ if ($api_error == false) {
                    id="saved_to_favorites_<?php echo $hostel["ID"]; ?>"
                    style="vertical-align: middle;<?php echo $addedToFav; ?>"
                    title='<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.'); ?>'>
-                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png"/>
+                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite_white.png"/>
                     <?php echo _('Saved to my favorites'); ?>
                 </a>
             </div>
