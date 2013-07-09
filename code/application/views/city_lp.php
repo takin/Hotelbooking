@@ -107,7 +107,19 @@ $(document).ready(function(){
 		 	$('#search-submit').effect("bounce", { times:2, distance: 10 }, 300);
 			$('#datepick').css('border-color','#C97C30');
 		});
+        
+        // tooltip now
+        $(".tooltip[title]").style_my_tooltips({ 
+            tip_follows_cursor:false, //boolean
+            tip_delay_time:30, //milliseconds
+            tip_fade_speed:300 //milliseconds
+        });
+
+                
 });
+
+
+
 </script>
 <div id="sidebar" class="grid_6 city_lp">
 		<?php if(!empty($city_info->city_image)){?>
@@ -127,7 +139,8 @@ $(document).ready(function(){
 			<?php //Removed until we can really show the map ?>
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
-			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
+			<a href="javascript:void(0);" class="tooltip" 
+                title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
 			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
 			<?php }else{?>

@@ -81,6 +81,9 @@
 	//$this->carabiner->css($csspath.'/more.css');
 	$this->carabiner->css('jquery.fancybox.css');
 	$this->carabiner->css('smoothness/jquery-ui.css');
+    // css and js for tooltip
+    $this->carabiner->js('jquery.tooltip-sasya.js');
+    $this->carabiner->css('tooltip-tooltips.css');
 
   if($this->api_used == HB_API)
 	{?>
@@ -996,6 +999,7 @@ function show_featured_landmarks(){
   $this->carabiner->js('jquery.fancybox.pack.js','jquery.fancybox.pack.js',TRUE);
   $this->carabiner->js('ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js','ui-lang/jquery.ui.datepicker-'.$this->site_lang.'.js',TRUE);
   //$this->carabiner->js('jquery.translate-1.3.9.js','jquery.translate-1.3.9.js',TRUE);
+
   ?>
   <?php
   if($current_view == "hostel_view")
