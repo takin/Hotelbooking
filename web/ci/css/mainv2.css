@@ -2439,8 +2439,12 @@ text-align: -webkit-center;
 	margin-top: 8px;
 }
 
-#share-pdf img {
+#share_pdf_container img {
 	height: 23px;
+}
+
+#share-pdf:hover strong {
+	text-decoration: underline;
 }
 
 #save_property_dialog,

@@ -89,13 +89,13 @@ function handleShareEmailPDF() {
 
 	addValidation();
 
-	jQuery('#share-pdf, #share-email, #show-share-overlay').click(function(event) {
+	jQuery('.share-pdf, #share-email, #show-share-overlay').click(function(event) {
 		event.preventDefault();
 
 		var id = $(this).attr('id');
 
 		// show or not the pdf pic
-		if (id == 'share-pdf' || $(this).hasClass('prevPDF')) {
+		if (id == 'share-pdf' || $(this).hasClass('prevPDF') || $(this).hasClass('share-pdf')) {
 			$('#email_show_pdf').show();
 			$('#email_send_pdf').val('1');
 
@@ -369,13 +369,13 @@ function handleShareEmailPDF() {
 
     addValidation();
 
-    jQuery('#share-pdf, #share-email, #show-share-overlay').click(function(event) {
+    jQuery('.share-pdf, #share-email, #show-share-overlay').click(function(event) {
         event.preventDefault();
 
         var id = $(this).attr('id');
 
         // show or not the pdf pic
-        if (id == 'share-pdf' || $(this).hasClass('prevPDF')) {
+        if (id == 'share-pdf' || $(this).hasClass('prevPDF') || $(this).hasClass('share-pdf')) {
             $('#email_show_pdf').show();
             $('#email_send_pdf').val('1');
 
