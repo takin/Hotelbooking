@@ -2501,8 +2501,9 @@ class Db_hb_hostel extends CI_Model {
 	  WHERE 
 	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
+          AND (h.geo_latitude != 0 AND h.geo_longitude != 0)    
 	  GROUP BY h.property_number
-          limit 80;";
+          limit 40;";
 
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
@@ -2596,9 +2597,10 @@ class Db_hb_hostel extends CI_Model {
 	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
 	  AND hl.landmark_id = $landmark_id
-          AND hl.distance <= 2    
+          AND hl.distance <= 2 
+          AND (h.geo_latitude != 0 AND h.geo_longitude != 0)  
 	  GROUP BY h.property_number
-          limit 80;";
+          limit 40;";
 
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
@@ -2637,8 +2639,9 @@ class Db_hb_hostel extends CI_Model {
 	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
 	  AND hd.district_id = $district_id  
+	  AND (h.geo_latitude != 0 AND h.geo_longitude != 0)  
 	  GROUP BY h.property_number
-          limit 80;";
+          limit 40;";
 
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);

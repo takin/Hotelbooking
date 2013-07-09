@@ -133,7 +133,7 @@ $(document).ready(function(){
                         if (!empty($property_geos)) {
                              $markers = "&markers=";
                             foreach ($property_geos as $key => $property_geo) {
-                                $markers .= round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
+                                $markers .= "color:0x5C8CAB" . "%7C+" . round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
                             }
                         }
                         
