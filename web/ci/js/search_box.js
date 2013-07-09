@@ -4,6 +4,8 @@ function goToSearchPage(base_url,countryEmptyVal,countryWarning,cityEmptyVal,cit
     var district_id = 0;
     var landmark_id = 0;
     var type_filter = "";
+    
+    window.name = 'Other View';
 	
     if(document.getElementById('district_id'))
     {

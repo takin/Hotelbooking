@@ -120,6 +120,12 @@ PWebFilterApp.prototype.init = function() {
 							"type": jOrder.string
 						},
 						{
+							"row": "propertyNameUpper",
+							"grouped": true,
+							"ordered": true,
+							"type": jOrder.string
+						},
+						{
 							"row": "propertyType",
 							"grouped": true,
 							"ordered": true,
@@ -167,7 +173,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	this.$data_loading_msg.show();
 
 	this.init_counts();
-	
+
 	this.jtable_hits = this.jtable.filter(this.get_filters());
              
 	if(this.count_st==0) {
@@ -676,8 +682,8 @@ PWebFilterApp.prototype.compute_district_counts = function() {
 					this.FiltersCounts['landmark-count-'+current_landmark_id.toString()]++;
 				}
 			}
-		}
-		
+		}       
+                
 		for (var di = 0; di < this.FacilitiesFilterCheckBoxes.$checkboxes_li.length; di++) {
 			var current_facility_id = this.FacilitiesFilterCheckBoxes.$checkboxes_li[di].getElementsByTagName("input")[0].value;
 
@@ -705,6 +711,14 @@ PWebFilterApp.prototype.update_counts = function() {
 	{ 
 		
 		$('#'+id).html(this.FiltersCounts[id]);
+                // hide districts and landmarks with 0 in it's count
+                if (id.indexOf("landmark-count-") !== -1
+                  || id.indexOf("district-count-") !== -1)
+                {
+                    if (this.FiltersCounts[id] === 0){
+                        $('#'+id).parent("li").hide();
+                    }
+                }
 	}
 	//city_results_count_current
 };
@@ -733,7 +747,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		    match_landmark = false,
 		    match_price = false,
 		    match_rating = false;
-		
+
 		//Filter out property that requires more night than user asked
 		if((minnight_filter === true) && (property.minNights >= that.request.numnights_selected))
 		{
@@ -948,7 +962,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		{
 			match_price = true;
 		}
-		
+
 		//Property rating filter
 		//if filter is not set automatically match
 		if(ratingmax_filter === -1)
@@ -1030,7 +1044,10 @@ PWebFilterApp.prototype.setData = function(json_data) {
 				json_data[i]['ratings_location'] = currentData['ratings']['location'];
 			}
 		}
+
+		json_data[i]['propertyNameUpper'] = json_data[i]['propertyName'].toUpperCase();
 	}
+
 	this.jtable = jOrder(json_data)
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
@@ -1269,8 +1286,6 @@ PWebFilterApp.prototype.setup = function(data)
     var that = this;
 	data = jQuery.parseJSON(data);
 
-	totalRecords = data.property_list.length;
-
 	// remove from search list
 	for (var i = 0; i < data.property_list.length; i++) {
 		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
@@ -1283,12 +1298,6 @@ PWebFilterApp.prototype.setup = function(data)
 
 	// right about here load the QuickView
 	if (typeof(data.property_list) != 'undefined') {
-		if (typeof(data.property_list) == 'object') {
-			for (var i in data.property_list) {
-				QuickView.addProperty(data.property_list[i]);
-			}
-		}
-
 		if (data.property_list.length) {
 			for (var i = 0; i < data.property_list.length; i++) {
 				QuickView.addProperty(data.property_list[i]);
@@ -1298,13 +1307,12 @@ PWebFilterApp.prototype.setup = function(data)
 
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
-	
 
 	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
         this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
        
-	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
+	this.setClickSort('data_sort_controls','sortname-tous','propertyNameUpper');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
 	this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
 	this.setClickSort('data_sort_controls','sortsafest-tous','ratings_safety');
@@ -1788,21 +1796,28 @@ PWebFilterMap.prototype.showfilteredDistrict = function() {
        this.gmap.changeDistrictLayer(values);
        	
 };
-PWebFilterMap.prototype.showfilteredLandmark = function() { 
+PWebFilterMap.prototype.showfilteredLandmark = function() {
 
-                 var values = [];
-        $("#cb_group_landmarks_filter li").each(function() {
+    var values = [];
+    $("#cb_group_landmarks_filter li").each(function() {
 
-           var inputcheck = $(this).find("input[type='checkbox']");
-            if (inputcheck.is(':checked')) {
-                var landmark_id = inputcheck.val();
-                var landmark_id_lnglat = $("#hidden_landmarks_"+landmark_id).val();
-                values.push(landmark_id_lnglat);
-            }
+        var inputcheck = $(this).find("input[type='checkbox']");
+        if (inputcheck.is(':checked')) {
+            var landmark_id = inputcheck.val();
+            var landmark_id_latlng = $("#hidden_landmarks_" + landmark_id).val();
+            var landmark_type = $("#hidden_landmarks_type_" + landmark_id).val();
 
-     });
-       this.gmap.changeLandmarkLayer(values);
-       	
+
+            var newElement = {};
+            newElement['latlng'] = landmark_id_latlng;
+            newElement['type'] = landmark_type;
+
+            values.push(newElement);
+        }
+
+    });
+    this.gmap.changeLandmarkLayer(values);
+
 };
 PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) { 
        this.gmap.changeMarkerIcon( pDiv, pIcon );
@@ -1811,11 +1826,21 @@ PWebFilterMap.prototype.changeMarkerIcon = function( pDiv, pIcon ) {
 PWebFilterMap.prototype.changeDistrictLayer = function( district_um_ids ) { 
        this.gmap.changeDistrictLayer( district_um_ids );     	
 };
-PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_LatLng ) { 
-       this.gmap.changeLandmarkLayer( landmark_LatLng );     	
+PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_latLng_Type ) { 
+       this.gmap.changeLandmarkLayer( landmark_latLng_Type );     	
 };
 
 $(document).ready(function() { 
+
+	if($.browser.msie){
+		$("div#city_load").css("visibility", "visible");
+	}
+		
+	if(window.name == 'Hostel View') {
+    	window.name = 'City View';   		
+    } else {
+    	$("div#city_load").css("visibility", "visible");
+    }
 	
   pweb_filter = new PWebFilterApp();
   pweb_filter.init();
@@ -1844,6 +1869,7 @@ $(document).ready(function() {
   $.ajax(
   {
     type:"GET",
+    cache: true,
     url:availibility_url,
     success:function(data)
     {
@@ -1889,6 +1915,25 @@ $(document).ready(function() {
 	  else {
 		$('.compare_count').html('0');
 	  }
+            //******fix IE No markers on IE after coming from a property page.*******
+            // this part is a hack to fix IE when first load the page 
+            // because left map don't show marker when it is first loaded
+            // and marker don't show when go to property page and then 
+            // go back to city page
+            if ($.browser.msie) {
+                // get sort id and sort class
+                var sortBy_id = $("#data_sort_controls").find(".activesort").attr("id");
+                var sortBy_class = $("#data_sort_controls").find(".activesort").find("span").attr("class");
+                // this var to revert sort class , so when trigger click it will show the same result
+                var change_sortBy_class = "asc";
+                if (sortBy_class === "asc") {
+                    change_sortBy_class = "desc";
+                }
+                $("#data_sort_controls").find(".activesort").find("span").removeClass("sortBy_class").addClass(change_sortBy_class);
+                // trigger sort event
+                $("#" + sortBy_id).trigger("click");
+            }
+            //******fix IE No markers on IE after coming from a property page.*******
     }
   });
 
@@ -2107,9 +2152,13 @@ PWebFilterApp.prototype.changeDistrictLayer = function(map_slug, district_um_ids
         this.pweb_maps[map_slug].changeDistrictLayer(district_um_ids);
     }
 };
-PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng) {
+PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng, landmark_type) {
     if (this.pweb_maps[map_slug].enabled === true)
     {
-        this.pweb_maps[map_slug].changeLandmarkLayer(landmark_LatLng);
+        var newElement = {};
+            newElement['latlng'] = landmark_LatLng;
+            newElement['type'] = landmark_type;
+            
+        this.pweb_maps[map_slug].changeLandmarkLayer(newElement);
     }
 };

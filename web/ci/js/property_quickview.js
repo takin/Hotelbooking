@@ -50,7 +50,9 @@ QuickView.addProperty = function(data) {
             }
     ));
 
-    QuickView.propertyNumberToIndex[data.propertyNumber.toString()] = currentIndex;
+    if (data.propertyNumber) {
+        QuickView.propertyNumberToIndex[data.propertyNumber.toString()] = currentIndex;
+    }
 };
 
 QuickView.moveToIndex = function(index) {

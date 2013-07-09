@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-19 22:33+0300\n"
-"PO-Revision-Date: 2013-06-26 11:43-0800\n"
+"POT-Creation-Date: 2013-06-30 19:39+0300\n"
+"PO-Revision-Date: 2013-07-05 13:21-0800\n"
 "Last-Translator: Mc web <info@mcwebmanagement.com>\n"
 "Language-Team: English\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +19,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-Bookmarks: -1,299,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: C:\\Users\\Louis-Michel\\workspace_pweb\\auberges\\trunk\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk\\system\\application\n"
 "X-Poedit-SearchPath-2: F:\\5 - Auberges SVN\\auberges\\trunk\\system\\application\n"
@@ -44,7 +43,7 @@ msgstr "Prenota"
 
 #: ../code/application/views/property_detail.php:111
 #: ../code/application/views/mustache/property_quick_view.php:48
-#: ../code/application/views/hb/hostel_view.php:835
+#: ../code/application/views/hb/hostel_view.php:834
 #: ../code/application/views/restricted/user_group_quote.php:196
 msgid "What's Included"
 msgstr "Include"
@@ -57,18 +56,18 @@ msgstr "Include"
 #: ../code/application/views/hw/property_list.php:1
 #: ../code/application/views/hb/booking_view.php:254
 #: ../code/application/views/hb/property_list.php:97
-#: ../code/application/views/hb/hostel_view.php:510
-#: ../code/application/views/hb/hostel_view.php:846
-#: ../code/application/views/hb/hostel_view.php:851
-#: ../code/application/views/hb/hostel_view.php:857
+#: ../code/application/views/hb/hostel_view.php:509
+#: ../code/application/views/hb/hostel_view.php:845
+#: ../code/application/views/hb/hostel_view.php:850
+#: ../code/application/views/hb/hostel_view.php:856
 msgid "Free"
 msgstr "Gratuito"
 
 #: ../code/application/views/property_detail.php:137
 #: ../code/application/views/mobile/hw/hostel_view.php:114
 #: ../code/application/views/mustache/property_quick_view.php:59
-#: ../code/application/views/hw/hostel_view.php:652
-#: ../code/application/views/hb/hostel_view.php:763
+#: ../code/application/views/hw/hostel_view.php:651
+#: ../code/application/views/hb/hostel_view.php:762
 msgid "Commodité"
 msgstr "Servizi"
 
@@ -85,10 +84,11 @@ msgstr "Mappa"
 #: ../code/application/views/property_detail.php:184
 #: ../code/application/views/mustache/property_quick_view.php:111
 #: ../code/application/views/mustache/property_list.php:89
-#: ../code/application/views/city_view.php:347
-#: ../code/application/views/hw/hostel_view.php:288
+#: ../code/application/views/mustache/property_list.php:91
+#: ../code/application/views/city_view.php:362
+#: ../code/application/views/hw/hostel_view.php:287
 #: ../code/application/views/hw/hostel_view.php:761
-#: ../code/application/views/hb/hostel_view.php:371
+#: ../code/application/views/hb/hostel_view.php:370
 #: ../code/application/views/hb/hostel_view.php:1009
 #: ../code/application/views/helpfile/pofields.php~:447
 #: ../code/application/views/helpfile/pofields.php:447
@@ -98,11 +98,12 @@ msgstr "Zona"
 
 #: ../code/application/views/property_detail.php:213
 #: ../code/application/views/mustache/property_quick_view.php:127
-#: ../code/application/views/mustache/property_list.php:94
-#: ../code/application/views/city_view.php:351
-#: ../code/application/views/hw/hostel_view.php:312
+#: ../code/application/views/mustache/property_list.php:97
+#: ../code/application/views/mustache/property_list.php:99
+#: ../code/application/views/city_view.php:366
+#: ../code/application/views/hw/hostel_view.php:311
 #: ../code/application/views/hw/hostel_view.php:790
-#: ../code/application/views/hb/hostel_view.php:395
+#: ../code/application/views/hb/hostel_view.php:394
 #: ../code/application/views/hb/hostel_view.php:1038
 msgid "Landmarks (within 2km)"
 msgstr "Punti di riferimento (entro 2 km)"
@@ -121,13 +122,13 @@ msgstr "Punti di riferimento (entro 2 km)"
 #: ../code/application/views/hb/booking_avail_view.php:908
 #: ../code/application/views/email/new_transaction.php:292
 msgid "Chambres partagées - Dortoirs"
-msgstr "Dormitorio - Prezzo per persona"
+msgstr "Dormitorio"
 
 #: ../code/application/views/property_detail.php:266
 #: ../code/application/views/mobile/hw/booking_end_view.php:52
 #: ../code/application/views/mobile/hw/booking_avail_view.php:137
 msgid "Price per person (Dorm shared with others)."
-msgstr "Prezzo per persona (In stanza condivisa con altre persone) per l'intero periodo del vostro soggiorno."
+msgstr "Prezzo per persona (In camera condivisa con altre persone) per l'intero periodo del vostro soggiorno."
 
 #: ../code/application/views/property_detail.php:266
 #: ../code/application/views/property_rooms_avail.php:109
@@ -137,7 +138,7 @@ msgstr "Prezzo per persona (In stanza condivisa con altre persone) per l'intero 
 #: ../code/application/views/helpfile/pofields.php:167
 #, php-format
 msgid "You must share the room (unless you purchase all the beds in the dorm)."
-msgstr "Dovrete condividere la stanza (a meno di acquistare tutti i posti letto).<br /><br />Dormitorio per donne = dormitorio per sole donne<br />Dormitorio per uomini = dormitorio per soli uomini<br />Camerata mista = dormitorio per uomini e donne<br />Bagno in camera = bagno all'interno del dormitorio<br />Bagno condiviso = bagno non nel dormitorio"
+msgstr "Dovrete condividere la camera (a meno di acquistare tutti i posti letto).<br /><br />Dormitorio per donne = dormitorio per sole donne<br />Dormitorio per uomini = dormitorio per soli uomini<br />Camerata mista = dormitorio per uomini e donne<br />Bagno in camera = bagno all'interno del dormitorio<br />Bagno condiviso = bagno non nel dormitorio"
 
 #: ../code/application/views/property_detail.php:283
 msgid "Beds (max)"
@@ -218,13 +219,13 @@ msgstr "Nessun dormitorio disponibile"
 #: ../code/application/views/hb/booking_avail_view.php:925
 #: ../code/application/views/email/new_transaction.php:405
 msgid "Chambres privées"
-msgstr "Stanze private - Prezzo per stanza"
+msgstr "Camere private"
 
 #: ../code/application/views/property_detail.php:388
 #: ../code/application/views/mobile/hw/booking_end_view.php:96
 #: ../code/application/views/mobile/hw/booking_avail_view.php:175
 msgid "Price per room (not per person)."
-msgstr "Prezzo per stanza (non per persona) per l'intero periodo del vostro soggiorno."
+msgstr "Prezzo per camera (non per persona) per l'intero periodo del vostro soggiorno."
 
 #: ../code/application/views/property_detail.php:388
 #: ../code/application/views/property_rooms_avail.php:339
@@ -234,11 +235,11 @@ msgstr "Prezzo per stanza (non per persona) per l'intero periodo del vostro sogg
 #: ../code/application/views/helpfile/pofields.php:717
 #, php-format
 msgid "You must pay for the whole private room, even if you do not need all the beds. The room cannot be shared."
-msgstr "Dovete pagare la camera privata per intero, anche se non utilizzerete tutti i letti. La camera non può essere condivisa."
+msgstr "Dovete pagare la camera privata per intero, anche se non utilizzerete tutti i letti."
 
 #: ../code/application/views/property_detail.php:407
 msgid "Rooms (max)"
-msgstr "Stanze disponibili"
+msgstr "Camere disponibili"
 
 #: ../code/application/views/property_detail.php:432
 #: ../code/application/views/helpfile/pofields.php~:539
@@ -256,7 +257,7 @@ msgstr "Numero massimo di persone in questa camera"
 #: ../code/application/views/hw/booking_avail_view.php:819
 #: ../code/application/views/hb/booking_avail_view.php:780
 msgid "No private room available"
-msgstr "Stanze private non disponibili"
+msgstr "Camere private non disponibili"
 
 #: ../code/application/views/property_detail.php:510
 #: ../code/application/views/property_rooms_avail.php:578
@@ -286,11 +287,11 @@ msgstr "Bastano solo 2 minuti"
 #: ../code/application/views/mustache/property_quick_view.php:146
 #: ../code/application/views/hw/booking_end_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:1123
-#: ../code/application/views/hw/hostel_view.php:719
+#: ../code/application/views/hw/hostel_view.php:718
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_avail_view.php:1017
 #: ../code/application/views/hb/booking_view.php:820
-#: ../code/application/views/hb/hostel_view.php:950
+#: ../code/application/views/hb/hostel_view.php:949
 #: ../code/application/views/email/new_transaction_hb.php:506
 msgid "Informations Importantes"
 msgstr "Informazioni Importanti"
@@ -308,19 +309,19 @@ msgstr "Le ultime recensioni"
 #: ../code/application/views/property_detail.php:669
 #: ../code/application/views/mustache/city_map_property_infow.php:12
 #: ../code/application/views/mustache/property_list.php:23
-#: ../code/application/views/mustache/property_list.php:128
-#: ../code/application/views/includes/header.php:479
-#: ../code/application/views/includes/header.php:534
-#: ../code/application/views/hw/hostel_view.php:498
-#: ../code/application/views/hb/hostel_view.php:56
-#: ../code/application/views/hb/hostel_view.php:603
+#: ../code/application/views/mustache/property_list.php:138
+#: ../code/application/views/includes/header.php:497
+#: ../code/application/views/includes/header.php:552
+#: ../code/application/views/hw/hostel_view.php:497
+#: ../code/application/views/hb/hostel_view.php:55
+#: ../code/application/views/hb/hostel_view.php:602
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
 msgid "évaluation moyenne"
 msgstr "Valutazione media"
 
 #: ../code/application/views/property_detail.php:588
-#: ../code/application/views/hb/hostel_view.php:80
+#: ../code/application/views/hb/hostel_view.php:79
 #: ../code/application/views/compare_property.php:239
 #: ../code/application/views/helpfile/pofields.php~:638
 #: ../code/application/views/helpfile/pofields.php:638
@@ -329,7 +330,7 @@ msgid "Atmosphere"
 msgstr "Atmosfera"
 
 #: ../code/application/views/property_detail.php:591
-#: ../code/application/views/hb/hostel_view.php:83
+#: ../code/application/views/hb/hostel_view.php:82
 #: ../code/application/views/compare_property.php:245
 #: ../code/application/views/helpfile/pofields.php~:639
 #: ../code/application/views/helpfile/pofields.php:639
@@ -338,10 +339,10 @@ msgid "Staff"
 msgstr "Personale"
 
 #: ../code/application/views/property_detail.php:594
-#: ../code/application/views/mustache/property_list.php:212
-#: ../code/application/views/mustache/property_list.php:217
 #: ../code/application/views/mustache/property_list.php:222
-#: ../code/application/views/hb/hostel_view.php:86
+#: ../code/application/views/mustache/property_list.php:227
+#: ../code/application/views/mustache/property_list.php:232
+#: ../code/application/views/hb/hostel_view.php:85
 #: ../code/application/views/helpfile/pofields.php~:193
 #: ../code/application/views/helpfile/pofields.php~:630
 #: ../code/application/views/helpfile/pofields.php:193
@@ -352,7 +353,7 @@ msgid "Location"
 msgstr "Ubicazione"
 
 #: ../code/application/views/property_detail.php:597
-#: ../code/application/views/hb/hostel_view.php:89
+#: ../code/application/views/hb/hostel_view.php:88
 #: ../code/application/views/compare_property.php:257
 #: ../code/application/views/helpfile/pofields.php~:641
 #: ../code/application/views/helpfile/pofields.php:641
@@ -361,9 +362,9 @@ msgid "Cleanliness"
 msgstr "Pulizia"
 
 #: ../code/application/views/property_detail.php:600
-#: ../code/application/views/city_view.php:156
-#: ../code/application/views/city_view.php:343
-#: ../code/application/views/hb/hostel_view.php:92
+#: ../code/application/views/city_view.php:173
+#: ../code/application/views/city_view.php:358
+#: ../code/application/views/hb/hostel_view.php:91
 #: ../code/application/views/compare_property.php:280
 #: ../code/application/views/helpfile/pofields.php~:448
 #: ../code/application/views/helpfile/pofields.php~:657
@@ -375,13 +376,13 @@ msgstr "Attrezzature"
 
 #: ../code/application/views/property_detail.php:603
 #: ../code/application/views/mustache/property_list.php:83
-#: ../code/application/views/mustache/property_list.php:197
-#: ../code/application/views/mustache/property_list.php:202
 #: ../code/application/views/mustache/property_list.php:207
-#: ../code/application/views/mustache/property_list.php:303
+#: ../code/application/views/mustache/property_list.php:212
+#: ../code/application/views/mustache/property_list.php:217
+#: ../code/application/views/mustache/property_list.php:315
 #: ../code/application/views/hb/property_list.php:113
-#: ../code/application/views/hb/hostel_view.php:95
-#: ../code/application/views/hb/hostel_view.php:523
+#: ../code/application/views/hb/hostel_view.php:94
+#: ../code/application/views/hb/hostel_view.php:522
 #: ../code/application/views/compare_property.php:269
 #: ../code/application/views/helpfile/pofields.php~:643
 #: ../code/application/views/helpfile/pofields.php:643
@@ -390,7 +391,7 @@ msgid "Safety"
 msgstr "Sicurezza"
 
 #: ../code/application/views/property_detail.php:606
-#: ../code/application/views/hb/hostel_view.php:98
+#: ../code/application/views/hb/hostel_view.php:97
 #: ../code/application/views/compare_property.php:275
 #: ../code/application/views/helpfile/pofields.php~:644
 #: ../code/application/views/helpfile/pofields.php:644
@@ -399,7 +400,7 @@ msgid "Value"
 msgstr "Valore"
 
 #: ../code/application/views/property_detail.php:616
-#: ../code/application/views/hb/hostel_view.php:108
+#: ../code/application/views/hb/hostel_view.php:107
 msgid "N/A"
 msgstr "Non disponibile"
 
@@ -429,45 +430,45 @@ msgid "Le %s"
 msgstr "%s - Data"
 
 #: ../code/application/views/property_detail.php:653
-#: ../code/application/views/hw/hostel_view.php:488
-#: ../code/application/views/hb/hostel_view.php:593
+#: ../code/application/views/hw/hostel_view.php:487
+#: ../code/application/views/hb/hostel_view.php:592
 #: ../code/application/views/helpfile/pofields.php~:418
 #: ../code/application/views/helpfile/pofields.php:418
-#: ../code/application/libraries/Hw_engine.php:742
-#: ../code/application/libraries/Hb_engine.php:873
+#: ../code/application/libraries/Hw_engine.php:734
+#: ../code/application/libraries/Hb_engine.php:865
 #, php-format
 msgid "Good"
 msgstr "Buono"
 
 #: ../code/application/views/property_detail.php:657
-#: ../code/application/views/hw/hostel_view.php:490
-#: ../code/application/views/hb/hostel_view.php:595
+#: ../code/application/views/hw/hostel_view.php:489
+#: ../code/application/views/hb/hostel_view.php:594
 #: ../code/application/views/helpfile/pofields.php~:417
 #: ../code/application/views/helpfile/pofields.php:417
-#: ../code/application/libraries/Hw_engine.php:746
-#: ../code/application/libraries/Hb_engine.php:876
+#: ../code/application/libraries/Hw_engine.php:738
+#: ../code/application/libraries/Hb_engine.php:868
 #, php-format
 msgid "Very good"
 msgstr "Molto Buono"
 
 #: ../code/application/views/property_detail.php:661
-#: ../code/application/views/hw/hostel_view.php:492
-#: ../code/application/views/hb/hostel_view.php:597
+#: ../code/application/views/hw/hostel_view.php:491
+#: ../code/application/views/hb/hostel_view.php:596
 #: ../code/application/views/helpfile/pofields.php~:601
 #: ../code/application/views/helpfile/pofields.php:601
-#: ../code/application/libraries/Hw_engine.php:750
-#: ../code/application/libraries/Hb_engine.php:879
+#: ../code/application/libraries/Hw_engine.php:742
+#: ../code/application/libraries/Hb_engine.php:871
 #, php-format
 msgid "Great"
 msgstr "Ottimo"
 
 #: ../code/application/views/property_detail.php:665
-#: ../code/application/views/hw/hostel_view.php:494
-#: ../code/application/views/hb/hostel_view.php:599
+#: ../code/application/views/hw/hostel_view.php:493
+#: ../code/application/views/hb/hostel_view.php:598
 #: ../code/application/views/helpfile/pofields.php~:602
 #: ../code/application/views/helpfile/pofields.php:602
-#: ../code/application/libraries/Hw_engine.php:753
-#: ../code/application/libraries/Hb_engine.php:881
+#: ../code/application/libraries/Hw_engine.php:745
+#: ../code/application/libraries/Hb_engine.php:873
 #, php-format
 msgid "Fantastic"
 msgstr "Fantastico"
@@ -495,8 +496,8 @@ msgstr "Inserisci la data"
 #: ../code/application/views/includes/city_search_box.php:139
 #: ../code/application/views/includes/city_lp_search_box.php:139
 #: ../code/application/views/includes/search_box_city.php:66
-#: ../code/application/views/hw/hostel_view.php:593
-#: ../code/application/views/hb/hostel_view.php:699
+#: ../code/application/views/hw/hostel_view.php:592
+#: ../code/application/views/hb/hostel_view.php:698
 #: ../code/application/views/group_request.php:97
 msgid "Arrivée le:"
 msgstr "Arrivo il:"
@@ -511,8 +512,8 @@ msgstr "Arrivo il:"
 #: ../code/application/views/includes/city_search_box.php:145
 #: ../code/application/views/includes/city_lp_search_box.php:145
 #: ../code/application/views/includes/search_box_city.php:73
-#: ../code/application/views/hw/hostel_view.php:603
-#: ../code/application/views/hb/hostel_view.php:709
+#: ../code/application/views/hw/hostel_view.php:602
+#: ../code/application/views/hb/hostel_view.php:708
 #: ../code/application/views/email/admin/new_group_request.php:24
 #: ../code/application/views/group_request.php:106
 msgid "Nuits:"
@@ -539,7 +540,7 @@ msgid "Auberges de jeunesse, Hôtels, Appartements, Chambres d'hôtes, Bed and B
 msgstr "Offerte su oltre 30.000 Ostelli, Hostels e Alberghi a buon prezzo!"
 
 #: ../code/application/views/mobile/city_view.php:43
-#: ../code/application/views/city_view.php:302
+#: ../code/application/views/city_view.php:317
 #: ../code/application/views/search_results.php:86
 #: ../code/application/views/search_results.php:121
 #: ../code/application/views/search_results.php:147
@@ -577,7 +578,7 @@ msgstr "Valutazione"
 
 #: ../code/application/views/mobile/city_view.php:84
 #: ../code/application/views/city_lp.php:228
-#: ../code/application/views/city_view.php:358
+#: ../code/application/views/city_view.php:373
 #: ../code/application/views/city_ajax_view.php:238
 #: ../code/application/views/city_ajax_view.php:400
 #: ../code/application/views/city_ajax_view.php:491
@@ -602,14 +603,14 @@ msgstr "Nuova Ricerca"
 
 #: ../code/application/views/mobile/includes/footer.php:8
 #: ../code/application/views/includes/footer.php:93
-#: ../code/application/views/includes/header.php:1014
+#: ../code/application/views/includes/header.php:1035
 msgid "About us"
 msgstr "Chi siamo"
 
 #: ../code/application/views/mobile/includes/footer.php:9
 #: ../code/application/views/includes/footer.php:86
 #: ../code/application/views/includes/header_book.php:144
-#: ../code/application/views/includes/header.php:1016
+#: ../code/application/views/includes/header.php:1037
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "Aiuto / Domande Frequenti / Contattaci"
 
@@ -638,7 +639,7 @@ msgstr "Condizioni"
 
 #: ../code/application/views/mobile/includes/footer.php:12
 #: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1004
+#: ../code/application/views/includes/header.php:1025
 #: ../code/application/views/includes/top_box.php:16
 msgid "Se déconnecter"
 msgstr "Disconnetti"
@@ -649,7 +650,7 @@ msgstr "Disconnetti"
 #: ../code/application/views/mobile/auth/forgot_password_form.php:33
 #: ../code/application/views/mobile/auth/login_form.php:69
 #: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:1000
+#: ../code/application/views/includes/header.php:1021
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/auth/register_form.php:223
 #: ../code/application/views/auth/forgot_password_form.php:30
@@ -728,7 +729,7 @@ msgstr "Nome della struttura"
 #: ../code/application/views/property_rooms_avail.php:494
 #: ../code/application/views/property_rooms_avail.php:496
 #: ../code/application/views/property_rooms_avail.php:497
-#: ../code/application/views/city_view.php:271
+#: ../code/application/views/city_view.php:288
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:158
 #: ../code/application/views/hw/booking_avail_view.php:195
@@ -837,7 +838,7 @@ msgstr "Totale"
 #: ../code/application/views/email/new_transaction.php:421
 #: ../code/application/controllers/cadmin.php:24
 msgid "Rooms"
-msgstr "Stanze"
+msgstr "Camere"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:172
 #: ../code/application/views/hb/booking_view.php:229
@@ -893,7 +894,7 @@ msgstr "Modifica - Cancellazione"
 #: ../code/application/views/mobile/hw/booking_confirm.php:332
 #: ../code/application/views/hw/booking_view.php:1044
 msgid "Les changements et annulations sont possibles, faciles à faire et se font directement avec l‘établissement choisi qui en est responsable. Changements de dates/chambres : possible selon disponibilités. Annulations : au moins 72 heures en avance pour ne pas être facturé la première nuit."
-msgstr "Modifiche e cancellazioni sono semplici da effettuare contattando direttamente la struttura. Cambiare le date della vostra permanenza o la stanza è possibile previa disponibilità. Cancellazioni: Almeno 24 ore in anticipo rispetto alla data di arrivo al fine di evitare l'addebito della prima notte."
+msgstr "Modifiche e cancellazioni sono semplici da effettuare contattando direttamente la struttura. Cambiare le date della vostra permanenza o la camera è possibile previa disponibilità. Cancellazioni: Almeno 24 ore in anticipo rispetto alla data di arrivo al fine di evitare l'addebito della prima notte."
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:334
 #: ../code/application/views/mobile/hw/booking_avail_view.php:260
@@ -952,7 +953,7 @@ msgstr "Il vostro numero di conferma"
 #: ../code/application/views/helpfile/pofields.php:247
 #, php-format
 msgid "Room type and number of guests"
-msgstr "Tipo di stanza e numero di ospiti"
+msgstr "Tipo di camera e numero di ospiti"
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:141
 #, php-format
@@ -978,10 +979,10 @@ msgstr "Informazioni sulla struttura"
 #: ../code/application/views/mobile/hw/booking_end_view.php:162
 #: ../code/application/views/hw/booking_end_view.php:196
 #: ../code/application/views/hw/booking_avail_view.php:1100
-#: ../code/application/views/hw/hostel_view.php:745
+#: ../code/application/views/hw/hostel_view.php:744
 #: ../code/application/views/hb/booking_end_view.php:133
 #: ../code/application/views/hb/booking_avail_view.php:994
-#: ../code/application/views/hb/hostel_view.php:978
+#: ../code/application/views/hb/hostel_view.php:977
 #: ../code/application/views/email/new_transaction_hb.php:593
 #: ../code/application/views/email/new_transaction.php:949
 msgid "Adresse"
@@ -1050,7 +1051,7 @@ msgstr "Versione Originale"
 #: ../code/application/views/email/new_transaction_hb.php:819
 #: ../code/application/views/email/new_transaction.php:1104
 msgid "Vous devez payer pour votre chambre à votre arrivée. Veuillez, s'il vous plaît, vous assurer que votre carte de crédit est valide. Les cartes sont vérifiées la veille des arrivées et le fait de réserver à l'aide d'une carte invalide annulera votre réservation. Si vous avez réservé à l'aide de votre carte bancaire ou si vous doutez de la validité de votre carte de crédit, veuillez contacter l'établissement au moins 24 heures avant votre arrivée afin de confirmer votre réservation."
-msgstr "Il pagamento della stanza dovrà essere effettuato al momento dell'arrivo. Verificate che la vostra carta di credito sia valida. Le carte di credito vengono verificate il giorno precedente il vostro arrivo, effettuare la prenotazione con una carta di credito non valida comporterà l'annullamento della prenotazione. Se avete prenotato utilizzando la vostra carta di debito o se non siete sicuri della validità della vostra carta di credito vi invitiamo a contattare la struttura con almeno 24 ore di anticipo rispetto alla vostra data prevista di arrivo al fine di confermare la vostra prenotazione."
+msgstr "Il pagamento della camera dovrà essere effettuato al momento dell'arrivo. Verificate che la vostra carta di credito sia valida. Le carte di credito vengono verificate il giorno precedente il vostro arrivo, effettuare la prenotazione con una carta di credito non valida comporterà l'annullamento della prenotazione. Se avete prenotato utilizzando la vostra carta di debito o se non siete sicuri della validità della vostra carta di credito vi invitiamo a contattare la struttura con almeno 24 ore di anticipo rispetto alla vostra data prevista di arrivo al fine di confermare la vostra prenotazione."
 
 #: ../code/application/views/mobile/hw/booking_end_view.php:230
 #: ../code/application/views/mobile/hw/booking_end_view.php:240
@@ -1191,7 +1192,7 @@ msgid "Search for another hostel"
 msgstr "Ricerca un'altra struttura"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:3
-#: ../code/application/views/mustache/property_list.php:288
+#: ../code/application/views/mustache/property_list.php:300
 #: ../code/application/views/hw/booking_avail_view.php:10
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:9
@@ -1201,8 +1202,8 @@ msgstr "Disponibilità"
 #: ../code/application/views/mobile/hw/booking_avail_view.php:12
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/mobile/hw/booking_avail_view.php:33
-#: ../code/application/views/hw/hostel_view.php:63
-#: ../code/application/views/hb/hostel_view.php:144
+#: ../code/application/views/hw/hostel_view.php:62
+#: ../code/application/views/hb/hostel_view.php:143
 msgid "Erreur:"
 msgstr "Errore:"
 
@@ -1214,20 +1215,20 @@ msgstr "Siamo spiacenti, non vi sono camere disponibili per le notti selezionate
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:921
 #: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1154
+#: ../code/application/libraries/Hb_engine.php:1146
 msgid "Serveur inaccessible en ce moment."
 msgstr "Server non disponibile al momento."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:47
 #: ../code/application/views/hw/booking_avail_view.php:942
-#: ../code/application/views/hw/hostel_view.php:74
+#: ../code/application/views/hw/hostel_view.php:73
 #: ../code/application/views/hb/booking_avail_error_view.php:19
-#: ../code/application/views/hb/hostel_view.php:155
+#: ../code/application/views/hb/hostel_view.php:154
 msgid "Détails:"
 msgstr "Dettagli:"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:77
-#: ../code/application/views/city_view.php:274
+#: ../code/application/views/city_view.php:291
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:18
@@ -1244,14 +1245,14 @@ msgstr "Cambia le date"
 #: ../code/application/views/includes/city_lp_search_box.php:150
 #: ../code/application/views/includes/currency.php:3
 #: ../code/application/views/includes/search_box_city.php:79
-#: ../code/application/views/hw/hostel_view.php:607
-#: ../code/application/views/hb/hostel_view.php:713
+#: ../code/application/views/hw/hostel_view.php:606
+#: ../code/application/views/hb/hostel_view.php:712
 msgid "Devise:"
 msgstr "Valuta:"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:117
-#: ../code/application/views/hw/hostel_view.php:237
-#: ../code/application/views/hb/hostel_view.php:300
+#: ../code/application/views/hw/hostel_view.php:236
+#: ../code/application/views/hb/hostel_view.php:299
 msgid "Soumettre"
 msgstr "Sottoporre"
 
@@ -1259,7 +1260,7 @@ msgstr "Sottoporre"
 #: ../code/application/views/hw/booking_avail_view.php:914
 #: ../code/application/views/hb/booking_avail_view.php:1032
 msgid "Please enter at least one choice in the above table to book a room."
-msgstr "Inserisci almeno una scelta nella tabella per prenotare una stanza"
+msgstr "Inserisci almeno una scelta nella tabella per prenotare una camera"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:253
 #: ../code/application/views/helpfile/pofields.php~:248
@@ -1291,8 +1292,8 @@ msgid "Nom:"
 msgstr "Cognome:"
 
 #: ../code/application/views/mobile/hw/booking_view.php:33
-#: ../code/application/views/hw/hostel_view.php:168
-#: ../code/application/views/hb/hostel_view.php:231
+#: ../code/application/views/hw/hostel_view.php:167
+#: ../code/application/views/hb/hostel_view.php:230
 #: ../code/application/controllers/cmain.php:445
 msgid "Nationalité :"
 msgstr "Nazionalità:"
@@ -1310,12 +1311,12 @@ msgstr "Nazionalità:"
 #: ../code/application/views/includes/city_lp_search_box.php:115
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:901
-#: ../code/application/views/includes/header.php:904
+#: ../code/application/views/includes/header.php:922
+#: ../code/application/views/includes/header.php:925
 #: ../code/application/views/hw/booking_view.php:496
-#: ../code/application/views/hw/hostel_view.php:169
+#: ../code/application/views/hw/hostel_view.php:168
 #: ../code/application/views/hb/booking_view.php:325
-#: ../code/application/views/hb/hostel_view.php:232
+#: ../code/application/views/hb/hostel_view.php:231
 #: ../code/application/views/restricted/admin/group_quote.php:59
 #: ../code/application/views/group_request.php:75
 #: ../code/application/views/group_request.php:80
@@ -1507,11 +1508,11 @@ msgstr "* Premendo il bottone di conferma sottostante confermate di accettare i 
 #: ../code/application/views/hw/booking_view.php:879
 #: ../code/application/views/hw/booking_view.php:880
 #: ../code/application/views/hw/booking_view.php:891
-#: ../code/application/views/hw/hostel_view.php:135
-#: ../code/application/views/hw/hostel_view.php:147
-#: ../code/application/views/hw/hostel_view.php:162
-#: ../code/application/views/hw/hostel_view.php:174
-#: ../code/application/views/hw/hostel_view.php:218
+#: ../code/application/views/hw/hostel_view.php:134
+#: ../code/application/views/hw/hostel_view.php:146
+#: ../code/application/views/hw/hostel_view.php:161
+#: ../code/application/views/hw/hostel_view.php:173
+#: ../code/application/views/hw/hostel_view.php:217
 #: ../code/application/views/hb/booking_view.php:308
 #: ../code/application/views/hb/booking_view.php:316
 #: ../code/application/views/hb/booking_view.php:332
@@ -1527,11 +1528,11 @@ msgstr "* Premendo il bottone di conferma sottostante confermate di accettare i 
 #: ../code/application/views/hb/booking_view.php:676
 #: ../code/application/views/hb/booking_view.php:677
 #: ../code/application/views/hb/booking_view.php:678
-#: ../code/application/views/hb/hostel_view.php:198
-#: ../code/application/views/hb/hostel_view.php:210
-#: ../code/application/views/hb/hostel_view.php:225
-#: ../code/application/views/hb/hostel_view.php:237
-#: ../code/application/views/hb/hostel_view.php:281
+#: ../code/application/views/hb/hostel_view.php:197
+#: ../code/application/views/hb/hostel_view.php:209
+#: ../code/application/views/hb/hostel_view.php:224
+#: ../code/application/views/hb/hostel_view.php:236
+#: ../code/application/views/hb/hostel_view.php:280
 #: ../code/application/views/group_request.php:79
 #: ../code/application/views/group_request.php:80
 #: ../code/application/views/group_request.php:90
@@ -1555,10 +1556,10 @@ msgstr "Campo obbligatorio"
 #: ../code/application/views/mobile/hw/booking_view.php:400
 #: ../code/application/views/hw/booking_view.php:521
 #: ../code/application/views/hw/booking_view.php:530
-#: ../code/application/views/hw/hostel_view.php:161
+#: ../code/application/views/hw/hostel_view.php:160
 #: ../code/application/views/hb/booking_view.php:395
 #: ../code/application/views/hb/booking_view.php:404
-#: ../code/application/views/hb/hostel_view.php:224
+#: ../code/application/views/hb/hostel_view.php:223
 #: ../code/application/views/group_request.php:242
 #: ../code/application/views/group_request.php:251
 msgid "Insérer un courriel valide"
@@ -1615,9 +1616,9 @@ msgid "About"
 msgstr "Chi siamo"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:159
-#: ../code/application/views/hw/hostel_view.php:482
-#: ../code/application/views/hw/reviews.php:44
-#: ../code/application/views/hb/hostel_view.php:577
+#: ../code/application/views/hw/hostel_view.php:481
+#: ../code/application/views/hw/reviews.php:47
+#: ../code/application/views/hb/hostel_view.php:576
 #: ../code/application/controllers/cmain.php:1780
 msgid "Commentaires"
 msgstr "Commenti"
@@ -1630,8 +1631,8 @@ msgid "Par %s | Le %s"
 msgstr "%s | Il %s "
 
 #: ../code/application/views/mobile/hw/hostel_view.php:219
-#: ../code/application/views/hw/hostel_view.php:480
-#: ../code/application/views/hb/hostel_view.php:575
+#: ../code/application/views/hw/hostel_view.php:479
+#: ../code/application/views/hb/hostel_view.php:574
 msgid "Cartes et Directions"
 msgstr "Mappe, Indicazioni"
 
@@ -1673,9 +1674,9 @@ msgstr "Grazie"
 #: ../code/application/views/mobile/property_list.php:13
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 #: ../code/application/views/mustache/property_list.php:21
-#: ../code/application/views/mustache/property_list.php:238
-#: ../code/application/views/includes/header.php:502
-#: ../code/application/views/includes/header.php:548
+#: ../code/application/views/mustache/property_list.php:250
+#: ../code/application/views/includes/header.php:520
+#: ../code/application/views/includes/header.php:566
 #: ../code/application/views/hw/property_list.php:80
 #: ../code/application/views/hb/property_list.php:132
 #: ../code/application/views/city_ajax_view.php:72
@@ -1688,7 +1689,7 @@ msgid "Not Rated Yet!"
 msgstr "Nessuna recensione"
 
 #: ../code/application/views/mobile/property_list.php:28
-#: ../code/application/views/mustache/property_list.php:128
+#: ../code/application/views/mustache/property_list.php:138
 msgid "As rated by bookers like you"
 msgstr "Valutazioni effettuate da altri Clienti"
 
@@ -1717,8 +1718,8 @@ msgstr "Ricerca per Città :"
 #: ../code/application/views/includes/city_lp_search_box.php:121
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:902
-#: ../code/application/views/includes/header.php:904
+#: ../code/application/views/includes/header.php:923
+#: ../code/application/views/includes/header.php:925
 #: ../code/application/views/hw/citylist_view.php:26
 #: ../code/application/views/restricted/admin/group_quote.php:58
 #: ../code/application/views/restricted/admin/group_quote.php:64
@@ -1883,7 +1884,7 @@ msgstr "La creazione di un account vi darà accesso alla prenotazione e alla vis
 
 #: ../code/application/views/mobile/auth/register_form.php:83
 #: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1008
+#: ../code/application/views/includes/header.php:1029
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/auth/register_form.php:220
 msgid "S'enregistrer"
@@ -1944,10 +1945,10 @@ msgstr "Accoglienza"
 
 #: ../code/application/views/mustache/city_map_property_infow.php:15
 #: ../code/application/views/mustache/property_list.php:26
-#: ../code/application/views/includes/header.php:503
-#: ../code/application/views/includes/header.php:518
-#: ../code/application/views/includes/header.php:549
-#: ../code/application/views/includes/header.php:564
+#: ../code/application/views/includes/header.php:521
+#: ../code/application/views/includes/header.php:536
+#: ../code/application/views/includes/header.php:567
+#: ../code/application/views/includes/header.php:582
 #: ../code/application/views/city_ajax_view.php:73
 #: ../code/application/views/city_ajax_view.php:88
 #: ../code/application/views/city_ajax_view.php:119
@@ -1968,153 +1969,154 @@ msgstr "Servizi"
 #: ../code/application/views/helpfile/pofields.php:693
 #, php-format
 msgid "Quick View"
-msgstr "Panoramica veloce"
+msgstr "Visualizza"
 
-#: ../code/application/views/mustache/property_list.php:102
-#: ../code/application/views/hw/hostel_view.php:394
-#: ../code/application/views/hb/hostel_view.php:483
+#: ../code/application/views/mustache/property_list.php:112
+#: ../code/application/views/hw/hostel_view.php:393
+#: ../code/application/views/hb/hostel_view.php:482
 #: ../code/application/views/helpfile/pofields.php~:816
 #: ../code/application/views/helpfile/pofields.php:816
 #, php-format
 msgid "You can save this property as a favorite in your account so you can easily book it at a later date if you wish."
-msgstr "Puoi salvare questa proprietà come preferita nel tuo profilo così da poterla prenotare facilmente in un secondo momento se preferisci."
+msgstr "Se preferisci puoi salvare questa struttura come preferita nel tuo profilo così da poterla prenotare facilmente in un secondo momento."
 
-#: ../code/application/views/mustache/property_list.php:104
-#: ../code/application/views/hw/hostel_view.php:396
-#: ../code/application/views/hb/hostel_view.php:485
+#: ../code/application/views/mustache/property_list.php:114
+#: ../code/application/views/hw/hostel_view.php:395
+#: ../code/application/views/hb/hostel_view.php:484
 #: ../code/application/views/helpfile/pofields.php~:815
 #: ../code/application/views/helpfile/pofields.php:815
 #, php-format
 msgid "Add to my favorites"
-msgstr "Aggiunto ai miei preferiti"
+msgstr "Aggiungi ai miei preferiti"
 
-#: ../code/application/views/mustache/property_list.php:107
-#: ../code/application/views/hw/hostel_view.php:402
-#: ../code/application/views/hb/hostel_view.php:491
+#: ../code/application/views/mustache/property_list.php:117
+#: ../code/application/views/hw/hostel_view.php:401
+#: ../code/application/views/hb/hostel_view.php:490
 #: ../code/application/views/helpfile/pofields.php~:839
 #: ../code/application/views/helpfile/pofields.php:839
 #, php-format
 msgid "This property has been saved in your \"My account\" section. You can now easily book it at a later date if you wish."
-msgstr "Questa proprietà è stata salvata nella sezione \"Mio profilo\". Se lo desidera potrà prenotarla facilmente in un secondo momento."
+msgstr "Questa struttura è stata salvata nella sezione \"Mio profilo\". Se lo desidera potrà prenotarla facilmente in un secondo momento."
 
-#: ../code/application/views/mustache/property_list.php:109
-#: ../code/application/views/hw/hostel_view.php:404
-#: ../code/application/views/hb/hostel_view.php:493
+#: ../code/application/views/mustache/property_list.php:119
+#: ../code/application/views/hw/hostel_view.php:403
+#: ../code/application/views/hb/hostel_view.php:492
 #: ../code/application/views/helpfile/pofields.php~:814
 #: ../code/application/views/helpfile/pofields.php:814
 #, php-format
 msgid "Saved to my favorites"
 msgstr "Salvato nei miei preferiti"
 
-#: ../code/application/views/mustache/property_list.php:117
-#: ../code/application/views/city_view.php:288
+#: ../code/application/views/mustache/property_list.php:127
+#: ../code/application/views/city_view.php:303
 #: ../code/application/views/helpfile/pofields.php~:626
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
 msgstr "Compara"
 
-#: ../code/application/views/mustache/property_list.php:117
-#: ../code/application/views/city_view.php:259
-#: ../code/application/views/city_view.php:372
+#: ../code/application/views/mustache/property_list.php:127
+#: ../code/application/views/city_view.php:276
+#: ../code/application/views/city_view.php:387
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 msgid "of"
 msgstr " di "
 
-#: ../code/application/views/mustache/property_list.php:169
+#: ../code/application/views/mustache/property_list.php:179
 #: ../code/application/views/helpfile/pofields.php~:773
 #: ../code/application/views/helpfile/pofields.php:773
 #, php-format
 msgid "Remove from this search"
 msgstr "Rimuovere questa ricerca"
 
-#: ../code/application/views/mustache/property_list.php:175
+#: ../code/application/views/mustache/property_list.php:185
 #: ../code/application/views/helpfile/pofields.php~:774
 #: ../code/application/views/helpfile/pofields.php:774
 #, php-format
 msgid "Remove from any searches for next 24 hours"
 msgstr "Rimuovere tutte le ricerche per le prossime 24 ore"
 
-#: ../code/application/views/mustache/property_list.php:181
+#: ../code/application/views/mustache/property_list.php:191
 #: ../code/application/views/helpfile/pofields.php~:775
 #: ../code/application/views/helpfile/pofields.php:775
 #, php-format
 msgid "Remove from any searches for 1 week"
 msgstr "Rimuovere tutte le ricerche per una settimana"
 
-#: ../code/application/views/mustache/property_list.php:196
+#: ../code/application/views/mustache/property_list.php:206
 #: ../code/application/views/helpfile/pofields.php~:852
 #: ../code/application/views/helpfile/pofields.php:852
 #, php-format
 msgid "Safe"
 msgstr "Sicura"
 
-#: ../code/application/views/mustache/property_list.php:201
+#: ../code/application/views/mustache/property_list.php:211
 #: ../code/application/views/helpfile/pofields.php~:853
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
 msgstr "Molto sicura"
 
-#: ../code/application/views/mustache/property_list.php:211
+#: ../code/application/views/mustache/property_list.php:221
 #: ../code/application/views/helpfile/pofields.php~:851
 #: ../code/application/views/helpfile/pofields.php:851
 #, php-format
 msgid "Good location"
 msgstr "Bella posizione"
 
-#: ../code/application/views/mustache/property_list.php:216
+#: ../code/application/views/mustache/property_list.php:226
 #: ../code/application/views/helpfile/pofields.php~:850
 #: ../code/application/views/helpfile/pofields.php:850
 #, php-format
 msgid "Great location"
 msgstr "Splendida posizione"
 
-#: ../code/application/views/mustache/property_list.php:230
+#: ../code/application/views/mustache/property_list.php:241
 #: ../code/application/views/helpfile/pofields.php~:860
+#: ../code/application/views/helpfile/pofields.php~:888
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
 #, php-format
 msgid "Overall evaluation"
 msgstr "Valutazione complessiva"
 
-#: ../code/application/views/mustache/property_list.php:245
-#: ../code/application/views/mustache/property_list.php:259
+#: ../code/application/views/mustache/property_list.php:257
+#: ../code/application/views/mustache/property_list.php:271
 #: ../code/application/views/helpfile/pofields.php~:287
 #: ../code/application/views/helpfile/pofields.php:287
 #, php-format
 msgid "Deal of the Day"
 msgstr "Offerta del Giorno"
 
-#: ../code/application/views/mustache/property_list.php:251
+#: ../code/application/views/mustache/property_list.php:263
 #: ../code/application/views/helpfile/pofields.php~:13
 #: ../code/application/views/helpfile/pofields.php:13
 #, php-format
 msgid "Dorms from %s"
 msgstr "Dormitori %s "
 
-#: ../code/application/views/mustache/property_list.php:256
+#: ../code/application/views/mustache/property_list.php:268
 #: ../code/application/views/helpfile/pofields.php~:785
 #: ../code/application/views/helpfile/pofields.php:785
 #, php-format
 msgid "Lowest price per night per person in a dorm"
 msgstr "Prezzo più basso per notte per persona in un dormitorio"
 
-#: ../code/application/views/mustache/property_list.php:265
+#: ../code/application/views/mustache/property_list.php:277
 #: ../code/application/views/helpfile/pofields.php~:14
 #: ../code/application/views/helpfile/pofields.php:14
 #, php-format
 msgid "Private rooms from %s"
-msgstr "Stanze private / per persona %s"
+msgstr "Camere private %s"
 
-#: ../code/application/views/mustache/property_list.php:266
+#: ../code/application/views/mustache/property_list.php:278
 #: ../code/application/views/helpfile/pofields.php~:786
 #: ../code/application/views/helpfile/pofields.php:786
 #, php-format
 msgid "Lowest price per night per person in a private room"
 msgstr "Prezzo più basso per notte per persona in una camera privata"
 
-#: ../code/application/views/mustache/property_list.php:273
+#: ../code/application/views/mustache/property_list.php:285
 #: ../code/application/views/includes/side_search_box.php:51
 #: ../code/application/views/includes/side_search_box.php:210
 #: ../code/application/views/includes/search_box.php:16
@@ -2124,30 +2126,30 @@ msgstr "Prezzo più basso per notte per persona in una camera privata"
 #: ../code/application/views/includes/city_lp_search_box.php:16
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/hw/hostel_view.php:581
-#: ../code/application/views/hw/hostel_view.php:622
-#: ../code/application/views/hb/hostel_view.php:686
-#: ../code/application/views/hb/hostel_view.php:727
+#: ../code/application/views/hw/hostel_view.php:580
+#: ../code/application/views/hw/hostel_view.php:621
+#: ../code/application/views/hb/hostel_view.php:685
+#: ../code/application/views/hb/hostel_view.php:726
 msgid "Date invalide"
 msgstr "Data non valida"
 
-#: ../code/application/views/mustache/property_list.php:275
+#: ../code/application/views/mustache/property_list.php:287
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
 #, php-format
 msgid "Show prices"
 msgstr "Mostra i prezzi"
 
-#: ../code/application/views/mustache/property_list.php:280
+#: ../code/application/views/mustache/property_list.php:292
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
 #, php-format
 msgid "Hide prices"
 msgstr "Nascondi i prezzi"
 
-#: ../code/application/views/mustache/property_list.php:308
-#: ../code/application/views/hw/hostel_view.php:628
-#: ../code/application/views/hb/hostel_view.php:737
+#: ../code/application/views/mustache/property_list.php:320
+#: ../code/application/views/hw/hostel_view.php:627
+#: ../code/application/views/hb/hostel_view.php:736
 msgid "Recherche de disponibilités..."
 msgstr "Ricerca della disponibilità..."
 
@@ -2264,7 +2266,7 @@ msgstr "Solo dormitorio completo"
 #: ../code/application/views/helpfile/pofields.php:700
 #, php-format
 msgid "We will only show you dorms you can fully book. You will need to take all the beds in that particular dorm even if you do not need all of them. This is often used by groups."
-msgstr "Vi mostreremo soltanto dormitori che potete prenotare per intero. In quel particolare dormitorio dovrete prenotare tutti i posti letti anche se non avete bisogno di tutti loro. Questo metodo è usato spesso dai gruppi."
+msgstr "Vi mostreremo soltanto dormitori che potete prenotare per intero. Dovrete prenotare tutti i posti letto del dormitorio, anche se non li utilizzerete. Questa tipologia di prenotazione è spesso usata dai gruppi."
 
 #: ../code/application/views/property_rooms_avail.php:125
 #: ../code/application/views/property_rooms_avail.php:366
@@ -2300,11 +2302,11 @@ msgstr "Prezzo medio"
 #: ../code/application/views/helpfile/pofields.php:703
 #, php-format
 msgid "Average price per night for requested arrival date and length of stay. Actual day-by-day prices may vary. However, our prices are quaranteed and you will never pay more."
-msgstr "Il prezzo medio per notte secondo data di arrivo richiesta e lunghezza del soggiorno. I prezzi sono aggiornati giornalmente e possono variare. In ogni caso, i nostri prezzi sono garantiti e non pagherete mai di più. "
+msgstr "Prezzo medio per notte per la data di arrivo richiesta e giorni di permanenza. I prezzi sono aggiornati giornalmente e possono variare. Vi garantiamo i migliori prezzi disponibili sul mercato. "
 
 #: ../code/application/views/property_rooms_avail.php:128
 #: ../code/application/views/property_rooms_avail.php:369
-#: ../code/application/views/city_view.php:331
+#: ../code/application/views/city_view.php:346
 #: ../code/application/views/hw/booking_avail_view.php:300
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hw/booking_avail_view.php:803
@@ -2372,7 +2374,7 @@ msgstr "Notte con il prezzo più basso:"
 #: ../code/application/views/helpfile/pofields.php:536
 #, php-format
 msgid "Price per bed (not per room)"
-msgstr "Prezzo per letto (non per stanza)"
+msgstr "Prezzo per letto (non per camera)"
 
 #: ../code/application/views/property_rooms_avail.php:242
 #: ../code/application/views/hw/booking_avail_view.php:275
@@ -2575,7 +2577,7 @@ msgstr "Prezzo per camera"
 #: ../code/application/views/helpfile/pofields.php:720
 #, php-format
 msgid "Average per night per room"
-msgstr "Prezzo medio a persona per notte"
+msgstr "Prezzo medio per camera per notte"
 
 #: ../code/application/views/property_rooms_avail.php:478
 #: ../code/application/views/hw/booking_avail_view.php:595
@@ -2591,12 +2593,12 @@ msgstr "1 ospite in una Camera."
 #: ../code/application/views/property_rooms_avail.php:480
 #, php-format
 msgid "1 guest in %d Bedrooms (%d guests in each room)."
-msgstr "1 ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "1 ospiti in %d Camere (%d ospiti per camera)."
 
 #: ../code/application/views/property_rooms_avail.php:480
 #, php-format
 msgid "1 guest in %d Bedrooms (%d guest in each room)."
-msgstr "1 ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "1 ospiti in %d Camere (%d ospite per camera)."
 
 #: ../code/application/views/property_rooms_avail.php:482
 #: ../code/application/views/hw/booking_avail_view.php:597
@@ -2620,14 +2622,14 @@ msgstr "%d ospiti in una Camera."
 #: ../code/application/views/helpfile/pofields.php:713
 #, php-format
 msgid "%d guests in %d Bedrooms (%d guests in each room)."
-msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "%d ospiti in %d Camere (%d ospiti per camera)."
 
 #: ../code/application/views/property_rooms_avail.php:484
 #: ../code/application/views/hw/booking_avail_view.php:599
 #: ../code/application/views/hb/booking_avail_view.php:636
 #, php-format
 msgid "%d guests in %d Bedrooms (%d guest in each room)."
-msgstr "%d ospiti in %d Camere (%d ospiti in ogni camera)."
+msgstr "%d ospiti in %d Camere (%d ospite per camera)."
 
 #: ../code/application/views/property_rooms_avail.php:518
 #: ../code/application/views/hw/booking_avail_view.php:565
@@ -2667,7 +2669,7 @@ msgstr "Camera"
 #: ../code/application/views/helpfile/pofields.php:710
 #, php-format
 msgid "Bedrooms"
-msgstr "Stanze"
+msgstr "Camere"
 
 #: ../code/application/views/city_lp.php:13
 #: ../code/application/views/helpfile/pofields.php~:499
@@ -2926,7 +2928,7 @@ msgstr "Hostels in %s"
 #: ../code/application/views/helpfile/pofields.php:603
 #, php-format
 msgid "To view all available properties on the map, please enter your dates in the box on the top right."
-msgstr "Per visualizzare tutte le proprietà disponibili sulla mappa, per favore indicare le date nel box in alto a destra."
+msgstr "Per visualizzare tutte le strutture disponibili sulla mappa, per favore indicare le date nel box in alto a destra."
 
 #: ../code/application/views/city_lp.php:149
 #, php-format
@@ -2936,7 +2938,7 @@ msgstr "%s - Tutti gli Ostelli, Hostels e Alberghi di %s - %s"
 #: ../code/application/views/city_lp.php:159
 #, php-format
 msgid "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Pension à %s ?"
-msgstr "Ricerca di un Ostello, Hostel o un Albergo, un appartamento, una stanza, un Bed and Breackfast o una Pensione a %s ?"
+msgstr "Ricerca di un Ostello, Hostel o un Albergo, un appartamento, una camera, un Bed and Breackfast o una Pensione a %s ?"
 
 #: ../code/application/views/city_lp.php:159
 #, php-format
@@ -2966,105 +2968,105 @@ msgstr "La richiesta non può essere completata per sbagliata sintassi"
 
 #: ../code/application/views/city_view.php:14
 msgid "Filter by Districts"
-msgstr "Filtra per quartiere"
+msgstr "Filtra per zona"
 
 #: ../code/application/views/city_view.php:21
 msgid "Filter by Landmarks (within 2km)"
-msgstr "Seleziona per Punti d'interesse (entro 2km)"
+msgstr "Filtra per Punti d'interesse (entro 2km)"
 
-#: ../code/application/views/city_view.php:71
+#: ../code/application/views/city_view.php:88
 #: ../code/application/views/helpfile/pofields.php~:845
 #: ../code/application/views/helpfile/pofields.php:845
 #, php-format
 msgid "Show properties"
-msgstr "Mostra le proprietà"
+msgstr "Mostra le strutture"
 
-#: ../code/application/views/city_view.php:100
+#: ../code/application/views/city_view.php:117
 #: ../code/application/views/helpfile/pofields.php~:783
 #: ../code/application/views/helpfile/pofields.php:783
 #, php-format
 msgid "Filter by districts"
-msgstr "Filtra per quartiere"
+msgstr "Filtra per zona"
 
-#: ../code/application/views/city_view.php:101
+#: ../code/application/views/city_view.php:118
 msgid "Filter by Landmarks"
-msgstr "Seleziona per Punti d'interesse "
+msgstr "Filtra per Punti d'interesse "
 
-#: ../code/application/views/city_view.php:131
-#: ../code/application/views/city_view.php:339
+#: ../code/application/views/city_view.php:148
+#: ../code/application/views/city_view.php:354
 #: ../code/application/views/helpfile/pofields.php~:444
 #: ../code/application/views/helpfile/pofields.php:444
 #, php-format
 msgid "Property type"
 msgstr "Tipo di Struttura"
 
-#: ../code/application/views/city_view.php:135
+#: ../code/application/views/city_view.php:152
 #: ../code/application/views/helpfile/pofields.php~:826
 #: ../code/application/views/helpfile/pofields.php:826
 #, php-format
 msgid "The most popular"
-msgstr "Il più popolare"
+msgstr "La più popolare"
 
-#: ../code/application/views/city_view.php:136
+#: ../code/application/views/city_view.php:153
 #: ../code/application/views/city_ajax_view.php:226
 msgid "Auberges de jeunesse"
 msgstr "Ostelli"
 
-#: ../code/application/views/city_view.php:138
+#: ../code/application/views/city_view.php:155
 #: ../code/application/views/city_ajax_view.php:227
 msgid "Hôtels pas chers"
 msgstr "Alberghi"
 
-#: ../code/application/views/city_view.php:139
+#: ../code/application/views/city_view.php:156
 #: ../code/application/views/city_ajax_view.php:228
 msgid "Appartements"
 msgstr "Appartamenti"
 
-#: ../code/application/views/city_view.php:140
+#: ../code/application/views/city_view.php:157
 #: ../code/application/views/city_ajax_view.php:229
 msgid "Chambres - B&B - Pensions"
-msgstr "Stanze - B & B - Pensioni"
+msgstr "Camere - B & B - Pensioni"
 
-#: ../code/application/views/city_view.php:141
+#: ../code/application/views/city_view.php:158
 msgid "Camping"
 msgstr "Campeggio"
 
-#: ../code/application/views/city_view.php:162
+#: ../code/application/views/city_view.php:179
 #: ../code/application/views/helpfile/pofields.php~:827
 #: ../code/application/views/helpfile/pofields.php:827
 #, php-format
 msgid "Most popular"
-msgstr "I più popolari"
+msgstr "Ie più popolari"
 
-#: ../code/application/views/city_view.php:195
+#: ../code/application/views/city_view.php:212
 #: ../code/application/views/helpfile/pofields.php~:457
 #: ../code/application/views/helpfile/pofields.php:457
 #, php-format
 msgid "Price Range:"
 msgstr "Fascia di Prezzo"
 
-#: ../code/application/views/city_view.php:203
+#: ../code/application/views/city_view.php:220
 #: ../code/application/views/helpfile/pofields.php~:458
 #: ../code/application/views/helpfile/pofields.php:458
 #, php-format
 msgid "Rating Range:"
 msgstr "Fascia Valutazioni"
 
-#: ../code/application/views/city_view.php:209
+#: ../code/application/views/city_view.php:226
 #: ../code/application/views/helpfile/pofields.php~:449
 #: ../code/application/views/helpfile/pofields.php:449
 #, php-format
 msgid "Reset filters"
 msgstr "Reimposta il Filtro"
 
-#: ../code/application/views/city_view.php:254
+#: ../code/application/views/city_view.php:271
 #: ../code/application/views/city_ajax_view.php:222
 #, php-format
 msgid "Liste des logements pas chers à %s"
 msgstr "Risultati della ricerca - %s"
 
-#: ../code/application/views/city_view.php:261
-#: ../code/application/views/city_view.php:374
+#: ../code/application/views/city_view.php:278
+#: ../code/application/views/city_view.php:389
 #: ../code/application/views/helpfile/pofields.php~:645
 #: ../code/application/views/helpfile/pofields.php:645
 #: ../code/application/views/restricted/user_favorite_properties.php:43
@@ -3072,7 +3074,7 @@ msgstr "Risultati della ricerca - %s"
 msgid "Results"
 msgstr "Risultati"
 
-#: ../code/application/views/city_view.php:273
+#: ../code/application/views/city_view.php:290
 #: ../code/application/views/hw/booking_end_view.php:35
 #: ../code/application/views/hb/booking_end_view.php:28
 #: ../code/application/views/email/new_transaction_hb.php:97
@@ -3081,25 +3083,21 @@ msgstr "Risultati"
 msgid "Nombre de Nuits: %s"
 msgstr "Numero di notti: %s"
 
-#: ../code/application/views/city_view.php:278
-msgid "Close Map"
-msgstr "Chiudi la Mappa"
-
-#: ../code/application/views/city_view.php:287
+#: ../code/application/views/city_view.php:302
 #: ../code/application/views/helpfile/pofields.php~:649
 #: ../code/application/views/helpfile/pofields.php:649
 #, php-format
 msgid "Quick Compare (5 properties maximum)"
-msgstr "Comparazione veloce (massimo 5 proprietà)"
+msgstr "Comparazione veloce (massimo 5 strutture)"
 
-#: ../code/application/views/city_view.php:290
+#: ../code/application/views/city_view.php:305
 #: ../code/application/views/helpfile/pofields.php~:650
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Remove All"
 msgstr "Rimuovere tutto"
 
-#: ../code/application/views/city_view.php:301
+#: ../code/application/views/city_view.php:316
 #: ../code/application/views/restricted/user_favorite_properties.php:21
 #: ../code/application/views/search_results.php:85
 #: ../code/application/views/search_results.php:120
@@ -3112,56 +3110,56 @@ msgstr "Rimuovere tutto"
 msgid "Classer par:"
 msgstr "Ordinate per"
 
-#: ../code/application/views/city_view.php:303
+#: ../code/application/views/city_view.php:318
 #: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
 #, php-format
 msgid "Best price"
 msgstr "Miglior prezzo"
 
-#: ../code/application/views/city_view.php:304
+#: ../code/application/views/city_view.php:319
 #: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
 msgstr "Miglior rating "
 
-#: ../code/application/views/city_view.php:307
+#: ../code/application/views/city_view.php:322
 #: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
 #, php-format
 msgid "Safest"
 msgstr "Il più sicuro"
 
-#: ../code/application/views/city_view.php:308
+#: ../code/application/views/city_view.php:323
 #: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
 #, php-format
 msgid "Best location"
 msgstr "Migliore posizione"
 
-#: ../code/application/views/city_view.php:313
+#: ../code/application/views/city_view.php:328
 #: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
 #, php-format
 msgid "Youth hostels only"
 msgstr "Solo ostelli"
 
-#: ../code/application/views/city_view.php:317
+#: ../code/application/views/city_view.php:332
 #: ../code/application/views/helpfile/pofields.php~:555
 #: ../code/application/views/helpfile/pofields.php:555
 #, php-format
 msgid "Only free breakfast"
 msgstr "Colazione gratuita"
 
-#: ../code/application/views/city_view.php:328
+#: ../code/application/views/city_view.php:343
 #: ../code/application/views/helpfile/pofields.php~:604
 #: ../code/application/views/helpfile/pofields.php:604
 #, php-format
 msgid "Selected filters:"
 msgstr "Filtri selezionati:"
 
-#: ../code/application/views/city_view.php:335
+#: ../code/application/views/city_view.php:350
 #: ../code/application/views/helpfile/pofields.php~:443
 #: ../code/application/views/helpfile/pofields.php~:655
 #: ../code/application/views/helpfile/pofields.php:443
@@ -3170,24 +3168,24 @@ msgstr "Filtri selezionati:"
 msgid "Rating"
 msgstr "Classificazione"
 
-#: ../code/application/views/city_view.php:436
+#: ../code/application/views/city_view.php:451
 msgid "Please Wait"
 msgstr "Attendere Prego"
 
-#: ../code/application/views/city_view.php:441
+#: ../code/application/views/city_view.php:456
 msgid "From"
 msgstr "Da"
 
-#: ../code/application/views/city_view.php:442
+#: ../code/application/views/city_view.php:457
 msgid "Only 5 properties can be compared. Please remove a property from list."
-msgstr "Solamente 5 proprietà possono essere comparate. Per favore rimuovere una proprietà dalla lista."
+msgstr "Solamente 5 strutture possono essere comparate. Per favore rimuovere una struttura dalla lista."
 
 #: ../code/application/views/includes/navuser.php:2
 msgid "Options de Votre Compte"
 msgstr "Le opzioni del tuo profilo"
 
 #: ../code/application/views/includes/navuser.php:4
-#: ../code/application/views/includes/header.php:996
+#: ../code/application/views/includes/header.php:1017
 #: ../code/application/views/auth/login_form.php:90
 msgid "Mon Compte"
 msgstr "Il mio Account"
@@ -3205,7 +3203,7 @@ msgstr "Le mie prenotazioni"
 #: ../code/application/views/restricted/user_view.php:21
 #, php-format
 msgid "My favorite properties"
-msgstr "Le mie proprietà preferite"
+msgstr "Le mie strutture preferite"
 
 #: ../code/application/views/includes/navuser.php:8
 #: ../code/application/views/restricted/user_view.php:17
@@ -3323,7 +3321,7 @@ msgstr "%s è regolato dall'Unione Europea."
 #: ../code/application/views/includes/siteinfo.php:7
 #: ../code/application/views/includes/siteinfo.php:16
 #: ../code/application/views/includes/header_book.php:170
-#: ../code/application/views/includes/header.php:1050
+#: ../code/application/views/includes/header.php:1071
 #: ../code/application/views/hw/booking_view.php:56
 #: ../code/application/views/hb/booking_view.php:46
 #, php-format
@@ -3360,7 +3358,7 @@ msgstr "%s: Non c'è bisogno di diventare membri per ottenere  i migliori prezzi
 
 #: ../code/application/views/includes/siteinfo.php:20
 #: ../code/application/views/includes/header_book.php:172
-#: ../code/application/views/includes/header.php:1052
+#: ../code/application/views/includes/header.php:1073
 #: ../code/application/views/includes/top_box.php:37
 #: ../code/application/views/hb/booking_view.php:50
 #: ../code/application/views/hb/booking_view.php:253
@@ -3374,7 +3372,7 @@ msgstr "Nessun addebito per la prenotazione"
 #: ../code/application/views/helpfile/pofields.php:803
 #, php-format
 msgid "Save this property as a favorite"
-msgstr "Salva questa proprietà tra i preferiti"
+msgstr "Salva questa struttura tra le preferite"
 
 #: ../code/application/views/includes/help.php:3
 #: ../code/application/views/restricted/user_view.php:24
@@ -3391,19 +3389,19 @@ msgid "Navigation"
 msgstr "Navigazione"
 
 #: ../code/application/views/includes/footer.php:36
-#: ../code/application/views/includes/header.php:1066
+#: ../code/application/views/includes/header.php:1087
 #: ../code/application/views/includes/top_box.php:53
 msgid "Accueil"
 msgstr "Pagina Principale"
 
 #: ../code/application/views/includes/footer.php:47
-#: ../code/application/views/includes/header.php:1067
+#: ../code/application/views/includes/header.php:1088
 #: ../code/application/views/includes/top_box.php:54
 msgid "Auberges et logements pas chers"
 msgstr "Ostelli, Hostels e Alberghi"
 
 #: ../code/application/views/includes/footer.php:52
-#: ../code/application/views/includes/header.php:1069
+#: ../code/application/views/includes/header.php:1090
 #: ../code/application/views/includes/top_box.php:57
 msgid "Réservation d'auberges de jeunesse pour les groupes"
 msgstr "Prenotazione Ostelli, Hostels e Alberghi per gruppi"
@@ -3411,26 +3409,26 @@ msgstr "Prenotazione Ostelli, Hostels e Alberghi per gruppi"
 #: ../code/application/views/includes/footer.php:60
 #: ../code/application/views/includes/group-booking.php:10
 #: ../code/application/views/includes/group-booking.php:11
-#: ../code/application/views/includes/header.php:1069
+#: ../code/application/views/includes/header.php:1090
 #: ../code/application/views/includes/top_box.php:57
 msgid "Groupes 10+"
 msgstr "Gruppi oltre 10"
 
 #: ../code/application/views/includes/footer.php:68
-#: ../code/application/views/includes/header.php:1072
+#: ../code/application/views/includes/header.php:1093
 #: ../code/application/views/includes/top_box.php:60
 msgid "Événements"
 msgstr "Eventi"
 
 #: ../code/application/views/includes/footer.php:75
-#: ../code/application/views/includes/header.php:1075
+#: ../code/application/views/includes/header.php:1096
 #: ../code/application/views/includes/top_box.php:63
 msgid "Destinations"
 msgstr "Guide"
 
 #: ../code/application/views/includes/footer.php:84
-#: ../code/application/views/hw/hostel_view.php:472
-#: ../code/application/views/hb/hostel_view.php:567
+#: ../code/application/views/hw/hostel_view.php:471
+#: ../code/application/views/hb/hostel_view.php:566
 #: ../code/application/views/helpfile/pofields.php~:829
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
@@ -3440,7 +3438,7 @@ msgstr "Informazioni"
 #: ../code/application/views/includes/footer.php:105
 #, php-format
 msgid "Vous recherchez une auberge, une auberge de jeunesse, un appartement, un Bed And Breakfast B&B, une pension, une chambre d’hôtes, une Hostel ? %s est le site en ligne n°1 en France, Belgique, Suisse et Canada pour tous les logements à bas prix dernière minute. %s propose la réservation dernière minute de chambres et logements à bas prix dans des villes comme Paris en France, Londres en Angleterre, Barcelone en Espagne, New York aux Etats-Unis, Rome en Italie, Amsterdam en Hollande, Dublin en Irlande, Madrid en Espagne, Prague en République tchèque ... Préparez votre voyage en toute simplicité, nous proposons également des informations de dernières minutes, des guides et commentaires."
-msgstr "State cercando un <strong>ostello,</strong> un <strong>albergo, </strong>un <strong>Hostel </strong> un <strong>appartamento,</strong> un <strong>Bed & Breakfast B & B, una Stanza, una Pensione. %s</strong> è il sito on-line n ° 1 in Italia, Spagna, Francia, Svizzera e Nord America per tutte le sistemazioni a buon prezzo. %s offerte prenotazioni last minute di camere e alloggi a basso costo in città come <strong>Parigi in Francia, Londra in Inghilterra, Barcellona in Spagna, New York negli Stati Uniti, Roma in Italia, Amsterdam in Olanda, Dublino in Irlanda, Madrid in Spagna, Praga nella Repubblica Ceca. ...</strong> Organizza il tuo viaggio con facilità, informazioni aggiornate, guide e recensioni."
+msgstr "State cercando un <strong>ostello,</strong> un <strong>albergo, </strong>un <strong>Hostel </strong> un <strong>appartamento,</strong> un <strong>Bed & Breakfast B & B, una camera, una Pensione. %s</strong> è il sito on-line n ° 1 in Italia, Spagna, Francia, Svizzera e Nord America per tutte le sistemazioni a buon prezzo. %s offerte prenotazioni last minute di camere e alloggi a basso costo in città come <strong>Parigi in Francia, Londra in Inghilterra, Barcellona in Spagna, New York negli Stati Uniti, Roma in Italia, Amsterdam in Olanda, Dublino in Irlanda, Madrid in Spagna, Praga nella Repubblica Ceca. ...</strong> Organizza il tuo viaggio con facilità, informazioni aggiornate, guide e recensioni."
 
 #: ../code/application/views/includes/footer.php:105
 msgid "Hostelworld customer review"
@@ -3456,13 +3454,13 @@ msgid "Joignez-vous à nous sur Facebook"
 msgstr "Entrate a far parte del nostro gruppo su Facebook"
 
 #: ../code/application/views/includes/header_book.php:157
-#: ../code/application/views/includes/header.php:1037
+#: ../code/application/views/includes/header.php:1058
 #: ../code/application/views/includes/top_box.php:23
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
 msgstr "Oltre 30.000 Ostelli, Hostels e Alberghi a prezzi convenienti"
 
 #: ../code/application/views/includes/header_book.php:161
-#: ../code/application/views/includes/header.php:1041
+#: ../code/application/views/includes/header.php:1062
 #: ../code/application/views/includes/top_box.php:28
 #: ../code/application/views/helpfile/pofields.php~:275
 #: ../code/application/views/helpfile/pofields.php:275
@@ -3471,7 +3469,7 @@ msgid "Free SMS"
 msgstr "SMS Gratuiti"
 
 #: ../code/application/views/includes/header_book.php:175
-#: ../code/application/views/includes/header.php:1055
+#: ../code/application/views/includes/header.php:1076
 #: ../code/application/views/includes/top_box.php:39
 #: ../code/application/views/helpfile/pofields.php~:43
 #: ../code/application/views/helpfile/pofields.php~:188
@@ -3507,20 +3505,20 @@ msgstr " "
 msgid "Auberges en %s incluant Auberges de Jeunesse en %s. 30,000 Auberges de jeunesses et logements pas chers en %s et dans le monde entier. Aussi, cartes des villes, photos, conseils, événements et guides des Auberges de Jeunesse en %s."
 msgstr "Ostelli, Hostels e Alberghi in %s include Ostelli in %s.  30.000 Ostelli, Hostels e Alberghi a buon prezzo in %s e in tutto il mondo. Inoltre mappe delle città, foto, suggerimenti, eventi e guide su Ostelli, Hostels e Alberghi in %s."
 
-#: ../code/application/views/includes/header.php:395
+#: ../code/application/views/includes/header.php:413
 msgid "Localisation invalide sur Google Map"
 msgstr "Località non valida su Google Map"
 
-#: ../code/application/views/includes/header.php:972
+#: ../code/application/views/includes/header.php:993
 #, php-format
 msgid "Searching for %s"
 msgstr "Ricerca per %s"
 
-#: ../code/application/views/includes/header.php:974
+#: ../code/application/views/includes/header.php:995
 msgid "Please wait while we are finding the best deals for you ..."
 msgstr "Vi invitiamo ad attendere, stiamo cercando le migliori offerte personalizzate… "
 
-#: ../code/application/views/includes/header.php:975
+#: ../code/application/views/includes/header.php:996
 #: ../code/application/views/helpfile/pofields.php~:629
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
@@ -3577,12 +3575,12 @@ msgstr "Messaggio:"
 #: ../code/application/views/helpfile/pofields.php:673
 #, php-format
 msgid "Send another message"
-msgstr "Manda un altro messaggio"
+msgstr "Invia un altro messaggio"
 
 #: ../code/application/views/includes/template-share-email-popup.php:38
 #: ../code/application/views/includes/template-share-email-popup.php:94
-#: ../code/application/views/hw/hostel_view.php:358
-#: ../code/application/views/hb/hostel_view.php:441
+#: ../code/application/views/hw/hostel_view.php:357
+#: ../code/application/views/hb/hostel_view.php:440
 #: ../code/application/views/helpfile/pofields.php~:173
 #: ../code/application/views/helpfile/pofields.php~:674
 #: ../code/application/views/helpfile/pofields.php~:683
@@ -3642,11 +3640,11 @@ msgstr "Inserire il proprio nome"
 #: ../code/application/views/helpfile/pofields.php:675
 #, php-format
 msgid "Mail this page to someone you know, or send it to yourself as a reminder."
-msgstr "Manda questa pagina via mail a qualcuno che conosci, oppure mandala a te stesso come promemoria."
+msgstr "Invia questa pagina via email a qualcuno che conosci, oppure inviala a te stesso come promemoria."
 
 #: ../code/application/views/includes/template-share-email-popup.php:52
 msgid "Mail this PDF quote to someone you know, or send it to yourself."
-msgstr "Manda questa preventivo in PDF a qualcuno che conosci, o a te stesso."
+msgstr "Invia questa preventivo in PDF a qualcuno che conosci, o a te stesso."
 
 #: ../code/application/views/includes/template-share-email-popup.php:55
 #: ../code/application/views/helpfile/pofields.php~:676
@@ -3694,11 +3692,11 @@ msgstr "Si, voglio sottoscrivermi alla newsletter per ricevere grandi offerte. (
 #: ../code/application/views/helpfile/pofields.php:682
 #, php-format
 msgid "Send email"
-msgstr "Manda un'email"
+msgstr "Invia un'email"
 
 #: ../code/application/views/includes/template-share-email-popup.php:92
 msgid "Send PDF quote"
-msgstr "Manda PDF"
+msgstr "Invia PDF"
 
 #: ../code/application/views/includes/template-share-email-popup.php:93
 msgid "Please wait ..."
@@ -3905,11 +3903,34 @@ msgstr "Il rimanente importo (previa deduzione del deposito) dovrà essere salda
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1040
+#: ../code/application/views/hw/hostel_view.php:361
+#: ../code/application/views/hw/hostel_view.php:654
+#: ../code/application/views/hw/hostel_view.php:721
+#: ../code/application/views/hw/hostel_view.php:828
+#: ../code/application/views/hw/reviews.php:15
+#: ../code/application/views/hb/reviews-map.php:5
+#: ../code/application/views/hb/booking_view.php:34
+#: ../code/application/views/hb/booking_view.php:825
+#: ../code/application/views/hb/booking_view.php:850
+#: ../code/application/views/hb/hostel_view.php:444
+#: ../code/application/views/hb/hostel_view.php:765
+#: ../code/application/views/hb/hostel_view.php:837
+#: ../code/application/views/hb/hostel_view.php:869
+#: ../code/application/views/hb/hostel_view.php:931
+#: ../code/application/views/hb/hostel_view.php:952
+#: ../code/application/views/hb/hostel_view.php:1075
+#: ../code/application/views/hb/reviews.php:7
+msgid "Voir la version traduite"
+msgstr "Vedi la versione tradotta"
+
+#: ../code/application/views/hw/reviews-map.php:5
+#: ../code/application/views/hw/booking_view.php:39
+#: ../code/application/views/hw/booking_view.php:1040
 #: ../code/application/views/hw/hostel_view.php:362
 #: ../code/application/views/hw/hostel_view.php:655
 #: ../code/application/views/hw/hostel_view.php:722
-#: ../code/application/views/hw/hostel_view.php:828
-#: ../code/application/views/hw/reviews.php:12
+#: ../code/application/views/hw/hostel_view.php:829
+#: ../code/application/views/hw/reviews.php:15
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
 #: ../code/application/views/hb/booking_view.php:825
@@ -3920,31 +3941,8 @@ msgstr "Il rimanente importo (previa deduzione del deposito) dovrà essere salda
 #: ../code/application/views/hb/hostel_view.php:870
 #: ../code/application/views/hb/hostel_view.php:932
 #: ../code/application/views/hb/hostel_view.php:953
-#: ../code/application/views/hb/hostel_view.php:1075
-#: ../code/application/views/hb/reviews.php:5
-msgid "Voir la version traduite"
-msgstr "Vedi la versione tradotta"
-
-#: ../code/application/views/hw/reviews-map.php:5
-#: ../code/application/views/hw/booking_view.php:39
-#: ../code/application/views/hw/booking_view.php:1040
-#: ../code/application/views/hw/hostel_view.php:363
-#: ../code/application/views/hw/hostel_view.php:656
-#: ../code/application/views/hw/hostel_view.php:723
-#: ../code/application/views/hw/hostel_view.php:829
-#: ../code/application/views/hw/reviews.php:12
-#: ../code/application/views/hb/reviews-map.php:5
-#: ../code/application/views/hb/booking_view.php:34
-#: ../code/application/views/hb/booking_view.php:825
-#: ../code/application/views/hb/booking_view.php:850
-#: ../code/application/views/hb/hostel_view.php:446
-#: ../code/application/views/hb/hostel_view.php:767
-#: ../code/application/views/hb/hostel_view.php:839
-#: ../code/application/views/hb/hostel_view.php:871
-#: ../code/application/views/hb/hostel_view.php:933
-#: ../code/application/views/hb/hostel_view.php:954
 #: ../code/application/views/hb/hostel_view.php:1076
-#: ../code/application/views/hb/reviews.php:6
+#: ../code/application/views/hb/reviews.php:8
 msgid "Voir l'original"
 msgstr "Vedi l'originale"
 
@@ -3985,7 +3983,7 @@ msgstr "Dormitori che voi occuperete:"
 #: ../code/application/views/helpfile/pofields.php:757
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property: %s"
-msgstr "Il prezzo più basso per persona per notte in un dormitorio in questa proprietà: %s"
+msgstr "Il prezzo più basso per persona per notte in un dormitorio in questa strutture: %s"
 
 #: ../code/application/views/hw/booking_avail_view.php:340
 #: ../code/application/views/hw/booking_avail_view.php:651
@@ -4023,7 +4021,7 @@ msgstr "Userete %d dormitori per intero."
 #: ../code/application/views/hb/booking_avail_view.php:643
 #, php-format
 msgid "%d %s ( %s )"
-msgstr ""
+msgstr "%d %s ( %s )"
 
 #: ../code/application/views/hw/booking_avail_view.php:358
 #: ../code/application/views/hb/booking_avail_view.php:344
@@ -4060,7 +4058,7 @@ msgstr "Camere che voi occuperete: "
 #: ../code/application/views/hw/booking_avail_view.php:597
 #, php-format
 msgid "%d guests in %d Bedroom (1 guest in each room)."
-msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
+msgstr "%d ospiti in %d Camere (1 ospite per camera)."
 
 #: ../code/application/views/hw/booking_avail_view.php:607
 #: ../code/application/views/hb/booking_avail_view.php:594
@@ -4068,13 +4066,13 @@ msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
 #: ../code/application/views/helpfile/pofields.php:758
 #, php-format
 msgid "The lowest price per person per night in a private room at this property: %s"
-msgstr "Il prezzo più basso per persona per notte in una stanza privata in questa proprietà: %s"
+msgstr "Il prezzo più basso per persona per notte in una camera privata in questa strutture: %s"
 
 #: ../code/application/views/hw/booking_avail_view.php:665
 #: ../code/application/views/hb/booking_avail_view.php:583
 #, php-format
 msgid "%d guests in %d Bedrooms (1 guest in each room)."
-msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
+msgstr "%d ospiti in %d Camere (1 ospite per camera)."
 
 #: ../code/application/views/hw/booking_avail_view.php:707
 #: ../code/application/views/hb/booking_avail_error_view.php:14
@@ -4122,7 +4120,7 @@ msgstr "La vostra selezione"
 #: ../code/application/views/hw/booking_view.php:1048
 #, php-format
 msgid "You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Adesso pagate il deposito (il %d%% dell'intero importo) solamente per confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della proprietà (email, indirizzo, numero telefonico...) nella vostra email di conferma una volta effettuata la prenotazione."
+msgstr "Adesso pagate il deposito (il %d%% dell'intero importo) solamente per confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della struttura (email, indirizzo, numero telefonico...) nella vostra email di conferma una volta effettuata la prenotazione."
 
 #: ../code/application/views/hw/booking_avail_view.php:837
 #: ../code/application/views/hb/booking_avail_view.php:797
@@ -4161,14 +4159,14 @@ msgstr "Anteprima Email di conferma"
 #: ../code/application/views/helpfile/pofields.php:748
 #, php-format
 msgid "Please click here to preview your confirmation email"
-msgstr "Per favore cliccate qui per l'anteprima della mail di conferma"
+msgstr "Per favore cliccate qui per l'anteprima della email di conferma"
 
 #: ../code/application/views/hw/booking_avail_view.php:889
-#: ../code/application/views/hw/hostel_view.php:740
+#: ../code/application/views/hw/hostel_view.php:739
 #: ../code/application/views/hb/booking_avail_view.php:847
-#: ../code/application/views/hb/hostel_view.php:972
+#: ../code/application/views/hb/hostel_view.php:971
 #: ../code/application/views/restricted/user_group_quote.php:152
-#: ../code/application/views/email/share_page-html.php:62
+#: ../code/application/views/email/share_page-html.php:68
 #: ../code/application/views/email/share_page-txt.php:27
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
 msgstr "NOTA BENE - QUESTA NON È UNA PRENOTAZIONE CONFERMATA"
@@ -4196,7 +4194,7 @@ msgstr "Cerca per ulteriori strutture in %s"
 #: ../code/application/views/helpfile/pofields.php:730
 #, php-format
 msgid "Your unique booking number will be provided right after your reservation. Your reservation will be immediate and guaranteed."
-msgstr "Il vostro numero unico di prenotazione sarà fornito subito dopo la vostra prenotazione. La vostra prenotazione sarà immediata e garantita."
+msgstr "Il vostro numero di prenotazione vi sarà fornito subito dopo la vostra prenotazione. La vostra prenotazione sarà immediata e garantita."
 
 #: ../code/application/views/hw/booking_avail_view.php:1016
 #: ../code/application/views/hw/booking_avail_view.php:1033
@@ -4234,7 +4232,7 @@ msgstr "Fornito dopo la prenotazione"
 #: ../code/application/views/helpfile/pofields.php:744
 #, php-format
 msgid "With full contact information, you will be able to contact the property in case you have any special requests."
-msgstr "Grazie ad informazioni di contatto complete, sarete in grado di mettervi in contatto con il proprietario in caso abbiate qualche richiesta speciale."
+msgstr "Le informazioni per contattatare la struttura vi permetteranno di mettervi in contatto con il proprietario in caso abbiate qualche richiesta speciale."
 
 #: ../code/application/views/hw/booking_avail_view.php:1119
 #: ../code/application/views/hb/booking_avail_view.php:1013
@@ -4242,7 +4240,7 @@ msgstr "Grazie ad informazioni di contatto complete, sarete in grado di mettervi
 #: ../code/application/views/helpfile/pofields.php:743
 #, php-format
 msgid "When available, we will provide directions on how to get to the property including public transportation and airport information."
-msgstr "Appena disponibili, vi forniremo le indicazioni su come arrivare alla proprietà inclusi i trasporti pubblici e informazioni sull'aeroporto."
+msgstr "Appena disponibili, vi forniremo le indicazioni su come arrivare alla struttura inclusi i trasporti pubblici e le informazioni sull'aeroporto."
 
 #: ../code/application/views/hw/booking_avail_view.php:1126
 #: ../code/application/views/hb/booking_avail_view.php:1020
@@ -4250,7 +4248,7 @@ msgstr "Appena disponibili, vi forniremo le indicazioni su come arrivare alla pr
 #: ../code/application/views/helpfile/pofields.php:741
 #, php-format
 msgid "We will provide all important information to make sure you really enjoy your stay."
-msgstr "Vi forniremo tutte le informazioni importanti per assicurarci che voi apprezziate veramente il vostro soggiorno."
+msgstr "Vi forniremo tutte le informazioni importanti per assicurarvi un piacevole soggiorno."
 
 #: ../code/application/views/hw/booking_view.php:18
 #: ../code/application/views/hb/booking_view.php:13
@@ -4326,7 +4324,7 @@ msgstr "Errori:"
 #: ../code/application/views/helpfile/pofields.php:537
 #, php-format
 msgid "Price per room (not per person)"
-msgstr "Prezzo per stanza (non per persona)"
+msgstr "Prezzo per camera (non per persona)"
 
 #: ../code/application/views/hw/booking_view.php:392
 msgid "Updating..."
@@ -4385,7 +4383,7 @@ msgstr "Italia (Esempio 393351234567)"
 #: ../code/application/views/helpfile/pofields.php:207
 #, php-format
 msgid "A friend or a family member can lend you his/her credit card for the reservation."
-msgstr "Potete utilizzare la carta di credito di un vostro amico o famigliare oer la prenotazione."
+msgstr "Potete utilizzare la carta di credito di un vostro amico o famigliare per la prenotazione."
 
 #: ../code/application/views/hw/booking_view.php:676
 #: ../code/application/views/hb/booking_view.php:499
@@ -4453,10 +4451,10 @@ msgstr "Vi invitiamo a verificare che tutti i campi siano inseriti correttamente
 msgid "close"
 msgstr "chiudi"
 
-#: ../code/application/views/hw/hostel_view.php:14
-#: ../code/application/views/hw/hostel_view.php:16
-#: ../code/application/views/hb/hostel_view.php:13
-#: ../code/application/views/hb/hostel_view.php:15
+#: ../code/application/views/hw/hostel_view.php:13
+#: ../code/application/views/hw/hostel_view.php:15
+#: ../code/application/views/hb/hostel_view.php:12
+#: ../code/application/views/hb/hostel_view.php:14
 #: ../code/application/views/helpfile/pofields.php~:213
 #: ../code/application/views/helpfile/pofields.php~:259
 #: ../code/application/views/helpfile/pofields.php:213
@@ -4465,84 +4463,94 @@ msgstr "chiudi"
 msgid "Back to search results"
 msgstr "Ritorna ai risultati della ricerca"
 
-#: ../code/application/views/hw/hostel_view.php:34
-#: ../code/application/views/hb/hostel_view.php:33
+#: ../code/application/views/hw/hostel_view.php:33
+#: ../code/application/views/hb/hostel_view.php:32
 msgid "Voir la carte"
 msgstr "Visualizza la mappa"
 
-#: ../code/application/views/hw/hostel_view.php:60
-#: ../code/application/views/hb/hostel_view.php:141
+#: ../code/application/views/hw/hostel_view.php:59
+#: ../code/application/views/hb/hostel_view.php:140
 msgid "Erreur de requête"
 msgstr "Errore nella richiesta"
 
-#: ../code/application/views/hw/hostel_view.php:112
-#: ../code/application/views/hb/hostel_view.php:175
+#: ../code/application/views/hw/hostel_view.php:111
+#: ../code/application/views/hb/hostel_view.php:174
 #: ../code/application/controllers/cmain.php:1843
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "Il vostro commento è stato inviato al nostro team per l'approvazione. Grazie!"
 
-#: ../code/application/views/hw/hostel_view.php:119
-#: ../code/application/views/hb/hostel_view.php:181
+#: ../code/application/views/hw/hostel_view.php:118
+#: ../code/application/views/hb/hostel_view.php:180
 #, php-format
 msgid "Laissez vos impressions sur %s"
 msgstr "Lasciate i vostri commenti su %s"
 
-#: ../code/application/views/hw/hostel_view.php:129
-#: ../code/application/views/hb/hostel_view.php:192
+#: ../code/application/views/hw/hostel_view.php:128
+#: ../code/application/views/hb/hostel_view.php:191
 msgid "Votre Prénom:"
 msgstr "Nome:"
 
-#: ../code/application/views/hw/hostel_view.php:141
-#: ../code/application/views/hb/hostel_view.php:204
+#: ../code/application/views/hw/hostel_view.php:140
+#: ../code/application/views/hb/hostel_view.php:203
 msgid "Votre Nom (ne sera pas publié):"
 msgstr "Cognone (non sarà pubblicato):"
 
-#: ../code/application/views/hw/hostel_view.php:154
-#: ../code/application/views/hb/hostel_view.php:217
+#: ../code/application/views/hw/hostel_view.php:153
+#: ../code/application/views/hb/hostel_view.php:216
 msgid "Votre Email (ne sera pas publié):"
 msgstr "Indirizzo Email (non sarà pubblicato):"
 
-#: ../code/application/views/hw/hostel_view.php:180
-#: ../code/application/views/hb/hostel_view.php:243
+#: ../code/application/views/hw/hostel_view.php:179
+#: ../code/application/views/hb/hostel_view.php:242
 msgid "Veuillez évaluer votre expérience:"
 msgstr "Vi invitiamo a valutare la vostra esperienza:"
 
-#: ../code/application/views/hw/hostel_view.php:211
-#: ../code/application/views/hb/hostel_view.php:274
+#: ../code/application/views/hw/hostel_view.php:210
+#: ../code/application/views/hb/hostel_view.php:273
 #, php-format
 msgid "Vos commentaires sur %s :"
 msgstr "I vostri commenti su %s :"
 
-#: ../code/application/views/hw/hostel_view.php:225
-#: ../code/application/views/hb/hostel_view.php:288
+#: ../code/application/views/hw/hostel_view.php:224
+#: ../code/application/views/hb/hostel_view.php:287
 msgid "La date de votre dernier séjour à cet endroit :"
 msgstr "La data del vostro ultimo soggiorno presso questa struttura:"
 
-#: ../code/application/views/hw/hostel_view.php:356
-#: ../code/application/views/hb/hostel_view.php:439
+#: ../code/application/views/hw/hostel_view.php:355
+#: ../code/application/views/hb/hostel_view.php:438
 #: ../code/application/views/helpfile/pofields.php~:262
 #: ../code/application/views/helpfile/pofields.php:262
 #, php-format
 msgid "Read more…"
 msgstr "Continua a leggere..."
 
-#: ../code/application/views/hw/hostel_view.php:474
-#: ../code/application/views/hb/hostel_view.php:569
+#: ../code/application/views/hw/hostel_view.php:473
+#: ../code/application/views/hb/hostel_view.php:568
 msgid "Info & Prix"
 msgstr "Informazioni & Prezzi"
 
-#: ../code/application/views/hw/hostel_view.php:620
-#: ../code/application/views/hb/hostel_view.php:725
+#: ../code/application/views/hw/hostel_view.php:619
+#: ../code/application/views/hb/hostel_view.php:724
 msgid "Rechercher"
 msgstr "Cerca"
 
-#: ../code/application/views/hw/hostel_view.php:638
-#: ../code/application/views/hb/hostel_view.php:752
+#: ../code/application/views/hw/hostel_view.php:637
+#: ../code/application/views/hb/hostel_view.php:751
 #: ../code/application/views/helpfile/pofields.php~:694
 #: ../code/application/views/helpfile/pofields.php:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
-msgstr "Volete ricevere o mandare una copia PDF di questo preventivo?"
+msgstr "Volete ricevere o inviare una copia PDF di questo preventivo?"
+
+#: ../code/application/views/hw/hostel_view.php:745
+#: ../code/application/views/hw/reviews.php:6
+#: ../code/application/views/hb/hostel_view.php:978
+#: ../code/application/views/hb/reviews.php:2
+#: ../code/application/views/helpfile/pofields.php~:890
+#: ../code/application/views/helpfile/pofields.php:890
+#, php-format
+msgid "Click here to see info and prices"
+msgstr "Cliccate qui per vedere i prezzi di questa struttura"
 
 #: ../code/application/views/hw/hostel_view.php:753
 #: ../code/application/views/hb/hostel_view.php:1001
@@ -4558,12 +4566,12 @@ msgstr "Vista sulla strada"
 #: ../code/application/views/hb/booking_view.php:109
 #: ../code/application/views/email/new_transaction_hb.php:115
 msgid "Chambre"
-msgstr "Stanza"
+msgstr "Camera"
 
 #: ../code/application/views/hb/booking_end_view.php:36
 #: ../code/application/views/hb/booking_view.php:111
 msgid "Nb. Personnes"
-msgstr "Numero di persone"
+msgstr "Numero di ospite"
 
 #: ../code/application/views/hb/booking_end_view.php:77
 #: ../code/application/views/helpfile/pofields.php~:825
@@ -4575,7 +4583,7 @@ msgid "Amount already paid:"
 msgstr "Importo già pagato:"
 
 #: ../code/application/views/hb/booking_end_view.php:180
-#: ../code/application/views/hb/hostel_view.php:929
+#: ../code/application/views/hb/hostel_view.php:928
 #: ../code/application/views/email/new_transaction_hb.php:693
 msgid "Cancellation Policy"
 msgstr "Termini in caso di cancellazione"
@@ -4594,7 +4602,7 @@ msgstr "Informazioni aggiuntive"
 #: ../code/application/views/hb/booking_view.php:96
 #, php-format
 msgid "You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Al fine di confermare la vostra prenotazione è richiesto un pagamento pari al 10%% dell’importo totale. Il restante importo (90%%) dovrà essere saldato al momento del vostro arrivo presso la struttura. Troverete le informazioni e i contatti relative alla struttura (e-mail, indirizzo, numero di telefono ...), nella email di conferma che  riceverete dopo aver effettuato la prenotazione. "
+msgstr "Al fine di confermare la vostra prenotazione è richiesto un pagamento pari al 10%% dell’importo totale. Il restante importo (90%%) dovrà essere saldato al momento del vostro arrivo presso la struttura. Troverete le informazioni e i contatti relativi alla struttura (e-mail, indirizzo, numero di telefono …), nella email di conferma che  riceverete dopo aver effettuato la prenotazione. "
 
 #: ../code/application/views/hb/booking_view.php:337
 #: ../code/application/controllers/cadmin.php:26
@@ -4615,7 +4623,7 @@ msgstr "Uomo:"
 
 #: ../code/application/views/hb/booking_view.php:854
 msgid "Les changements et annulations sont possibles, faciles à faire et se font directement avec l‘établissement choisi qui en est responsable. Changements de dates/chambres : possible selon disponibilités. Annulations : au moins 24 heures en avance pour ne pas être facturé la première nuit."
-msgstr "Modifiche e cancellazioni sono semplici da effettuare contattando direttamente la struttura. Cambiare le date della vostra permanenza o la stanza è possibile previa disponibilità. Cancellazioni: Almeno 24 ore in anticipo rispetto alla data di arrivo al fine di evitare l'addebito della prima notte."
+msgstr "Modifiche e cancellazioni sono semplici da effettuare contattando direttamente la struttura. Cambiare le date della vostra permanenza o la camera è possibile previa disponibilità. Cancellazioni: Almeno 24 ore in anticipo rispetto alla data di arrivo al fine di evitare l'addebito della prima notte."
 
 #: ../code/application/views/hb/booking_view.php:858
 #, php-format
@@ -4626,27 +4634,27 @@ msgstr "Su %s pagate soltanto il 10%% del totale per confermare e garantire la v
 msgid "80% +"
 msgstr "80%+"
 
-#: ../code/application/views/hb/hostel_view.php:867
+#: ../code/application/views/hb/hostel_view.php:866
 msgid "Purchasable Extras"
 msgstr "Extra aggiuntivi a acquistabili"
 
-#: ../code/application/views/hb/hostel_view.php:904
-#: ../code/application/views/hb/hostel_view.php:906
+#: ../code/application/views/hb/hostel_view.php:903
+#: ../code/application/views/hb/hostel_view.php:905
 msgid "Check-In/Out Details"
 msgstr "Dettagli Arrivo / Partenza"
 
-#: ../code/application/views/hb/hostel_view.php:906
+#: ../code/application/views/hb/hostel_view.php:905
 #: ../code/application/views/helpfile/pofields.php~:830
 #: ../code/application/views/helpfile/pofields.php:830
 #, php-format
 msgid "This is the time your room will be ready the day of your arrival and the time you will need to leave your room the day of your departure. Most properties will store your luggage in a safe space if you arrive early or leave later and are open 24 hours a day. Please review the list of services offered by this particular property to confirm they are available."
-msgstr "Questo è l'orario in cui la vostra camera sarà pronta il giorno del vostro arrivo e l'orario in cui dovrete lasciare la camera nel giorno della vostra partenza. Molte proprietà custodiranno il vostro bagaglio in uno spazio sicuro se arriverete presto oppure andrete via più tardi e questi spazi sono aperti 24 ore al giorno. Per favore date un'altra occhiata alla lista dei servizi offerti da questa proprietà in particolare per confermare la loro disponibilità. "
+msgstr "Questo è l'orario in cui la vostra camera sarà pronta il giorno del vostro arrivo e l'orario in cui dovrete lasciare la camera nel giorno della vostra partenza. Molte strutture custodiranno il vostro bagaglio in uno spazio sicuro se arriverete presto oppure andrete via più tardi e questi spazi sono aperti 24 ore al giorno. Per favore date un'altra occhiata alla lista dei servizi offerti da questa struttura in particolare per confermare la loro disponibilità. "
 
-#: ../code/application/views/hb/hostel_view.php:913
+#: ../code/application/views/hb/hostel_view.php:912
 msgid "Check-in:"
 msgstr "Arrivo"
 
-#: ../code/application/views/hb/hostel_view.php:917
+#: ../code/application/views/hb/hostel_view.php:916
 msgid "Check-out:"
 msgstr "Partenza"
 
@@ -4731,7 +4739,7 @@ msgstr "Sistemazione in tutta "
 #: ../code/application/views/country_view.php:21
 #, php-format
 msgid "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, une chambre d'hôtes, un Bed and Breakfast B&B ou une Pension ? N’allez pas plus loin, tous les bons plans sont sur %s"
-msgstr "Ricerca di un Ostello, un Hostel, un Albergo, un appartamento, una stanza, un Bed and Breakfast o una Pensione ? Non cercate altrove, le migliori soluzioni a basso costo sono su %s."
+msgstr "Ricerca di un Ostello, un Hostel, un Albergo, un appartamento, una camera, un Bed and Breakfast o una Pensione ? Non cercate altrove, le migliori soluzioni a basso costo sono su %s."
 
 #: ../code/application/views/continent_view.php:15
 #: ../code/application/views/country_view.php:22
@@ -4806,7 +4814,7 @@ msgstr "Visualizza tutte % strutture "
 #: ../code/application/views/helpfile/pofields.php~:15
 #: ../code/application/views/helpfile/pofields.php:15
 msgid "Nb Rooms"
-msgstr "Numero di Stanze"
+msgstr "Numero di camere"
 
 #: ../code/application/views/helpfile/pofields.php~:16
 #: ../code/application/views/helpfile/pofields.php:16
@@ -4986,7 +4994,7 @@ msgstr "Vi invitiamo a contattarci su %s per ricevere i vostri minuti gratis su 
 
 #: ../code/application/views/helpfile/pofields.php~:53
 #: ../code/application/views/helpfile/pofields.php:53
-#: ../code/application/views/email/share_page-html.php:59
+#: ../code/application/views/email/share_page-html.php:65
 #: ../code/application/views/email/share_page-txt.php:23
 msgid "Thank you"
 msgstr "Grazie"
@@ -5592,25 +5600,25 @@ msgstr "Servizio Clienti"
 #: ../code/application/views/helpfile/pofields.php:166
 #, php-format
 msgid "Price per person (Dorm shared with others)"
-msgstr "Prezzo per persona (In stanza condivisa con altre persone)"
+msgstr "Prezzo per persona (In camera condivisa con altre persone)"
 
 #: ../code/application/views/helpfile/pofields.php~:169
 #: ../code/application/views/helpfile/pofields.php:169
 #, php-format
 msgid "You must pay for the whole private room, even if you do not need all the beds. The room can not be shared."
-msgstr "Dovrete pagare la tariffa intera per la stanza anche se non utilizzerete tutti I letti. La stanza non può essere condivisa"
+msgstr "Dovrete pagare la tariffa intera per la camera anche se non utilizzerete tutti I letti. La camera non può essere condivisa"
 
 #: ../code/application/views/helpfile/pofields.php~:170
 #: ../code/application/views/helpfile/pofields.php:170
 #, php-format
 msgid "Private room Double bed = 1 bed for 2 people in 1 private room"
-msgstr "Stanza privata con letto doppio = 1 letto per 2 persone in una stanza privata"
+msgstr "Camera privata con letto doppio = 1 letto per 2 persone in una camera privata"
 
 #: ../code/application/views/helpfile/pofields.php~:171
 #: ../code/application/views/helpfile/pofields.php:171
 #, php-format
 msgid "Private room 2 beds = 2 single beds in 1 private room"
-msgstr "Stanza privata con 2 letti = 2 letti singoli in 1 stanza privata"
+msgstr "Camera privata con 2 letti = 2 letti singoli in 1 camera privata"
 
 #: ../code/application/views/helpfile/pofields.php~:172
 #: ../code/application/views/helpfile/pofields.php:172
@@ -5708,9 +5716,9 @@ msgstr "Versione per smartphone"
 
 #: ../code/application/views/helpfile/pofields.php~:190
 #: ../code/application/views/helpfile/pofields.php:190
-#: ../code/application/libraries/Hw_engine.php:766
-#: ../code/application/libraries/Hw_engine.php:1337
-#: ../code/application/libraries/Hb_engine.php:769
+#: ../code/application/libraries/Hw_engine.php:758
+#: ../code/application/libraries/Hw_engine.php:1329
+#: ../code/application/libraries/Hb_engine.php:761
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -5755,7 +5763,7 @@ msgstr "Non avetei bisogno di una sottoscrizione annuale o di diventare membro p
 
 #: ../code/application/views/helpfile/pofields.php~:198
 #: ../code/application/views/helpfile/pofields.php:198
-#: ../code/application/libraries/Hw_engine.php:1336
+#: ../code/application/libraries/Hw_engine.php:1328
 #, php-format
 msgid "Property availability error"
 msgstr "Errore nella disponibilità della struttura"
@@ -5763,7 +5771,7 @@ msgstr "Errore nella disponibilità della struttura"
 #: ../code/application/views/helpfile/pofields.php~:199
 #: ../code/application/views/helpfile/pofields.php:199
 #: ../code/application/libraries/Hb_engine.php:456
-#: ../code/application/libraries/Hb_engine.php:920
+#: ../code/application/libraries/Hb_engine.php:912
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "Dati non disponibili, vi invitiamo a riprovare"
@@ -5771,17 +5779,17 @@ msgstr "Dati non disponibili, vi invitiamo a riprovare"
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/views/helpfile/pofields.php:200
 #: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1160
+#: ../code/application/libraries/Hb_engine.php:1152
 #, php-format
 msgid "No rooms available for the selected nights."
-msgstr "Siamo spiacenti, non vi sono stanze disponibili per le notti selezionate"
+msgstr "Siamo spiacenti, non vi sono camere disponibili per le notti selezionate"
 
 #: ../code/application/views/helpfile/pofields.php~:201
 #: ../code/application/views/helpfile/pofields.php:201
 #: ../code/application/controllers/chostelbk.php:366
 #, php-format
 msgid "No rooms available for this property."
-msgstr "Siamo spiacenti, non vi sono stanze disponibili in questa struttura"
+msgstr "Siamo spiacenti, non vi sono camere disponibili in questa struttura"
 
 #: ../code/application/views/helpfile/pofields.php~:202
 #: ../code/application/views/helpfile/pofields.php:202
@@ -6033,7 +6041,7 @@ msgstr "Questa struttura non dispone di dormitori."
 #: ../code/application/views/helpfile/pofields.php:261
 #, php-format
 msgid "This property does not offer any private rooms."
-msgstr "Questa struttura non offre stanze private."
+msgstr "Questa struttura non offre camere private."
 
 #: ../code/application/views/helpfile/pofields.php~:269
 #: ../code/application/views/helpfile/pofields.php:269
@@ -6375,7 +6383,7 @@ msgstr "Cucina Comune"
 #: ../code/application/views/helpfile/pofields.php:332
 #, php-format
 msgid "Television room"
-msgstr "Stanza con Televisione"
+msgstr "Camera con Televisione"
 
 #: ../code/application/views/helpfile/pofields.php~:333
 #: ../code/application/views/helpfile/pofields.php:333
@@ -6393,7 +6401,7 @@ msgstr "Fotocopie"
 #: ../code/application/views/helpfile/pofields.php:335
 #, php-format
 msgid "Steam room"
-msgstr "Stanza Vapore"
+msgstr "Sauna"
 
 #: ../code/application/views/helpfile/pofields.php~:336
 #: ../code/application/views/helpfile/pofields.php:336
@@ -6591,7 +6599,7 @@ msgstr "Servizio Informazioni Viaggi"
 #: ../code/application/views/helpfile/pofields.php:370
 #, php-format
 msgid "Common Room"
-msgstr "Stanza Comune"
+msgstr "Camera Comune"
 
 #: ../code/application/views/helpfile/pofields.php~:371
 #: ../code/application/views/helpfile/pofields.php:371
@@ -6729,7 +6737,7 @@ msgstr "Servizio di Custodia Bambini"
 #: ../code/application/views/helpfile/pofields.php:393
 #, php-format
 msgid "Smoking Rooms"
-msgstr "Stanze per Fumatori"
+msgstr "Camere per Fumatori"
 
 #: ../code/application/views/helpfile/pofields.php~:394
 #: ../code/application/views/helpfile/pofields.php:394
@@ -6870,7 +6878,7 @@ msgstr "Eccezionale"
 #: ../code/application/views/helpfile/pofields.php:420
 #, php-format
 msgid "Please enter the traveller information (the traveller and the person paying for this booking can be different). Only 1 traveller required if you are 2 or more. You can use the email confirmation to request a Visa  at your closest consulate."
-msgstr "Si prega di inserire le informazioni del viaggiatore (il viaggiatore e la persona che paga per questa prenotazione possono essere diverse). Solo 1 viaggiatore è necessario se siete in 2 o più. È possibile utilizzare la mail di conferma per richiedere un visto presso il consolato più vicino."
+msgstr "Si prega di inserire le informazioni del viaggiatore (il viaggiatore e la persona che paga per questa prenotazione possono essere diverse). Solo 1 viaggiatore è necessario se siete in 2 o più. È possibile utilizzare la email di conferma per richiedere un visto presso il consolato più vicino."
 
 #: ../code/application/views/helpfile/pofields.php~:421
 #: ../code/application/views/helpfile/pofields.php:421
@@ -6900,7 +6908,7 @@ msgstr "Nessun costo di prenotazione. Ottenete i prezzi migliori"
 #: ../code/application/views/helpfile/pofields.php:425
 #, php-format
 msgid "Best Price Guarantee. Found the same room at a lower price? We'll match it."
-msgstr "Il miglior prezzo Garantito. Se trovate una stanza a prezzo migliore noi siamo disposti a farvi lo stesso prezzo."
+msgstr "Il miglior prezzo Garantito. Se trovate una camera a prezzo migliore noi siamo disposti a farvi lo stesso prezzo."
 
 #: ../code/application/views/helpfile/pofields.php~:426
 #: ../code/application/views/helpfile/pofields.php:426
@@ -6930,13 +6938,13 @@ msgstr "Numero massimo di persone in questa camera"
 #: ../code/application/views/helpfile/pofields.php:430
 #, php-format
 msgid "Available beds for the selected dates. Price per person (not per room). 1 person per bed maximum."
-msgstr "Letti disponibili per le date selezionate. Prezzi per persona (non per stanza) 1 Persona per ogni letto"
+msgstr "Letti disponibili per le date selezionate. Prezzi per persona (non per camera) 1 Persona per ogni letto"
 
 #: ../code/application/views/helpfile/pofields.php~:431
 #: ../code/application/views/helpfile/pofields.php:431
 #, php-format
 msgid "Available rooms for the selected dates. Price per room (not per person)."
-msgstr "Stanze disponibili per le date selezionate. Prezzi per stanza (non per persona)"
+msgstr "Camere disponibili per le date selezionate. Prezzi per camera (non per persona)"
 
 #: ../code/application/views/helpfile/pofields.php~:433
 #: ../code/application/views/helpfile/pofields.php:433
@@ -7116,7 +7124,7 @@ msgstr "Numero di Letti"
 #: ../code/application/views/helpfile/pofields.php:506
 #, php-format
 msgid "No. Rooms"
-msgstr "Numero di Stanze"
+msgstr "Numero di camere"
 
 #: ../code/application/views/helpfile/pofields.php~:507
 #: ../code/application/views/helpfile/pofields.php:507
@@ -7128,7 +7136,7 @@ msgstr "Numero di letti disponibili"
 #: ../code/application/views/helpfile/pofields.php:508
 #, php-format
 msgid "No. Rooms available"
-msgstr "Numero di Stanze disponibili"
+msgstr "Numero di camere disponibili"
 
 #: ../code/application/views/helpfile/pofields.php~:509
 #: ../code/application/views/helpfile/pofields.php:509
@@ -7243,7 +7251,7 @@ msgstr "Seleziona il numero di letti"
 #: ../code/application/views/helpfile/pofields.php:527
 #, php-format
 msgid "Select number of rooms"
-msgstr "seleziona il numero di stanze"
+msgstr "seleziona il numero di camere"
 
 #: ../code/application/views/helpfile/pofields.php~:531
 #: ../code/application/views/helpfile/pofields.php:531
@@ -7375,7 +7383,7 @@ msgstr "Solo con accesso a Internet"
 #: ../code/application/views/helpfile/pofields.php:559
 #, php-format
 msgid "Private rooms"
-msgstr "Stanze private"
+msgstr "Camere private"
 
 #: ../code/application/views/helpfile/pofields.php~:560
 #: ../code/application/views/helpfile/pofields.php:560
@@ -7640,7 +7648,7 @@ msgstr "Le modifiche sono state salvate con successo"
 #: ../code/application/views/helpfile/pofields.php:609
 #, php-format
 msgid "Next available property"
-msgstr "Prossima proprietà disponibile"
+msgstr "Prossima strutture disponibile"
 
 #: ../code/application/views/helpfile/pofields.php~:610
 #: ../code/application/views/helpfile/pofields.php:610
@@ -7736,7 +7744,7 @@ msgstr " di "
 #: ../code/application/views/helpfile/pofields.php:628
 #, php-format
 msgid "Please see selected properties to compare on top of the page."
-msgstr "Per favore vedere le proprietà selezionate per la comparazione in alto nella pagina."
+msgstr "Per favore vedere le strutture selezionate per la comparazione in alto nella pagina."
 
 #: ../code/application/views/helpfile/pofields.php~:646
 #: ../code/application/views/helpfile/pofields.php:646
@@ -7748,19 +7756,19 @@ msgstr "Risultato"
 #: ../code/application/views/helpfile/pofields.php:647
 #, php-format
 msgid "Only 5 properties can be compared"
-msgstr "Solamente 5 proprietà possono essere comparate"
+msgstr "Solamente 5 strutture possono essere comparate"
 
 #: ../code/application/views/helpfile/pofields.php~:648
 #: ../code/application/views/helpfile/pofields.php:648
 #, php-format
 msgid "Please remove a property from list."
-msgstr "Per favore rimuovere una proprietà dalla lista."
+msgstr "Per favore rimuovere una struttura dalla lista."
 
 #: ../code/application/views/helpfile/pofields.php~:651
 #: ../code/application/views/helpfile/pofields.php:651
 #, php-format
 msgid "Please see selected properties to compare on top of this page."
-msgstr "Per favore vedere le proprietà selezionate per la comparazione in alto nella pagina."
+msgstr "Per favore vedere le strutture selezionate per la comparazione in alto nella pagina."
 
 #: ../code/application/views/helpfile/pofields.php~:652
 #: ../code/application/views/helpfile/pofields.php:652
@@ -7837,13 +7845,13 @@ msgstr "Si, voglio iscrivermi alla newsletter."
 #: ../code/application/views/helpfile/pofields.php:685
 #, php-format
 msgid "Want to send a PDF copy of this page or quote by email?"
-msgstr "Vuoi mandare una copia PDF di questa pagina oppure un preventivo via email?"
+msgstr "Vuoi inviare una copia PDF di questa pagina oppure un preventivo via email?"
 
 #: ../code/application/views/helpfile/pofields.php~:686
 #: ../code/application/views/helpfile/pofields.php:686
 #, php-format
 msgid "Send PDF"
-msgstr "Manda PDF"
+msgstr "Invia PDF"
 
 #: ../code/application/views/helpfile/pofields.php~:688
 #: ../code/application/views/helpfile/pofields.php:688
@@ -7877,7 +7885,7 @@ msgstr "%s ti ha mandato un messaggio:"
 
 #: ../code/application/views/helpfile/pofields.php~:696
 #: ../code/application/views/helpfile/pofields.php:696
-#: ../code/application/views/email/share_page-html.php:39
+#: ../code/application/views/email/share_page-html.php:45
 #: ../code/application/views/email/share_page-txt.php:5
 #, php-format
 msgid "Here is the link to see the prices, description, maps and much more:"
@@ -7893,7 +7901,7 @@ msgstr "Prezzo per %d notti per persona"
 #: ../code/application/views/helpfile/pofields.php:715
 #, php-format
 msgid "%d guests in %d Bedrooms ( 1 guest in each room)."
-msgstr "%d ospiti in %d Camere (1 ospite in ogni camera)."
+msgstr "%d ospiti in %d Camere (1 ospite per camera)."
 
 #: ../code/application/views/helpfile/pofields.php~:737
 #: ../code/application/views/helpfile/pofields.php:737
@@ -7912,7 +7920,7 @@ msgstr "Informazioni importanti"
 #: ../code/application/views/restricted/user_favorite_properties.php:24
 #, php-format
 msgid "Property name"
-msgstr "Nome della proprietà"
+msgstr "Nome della struttura"
 
 #: ../code/application/views/helpfile/pofields.php~:747
 #: ../code/application/views/helpfile/pofields.php:747
@@ -7924,13 +7932,13 @@ msgstr "Indirizzo"
 #: ../code/application/views/helpfile/pofields.php:753
 #, php-format
 msgid "The lowest price per person per night in a dorm in this property:"
-msgstr "Il prezzo più basso per persona per notte in un dormitorio in questa proprietà:"
+msgstr "Il prezzo più basso per persona per notte in un dormitorio in questa struttura:"
 
 #: ../code/application/views/helpfile/pofields.php~:754
 #: ../code/application/views/helpfile/pofields.php:754
 #, php-format
 msgid "The lowest price per person per night in a private room at this property:"
-msgstr "Il prezzo più basso per persona per notte in una camera privata in questa proprietà:"
+msgstr "Il prezzo più basso per persona per notte in una camera privata in questa struttura:"
 
 #: ../code/application/views/helpfile/pofields.php~:755
 #: ../code/application/views/helpfile/pofields.php:755
@@ -7955,7 +7963,7 @@ msgstr "Si prega di selezionare il numero di membri di sesso maschile, femminile
 #: ../code/application/views/helpfile/pofields.php:763
 #, php-format
 msgid "%d Bed Private Shared Bathroom"
-msgstr "Stanza privata per %d persone con bagno in comune"
+msgstr "Camera privata per %d persone con bagno in comune"
 
 #: ../code/application/views/helpfile/pofields.php~:765
 #: ../code/application/views/helpfile/pofields.php:765
@@ -8057,7 +8065,7 @@ msgstr "Importo da pagare all'arrivo:"
 #: ../code/application/views/helpfile/pofields.php:794
 #, php-format
 msgid "Amount to be paid when you arrive at the property"
-msgstr "Importo da pagare appena arrivati presso la proprietà"
+msgstr "Importo da pagare appena arrivati presso la struttura"
 
 #: ../code/application/views/helpfile/pofields.php~:795
 #: ../code/application/views/helpfile/pofields.php:795
@@ -8089,7 +8097,7 @@ msgstr "Il deposito non è rimborsabile nè trasferibile"
 #: ../code/application/views/helpfile/pofields.php:799
 #, php-format
 msgid "You only pay the deposit to confirm and secure your reservation now. The remaining amount is payable upon arrival. You will find the property's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Adesso pagate il deposito solamente per confermare e garantire la vostra prenotazione. L'importo rimanente potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della proprietà (email, indirizzo, numero telefonico…) nella vostra email di conferma una volta effettuata la prenotazione. "
+msgstr "Adesso pagate il deposito solamente per confermare e garantire la vostra prenotazione. L'importo rimanente potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della struttura (email, indirizzo, numero telefonico…) nella vostra email di conferma una volta effettuata la prenotazione. "
 
 #: ../code/application/views/helpfile/pofields.php~:800
 #: ../code/application/views/helpfile/pofields.php~:834
@@ -8098,7 +8106,7 @@ msgstr "Adesso pagate il deposito solamente per confermare e garantire la vostra
 #: ../code/application/views/auth/register_form.php:217
 #, php-format
 msgid "By clicking \"Create Account\" you confirm that you accept the Terms of Service and Privacy Policy."
-msgstr "Cliccando su \"Crea profilo\" confermi di accettare le Condizioni d'uso e l'Informativa sulla Privacy.  "
+msgstr "Cliccando su \"Registratevi\" confermi di accettare le Condizioni d'uso e l'Informativa sulla Privacy.  "
 
 #: ../code/application/views/helpfile/pofields.php~:801
 #: ../code/application/views/helpfile/pofields.php~:835
@@ -8133,13 +8141,13 @@ msgstr "Aggiorna Note"
 #: ../code/application/views/helpfile/pofields.php:811
 #, php-format
 msgid "List of favorite properties"
-msgstr "Lista delle proprietà preferite"
+msgstr "Lista delle strutture preferite"
 
 #: ../code/application/views/helpfile/pofields.php~:812
 #: ../code/application/views/helpfile/pofields.php:812
 #, php-format
 msgid "My short notes about the property"
-msgstr "Le mie note brevi sulla proprietà"
+msgstr "Le mie note brevi sulla struttura"
 
 #: ../code/application/views/helpfile/pofields.php~:817
 #: ../code/application/views/helpfile/pofields.php:817
@@ -8153,7 +8161,7 @@ msgstr "Profilo creato"
 #: ../code/application/views/auth/login_form.php:66
 #, php-format
 msgid "To save a property as a favorite, you must be login to your account."
-msgstr "Per salvare una proprietà come preferita, devi loggarti nel tuo profilo."
+msgstr "Per salvare una struttura come preferita, devi loggarti nel tuo profilo."
 
 #: ../code/application/views/helpfile/pofields.php~:819
 #: ../code/application/views/helpfile/pofields.php:819
@@ -8161,7 +8169,7 @@ msgstr "Per salvare una proprietà come preferita, devi loggarti nel tuo profilo
 #: ../code/application/views/auth/login_form.php:170
 #, php-format
 msgid "By creating an account you will be able to save properties as favorites, get access to your bookings and ratings, and many more benefits."
-msgstr "Creando un profilo potrai salvare le proprietà come preferite, avere accesso alle tue prenotazioni e valutazioni, e tanti altri vantaggi."
+msgstr "Creando un profilo potrai salvare le strutture come preferite, avere accesso alle tue prenotazioni e valutazioni, e tanti altri vantaggi."
 
 #: ../code/application/views/helpfile/pofields.php~:820
 #: ../code/application/views/helpfile/pofields.php:820
@@ -8173,13 +8181,13 @@ msgstr "Per favore inserisci il tuo indirizzo email e ti manderemo una password.
 #: ../code/application/views/helpfile/pofields.php:821
 #, php-format
 msgid "Saved favorite properties"
-msgstr "Proprietà preferite salvate"
+msgstr "Strutture preferite salvate"
 
 #: ../code/application/views/helpfile/pofields.php~:823
 #: ../code/application/views/helpfile/pofields.php:823
 #, php-format
 msgid "You only pay the deposit (%d%% of total amount) to confirm and secure your reservation now. The remaining amount (%d%%) is payable upon arrival. You will find the property's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."
-msgstr "Adesso pagate il deposito (il %d%% dell'intero importo) solamente per confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della proprietà (email, indirizzo, numero telefonico...) nella vostra email di conferma una volta effettuata la prenotazione."
+msgstr "Adesso pagate il deposito (il %d%% dell'intero importo) solamente per confermare e garantire la vostra prenotazione. L'importo rimanente (%d%%) potete pagarlo al vostro arrivo. Troverete tutte le informazioni di contatto della struttura (email, indirizzo, numero telefonico...) nella vostra email di conferma una volta effettuata la prenotazione."
 
 #: ../code/application/views/helpfile/pofields.php~:831
 #: ../code/application/views/helpfile/pofields.php:831
@@ -8219,7 +8227,7 @@ msgstr "Nascondi i tipi di camera"
 #: ../code/application/controllers/cmain.php:2465
 #, php-format
 msgid "We are sorry but the maximum number of favorite properties you can save to your account is 30"
-msgstr "Siamo spiacenti ma il numero massimo di proprietà preferite che può salvare sul suo profilo è 30"
+msgstr "Siamo spiacenti ma il numero massimo di strutture preferite che può salvare sul suo profilo è 30"
 
 #: ../code/application/views/helpfile/pofields.php~:840
 #: ../code/application/views/helpfile/pofields.php:840
@@ -8275,152 +8283,185 @@ msgstr "Dormitorio famminile con %d letti e bagno in comune"
 msgid "Hostels only"
 msgstr "Solo ostelli"
 
+#: ../code/application/views/helpfile/pofields.php~:862
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
 msgid "Customers can easily cancel their reservation free of charge up to %d Days before arrival. Deposits paid are non refundable."
 msgstr "I clienti possono facilmente cancellare la loro prenotazione senza alcuna penale fino a %d giorni prima dell'arrivo. I depositi pagati non sono rimborsabili."
 
+#: ../code/application/views/helpfile/pofields.php~:863
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
 msgid "Customers can easily cancel their reservation free of charge up to 1 Day before arrival. Deposits paid are non refundable."
 msgstr "I clienti possono facilmente cancellare la loro prenotazione senza alcuna penale fino a un giorno prima dell'arrivo. I depositi pagati non sono rimborsabili."
 
+#: ../code/application/views/helpfile/pofields.php~:864
 #: ../code/application/views/helpfile/pofields.php:864
 #: ../code/application/views/restricted/user_favorite_properties.php:35
 #, php-format
 msgid "No properties were saved."
-msgstr "Nessuna proprietà è stata salvata."
+msgstr "Nessuna struttura è stata salvata."
 
+#: ../code/application/views/helpfile/pofields.php~:865
 #: ../code/application/views/helpfile/pofields.php:865
 #: ../code/application/views/restricted/user_view.php:6
 #, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
-msgstr "Il mio conto"
+msgstr "Il mio account"
 
+#: ../code/application/views/helpfile/pofields.php~:866
 #: ../code/application/views/helpfile/pofields.php:866
 #, php-format
 msgid "Please read carefully"
 msgstr "Per favore leggere attentamente"
 
+#: ../code/application/views/helpfile/pofields.php~:867
 #: ../code/application/views/helpfile/pofields.php:867
 #, php-format
 msgid "I agree"
 msgstr "Accetto"
 
+#: ../code/application/views/helpfile/pofields.php~:868
 #: ../code/application/views/helpfile/pofields.php:868
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr "Non accetto e selezionerò un'altra proprietà"
+msgstr "Non accetto e selezionerò un'altra struttura"
 
+#: ../code/application/views/helpfile/pofields.php~:869
 #: ../code/application/views/helpfile/pofields.php:869
 #, php-format
 msgid "Benefits of booking fee ?"
 msgstr "Benefici delle spese di prenotazione ?"
 
+#: ../code/application/views/helpfile/pofields.php~:870
 #: ../code/application/views/helpfile/pofields.php:870
 #, php-format
 msgid "Local customer service you can trust in your language available 24 hours a day"
 msgstr "Assistenza clienti locale e affidabile nella vostra lingua disponibile 24 ore al giorno"
 
+#: ../code/application/views/helpfile/pofields.php~:871
 #: ../code/application/views/helpfile/pofields.php:871
 #, php-format
 msgid "Secured payment: your credit card is protected"
 msgstr "Pagamento sicuro: la vostra carta di credito è protetta"
 
+#: ../code/application/views/helpfile/pofields.php~:872
 #: ../code/application/views/helpfile/pofields.php:872
 #, php-format
 msgid "No spam emails after you have booked and your information will stay private"
 msgstr "Nessuna email di spam in seguito alla vostra prenotazione e le vostre informazioni rimarrannno private"
 
+#: ../code/application/views/helpfile/pofields.php~:873
 #: ../code/application/views/helpfile/pofields.php:873
 #, php-format
 msgid "You have access to millions of real reviews from travellers like you"
 msgstr "Avete accesso a milioni di vere recensioni da parte di viaggiatori come voi"
 
+#: ../code/application/views/helpfile/pofields.php~:874
 #: ../code/application/views/helpfile/pofields.php:874
 #, php-format
 msgid "And finally, you get the best price!"
 msgstr "E infine, ottenete il miglior prezzo!"
 
+#: ../code/application/views/helpfile/pofields.php~:875
 #: ../code/application/views/helpfile/pofields.php:875
 #, php-format
 msgid "Best price guarantee"
 msgstr "Miglior prezzo garantito"
 
+#: ../code/application/views/helpfile/pofields.php~:876
 #: ../code/application/views/helpfile/pofields.php:876
 #, php-format
 msgid "Free breakfast only"
 msgstr "Solo colazione gratuita"
 
+#: ../code/application/views/helpfile/pofields.php~:877
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
 msgstr "Cliccate qui per prenotare"
 
+#: ../code/application/views/helpfile/pofields.php~:878
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
 msgstr "1 milione di recensioni"
 
+#: ../code/application/views/helpfile/pofields.php~:879
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
 msgid "You can compare pricing, services and location on the map for up to 5 properties"
-msgstr "Potete confrontare prezzi, servizi e posizione  sulla mappa fino a 5 proprietà"
+msgstr "Potete confrontare prezzi, servizi e posizione  sulla mappa fino a 5 strutture"
 
+#: ../code/application/views/helpfile/pofields.php~:880
 #: ../code/application/views/helpfile/pofields.php:880
 #, php-format
 msgid "Please click here to compare"
 msgstr "Per favore cliccate qui per confrontare"
 
+#: ../code/application/views/helpfile/pofields.php~:881
 #: ../code/application/views/helpfile/pofields.php:881
 #, php-format
 msgid "Click here to select this property"
-msgstr "Cliccate qui per selezionare questa proprietà"
+msgstr "Cliccate qui per selezionare questa struttura"
 
+#: ../code/application/views/helpfile/pofields.php~:882
 #: ../code/application/views/helpfile/pofields.php:882
 #, php-format
 msgid "Lowest price for a bed in a dorm at this property for the selected dates"
-msgstr "Prezzo più basso per un letto in un dormitorio in questa proprietà per le date selezionate"
+msgstr "Prezzo più basso per un letto in un dormitorio in questa struttura per le date selezionate"
 
+#: ../code/application/views/helpfile/pofields.php~:883
 #: ../code/application/views/helpfile/pofields.php:883
 #, php-format
 msgid "Lowest price per person in a private room at this property for the selected dates"
-msgstr "Prezzo più basso a persona in una stanza privata in questa proprietà per le date selezionate"
+msgstr "Prezzo più basso a persona in una camera privata in questa struttura per le date selezionate"
 
+#: ../code/application/views/helpfile/pofields.php~:884
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
 msgid "Click here to see pricing for each type of room and the maximum number of available beds in each room"
-msgstr "Cliccate qui per vedere i prezzi per ogni tipo di stanza e il numero massimo di letti disponibili per stanza"
+msgstr "Cliccate qui per vedere i prezzi per ogni tipo di camera e il numero massimo di letti disponibili per camera"
 
+#: ../code/application/views/helpfile/pofields.php~:885
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
-msgstr "Potete filtrare i risultati secondo il loro quartiere specifico"
+msgstr "Potete filtrare i risultati secondo una zona specifica"
 
+#: ../code/application/views/helpfile/pofields.php~:886
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
 msgid "You can filter the results based how close there are to specific landmarks, train stations and airports"
 msgstr "Potete filtrare i risultati secondo la loro vicinanza a specifici luoghi storici, stazioni ferroviarie e aeroporti"
 
+#: ../code/application/views/helpfile/pofields.php~:887
 #: ../code/application/views/helpfile/pofields.php:887
 #, php-format
 msgid "Click here to view pricing for this property"
-msgstr "Cliccate qui per vedere i prezzi per questa proprietà"
+msgstr "Cliccate qui per vedere i prezzi di questa struttura"
 
+#: ../code/application/views/helpfile/pofields.php~:889
 #: ../code/application/views/helpfile/pofields.php:889
 #, php-format
 msgid "The benefits"
-msgstr ""
+msgstr "I vantaggi"
 
-#: ../code/application/views/helpfile/pofields.php:890
-#, php-format
-msgid "Click here to see info and prices"
-msgstr "Cliccate qui per vedere i prezzi per questa proprietà"
-
+#: ../code/application/views/helpfile/pofields.php~:891
 #: ../code/application/views/helpfile/pofields.php:891
 #, php-format
 msgid "Save this property as favorite"
-msgstr "Salva questa proprietà come preferita"
+msgstr "Salva questa struttura come preferita"
+
+#: ../code/application/views/helpfile/pofields.php:892
+#, php-format
+msgid "Filter by Landmarks, train stations, airports..."
+msgstr "Filtra per Punti d'interesse, stazioni, aeroporti…"
+
+#: ../code/application/views/helpfile/pofields.php:893
+#, php-format
+msgid "Expand the map"
+msgstr "Espandi la Mappa"
 
 #: ../code/application/views/review_empty.php:2
 #: ../code/application/views/review_empty-map.php:7
@@ -8514,7 +8555,7 @@ msgstr "Qual'è il vostro budget?"
 
 #: ../code/application/views/restricted/user_group_quote.php:130
 msgid "Are the dates and number of people confirmed or will they change?"
-msgstr "Le date e il numero di persone sono confermate o potranno subire dei cambiamenti?"
+msgstr "Le date e il numero di ospiti sono confermate o potranno subire dei cambiamenti?"
 
 #: ../code/application/views/restricted/user_group_quote.php:137
 #, php-format
@@ -8611,7 +8652,7 @@ msgstr "Città"
 msgid "Retour à tous les pays d'"
 msgstr "Ritorna a tutti i paesi "
 
-#: ../code/application/views/email/share_page-html.php:35
+#: ../code/application/views/email/share_page-html.php:41
 #: ../code/application/views/email/share_page-txt.php:1
 #, php-format
 msgid "%s has sent you a message:"
@@ -8698,7 +8739,7 @@ msgstr "(Convalidato %s)"
 
 #: ../code/application/views/email/new_transaction_hb.php:131
 msgid "Nb. Personne"
-msgstr "Numero di persone"
+msgstr "Numero di ospiti"
 
 #: ../code/application/views/email/new_transaction_hb.php:267
 #: ../code/application/views/email/new_transaction.php:548
@@ -8847,7 +8888,7 @@ msgstr "Persone "
 #: ../code/application/views/email/admin/new_group_request.php:33
 #: ../code/application/views/group_request.php:182
 msgid "Room type requested"
-msgstr "Tipo di stanza e numero di ospiti "
+msgstr "Tipo di camera e numero di ospiti "
 
 #: ../code/application/views/email/admin/new_group_request.php:35
 #: ../code/application/views/group_request.php:198
@@ -8944,7 +8985,7 @@ msgstr "Seleziona"
 
 #: ../code/application/views/group_request.php:185
 msgid "Single rooms"
-msgstr "Stanze per Fumatori "
+msgstr "Camera singola"
 
 #: ../code/application/views/group_request.php:186
 msgid "Twin rooms"
@@ -8952,11 +8993,11 @@ msgstr "Camera doppia"
 
 #: ../code/application/views/group_request.php:187
 msgid "Double rooms"
-msgstr "Numero di Stanze "
+msgstr "Numero di camere "
 
 #: ../code/application/views/group_request.php:188
 msgid "Triple rooms"
-msgstr "Stanze private "
+msgstr "Camere tripla "
 
 #: ../code/application/views/group_request.php:189
 msgid "In the dormss with the group"
@@ -9151,18 +9192,18 @@ msgstr "Data di prenotazione incompleta"
 #: ../code/application/controllers/chostel.php:356
 #: ../code/application/controllers/chostelbk.php:299
 #: ../code/application/controllers/chostelbk.php:353
-#: ../code/application/libraries/Hw_engine.php:1733
+#: ../code/application/libraries/Hw_engine.php:1725
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "Server non disponibile. Si prega di riprovare più tardi."
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2066
+#: ../code/application/libraries/Hw_engine.php:2058
 msgid "Erreur lors de la réservation"
 msgstr "Errore nell'elaborazione della vostra prenotazione"
 
 #: ../code/application/controllers/chostel.php:767
 #: ../code/application/controllers/chostelbk.php:559
-#: ../code/application/libraries/Hw_engine.php:2076
+#: ../code/application/libraries/Hw_engine.php:2068
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "Server non disponibile al momento, Si prega di riprovare."
 
@@ -9233,15 +9274,15 @@ msgstr "Per favore accedere"
 
 #: ../code/application/controllers/cmain.php:2476
 msgid "Invalid property"
-msgstr "Proprietà non valida"
+msgstr "Struttura non valida"
 
 #: ../code/application/controllers/cmain.php:2514
 msgid "Property not found"
-msgstr "Proprietà non trovata"
+msgstr "Struttura non trovata"
 
 #: ../code/application/controllers/cmain.php:2523
 msgid "Property is favorite already"
-msgstr "La proprietà è già tra le preferite"
+msgstr "La struttura è già tra le preferite"
 
 #: ../code/application/controllers/cmain.php:2532
 msgid "Invalid number of nights"
@@ -9258,10 +9299,10 @@ msgstr "Le note sono superiori al massimo di %d caratteri"
 
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
-#: ../code/application/libraries/Hw_engine.php:589
+#: ../code/application/libraries/Hw_engine.php:581
 #: ../code/application/libraries/Hb_engine.php:168
 #: ../code/application/libraries/Hb_engine.php:194
-#: ../code/application/libraries/Hb_engine.php:592
+#: ../code/application/libraries/Hb_engine.php:584
 #, php-format
 msgid "Hostels in %s - %s"
 msgstr "Ostelli, Hostels e Alberghi - %s - %s"
@@ -9271,13 +9312,13 @@ msgstr "Ostelli, Hostels e Alberghi - %s - %s"
 msgid "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr "Data e numero delle notti non valida. Dati ignorati durante la ricerca."
 
-#: ../code/application/libraries/Hw_engine.php:1104
-#: ../code/application/libraries/Hb_engine.php:1114
+#: ../code/application/libraries/Hw_engine.php:1096
+#: ../code/application/libraries/Hb_engine.php:1106
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:2025
+#: ../code/application/libraries/Hw_engine.php:2017
 msgid "Card not supported please choose another card"
 msgstr "Tipo di Carta non supportato, si prega di utilizzare una carta diversa"
 
@@ -9439,6 +9480,9 @@ msgstr "Rimani connesso"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "Codice di conferma"
+
+#~ msgid "Close Map"
+#~ msgstr "Chiudi la Mappa"
 
 #~ msgid "Deposit to be paid now (%d)"
 #~ msgstr "Deposito da pagare adesso (%d)"

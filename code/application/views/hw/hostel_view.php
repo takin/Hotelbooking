@@ -26,13 +26,19 @@ echo form_hidden('switch_api', $switch_api);
         $bc_city = NULL;
     $this->load->view('includes/side_search_box', array('date_selected' => $date_selected, 'current_view' => $current_view, 'numnights_selected' => $numnights_selected, 'bc_continent' => $bc_continent, 'bc_country' => $bc_country, 'bc_city' => $bc_city));
     ?>
-    <?php if (isset($google_map_geo_latlng)) { ?>
+    <?php 
+    if (ISDEVELOPMENT) {
+        $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
+    } else {
+        $static_map_icon_base_url = base_url();
+    }
+    if (isset($google_map_geo_latlng)) { ?>
         <div class="box_content map_button_box box_round" id="map_button_side">
             <a id="city_map_show_hostel" href="javascript:void(0);" onclick="$('#show_full_map').trigger('click');
                                     $(document).scrollTop($('#show_full_map').offset().top);">
                 <span><strong><?php echo _("Voir la carte"); ?></strong></span>
                 <img class=""
-                     src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=<?php echo $google_map_geo_latlng; ?>"/>
+                     src="https://maps.google.com/maps/api/staticmap?center=<?php echo $google_map_geo_latlng; ?>&zoom=10&size=253x125&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2'); ?>&markers=icon:<?php echo $static_map_icon_base_url; ?>images/map_markers/selected/marker_selected_0.png%7C+<?php echo $google_map_geo_latlng; ?>"/>
             </a>
         </div>
     <?php } ?>
@@ -252,7 +258,8 @@ if ($api_error == false) {
             <div class="slideshow" id="slideshow">
                 <div class="slides">
                     <div class="main-pic">
-                        <?php foreach ($main_images as $image): ?>
+                        <?php foreach ($main_images as $image):
+				if (empty($print)) { ?>
                             <a class="openup" rel="<?php echo var_check($hostel->property_name, ""); ?>"
                                href="<?php echo var_check($image, "/test.jpg"); ?>"
                                alt="<?php echo $hostel->property_name; ?>">
@@ -261,7 +268,9 @@ if ($api_error == false) {
                                      alt="<?php echo $hostel->property_name; ?>"/>
                                 <img class="main" width="210" src="<?php echo $image; ?>"
                                      alt="<?php echo $hostel->property_name; ?>"/></a>
-                        <?php endforeach; ?>
+                        <?php } else { ?>
+				<img class="main" width="210" src="<?php echo $image; ?>"alt="<?php echo $hostel->property_name; ?>"/></a>  <?php 
+			} endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -798,8 +807,8 @@ if ($api_error == false) {
                             }
                             ?>
                             <input type="radio" id="landmarkAndDistrict" name="landmarkAndDistrict" <?php echo $checked; ?>
-                                   value="<?php echo $landmark->geo_latitude . "###" . $landmark->geo_longitude; ?>"
-                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "###" . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
+                                   value="<?php echo $landmark->geo_latitude . "," . $landmark->geo_longitude; ?>"
+                                   onchange="ClearlandmarkAndDistrict(); changeLandmarkLayer(<?php echo "'" . $landmark->geo_latitude . "," . $landmark->geo_longitude . "'"; ?>);"><?php echo $landmark->landmark_name; ?>
 
                         <?php }//end Foreach   ?>
                     </p>

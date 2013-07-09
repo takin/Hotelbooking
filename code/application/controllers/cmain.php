@@ -1318,7 +1318,7 @@ class CMain extends I18n_site {
 
             foreach ($data['landmarks'] as $i => $landmark) {
                 $data['landmarks'][$i]->original_name = $landmark->landmark_name;
-
+                
                 $translation = $this->db_translation_cache->get_translation($landmark->landmark_name, $this->site_lang);
 
                 if (!empty($translation)) {
@@ -1565,7 +1565,18 @@ class CMain extends I18n_site {
                 $property_type = $hostel['hostel']->property_type;
             }
 
+            $currency = get_cookie('currency_selected');
+            if ($currency) {
+                $commandCookies .= ' --cookie currency_selected ' . escapeshellarg($currency);
+            }
+
             $hostelurl = $this->Db_links->build_property_page_link($property_type, $property_name, $property_number, $this->site_lang);
+            // encode some parts because build_property_page_link doesn't do it
+            $parts = explode('/', $hostelurl);
+            $parts[3] = urlencode($parts[3]);
+            $parts[4] = urlencode($parts[4]);
+
+            $hostelurl = implode('/', $parts);
 
 //            $command = '/usr/bin/xvfb-run -a -s "-screen 0 640x480x16" /usr/bin/wkhtmltopdf --redirect-delay 10000 --quiet --ignore-load-errors -l ' . $authCommand  . '  ' . $commandCookies . ' ' . escapeshellarg(site_url("/{$property_type}/{$property_name}/{$property_number}{$append}") . '?print=pdf') . ' ' . escapeshellarg($pdf_path) . ' > /dev/null 2>&1';
 

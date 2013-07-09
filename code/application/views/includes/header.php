@@ -234,17 +234,17 @@ var landmark_cityMarkers = [];
 //        new google.maps.Point(0,0),
 //        new google.maps.Point(0, 29));
     
-    var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+    var image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 
-    var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
-            new google.maps.Size(43, 28),
-            new google.maps.Point(0,0),
-            new google.maps.Point(0, 28));
+      var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
+              new google.maps.Size(43, 28),
+              new google.maps.Point(0,0),
+              new google.maps.Point(0, 28));
 
-    var marker = new google.maps.Marker({
-        position: latlng,
-        map: map,
-        icon: image
+      var marker = new google.maps.Marker({
+          position: latlng,
+          map: map,
+          icon: image
 //        ,shadow: iconshadow
     });
 
@@ -260,15 +260,97 @@ var landmark_cityMarkers = [];
     <?php endif;?>
   window.setTimeout(function() { loadchanged_landmarkAndDistrict(); }, 2200);
 //  loadchanged_landmarkAndDistrict();
+// show featured landmark like train , city center and airport
+    show_featured_landmarks();
   }
+// show featured landmark like train , city center and airport
+function show_featured_landmarks(){
+        var city_landmarks = [];
+        
+        $('#ul_city_landmarks li').each(function(){
+                var landmark_id = $(this).find(".city_landmark_ids").html();
+                var landmark_type = $("#city_landmark_type_"+landmark_id).val();
+                var landmark_title = $("#city_landmark_title_" + landmark_id).html();
+                var latlng = null;
+                
+        if ( landmark_type === "train_station"
+            || landmark_type === "airport"
+            || landmark_title === "city_center") {
+        
+            latlng = $("#city_landmark_"+landmark_id).val();
+        }
 
+            if(landmark_title === "city_center"){
+                landmark_type = "city_center";
+            }
+
+        if (latlng !== null) {
+    
+            var point = latlng.split(",");
+            var lat = point[0];
+            var lng = point[1];
+
+            var newElement = {};
+            newElement['lat'] = lat;
+            newElement['lng'] = lng;
+            newElement['title'] = landmark_title;
+            newElement['type'] = landmark_type;
+
+            city_landmarks.push(newElement);
+        }
+   });
+
+        var lmarkers = [];
+        
+        for (var i in city_landmarks) {
+
+        var image = "";
+        if (city_landmarks[i].type === "train_station") {
+
+            image = {
+                url: 'http://' + window.location.host + '/images/map/train.png',
+                size: new google.maps.Size(25, 31),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(20, 25)
+            };
+        }
+        else if (city_landmarks[i].type === "city_center") {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/city_center.png',
+                size: new google.maps.Size(21, 21),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(21, 21)
+            };
+
+        }
+        else {
+            image = {
+                url: 'http://' + window.location.host + '/images/map/air-plane.png',
+                size: new google.maps.Size(28, 25),
+                origin: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(28, 25)
+            };
+        }
+
+        //Add marker to map
+        lmarkers[i] = new google.maps.Marker({
+            position: new google.maps.LatLng(city_landmarks[i].lat, city_landmarks[i].lng),
+            map: map,
+            title: city_landmarks[i].title,
+            icon: image
+        });
+
+        lmarkers[i].setZIndex(10000);
+
+     }
+}
         function loadchanged_landmarkAndDistrict(){
       // check if there is a district or landmark radio button and checked
         if($("input:radio[name='landmarkAndDistrict']:checked").length > 0){
 
             var LandmarkOrDistrictValue = $("input:radio[name='landmarkAndDistrict']:checked").val();
 
-                 if(LandmarkOrDistrictValue.indexOf("###") === -1){
+                 if(LandmarkOrDistrictValue.indexOf(",") === -1){
                      changeDistrictLayer(LandmarkOrDistrictValue);
                  }
                  else{
@@ -343,45 +425,97 @@ var landmark_cityMarkers = [];
         // clear any district
         map.overlayMapTypes.setAt(1, null);
         }
- function changeLandmarkLayer(landmark_LatLng){
+        
+  function changeLandmarkLayer (landmark_LatLng_type) {
 
-    var point = landmark_LatLng.split("###");
+    if (cityCircle !== null)
+    {
+        cityCircle.setMap(null);
+    }
+
+    if ($.isArray(landmark_LatLng_type)) {
+        // loop through districts um_ids
+        var counter;
+        for (counter = 0; counter < landmark_LatLng_type.length; ++counter) {
+            this.addLandmarkLayer(landmark_LatLng_type[counter]);
+        }
+    }
+    else {
+        this.addLandmarkLayer(landmark_LatLng_type);
+    }
+}
+
+ function addLandmarkLayer(landmark_LatLng_type){
+
+    var point = landmark_LatLng_type.latlng.split(",");
     var lat = point[0];
-    var Lng = point[1];
+    var lng = point[1];
+
+    var landmark_type = landmark_LatLng_type.type;
 
     var citymap = {
-    //  center: new google.maps.LatLng(53.477001,-2.230000)
-      center: new google.maps.LatLng( lat, Lng )
+        center: new google.maps.LatLng(lat, lng)
+    };
+//var circle_color  = "#4E89C9";
+    var circle_color = "#FF0000";
+
+    var LandmarkOptions = {
+        strokeColor: circle_color,
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+//      fillColor: "#FF0000",
+        fillColor: circle_color,
+        fillOpacity: 0.35,
+        map: map,
+        center: citymap.center,
+        radius: 2000
+    };
+    cityCircle = new google.maps.Circle(LandmarkOptions);
+
+    //landmark_marker_blue.png
+    image = {
+        url: 'http://' + window.location.host + '/images/map_landmark_marker_blue.png',
+        size: new google.maps.Size(28, 28),
+        origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(28, 28)
     };
 
-        var circle_color  = "#FF0000";
-        
-        var LandmarkOptions = {
-          strokeColor: "#4E89C9",
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-    //      fillColor: "#4E89C9",
-          fillColor: circle_color,
-          fillOpacity: 0.35,
-          map: map,
-          center: citymap.center,
-          radius:  2000
+    if (landmark_type === "train_station") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/train.png',
+            size: new google.maps.Size(25, 31),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(20, 25)
         };
-        cityCircle = new google.maps.Circle(LandmarkOptions);
+    }
+    else if (landmark_type === "city_center") {
+        
+          image = {
+            url: 'http://' + window.location.host + '/images/map/city_center.png',
+            size: new google.maps.Size(21, 21),
+            origin: new google.maps.Point(0, 0),
+            scaledSize: new google.maps.Size(21, 21)
+        };
+    }
+    else if (landmark_type === "airport") {
+        image = {
+            url: 'http://' + window.location.host + '/images/map/air-plane.png',
+            size: new google.maps.Size(28, 25),
+            origin: new google.maps.Point(0, 0),
+//                anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(28, 25)
+        };
+    }
 
-        //landmark_marker_blue.png
-        var image = new google.maps.MarkerImage("http://"+window.location.host+'/images/map_landmark_marker_blue.png',
-			        new google.maps.Size(28, 28),
-			        new google.maps.Point(0,0),
-			        new google.maps.Point(0, 29));
-                                
-	var gmarker = new google.maps.Marker({
-	        position: new google.maps.LatLng(lat, Lng), 
-	        map: map,
-	        icon: image	        
-	    }); 
+    var gmarker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng),
+        map: map,
+        icon: image
+    });
 
-	landmark_cityMarkers.push(gmarker);          
+    gmarker.setZIndex(15000);
+    landmark_cityMarkers.push(gmarker);
       }
 
   <?php if(isset($google_map_address)):?>
@@ -478,7 +612,8 @@ var landmark_cityMarkers = [];
 //	      new google.maps.Point(0,0),
 //	      new google.maps.Point(0, 29));
             
-        var image = "http://" + window.location.host + '/images/map_markers/unselected/marker_0.png';
+
+    var image = "http://" + window.location.host + '/images/map_markers/selected/marker_selected_0.png';
 
 	  var iconshadow = new google.maps.MarkerImage('<?php echo site_url('images/map-marker-shadow.png'); ?>',
 	          new google.maps.Size(43, 28),
@@ -889,6 +1024,23 @@ var landmark_cityMarkers = [];
 
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
+
+<?php if($current_view == "hostel_view"): ?>
+<script type="text/javascript">
+  window.name = 'Hostel View';
+</script>
+<?php else: ?>
+	<?php if($current_view == "city_view"): ?>
+		<script type="text/javascript">
+
+		</script>
+	<?php else: ?>
+		<script type="text/javascript">
+  			window.name = 'Other View';
+		</script>
+	<?php endif; ?>
+<?php endif; ?>
+
   <?php
 	$this->carabiner->display('jqueryui');
 	$this->carabiner->display('js');
@@ -990,7 +1142,7 @@ $(document).ready(function()
 
 <body class="auberges<?php if($current_view == "hostel_view"){echo ' view-hostel';}elseif($current_view == "city_view"){echo ' city-search';}if($this->api_used == HB_API){echo ' hb_frame';}?> lang-<?php echo $this->html_lang_code; ?>">
 <?php if($current_view == "city_view"){?>
-<div id="city_load">
+<div id="city_load" style="visibility:hidden;">
 	<p><img class="logo" src="<?php echo site_url(); ?>images/<?php echo $csspath;?>/logo.png" alt="<?php echo $this->wordpress->get_option('aj_api_name');?>"/></p>
 	<div class="box_content box_round group">
 		<?php if(isset($city_selected) && isset($country_selected)){?>
