@@ -1307,6 +1307,7 @@ PWebFilterApp.prototype.setup = function(data)
 	
 
 	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+	this.addFilterMap('expanded_city', 'expanded_city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
         this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
        
@@ -1438,8 +1439,26 @@ PWebFilterApp.prototype.setup = function(data)
 
         // check if this city has latitude and longitude to display the right side map
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
+        $("#city_map_expand_map").show();
         pweb_filter.toggleMap('city');
     }
+    
+     $('#city_map_expand_map').click(function()
+    {
+        pweb_filter.toggleMap('city');
+        pweb_filter.toggleMap('expanded_city');
+        $("#city_map_expand_map").hide();
+        return false;
+    });
+    
+     $('#city_map_close_expanded_map').click(function()
+    {
+        pweb_filter.toggleMap('city');
+        pweb_filter.toggleMap('expanded_city');
+        $("#city_map_expand_map").show();
+        return false;
+    });
+    
     
     $('#reset_filters').click(function()
     {

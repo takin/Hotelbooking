@@ -140,6 +140,11 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         }
 
 	if(isset($city_info->city_geo_lat)) { ?>
+                <div id="city_map_expand_map" class="box_content box_round group side_search">
+                    <a href="#">
+                            <?php echo _("Click here to expand map"); ?>
+                    </a>
+                </div>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 	<?php } ?>
 
