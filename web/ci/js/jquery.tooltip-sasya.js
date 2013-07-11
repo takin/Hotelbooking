@@ -24,7 +24,7 @@
 					smtCursorCoordsY:smtCursorCoordsY
 				});
 			}
-			$(".smt-current-element").live("mouseout mousedown click",function(){  
+			$(".smt-current-element").live("mouseout",function(){  
 				var $this=$(this);
 				clearTimeout(smtTooltip_delay);
 				smtTooltip.style_my_tooltips("hide",{
