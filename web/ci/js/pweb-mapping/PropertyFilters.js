@@ -120,6 +120,12 @@ PWebFilterApp.prototype.init = function() {
 							"type": jOrder.string
 						},
 						{
+							"row": "propertyNameUpper",
+							"grouped": true,
+							"ordered": true,
+							"type": jOrder.string
+						},
+						{
 							"row": "propertyType",
 							"grouped": true,
 							"ordered": true,
@@ -167,7 +173,7 @@ PWebFilterApp.prototype.apply_filters = function() {
 	this.$data_loading_msg.show();
 
 	this.init_counts();
-	
+
 	this.jtable_hits = this.jtable.filter(this.get_filters());
              
 	if(this.count_st==0) {
@@ -741,7 +747,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		    match_landmark = false,
 		    match_price = false,
 		    match_rating = false;
-		
+
 		//Filter out property that requires more night than user asked
 		if((minnight_filter === true) && (property.minNights >= that.request.numnights_selected))
 		{
@@ -956,7 +962,7 @@ PWebFilterApp.prototype.get_filters = function() {
 		{
 			match_price = true;
 		}
-		
+
 		//Property rating filter
 		//if filter is not set automatically match
 		if(ratingmax_filter === -1)
@@ -1038,7 +1044,10 @@ PWebFilterApp.prototype.setData = function(json_data) {
 				json_data[i]['ratings_location'] = currentData['ratings']['location'];
 			}
 		}
+
+		json_data[i]['propertyNameUpper'] = json_data[i]['propertyName'].toUpperCase();
 	}
+
 	this.jtable = jOrder(json_data)
 				    .index('propertyNumber', ['propertyNumber'], { grouped: false, ordered: true, type: jOrder.number })
 				    .index('propertyType', ['propertyType'], { grouped: true , ordered: true, type: jOrder.string });
@@ -1276,7 +1285,7 @@ PWebFilterApp.prototype.setup = function(data)
 {
     var that = this;
 	data = jQuery.parseJSON(data);
-	
+
 	// remove from search list
 	for (var i = 0; i < data.property_list.length; i++) {
 		if (data.property_list[i] && typeof(data.property_list[i]['propertyNumber'] != 'undefined') && getCookie('remove_' + data.property_list[i]['propertyNumber'])) {
@@ -1289,12 +1298,6 @@ PWebFilterApp.prototype.setup = function(data)
 
 	// right about here load the QuickView
 	if (typeof(data.property_list) != 'undefined') {
-		if (typeof(data.property_list) == 'object') {
-			for (var i in data.property_list) {
-				QuickView.addProperty(data.property_list[i]);
-			}
-		}
-
 		if (data.property_list.length) {
 			for (var i = 0; i < data.property_list.length; i++) {
 				QuickView.addProperty(data.property_list[i]);
@@ -1304,14 +1307,13 @@ PWebFilterApp.prototype.setup = function(data)
 
 	this.setRequestData(data.request);
 	this.setData(data.property_list);
-	
 
 	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('expanded_city', 'expanded_city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
         this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
        
-	this.setClickSort('data_sort_controls','sortname-tous','propertyName');
+	this.setClickSort('data_sort_controls','sortname-tous','propertyNameUpper');
 	this.setClickSort('data_sort_controls','sortprice-tous','display_price');
 	this.setClickSort('data_sort_controls','sortcote-tous','overall_rating');
 	this.setClickSort('data_sort_controls','sortsafest-tous','ratings_safety');
