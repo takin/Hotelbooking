@@ -131,37 +131,55 @@ $(document).ready(function(){
                             $markers = null;
 
                         if (!empty($property_geos)) {
-                             $markers = "&markers=";
+                             $markers = "&markers=color:0x5C8CAB" . "%7C+";
                             foreach ($property_geos as $key => $property_geo) {
-                                $markers .= "color:0x5C8CAB" . "%7C+" . round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
+                                $markers .=  round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
                             }
                         }
-                        
+                    
                         if (!empty($featured_landmarks)) {
                             if (ISDEVELOPMENT) {
                                 $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
                             } else {
                                 $static_map_icon_base_url = base_url();
                             }
-        
-                            foreach ($featured_landmarks as $featured_landmark) {
+                            $city_center_marker = "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+";
+                            $train_station_marker = "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+";
+                            $air_plane_marker = "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+";
+                           
+                            
+                             foreach ($featured_landmarks as $featured_landmark) {
                                 switch ($featured_landmark->type) {
                                     case "city_center":
-                                        $icon = $static_map_icon_base_url.'images/map/city_center.png';
+                                        $city_center_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
                                         break;
                                     
                                     case "train_station":
-                                        $icon = $static_map_icon_base_url.'images/map/train.png';
+                                        $train_station_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
                                         break;
                                     
                                     default:
-                                        $icon = $static_map_icon_base_url.'images/map/air-plane.png';
+                                        $air_plane_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
                                         break;
                                 }
-                                $markers .= "&markers=icon:". $icon ."%7C+". round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2);
+                                
                             }
                         }
+                        $city_center_marker = rtrim($city_center_marker, "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+");
+                        $train_station_marker = rtrim($train_station_marker, "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+");
+                        $air_plane_marker = rtrim($air_plane_marker, "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+");
+                        
                         // remove last | in markers variable
+                        $city_center_marker = rtrim($city_center_marker, '%7C+');
+                        $train_station_marker = rtrim($train_station_marker, '%7C+');
+                        $air_plane_marker = rtrim($air_plane_marker, '%7C+');
+                        
+                        // add featured markers to main marker
+                        $markers .= $city_center_marker;
+                        $markers .= $train_station_marker;
+                        $markers .= $air_plane_marker;
+                        
+                         // remove last | in markers variable
                         $markers = rtrim($markers, '%7C');
                         // remove &markers= if no markers
                         $markers = rtrim($markers, '&markers=');
