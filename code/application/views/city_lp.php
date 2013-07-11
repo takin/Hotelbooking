@@ -128,7 +128,8 @@ $(document).ready(function(){
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
                         <?php                           
-                            $markers = null;
+                        
+                        $markers = null;
 
                         if (!empty($property_geos)) {
                              $markers = "&markers=color:0x5C8CAB" . "%7C+";
@@ -164,7 +165,7 @@ $(document).ready(function(){
                                 }
                                 
                             }
-                        }
+                            
                         $city_center_marker = rtrim($city_center_marker, "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+");
                         $train_station_marker = rtrim($train_station_marker, "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+");
                         $air_plane_marker = rtrim($air_plane_marker, "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+");
@@ -173,11 +174,11 @@ $(document).ready(function(){
                         $city_center_marker = rtrim($city_center_marker, '%7C+');
                         $train_station_marker = rtrim($train_station_marker, '%7C+');
                         $air_plane_marker = rtrim($air_plane_marker, '%7C+');
-                        
                         // add featured markers to main marker
                         $markers .= $city_center_marker;
                         $markers .= $train_station_marker;
                         $markers .= $air_plane_marker;
+                        }
                         
                          // remove last | in markers variable
                         $markers = rtrim($markers, '%7C');
