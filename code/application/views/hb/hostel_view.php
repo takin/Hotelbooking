@@ -504,7 +504,7 @@ if ($api_error == false) {
                    style="vertical-align: middle;<?php echo $addToFav; ?>"
                    rel="<?php echo var_check($hostel["NAME"], ""); ?>"
                    title="<?php echo _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.'); ?>">
-                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite.png"/>
+                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/save_favorite_white.png"/>
                     <?php echo _('Add to my favorites'); ?>
                 </a>
 
@@ -512,7 +512,7 @@ if ($api_error == false) {
                    id="saved_to_favorites_<?php echo $hostel["ID"]; ?>"
                    style="vertical-align: middle;<?php echo $addedToFav; ?>"
                    title='<?php echo _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.'); ?>'>
-                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite.png"/>
+                    <img style="vertical-align: middle" src="<?php echo site_url(); ?>/images/saved_favorite_white.png"/>
                     <?php echo _('Saved to my favorites'); ?>
                 </a>
             </div>
@@ -779,12 +779,13 @@ function show_landmark_in_map(landmark_latlng, landmark_type){
 
     <?php if ($showPDF) { ?>
         <div class="content_block" id="share_pdf_container">
-            <strong
-                style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?"); ?></strong>
-            <a id="share-pdf" class="share" style="float: left; display: block; margin-left: 5px;"
-               href="<?php echo site_url("images/share_pdf.png"); ?>"><img
-                    src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF"
-                    style="padding-left: 20px"/></a>
+            <a href="<?php echo site_url(); ?>" id="share-pdf" class="share share-pdf" style="display: block">
+                <strong style="float: left; display: block;"><?php echo _("Want to receive or send a PDF copy of this quote?"); ?></strong>
+            </a>
+
+            <a href="<?php echo site_url(); ?>" class="share share-pdf" style="float: left; display: block; margin-left: 5px;">
+		    <img src="<?php echo site_url("images/share_pdf.png"); ?>" alt="Share PDF" style="padding-left: 20px"/>
+            </a>
             <br style="clear: both"/>
         </div>
     <?php } ?>
