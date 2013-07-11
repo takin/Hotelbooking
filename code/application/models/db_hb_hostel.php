@@ -2487,10 +2487,11 @@ class Db_hb_hostel extends CI_Model {
          * @param String $city_system_name
          * @return array
          */
-        function get_location_properties_geos($country_system_name, $city_system_name) {
+        function get_location_properties_geos($country_system_name, $city_system_name, $limit = 40) {
 
         $country_system_name = $this->db->escape_str($country_system_name);
         $city_system_name = $this->db->escape_str($city_system_name);
+        $limit = $this->db->escape($limit);
 
         $sql = "SELECT
 		 h.geo_latitude,
@@ -2502,8 +2503,11 @@ class Db_hb_hostel extends CI_Model {
 	  ci.system_name = '$city_system_name'
 	  AND co.system_name = '$country_system_name'
           AND (h.geo_latitude != 0 AND h.geo_longitude != 0)    
-	  GROUP BY h.property_number
-          limit 40;";
+	  GROUP BY h.property_number";
+
+        if (!empty($limit) && ($limit > 0)) {
+            $sql .= " LIMIT $limit";
+        }
 
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
@@ -2578,11 +2582,12 @@ class Db_hb_hostel extends CI_Model {
      * @param int $landmark_id
      * @return array
      */
-     function get_landmark_properties_geos($country_system_name, $city_system_name, $landmark_id) {
+     function get_landmark_properties_geos($country_system_name, $city_system_name, $landmark_id, $limit = 40) {
 
         $country_system_name = $this->db->escape_str($country_system_name);
         $city_system_name = $this->db->escape_str($city_system_name);
         $landmark_id = $this->db->escape_str($landmark_id);
+        $limit = $this->db->escape($limit);
 
         $sql = "SELECT
 		 h.geo_latitude,
@@ -2599,9 +2604,11 @@ class Db_hb_hostel extends CI_Model {
 	  AND hl.landmark_id = $landmark_id
           AND hl.distance <= 2 
           AND (h.geo_latitude != 0 AND h.geo_longitude != 0)  
-	  GROUP BY h.property_number
-          limit 40;";
+	  GROUP BY h.property_number";
 
+        if (!empty($limit) && ($limit > 0)) {
+            $sql .= " LIMIT $limit";
+        }
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
 
@@ -2620,11 +2627,12 @@ class Db_hb_hostel extends CI_Model {
      * @param int $district_id
      * @return array
      */
-    function get_district_properties_geos($country_system_name, $city_system_name, $district_id) {
+    function get_district_properties_geos($country_system_name, $city_system_name, $district_id, $limit = 40) {
 
         $country_system_name = $this->db->escape_str($country_system_name);
         $city_system_name = $this->db->escape_str($city_system_name);
         $district_id = $this->db->escape_str($district_id);
+        $limit = $this->db->escape($limit);
 
         $sql = "SELECT
 		 h.geo_latitude,
@@ -2640,9 +2648,11 @@ class Db_hb_hostel extends CI_Model {
 	  AND co.system_name = '$country_system_name'
 	  AND hd.district_id = $district_id  
 	  AND (h.geo_latitude != 0 AND h.geo_longitude != 0)  
-	  GROUP BY h.property_number
-          limit 40;";
+	  GROUP BY h.property_number";
 
+        if (!empty($limit) && ($limit > 0)) {
+            $sql .= " LIMIT $limit";
+        }
 //        debug_dump($sql);
         $query = $this->CI->db->query($sql);
 
