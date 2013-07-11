@@ -342,6 +342,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				</ul>
 
 			</nav>
+                                        
+                            <div id="expanded_city_map_container"
+                                 class="city-tools box_round group green_gradient_faded box_shadow_very_light">
+                                <a href="javascript:void(0);" class="remove_from_search_trigger" id="close_expanded_map">
+						<img src="<?php echo site_url(); ?>/images/cls_button.2.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
+					</a>
+                                <div id="expanded_city_map"></div>
+                            </div>       
 
 			 <!-- filer searcr box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">

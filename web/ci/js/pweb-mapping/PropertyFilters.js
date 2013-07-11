@@ -1309,7 +1309,7 @@ PWebFilterApp.prototype.setup = function(data)
 	this.setData(data.property_list);
 
 	this.addFilterMap('city', 'city_side_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
-	this.addFilterMap('expanded_city', 'expanded_city_map_container', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
+	this.addFilterMap('expanded_city', 'expanded_city_map', 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
 	this.addFilterMap('property', "will_set_on_tab_click", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
         this.addFilterMap('cityFilterMap', "filter_map_rightSide", 'en', data.city_info.city_geo_lat, data.city_info.city_geo_lng);
        
@@ -1441,7 +1441,7 @@ PWebFilterApp.prototype.setup = function(data)
 
         // check if this city has latitude and longitude to display the right side map
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
-        $("#city_map_expand_map").show();
+        $("#city_map_expand_map").hide();
         pweb_filter.toggleMap('city');
     }
     
