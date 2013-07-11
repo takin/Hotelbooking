@@ -128,22 +128,24 @@ $(document).ready(function(){
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
                         <?php                           
-                        
+                         if (ISDEVELOPMENT) {
+                                $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
+                            } else {
+                                $static_map_icon_base_url = base_url();
+                            }
+                            
                         $markers = null;
 
                         if (!empty($property_geos)) {
-                             $markers = "&markers=color:0x5C8CAB" . "%7C+";
+//                             $markers = "&markers=color:0x5C8CAB" . "%7C+";
+                             $markers = "&markers=icon:". $static_map_icon_base_url."images/map_markers/unselected/marker_0.png" ."%7C+";
                             foreach ($property_geos as $key => $property_geo) {
                                 $markers .=  round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
                             }
                         }
                     
                         if (!empty($featured_landmarks)) {
-                            if (ISDEVELOPMENT) {
-                                $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
-                            } else {
-                                $static_map_icon_base_url = base_url();
-                            }
+                           
                             $city_center_marker = "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+";
                             $train_station_marker = "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+";
                             $air_plane_marker = "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+";
