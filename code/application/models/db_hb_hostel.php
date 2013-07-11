@@ -2482,9 +2482,10 @@ class Db_hb_hostel extends CI_Model {
 	}
         
         /**
-         * get all properties in city limit to 80
+         * get all properties in city to limit number default 40
          * @param String $country_system_name
          * @param String $city_system_name
+         * @param int $limit limit number to return
          * @return array
          */
         function get_location_properties_geos($country_system_name, $city_system_name, $limit = 40) {
@@ -2576,10 +2577,11 @@ class Db_hb_hostel extends CI_Model {
     }
      
      /**
-     * get all properties within landmark id
+     * get all properties within landmark id to limit number default 40
      * @param String $country_system_name
      * @param String $city_system_name
      * @param int $landmark_id
+     * @param int $limit limit number to return
      * @return array
      */
      function get_landmark_properties_geos($country_system_name, $city_system_name, $landmark_id, $limit = 40) {
@@ -2621,10 +2623,11 @@ class Db_hb_hostel extends CI_Model {
     }
     
     /**
-     * get all properties within district id
+     * get all properties within district id to limit number default 40
      * @param String $country_system_name
      * @param String $city_system_name
      * @param int $district_id
+     * @param int $limit limit number to return
      * @return array
      */
     function get_district_properties_geos($country_system_name, $city_system_name, $district_id, $limit = 40) {
