@@ -428,7 +428,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
-            if (window.gmap.getDiv().id === "city_side_map_container" || window.gmap.getDiv().id === "expanded_city_map") {
+            if ( window.gmap.getDiv().id === "city_side_map_container" ) {
                 that.goToHostelDiv(this);
             }
             else {
