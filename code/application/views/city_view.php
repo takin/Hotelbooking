@@ -474,18 +474,32 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
-
+ 
+        // on window resize
+        $(window).resize(function() {
+             changeSidebar_width();
+         });
+         // this part is related to fixing the map position
+         $(window).scroll(function () {
         // check if left map is visible to fix it position
-       if($("#city_side_map_container").is(":visible")){
-            // on window resize
-            $(window).resize(function() {
-                 changeSidebar_width();
-             });
-             // this part is related to fixing the map position
-             $(window).scroll(function () {
-                 changeSidebar_width();
-            });
-        }
+            if($("#expanded_city_map_container").is(':hidden')){
+                changeSidebar_width();
+            }
+            else{
+                $("#side_search_box").show();
+            $("#filter_links_container").show();
+
+            $("#sidebar").removeClass("fix_sidebar_position");
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : ''});
+
+            $("#main").css({'float' : 'auto'});
+            }
+        });
+        
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(document).height();
@@ -537,7 +551,6 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             }
             $("#main").css({'float' : 'auto'});
          }
-       }
-
+       } 
    });
 </script>

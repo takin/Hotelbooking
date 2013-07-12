@@ -364,8 +364,7 @@ GoogleMap.prototype.addMarkersToMap = function()
             window.markers[i].gmarker = null;
         }
         else{
-
-            // check if it is the map on the left
+            // check if it is the map on the left or middle big map
             if ( map_divID === "city_side_map_container" || map_divID === "expanded_city_map") {
 
                 var imageIndex = window.markers[i].propertyIndex;
@@ -438,7 +437,7 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         });
         
-            if (isCompare_property === false && isQuickView_map === false ) {
+        if (isCompare_property === false && isQuickView_map === false ) {
                 google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
                     that.changeHostelBackground(this, "mouseover");
@@ -784,8 +783,14 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigge
 
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
-            $(value).trigger(pDivEventToTrigger);
+//            $(value).trigger(pDivEventToTrigger);
+            if(pDivEventToTrigger === "mouseover"){
+                that.changeMarkerIcon($(value), "selected");
             }
+            else{
+                that.changeMarkerIcon($(value), "unselected");
+            }
+        }
     });
 
 };
