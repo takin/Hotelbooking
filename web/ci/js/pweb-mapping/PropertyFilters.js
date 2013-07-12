@@ -1509,44 +1509,79 @@ PWebFilterApp.prototype.closeFilter = function(type)
 
 PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function()  {
 	$('.hostel_list').each(function() {
-		if ($(this).find(".city_hostel_districts_values .content").html() == "") {
+		var districtShowMore = $(this).find(".city_hostel_districts .show_more");
+		var districtContent  = $(this).find(".city_hostel_districts_values .content");
+
+		if (districtContent.html() == "") {
 			$(this).find(".city_hostel_districts").hide();
-			$(this).find(".city_hostel_districts_values .show_more").hide();
+			districtShowMore.hide();
 		}
 		else {
 			// remove last "," from districts
-			var strDistricts = $(this).find(".city_hostel_districts_values .content").html();
-			strDistricts = strDistricts.slice(0,-2);
-			$(this).find(".city_hostel_districts_values .content").html(strDistricts + ".");
-			$(this).find(".city_hostel_districts_values .show_more").attr('title', $(this).find(".city_hostel_districts_values .show_more").attr('title').replace(/,\s*$/, '.'));
+			var strDistricts = districtContent.html();
+			strDistricts = strDistricts.replace(/,\s*$/, '.');
 
-			if (
-				!$(this).find(".city_hostel_districts_values .content").html()
-				|| $(this).find(".city_hostel_districts_values .content").html().length + $(this).find(".city_hostel_districts_district").html().length < 60
-			) {
-				$(this).find(".city_hostel_districts_values .show_more").hide();
+			if ((strDistricts.length + $(this).find(".city_hostel_districts_district").html().length) < 59) {
+				districtShowMore.hide();
+
+				districtContent.html(strDistricts);
 			}
+			else {
+				strDistricts = strDistricts.substring(0, 59).replace(/,?\s?$/, '').replace(/,[^,]+$/, '');
+
+				districtContent.html(strDistricts + ' ');
+				districtContent.append( districtShowMore );
+			}
+
+			districtShowMore.attr('title', districtShowMore.attr('title').replace(/,\s*$/, '.'));
 		}
 
 		// remove landmarks if there are no landmarks
 		// remove extra "," from the end of the values
-		if ($(this).find(".city_hostel_landmarks_values .content").html() == "") {
+		var landmarkShowMore = $(this).find(".city_hostel_landmarks .show_more");
+		var landmarkContent = $(this).find(".city_hostel_landmarks_values .content");
+
+		var strDistricts = landmarkContent.html();
+
+		if (strDistricts == "") {
 			$(this).find(".city_hostel_landmarks").hide();
-			$(this).find(".city_hostel_landmarks_values .show_more").hide();
+
+			landmarkShowMore.hide();
 		}
 		else {
-			// remove last "," from landmarks
-			var strDistricts = $(this).find(".city_hostel_landmarks_values .content").html();
-			strDistricts = strDistricts.slice(0,-2);
-			$(this).find(".city_hostel_landmarks_values .content").html(strDistricts+".");
-			$(this).find(".city_hostel_landmarks_values .show_more").attr('title', $(this).find(".city_hostel_landmarks_values .show_more").attr('title').replace(/,\s*$/, '.'));
+			var landmarkContentPieces = strDistricts.split(', ');
+			strDistricts = strDistricts.replace(/,\s?$/, '.')
 
-			if (
-				!$(this).find(".city_hostel_landmarks_values .content").html()
-				|| ($(this).find(".city_hostel_landmarks_values .content").html().length + $(this).find(".city_hostel_landmarks_landmark").html().length) < 130
-			) {
-				$(this).find(".city_hostel_landmarks_values .show_more").hide();
+			var cleanedStrDistricts = $('<div>' + strDistricts + '</div>');
+			cleanedStrDistricts.children('span.landmark_type').remove();
+			var cleanedStrDistrictsHtml = cleanedStrDistricts.html().toString().replace(/  /g, ' ');
+
+			if ((cleanedStrDistrictsHtml.length + $(this).find(".city_hostel_landmarks_landmark").html().length) < 107) {
+				landmarkShowMore.hide();
+
+				landmarkContent.html(strDistricts);
 			}
+			else {
+				cleanedStrDistrictsHtml = cleanedStrDistrictsHtml.substring(0, 107).replace(/,?\s?$/, '').replace(/,[^,]+$/, '');
+
+				// add the images
+				var strDistrictsPieces = cleanedStrDistrictsHtml.split(', ');
+				for (var i = 0; i < strDistrictsPieces.length; i++) {
+					var originalPiece = landmarkContentPieces[i];
+
+					var originalPieceSpanClass = $('<div>' + originalPiece + '</div>').find('span').attr('class');
+
+					strDistrictsPieces[i] = '<span class="' + originalPieceSpanClass + '"></span>' + strDistrictsPieces[i];
+				}
+
+				// add it back together
+				strDistricts = strDistrictsPieces.join(', ');
+
+				landmarkContent.html(strDistricts + ' ');
+				landmarkContent.append( landmarkShowMore );
+			}
+
+			landmarkShowMore.attr('title', landmarkShowMore.attr('title').replace(/,\s*$/, '.'));
 		}
 
 		$(this).find(".city_hostel_landmarks_values .show_more").cluetip({

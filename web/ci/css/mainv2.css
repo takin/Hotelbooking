@@ -3212,20 +3212,17 @@ width: 275px;}
 	padding-bottom: 0;
 }
 
-#property_list .city_hostel_landmarks {
-	overflow: hidden;
-	height: 25px;
-}
-
 #property_list .city_hostel_districts {
 	overflow: hidden;
 	height: 13px;
 }
 
 #property_list .show_more {
-	float: right;
+/*	float: right;
 	margin-top: 12px;
 	margin-right: 29px;
+*/
+	padding-right; 10px;
 	color: #3087C9;
 	cursor: pointer;
 }
