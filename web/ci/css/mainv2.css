@@ -3262,10 +3262,13 @@ width: 275px;}
     text-align: center;
 }
 #close_expanded_map{
-   float: right;
+    float: right;
     margin-left: 799px;
     margin-right: 15px;
     margin-top: -11px;
     position: absolute;
     z-index: 1;
+}
+#expanded_city_map_container{
+    margin-bottom: 20px;
 }

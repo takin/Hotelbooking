@@ -147,7 +147,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                 </div>
 		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
 	<?php } ?>
-
+                
 	<div id="search_load">
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
@@ -350,7 +350,16 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					</a>
                                 <div id="expanded_city_map"></div>
                             </div>       
-
+                                        <!-- Next 20 result code start-->
+                                        <div class="pagination_pro main_pagination_div" style="display:none;">
+                                            <div  class="left_pagi pagination_result">
+                                                <span class="resultcount"></span>
+                                                <?php echo _('of'); ?>
+                                                <span class="resulttotal"></span>
+                                                <?php echo _('Results'); ?>
+                                            </div>
+                                            <div class="page_navigation"></div>
+                                        </div>
 			 <!-- filer searcr box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">
 			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>
@@ -394,14 +403,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 </script>
 
 			<!-- Next 20 result code start-->
-			<div id="navi" class="pagination_pro" style="display:none;">
-				<div id="resu" class="left_pagi">
+			<div class="pagination_pro main_pagination_div" style="display:none;">
+				<div  class="left_pagi pagination_result">
 					<span class="resultcount"></span>
 					<?php echo _('of');?>
 					<span class="resulttotal"></span>
 					<?php echo _('Results');?>
 				</div>
-				<div id="page_navigation" class="page_navigation"></div>
+				<div class="page_navigation"></div>
 			</div>
 
 </div>

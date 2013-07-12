@@ -15,23 +15,23 @@ function initpaging(show_per_page)
     navigation_html += '<a class="next_link" href="javascript:next();">></a>';  
     if(number_of_pages>1){
 		  $('.resultcount').html('1-'+show_per_page);
-		  $('#resu').css('display', 'block'); 
-	      $('#page_navigation').html(navigation_html); 
+		  $('.pagination_result').css('display', 'block'); 
+	      $('.page_navigation').html(navigation_html); 
 	}else{
 		  $('.resultcount').html(number_of_items);
-		  $('#page_navigation').html(''); 
+		  $('.page_navigation').html(''); 
 		  
 	} 
 		$('.resulttotal').html(number_of_items);
 	if(number_of_pages>0){
-		$('#navi').css('display', 'inline-block');
-		$('#resu').css('display', 'block'); 
+		$('.main_pagination_div').css('display', 'inline-block');
+		$('.pagination_result').css('display', 'block'); 
 	}else{
-		$('#navi').css('display', 'none');
-		$('#resu').css('display', 'none');  
+		$('.main_pagination_div').css('display', 'none');
+		$('.pagination_result').css('display', 'none');  
 	}
   
-    $('#page_navigation .page_link:first').addClass('active_page');  
+    $('.page_navigation .page_link:first').addClass('active_page');  
   
     $('#property_list').children().css('display', 'none');  
   

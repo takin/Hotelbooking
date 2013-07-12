@@ -268,8 +268,8 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
         var show_per_page = parseInt($('#show_per_page').val());
         // number of hostels currently shown
         var page_num = 0;
-        if ($('#page_navigation .active_page').length > 0) {
-            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+        if ($('.page_navigation .active_page').length > 0) {
+            page_num = parseInt($('.page_navigation .active_page').attr("longdesc"));
         }
 
         // start hostel number like from 1 to 20
