@@ -3257,10 +3257,15 @@ width: 275px;}
     background-size: 16px 16px;
     padding-left: 17px;
 }
-#city_map_expand_map{
+#show_expanded_map{
     margin-bottom: 0px;
     text-align: center;
 }
 #close_expanded_map{
-    float: right;
+   float: right;
+    margin-left: 799px;
+    margin-right: 15px;
+    margin-top: -11px;
+    position: absolute;
+    z-index: 1;
 }

@@ -89,7 +89,8 @@ GoogleMap.prototype.init = function() {
         {
             window.gmap.setCenter(this.gbounds.getCenter());
             window.gmap.fitBounds(this.gbounds);
-            if (this.map_div.id === "city_side_map_container") {
+            if (this.map_div.id === "city_side_map_container" || 
+                    this.map_div.id === "expanded_city_map" ) {
                 if (window.gmap.getZoom() > 10)
                 {
                     window.gmap.setZoom(10);
@@ -145,7 +146,7 @@ GoogleMap.prototype.init = function() {
     }
     // End  Landmark Shows on map 
     
-    if (this.map_div.id === "city_side_map_container") {
+    if (this.map_div.id === "city_side_map_container" || this.map_div.id === "expanded_city_map") {
          google.maps.event.trigger(window.gmap, 'resize');
          window.gmap.panTo(originalMapCenter);
     }
@@ -360,7 +361,8 @@ GoogleMap.prototype.addMarkersToMap = function()
         else{
 
             // check if it is the map on the left
-            if ( map_divID === "city_side_map_container") {
+            if ( map_divID === "city_side_map_container" || map_divID === "expanded_city_map") {
+
                 var imageIndex = window.markers[i].propertyIndex;
                 image = that.getMarkerIcon(false, imageIndex);
                 image_selected = that.getMarkerIcon(true, imageIndex);
@@ -422,7 +424,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
-            if (window.gmap.getDiv().id === "city_side_map_container") {
+            if (window.gmap.getDiv().id === "city_side_map_container" || window.gmap.getDiv().id === "expanded_city_map") {
                 that.goToHostelDiv(this);
             }
             else {
@@ -734,7 +736,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
             if (window.markers[i].gmarker !== null)
             {
                 if (window.gmap.getDiv().id === "city_side_map_container" ||
-                        window.gmap.getDiv().id === "filter_map_rightSide") {
+                        window.gmap.getDiv().id === "filter_map_rightSide" ||
+                        window.gmap.getDiv().id === "expanded_city_map") {
                     if (window.markers[i].gmarker.getZIndex() === 100000) {
                         window.markers[i].gmarker.setZIndex(0);
                     }
@@ -746,7 +749,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
-                    if (window.gmap.getDiv().id === "city_side_map_container") {
+                    if (window.gmap.getDiv().id === "city_side_map_container" ||
+                        window.gmap.getDiv().id === "expanded_city_map") {
                          image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view

@@ -1441,23 +1441,34 @@ PWebFilterApp.prototype.setup = function(data)
 
         // check if this city has latitude and longitude to display the right side map
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
-        $("#city_map_expand_map").hide();
+        // hide map div in the top of the page
+        $("#expanded_city_map_container").hide();
+        // show expand map link
+        $("#show_expanded_map").show();
         pweb_filter.toggleMap('city');
     }
     
-     $('#city_map_expand_map').click(function()
+     $('#show_expanded_map').click(function()
     {
         pweb_filter.toggleMap('city');
+        // show top map div
+        $("#expanded_city_map_container").show();
+        // hide left side map and above link
+        $("#show_expanded_map").hide();
         pweb_filter.toggleMap('expanded_city');
-        $("#city_map_expand_map").hide();
+        
         return false;
     });
     
-     $('#city_map_close_expanded_map').click(function()
+     $('#close_expanded_map').click(function()
     {
         pweb_filter.toggleMap('city');
+        // hide map div in the top of the page
+        $("#expanded_city_map_container").hide();
+        // show expand map link
+        $("#show_expanded_map").show();
         pweb_filter.toggleMap('expanded_city');
-        $("#city_map_expand_map").show();
+        
         return false;
     });
     

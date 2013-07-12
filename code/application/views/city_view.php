@@ -140,7 +140,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         }
 
 	if(isset($city_info->city_geo_lat)) { ?>
-                <div id="city_map_expand_map" class="box_content box_round group side_search">
+                <div id="show_expanded_map" class="box_content box_round group side_search">
                     <a href="#">
                             <?php echo _("Click here to expand map"); ?>
                     </a>
@@ -475,15 +475,17 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 <script type="text/javascript">
    $(document).ready(function(){
 
-       // on window resize
-       $(window).resize(function() {
-            changeSidebar_width();
-        });
-        // this part is related to fixing the map position
-        $(window).scroll(function () {
-            changeSidebar_width();
-       });
-
+        // check if left map is visible to fix it position
+       if($("#city_side_map_container").is(":visible")){
+            // on window resize
+            $(window).resize(function() {
+                 changeSidebar_width();
+             });
+             // this part is related to fixing the map position
+             $(window).scroll(function () {
+                 changeSidebar_width();
+            });
+        }
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(document).height();
