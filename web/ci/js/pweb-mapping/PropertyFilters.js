@@ -1556,13 +1556,13 @@ PWebFilterApp.prototype.cleanupDistrcitsAndLandmarks = function()  {
 			cleanedStrDistricts.children('span.landmark_type').remove();
 			var cleanedStrDistrictsHtml = cleanedStrDistricts.html().toString().replace(/  /g, ' ');
 
-			if ((cleanedStrDistrictsHtml.length + $(this).find(".city_hostel_landmarks_landmark").html().length) < 107) {
+			if ((cleanedStrDistrictsHtml.length + $(this).find(".city_hostel_landmarks_landmark").html().length) < 104) {
 				landmarkShowMore.hide();
 
 				landmarkContent.html(strDistricts);
 			}
 			else {
-				cleanedStrDistrictsHtml = cleanedStrDistrictsHtml.substring(0, 107).replace(/,?\s?$/, '').replace(/,[^,]+$/, '');
+				cleanedStrDistrictsHtml = cleanedStrDistrictsHtml.substring(0, 104).replace(/,?\s?$/, '').replace(/,[^,]+$/, '');
 
 				// add the images
 				var strDistrictsPieces = cleanedStrDistrictsHtml.split(', ');
