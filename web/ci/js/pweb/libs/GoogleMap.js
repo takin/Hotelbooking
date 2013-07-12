@@ -96,6 +96,11 @@ GoogleMap.prototype.init = function() {
                     window.gmap.setZoom(10);
                 }
             }
+            
+            if (this.map_div.id === "expanded_city_map"  ) {
+                    window.gmap.setZoom(11);
+            }
+            
         }
     }
     
