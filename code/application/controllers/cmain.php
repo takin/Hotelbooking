@@ -2637,12 +2637,18 @@ class CMain extends I18n_site {
 
 	 $this->load->model('i18n/db_translation_cache');
 
-	 if ($this->api_used == HB_API) {   
+         if ($this->api_used == HB_API) {   
 		 $this->load->library('hb_engine');
 		 $data['current_view_dir'] = $this->api_view_dir;
 		 $this->load->model('db_hb_hostel');
+		 $this->load->model('db_hb_hostel_image');
 
-		 $alldata = $this->hb_engine->property_info($data, $property_number);
+		 //$alldata = $this->hb_engine->property_info($data, $property_number);
+                 $alldata = array(
+                     'hostel' => array(
+                         'IMAGES' => $this->db_hb_hostel_image->getHostelImages($property_number)
+                     )
+                 );    
 	 }
 	 else {
 		 $this->load->model('db_hw_hostel');
