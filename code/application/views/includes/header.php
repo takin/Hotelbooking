@@ -81,8 +81,7 @@
 	//$this->carabiner->css($csspath.'/more.css');
 	$this->carabiner->css('jquery.fancybox.css');
 	$this->carabiner->css('smoothness/jquery-ui.css');
-    // css and js for tooltip
-    $this->carabiner->js('jquery.tooltip-sasya.js');
+    // css for tooltip
     $this->carabiner->css('tooltip-tooltips.css');
 
   if($this->api_used == HB_API)
@@ -1021,6 +1020,8 @@ function show_featured_landmarks(){
   $this->carabiner->js('jquery.cluetip.all.js', 'jquery.cluetip.all.js', TRUE);
   $this->carabiner->js('jquery.toastmessage.js', 'jquery.toastmessage.js', TRUE);
   $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
+  // css and js for tooltip
+  $this->carabiner->js('jquery.tooltip-sasya.js');
 
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
