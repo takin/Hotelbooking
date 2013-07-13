@@ -237,18 +237,12 @@ QuickView.prototype.getContent = function() {
             }
         });
     } else {
-
         $.ajax({
             type: 'GET',
             dataType: 'json',
             cache: true,
             url: 'http://' + window.location.host + '/cmain/ajax_property_details/' + this.data.propertyNumber,
             success: function(data) {
-
-                self.data.Geo = {
-                    Latitude: data.hostel.GPS.LAT,
-                    Longitude: data.hostel.GPS.LON
-                };
 
                 var imageList = data.hostel.BIGIMAGES ? data.hostel.BIGIMAGES : data.hostel.IMAGES;
 

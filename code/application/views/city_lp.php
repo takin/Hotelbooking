@@ -127,11 +127,71 @@ $(document).ready(function(){
 			<?php //Removed until we can really show the map ?>
 			<?php /*?><a id="city_map_show_1" class="show_search" href="#wrap"><?php */?>
 			<?php /*?><span><strong><?php echo _("Voir la carte");?></strong></span>		<?php */?>
-			<a href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
+                        <?php                           
+                         if (ISDEVELOPMENT) {
+                                $static_map_icon_base_url = "http://www.aubergesdejeunesse.com/";
+                            } else {
+                                $static_map_icon_base_url = base_url();
+                            }
+                            
+                        $markers = null;
+
+                        if (!empty($property_geos)) {
+//                             $markers = "&markers=color:0x5C8CAB" . "%7C+";
+                             $markers = "&markers=icon:". $static_map_icon_base_url."images/map_markers/unselected/marker_0.png" ."%7C+";
+                            foreach ($property_geos as $key => $property_geo) {
+                                $markers .=  round($property_geo->geo_latitude,2) . "," . round($property_geo->geo_longitude,2) ."%7C+";
+                            }
+                        }
+                    
+                        if (!empty($featured_landmarks)) {
+                           
+                            $city_center_marker = "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+";
+                            $train_station_marker = "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+";
+                            $air_plane_marker = "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+";
+                           
+                            
+                             foreach ($featured_landmarks as $featured_landmark) {
+                                switch ($featured_landmark->type) {
+                                    case "city_center":
+                                        $city_center_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
+                                        break;
+                                    
+                                    case "train_station":
+                                        $train_station_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
+                                        break;
+                                    
+                                    default:
+                                        $air_plane_marker .= round($featured_landmark->geo_latitude,2) . "," . round($featured_landmark->geo_longitude,2) ."%7C+";
+                                        break;
+                                }
+                                
+                            }
+                            
+                        $city_center_marker = rtrim($city_center_marker, "&markers=icon:". $static_map_icon_base_url."images/map/city_center.png" ."%7C+");
+                        $train_station_marker = rtrim($train_station_marker, "&markers=icon:". $static_map_icon_base_url."images/map/train.png" ."%7C+");
+                        $air_plane_marker = rtrim($air_plane_marker, "&markers=icon:". $static_map_icon_base_url."images/map/air-plane.png" ."%7C+");
+                        
+                        // remove last | in markers variable
+                        $city_center_marker = rtrim($city_center_marker, '%7C+');
+                        $train_station_marker = rtrim($train_station_marker, '%7C+');
+                        $air_plane_marker = rtrim($air_plane_marker, '%7C+');
+                        // add featured markers to main marker
+                        $markers .= $city_center_marker;
+                        $markers .= $train_station_marker;
+                        $markers .= $air_plane_marker;
+                        }
+                        
+                         // remove last | in markers variable
+                        $markers = rtrim($markers, '%7C');
+                        // remove &markers= if no markers
+                        $markers = rtrim($markers, '&markers=');
+                        ?>
+			<a id="map_city_landing_page" href="javascript:void(0);" class="tooltip" title="<?php echo _('To view all available properties on the map, please enter your dates in the box on the top right.');?>">
                             <?php if(!empty($landmark->geo_latitude)){?>
-			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=14&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+			<img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&markers=icon:<?php echo $static_map_icon_base_url;?>images/map_landmark_marker_blue.png%7C+<?php echo $landmark->geo_latitude;?>,<?php echo $landmark->geo_longitude;?>&zoom=13&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }else{?>
-                        <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?>" />
+                        <img src="https://maps.google.com/maps/api/staticmap?center=<?php echo $city_info->city_geo_lat;?>,<?php echo $city_info->city_geo_lng;?>&zoom=10&size=392x194&sensor=false&language=<?php echo $this->wordpress->get_option('aj_lang_code2');?><?php echo $markers;?>" />
 			<?php }?>
                         </a>
 			<?php /*?></a><?php */?>
