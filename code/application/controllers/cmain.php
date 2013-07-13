@@ -2208,7 +2208,7 @@ class CMain extends I18n_site {
                 $data['propertyurl'] = $this->next_property_url($data['hostel']['TYPE'], $data['hostel']['NAME'], $property_number, $this->site_lang);
                 $filter_array[$key]["Geo"]["Latitude"] = $data['hostel']['GPS']['LAT'];
                 $filter_array[$key]["Geo"]["Longitude"] = $data['hostel']['GPS']['LON'];
-                $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = $images['thumbnails']['0'];
+                $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = @$images['thumbnails']['0'];
                 $filter_array[$key]["property_page_url"] = $data['propertyurl'];
                 $filter_array[$key]["display_price_formatted"] = $data['hostel_min_price'];
                 $filter_array[$key]["propertyNumber"] = $property_number;
@@ -2350,6 +2350,7 @@ class CMain extends I18n_site {
 
         $this->load->library('tank_auth');
         $this->load->model('Db_favorite_hostels');
+	$this->load->model('Db_term_translate');
         
         $filter_array = array();
         $data = array();
@@ -2367,8 +2368,9 @@ class CMain extends I18n_site {
 
                 $_hostelData = array();
                 $hostelData = $this->hb_engine->property_info($_hostelData, $property_number);
+
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $hostelData['hostel_db_data']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type'] = $hostelData['hostel']['TYPE_translated'];
+                $hostelData['property_type']   = (string)$this->Db_term_translate->get_term_translation(ucfirst($hostelData['hostel_db_data']->property_type), $this->site_lang);
                 $hostelData['property_number'] = $property_number;
                 $hostelData['images']          = $hostelData['hostel']['BIGIMAGES'][0];
                 $hostelData['geoLatitude']     = $map_data[$key]['Geo']['Latitude'];
@@ -2423,7 +2425,7 @@ class CMain extends I18n_site {
                 $_hostelData = array();
                 $hostelData = $this->hw_engine->property_info($_hostelData, $property_number);
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $hostelData['hostel']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type']   = $hostelData['hostel']->property_type;
+                $hostelData['property_type']   = (string)$this->Db_term_translate->get_term_translation(ucfirst($hostelData['hostel']->property_type), $this->site_lang);
                 $hostelData['images']          = $hostelData['hostel']->PropertyImages[0]->imageURL;
                 $hostelData['rating']          = $hostelData['hostel']->rating;
                 $hostelData['property_number'] = $property_number;

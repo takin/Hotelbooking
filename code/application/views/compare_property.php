@@ -50,11 +50,11 @@ for ($i = 0; $i < count($compare_data); $i++) {
 
 		$savelink .= '<div id="save_to_favorites_options_compare_' . $property_number . '" style="margin: 0 auto; text-align: center">';
 		$savelink .= '<a href="#" class="save_to_favorites" id="save_to_favorites_' . $property_number . '" style="vertical-align: middle;' . $addToFav . '" rel="' . var_check($compare_data[$i]['property_name'], "") . '" title="' . _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.') . '">
-				<img style="vertical-align: middle" src="' . site_url() . '/images/save_favorite_white.png" /> ' . _('Add to my favorites') . '
+				<img style="vertical-align: middle" src="' . site_url() . '/images/save_favorite.png" /> ' . _('Add to my favorites') . '
 			</a>
 
 			<a href="' . site_url('user/favorite_properties') . '" class="saved_to_favorites" id="saved_to_favorites_' . $property_number . '" style="vertical-align: middle;' . $addedToFav . '" title=\'' . _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.') . '\'>
-				<img style="vertical-align: middle" src="' . site_url() . '/images/saved_favorite_white.png"/> ' . _('Saved to my favorites') . '
+				<img style="vertical-align: middle" src="' . site_url() . '/images/saved_favorite.png"/> ' . _('Saved to my favorites') . '
 			</a>
 		</div></td>';
        
