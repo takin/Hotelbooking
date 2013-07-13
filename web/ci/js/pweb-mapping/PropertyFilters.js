@@ -303,8 +303,14 @@ PWebFilterApp.prototype.updateMap = function() {
 	if(this.pweb_maps['city'].enabled === true)
 	{
 		this.pweb_maps['city'].updateMarkers(this.jtable_hits);
-	}
-        this.pweb_maps['city'].reDraw();
+                this.pweb_maps['city'].reDraw();
+        }
+        
+        if(this.pweb_maps['expanded_city'].enabled === true)
+	{
+		this.pweb_maps['expanded_city'].updateMarkers(this.jtable_hits);
+                this.pweb_maps['expanded_city'].reDraw();
+        }
         
         if(this.pweb_maps['cityFilterMap'].enabled === true)
 	{
@@ -1410,7 +1416,14 @@ PWebFilterApp.prototype.setup = function(data)
                 'showLoading': true,
                 beforeShow: function() {
                     pweb_filter.toggleMap('cityFilterMap');
-                    pweb_filter.toggleMap('city');
+                    // check which map is enabled now to disable it
+                    if (pweb_filter.checkMapEnabled("city") === true)
+                    {
+                        pweb_filter.toggleMap('city');
+                    }
+                    else if (pweb_filter.checkMapEnabled("expanded_city") === true) {
+                        pweb_filter.toggleMap('expanded_city');
+                    }
                 },
                 beforeClose: function() {
                     pweb_filter.toggleMap('cityFilterMap');
@@ -1878,6 +1891,8 @@ $(document).ready(function() {
     $("#current_page").live("change", function()
     {
         pweb_filter.updateMarkers("city");
+        pweb_filter.updateMarkers("expanded_city");
+        
         return false;
     });
     
@@ -1915,8 +1930,8 @@ $(document).ready(function() {
             'transitionIn'	: 'none',
             'transitionOut'	: 'none',
              beforeClose: function() {
-                    pweb_filter.toggleMap('city');
                     pweb_filter.toggleMap('hostel_quickview');
+                    pweb_filter.toggleMap('city');
                     pweb_filter.updateMarkers("city");
                 }
 	  });
@@ -2055,7 +2070,14 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 			 
                         
                         pweb_filter.toggleMap('compare_property');
-                        pweb_filter.toggleMap('city'); 
+                        // check which map is enabled now to disable it
+                        if (pweb_filter.checkMapEnabled("city") === true)
+                        {
+                            pweb_filter.toggleMap('city'); 
+                        }
+                        else if (pweb_filter.checkMapEnabled("expanded_city") === true){
+                             pweb_filter.toggleMap('expanded_city');
+                        }
                         
                         
 
@@ -2191,4 +2213,13 @@ PWebFilterApp.prototype.changeLandmarkLayer = function(map_slug, landmark_LatLng
             
         this.pweb_maps[map_slug].changeLandmarkLayer(newElement);
     }
+};
+PWebFilterApp.prototype.checkMapEnabled = function(map_slug) {
+
+    var result = false;
+    if (this.pweb_maps[map_slug].enabled === true)
+    {
+        result = true;
+    }
+    return result;
 };

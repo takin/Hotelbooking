@@ -6,7 +6,7 @@ if (intval($this->uri->segment(4)) > 1)
 }
 ?>
 {{#properties}}
-<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="pweb_filter.changeMarkerIcon('city', $(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="pweb_filter.changeMarkerIcon('city', $(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
+<div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="pweb_filter.changeMarkerIcon('city', $(this), 'selected'); pweb_filter.changeMarkerIcon('expanded_city', $(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="pweb_filter.changeMarkerIcon('city', $(this),'original'); pweb_filter.changeMarkerIcon('expanded_city', $(this), 'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
 
 	{{#Geo}}

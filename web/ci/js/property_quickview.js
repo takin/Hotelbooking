@@ -374,8 +374,15 @@ QuickView.prototype.setMap = function() {
     var lng = this.data.Geo.Longitude;
 
     pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en', lat, lng);
-    pweb_filter.toggleMap('city');
     pweb_filter.toggleMap('hostel_quickview');
+    // check which map is enabled now to disable it
+    if (pweb_filter.checkMapEnabled("city") === true)
+    {
+        pweb_filter.toggleMap('city');
+    }
+    else if (pweb_filter.checkMapEnabled("expanded_city") === true) {
+        pweb_filter.toggleMap('expanded_city');
+    }
 
 
     function autoselect() {
