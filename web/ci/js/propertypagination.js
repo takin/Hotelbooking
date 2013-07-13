@@ -9,7 +9,7 @@ function initpaging(show_per_page)
     var navigation_html = '<a class="previous_link" href="javascript:previous();"><</a>';  
     var current_link = 0;  
     while(number_of_pages > current_link){  
-        navigation_html += '<a class="page_link" id="page_link_'+current_link+'" href="javascript:go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';  
+        navigation_html += '<a class="page_link page_link_'+current_link+'" href="javascript:go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';  
         current_link++;  
     }  
     navigation_html += '<a class="next_link" href="javascript:next();">></a>';  
@@ -32,12 +32,12 @@ function initpaging(show_per_page)
 	}
   
     $('.page_navigation .page_link:first').addClass('active_page');  
-  
+        
     $('#property_list').children().css('display', 'none');  
   
     $('#property_list').children().slice(0, show_per_page).css('display', 'block');  
-	$('.previous_link').css({"pointer-events":"none","color":"#ccc"});
-	$('#page_link_0').css({"pointer-events":"none","color":"#ccc"});
+    $('.previous_link').css({"pointer-events":"none","color":"#ccc"});
+    $('.page_link_0').css({"pointer-events":"none","color":"#ccc"});
 }
   
 function previous(){  
@@ -62,7 +62,7 @@ function go_to_page(page_num){
 	var number_of_items = $('#property_list').children().size(); 
 	var number_of_pages = Math.ceil(number_of_items/show_per_page);  
 	$('.page_link').css({"pointer-events":"visible ","color":"#227BBD"});
-	$('#page_link_'+page_num).css({"pointer-events":"none","color":"#ccc"});
+	$('.page_link_'+page_num).css({"pointer-events":"none","color":"#ccc"});
     if(page_num>0){
 		$('.previous_link').css({"pointer-events":"visible ","color":"#227BBD"});
 	}

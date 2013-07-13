@@ -82,7 +82,7 @@ SavedProperty.prototype.initpaging = function() {
 	var current_link = 0;
 
 	while (number_of_pages > current_link) {
-		navigation_html += '<a class="page_link" id="page_link_'+current_link+'" href="javascript:SavedProperty.go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
+		navigation_html += '<a class="page_link page_link_'+current_link+'"  href="javascript:SavedProperty.go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
 		current_link++;
 	}
 	navigation_html += '<a class="next_link" href="javascript:SavedProperty.next();">></a>';
@@ -112,7 +112,7 @@ SavedProperty.prototype.initpaging = function() {
 	$('#favorite_properties').children().css('display', 'none');
 	$('#favorite_properties').children().slice(0, show_per_page).css('display', 'block');
 	$('.previous_link').css({"pointer-events":"none","color":"#ccc"});
-	$('#page_link_0').css({"pointer-events":"none","color":"#ccc"});
+	$('.page_link_0').css({"pointer-events":"none","color":"#ccc"});
 };
 
 
@@ -136,7 +136,7 @@ SavedProperty.go_to_page = function(page_num) {
 	var number_of_pages = Math.ceil(number_of_items / show_per_page);
 
 	$('.page_link').css({"pointer-events":"visible ","color":"#227BBD"});
-	$('#page_link_'+page_num).css({"pointer-events":"none","color":"#ccc"});
+	$('.page_link_'+page_num).css({"pointer-events":"none","color":"#ccc"});
 
 	if (page_num > 0) {
 		$('.previous_link').css({"pointer-events":"visible ","color":"#227BBD"});
