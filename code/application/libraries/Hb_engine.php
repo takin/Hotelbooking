@@ -290,8 +290,11 @@ class Hb_engine {
 
                 if (!empty($data['filters']["landmark"]->landmark_name)) {
                     $this->CI->load->model('i18n/db_translation_cache');
-                    $data['filters']["landmark"]->landmark_name_ts = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name, $this->CI->site_lang);
-                    $data['filters']["landmark"]->landmark_name_ts = $data['filters']["landmark"]->landmark_name_ts->translation;
+                    $landmark_translation = $this->CI->db_translation_cache->get_translation($data['filters']["landmark"]->landmark_name, $this->CI->site_lang);
+                    $data['filters']["landmark"]->landmark_name_ts =  $landmark_translation;
+                    if ($landmark_translation !== false) {
+                        $data['filters']["landmark"]->landmark_name_ts = $data['filters']["landmark"]->landmark_name_ts->translation;
+                    }    
                 }
             }
 
@@ -303,8 +306,11 @@ class Hb_engine {
                     $filters["district"] = $data['filters']["district"]->district_name;
 
                     $this->CI->load->model('i18n/db_translation_cache');
-                    $data['filters']["district"]->district_name_ts = $this->CI->db_translation_cache->get_translation($data['filters']["district"]->district_name, $this->CI->site_lang);
-                    $data['filters']["district"]->district_name_ts = $data['filters']["district"]->district_name_ts->translation;
+                    $district_translation = $this->CI->db_translation_cache->get_translation($data['filters']["district"]->district_name, $this->CI->site_lang);
+                    $data['filters']["district"]->district_name_ts = $district_translation;
+                    if ($district_translation !== false) {
+                        $data['filters']["district"]->district_name_ts = $data['filters']["district"]->district_name_ts->translation;
+                    }          
                 }
             }
 
