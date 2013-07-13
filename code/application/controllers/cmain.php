@@ -2347,6 +2347,9 @@ class CMain extends I18n_site {
     function ajax_compare_property($pro_id) {
         $prodIds = explode(",", $pro_id);
         $map_data = $this->get_property_details($pro_id);
+
+        $this->load->library('tank_auth');
+        $this->load->model('Db_favorite_hostels');
         
         $filter_array = array();
         $data = array();
@@ -2355,17 +2358,22 @@ class CMain extends I18n_site {
         $property_facelity = array();
 
         foreach ($prodIds as $key => $property_number) {
+            $favorited = $this->tank_auth->is_logged_in() 
+                ? $this->Db_favorite_hostels->countUserPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id())
+                : false;
+
             if ($this->api_used == HB_API) {
                 $this->load->library('hb_engine');
 
                 $_hostelData = array();
                 $hostelData = $this->hb_engine->property_info($_hostelData, $property_number);
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $hostelData['hostel_db_data']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
+                $hostelData['property_type'] = $hostelData['hostel']['TYPE_translated'];
                 $hostelData['property_number'] = $property_number;
-                $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
-                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
-                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['images']          = $hostelData['hostel']['BIGIMAGES'][0];
+                $hostelData['geoLatitude']     = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']    = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['favorited']       = $favorited;
 
                 if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
                     foreach ($hostelData['property_ratings'] as $type => $val) {
@@ -2415,12 +2423,13 @@ class CMain extends I18n_site {
                 $_hostelData = array();
                 $hostelData = $this->hw_engine->property_info($_hostelData, $property_number);
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $hostelData['hostel']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type'] = $hostelData['hostel']->property_type;
-                $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
-                $hostelData['rating']        = $hostelData['hostel']->rating;
+                $hostelData['property_type']   = $hostelData['hostel']->property_type;
+                $hostelData['images']          = $hostelData['hostel']->PropertyImages[0]->imageURL;
+                $hostelData['rating']          = $hostelData['hostel']->rating;
                 $hostelData['property_number'] = $property_number;
-                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
-                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['geoLatitude']     = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']    = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['favorited']       = $favorited;
                 
                 if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
                     $i = 0;
