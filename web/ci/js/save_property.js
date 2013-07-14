@@ -396,8 +396,10 @@ var SaveProperty = function() {
 					return;
                                 }
 
-				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.save_to_favorites').hide();
-				$('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options').find('.saved_to_favorites').show();
+				var refObj = $('#prop_tab_box_' + propertyNumber + ', #main .save_to_favorites_options, #save_to_favorites_options_compare_' + propertyNumber);
+
+				refObj.find('.save_to_favorites').hide();
+				refObj.find('.saved_to_favorites').show();
 
 				SaveProperty.loadSavedPropertyList();
 

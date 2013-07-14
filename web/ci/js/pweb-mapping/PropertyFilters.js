@@ -400,6 +400,8 @@ PWebFilterApp.prototype.update = function() {
 
 		this.$data_div.html(output);
 
+		this.setCompareCount();
+
 //                //Init jquery UI tabs
                   $('ul.ui-hostels_tabs-nav').tabs();
 //
@@ -1722,6 +1724,24 @@ PWebFilterApp.prototype.changeMarkerIcon = function(map_slug, pDiv, pIcon) {
     }
 };
 
+PWebFilterApp.prototype.setCompareCount = function() {
+	var cookie_value      = getCookie('compare');
+	var total_property    = cookie_value.split(",");
+	var property_selected = total_property.length;
+
+	if (total_property != '') {
+		for (i = 0; i < property_selected; i++) {
+			$("#pro_compare_" + total_property[i]).attr('checked',true); 
+			$("#pro_compare_" + total_property[i]).parent().find('label').css('color', '#3087C9');
+		}
+
+		$('.compare_count').html(parseInt(property_selected, 10));
+	}
+	else {
+		$('.compare_count').html('0');
+	}
+};
+
 
 //PWeb map wrapper for map in filter
 
@@ -1865,120 +1885,112 @@ PWebFilterMap.prototype.changeLandmarkLayer = function( landmark_latLng_Type ) {
        this.gmap.changeLandmarkLayer( landmark_latLng_Type );     	
 };
 
-$(document).ready(function() { 
 
-	if($.browser.msie){
+$(document).ready(function() { 
+	if ($.browser.msie) {
 		$("div#city_load").css("visibility", "visible");
 	}
-		
-	if(window.name == 'Hostel View') {
-    	window.name = 'City View';   		
-    } else {
-    	$("div#city_load").css("visibility", "visible");
-    }
-	
-  pweb_filter = new PWebFilterApp();
-  pweb_filter.init();
-  
-    $("#current_page").live("change", function()
-    {
-        pweb_filter.updateMarkers("city");
-        return false;
-    });
-    
-  $("ul.rating li").live('mouseover', function(){
-    var container = getPropertyRatingsContainer(this);
-    container.show();
-  });
 
-  $("ul.rating li").live('mouseout', function(){
-    var container = getPropertyRatingsContainer(this);
-    container.hide();
-  });
+	if (window.name == 'Hostel View') {
+		window.name = 'City View';   		
+	}
+	else {
+		$("div#city_load").css("visibility", "visible");
+	}
 
-  function getPropertyRatingsContainer(that) {
-    var propertyNumber = $(that).attr("data-propertyNumber");
-    return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
-  }
+	pweb_filter = new PWebFilterApp();
+	pweb_filter.init();
 
-  $.ajax(
-  {
-    type:"GET",
-    cache: true,
-    url:availibility_url,
-    success:function(data)
-    {
-      pweb_filter.setup(data);
+	$("#current_page").live("change", function() {
+		pweb_filter.updateMarkers("city");
 
-      $('#search_load').show();
-      $('#city_results_count').show();
-      $('#city_load').hide();
-      $('#wrap').show();
-	  
-	   $(".display_preview").fancybox({
-            'titlePosition' : 'inside',
-            'transitionIn'	: 'none',
-            'transitionOut'	: 'none',
-             beforeClose: function() {
-                    pweb_filter.toggleMap('city');
-                    pweb_filter.toggleMap('hostel_quickview');
-                    pweb_filter.updateMarkers("city");
-                }
-	  });
-	
-	  $(".box_content").live({
-		mouseenter: function(){   
-	    	    $(this).find('.quick_view_bg').slideDown(500);   
-		},
-		mouseleave: function(){
-		    $(this).find('.quick_view_bg').slideUp(300);      
-	        }
-	   });
-		
-	  var cookie_value = getCookie('compare');
-	  var total_property =    cookie_value.split(",");
-	  var property_selected = total_property.length;
+		return false;
+	});
 
-	  if (total_property != '') {
-		for (i = 0; i < property_selected; i++) {
-			  $("#pro_compare_"+total_property[i]).attr('checked',true); 
-			  $("#pro_compare_"+total_property[i]).parent().find('label').css('color', '#3087C9');
+	$("ul.rating li").live('mouseover', function() {
+		var container = getPropertyRatingsContainer(this);
+
+		container.show();
+	});
+
+	$("ul.rating li").live('mouseout', function() {
+		var container = getPropertyRatingsContainer(this);
+
+		container.hide();
+	});
+
+	function getPropertyRatingsContainer(that) {
+		var propertyNumber = $(that).attr("data-propertyNumber");
+
+		return $("#property_ratings_" + propertyNumber + " .propertyRatingsContainer");
+	}
+
+	$.ajax({
+		type:"GET",
+		cache: true,
+		url:availibility_url,
+		success:function(data) {
+			pweb_filter.setup(data);
+
+			$('#search_load').show();
+			$('#city_results_count').show();
+			$('#city_load').hide();
+			$('#wrap').show();
+
+			$(".display_preview").fancybox({
+				'titlePosition' : 'inside',
+				'transitionIn'	: 'none',
+				'transitionOut'	: 'none',
+				beforeClose: function() {
+					pweb_filter.toggleMap('city');
+					pweb_filter.toggleMap('hostel_quickview');
+					pweb_filter.updateMarkers("city");
+				}
+			});
+
+			$(".box_content").live({
+				mouseenter: function(){   
+					$(this).find('.quick_view_bg').slideDown(500);   
+				},
+				mouseleave: function(){
+					$(this).find('.quick_view_bg').slideUp(300);      
+				}
+			});
+
+			pweb_filter.setCompareCount();
+
+			//******fix IE No markers on IE after coming from a property page.*******
+			// this part is a hack to fix IE when first load the page 
+			// because left map don't show marker when it is first loaded
+			// and marker don't show when go to property page and then 
+			// go back to city page
+			if ($.browser.msie) {
+				// get sort id and sort class
+				var sortBy_id = $("#data_sort_controls").find(".activesort").attr("id");
+				var sortBy_class = $("#data_sort_controls").find(".activesort").find("span").attr("class");
+				// this var to revert sort class , so when trigger click it will show the same result
+				var change_sortBy_class = "asc";
+				if (sortBy_class === "asc") {
+					change_sortBy_class = "desc";
+				}
+
+				$("#data_sort_controls").find(".activesort").find("span").removeClass("sortBy_class").addClass(change_sortBy_class);
+				// trigger sort event
+				$("#" + sortBy_id).trigger("click");
+			}
+
+			//******fix IE No markers on IE after coming from a property page.*******
 		}
+	});
 
-		$('.compare_count').html(parseInt(property_selected, 10));
-	  }
-	  else {
-		$('.compare_count').html('0');
-	  }
-            //******fix IE No markers on IE after coming from a property page.*******
-            // this part is a hack to fix IE when first load the page 
-            // because left map don't show marker when it is first loaded
-            // and marker don't show when go to property page and then 
-            // go back to city page
-            if ($.browser.msie) {
-                // get sort id and sort class
-                var sortBy_id = $("#data_sort_controls").find(".activesort").attr("id");
-                var sortBy_class = $("#data_sort_controls").find(".activesort").find("span").attr("class");
-                // this var to revert sort class , so when trigger click it will show the same result
-                var change_sortBy_class = "asc";
-                if (sortBy_class === "asc") {
-                    change_sortBy_class = "desc";
-                }
-                $("#data_sort_controls").find(".activesort").find("span").removeClass("sortBy_class").addClass(change_sortBy_class);
-                // trigger sort event
-                $("#" + sortBy_id).trigger("click");
-            }
-            //******fix IE No markers on IE after coming from a property page.*******
-    }
-  });
+	$('a#change-dates').click(function() {
+		$("#side_search_box_city").toggle();
 
-  $('a#change-dates').click(function() 
-  {
-    $("#side_search_box_city").toggle();
-    return false;
-  });
-  
+		return false;
+	});
 });
+
+
 /*code by deep*/
 
 //$(".quick_view_bg_link,.pre_next_arrows").live('click', function(event){
