@@ -2000,8 +2000,8 @@ $(document).ready(function() {
 				}
 			});
 			$(".box_content").live({
-					$(this).find('.quick_view_bg').slideDown(500);   
 				mouseenter: function(){   
+					$(this).find('.quick_view_bg').slideDown(500);   
 				},
 				mouseleave: function(){
 					$(this).find('.quick_view_bg').slideUp(300);      
