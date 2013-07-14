@@ -1263,6 +1263,7 @@ PWebFilterApp.prototype.setClickSort = function(divID, DOMNodeID, rowname) {
 		}
               // refresh map markers after sorting
               that.pweb_maps["city"].reDrawMarkers();
+              that.pweb_maps["expanded_city"].reDrawMarkers();
 
 		return false;
 	});
