@@ -107,7 +107,19 @@ $(document).ready(function(){
 		 	$('#search-submit').effect("bounce", { times:2, distance: 10 }, 300);
 			$('#datepick').css('border-color','#C97C30');
 		});
+        
+        // tooltip now
+        $(".tooltip[title]").style_my_tooltips({ 
+            tip_follows_cursor:false, //boolean
+            tip_delay_time:30, //milliseconds
+            tip_fade_speed:300 //milliseconds
+        });
+
+                
 });
+
+
+
 </script>
 <div id="sidebar" class="grid_6 city_lp">
 		<?php if(!empty($city_info->city_image)){?>
