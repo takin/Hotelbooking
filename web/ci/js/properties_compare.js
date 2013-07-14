@@ -122,9 +122,11 @@ function compare_property(value,proname,protype) {
 			compare_pro3.splice(compare_pro3.indexOf(value),1);
 			pweb_setCookie("compare",compare_pro3,24);
 		}
-	
-		this.compare_count.html(parseInt(this.total_com_property.val()) - 1);
-		this.total_com_property.val(parseInt(this.total_com_property.val()) - 1);
+                var number_to_compare = parseInt(this.total_com_property.val());
+                if(number_to_compare > 0 ){
+                    this.compare_count.html(number_to_compare - 1);
+                    this.total_com_property.val(number_to_compare - 1);
+                }
 
 		$('#property_' + value).remove();
 	}

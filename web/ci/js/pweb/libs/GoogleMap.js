@@ -257,7 +257,8 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
     var result = [];
-    if (window.gmap.getDiv().id === "filter_map_rightSide") {
+    if (window.gmap.getDiv().id === "filter_map_rightSide" || 
+        window.gmap.getDiv().id === "map_canvas_compareProperty" ) {
         result = {
             property_list: $('#property_list').children(),
             start_from: 0
