@@ -236,15 +236,10 @@ function property_compare_popup() {
 
 			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			
+                        // close city or expanded_map 
+                        pweb_filter.closeDefaultMap();
+                        // open compare property map
                         pweb_filter.toggleMap('compare_property');
-                        // check which map is enabled now to disable it
-                        if (pweb_filter.checkMapEnabled("city") === true)
-                        {
-                            pweb_filter.toggleMap('city'); 
-                        }
-                        else if (pweb_filter.checkMapEnabled("expanded_city") === true){
-                             pweb_filter.toggleMap('expanded_city');
-                        }
                         
 			$('#map_lat').val(JSON.stringify(data.map_data));
 
@@ -296,9 +291,12 @@ $(document).ready(function() {
 		'titlePosition'		: 'inside',
 		'transitionIn'		: 'none',
 		'transitionOut'		: 'none',
-             beforeClose: function() {
-                    pweb_filter.toggleMap('city');
+             beforeClose: function() { 
+                    // close compare property map
                     pweb_filter.toggleMap('compare_property');
+                    // open city (default) map
+                    pweb_filter.showDefaultMap();
+                    
                 }
 	});
 });

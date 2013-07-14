@@ -360,7 +360,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
                                             </div>
                                             <div class="page_navigation"></div>
                                         </div>
-			 <!-- filer searcr box -->
+			 <!-- filer search box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">
 			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>
 			<ul class="unstyled" id="applied_filters">
