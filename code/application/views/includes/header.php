@@ -1159,7 +1159,7 @@ $(document).ready(function()
 <div id="wrap">
 <div id="top_bar">
 	<div id="top_bar_inner" class="container_16 group">
-		<div class="grid_6">
+		<div class="grid_3">
 		<?php $code=$this->wordpress->get_option('aj_lang_code');
 			$shortcode = strtolower(substr($code,0,2));
 			$code=str_replace('-','_',$code);
@@ -1171,11 +1171,16 @@ $(document).ready(function()
 		</div>
 
 		</div>
-		<div class="grid_10">
+		<div class="grid_13">
             <span id="top_hd_currency">
-            <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
+            <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"style='width:150px'",$this->site_lang); ?>
             <script>
-                $("#search-currency").msDropdown();
+                $(function(){
+                    $("#search-currency option").attr('data-image', "/images/blank.gif");
+                    $("#search-currency option").attr('data-imagecss', "flag-none");
+                    
+                    $("#search-currency").msDropdown();
+                })
             </script>
             </span>
             <?php
