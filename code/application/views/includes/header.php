@@ -83,6 +83,7 @@
 	$this->carabiner->css('smoothness/jquery-ui.css');
     // css for tooltip
     $this->carabiner->css('tooltip-tooltips.css');
+    $this->carabiner->css('jquery.msdropdown.css');
 
   if($this->api_used == HB_API)
 	{?>
@@ -1022,7 +1023,8 @@ function show_featured_landmarks(){
   $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
   // css and js for tooltip
   $this->carabiner->js('jquery.tooltip-sasya.js');
-
+  $this->carabiner->js('jquery.dd.js');
+  
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
 
@@ -1170,6 +1172,16 @@ $(document).ready(function()
 
 		</div>
 		<div class="grid_10">
+            <span id="top_hd_currency">
+            <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
+            <script>
+                $("#search-currency").msDropdown();
+            </script>
+            </span>
+            <?php
+                $this->load->view("includes/flags_header");
+            ?>
+            
 			<span id="logged_in_link" style="display: none">
 				<?php $logged_in_link = "<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Mon Compte")."</a>"; ?>
 				<?php echo $logged_in_link; ?>

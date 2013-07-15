@@ -2337,41 +2337,45 @@ ul.dots li{
 ul.flag-footer{ height:auto; line-height:22px; float:none; background:none; margin:0px; position:relative; margin-bottom:15px; } 	
 ul.flag-footer li{ float:left; height:auto; margin-top:5px; margin-right:10px; padding:0px 0px 0px 0px; background:none; }
 ul.flag-footer li a{ margin:0px; padding: 0 0px 0 0px; color:#ffffff; text-indent:-9999px; display:block; height:16px; width:16px; float:left; }
-a.flag-fr{ background:url(../images/V2/flag-fr.png) no-repeat center left; }
-a.flag-es{ background:url(../images/V2/flag-es.png) no-repeat center left; }
-a.flag-en{ background:url(../images/V2/flag-en.png) no-repeat center left; }
-a.flag-en-us{ background:url(../images/V2/flag-en-us.png) no-repeat center left; }
-a.flag-it{ background:url(../images/V2/flag-it.png) no-repeat center left; }
-a.flag-ar{ background:url(../images/V2/flag-ar.png) no-repeat center left; }
-a.flag-mx{ background:url(../images/V2/flag-mx.png) no-repeat center left; }
-a.flag-pr{ background:url(../images/V2/flag-pr.png) no-repeat center left; }
-a.flag-cb{ background:url(../images/V2/flag-cb.png) no-repeat center left; }
-a.flag-ca{ background:url(../images/V2/flag-ca.png) no-repeat center left; }
-a.flag-br{ background:url(../images/V2/flag-br.png) no-repeat center left; }
-a.flag-pt{ background:url(../images/V2/flag-pt.png) no-repeat center left; }
-a.flag-de{ background:url(../images/V2/flag-de.png) no-repeat center left; }
-a.flag-eu{ background:url(../images/V2/flag-eu.png) no-repeat center left; }
-a.flag-hu{ background:url(../images/V2/flag-hu.png) no-repeat center left; }
-a.flag-jp{ background:url(../images/V2/flag-jp.png) no-repeat center left; }
-a.flag-kr{ background:url(../images/V2/flag-kr.png) no-repeat center left; }
-a.flag-pl{ background:url(../images/V2/flag-pl.png) no-repeat center left; }
-a.flag-ru{ background:url(../images/V2/flag-ru.png) no-repeat center left; }
-a.flag-zn{ background:url(../images/V2/flag-zn.png) no-repeat center left; }
-a.flag-cz{ background:url(../images/V2/flag-cz.png) no-repeat center left; }
-a.flag-fi{ background:url(../images/V2/flag-fi.png) no-repeat center left; }
-a.flag-ie{ background:url(../images/V2/flag-ie.png) no-repeat center left; }
-a.flag-hk{ background:url(../images/V2/flag-hk.png) no-repeat center left; }
-a.flag-bo{ background:url(../images/V2/flag-bo.png) no-repeat center left; }
-a.flag-cl{ background:url(../images/V2/flag-cl.png) no-repeat center left; }
-a.flag-ec{ background:url(../images/V2/flag-ec.png) no-repeat center left; }
-a.flag-py{ background:url(../images/V2/flag-py.png) no-repeat center left; }
-a.flag-uy{ background:url(../images/V2/flag-uy.png) no-repeat center left; }
-a.flag-ve{ background:url(../images/V2/flag-ve.png) no-repeat center left; }
-a.flag-au{ background:url(../images/V2/flag-au.png) no-repeat center left; }
-a.flag-nz{ background:url(../images/V2/flag-nz.png) no-repeat center left; }
-a.flag-ie{ background:url(../images/V2/flag-ie.png) no-repeat center left; }
-a.flag-in{ background:url(../images/V2/flag-in.png) no-repeat center left; }
-a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }
+.flag-fr,   a.flag-fr{ background:url(../images/V2/flag-fr.png) no-repeat center left; }							   
+.flag-es,   a.flag-es{ background:url(../images/V2/flag-es.png) no-repeat center left; }							   
+.flag-en,   a.flag-en{ background:url(../images/V2/flag-en.png) no-repeat center left; }							   
+.flag-en-us,   a.flag-en-us{ background:url(../images/V2/flag-en-us.png) no-repeat center left; }						   
+.flag-it,   a.flag-it{ background:url(../images/V2/flag-it.png) no-repeat center left; }							   
+.flag-ar,   a.flag-ar{ background:url(../images/V2/flag-ar.png) no-repeat center left; }							   
+.flag-mx,   a.flag-mx{ background:url(../images/V2/flag-mx.png) no-repeat center left; }							   
+.flag-pr,   a.flag-pr{ background:url(../images/V2/flag-pr.png) no-repeat center left; }							   
+.flag-cb,   a.flag-cb{ background:url(../images/V2/flag-cb.png) no-repeat center left; }							   
+.flag-ca,   a.flag-ca{ background:url(../images/V2/flag-ca.png) no-repeat center left; }							   
+.flag-br,   a.flag-br{ background:url(../images/V2/flag-br.png) no-repeat center left; }							   
+.flag-pt,   a.flag-pt{ background:url(../images/V2/flag-pt.png) no-repeat center left; }							   
+.flag-de,   a.flag-de{ background:url(../images/V2/flag-de.png) no-repeat center left; }							   
+.flag-eu,   a.flag-eu{ background:url(../images/V2/flag-eu.png) no-repeat center left; }							   
+.flag-hu,   a.flag-hu{ background:url(../images/V2/flag-hu.png) no-repeat center left; }							   
+.flag-jp,   a.flag-jp{ background:url(../images/V2/flag-jp.png) no-repeat center left; }							   
+.flag-kr,   a.flag-kr{ background:url(../images/V2/flag-kr.png) no-repeat center left; }							   
+.flag-pl,   a.flag-pl{ background:url(../images/V2/flag-pl.png) no-repeat center left; }							   
+.flag-ru,   a.flag-ru{ background:url(../images/V2/flag-ru.png) no-repeat center left; }							   
+.flag-zn,   a.flag-zn{ background:url(../images/V2/flag-zn.png) no-repeat center left; }							   
+.flag-cz,   a.flag-cz{ background:url(../images/V2/flag-cz.png) no-repeat center left; }							   
+.flag-fi,   a.flag-fi{ background:url(../images/V2/flag-fi.png) no-repeat center left; }							   
+.flag-ie,   a.flag-ie{ background:url(../images/V2/flag-ie.png) no-repeat center left; }							   
+.flag-hk,   a.flag-hk{ background:url(../images/V2/flag-hk.png) no-repeat center left; }							   
+.flag-bo,   a.flag-bo{ background:url(../images/V2/flag-bo.png) no-repeat center left; }							   
+.flag-cl,   a.flag-cl{ background:url(../images/V2/flag-cl.png) no-repeat center left; }							   
+.flag-ec,   a.flag-ec{ background:url(../images/V2/flag-ec.png) no-repeat center left; }							   
+.flag-py,   a.flag-py{ background:url(../images/V2/flag-py.png) no-repeat center left; }							   
+.flag-uy,   a.flag-uy{ background:url(../images/V2/flag-uy.png) no-repeat center left; }							   
+.flag-ve,   a.flag-ve{ background:url(../images/V2/flag-ve.png) no-repeat center left; }							   
+.flag-au,   a.flag-au{ background:url(../images/V2/flag-au.png) no-repeat center left; }							   
+.flag-nz,   a.flag-nz{ background:url(../images/V2/flag-nz.png) no-repeat center left; }							   
+.flag-ie,   a.flag-ie{ background:url(../images/V2/flag-ie.png) no-repeat center left; }							   
+.flag-in,   a.flag-in{ background:url(../images/V2/flag-in.png) no-repeat center left; }							   
+.flag-asia, a.flag-asia{ background:url(../images/V2/flag-asia.png) no-repeat center left; }						   
+*[class^="flag-"]{
+	width:16px;
+	height:14px;
+}
 
 .outside-inner{
 	padding:10px;
