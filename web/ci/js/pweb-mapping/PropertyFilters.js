@@ -1710,7 +1710,7 @@ PWebFilterApp.prototype.initpaging = function()
 PWebFilterApp.prototype.previous = function() 
 {    
     var new_page = parseInt($('#current_page').val()) - 1;  
-    if($('.active_page').prev('.page_link').length === true){  
+    if($('.active_page').prev('.page_link').length > 0 ){  
         this.go_to_page(new_page);  
     }  
 };
@@ -1718,7 +1718,7 @@ PWebFilterApp.prototype.previous = function()
 PWebFilterApp.prototype.next = function() 
 {   
     var new_page = parseInt($('#current_page').val()) + 1;  
-    if($('.active_page').next('.page_link').length === true){  
+    if($('.active_page').next('.page_link').length > 0){  
         this.go_to_page(new_page);  
     }  
 };
