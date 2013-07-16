@@ -6,25 +6,31 @@ function log {
 
 function clearLocal {
 
-  if [ -n $(/usr/bin/sudo /opt/scripts/diskspace.sh) ]; then
+  if [[ $(/usr/bin/sudo /opt/scripts/diskspace.sh) == *clearoscache* ]]; then
   
   echo "Disk Space is very low on $1 only 10% left. Cache has been cleared" | mutt -s "Disk Space is very Low on $1" korir.mordecai@gmail.com
+  log $1 OS Cache Cleared
+  
+  else
+  
+  log $1 OS No Cache Cleared
   
   fi
-  
-  log $1 OS Cache Clear
   
 }
 
 function clear {
  
-  if [ -n $(/usr/bin/ssh -t admin@$1 '/usr/bin/sudo /opt/scripts/diskspace.sh') ]; then
+  if [[ $(/usr/bin/ssh -t admin@$1 '/usr/bin/sudo /opt/scripts/diskspace.sh') == *clearoscache* ]]; then
   
   echo "Disk Space is very low on $1 only 10% left. Cache has been cleared" | mutt -s "Disk Space is very Low on $1" korir.mordecai@gmail.com
-
-  fi
+  log $1 OS Cache Cleared
   
-  log $1 OS Cache Clear
+  else
+  
+  log $1 OS No Cache Cleared
+  
+  fi
   
 }
 
