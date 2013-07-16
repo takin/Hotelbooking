@@ -17,8 +17,6 @@ function clearLocal {
 }
 
 function clear {
-
- $(/usr/bin/ssh -t admin@$1 '/usr/bin/sudo /opt/scripts/diskspace.sh')
  
   if [ -n $(/usr/bin/ssh -t admin@$1 '/usr/bin/sudo /opt/scripts/diskspace.sh') ]; then
   
