@@ -8,6 +8,7 @@ do
 if [ $percent -ge 90 ] ; then
 
 /usr/bin/sudo /opt/scripts/clearoscache.sh
+echo "clearoscache"
 
 fi
 done
