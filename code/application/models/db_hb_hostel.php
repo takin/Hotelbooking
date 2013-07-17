@@ -1884,14 +1884,15 @@ class Db_hb_hostel extends CI_Model {
 	}
 
 	public function get_districts_by_city_id($city_id) {
+		
 		$city_id = $this -> db -> escape_str($city_id);
-		$sql = "SELECT `" . self::DISTRICTS_TABLE . "`.`district_id`, `" . self::DISTRICTS_TABLE . "`.`um_id`, `" . self::DISTRICTS_TABLE . "`.`district_name`, COUNT(`" . self::HOSTEL_TABLE . "`.`property_number`) as `district_count`
+		
+		$sql = "SELECT `" . self::DISTRICTS_TABLE . "`.`district_id`, `" . self::DISTRICTS_TABLE . "`.`um_id`, `" . self::DISTRICTS_TABLE . "`.`district_name`, `".self::DISTRICTS_TABLE."`.`slug`, COUNT(`" . self::HOSTEL_TABLE . "`.`property_number`) as `district_count`
             FROM (`" . self::HOSTEL_TABLE . "`)
             RIGHT JOIN `" . self::HB_HOSTEL_DISTRICT_TABLE . "` ON `" . self::HOSTEL_TABLE . "`.`property_number` = `" . self::HB_HOSTEL_DISTRICT_TABLE . "`.`property_number`
             RIGHT JOIN `" . self::DISTRICTS_TABLE . "` ON `" . self::DISTRICTS_TABLE . "`.`district_id` = `" . self::HB_HOSTEL_DISTRICT_TABLE . "`.`district_id`
             WHERE `" . self::HOSTEL_TABLE . "`.`city_hb_id` = '" . $city_id . "'
-            GROUP BY `" . self::DISTRICTS_TABLE . "`.`district_id`
-            ;";
+            GROUP BY `" . self::DISTRICTS_TABLE . "`.`district_id` ;";
 		$query = $this -> db -> query($sql);
 
 		$return = array();
@@ -2668,3 +2669,5 @@ class Db_hb_hostel extends CI_Model {
     }
     
 }
+
+

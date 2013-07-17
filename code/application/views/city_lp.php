@@ -121,7 +121,8 @@ $(document).ready(function(){
 
 
 </script>
-<div id="sidebar" class="grid_6 city_lp">
+<div id="sidebar" class="grid_6 city_lp">		
+	
 		<?php if(!empty($city_info->city_image)){?>
     		<div class="box_content box_round side_entry" id="city_intro">
 			<div class="city_lp_img">
@@ -221,7 +222,7 @@ $(document).ready(function(){
 			echo '<h1>'.sprintf( gettext("Auberges à %s. Toutes les auberges à %s - %s "),ucfirst($city_selected),ucfirst($city_selected),ucfirst($country_selected)).'</h1>';
 		}?>
 
-		<p class="lp_text"><?php
+		<p class="lp_text1"><?php
 		if(!empty($city_info->city_description))
 		{
 			echo $city_info->city_description;
@@ -234,12 +235,14 @@ $(document).ready(function(){
 
 	<?php $this->load->view('includes/testimonials'); ?>
 	<?php $this->load->view('includes/siteinfo'); ?>
-	<?php $this->load->view('includes/widget-qr-code'); ?>
-	<?php //$this->load->view('includes/popular_city'); ?>
-
-	<?php //$this->load->view('includes/widget-cours'); ?>
-	<?php //$this->load->view('includes/year-10'); ?>
-	<?php //$this->load->view('includes/groupe'); ?>
+	<?php $this->load->view('includes/widget-qr-code'); ?>	
+	
+	<?php
+	$this->load->view("includes/side_districts",array("city_info" => $city_info, "category" => $category, "filters" => $filters, "city_districts" => $city_districts));
+	?>
+	<?php
+	$this->load->view("includes/side_landmarks",array("city_info" => $city_info, "category" => $category, "filters" => $filters, "city_landmarks" => $city_landmarks));
+	?>
 
 </div>
 
