@@ -712,7 +712,7 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
             <?php else: ?>
                 <th width="150"><?php echo _('Price'); ?></th>
             <?php endif; ?>
-            <th width="80"><?php echo _('Maximum'); ?></th>
+            <th width="95"><?php echo _('Maximum'); ?></th>
             <?php if ($numNights == 1): ?>
                 <th class="last" width="170"><?php echo _('Number of guests'); ?></th>
             <?php else: ?>
@@ -764,7 +764,7 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
             <?php else: ?>
                 <th width="150" class="per_title" per_room="<?php echo _('Price'); ?>" per_person="<?php echo _('Price'); ?>"><?php echo _('Price'); ?></th>
             <?php endif; ?>
-            <th width="80"><?php echo _('Maximum'); ?></th>
+            <th width="95"><?php echo _('Maximum'); ?></th>
             <?php if ($numNights == 1): ?>
                 <th class="last" width="170"><?php echo _('Number of guests'); ?></th>
             <?php else: ?>
