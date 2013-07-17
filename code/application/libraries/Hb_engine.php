@@ -229,6 +229,7 @@ class Hb_engine {
 
     function location_search($country, $city, $dateStart = NULL, $numNights = NULL, $include_availdata = FALSE, $prop_reviews = FALSE, $filters = array()) {
         $this->CI->load->model('Db_hb_country');
+		$this->CI->load->model('Db_links');
 
         $country_select = urldecode(customurldecode($country));
         $city_select = urldecode(customurldecode($city));
@@ -276,6 +277,15 @@ class Hb_engine {
             $data['filters'] = array("type" => NULL,
                 "landmark" => NULL,
                 "district" => NULL);
+				
+			$data['category'] = array(
+				"hostel" => $this->CI->Db_links->get_property_type_link('hostel', $this->CI->site_lang),
+				"hotel" => $this->CI->Db_links->get_property_type_link('hotel', $this->CI->site_lang),
+				"apartment" => $this->CI->Db_links->get_property_type_link('apartment', $this->CI->site_lang),
+				"guesthouse" => $this->CI->Db_links->get_property_type_link('guesthouse', $this->CI->site_lang),
+				"campsite" => $this->CI->Db_links->get_property_type_link('campsite', $this->CI->site_lang),
+				"property" => $this->CI->Db_links->get_property_type_link('property', $this->CI->site_lang)
+			);
 
             if (!empty($filters["type"])) {
                 $data['filters']["type"] = $filters["type"];
@@ -329,6 +339,10 @@ class Hb_engine {
                         $city->country_system_name, $city->system_name, $this->api_functions_lang, $data['currency']);
                 $data_from_live_api = true;
             }
+            
+             $data['city_districts'] = $this->CI->Db_hb_hostel->get_districts_by_city_id($city->hb_id);
+             $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_landmarks_by_city_id($city->hb_id, 2);
+                                          
         } else {
             $data['searchmode'] = 1;
 
@@ -548,15 +562,11 @@ class Hb_engine {
                     $data['property_list'] = $this->properties_sort_by_price($data['property_list']);
 
                     //keep one big list instead of splitting list in property types
-//           $data['property_list'] = $this->properties_filter_by_prop_type($data['property_list']);
+					//$data['property_list'] = $this->properties_filter_by_prop_type($data['property_list']);
                     $data['property_list'] = array("property_count" => count($data['property_list']), "hostel_list" => $data['property_list']);
                 }
             }
         }
-
-//        log_message("debug", "post ifs: " . print_r($data["property_list"], true));
-
-//    debug_dump($data['property_list']);
 
         //Sets cookies so we could access this from wordpress environment
         $cookie = array('name' => 'country_selected',
@@ -587,7 +597,50 @@ class Hb_engine {
         $data['bc_city'] = $city_select;
 
         //Title
-        $data['title'] = sprintf(gettext("Hostels in %s - %s"), $city_select, $this->CI->config->item('site_title'));
+        if (!empty($data['filters']["type"])) {
+			
+			if (!empty($filters["landmark"])) {
+				$data['title'] = $data['category'][$data['filters']["type"]].' - '.$data['filters']["landmark"]->landmark_name_ts.' - '.$city_select.' - '.$this->CI->config->item('site_title');
+			} elseif (!empty($filters["district"])) {
+				$data['title'] = $data['category'][$data['filters']["type"]].' - '.$data['filters']["district"]->district_name_ts.' - '.$city_select.' - '.$this->CI->config->item('site_title');
+			} else {
+				
+				switch ($data['filters']["type"]) {
+					case 'hostel':
+						$data['title'] = sprintf( gettext('Hostels in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					case 'hotel':
+						$data['title'] = sprintf( gettext('Hotels in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					case 'apartment':
+						$data['title'] = sprintf( gettext('Apartments in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					case 'guesthouse':
+						$data['title'] = sprintf( gettext('Rooms in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					case 'campsite':
+						$data['title'] = sprintf( gettext('Camping in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					case 'property':
+						$data['title'] = sprintf( gettext('Properties in %s'), $city_select ).' - '.$this->CI->config->item('site_title');
+						break;
+					default:
+						
+						break;
+				}
+			}
+			
+		} else {
+			
+			if (!empty($filters["landmark"])) {
+				$data['title'] = sprintf(gettext("Properties in %s - %s"), $data['filters']["landmark"]->landmark_name_ts.' - '.$city_select, $this->CI->config->item('site_title'));
+			} elseif (!empty($filters["district"])) {
+				$data['title'] = sprintf(gettext("Properties in %s - %s"), $data['filters']["district"]->district_name_ts.' - '.$city_select, $this->CI->config->item('site_title'));
+			} else {
+				$data['title'] = sprintf(gettext("Properties in %s - %s"), $city_select, $this->CI->config->item('site_title'));
+			}
+			
+		}
 
         $data['google_map_enable'] = true;
         $data['google_map_hostel_list'] = true;
