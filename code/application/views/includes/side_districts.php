@@ -22,19 +22,19 @@
 	<?php else: ?>
 		<ul>
 			<li>
-			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['hostel'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Hostels in %s'), $city_info->display_city), array('title' => 'Camping in District!'));  ?>
+			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['hostel'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Hostels in %s'), $city_info->display_city), array('title' => sprintf( gettext('Hostels in %s'), $city_info->display_city)));  ?>
 			</li>
 			<li>
-			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['apartment'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Apartments in %s'), $city_info->display_city), array('title' => 'Camping in District!'));  ?>
+			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['apartment'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Apartments in %s'), $city_info->display_city), array('title' => sprintf( gettext('Apartments in %s'), $city_info->display_city)));  ?>
 			</li>
 			<li>
-			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['hotel'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Hotels in %s'), $city_info->display_city), array('title' => 'Camping in District!'));  ?>
+			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['hotel'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Hotels in %s'), $city_info->display_city), array('title' => sprintf( gettext('Hotels in %s'), $city_info->display_city)));  ?>
 			</li>
 			<li>
-			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['campsite'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Camping in %s'), $city_info->display_city), array('title' => 'Camping in District!'));  ?>
+			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['campsite'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Camping in %s'), $city_info->display_city), array('title' => sprintf( gettext('Camping in %s'), $city_info->display_city)));  ?>
 			</li>
 			<li>
-			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['property'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Properties in %s'), $city_info->display_city), array('title' => 'Camping in District!'));  ?>
+			<?php echo anchor($this->uri->segment(1).'/'.$this->uri->segment(2) . '/type/'. $category['property'].(!empty($_SERVER['QUERY_STRING'])?'?'.$_SERVER['QUERY_STRING']:''), sprintf( gettext('Properties in %s'), $city_info->display_city), array('title' => sprintf( gettext('Properties in %s'), $city_info->display_city)));  ?>
 			</li>
 		</ul>
 	<?php endif; ?>	
