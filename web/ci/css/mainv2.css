@@ -3154,8 +3154,12 @@ width: 275px;}
     top: 0;
 }
 
-#city_side_map_container.map_button_box span{
+#city_side_map.map_button_box span{
     display:none;	
+}
+
+#city_side_map_container{
+    position: relative;
 }
 
 .property_marker_number{
@@ -3222,7 +3226,7 @@ width: 275px;}
 	margin-top: 12px;
 	margin-right: 29px;
 */
-	padding-right; 10px;
+	padding-right: 10px;
 	color: #3087C9;
 	cursor: pointer;
 }
@@ -3258,8 +3262,13 @@ width: 275px;}
     margin: 0;
 }
 #show_expanded_map{
-    margin-bottom: 0px;
+    height: 3%;
+    left: 0;
+    position: absolute;
     text-align: center;
+    top: 0;
+    width: 92%;
+    z-index: 10000
 }
 #close_expanded_map{
     float: right;
@@ -3270,5 +3279,5 @@ width: 275px;}
     z-index: 1;
 }
 #expanded_city_map_container{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
