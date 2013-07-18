@@ -1,5 +1,10 @@
 <div class="box_content box_round">
 	<?php if(isset($filters ['landmark'] -> landmark_name)): ?>
+		<?php
+		if(isset($filters ['landmark'] -> landmark_name_ts)) {
+			$filters ['landmark'] -> landmark_name = $filters ['landmark'] -> landmark_name_ts;
+		}
+		?>
 	<?php if(!isset($filters['type'])): ?>		
 		<ul>
 			<li>
@@ -26,7 +31,7 @@
 <div class="box_content box_round">
 	<p>
 		<strong>
-			<?php printf( gettext('Landmarks in %s'),$city_info->display_city); ?>
+			<?php echo _('Landmarks'); ?>
 		</strong>
 	</p>
 	<?php if(is_array($city_landmarks)): ?>
