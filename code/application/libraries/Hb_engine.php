@@ -342,6 +342,16 @@ class Hb_engine {
             
              $data['city_districts'] = $this->CI->Db_hb_hostel->get_districts_by_city_id($city->hb_id);
              $data['city_landmarks'] = $this->CI->Db_hb_hostel->get_landmarks_by_city_id($city->hb_id, 2);
+			 
+			 foreach ($data['city_landmarks'] as $i => $landmark) {
+			 	
+                    $translation = $this->CI->db_translation_cache->get_translation($landmark->landmark_name, $this->CI->site_lang);
+                    $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;                   
+                    if (!empty($translation)) {
+                        $data['city_landmarks'][$i]->original_name = $data['city_landmarks'][$i]->landmark_name;
+                        $data['city_landmarks'][$i]->landmark_name = $translation->translation;
+                    }
+                }
                                           
         } else {
             $data['searchmode'] = 1;
