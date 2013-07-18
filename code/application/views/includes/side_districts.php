@@ -43,7 +43,7 @@
 <div class="box_content box_round">
 	<p>
 	<strong>
-		<?php printf( gettext('Districts in %s'),$city_info->display_city); ?>
+		<?php echo _('Districts'); ?>
 	</strong>
 	</p>
 	<?php if(is_array($city_districts)): ?>
