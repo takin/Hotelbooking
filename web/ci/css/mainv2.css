@@ -579,7 +579,8 @@ a.modify_search.collapse {
 .city_view_search #side_search_wrap, .hostel_view_side #side_search_wrap{display:none;}
 
 .box_content.side_search, .box_content.main_search
-,#filter_landmark_link ,#filter_district_link{	
+,.filter_landmark_link ,.filter_district_link
+,.main_pagination_div{	
 	border:1px solid #80B422;
 	background-color: #EAF0DE;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F7EF), to(#EAF0DE));
@@ -3284,11 +3285,22 @@ width: 275px;}
     overflow: hidden;
     width: 100%;
 }
-#filter_landmark_link ,#filter_district_link{
+.filter_landmark_link ,.filter_district_link{
     float: left;
     margin-right: 6px;
     width: 39%;
 }
 .leftside_filter_links{
     width: 100% !important;    
+}
+#middleside_filter_links_container{
+    width: 32%;
+}
+#header_pagination{
+    width: 65%;
+    border-width: 2px;
+}
+.main_pagination_div{
+    height: 23px;
+    line-height: 18px;
 }

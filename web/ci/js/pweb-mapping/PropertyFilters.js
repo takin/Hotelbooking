@@ -1376,10 +1376,14 @@ PWebFilterApp.prototype.setup = function(data)
        
         // click on filter by Districts and Landmarks will trigger fancy box 
         // on div map_filter_popup
-        $('#map_filter_popup').trigger('click',[this.id]);
+        var tab_to_show = "district";
+        if($(this).hasClass("city_map_filter_landmarks")){
+            tab_to_show = "landmark";
+        }
+        $('#map_filter_popup').trigger('click',tab_to_show);
     });
 
-    $('#map_filter_popup').click(function(event, link_id) {
+    $('#map_filter_popup').click(function(event, tab_to_show) {
         // for some reason div reloads when ckicked inside it
         if ($('#map_filter_popup').is(":visible")) {
             return false;
@@ -1398,7 +1402,7 @@ PWebFilterApp.prototype.setup = function(data)
                 $("#ul_map_filter_tabs").tabs('select', -1);
                 $(".ui-tabs-selected").removeClass("ui-state-active").removeClass("ui-tabs-selected");
                 // trigger tab according to the link that fire the fancybox
-                if (link_id === "city_map_filter_districts") {
+                if (tab_to_show === "district") {
                     // trigger the district tab
                     $("#ul_map_filter_tabs").tabs('select', 0);
                     $("#filter_content_districts_popup").show();

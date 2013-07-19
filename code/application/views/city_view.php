@@ -114,17 +114,17 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         $first_filter_div_container = '<div id="leftside_filter_links_container">';
         $last_filter_div_container = '</div>';
         
-        $filter_by_districts_link = '<div id="filter_district_link" class="box_content box_round group side_search">
+        $filter_by_districts_link = '<div class="filter_district_link box_content box_round group side_search">
             <ul class="group_filter_links_container">
             <li class="leftside_filter_links">
-            <a id="city_map_filter_districts" class="city_map_filter" href="#">' 
+            <a class="city_map_filter_districts city_map_filter" href="#">' 
                 . _("Filter by districts") . '</a></li>
                     </ul></div>';
         
-        $filter_by_landmarks_link = '<div id="filter_landmark_link" class="box_content box_round group side_search">
+        $filter_by_landmarks_link = '<div class="filter_landmark_link box_content box_round group side_search">
                     <ul class="group_filter_links_container">
             <li class="leftside_filter_links">
-            <a id="city_map_filter_landmarks" class="city_map_filter" href="#">' 
+            <a class="city_map_filter_landmarks city_map_filter" href="#">' 
                 . _("Filter by Landmarks") . 
                 '</a></li>
                     </ul></div>';
@@ -358,8 +358,53 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 					</a>
                                 <div id="expanded_city_map"></div>
                             </div>       
+                                         <?php
+        $filterBy_flag = "both";
+        if (empty($city_landmarks) && empty($city_districts)) {
+
+            $filterBy_flag = "none";
+        } elseif (empty($city_landmarks)) {
+            $filterBy_flag = "districts";
+        } elseif (empty($city_districts)) {
+            $filterBy_flag = "landmarks";
+        }
+       
+        $first_filter_div_container = '<div id="middleside_filter_links_container">';
+        $last_filter_div_container = '</div>';
+        
+        $filter_by_districts_link = '<div class="filter_district_link box_content box_round group side_search">
+            <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_districts city_map_filter" href="#">' 
+                . _("Filter by districts") . '</a></li>
+                    </ul></div>';
+        
+        $filter_by_landmarks_link = '<div class="filter_landmark_link box_content box_round group side_search">
+                    <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_landmarks city_map_filter" href="#">' 
+                . _("Filter by Landmarks") . 
+                '</a></li>
+                    </ul></div>';
+        switch ($filterBy_flag) {
+            case "both":
+                echo $first_filter_div_container . $filter_by_districts_link . 
+                    $filter_by_landmarks_link . $last_filter_div_container;
+
+                break;
+            case "districts":
+                echo $first_filter_div_container . $filter_by_districts_link . $last_filter_div_container;
+                break;
+
+            case "landmarks":
+                echo $first_filter_div_container . $filter_by_landmarks_link . $last_filter_div_container;
+                break;
+
+            default:
+                break;
+        } ?>    
                                         <!-- Next 20 result code start-->
-                                        <div class="pagination_pro main_pagination_div" style="display:none;">
+                                        <div id="header_pagination" class="pagination_pro main_pagination_div" style="display:none;">
                                             <div  class="left_pagi pagination_result">
                                                 <span class="resultcount"></span>
                                                 <?php echo _('of'); ?>
