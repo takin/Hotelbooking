@@ -1725,13 +1725,19 @@ PWebFilterApp.prototype.next = function()
 {   
     var new_page = parseInt($('#current_page').val()) + 1;  
     if($('.active_page').next('.page_link').length > 0){  
-        this.go_to_page(new_page);  
+        this.go_to_page(new_page);
     }  
 };
 
 PWebFilterApp.prototype.go_to_page = function(page_num) 
 {   
-  $("html, body").animate({ scrollTop: 200 }, 400);
+  // get page scroll location  
+  var scroll_position = $(window).scrollTop();
+  // if page scroll location more than 400 px scroll page to top
+  if (scroll_position > 400) {
+     $("html, body").animate({scrollTop: 200}, 400);
+  }
+
   var show_per_page = parseInt($('#show_per_page').val());
   var number_of_items = $('#property_list').children().size(); 
   var number_of_pages = Math.ceil(number_of_items/show_per_page);
