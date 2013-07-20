@@ -1,3 +1,10 @@
+<?php
+$message = NULL;
+if (intval($this->uri->segment(4)) > 1)
+{
+	$message = _('The Average price per person per night is for the requested arrival date and length of stay, actual day-by-day prices may vary.');   
+}
+?>
 {{#properties}}
 <div id="prop_tab_box_{{propertyNumber}}" class="hostel_list search_list openup hostel_info_box" rel="{{propertyNumber}}" onmouseover="pweb_filter.changeMarkerIcon('city', $(this), 'selected'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'visible');" onmouseout="pweb_filter.changeMarkerIcon('city', $(this),'original'); $('#prop_tab_box_{{propertyNumber}} .displaySaveProperty, #prop_tab_box_{{propertyNumber}} .prices_toggle, #prop_tab_box_{{propertyNumber}} .prices_border').css('visibility', 'hidden');">
 	<input type="hidden" value="{{propertyNumber}}" id="hostel_propertyNumber_{{propertyNumber}}" name="hostel_propertyNumber_{{propertyNumber}}" />
@@ -86,22 +93,20 @@
 
 				<div class="city_hostel_districts_landmarks_zone">
 					<div class="city_hostel_districts" id="city_hostel_districts_{{propertyNumber}}" name="city_hostel_districts_{{propertyNumber}}">
+						<span class="show_more show_more_districts" title="<?php echo _('Districts'); ?>|{{#districts}}{{district_name}}, {{/districts}}"><strong>+</strong></span>
+
 						<span class="city_hostel_districts_district"><?php echo _('Districts'); ?>:</span>
 						<span id="city_hostel_districts_values_{{propertyNumber}}" class="city_hostel_districts_values">
-							<span class="show_more show_more_districts" title="<?php echo _('Districts'); ?>|{{#districts}}{{district_name}}, {{/districts}}"><strong>+</strong></span>
 							<span class="content">{{#districts}}{{district_name}}, {{/districts}}</span>
 						</span>
 					</div>
 
 					<div class="city_hostel_landmarks" id="city_hostel_landmarks_{{propertyNumber}}" name="city_hostel_landmarks_{{propertyNumber}}">
+						<span class="show_more show_more_landmarks filter_landmark_imaged" title="<?php echo _('Landmarks (within 2km)'); ?>|{{#landmarks}}{{translation_name}}, {{/landmarks}}"><strong>+</strong></span>
+
 						<span class="city_hostel_landmarks_landmark"><?php echo _('Landmarks (within 2km)'); ?>:</span>
-						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values">
-							<span class="show_more show_more_landmarks filter_landmark_image" title="<?php echo _('Landmarks (within 2km)'); ?>|{{#landmarks}}{{translation_name}}, {{/landmarks}}"><strong>+</strong></span>
-							<span class="content">{{#landmarks}}
-                                                            <span class="landmark_type_{{type}}"></span>
-                                                            {{translation_name}}, 
-                                                            
-                                                            {{/landmarks}}</span>
+						<span id="city_hostel_landmarks_values_{{propertyNumber}}" class="city_hostel_landmarks_values" style="line-height: 1.3em">
+							<span class="content">{{#landmarks}}<span class="landmark_type_{{type}} landmark_type"></span> {{translation_name}}, {{/landmarks}}</span>
 						</span>
 					</div>
 				</div>
@@ -265,7 +270,7 @@
 					<span class="rebate-price" style="display: inline"> {{display_currency}} {{original_price}}</span>
 					{{/original_price}}
 
-					<span class="dorms_currency" style="display: inline">{{display_currency}}</span> <strong title="<?php echo _('Lowest price per night per person in a dorm'); ?>" class="dorms_price">{{display_shared_price_formatted}}</strong>
+					<span class="dorms_currency" style="display: inline">{{display_currency}}</span> <strong title="<?php echo ($message != null) ? $message : _('Lowest price per night per person in a dorm').$message; ?>" class="dorms_price">{{display_shared_price_formatted}}</strong>
 
 					{{#original_price}}
 					<!-- <div class="group deal"><p class="deal"><?php echo _('Deal of the Day'); ?></p></div> -->
@@ -275,7 +280,7 @@
 					{{#display_private_price}}
 						<br style="clear: both" />
 						<span class="nbpeople-textd"><?php printf(gettext('Private rooms from %s'), ''); ?></span>
-						<span class="display-currrency" title="<?php echo _('Lowest price per night per person in a private room'); ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
+						<span class="display-currrency" title="<?php echo ($message != null) ? $message : _('Lowest price per night per person in a private room').$message; ?>"><span style="display: inline" class="private_currency">{{display_currency}}</span> <strong class="private_price">{{display_private_formatted}}</strong></span>
 					{{/display_private_price}}
 					{{/dual_price}}
 				</div>

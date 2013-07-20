@@ -846,8 +846,8 @@ class CMain extends I18n_site {
             if (!empty($url_segment_3)) {
                 switch ($url_segment_3) {
                     case 'landmark':
-                        $dateStart = NULL;
-                        $numNights = NULL;
+                $dateStart = NULL;
+                $numNights = NULL;
                         $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(4));
                         break;
                     case 'district':
@@ -868,8 +868,8 @@ class CMain extends I18n_site {
             if (!empty($url_segment_5)) {
                 switch ($url_segment_5) {
                     case 'landmark':
-                        $dateStart = NULL;
-                        $numNights = NULL;
+                $dateStart = NULL;
+                $numNights = NULL;
                         $filter["landmark"] = $this->Db_links->get_translation_link_term($this->uri->segment(6));
                         break;
                     case 'district':
@@ -906,6 +906,21 @@ class CMain extends I18n_site {
                 $data['current_view'] = "city_view";
 
                 if (empty($dateStart)) {
+              
+                    if (!empty($data["city_info"]->country_system_name)) {
+                        $this->load->model('Db_hb_hostel');
+
+                        if (empty($data["filters"]["landmark"]) && empty($data["filters"]["district"])) {
+                            $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, 40);
+                        } elseif (!empty($data["filters"]["landmark"])) {
+                            $data["property_geos"] = $this->Db_hb_hostel->get_landmark_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, $data["filters"]["landmark"]->landmark_id, 40);
+                        } elseif (!empty($data["filters"]["district"])) {
+                            $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, $data["filters"]["district"]->district_id, 40);
+                        }
+                        // get feature landmark
+                        $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_id($data["city_info"]->hb_id, 2);
+                    }
+                   
                     $data['current_view'] = "city_lp";
                     $this->load->view('includes/template-landing-city-page', $data);
                 } else {
@@ -970,7 +985,22 @@ class CMain extends I18n_site {
                     $data['current_view'] = "city_view";
 
 
-                    if (empty($dateStart)) {
+                    if (empty($dateStart)) {       
+                    
+                         if (!empty($data["city_info"]->country_system_name)) {
+                            $this->load->model('Db_hb_hostel');
+
+                            if (empty($data["filters"]["landmark"]) && empty($data["filters"]["district"])) {
+                                $data["property_geos"] = $this->Db_hb_hostel->get_location_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, 40);
+                            } elseif (!empty($data["filters"]["landmark"])) {
+                                $data["property_geos"] = $this->Db_hb_hostel->get_landmark_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, $data["filters"]["landmark"]->landmark_id, 40);
+                            } elseif (!empty($data["filters"]["district"])) {
+                                $data["property_geos"] = $this->Db_hb_hostel->get_district_properties_geos($data["city_info"]->country_system_name, $data["city_info"]->system_name, $data["filters"]["district"]->district_id, 40);
+                            }
+                            // get feature landmark
+                            $data["featured_landmarks"] = $this->Db_hb_hostel->get_featured_landmarks_by_city_id($data["city_info"]->hb_id, 2);
+                        }
+                        
                         $data['current_view'] = "city_lp";
                         $this->load->view('includes/template-landing-city-page', $data);
                     } else {
@@ -2178,7 +2208,7 @@ class CMain extends I18n_site {
                 $data['propertyurl'] = $this->next_property_url($data['hostel']['TYPE'], $data['hostel']['NAME'], $property_number, $this->site_lang);
                 $filter_array[$key]["Geo"]["Latitude"] = $data['hostel']['GPS']['LAT'];
                 $filter_array[$key]["Geo"]["Longitude"] = $data['hostel']['GPS']['LON'];
-                $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = $images['thumbnails']['0'];
+                $filter_array[$key]["PropertyImages"]["PropertyImage"]["imageThumbnailURL"] = @$images['thumbnails']['0'];
                 $filter_array[$key]["property_page_url"] = $data['propertyurl'];
                 $filter_array[$key]["display_price_formatted"] = $data['hostel_min_price'];
                 $filter_array[$key]["propertyNumber"] = $property_number;
@@ -2317,6 +2347,10 @@ class CMain extends I18n_site {
     function ajax_compare_property($pro_id) {
         $prodIds = explode(",", $pro_id);
         $map_data = $this->get_property_details($pro_id);
+
+        $this->load->library('tank_auth');
+        $this->load->model('Db_favorite_hostels');
+	$this->load->model('Db_term_translate');
         
         $filter_array = array();
         $data = array();
@@ -2325,17 +2359,23 @@ class CMain extends I18n_site {
         $property_facelity = array();
 
         foreach ($prodIds as $key => $property_number) {
+            $favorited = $this->tank_auth->is_logged_in() 
+                ? $this->Db_favorite_hostels->countUserPropertyNumber(null, $property_number, ($this->api_used == HB_API ? 1 : 0), $this->tank_auth->get_user_id())
+                : false;
+
             if ($this->api_used == HB_API) {
                 $this->load->library('hb_engine');
 
                 $_hostelData = array();
                 $hostelData = $this->hb_engine->property_info($_hostelData, $property_number);
+
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel_db_data']->property_type, $hostelData['hostel_db_data']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type'] = $hostelData['hostel_db_data']->property_type;
+                $hostelData['property_type']   = (string)$this->Db_term_translate->get_term_translation(ucfirst($hostelData['hostel_db_data']->property_type), $this->site_lang);
                 $hostelData['property_number'] = $property_number;
-                $hostelData['images']        = $hostelData['hostel']['BIGIMAGES'][0];
-                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
-                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['images']          = $hostelData['hostel']['BIGIMAGES'][0];
+                $hostelData['geoLatitude']     = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']    = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['favorited']       = $favorited;
 
                 if (!empty($hostelData['property_ratings']) && is_array($hostelData['property_ratings'])) {
                     foreach ($hostelData['property_ratings'] as $type => $val) {
@@ -2385,12 +2425,13 @@ class CMain extends I18n_site {
                 $_hostelData = array();
                 $hostelData = $this->hw_engine->property_info($_hostelData, $property_number);
        	        $hostelData['property_url']  = $this->Db_links->build_property_page_link($hostelData['hostel']->property_type, $hostelData['hostel']->property_name, $property_number, $this->site_lang);
-                $hostelData['property_type'] = $hostelData['hostel']->property_type;
-                $hostelData['images']        = $hostelData['hostel']->PropertyImages[0]->imageURL;
-                $hostelData['rating']        = $hostelData['hostel']->rating;
+                $hostelData['property_type']   = (string)$this->Db_term_translate->get_term_translation(ucfirst($hostelData['hostel']->property_type), $this->site_lang);
+                $hostelData['images']          = $hostelData['hostel']->PropertyImages[0]->imageURL;
+                $hostelData['rating']          = $hostelData['hostel']->rating;
                 $hostelData['property_number'] = $property_number;
-                $hostelData['geoLatitude']        = $map_data[$key]['Geo']['Latitude'];
-                $hostelData['geoLongitude']        = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['geoLatitude']     = $map_data[$key]['Geo']['Latitude'];
+                $hostelData['geoLongitude']    = $map_data[$key]['Geo']['Longitude'];
+                $hostelData['favorited']       = $favorited;
                 
                 if (!empty($hostelData['hostel']->facilitiesTranslated) && is_array($hostelData['hostel']->facilitiesTranslated)) {
                     $i = 0;
@@ -2637,12 +2678,18 @@ class CMain extends I18n_site {
 
 	 $this->load->model('i18n/db_translation_cache');
 
-	 if ($this->api_used == HB_API) {   
+         if ($this->api_used == HB_API) {   
 		 $this->load->library('hb_engine');
 		 $data['current_view_dir'] = $this->api_view_dir;
 		 $this->load->model('db_hb_hostel');
+		 $this->load->model('db_hb_hostel_image');
 
-		 $alldata = $this->hb_engine->property_info($data, $property_number);
+		 //$alldata = $this->hb_engine->property_info($data, $property_number);
+                 $alldata = array(
+                     'hostel' => array(
+                         'IMAGES' => $this->db_hb_hostel_image->getHostelImages($property_number)
+                     )
+                 );    
 	 }
 	 else {
 		 $this->load->model('db_hw_hostel');

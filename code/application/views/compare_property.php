@@ -19,10 +19,13 @@ $nine           = '';
 $eleven         = '';
 $space          = '&nbsp;';
 $maplink        = '';
+$savelink       = '';
 $question_alert = '????';
 
 for ($i = 0; $i < count($compare_data); $i++) {
 	$protype = $compare_data[$i]['property_type'];
+	$favorited = $compare_data[$i]['favorited'];
+        $property_number = $compare_data[$i]['property_number'];
 
         // TODO
 	if (0 && $compare_data[$i]['symbol'] != '' && $compare_data[$i]['symbol'] != 'NULL') {
@@ -38,11 +41,23 @@ for ($i = 0; $i < count($compare_data); $i++) {
 	$propertyno_geo    .= '<th  class="control_button" > <span class="column_order">' . $a . '</span><input type="hidden" id="compare_geoLatLng_'.$compare_data[$i]['property_number'].'" value="'.$compare_data[$i]['geoLatitude'].','.$compare_data[$i]['geoLongitude'].'"> </th>';
 
 	$proname       .= '<td  class="control_button" style="width: 115px"><a href="' . $compare_data[$i]['property_url'] . '" class="micro_site_Link" target="_blank">' . $compare_data[$i]['property_name'] . '</a></td>';
-	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> <span>' . _($protype) . '</span></div></td>';
+	$propertyimage .= '<td  class="control_button"><div class="quick_compare_image"><a href="' . $compare_data[$i]['images'] . '" class="micro_site_Link" > <img src="' . $compare_data[$i]['images'] . '" width="120" height="80"/></a> ' . $protype . '</div></td>';
 	$maplink       .= '<td  class="control_button"><span class="link_color"><a href="#map_td">' . _('See Map') . '</a><span></td>';
-       
-        $property_number = $compare_data[$i]['property_number'];
+	$savelink       .= '<td  class="control_button">';
 
+		$addToFav = $favorited ? 'display:none' : '';
+		$addedToFav = $favorited ? '' : 'display:none';
+
+		$savelink .= '<div id="save_to_favorites_options_compare_' . $property_number . '" style="margin: 0 auto; text-align: center">';
+		$savelink .= '<a href="#" class="save_to_favorites" id="save_to_favorites_' . $property_number . '" style="vertical-align: middle;' . $addToFav . '" rel="' . var_check($compare_data[$i]['property_name'], "") . '" title="' . _('You can save this property as a favorite in your account so you can easily book it at a later date if you wish.') . '">
+				<img style="vertical-align: middle" src="' . site_url() . '/images/save_favorite.png" /> ' . _('Add to my favorites') . '
+			</a>
+
+			<a href="' . site_url('user/favorite_properties') . '" class="saved_to_favorites" id="saved_to_favorites_' . $property_number . '" style="vertical-align: middle;' . $addedToFav . '" title=\'' . _('This property has been saved in your "My account" section. You can now easily book it at a later date if you wish.') . '\'>
+				<img style="vertical-align: middle" src="' . site_url() . '/images/saved_favorite.png"/> ' . _('Saved to my favorites') . '
+			</a>
+		</div></td>';
+       
 	if ($this->api_used == HB_API) {
 		if (0 && $compare_data[$i]['type'] == 'private') {
 			$dorms    .= '<td  class="control_button">' . _('Not available') . '</td>';
@@ -217,6 +232,11 @@ for ($i = 0; $i < count($compare_data); $i++) {
 						<td class="heading" ><?php echo $space;?></td>
 						<?php echo $maplink; ?>
 					</tr>
+					<tr class="quick_compare_grey">
+						<td class="heading" ><?php echo $space;?></td>
+						<?php echo $savelink; ?>
+					</tr>
+
 					<?php  if ($this->api_used == HB_API) { ?>
  					<tr class="quick_compare_grey row_white" id="row-1">
 						<td class="heading" ><a class="hideRowButton" data-rowid="row-1" href="#"><?php echo $space;?></a><?php echo _('Dorms From')?></td>
