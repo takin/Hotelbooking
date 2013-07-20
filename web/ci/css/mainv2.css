@@ -3288,7 +3288,7 @@ width: 275px;}
 .filter_landmark_link ,.filter_district_link{
     float: left;
     margin-right: 6px;
-    width: 39%;
+    width: 34%;
 }
 .leftside_filter_links{
     width: 100% !important;    
@@ -3296,9 +3296,13 @@ width: 275px;}
 #middleside_filter_links_container{
     width: 32%;
 }
+#middleside_filter_links_container li{
+    margin-left: 5px;
+}
 #header_pagination{
-    width: 65%;
     border-width: 2px;
+    margin-left: 2px;
+    width: 68%;
 }
 .main_pagination_div{
     height: 23px;
