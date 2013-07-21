@@ -2,5 +2,5 @@ Options -Indexes
 
 RewriteEngine on
 RewriteBase /ci
-RewriteCond $1 !^(index\.php|img|images|js|css|script|sitemap|cache|robots\.txt|debug\.php|apc\.php)
+RewriteCond $1 !^(index\.php|img|images|js|css|script|cache|robots\.txt|debug\.php|apc\.php)
 RewriteRule ^(.*)$ index.php/$1 [QSA,L]

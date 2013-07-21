@@ -58,6 +58,12 @@ $route['s/(:any)'] = "cmain/error404";
 $route['group']        = "cmain/group_request";
 $route['group/(:any)'] = "cmain/group_request";
 
+// Sitemap Generator 
+$route['sitemap.xml']        = "sitemap/index";
+
+// Sitemap Generator 
+$route['create_sitemap']        = "sitemap/create_sitemap";
+
 //Admin request
 $route['group_quote']        = "cadmin/generate_quote";
 $route['new_group_quote']    = "cadmin/group_quote";

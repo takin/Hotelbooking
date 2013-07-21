@@ -56,7 +56,7 @@ class Sitemaps
 
         foreach($this->items as $item)
         {
-            $item['loc'] = htmlentities($item['loc'], ENT_QUOTES);
+            // $item['loc'] = htmlentities($item['loc'], ENT_QUOTES);
             $map .= "\t<url>\n\t\t<loc>" . $item['loc'] . "</loc>\n";
 
             $attributes = array("lastmod", "changefreq", "priority");
@@ -213,7 +213,6 @@ class Sitemaps
                 }
                 fclose($fp);
             }
-
             $statuses[] = array("host" => $engine['host'], "status" => $status, "request" => $req);
         }
 
