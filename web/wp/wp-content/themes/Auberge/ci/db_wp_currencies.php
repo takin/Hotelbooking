@@ -69,6 +69,55 @@ class Db_currencies
     }
     return $this->default_lang;
   }
+  /**
+  * sasya8080
+  * 
+  */
+  function select_currency_list( $select_id, 
+                            $select_name, 
+                            $currency_selected = "", 
+                            $otherAttributes = "",
+                            $text_lang = "en", 
+                            $no_selection_text = NULL){
+      $text_lang  = $this->validate_currency_lang($text_lang);
+
+        $selected = "";
+        if(!empty($currency_selected))
+        {
+          $selected = $currency_selected;
+        }
+        
+        $query = "SELECT * FROM ".self::CURRENCY_TABLE;
+        $query.= " ORDER BY `order` DESC, `description_$text_lang` ASC";
+        $currencies = $this->db->get_results($query);
+        ?>
+        <div  <?php echo $otherAttributes; ?> id="<?php echo $select_id; ?>" class="dropdown dropdown-tip" >
+            <ul class="dropdown-menu">
+            <?php
+            if(!empty($no_selection_text))
+            {
+              ?>
+              <li <?php if(empty($selected)) echo "active=1 "; ?> value="">----- <?php echo $no_selection_text; ?> -----</li>
+              <?php
+            }
+
+            foreach ($currencies as $row)
+            {
+              $desc_field = "description_".$text_lang;
+              $currency_symbol = empty($row->symbol) ? $row->currency_code : $row->symbol;
+              ?>
+              <li <?php if(strcasecmp($selected,$row->currency_code)==0) echo "active=1"; ?> data-symbol="<?php echo $currency_symbol; ?>" data-code="<?php echo $row->currency_code; ?>">
+              <a>
+                <span class="currency-code"><?php echo $currency_symbol;?> : </span>
+                <?php echo $row->$desc_field;?>
+              </a></li>
+              <?php
+            }
+            ?>
+            </ul>
+        </div>
+      <?php        
+  }
 /**
    * get_currency_select
    * 

@@ -130,12 +130,12 @@ if (!empty($numnights_selected)) {
                             }
                             if (currency_value)
                             {
-                                document.getElementById('search-currency').value = currency_value;
+                                //document.getElementById('search-currency').value = currency_value;
                             }
                             else
                             {
                                 currency_value = '<?php echo $this->config->item('site_currency_default') ?>';
-                                document.getElementById('search-currency').value = currency_value;
+                                //document.getElementById('search-currency').value = currency_value;
                             }
                         }
                 );

@@ -84,6 +84,7 @@
     // css for tooltip
     $this->carabiner->css('tooltip-tooltips.css');
     $this->carabiner->css('jquery.msdropdown.css');
+    $this->carabiner->css('jquery.dropdown.css');
 
   if($this->api_used == HB_API)
 	{?>
@@ -1024,6 +1025,7 @@ function show_featured_landmarks(){
   // css and js for tooltip
   $this->carabiner->js('jquery.tooltip-sasya.js');
   $this->carabiner->js('jquery.dd.js');
+  $this->carabiner->js('jquery.dropdown.js');
   
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
@@ -1159,7 +1161,7 @@ $(document).ready(function()
 <div id="wrap">
 <div id="top_bar">
 	<div id="top_bar_inner" class="container_16 group">
-		<div class="grid_3">
+		<div class="grid_6">
 		<?php $code=$this->wordpress->get_option('aj_lang_code');
 			$shortcode = strtolower(substr($code,0,2));
 			$code=str_replace('-','_',$code);
@@ -1171,18 +1173,30 @@ $(document).ready(function()
 		</div>
 
 		</div>
-		<div class="grid_13">
-            <span id="top_hd_currency">
-            <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"style='width:150px'",$this->site_lang); ?>
+		<div class="grid_10">
+            <span id="top_hd_currency" data-dropdown="#search-currency" >
+            </span>
+            <?php $this->Db_currency->select_currency_list("search-currency","search-currency",$this->config->item('site_currency_selected'),'',$this->site_lang); ?>
             <script>
                 $(function(){
-                    $("#search-currency option").attr('data-image', "/images/blank.gif");
+                    /*$("#search-currency option").attr('data-image', "/images/blank.gif");
                     $("#search-currency option").attr('data-imagecss', "flag-none");
                     
                     $("#search-currency").msDropdown();
+                    */
+                    
+                    drop = $("#top_hd_currency").dropdown({
+                        onchange: function(ui, item){
+                         $(ui).html($(item).attr('data-symbol'));
+                        }
+                    });
+                    
+                    $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
+                    
+                    
                 })
             </script>
-            </span>
+            
             <?php
                 $this->load->view("includes/flags_header");
             ?>
@@ -1208,7 +1222,7 @@ $(document).ready(function()
 				<?php $about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
 				<li><a class="meta_about" href="<?php echo $about; ?>"><?php echo _("About us");?></a></li>
 				<?php }?>
-				<li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li>
+				<!-- <li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li> -->
 				<li class="account_login">
 					<?php //echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");
 					echo login_check($this->tank_auth->is_logged_in(), $logged_in_link, $log_in_link); // modify to remove js error as right  id "top-login-form" is comment at line no 916.

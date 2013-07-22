@@ -130,10 +130,11 @@ function keyaction(e)
 			<?php $api_used = (get_option('aj_api_site_data')=='hb') ? TRUE : FALSE;
 				select_nights(__('Nuits:','auberge'),"search-night","search-night",$numnights_selected,$api_used);?>
 		</div>
-		<div class="left">
+		<!-- <div class="left">
 			<label for="search-currency"><?php _e("Currency:","auberge");?></label>
-			<?php select_currency("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); ?>
-		</div>
+			<?php 
+            select_currency("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); ?>
+		</div> -->
 		<div class="full">
 			<input onfocus="this.blur()" type="button" name="search-submit" id="search-submit" class="box_round button-green side_submit hoverit" value="<?php _e('Search Now','auberge');?>" onclick="goToSearchPage('<?php echo get_option('aj_api_url'); ?>','<?php echo _('Choisir le pays'); ?>','<?php _e('Pays introuvable','auberge');?>','<?php echo _('Choisir la ville'); ?>','<?php _e('Ville introuvable','auberge');?>','<?php _e('Date invalide','auberge');?>','search-country','search-city','datepick','search-night','search-currency','search-custom');return false;"/>
 			<?php /*?><p class="search_text">"<?php _e('Best price. We guarantee it.','auberge');?>"</p>	<?php */?>
