@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
         jQuery(this).hide();
     });
 });
+
 jQuery(function()
 {
 

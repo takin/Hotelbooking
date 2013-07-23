@@ -1177,3 +1177,4 @@ if ($this->uri->segment(4, 0)) {
 
 <?php $this->load->view('includes/template-share-email-popup'); ?>
 <?php $this->load->view('includes/save_property'); ?>
+<?php $this->load->view('includes/booking_confirm'); ?>
