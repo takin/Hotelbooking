@@ -681,7 +681,12 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
 } else {
     ?>
 
-    <form class="group" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
+    <form class="group" id="booking_form" onsubmit="return handleBookingForm();" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
+        <?php
+        if ($this->session->userdata('switch_api')) {
+            echo form_hidden('api_shortname', 'hb');
+        }
+        ?>
         <table border="0" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
@@ -1325,4 +1330,53 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         }
     });
 
+    // handle submit booking form
+    var bookingAgreed = false;
+    function handleBookingForm() {
+        if (bookingAgreed) {
+            return true;
+        }
+
+        var personsFields = $('select[name="book-nbPersons[]"]');
+        var persons = 0;
+
+        for (var i = 0; i < personsFields.length; i++) {
+            var elem = $(personsFields[i]);
+
+            persons += parseInt(elem.val(), 10);
+        }
+
+        if (persons < 5) {
+            return true;
+        }
+
+        $('input[name="agree"]:checked').attr('checked', false);
+
+        // now show the pop-up
+        $('#booking_confirm_dialog').show();
+
+        return false;
+    }
+
+    function closeBookingFormConfirm() {
+        $('#booking_confirm_dialog').hide();
+    }
+
+    $('input[name="agree"]').change(function() {
+        var obj = $(this);
+
+        var agreed = parseInt(obj.val(), 10);
+
+        if (agreed) {
+            bookingAgreed = true;
+
+            // send the form
+            setTimeout(function() {
+                $('#booking_form').submit();
+            }, 300);
+        }
+        else {
+            setTimeout(closeBookingFormConfirm, 300);
+        }
+    });
 </script> 
