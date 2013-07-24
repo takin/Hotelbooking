@@ -1352,6 +1352,13 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
 
         $('input[name="agree"]:checked').attr('checked', false);
 
+        var content = $('#important_information_content').html();
+        var contentObj = $('<div>');
+        contentObj.html(content);
+        contentObj.find('h2').remove();
+
+        $('#booking_confirm_dialog .content_important_info').html('<div class="content_block">' + contentObj.html() + '</div>');
+
         // now show the pop-up
         $('#booking_confirm_dialog').show();
 

@@ -967,24 +967,24 @@ function show_landmark_in_map(landmark_latlng, landmark_type){
         </div>
     <?php } ?>
     <?php if (!empty($hostel['IMPORTANTINFORMATION'])) { ?>
-        <div class="content_block">
+        <div class="content_block" id="important_information_content">
             <h2><?php echo _("Informations Importantes"); ?></h2>
-            <?php if (!empty($hostel['IMPORTANTINFORMATION_translated'])) { ?>
-                <select class="select-translate">
-                    <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
-                    <option value="original"><?php echo _("Voir l'original"); ?></option>
-                </select>
-            <?php } ?>
-            <div class="group">
-                <?php
-                if (!empty($hostel['IMPORTANTINFORMATION_translated'])) {
-                    echo '<div class="translated">' . strip_tags($hostel['IMPORTANTINFORMATION_translated'], '<p>') . '</div>';
-                    echo '<div class="original" style="display:none;">' . nl2p(var_check(strip_tags($hostel['IMPORTANTINFORMATION'], '<p>'), ""), false, true) . '</div>';
-                } else {
-                    echo nl2p(var_check($hostel['IMPORTANTINFORMATION'], ""), false, true);
-                }
-                ?>
-            </div>
+                <?php if (!empty($hostel['IMPORTANTINFORMATION_translated'])) { ?>
+                    <select class="select-translate">
+                        <option value="translate"><?php echo _("Voir la version traduite"); ?></option>
+                        <option value="original"><?php echo _("Voir l'original"); ?></option>
+                    </select>
+                <?php } ?>
+                <div class="group">
+                    <?php
+                    if (!empty($hostel['IMPORTANTINFORMATION_translated'])) {
+                        echo '<div class="translated">' . strip_tags($hostel['IMPORTANTINFORMATION_translated'], '<p>') . '</div>';
+                        echo '<div class="original" style="display:none;">' . nl2p(var_check(strip_tags($hostel['IMPORTANTINFORMATION'], '<p>'), ""), false, true) . '</div>';
+                    } else {
+                        echo nl2p(var_check($hostel['IMPORTANTINFORMATION'], ""), false, true);
+                    }
+                    ?>
+                </div>
         </div>
     <?php } ?>
 

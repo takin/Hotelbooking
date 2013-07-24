@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 jQuery(function()
 {
 
-    jQuery('.select-translate').change(function() {
+    jQuery('.select-translate').live('change', function() {
 
         var api = jQuery(this).data('jsp');
 

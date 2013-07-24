@@ -2542,6 +2542,20 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#booking_confirm_dialog .content {
+	padding: 10px;
+}
+
+#booking_confirm_dialog .content_block select.select-translate {
+	position: relative;
+	float: right;
+	top: 0;
+}
+
+#booking_confirm_dialog .content label {
+	color: #000;
+}
+
 #booking_confirm_dialog .title,
 #share-overlay .content .title {
 	color: #00359f;
