@@ -38,10 +38,6 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 <?php }?>
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/jquery.fancybox.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo $apiurl; ?>css/smoothness/jquery-ui.css" type="text/css" media="screen"/>
-
-<link rel="stylesheet" href="<?php echo $apiurl; ?>css/jquery.dropdown.css" type="text/css" media="screen"/>
-<link rel="stylesheet" href="<?php echo $apiurl; ?>css/jquery.msdropdown.css" type="text/css" media="screen"/>
-
 <!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -77,11 +73,6 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/slide.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.fancybox.pack.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/ui-lang/jquery.ui.datepicker-<?php echo get_option("aj_lang_code2");?>.js"></script>
-
-<script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.dd.js"></script>
-<script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.dropdown.js"></script>
-<script type="text/javascript" src="<?php echo $apiurl; ?>js/saf.localization.js"></script>
-
 <?php if (is_page_template('contact.php')){?>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/submitform.js"></script>
 <?php }?>
@@ -269,39 +260,9 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 			</div>
 			</div>
 			<div class="grid_10">
-                <span id="top_hd_currency" data-dropdown="#search-currency" >
-                </span>
-                <?php 
-                    select_currency_list("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); ?>
-                <script>
-                    $(function(){
-                        /*$("#search-currency option").attr('data-image', "/images/blank.gif");
-                        $("#search-currency option").attr('data-imagecss', "flag-none");
-                        
-                        $("#search-currency").msDropdown();
-                        */
-                        
-                        drop = $("#top_hd_currency").dropdown({
-                            onchange: function(ui, item){
-                                 $(ui).html($(item).data('symbol'));
-                                 cur_code = item.data("code");
-                                 saf_changeCurrency(cur_code);
-                            }
-                        });
-                        
-                        $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
-                        
-                        
-                    })
-                </script>
-                
-                <?php
-                    include(TEMPLATEPATH . '/flags_header.php'); 
-                ?>
-                 
 				<ul class="user_meta_top group">
-					 <?php /*$about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php } */?>
-					 <!-- <li><a class="meta_help" href="<?php echo get_option('aj_page_faq');?>"><?php _e('Aide / FAQ / Nous Joindre','auberge');?></a></li> -->
+					 <?php $about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php }?>
+					 <li><a class="meta_help" href="<?php echo get_option('aj_page_faq');?>"><?php _e('Aide / FAQ / Nous Joindre','auberge');?></a></li>
 					 <li>
 							<?php if(is_logged_in()):?>
 								<a class="meta_account" href="<?php echo get_option('aj_api_url'). get_ci_link('user');?>"><?php _e('Mon Compte','auberge');?></a>

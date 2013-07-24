@@ -6,10 +6,9 @@
         <script>
         $(document).ready(function(){
 
-              // loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>","<?php echo _('Chargement...');?>",'cities',cities,'search-country','search-city',"<?php echo $country_selected;?>","<?php echo $city_selected; ?>");
+                 loadCitiesMenu("<?php echo site_url($this->hostel_controller); ?>","<?php echo _('Chargement...');?>",'cities',cities,'search-country','search-city',"<?php echo $country_selected;?>","<?php echo $city_selected; ?>");
 
         });
-
         function keyaction(e)
         {
             if (!$('ul#suggestion').is(':visible') && e.keyCode == 13)

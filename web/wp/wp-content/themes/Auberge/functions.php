@@ -810,28 +810,6 @@ function select_currency($select_id,
   $currencies = new Db_currencies($aubergedb);
   $currencies->select_currency($select_id, $select_name, $currency_selected, $otherAttributes, $text_lang, $no_selection_text);
 }
-/**
-* sasha
-* 
-* @param mixed $select_id
-* @param mixed $select_name
-* @param mixed $currency_selected
-* @param mixed $otherAttributes
-* @param mixed $text_lang
-* @param mixed $no_selection_text
-*/
-function select_currency_list($select_id,
-                         $select_name,
-                         $currency_selected = "",
-                         $otherAttributes = "",
-                         $text_lang = "en",
-                         $no_selection_text = NULL)
-{
-  global $aubergedb;
-  $currencies = new Db_currencies($aubergedb);
-  $currencies->select_currency_list($select_id, $select_name, $currency_selected, $otherAttributes, $text_lang, $no_selection_text);
-}
-
 
 function build_property_page_link($property_type, $property_name, $property_number, $domain = NULL)
 {
