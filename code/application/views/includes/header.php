@@ -1026,6 +1026,7 @@ function show_featured_landmarks(){
   $this->carabiner->js('jquery.tooltip-sasya.js');
   $this->carabiner->js('jquery.dd.js');
   $this->carabiner->js('jquery.dropdown.js');
+  $this->carabiner->js('saf.localization.js');
   
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
@@ -1176,7 +1177,9 @@ $(document).ready(function()
 		<div class="grid_10">
             <span id="top_hd_currency" data-dropdown="#search-currency" >
             </span>
-            <?php $this->Db_currency->select_currency_list("search-currency","search-currency",$this->config->item('site_currency_selected'),'',$this->site_lang); ?>
+            <?php 
+            $this->config->item('site_currency_selected') ;
+            $this->Db_currency->select_currency_list("search-currency","search-currency",$this->config->item('site_currency_selected'),'',$this->site_lang); ?>
             <script>
                 $(function(){
                     /*$("#search-currency option").attr('data-image', "/images/blank.gif");
@@ -1187,7 +1190,9 @@ $(document).ready(function()
                     
                     drop = $("#top_hd_currency").dropdown({
                         onchange: function(ui, item){
-                         $(ui).html($(item).attr('data-symbol'));
+                            $(ui).html($(item).data('symbol'));
+                            cur_code = item.data("code");
+                            saf_changeCurrency(cur_code);
                         }
                     });
                     
@@ -1219,9 +1224,9 @@ $(document).ready(function()
 			</span>
 
 			<ul class="user_meta_top group">
-				<?php $about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
+				<?php /*$about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
 				<li><a class="meta_about" href="<?php echo $about; ?>"><?php echo _("About us");?></a></li>
-				<?php }?>
+				<?php } */?>
 				<!-- <li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li> -->
 				<li class="account_login">
 					<?php //echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");

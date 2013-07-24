@@ -740,17 +740,17 @@ function show_landmark_in_map(landmark_latlng, landmark_type){
                         select_nights(_('Nuits:'), "book-night", "book-night", $numnights_selected);
                         ?>
                     </li>
-                    <li>
+                    <!-- <li>
                         <label for="book-property-currency"><?php echo _("Devise:"); ?></label>
-                        <?php $this->Db_currency->select_currency("book-property-currency", "book-property-currency", $currency, "", $this->site_lang); ?>
+                        <?php /*$this->Db_currency->select_currency("book-property-currency", "book-property-currency", $currency, "", $this->site_lang); ?>
 
                         <?php
                         $and_print = '';
                         if (!empty($print)) {
                             $and_print = '?print=true';
                         }
-                        ?>
-                    </li>
+                        */?>
+                    </li> -->
                     <li class="last">
                         <input onfocus="this.blur()" type="button" name="book-submit" id="book-submit"
                                class="button-green box_round hoverit" value="<?php echo _("Rechercher"); ?>"

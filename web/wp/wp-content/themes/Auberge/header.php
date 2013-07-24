@@ -80,6 +80,7 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.dd.js"></script>
 <script type="text/javascript" src="<?php echo $apiurl; ?>js/jquery.dropdown.js"></script>
+<script type="text/javascript" src="<?php echo $apiurl; ?>js/saf.localization.js"></script>
 
 <?php if (is_page_template('contact.php')){?>
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/submitform.js"></script>
@@ -282,7 +283,9 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                         
                         drop = $("#top_hd_currency").dropdown({
                             onchange: function(ui, item){
-                             $(ui).html($(item).attr('data-symbol'));
+                                 $(ui).html($(item).data('symbol'));
+                                 cur_code = item.data("code");
+                                 saf_changeCurrency(cur_code);
                             }
                         });
                         
@@ -297,7 +300,7 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                 ?>
                  
 				<ul class="user_meta_top group">
-					 <?php $about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php }?>
+					 <?php /*$about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php } */?>
 					 <!-- <li><a class="meta_help" href="<?php echo get_option('aj_page_faq');?>"><?php _e('Aide / FAQ / Nous Joindre','auberge');?></a></li> -->
 					 <li>
 							<?php if(is_logged_in()):?>
