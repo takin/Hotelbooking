@@ -1213,9 +1213,30 @@ class timthumb {
 		}
 
 	}
+    /**
+    * modified by sasha, for #656
+    * 
+    * @param mixed $file
+    */
 	protected function serveImg($file){
-		$s = getimagesize($file);
-		if(! ($s && $s['mime'])){
+        $missing_images = array(
+            'Hotel'     =>'./missing-thumb/hotel-missing.png',
+            'Apartment' =>'./missing-thumb/hotel-missing.png',
+            'Guesthouse'=>'./missing-thumb/hotel-missing.png',
+            'Hostel'    =>'./missing-thumb/hostel-missing.png',
+            'Campsites' =>'./missing-thumb/camping-missing.png',
+            
+        );
+        
+        if ( $file == NOT_FOUND_IMAGE){
+            $file = $missing_images[$_GET['ptype']];
+            // check for unknow property 
+            if ( empty($file))
+                $file = NOT_FOUND_IMAGE;
+        }
+        $s = getimagesize($file);
+		
+        if(! ($s && $s['mime'])){
 			return false;
 		}
 		header ('Content-Type: ' . $s['mime']);
