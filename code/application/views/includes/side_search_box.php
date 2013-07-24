@@ -130,12 +130,12 @@ if (!empty($numnights_selected)) {
                             }
                             if (currency_value)
                             {
-                                document.getElementById('search-currency').value = currency_value;
+                                //document.getElementById('search-currency').value = currency_value;
                             }
                             else
                             {
                                 currency_value = '<?php echo $this->config->item('site_currency_default') ?>';
-                                document.getElementById('search-currency').value = currency_value;
+                                //document.getElementById('search-currency').value = currency_value;
                             }
                         }
                 );
@@ -203,9 +203,11 @@ select_nights(_('Nuits:'), "search-night", "search-night", $numnights_selected, 
 
 
 <?php if ($current_view != "auth/reset_password_form") { ?>
-                <label for="search-currency"><?php echo _("Devise:"); ?></label>
+                <!-- // this goes to header (@sasya karpin) 
+                    <label for="search-currency"><?php echo _("Devise:"); ?></label>
                         <?php $this->Db_currency->select_currency("search-currency", "search-currency", $this->config->item('site_currency_selected'), "", $this->site_lang); ?>
                     <?php } ?>
+                    -->
 
             <div class="searchcenter">
                 <input onfocus="this.blur()" type="button" name="search-submit" class="box_round button-blue side_submit hoverit" id="search-submit" onclick="goToSearchPage('<?php echo site_url(); ?>', '<?php echo _('Choisir le pays'); ?>', '<?php echo _('Pays introuvable'); ?>', '<?php echo _('Choisir la ville'); ?>', '<?php echo _('Ville introuvable'); ?>', '<?php echo _('Date invalide'); ?>', 'search-country', 'search-city', 'datepick', 'search-night', 'search-currency', 'search-custom')" value="<?php echo _('Search Now') ?>"/>
