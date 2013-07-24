@@ -254,9 +254,8 @@ class Db_currency extends CI_Model
     foreach ($query->result() as $row)
     {
       $desc_field = "description_".$text_lang;
-      $currency_symbol = empty($row->symbol) ? $row->currency_code : $row->symbol;
       ?>
-      <option <?php if(strcasecmp($selected,$row->currency_code)==0) echo "selected=\"selected\" "; ?>value="<?php echo $row->currency_code; ?>"><?php echo "$currency_symbol : {$row->$desc_field}";?></option>
+      <option <?php if(strcasecmp($selected,$row->currency_code)==0) echo "selected=\"selected\" "; ?>value="<?php echo $row->currency_code; ?>"><?php echo $row->$desc_field;?></option>
       <?php
     }
     ?>
@@ -264,66 +263,6 @@ class Db_currency extends CI_Model
     <?php
   }
 
-  /**
-   * get_currency_select  as li tag list
-   *
-   * @param $select_id
-   * @param $select_name
-   * @param $currency_selected
-   * @param $otherAttributes
-   * @param $text_lang
-   * @param $no_selection_text
-   * @return unknown_type
-   */
-  function select_currency_list( $select_id,
-                            $select_name,
-                            $currency_selected = "",
-                            $otherAttributes = "",
-                            $text_lang = "en",
-                            $no_selection_text = NULL)
-  {
-    $text_lang  = $this->validate_currency_lang($text_lang);
-
-    $selected = "";
-    if(!empty($currency_selected))
-    {
-      $selected = $currency_selected;
-    }
-
-    $this->db->order_by("`order`", "DESC");
-    $this->db->order_by("`description_".$text_lang."`", "ASC");
-    //$this->db->model_cache_single(__CLASS__ , __FUNCTION__);
-    $query = $this->db->get(self::CURRENCY_TABLE);
-
-    ?>
-    <div  <?php echo $otherAttributes; ?> id="<?php echo $select_id; ?>" class="dropdown dropdown-tip" >
-        <ul class="dropdown-menu">
-        <?php
-        if(!empty($no_selection_text))
-        {
-          ?>
-          <li <?php if(empty($selected)) echo "active=1 "; ?> value="">----- <?php echo $no_selection_text; ?> -----</li>
-          <?php
-        }
-
-        foreach ($query->result() as $row)
-        {
-          $desc_field = "description_".$text_lang;
-          $currency_symbol = empty($row->symbol) ? $row->currency_code : $row->symbol;
-          ?>
-          <li <?php if(strcasecmp($selected,$row->currency_code)==0) echo "active=1"; ?> data-symbol="<?php echo $currency_symbol; ?>" data-code="<?php echo $row->currency_code; ?>">
-          <a>
-            <span class="currency-code"><?php echo $currency_symbol;?> : </span>
-            <?php echo $row->$desc_field;?>
-          </a></li>
-          <?php
-        }
-        ?>
-        </ul>
-    </div>
-    <?php
-  }
-  
   /*
    *
    */
