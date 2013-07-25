@@ -357,7 +357,8 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 						<img src="<?php echo site_url(); ?>images/fancy_close.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
 					</a>
                                 <div id="expanded_city_map"></div>
-                            </div>       
+                            </div>    
+                                        <div id="header_pageNavigation_container">
                                          <?php
         $filterBy_flag = "both";
         if (empty($city_landmarks) && empty($city_districts)) {
@@ -403,16 +404,17 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
             default:
                 break;
         } ?>    
-                                        <!-- Next 20 result code start-->
-                                        <div id="header_pagination" class="pagination_pro main_pagination_div" style="display:none;">
-                                            <div  class="left_pagi pagination_result">
-                                                <span class="resultcount"></span>
-                                                <?php echo _('of'); ?>
-                                                <span class="resulttotal"></span>
-                                                <?php echo _('Results'); ?>
-                                            </div>
-                                            <div class="page_navigation"></div>
-                                        </div>
+                    <!-- Next 20 result code start-->
+                    <div id="header_pagination" class="pagination_pro main_pagination_div" style="display:none;">
+                        <div  class="left_pagi pagination_result">
+                            <span class="resultcount"></span>
+                            <?php echo _('of'); ?>
+                            <span class="resulttotal"></span>
+                            <?php echo _('Results'); ?>
+                        </div>
+                        <div class="page_navigation"></div>
+                    </div>
+              </div>
 			 <!-- filer search box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">
 			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>

@@ -1460,6 +1460,7 @@ PWebFilterApp.prototype.setup = function(data)
     if ($("#city_geo_lat").val() !== "" && $("#city_geo_lng").val() !== "") {
         // hide map div in the top of the page
         $("#expanded_city_map_container").hide();
+        $("#header_pageNavigation_container").hide();
         // show expand map link
         $("#city_side_map_container").show();
         pweb_filter.toggleMap('city');
@@ -1473,6 +1474,7 @@ PWebFilterApp.prototype.setup = function(data)
          
         // show top map div
         $("#expanded_city_map_container").show();
+        $("#header_pageNavigation_container").show();
         pweb_filter.toggleMap('expanded_city');
         
         return false;
@@ -1483,7 +1485,7 @@ PWebFilterApp.prototype.setup = function(data)
         // hide map div in the top of the page
         pweb_filter.toggleMap('expanded_city');
         $("#expanded_city_map_container").hide();  
-        
+        $("#header_pageNavigation_container").hide();
         // show expand map link
         $("#city_side_map_container").show();
         pweb_filter.toggleMap('city');
@@ -1734,7 +1736,7 @@ PWebFilterApp.prototype.go_to_page = function(page_num)
   // get page scroll location  
   var scroll_position = $(window).scrollTop();
   // if page scroll location more than 400 px scroll page to top
-  if (scroll_position > 400) {
+  if (scroll_position > 800) {
      $("html, body").animate({scrollTop: 200}, 400);
   }
 
@@ -2293,11 +2295,13 @@ PWebFilterApp.prototype.closeDefaultMap = function() {
         pweb_filter.toggleMap('expanded_city');
         // hide map div in the top of the page
         $("#expanded_city_map_container").hide();
+        $("#header_pageNavigation_container").hide();
     }
 };
 PWebFilterApp.prototype.showDefaultMap = function() {
     // hide map div in the top of the page
     $("#expanded_city_map_container").hide();
+    $("#header_pageNavigation_container").hide();
     // show expand map link
     $("#city_side_map_container").show();
     pweb_filter.toggleMap('city');
