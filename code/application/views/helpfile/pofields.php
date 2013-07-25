@@ -891,3 +891,11 @@
 <?php echo _('Save this property as favorite');?>
 <?php echo _('Filter by Landmarks, train stations, airports...');?>
 <?php echo _('Expand the map');?>
+<?php echo _('Select to compare');?>
+<?php echo _('Click here to compare');?>
+<?php echo _('Change dates and currency');?>
+<?php echo _('Click to expand map');?>
+<?php echo _('Travel-Insurance');?>
+<?php echo _('Please read carefully');?>
+<?php echo _('I agree');?>
+<?php echo _('I do not agree and I will select another property');?>
