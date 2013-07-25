@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-25 22:07+0300\n"
-"PO-Revision-Date: 2013-06-28 20:40+0200\n"
+"PO-Revision-Date: 2013-07-25 22:27+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -4387,7 +4387,7 @@ msgstr "Usarás %d dormitorios completos."
 #: ../code/application/views/hb/booking_avail_view.php:643
 #, php-format
 msgid "%d %s ( %s )"
-msgstr ""
+msgstr "%d %s ( %s )"
 
 #: ../code/application/views/hw/booking_avail_view.php:358
 #: ../code/application/views/hb/booking_avail_view.php:344
@@ -7515,7 +7515,7 @@ msgstr "Nosotros Garantizamos:"
 
 #: ../code/application/views/helpfile/pofields.php~:422
 #: ../code/application/views/helpfile/pofields.php:422
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Booking on our website is safe. When you reserve with us your details are "
 "protected by a secure connection."
@@ -7525,7 +7525,7 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:423
 #: ../code/application/views/helpfile/pofields.php:423
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Your privacy is protected. Your details will only be used to guarantee your "
 "booking."
@@ -7535,13 +7535,13 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:424
 #: ../code/application/views/helpfile/pofields.php:424
-#, fuzzy, php-format
+#, php-format
 msgid "No booking fees. You receive the best price."
 msgstr "No hay cargo por reservar. Usted tiene el mejor precio."
 
 #: ../code/application/views/helpfile/pofields.php~:425
 #: ../code/application/views/helpfile/pofields.php:425
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Best Price Guarantee. Found the same room at a lower price? We'll match it."
 msgstr ""
@@ -7584,11 +7584,11 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:431
 #: ../code/application/views/helpfile/pofields.php:431
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Available rooms for the selected dates. Price per room (not per person)."
 msgstr ""
-"Habitaciones disponibles pra las fechas selecionadas. Precio por habitación "
+"Habitaciones disponibles par las fechas seleccionadas. Precio por habitación "
 "(no por persona)."
 
 #: ../code/application/views/helpfile/pofields.php~:433
@@ -9281,45 +9281,46 @@ msgstr "Guardar esta propiedad como favorita"
 
 #: ../code/application/views/helpfile/pofields.php~:892
 #: ../code/application/views/helpfile/pofields.php:892
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by Landmarks, train stations, airports..."
-msgstr "Filtro por Puntos de Referencia (2 km a la redonda)"
+msgstr ""
+"Filtre de acuerdo a puntos de interés, estaciones de trenes, aeropuertos..."
 
 #: ../code/application/views/helpfile/pofields.php~:893
 #: ../code/application/views/helpfile/pofields.php:893
-#, fuzzy, php-format
+#, php-format
 msgid "Expand the map"
-msgstr "Expandir el mapa"
+msgstr "Amplíe el mapa"
 
 #: ../code/application/views/helpfile/pofields.php~:894
 #: ../code/application/views/helpfile/pofields.php:894
-#, fuzzy, php-format
+#, php-format
 msgid "Select to compare"
-msgstr "Seleccione tarjeta"
+msgstr "Seleccione para comparar"
 
 #: ../code/application/views/helpfile/pofields.php~:895
 #: ../code/application/views/helpfile/pofields.php:895
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to compare"
 msgstr "Haga clic aquí para comparar"
 
 #: ../code/application/views/helpfile/pofields.php~:896
 #: ../code/application/views/helpfile/pofields.php:896
-#, fuzzy, php-format
+#, php-format
 msgid "Change dates and currency"
-msgstr "Cambiar fechas"
+msgstr "Cambie fechas y moneda"
 
 #: ../code/application/views/helpfile/pofields.php~:897
 #: ../code/application/views/helpfile/pofields.php:897
-#, fuzzy, php-format
+#, php-format
 msgid "Click to expand map"
-msgstr "Clic para ampliar"
+msgstr "Haga clic para ampliar el mapa"
 
 #: ../code/application/views/helpfile/pofields.php~:898
 #: ../code/application/views/helpfile/pofields.php:898
 #, php-format
 msgid "Travel-Insurance"
-msgstr ""
+msgstr "Seguro de viaje"
 
 #: ../code/application/views/review_empty.php:2
 #: ../code/application/views/review_empty-map.php:7
@@ -10338,9 +10339,9 @@ msgstr "Tarjeta no es compatible por favor elija otra tarjeta"
 #: ../code/application/libraries/Hb_engine.php:646
 #: ../code/application/libraries/Hb_engine.php:648
 #: ../code/application/libraries/Hb_engine.php:650
-#, fuzzy, php-format
+#, php-format
 msgid "Properties in %s - %s"
-msgstr "Hostales en %s"
+msgstr "Hostales en %s - %s"
 
 #: ../code/application/models/hostel_api_model.php:954
 msgid "Serveur indisponible en ce moment."
