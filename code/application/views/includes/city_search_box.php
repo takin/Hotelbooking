@@ -109,7 +109,7 @@
                     }
                     else
                     {
-                        currency_value = '<?php echo $this->config->item('site_currency_default')?>';
+                        currency_value = '<?php echo $this->config->item('site_currency_selected')?>';
 //                        document.getElementById('book-property-currency').value = currency_value;
                     }
                 }

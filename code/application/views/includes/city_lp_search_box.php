@@ -99,7 +99,7 @@
 				}
 				else
 				{
-					currency_value = '<?php echo $this->config->item('site_currency_default')?>';
+					currency_value = '<?php echo $this->config->item('site_currency_selected')?>';
 					//document.getElementById('search-currency').value = currency_value;
 				}
 			}

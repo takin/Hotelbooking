@@ -586,7 +586,7 @@ if ($api_error == false) {
                             var current_url = $("#back_to_results").attr("href");
                             $('#back_to_results').attr("href", current_url + "/" + date_url + "/" + night_url);
                             if (valid_date_cookie) {
-                                checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>', <?php echo $hostel->property_number; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel->property_name); ?>', document.getElementById('book-property-currency').value, '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');
+                                checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>', <?php echo $hostel->property_number; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel->property_name); ?>', /*document.getElementById('book-property-currency').value*/ '<?php $this->config->item('site_currency_selected')?>', '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');
                             }
                         }
                     );
@@ -614,7 +614,7 @@ if ($api_error == false) {
                     <li>
                         <label for="book-property-currency"><?php echo _("Devise:"); ?></label>
                         <?php $this->Db_currency->select_currency("book-property-currency", "book-property-currency", $currency, "", $this->site_lang); ?>
-                    </li>
+                    </li>                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
                     <?php
                     $and_print = '';
@@ -627,7 +627,7 @@ if ($api_error == false) {
                         <input onfocus="this.blur()" type="button" name="book-submit" id="book-submit"
                                class="button-green box_round hoverit" value="<?php echo _("Rechercher"); ?>"
                                OnClick="$('ul.tabing').tabs('select', 0);
-                                   checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>',<?php echo $hostel->property_number; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel->property_name); ?>', document.getElementById('book-property-currency').value, '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');"/>
+                                   checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>',<?php echo $hostel->property_number; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel->property_name); ?>', /*document.getElementById('book-property-currency').value*/ '<?php $this->config->item('site_currency_selected')?>', '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');"/>
                     </li>
 
                 </ul>
