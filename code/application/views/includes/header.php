@@ -1268,12 +1268,12 @@ $(document).ready(function()
 
 		</div>
 		<div class="grid_10">
-            <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
+            <!-- <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
             </span>
             
             <span id="site_language" data-dropdown="#language-dropdown" class='dropdown-title' style="margin-left:10px;">
                 <span class=""  lang-flag  style="padding-left:12px">&nbsp;</span>
-            </span>
+            </span> -->
             <?php 
             
             $this->Db_currency->select_currency_list("search-currency","search-currency",$this->config->item('site_currency_selected'),'',$this->site_lang); ?>
@@ -1324,7 +1324,10 @@ $(document).ready(function()
 			</span>
 
 			<ul class="user_meta_top group">
-				<?php /*$about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
+				<li><a id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;</a></li>
+            
+                <li><a id="site_language" data-dropdown="#language-dropdown" class="dropdown-title"><span class=""  lang-flag  style="padding-left:12px">&nbsp;</span></a></li>
+                <?php /*$about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
 				<li><a class="meta_about" href="<?php echo $about; ?>"><?php echo _("About us");?></a></li>
 				<?php } */?>
 				<!-- <li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li> -->

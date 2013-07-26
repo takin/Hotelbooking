@@ -149,9 +149,9 @@
 
                 <?php if($current_view != "auth/reset_password_form"){?>
                 <div class="left">
-  <label for="book-night"><?php echo _("Devise:");?></label>
-<?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
-</div>
+  <?php/* <label for="book-night"><?php echo _("Devise:");?></label>
+  <?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
+</div>*/?>
 <?php }?>
             <div class="left">
 
