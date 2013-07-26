@@ -269,12 +269,12 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 			</div>
 			</div>
 			<div class="grid_10">
-                <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
+                <!-- <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
                 </span>
                 
                 <span id="site_language" data-dropdown="#language-dropdown" class='dropdown-title' style="margin-left:10px;">
                     <span class=""  lang-flag  style="padding-left:12px">&nbsp;</span>
-                </span>
+                </span> -->
                 <?php 
                     select_currency_list("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); 
                     ?>
@@ -310,6 +310,10 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                 
                  
 				<ul class="user_meta_top group">
+                    <li><a id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;</a></li>
+            
+                    <li><a id="site_language" data-dropdown="#language-dropdown" class="dropdown-title"><span class=""  lang-flag  style="padding-left:12px">&nbsp;</span></a></li>
+                
 					 <?php /*$about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php } */?>
 					 <!-- <li><a class="meta_help" href="<?php echo get_option('aj_page_faq');?>"><?php _e('Aide / FAQ / Nous Joindre','auberge');?></a></li> -->
 					 <li>
