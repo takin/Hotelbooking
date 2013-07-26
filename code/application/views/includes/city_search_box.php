@@ -151,7 +151,8 @@
                 <div class="left">
   <?php/* <label for="book-night"><?php echo _("Devise:");?></label>
   <?php $this->Db_currency->select_currency("book-property-currency","book-property-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
-</div>*/?>
+  */?>
+</div>
 <?php }?>
             <div class="left">
 
