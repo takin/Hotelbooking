@@ -599,7 +599,7 @@ if ($api_error == false) {
                     ?>
                     <li>
                         <label for="book-pick"><?php echo _('Arrivée le:'); ?></label>
-                        <input type="text" id="book-pick" name="book-pick" value="<?php echo $date_selected; ?>"/>
+                        <input type="text" id="book-pick" name="book-pick" value="<?php echo $date_selected; ?>"/>                                                                                                                                                                                                                                                                
                     </li>
 
                     <li>

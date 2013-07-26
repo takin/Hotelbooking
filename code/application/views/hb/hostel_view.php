@@ -705,7 +705,7 @@ if ($api_error == false) {
 
                             var current_url = $("#back_to_results").attr("href");
                             $('#back_to_results').attr("href", current_url + "/" + date_url + "/" + night_url);
-                            if (valid_date_cookie) {
+                            if (valid_date_cookie) {                                                               
                                 checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>', <?php echo $hostel["ID"]; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel["NAME"]); ?>', /*document.getElementById('book-property-currency').value*/'<?php echo $this->config->item('site_currency_selected')?>', '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print ?>');
                             }
                                     
