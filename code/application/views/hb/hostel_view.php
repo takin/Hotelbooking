@@ -689,11 +689,11 @@ if ($api_error == false) {
                                 currency_value = getCookie('currency_selected');
                             }
                             if (currency_value) {
-                                document.getElementById('book-property-currency').value = currency_value;
+//                                document.getElementById('book-property-currency').value = currency_value;
                             }
                             else {
                                 currency_value = 'EUR';
-                                document.getElementById('book-property-currency').value = currency_value;
+//                                document.getElementById('book-property-currency').value = currency_value;
                             }
 
                             <?php
