@@ -269,35 +269,45 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
 			</div>
 			</div>
 			<div class="grid_10">
-                <span id="top_hd_currency" data-dropdown="#search-currency" >
+                <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
+                </span>
+                
+                <span id="site_language" data-dropdown="#language-dropdown" class='dropdown-title' style="margin-left:10px;">
+                    <span class=""  lang-flag  style="padding-left:12px">&nbsp;</span>
                 </span>
                 <?php 
-                    select_currency_list("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); ?>
-                <script>
-                    $(function(){
-                        /*$("#search-currency option").attr('data-image', "/images/blank.gif");
-                        $("#search-currency option").attr('data-imagecss', "flag-none");
-                        
-                        $("#search-currency").msDropdown();
-                        */
-                        
-                        drop = $("#top_hd_currency").dropdown({
-                            onchange: function(ui, item){
-                                 $(ui).html($(item).data('symbol'));
-                                 cur_code = item.data("code");
-                                 saf_changeCurrency(cur_code);
-                            }
-                        });
-                        
-                        $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
-                        
-                        
-                    })
-                </script>
-                
+                    select_currency_list("search-currency","search-currency",get_selected_currency(),"",get_site_lang()); 
+                    ?>
                 <?php
                     include(TEMPLATEPATH . '/flags_header.php'); 
                 ?>
+                <script>
+                    $(function(){
+                    //-------- dropdown currency
+                    drop = $("#top_hd_currency").dropdown({
+                        onchange: function(ui, item){
+                            $(ui).html($(item).data('symbol'));
+                            cur_code = item.data("code");
+                            saf_changeCurrency(cur_code);
+                        }
+                    });
+                    //set default
+                    $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
+                    
+                    //----- drop floag        
+                    drop2 = $("#site_language").dropdown({
+                        onchange: function(ui, item){
+                            ui.find('[lang-flag]').attr('class', item.find('a').attr('class'));
+                            //cur_code = item.data("code");
+                            //saf_changeCurrency(cur_code);
+                        }
+                    });
+                    $("#site_language").find("[lang-flag]").attr('class', drop2.getActive().find('a').attr('class'));
+                    
+                })
+                </script>
+                
+                
                  
 				<ul class="user_meta_top group">
 					 <?php /*$about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li><?php } */?>
