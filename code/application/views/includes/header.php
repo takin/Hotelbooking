@@ -1268,19 +1268,22 @@ $(document).ready(function()
 
 		</div>
 		<div class="grid_10">
-            <span id="top_hd_currency" data-dropdown="#search-currency" >
+            <span id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;
+            </span>
+            
+            <span id="site_language" data-dropdown="#language-dropdown" class='dropdown-title' style="margin-left:10px;">
+                <span class=""  lang-flag  style="padding-left:12px">&nbsp;</span>
             </span>
             <?php 
-            $this->config->item('site_currency_selected') ;
+            
             $this->Db_currency->select_currency_list("search-currency","search-currency",$this->config->item('site_currency_selected'),'',$this->site_lang); ?>
+            
+            <?php
+                $this->load->view("includes/flags_header");
+            ?>
             <script>
                 $(function(){
-                    /*$("#search-currency option").attr('data-image', "/images/blank.gif");
-                    $("#search-currency option").attr('data-imagecss', "flag-none");
-                    
-                    $("#search-currency").msDropdown();
-                    */
-                    
+                    //-------- dropdown currency
                     drop = $("#top_hd_currency").dropdown({
                         onchange: function(ui, item){
                             $(ui).html($(item).data('symbol'));
@@ -1288,17 +1291,21 @@ $(document).ready(function()
                             saf_changeCurrency(cur_code);
                         }
                     });
-                    
+                    //set default
                     $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
                     
+                    //----- drop floag        
+                    drop2 = $("#site_language").dropdown({
+                        onchange: function(ui, item){
+                            ui.find('[lang-flag]').attr('class', item.find('a').attr('class'));
+                            //cur_code = item.data("code");
+                            //saf_changeCurrency(cur_code);
+                        }
+                    });
+                    $("#site_language").find("[lang-flag]").attr('class', drop2.getActive().find('a').attr('class'));
                     
                 })
             </script>
-            
-            <?php
-                $this->load->view("includes/flags_header");
-            ?>
-            
 			<span id="logged_in_link" style="display: none">
 				<?php $logged_in_link = "<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Mon Compte")."</a>"; ?>
 				<?php echo $logged_in_link; ?>

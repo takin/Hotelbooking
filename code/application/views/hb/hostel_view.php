@@ -755,7 +755,7 @@ function show_landmark_in_map(landmark_latlng, landmark_type){
                         <input onfocus="this.blur()" type="button" name="book-submit" id="book-submit"
                                class="button-green box_round hoverit" value="<?php echo _("Rechercher"); ?>"
                                OnClick=" $('ul.tabing').tabs('select', 0);
-                                   checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>',<?php echo $hostel["ID"]; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel["NAME"]); ?>', document.getElementById('book-property-currency').value, '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');"/>
+                                   checkAvailability('<?php echo site_url($this->hostel_controller); ?>', '<?php echo str_replace("'", "\\'", $bc_country); ?>', '<?php echo str_replace("'", "\\'", $bc_city); ?>',<?php echo $hostel["ID"]; ?>, 'book-pick', document.getElementById('book-night').value, '<?php echo addslashes($hostel["NAME"]); ?>', /*document.getElementById('book-property-currency').value*/ '<?php $this->config->item('site_currency_selected')?>', '<?php echo _('Date invalide'); ?>', 'booking-table', '<?php echo $and_print; ?>');"/>
                     </li>
 
 

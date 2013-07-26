@@ -112,6 +112,16 @@
 .dropdown .paste A { background-image: url(icons/clipboard.png); }
 .dropdown .delete A { background-image: url(icons/cross-script.png); }
 
+/* sasha karpin */
+.dropdown{
+    border: 1px solid #46b0d3;
+    box-shadow: 0 0 8px #46b0d3;
+    border-radius: 3px;
+}
+
+.dropdown-menu li a {
+    margin-right:0;
+}
 .dropdown-menu{
 	max-height:200px;
 	overflow-y: scroll;
@@ -123,13 +133,15 @@
 	color:black;
 
 }
-#top_hd_currency{
-	padding-right:30px;
-	background: url(../images/dropdown-arrow.gif) no-repeat;
-	background-position:right;
-	display: inline-block;
-	height: 18px;
-	padding-top: 5px;
+.dropdown-title{
+    cursor: pointer;
+    padding-right:22px;
+    background: url(../images/dropdown-arrow.gif) no-repeat;
+    background-position:right;
+    display: inline-block;
+    height: 18px;
+    padding-top: 5px; 
+    color:black;
 }
 
 #search-currency{
@@ -142,11 +154,22 @@ width:220px;
 #search-currency.dropdown-tip:after{
 	left: 120px
 }
-#search-currency{
-cursor: pointer;
-border: 1px solid #46b0d3;
-box-shadow: 0 0 8px #46b0d3;
-border-radius: 3px;
+
+#language-dropdown{
+    width:220px;    
 }
+#language-dropdown li a{
+    padding-left:21px;
+    margin-left:3px;
+}
+#language-dropdown.dropdown-tip:before{
+    left:119px;
+}
+#language-dropdown.dropdown-tip:after{
+    left: 120px
+}
+
+
+
 .dropdown-menu::-webkit-scrollbar{-webkit-appearance:none}
 .dropdown-menu::-webkit-scrollbar-thumb{border-radius:8px;border:2px solid #fff;background-color:rgba(0,0,0,.5)}

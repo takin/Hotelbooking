@@ -128,7 +128,11 @@ class CHostelbk extends I18n_site
     echo $this->Db_hb_country->get_cached_xml_cities_data($data['javascript_varname'],$this->site_lang,$englishNames);
   }
 
-
+  /**
+  * modified by sasha karpin 
+  * @content : currency code uses user's default currency on top of page.
+  * 
+  */
   function booking_avail()
   {
     $this->output->enable_profiler(FALSE);
@@ -137,8 +141,12 @@ class CHostelbk extends I18n_site
     $propertyNumber = $this->input->post("propertyNumber",TRUE);
     $dateStart      = new DateTime($this->input->post("dateStart",TRUE));
     $numNights      = $this->input->post("numNights",TRUE);
+    
     $currency       = $this->input->post("currency",TRUE);
-
+    // sasha karpin
+    if ( empty($currency))
+        $currency   = $this->config->item('site_currency_selected');
+    
     //Get main services and breakfast included
     $this->load->model('Db_hb_hostel');
     $this->load->model('i18n/db_translation_cache');

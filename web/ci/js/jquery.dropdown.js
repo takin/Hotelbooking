@@ -1,4 +1,4 @@
-/*
+/* @modified by sasha karpin
  * jQuery dropdown: A simple dropdown plugin
  *
  * Inspired by Bootstrap: http://twitter.github.com/bootstrap/javascript.html#dropdowns
@@ -34,13 +34,19 @@ if(jQuery) (function($) {
 					$(this).removeClass('dropdown-disabled');
 					break;
 			}
-			ui = this;
-			dDown = $($(this).attr('data-dropdown'));
 			
-			obj = {};
+            var ui = this;
+			var dDown = $($(this).attr('data-dropdown'));
+			
+			var obj = {};
 			obj.ui = this;
 			obj.getActive = function(){
-				return activeDom = dDown.find('[active]');
+				activeDom = dDown.find('li[active]');
+                if (activeDom.length) 
+                    return activeDom;
+                else
+                    return dDown.find("li:eq(0)");
+                
 			}
 			
 			$(this).on('click.dropdown', show);
