@@ -3263,15 +3263,17 @@ width: 275px;}
     margin: 0;
 }
 #show_expanded_map{
-    background: none repeat scroll 0 0 white;
-    border: 0 none;
-    height: 2%;
-    left: 15%;
-    padding-bottom: 12px;
+    background-color: #FAFAFA;
+    background-image: linear-gradient(to bottom, #FAFAFA, #FAFAFA);
+    border-left-width: 0;
+    border-radius: 4px 4px 0 0;
+    border-top: 0 none;
+    margin-left: 1px;
+    padding: 8px 10px;
     position: absolute;
     text-align: center;
-    top: 6px;
-    width: 62%;
+    top: 1px;
+    width: 91.5%;
     z-index: 10000;
 }
 #close_expanded_map{
