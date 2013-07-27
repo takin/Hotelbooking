@@ -63,6 +63,7 @@ GoogleMap.prototype.init = function() {
         this.map_div.style.height = "280px";
         this.map_div.style.width = "auto";
         // specify additional options to map here
+        myOptions["mapTypeControl"] = false;
         myOptions["streetViewControl"] = false;
         myOptions["zoomControl"] = true;
         myOptions["zoomControlOptions"] ={

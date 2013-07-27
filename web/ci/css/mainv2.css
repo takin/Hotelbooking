@@ -3263,13 +3263,16 @@ width: 275px;}
     margin: 0;
 }
 #show_expanded_map{
-    height: 3%;
-    left: 0;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    height: 2%;
+    left: 15%;
+    padding-bottom: 12px;
     position: absolute;
     text-align: center;
-    top: 0;
-    width: 91%;
-    z-index: 10000
+    top: 6px;
+    width: 62%;
+    z-index: 10000;
 }
 #close_expanded_map{
     margin-left: 793px;
