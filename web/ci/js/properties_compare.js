@@ -239,7 +239,7 @@ function property_compare_popup() {
 			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			
                         // close city or expanded_map 
-                        pweb_filter.closeDefaultMap();
+                        pweb_filter.closePreviouslyOpenedMap();
                         // open compare property map
                         pweb_filter.toggleMap('compare_property');
                         
@@ -297,7 +297,7 @@ $(document).ready(function() {
                     // close compare property map
                     pweb_filter.toggleMap('compare_property');
                     // open city (default) map
-                    pweb_filter.showDefaultMap();
+                    pweb_filter.showPreviouslyOpenedMap();
                     
                 }
 	});

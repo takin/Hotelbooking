@@ -369,7 +369,7 @@ QuickView.prototype.setMap = function() {
 
     pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en', lat, lng);
     // close city or expanded_map 
-    pweb_filter.closeDefaultMap();
+    pweb_filter.closePreviouslyOpenedMap();
     //open hostel quick view map
     pweb_filter.toggleMap('hostel_quickview');
 

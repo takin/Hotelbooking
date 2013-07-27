@@ -51,6 +51,9 @@ function PWebFilterApp()
 	this.hotelCount = 0;
 	this.campCount = 0;
 	this.allproids;
+        // this will hold previously opened map
+        // before open quick view map or filter map
+        this.previously_openedMap = "city";
 }
 
 //init after document ready
@@ -1423,15 +1426,15 @@ PWebFilterApp.prototype.setup = function(data)
                 'showLoading': true,
                 beforeShow: function() {
                     // close city or expanded_map 
-                    pweb_filter.closeDefaultMap();
-                    // open city filter map
+                    pweb_filter.closePreviouslyOpenedMap();
+                
                     pweb_filter.toggleMap('cityFilterMap');
                 },
                 beforeClose: function() {
                     // close filter map
                     pweb_filter.toggleMap('cityFilterMap');
-                    // open city (default) map
-                    pweb_filter.showDefaultMap();
+                    
+                    pweb_filter.showPreviouslyOpenedMap();
                 }
             });//fancybox
             var filterByDistricts = false;
@@ -2011,7 +2014,7 @@ $(document).ready(function() {
 					// close hostel quick view map
                     pweb_filter.toggleMap('hostel_quickview');
                     // show default map
-                    pweb_filter.showDefaultMap();
+                    pweb_filter.showPreviouslyOpenedMap();
 				}
 			});
 			$(".box_content").live({
@@ -2137,7 +2140,7 @@ var allproid   =   pweb_filter.getAllPropertyIds();
 			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			 
                         // close default map
-                        pweb_filter.closeDefaultMap();
+                        pweb_filter.closePreviouslyOpenedMap();
                         pweb_filter.toggleMap('compare_property');
                         
 	if($("#distrinct:radio:checked").length > 0)
@@ -2282,7 +2285,7 @@ PWebFilterApp.prototype.checkMapEnabled = function(map_slug) {
     }
     return result;
 };
-PWebFilterApp.prototype.closeDefaultMap = function() {
+PWebFilterApp.prototype.closePreviouslyOpenedMap = function() {
 
     // check which map is enabled now to disable it
     if (pweb_filter.checkMapEnabled("city") === true)
@@ -2291,20 +2294,33 @@ PWebFilterApp.prototype.closeDefaultMap = function() {
         $("#city_side_map_container").hide();
     }
     else if (pweb_filter.checkMapEnabled("expanded_city") === true) {
-
+        this.previously_openedMap = "expanded_city";
         pweb_filter.toggleMap('expanded_city');
         // hide map div in the top of the page
         $("#expanded_city_map_container").hide();
         $("#header_pageNavigation_container").hide();
     }
 };
-PWebFilterApp.prototype.showDefaultMap = function() {
-    // hide map div in the top of the page
-    $("#expanded_city_map_container").hide();
-    $("#header_pageNavigation_container").hide();
-    // show expand map link
-    $("#city_side_map_container").show();
-    pweb_filter.toggleMap('city');
-
+PWebFilterApp.prototype.showPreviouslyOpenedMap = function() {
+    // check which map is enabled now to disable it
+    if (this.previously_openedMap === "city")
+    {
+        // hide map div in the top of the page
+        $("#expanded_city_map_container").hide();
+        $("#header_pageNavigation_container").hide();
+        // show expand map link
+        $("#city_side_map_container").show();
+        pweb_filter.toggleMap('city');
+    }
+    else {
+//        this.previously_openedMap = "expanded_city";
+        // hide left side map link
+        $("#city_side_map_container").hide();
+// hide map div in the top of the page
+        $("#expanded_city_map_container").show();
+        $("#header_pageNavigation_container").show();
+        
+        pweb_filter.toggleMap('expanded_city');        
+    }
 };
 
