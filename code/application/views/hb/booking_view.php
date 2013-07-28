@@ -239,9 +239,7 @@ $SPACE = '&nbsp;';
               <?php if (1 || isset($booking_fee)): ?>
               <tr class="light">
                                     <td class="first" align="right">
-                                        <span id="bookingFeeDesc"><img class="booking_fee_benefits" src="<?php echo secure_site_url() . 'images/V2/icon_help.png'; ?>" /><?php echo _('Frais de Service') ?>:</span>
-
-                                        <div class="popup-info booking_view">
+                                        <div class="popup-info booking_view" id="benefits_popup">
                                             <h4><?php echo _("The benefits");?></h4>
                                             <p><?php
                                                 echo _("Local customer service you can trust in your language available 24 hours a day"), '<br />',
@@ -252,6 +250,8 @@ $SPACE = '&nbsp;';
                                             ?></p>
                                             <span class="popup-info-arrow"></span>
                                         </div>
+
+                                        <span id="bookingFeeDesc" class="bookingFeeDesc_text"><img class="booking_fee_benefits" src="<?php echo secure_site_url() . 'images/V2/icon_help.png'; ?>" /> <?php echo _('Frais de Service') ?>:</span>
                                     </td>
                                     <td>
                                         <span style="display: inline;">
