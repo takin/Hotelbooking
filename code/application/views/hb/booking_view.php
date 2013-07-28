@@ -239,8 +239,20 @@ $SPACE = '&nbsp;';
               <?php if (isset($booking_fee)): ?>
               <tr class="light">
                                     <td class="first" align="right">
+                                        <span id="bookingFeeDesc"><img class="booking_fee_benefits" src="<?php echo secure_site_url() . 'images/V2/icon_help.png'; ?>" /><?php echo _('Frais de Service') ?>:</span>
 
-                                        <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
+                                        <div class="popup-info booking_view">
+                                            <h4><?php echo _("The benefits");?></h4>
+                                            <p><?php
+                                                echo _("Local customer service you can trust in your language available 24 hours a day"), '<br />',
+                                                _("Secured payment: your credit card is protected"), '<br />',
+                                                _("No spam emails after you have booked and your information will stay private"), '<br />',
+                                                _("You have access to millions of real reviews from travellers like you"), '<br />',
+                                                _("And finally, you get the best price!");
+                                            ?></p>
+                                            <span class="popup-info-arrow"></span>
+                                        </div>
+                                    </td>
                                     <td>
                                         <span style="display: inline;">
                                             <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
