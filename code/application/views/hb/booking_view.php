@@ -236,7 +236,7 @@ $SPACE = '&nbsp;';
                <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_percent_booking;?></span></td>
               </tr>							
               
-              <?php if (isset($booking_fee)): ?>
+              <?php if (1 || isset($booking_fee)): ?>
               <tr class="light">
                                     <td class="first" align="right">
                                         <span id="bookingFeeDesc"><img class="booking_fee_benefits" src="<?php echo secure_site_url() . 'images/V2/icon_help.png'; ?>" /><?php echo _('Frais de Service') ?>:</span>
