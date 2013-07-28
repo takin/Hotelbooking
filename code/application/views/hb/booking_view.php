@@ -236,7 +236,7 @@ $SPACE = '&nbsp;';
                <td><span class="cur book selected"><?php echo $bookCurSymbol.$SPACE.$settle_percent_booking;?></span></td>
               </tr>							
               
-              <?php if (1 || isset($booking_fee)): ?>
+              <?php if (isset($booking_fee)): ?>
               <tr class="light">
                                     <td class="first" align="right">
                                         <div class="popup-info booking_view" id="benefits_popup">
