@@ -12,7 +12,6 @@ jQuery(function()
 {
 
     jQuery('.select-translate').live('change', function() {
-
         var api = jQuery(this).data('jsp');
 
         var version = jQuery(this).val();
