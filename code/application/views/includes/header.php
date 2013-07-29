@@ -11,6 +11,96 @@
 
   <meta name="copyright" content="<?php echo $this->config->item('site_name');?>" />
   <meta name="keywords" content="<?php echo _("reservation auberge de jeunesse,auberge de jeunesse,auberges de jeunesse,voyage jeunesse europe,voyage jeunesse,voyage europe,hébergement voyage europe,réserver auberge,voyage europe logement,logement voyage france,logement voyage europe,trip jeunesse euro,euro youth hostel,révervation hôtel londres,reservation hôtel paris");?>" />
+	
+	
+	<?php // Filter variables
+
+	$description = '';
+
+	if(isset($filters)) {
+
+		$type = $filters['type'];
+		$landmark = $filters['landmark'];
+		$district = $filters['district'];
+
+		if(!empty($district)){
+			$district_name = $district->district_name_ts;
+			if(empty($district_name)){$district_name = $district->district_name;}
+			switch($type){
+				case 'hostel':
+					$description = sprintf( gettext('%s – Hostels in the %s district. Maps for %s, Photos and Reviews for each Hostel in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+				case 'hotel':
+					$description = sprintf( gettext('%s – Hotels in the %s district. Maps for %s, Photos and Reviews for each Hotel in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+				case 'apartment':
+					$description = sprintf( gettext('%s – Apartments in the %s district. Maps for %s, Photos and Reviews for each Apartment in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+				case 'guesthouse':
+					$description = sprintf( gettext('%s – Rooms in the %s district. Maps for %s, Photos and Reviews for each room in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+				case 'campsite':
+					$description = sprintf( gettext('%s – Camping in the %s district. Maps for %s, Photos and Reviews for each camping in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+				default:
+					$description = sprintf( gettext('%s – Properties in the %s district. Maps for %s, Photos and Reviews for each properties in %s.'),$city_selected,$district_name,$city_selected,$city_selected);
+					break;
+			}
+		}elseif(!empty($landmark)){
+			if(!empty($landmark->landmark_name_ts)) 
+			{
+			  $landmark_name = $landmark->landmark_name_ts;
+			}	
+			else 
+			{
+			  $landmark_name = $landmark->landmark_name;
+			}
+			switch($type){
+				case 'hostel':
+					$description = sprintf( gettext('%s – Hostels close to %s. Maps for %s, Photos and Reviews for each Hostel in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+				case 'hotel':
+					$description = sprintf( gettext('%s – Hotels close to %s. Maps for %s, Photos and Reviews for each Hotel in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+				case 'apartment':
+					$description = sprintf( gettext('%s – Apartments close to %s. Maps for %s, Photos and Reviews for each Apartment in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+				case 'guesthouse':
+					$description = sprintf( gettext('%s – Rooms close to %s. Maps for %s, Photos and Reviews for each room in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+				case 'campsite':
+					$description = sprintf( gettext('%s – Camping close to %s. Maps for %s, Photos and Reviews for each camping in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+				default:
+					$description = sprintf( gettext('%s – Properties close to %s. Maps for %s, Photos and Reviews for each properties in %s.'),$city_selected,$landmark_name,$city_selected,$city_selected);
+					break;
+			}
+		}else{
+			switch($type){
+				case 'hostel':
+					$description = sprintf( gettext('%s – Hostels in %s. Maps for %s, Photos and Reviews for each Hostel in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+				case 'hotel':
+					$description = sprintf( gettext('%s – Hotels in %s. Maps for %s, Photos and Reviews for each Hotel in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+				case 'apartment':
+					$description = sprintf( gettext('%s – Apartments in %s. Maps for %s, Photos and Reviews for each Apartment in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+				case 'guesthouse':
+					$description = sprintf( gettext('%s – Rooms in %s. Maps for %s, Photos and Reviews for each room in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+				case 'campsite':
+					$description = sprintf( gettext('%s – Camping in %s. Maps for %s, Photos and Reviews for each camping in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+				default:
+					$description = sprintf( gettext('%s – Properties in %s. Maps for %s, Photos and Reviews for each properties in %s.'),$city_selected,$city_selected,$city_selected,$city_selected);
+					break;
+			}
+		}
+	}
+
+	?>
+	
 	<?php
 
 	switch($current_view)
@@ -28,6 +118,11 @@
 	  case "city_view":
 	    ?>
 	    <meta name="description" content="<?php printf( gettext("Auberges à %s incluant Auberges de Jeunesse à %s. 30,000 Auberges de jeunesses et logements pas chers à %s et dans le monde entier. Aussi, cartes des villes, photos, conseils, événements et guides des Auberges de Jeunesse à %s."),my_mb_ucfirst($bc_city),my_mb_ucfirst($bc_city),my_mb_ucfirst($bc_city),my_mb_ucfirst($bc_city));?>"/>
+	    <?php
+	    break;
+	  case "city_lp":
+	    ?>
+	    <meta name="description" content="<?php echo $description; ?>"/>
 	    <?php
 	    break;
 	  case "group_request":
