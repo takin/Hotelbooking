@@ -3262,6 +3262,30 @@ width: 275px;}
 #map_city_landing_page{
     margin: 0;
 }
+
+#benefits_popup h4,
+#benefits_popup p {
+	text-align: left;
+}
+
+.bookingFeeDesc_text {
+	cursor: pointer;
+	color: #3087C9;
+}
+
+.bookingFeeDesc_text img {
+	vertical-align: middle;
+}
+
+#benefits_popup {
+	left: 220px !important;
+	bottom: 120px !important;
+}
+
+#benefits_popup .popup-info-arrow {
+	left: 92% !important;
+}
+
 #show_expanded_map{
     background-color: #FAFAFA;
     background-image: linear-gradient(to bottom, #FAFAFA, #FAFAFA);
