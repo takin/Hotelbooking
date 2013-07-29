@@ -19,7 +19,9 @@ function saf_changeCurrency(cur_code){
 	if ( /\/info\/|^\/[^\/]*$/.test(site_path)){
 		
 	}else{
-		document.location.reload();
+        document.location.href = site_path + "?currency="+cur_code;
+        
+//		document.location.reload();
 	}
 
 }

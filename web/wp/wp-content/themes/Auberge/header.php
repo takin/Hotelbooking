@@ -295,6 +295,7 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                     $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
                     
                     //----- drop floag        
+                    $("#language-dropdown ul li a").html('&nbsp;');
                     drop2 = $("#site_language").dropdown({
                         onchange: function(ui, item){
                             ui.find('[lang-flag]').attr('class', item.find('a').attr('class'));

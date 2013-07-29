@@ -138,6 +138,7 @@ if(jQuery) (function($) {
 			hOffset = trigger ? parseInt(trigger.attr('data-horizontal-offset') || 0, 10) : null,
 			vOffset = trigger ? parseInt(trigger.attr('data-vertical-offset') || 0, 10) : null;
 
+        hOffset = trigger.outerWidth()/2;
 		hOffset = hOffset - dropdown.width()/2;
 		
 		if( dropdown.length === 0 || !trigger ) return;

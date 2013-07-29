@@ -6,7 +6,7 @@
 
 .dropdown .dropdown-menu,
 .dropdown .dropdown-panel {
-    min-width: 160px;
+    min-width: 50px;
     max-width: 360px;
     list-style: none;
     background: #FFF;
@@ -161,17 +161,17 @@ width:220px;
 }
 
 #language-dropdown{
-    width:220px;    
+    width: 50px;    
 }
 #language-dropdown li a{
     padding-left:21px;
     margin-left:3px;
 }
 #language-dropdown.dropdown-tip:before{
-    left:119px;
+    left:20px;
 }
 #language-dropdown.dropdown-tip:after{
-    left: 120px
+    left: 20px
 }
 
 

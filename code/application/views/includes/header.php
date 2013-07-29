@@ -1295,6 +1295,7 @@ $(document).ready(function()
                     $("#top_hd_currency").html(drop.getActive().attr('data-symbol'));
                     
                     //----- drop floag        
+                    $("#language-dropdown ul li a").html('&nbsp;');
                     drop2 = $("#site_language").dropdown({
                         onchange: function(ui, item){
                             ui.find('[lang-flag]').attr('class', item.find('a').attr('class'));
@@ -1304,6 +1305,7 @@ $(document).ready(function()
                     });
                     $("#site_language").find("[lang-flag]").attr('class', drop2.getActive().find('a').attr('class'));
                     
+                     
                 })
             </script>
 			<span id="logged_in_link" style="display: none">
