@@ -25,7 +25,7 @@ $config['sitemaps_search_engines'] = array(
  * Compress the finished sitemap using gzencode,
  * and save it
  */
-$config['sitemaps_gzip'] = true;
+$config['sitemaps_gzip'] = false;
 $config['sitemaps_gzip_path'] = '{file_name}.gz';
 
 /**
