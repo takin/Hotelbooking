@@ -2,10 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-30 20:21+0300\n"
+"POT-Creation-Date: 2013-07-30 21:52+0300\n"
 "PO-Revision-Date: 2013-07-30 21:25+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3992,6 +3993,8 @@ msgid "Send PDF quote"
 msgstr "PDF 보내기"
 
 #: ../code/application/views/includes/template-share-email-popup.php:93
+#: ../code/application/views/helpfile/pofields.php:942
+#, php-format
 msgid "Please wait ..."
 msgstr "기다려 주세요…"
 
@@ -9148,10 +9151,225 @@ msgstr "지도를 클릭하여 확장하기"
 msgid "Travel-Insurance"
 msgstr "여행 보험"
 
+#: ../code/application/views/helpfile/pofields.php~:902
 #: ../code/application/views/helpfile/pofields.php:902
 #, fuzzy, php-format
 msgid "Click here to see the benefits"
 msgstr "이 호텔을 선택하려면 여기를 클릭하십시오"
+
+#: ../code/application/views/helpfile/pofields.php:903
+#, php-format
+msgid "Only available to %s Customers! No surprises and peace of mind"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:904
+#, php-format
+msgid "%s/day/person"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:905
+#, php-format
+msgid "- 36 years old"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:906
+#, php-format
+msgid "+ 36 years old"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:907
+#, fuzzy, php-format
+msgid "Change Currency:"
+msgstr "날짜 및 통화 변경하기"
+
+#: ../code/application/views/helpfile/pofields.php:908
+#, fuzzy, php-format
+msgid "Destination"
+msgstr "여행지"
+
+#: ../code/application/views/helpfile/pofields.php:909
+#, php-format
+msgid "Missing coverage"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:910
+#, php-format
+msgid "Coverage start date"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:911
+#, php-format
+msgid "Coverage duration (days)"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:912
+#, fuzzy, php-format
+msgid "Salutation"
+msgstr "평가"
+
+#: ../code/application/views/helpfile/pofields.php:913
+#, php-format
+msgid "Mr"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:914
+#, php-format
+msgid "Miss"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:915
+#, php-format
+msgid "Mrs"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:916
+#, fuzzy, php-format
+msgid "Ms"
+msgstr "월"
+
+#: ../code/application/views/helpfile/pofields.php:917
+#, fuzzy, php-format
+msgid "Invalid First name"
+msgstr "이름"
+
+#: ../code/application/views/helpfile/pofields.php:918
+#, fuzzy, php-format
+msgid "Invalid Last name"
+msgstr "유효하지 않은 날짜"
+
+#: ../code/application/views/helpfile/pofields.php:919
+#, php-format
+msgid "Missing Birth date"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:920
+#, php-format
+msgid "Birth date"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:921
+#, php-format
+msgid "Missing Street address"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:922
+#, php-format
+msgid "Invalid Street address"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:923
+#, fuzzy, php-format
+msgid "Street address"
+msgstr "주소"
+
+#: ../code/application/views/helpfile/pofields.php:924
+#, php-format
+msgid "Street address additional"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:925
+#, php-format
+msgid "Missing City"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:926
+#, fuzzy, php-format
+msgid "Invalid City"
+msgstr "유효하지 않은 날짜"
+
+#: ../code/application/views/helpfile/pofields.php:927
+#: ../code/application/views/restricted/user_favorite_properties.php:22
+#: ../code/application/views/restricted/user_group_quote.php:82
+#: ../code/application/views/email/admin/new_group_request.php:22
+#: ../code/application/views/search_results.php:66
+#: ../code/application/views/search_suggest.php:17
+#, php-format
+msgid "City"
+msgstr "도시"
+
+#: ../code/application/views/helpfile/pofields.php:928
+#, php-format
+msgid "Missing Post code"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:929
+#, fuzzy, php-format
+msgid "Invalid Post code"
+msgstr "유효하지 않은 날짜"
+
+#: ../code/application/views/helpfile/pofields.php:930
+#, php-format
+msgid "Post code"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:931
+#: ../code/application/views/restricted/user_group_quote.php:78
+#: ../code/application/views/email/admin/new_group_request.php:21
+#: ../code/application/views/search_results.php:69
+#: ../code/application/views/search_suggest.php:20
+#, php-format
+msgid "Country"
+msgstr "국가"
+
+#: ../code/application/views/helpfile/pofields.php:932
+#, php-format
+msgid "Add additional travelers"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:933
+#, fuzzy, php-format
+msgid "Your insurance details"
+msgstr "귀하의 세부 정보"
+
+#: ../code/application/views/helpfile/pofields.php:934
+#, php-format
+msgid "Traveler's name"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:935
+#, fuzzy, php-format
+msgid "Price per day"
+msgstr "룸당 가격"
+
+#: ../code/application/views/helpfile/pofields.php:936
+#, php-format
+msgid "Price for the trip"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:937
+#, php-format
+msgid "Missing Payment card number"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:938
+#, php-format
+msgid "Invalid Payment card number"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:939
+#, php-format
+msgid "Invalid Payment card CVV number"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:940
+#, php-format
+msgid "Missing Payment card expiry date"
+msgstr ""
+
+#: ../code/application/views/helpfile/pofields.php:941
+#, fuzzy, php-format
+msgid "You must accept terms and conditions."
+msgstr "이용 약관"
+
+#: ../code/application/views/helpfile/pofields.php:943
+#, fuzzy, php-format
+msgid "Confirm"
+msgstr "확인"
+
+#: ../code/application/views/helpfile/pofields.php:944
+#, php-format
+msgid "Insurance certificate created. Price: %s"
+msgstr ""
 
 #: ../code/application/views/review_empty.php:2
 #: ../code/application/views/review_empty-map.php:7
@@ -9215,24 +9433,9 @@ msgstr "호스텔 이름"
 msgid "Votre Profil"
 msgstr "프로필"
 
-#: ../code/application/views/restricted/user_favorite_properties.php:22
-#: ../code/application/views/restricted/user_group_quote.php:82
-#: ../code/application/views/email/admin/new_group_request.php:22
-#: ../code/application/views/search_results.php:66
-#: ../code/application/views/search_suggest.php:17
-msgid "City"
-msgstr "도시"
-
 #: ../code/application/views/restricted/user_group_quote.php:63
 msgid "Your personalized group booking quote - Here is your offer!"
 msgstr "귀하의 맞춤 단체 예약 - 귀하를 위한 세부 사항입니다!"
-
-#: ../code/application/views/restricted/user_group_quote.php:78
-#: ../code/application/views/email/admin/new_group_request.php:21
-#: ../code/application/views/search_results.php:69
-#: ../code/application/views/search_suggest.php:20
-msgid "Country"
-msgstr "국가"
 
 #: ../code/application/views/restricted/user_group_quote.php:98
 msgid "Total Number of people in your group"

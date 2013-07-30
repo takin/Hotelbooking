@@ -899,3 +899,4 @@
 <?php echo _('Please read carefully');?>
 <?php echo _('I agree');?>
 <?php echo _('I do not agree and I will select another property');?>
+<?php echo _('Click here to see the benefits');?>

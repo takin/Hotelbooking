@@ -900,3 +900,45 @@
 <?php echo _('I agree');?>
 <?php echo _('I do not agree and I will select another property');?>
 <?php echo _('Click here to see the benefits');?>
+<?php echo _('Only available to %s Customers! No surprises and peace of mind');?>
+<?php echo _('%s/day/person');?>
+<?php echo _('- 36 years old');?>
+<?php echo _('+ 36 years old');?>
+<?php echo _('Change Currency:');?>
+<?php echo _('Destination');?>
+<?php echo _('Missing coverage');?>
+<?php echo _('Coverage start date');?>
+<?php echo _('Coverage duration (days)');?>
+<?php echo _('Salutation');?>
+<?php echo _('Mr');?>
+<?php echo _('Miss');?>
+<?php echo _('Mrs');?>
+<?php echo _('Ms');?>
+<?php echo _('Invalid First name');?>
+<?php echo _('Invalid Last name');?>
+<?php echo _('Missing Birth date');?>
+<?php echo _('Birth date');?>
+<?php echo _('Missing Street address');?>
+<?php echo _('Invalid Street address');?>
+<?php echo _('Street address');?>
+<?php echo _('Street address additional');?>
+<?php echo _('Missing City');?>
+<?php echo _('Invalid City');?>
+<?php echo _('City');?>
+<?php echo _('Missing Post code');?>
+<?php echo _('Invalid Post code');?>
+<?php echo _('Post code');?>
+<?php echo _('Country');?>
+<?php echo _('Add additional travelers');?>
+<?php echo _('Your insurance details');?>
+<?php echo _('Traveler\'s name');?>
+<?php echo _('Price per day');?>
+<?php echo _('Price for the trip');?>
+<?php echo _('Missing Payment card number');?>
+<?php echo _('Invalid Payment card number');?>
+<?php echo _('Invalid Payment card CVV number');?>
+<?php echo _('Missing Payment card expiry date');?>
+<?php echo _('You must accept terms and conditions.');?>
+<?php echo _('Please wait ...');?>
+<?php echo _('Confirm');?>
+<?php echo _('Insurance certificate created. Price: %s');?>

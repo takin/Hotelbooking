@@ -2,11 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Auberges\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-25 22:07+0300\n"
-"PO-Revision-Date: 2013-06-28 21:13+0200\n"
+"POT-Creation-Date: 2013-07-30 20:21+0300\n"
+"PO-Revision-Date: 2013-07-30 21:29+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +51,7 @@ msgstr "何が含まれているか"
 #: ../code/application/views/mustache/property_quick_view.php:52
 #: ../code/application/views/city_view.php:5
 #: ../code/application/views/hw/property_list.php:1
-#: ../code/application/views/hb/booking_view.php:254
+#: ../code/application/views/hb/booking_view.php:266
 #: ../code/application/views/hb/property_list.php:97
 #: ../code/application/views/hb/hostel_view.php:533
 #: ../code/application/views/hb/hostel_view.php:878
@@ -83,8 +82,8 @@ msgstr "地図"
 #: ../code/application/views/mustache/property_quick_view.php:111
 #: ../code/application/views/mustache/property_list.php:96
 #: ../code/application/views/mustache/property_list.php:98
-#: ../code/application/views/city_view.php:362
-#: ../code/application/views/includes/side_districts.php:46
+#: ../code/application/views/city_view.php:439
+#: ../code/application/views/includes/side_districts.php:47
 #: ../code/application/views/hw/hostel_view.php:296
 #: ../code/application/views/hw/hostel_view.php:771
 #: ../code/application/views/hb/hostel_view.php:394
@@ -99,7 +98,7 @@ msgstr "地域"
 #: ../code/application/views/mustache/property_quick_view.php:127
 #: ../code/application/views/mustache/property_list.php:105
 #: ../code/application/views/mustache/property_list.php:107
-#: ../code/application/views/city_view.php:366
+#: ../code/application/views/city_view.php:443
 #: ../code/application/views/hw/hostel_view.php:320
 #: ../code/application/views/hw/hostel_view.php:800
 #: ../code/application/views/hb/hostel_view.php:418
@@ -297,7 +296,7 @@ msgstr "２分しかかかりません"
 #: ../code/application/views/hw/hostel_view.php:728
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_avail_view.php:1017
-#: ../code/application/views/hb/booking_view.php:821
+#: ../code/application/views/hb/booking_view.php:833
 #: ../code/application/views/hb/hostel_view.php:982
 #: ../code/application/views/email/new_transaction_hb.php:506
 msgid "Informations Importantes"
@@ -317,8 +316,8 @@ msgstr "最新のレビュー"
 #: ../code/application/views/mustache/city_map_property_infow.php:12
 #: ../code/application/views/mustache/property_list.php:30
 #: ../code/application/views/mustache/property_list.php:143
-#: ../code/application/views/includes/header.php:634
-#: ../code/application/views/includes/header.php:689
+#: ../code/application/views/includes/header.php:729
+#: ../code/application/views/includes/header.php:784
 #: ../code/application/views/hw/hostel_view.php:506
 #: ../code/application/views/hb/hostel_view.php:76
 #: ../code/application/views/hb/hostel_view.php:626
@@ -369,8 +368,8 @@ msgid "Cleanliness"
 msgstr "清潔さ"
 
 #: ../code/application/views/property_detail.php:600
-#: ../code/application/views/city_view.php:173
-#: ../code/application/views/city_view.php:358
+#: ../code/application/views/city_view.php:186
+#: ../code/application/views/city_view.php:435
 #: ../code/application/views/hb/hostel_view.php:112
 #: ../code/application/views/compare_property.php:300
 #: ../code/application/views/helpfile/pofields.php~:448
@@ -549,7 +548,7 @@ msgid ""
 msgstr "日本と海外にある格安のホステル/ユースホステル"
 
 #: ../code/application/views/mobile/city_view.php:43
-#: ../code/application/views/city_view.php:317
+#: ../code/application/views/city_view.php:330
 #: ../code/application/views/search_results.php:86
 #: ../code/application/views/search_results.php:121
 #: ../code/application/views/search_results.php:147
@@ -587,7 +586,7 @@ msgstr "評価"
 
 #: ../code/application/views/mobile/city_view.php:84
 #: ../code/application/views/city_lp.php:303
-#: ../code/application/views/city_view.php:373
+#: ../code/application/views/city_view.php:450
 #: ../code/application/views/city_ajax_view.php:238
 #: ../code/application/views/city_ajax_view.php:400
 #: ../code/application/views/city_ajax_view.php:491
@@ -612,14 +611,14 @@ msgstr "ホームページ"
 
 #: ../code/application/views/mobile/includes/footer.php:8
 #: ../code/application/views/includes/footer.php:93
-#: ../code/application/views/includes/header.php:1192
+#: ../code/application/views/includes/header.php:1287
 msgid "About us"
 msgstr "私達について"
 
 #: ../code/application/views/mobile/includes/footer.php:9
 #: ../code/application/views/includes/footer.php:86
-#: ../code/application/views/includes/header_book.php:144
-#: ../code/application/views/includes/header.php:1194
+#: ../code/application/views/includes/header_book.php:151
+#: ../code/application/views/includes/header.php:1289
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "よくある質問/お問い合わせ／ヘルプ"
 
@@ -647,8 +646,8 @@ msgid "Conditions"
 msgstr "規約"
 
 #: ../code/application/views/mobile/includes/footer.php:12
-#: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1182
+#: ../code/application/views/includes/header_book.php:156
+#: ../code/application/views/includes/header.php:1277
 #: ../code/application/views/includes/top_box.php:16
 msgid "Se déconnecter"
 msgstr "ログアウト"
@@ -658,8 +657,8 @@ msgstr "ログアウト"
 #: ../code/application/views/mobile/home_view.php:5
 #: ../code/application/views/mobile/auth/forgot_password_form.php:33
 #: ../code/application/views/mobile/auth/login_form.php:69
-#: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:1178
+#: ../code/application/views/includes/header_book.php:153
+#: ../code/application/views/includes/header.php:1273
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/auth/register_form.php:223
 #: ../code/application/views/auth/forgot_password_form.php:30
@@ -682,7 +681,7 @@ msgstr ""
 "ホテルパリ予約など。"
 
 #: ../code/application/views/mobile/includes/header.php:16
-#: ../code/application/views/includes/header.php:30
+#: ../code/application/views/includes/header.php:120
 #: ../code/application/views/search_results.php:47
 #, php-format
 msgid ""
@@ -693,7 +692,7 @@ msgid ""
 msgstr "%sの全ての格安ユースホステル - %s. %sのホステルの地図、写真、評価 - %s"
 
 #: ../code/application/views/mobile/includes/header.php:20
-#: ../code/application/views/includes/header.php:41
+#: ../code/application/views/includes/header.php:136
 #, php-format
 msgid ""
 "Réservation immédiate et garantie de l’auberge %s à %s. Prix imbattables de "
@@ -705,7 +704,7 @@ msgstr ""
 #: ../code/application/views/mobile/includes/header.php:40
 #: ../code/application/views/mobile/user/user_view.php:4
 #: ../code/application/views/mobile/home_view.php:5
-#: ../code/application/views/includes/header_book.php:146
+#: ../code/application/views/includes/header_book.php:153
 #: ../code/application/views/includes/top_box.php:12
 msgid "Bienvenue!"
 msgstr "マイアカント"
@@ -714,8 +713,10 @@ msgstr "マイアカント"
 #: ../code/application/views/mobile/hw/booking_end_view.php:27
 #: ../code/application/views/hw/booking_end_view.php:29
 #: ../code/application/views/hw/booking_view.php:122
+#: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hb/booking_end_view.php:20
 #: ../code/application/views/hb/booking_view.php:93
+#: ../code/application/views/hb/booking_view.php:95
 msgid "Détails de la réservation"
 msgstr "予約詳細"
 
@@ -751,7 +752,7 @@ msgstr "営業所婦負"
 #: ../code/application/views/property_rooms_avail.php:494
 #: ../code/application/views/property_rooms_avail.php:496
 #: ../code/application/views/property_rooms_avail.php:497
-#: ../code/application/views/city_view.php:288
+#: ../code/application/views/city_view.php:301
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:158
 #: ../code/application/views/hw/booking_avail_view.php:195
@@ -876,7 +877,7 @@ msgstr "10%のデポジット（預かり金）"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:195
 #: ../code/application/views/hw/booking_view.php:312
-#: ../code/application/views/hb/booking_view.php:243
+#: ../code/application/views/hb/booking_view.php:254
 msgid "Frais de Service"
 msgstr "サービス料"
 
@@ -889,16 +890,16 @@ msgstr "%sの年間会員カードを持っている必要はない："
 #: ../code/application/views/mobile/hw/booking_confirm.php:244
 #: ../code/application/views/hw/booking_view.php:362
 #: ../code/application/views/hw/booking_view.php:949
-#: ../code/application/views/hb/booking_view.php:259
-#: ../code/application/views/hb/booking_view.php:734
+#: ../code/application/views/hb/booking_view.php:271
+#: ../code/application/views/hb/booking_view.php:746
 msgid "Total à payer maintenant"
 msgstr "現在の全額支払い"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:274
 #: ../code/application/views/hw/booking_view.php:416
 #: ../code/application/views/hw/booking_view.php:964
-#: ../code/application/views/hb/booking_view.php:273
-#: ../code/application/views/hb/booking_view.php:743
+#: ../code/application/views/hb/booking_view.php:285
+#: ../code/application/views/hb/booking_view.php:755
 msgid "est le montant total à payer à votre arrivée"
 msgstr "は総額到着時に支払う。"
 
@@ -909,7 +910,7 @@ msgstr "お支払いの通貨を選択してください:"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:329
 #: ../code/application/views/hw/booking_view.php:1036
-#: ../code/application/views/hb/booking_view.php:846
+#: ../code/application/views/hb/booking_view.php:858
 msgid "Changements - Annulations"
 msgstr "変更 - キャンセル"
 
@@ -928,17 +929,11 @@ msgstr ""
 #: ../code/application/views/mobile/hw/booking_confirm.php:334
 #: ../code/application/views/mobile/hw/booking_avail_view.php:260
 #: ../code/application/views/hw/booking_avail_view.php:832
-#: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hw/booking_view.php:164
 #: ../code/application/views/hw/booking_view.php:233
-#: ../code/application/views/hw/booking_view.php:464
-#: ../code/application/views/hw/booking_view.php:675
 #: ../code/application/views/hw/booking_view.php:1047
 #: ../code/application/views/hb/booking_avail_view.php:792
-#: ../code/application/views/hb/booking_view.php:95
-#: ../code/application/views/hb/booking_view.php:294
-#: ../code/application/views/hb/booking_view.php:499
-#: ../code/application/views/hb/booking_view.php:858
+#: ../code/application/views/hb/booking_view.php:870
 msgid "Notes Importantes"
 msgstr "重要な注意事項"
 
@@ -1033,7 +1028,7 @@ msgstr "アドレス"
 #: ../code/application/views/mobile/user/user_bookings.php:59
 #: ../code/application/views/mobile/user/user_profile.php:41
 #: ../code/application/views/hw/booking_view.php:538
-#: ../code/application/views/hb/booking_view.php:412
+#: ../code/application/views/hb/booking_view.php:424
 #: ../code/application/views/restricted/user_profile.php:73
 #: ../code/application/controllers/user.php:83
 msgid "Téléphone"
@@ -1296,7 +1291,7 @@ msgid "Détails:"
 msgstr "詳細："
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:77
-#: ../code/application/views/city_view.php:291
+#: ../code/application/views/city_view.php:304
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:18
@@ -1348,7 +1343,9 @@ msgstr "今すぐ予約"
 
 #: ../code/application/views/mobile/hw/booking_view.php:11
 #: ../code/application/views/hw/booking_view.php:462
-#: ../code/application/views/hb/booking_view.php:292
+#: ../code/application/views/hw/booking_view.php:464
+#: ../code/application/views/hb/booking_view.php:304
+#: ../code/application/views/hb/booking_view.php:306
 msgid "Informations personnelles - Sécurisées et Encryptées"
 msgstr "お客様の個人情報"
 
@@ -1380,11 +1377,11 @@ msgstr "国籍："
 #: ../code/application/views/includes/city_lp_search_box.php:115
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:1079
-#: ../code/application/views/includes/header.php:1082
+#: ../code/application/views/includes/header.php:1174
+#: ../code/application/views/includes/header.php:1177
 #: ../code/application/views/hw/booking_view.php:496
 #: ../code/application/views/hw/hostel_view.php:174
-#: ../code/application/views/hb/booking_view.php:325
+#: ../code/application/views/hb/booking_view.php:337
 #: ../code/application/views/hb/hostel_view.php:252
 #: ../code/application/views/restricted/admin/group_quote.php:59
 #: ../code/application/views/group_request.php:75
@@ -1413,14 +1410,14 @@ msgstr "女性"
 
 #: ../code/application/views/mobile/hw/booking_view.php:46
 #: ../code/application/views/hw/booking_view.php:566
-#: ../code/application/views/hb/booking_view.php:432
+#: ../code/application/views/hb/booking_view.php:444
 #: ../code/application/controllers/cmain.php:447
 msgid "Heure d'arrivée:"
 msgstr "チェックイン："
 
 #: ../code/application/views/mobile/hw/booking_view.php:76
 #: ../code/application/views/hw/booking_view.php:514
-#: ../code/application/views/hb/booking_view.php:389
+#: ../code/application/views/hb/booking_view.php:401
 #: ../code/application/views/group_request.php:237
 #: ../code/application/controllers/cmain.php:448
 msgid "Adresse Email"
@@ -1428,7 +1425,7 @@ msgstr "Eメールアドレス"
 
 #: ../code/application/views/mobile/hw/booking_view.php:81
 #: ../code/application/views/hw/booking_view.php:525
-#: ../code/application/views/hb/booking_view.php:399
+#: ../code/application/views/hb/booking_view.php:411
 #: ../code/application/views/group_request.php:246
 #: ../code/application/controllers/cmain.php:449
 msgid "Confirmation Email"
@@ -1440,7 +1437,7 @@ msgstr "携帯番号（国番号を含む）"
 
 #: ../code/application/views/mobile/hw/booking_view.php:88
 #: ../code/application/views/hw/booking_view.php:540
-#: ../code/application/views/hb/booking_view.php:414
+#: ../code/application/views/hb/booking_view.php:426
 #: ../code/application/views/group_request.php:259
 msgid ""
 "Country code, Area code (without first 0) and mobile number; no spaces, "
@@ -1459,7 +1456,7 @@ msgstr " 日本　例： 81 90 1234 1234"
 #: ../code/application/views/hw/booking_view.php:59
 #: ../code/application/views/hw/booking_view.php:552
 #: ../code/application/views/hb/booking_view.php:48
-#: ../code/application/views/hb/booking_view.php:423
+#: ../code/application/views/hb/booking_view.php:435
 #: ../code/application/views/helpfile/pofields.php~:17
 #: ../code/application/views/helpfile/pofields.php:17
 msgid "Text/SMS (FREE)"
@@ -1468,7 +1465,7 @@ msgstr "確認のテキスト/ SMS（無料）"
 #: ../code/application/views/mobile/hw/booking_view.php:97
 #: ../code/application/views/mobile/user/user_profile.php:52
 #: ../code/application/views/hw/booking_view.php:618
-#: ../code/application/views/hb/booking_view.php:464
+#: ../code/application/views/hb/booking_view.php:476
 #: ../code/application/views/restricted/user_profile.php:85
 #: ../code/application/views/auth/register_form.php:205
 msgid "Abonnement newsletter"
@@ -1476,7 +1473,7 @@ msgstr "ニュースレターの購読"
 
 #: ../code/application/views/mobile/hw/booking_view.php:99
 #: ../code/application/views/hw/booking_view.php:620
-#: ../code/application/views/hb/booking_view.php:466
+#: ../code/application/views/hb/booking_view.php:478
 msgid "cliquer ici pour notre charte"
 msgstr ""
 "私達はお客様の個人情報を口外することはありません、個人情報は暗号により守られ"
@@ -1485,7 +1482,9 @@ msgstr ""
 
 #: ../code/application/views/mobile/hw/booking_view.php:107
 #: ../code/application/views/hw/booking_view.php:673
-#: ../code/application/views/hb/booking_view.php:497
+#: ../code/application/views/hw/booking_view.php:675
+#: ../code/application/views/hb/booking_view.php:509
+#: ../code/application/views/hb/booking_view.php:511
 msgid "Méthode de Paiement - Sécurisée et Encryptée"
 msgstr "お支払い方法 - 安全性と暗号化"
 
@@ -1497,7 +1496,7 @@ msgstr "カードの種類：%s"
 
 #: ../code/application/views/mobile/hw/booking_view.php:288
 #: ../code/application/views/hw/booking_view.php:689
-#: ../code/application/views/hb/booking_view.php:508
+#: ../code/application/views/hb/booking_view.php:520
 #: ../code/application/controllers/cmain.php:452
 #, php-format
 msgid "sur la carte %s de crédit :"
@@ -1505,14 +1504,14 @@ msgstr "クレジットカードの所有者の名前：%s"
 
 #: ../code/application/views/mobile/hw/booking_view.php:292
 #: ../code/application/views/hw/booking_view.php:697
-#: ../code/application/views/hb/booking_view.php:516
+#: ../code/application/views/hb/booking_view.php:528
 #: ../code/application/controllers/cmain.php:453
 msgid "Numéro"
 msgstr "番号"
 
 #: ../code/application/views/mobile/hw/booking_view.php:292
 #: ../code/application/views/hw/booking_view.php:697
-#: ../code/application/views/hb/booking_view.php:516
+#: ../code/application/views/hb/booking_view.php:528
 #: ../code/application/controllers/cmain.php:453
 #, php-format
 msgid "de la carte %s de crédit :"
@@ -1520,7 +1519,7 @@ msgstr "%sクレジットカードの番号："
 
 #: ../code/application/views/mobile/hw/booking_view.php:296
 #: ../code/application/views/hw/booking_view.php:842
-#: ../code/application/views/hb/booking_view.php:635
+#: ../code/application/views/hb/booking_view.php:647
 #: ../code/application/controllers/cmain.php:454
 #: ../code/application/controllers/cmain.php:455
 msgid "Date d'expiration :"
@@ -1528,33 +1527,33 @@ msgstr "有効期限："
 
 #: ../code/application/views/mobile/hw/booking_view.php:332
 #: ../code/application/views/hw/booking_view.php:887
-#: ../code/application/views/hb/booking_view.php:673
+#: ../code/application/views/hb/booking_view.php:685
 #: ../code/application/controllers/cmain.php:456
 msgid "Code de sécurité :"
 msgstr "セキュリティーコード："
 
 #: ../code/application/views/mobile/hw/booking_view.php:337
 #: ../code/application/views/hw/booking_view.php:902
-#: ../code/application/views/hb/booking_view.php:691
+#: ../code/application/views/hb/booking_view.php:703
 msgid "Valide depuis :"
 msgstr "有効開始時："
 
 #: ../code/application/views/mobile/hw/booking_view.php:366
 #: ../code/application/views/hw/booking_view.php:898
-#: ../code/application/views/hb/booking_view.php:687
+#: ../code/application/views/hb/booking_view.php:699
 msgid "Numéro d'émission :"
 msgstr "発行番号："
 
 #: ../code/application/views/mobile/hw/booking_view.php:372
 #: ../code/application/views/hw/booking_view.php:940
-#: ../code/application/views/hb/booking_view.php:725
+#: ../code/application/views/hb/booking_view.php:737
 #, php-format
 msgid "J'accepte %s les termes et conditions %s"
 msgstr "私は%s条項%sの条件を承諾しました。"
 
 #: ../code/application/views/mobile/hw/booking_view.php:376
 #: ../code/application/views/hw/booking_view.php:966
-#: ../code/application/views/hb/booking_view.php:746
+#: ../code/application/views/hb/booking_view.php:758
 msgid ""
 "* En cliquant sur le bouton de Confirmation ci-dessous, vous acceptez les "
 "modalités et les conditions et autorisez la facturation d'un montant non "
@@ -1594,21 +1593,21 @@ msgstr ""
 #: ../code/application/views/hw/hostel_view.php:167
 #: ../code/application/views/hw/hostel_view.php:179
 #: ../code/application/views/hw/hostel_view.php:223
-#: ../code/application/views/hb/booking_view.php:308
-#: ../code/application/views/hb/booking_view.php:316
-#: ../code/application/views/hb/booking_view.php:332
-#: ../code/application/views/hb/booking_view.php:394
-#: ../code/application/views/hb/booking_view.php:403
-#: ../code/application/views/hb/booking_view.php:417
-#: ../code/application/views/hb/booking_view.php:512
-#: ../code/application/views/hb/booking_view.php:521
-#: ../code/application/views/hb/booking_view.php:522
-#: ../code/application/views/hb/booking_view.php:630
-#: ../code/application/views/hb/booking_view.php:665
-#: ../code/application/views/hb/booking_view.php:666
+#: ../code/application/views/hb/booking_view.php:320
+#: ../code/application/views/hb/booking_view.php:328
+#: ../code/application/views/hb/booking_view.php:344
+#: ../code/application/views/hb/booking_view.php:406
+#: ../code/application/views/hb/booking_view.php:415
+#: ../code/application/views/hb/booking_view.php:429
+#: ../code/application/views/hb/booking_view.php:524
+#: ../code/application/views/hb/booking_view.php:533
+#: ../code/application/views/hb/booking_view.php:534
+#: ../code/application/views/hb/booking_view.php:642
 #: ../code/application/views/hb/booking_view.php:677
 #: ../code/application/views/hb/booking_view.php:678
-#: ../code/application/views/hb/booking_view.php:679
+#: ../code/application/views/hb/booking_view.php:689
+#: ../code/application/views/hb/booking_view.php:690
+#: ../code/application/views/hb/booking_view.php:691
 #: ../code/application/views/hb/hostel_view.php:218
 #: ../code/application/views/hb/hostel_view.php:230
 #: ../code/application/views/hb/hostel_view.php:245
@@ -1638,8 +1637,8 @@ msgstr "必須フィールド"
 #: ../code/application/views/hw/booking_view.php:521
 #: ../code/application/views/hw/booking_view.php:530
 #: ../code/application/views/hw/hostel_view.php:166
-#: ../code/application/views/hb/booking_view.php:395
-#: ../code/application/views/hb/booking_view.php:404
+#: ../code/application/views/hb/booking_view.php:407
+#: ../code/application/views/hb/booking_view.php:416
 #: ../code/application/views/hb/hostel_view.php:244
 #: ../code/application/views/group_request.php:242
 #: ../code/application/views/group_request.php:251
@@ -1648,20 +1647,20 @@ msgstr "挿入有効な電子メール"
 
 #: ../code/application/views/mobile/hw/booking_view.php:405
 #: ../code/application/views/hw/booking_view.php:544
-#: ../code/application/views/hb/booking_view.php:418
+#: ../code/application/views/hb/booking_view.php:430
 #: ../code/application/views/group_request.php:268
 msgid "Invalid phone number format"
 msgstr "無効な電話番号フォーマット"
 
 #: ../code/application/views/mobile/hw/booking_view.php:444
 #: ../code/application/views/hw/booking_view.php:971
-#: ../code/application/views/hb/booking_view.php:751
+#: ../code/application/views/hb/booking_view.php:763
 msgid "Confirmer"
 msgstr "確認"
 
 #: ../code/application/views/mobile/hw/booking_view.php:450
 #: ../code/application/views/hw/booking_view.php:984
-#: ../code/application/views/hb/booking_view.php:761
+#: ../code/application/views/hb/booking_view.php:773
 #: ../code/application/views/group_request.php:298
 msgid "Traitement de la demande..."
 msgstr "リクエスト処理"
@@ -1761,8 +1760,8 @@ msgstr "ありがとうございます！"
 #: ../code/application/views/mustache/city_map_property_infow.php:10
 #: ../code/application/views/mustache/property_list.php:28
 #: ../code/application/views/mustache/property_list.php:255
-#: ../code/application/views/includes/header.php:657
-#: ../code/application/views/includes/header.php:703
+#: ../code/application/views/includes/header.php:752
+#: ../code/application/views/includes/header.php:798
 #: ../code/application/views/hw/property_list.php:80
 #: ../code/application/views/hb/property_list.php:132
 #: ../code/application/views/city_ajax_view.php:72
@@ -1804,8 +1803,8 @@ msgstr "街の名前で検索："
 #: ../code/application/views/includes/city_lp_search_box.php:121
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:1080
-#: ../code/application/views/includes/header.php:1082
+#: ../code/application/views/includes/header.php:1175
+#: ../code/application/views/includes/header.php:1177
 #: ../code/application/views/hw/citylist_view.php:26
 #: ../code/application/views/restricted/admin/group_quote.php:58
 #: ../code/application/views/restricted/admin/group_quote.php:64
@@ -1863,7 +1862,7 @@ msgstr "アップデートプロフィール"
 
 #: ../code/application/views/mobile/user/user_profile.php:12
 #: ../code/application/views/hw/booking_view.php:476
-#: ../code/application/views/hb/booking_view.php:304
+#: ../code/application/views/hb/booking_view.php:316
 #: ../code/application/views/restricted/user_profile.php:36
 #: ../code/application/views/email/admin/new_group_request.php:41
 #: ../code/application/views/group_request.php:219
@@ -1875,7 +1874,7 @@ msgstr "名"
 
 #: ../code/application/views/mobile/user/user_profile.php:17
 #: ../code/application/views/hw/booking_view.php:484
-#: ../code/application/views/hb/booking_view.php:312
+#: ../code/application/views/hb/booking_view.php:324
 #: ../code/application/views/restricted/user_profile.php:40
 #: ../code/application/views/restricted/user_group_quote.php:74
 #: ../code/application/views/email/admin/new_group_request.php:42
@@ -1889,7 +1888,7 @@ msgstr "名字"
 
 #: ../code/application/views/mobile/user/user_profile.php:22
 #: ../code/application/views/hw/booking_view.php:495
-#: ../code/application/views/hb/booking_view.php:323
+#: ../code/application/views/hb/booking_view.php:335
 #: ../code/application/views/restricted/user_profile.php:45
 #: ../code/application/controllers/user.php:79
 #: ../code/application/controllers/cmain.php:1820
@@ -1974,8 +1973,8 @@ msgstr ""
 "を送信します。"
 
 #: ../code/application/views/mobile/auth/register_form.php:83
-#: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1186
+#: ../code/application/views/includes/header_book.php:156
+#: ../code/application/views/includes/header.php:1281
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/auth/register_form.php:220
 msgid "S'enregistrer"
@@ -2036,10 +2035,10 @@ msgstr "ホームページ"
 
 #: ../code/application/views/mustache/city_map_property_infow.php:15
 #: ../code/application/views/mustache/property_list.php:33
-#: ../code/application/views/includes/header.php:658
-#: ../code/application/views/includes/header.php:673
-#: ../code/application/views/includes/header.php:704
-#: ../code/application/views/includes/header.php:719
+#: ../code/application/views/includes/header.php:753
+#: ../code/application/views/includes/header.php:768
+#: ../code/application/views/includes/header.php:799
+#: ../code/application/views/includes/header.php:814
 #: ../code/application/views/city_ajax_view.php:73
 #: ../code/application/views/city_ajax_view.php:88
 #: ../code/application/views/city_ajax_view.php:119
@@ -2120,7 +2119,7 @@ msgid "Saved to my favorites"
 msgstr "お気に入りに登録しました"
 
 #: ../code/application/views/mustache/property_list.php:132
-#: ../code/application/views/city_view.php:303
+#: ../code/application/views/city_view.php:316
 #: ../code/application/views/helpfile/pofields.php~:626
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
@@ -2128,8 +2127,9 @@ msgid "Compare"
 msgstr "比較"
 
 #: ../code/application/views/mustache/property_list.php:132
-#: ../code/application/views/city_view.php:276
-#: ../code/application/views/city_view.php:387
+#: ../code/application/views/city_view.php:289
+#: ../code/application/views/city_view.php:411
+#: ../code/application/views/city_view.php:464
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 msgid "of"
 msgstr "～の"
@@ -2434,7 +2434,7 @@ msgstr ""
 
 #: ../code/application/views/property_rooms_avail.php:128
 #: ../code/application/views/property_rooms_avail.php:369
-#: ../code/application/views/city_view.php:346
+#: ../code/application/views/city_view.php:423
 #: ../code/application/views/hw/booking_avail_view.php:300
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hw/booking_avail_view.php:803
@@ -2809,6 +2809,7 @@ msgid "Bedrooms"
 msgstr "ベッドルーム"
 
 #: ../code/application/views/city_lp.php:13
+#: ../code/application/views/includes/header.php:31
 #: ../code/application/views/helpfile/pofields.php~:499
 #: ../code/application/views/helpfile/pofields.php:499
 #, php-format
@@ -2818,6 +2819,9 @@ msgid ""
 msgstr "%s – %s.のホステル.地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:14
+#: ../code/application/views/includes/side_districts.php:6
+#: ../code/application/views/includes/side_districts.php:25
+#: ../code/application/views/includes/side_districts.php:75
 #: ../code/application/views/helpfile/pofields.php~:481
 #: ../code/application/views/helpfile/pofields.php:481
 #, php-format
@@ -2825,6 +2829,7 @@ msgid "Hostels in the %s district"
 msgstr "%sのユースホステル"
 
 #: ../code/application/views/city_lp.php:17
+#: ../code/application/views/includes/header.php:34
 #: ../code/application/views/helpfile/pofields.php~:500
 #: ../code/application/views/helpfile/pofields.php:500
 #, php-format
@@ -2834,6 +2839,9 @@ msgid ""
 msgstr "%s – ホステル %s. 地域.地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:18
+#: ../code/application/views/includes/side_districts.php:12
+#: ../code/application/views/includes/side_districts.php:31
+#: ../code/application/views/includes/side_districts.php:71
 #: ../code/application/views/helpfile/pofields.php~:482
 #: ../code/application/views/helpfile/pofields.php:482
 #, php-format
@@ -2841,6 +2849,7 @@ msgid "Hotels in the %s district"
 msgstr "%sのユースホステル"
 
 #: ../code/application/views/city_lp.php:21
+#: ../code/application/views/includes/header.php:37
 #: ../code/application/views/helpfile/pofields.php~:501
 #: ../code/application/views/helpfile/pofields.php:501
 #, php-format
@@ -2850,6 +2859,9 @@ msgid ""
 msgstr "%s – アパート %s. 地域.地図 %s, すべてのアパートの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:22
+#: ../code/application/views/includes/side_districts.php:9
+#: ../code/application/views/includes/side_districts.php:28
+#: ../code/application/views/includes/side_districts.php:67
 #: ../code/application/views/helpfile/pofields.php~:483
 #: ../code/application/views/helpfile/pofields.php:483
 #, php-format
@@ -2857,6 +2869,7 @@ msgid "Apartments in the %s district"
 msgstr "%sのアパート"
 
 #: ../code/application/views/city_lp.php:25
+#: ../code/application/views/includes/header.php:40
 #: ../code/application/views/helpfile/pofields.php~:502
 #: ../code/application/views/helpfile/pofields.php:502
 #, php-format
@@ -2866,6 +2879,7 @@ msgid ""
 msgstr "%s – 部屋 %s. 地域.地図 %s, すべての部屋の写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:26
+#: ../code/application/views/includes/side_districts.php:63
 #: ../code/application/views/helpfile/pofields.php~:484
 #: ../code/application/views/helpfile/pofields.php:484
 #, php-format
@@ -2873,6 +2887,7 @@ msgid "Rooms in the %s district"
 msgstr "%sの部屋"
 
 #: ../code/application/views/city_lp.php:29
+#: ../code/application/views/includes/header.php:43
 #: ../code/application/views/helpfile/pofields.php~:503
 #: ../code/application/views/helpfile/pofields.php:503
 #, php-format
@@ -2882,6 +2897,9 @@ msgid ""
 msgstr "%s – キャンプ %s. 地域.地図 %s, すべてのキャンプの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:30
+#: ../code/application/views/includes/side_districts.php:15
+#: ../code/application/views/includes/side_districts.php:34
+#: ../code/application/views/includes/side_districts.php:59
 #: ../code/application/views/helpfile/pofields.php~:485
 #: ../code/application/views/helpfile/pofields.php:485
 #, php-format
@@ -2889,6 +2907,7 @@ msgid "Camping in the %s district"
 msgstr "%sのキャンプ"
 
 #: ../code/application/views/city_lp.php:33
+#: ../code/application/views/includes/header.php:46
 #: ../code/application/views/helpfile/pofields.php~:504
 #: ../code/application/views/helpfile/pofields.php:504
 #, php-format
@@ -2898,6 +2917,10 @@ msgid ""
 msgstr "%s – ホステル %s. 地域.地図 %s, すべてのホステルの写真とレビュー %s"
 
 #: ../code/application/views/city_lp.php:34
+#: ../code/application/views/includes/side_districts.php:18
+#: ../code/application/views/includes/side_districts.php:37
+#: ../code/application/views/includes/side_districts.php:79
+#: ../code/application/views/includes/side_districts.php:88
 #: ../code/application/views/helpfile/pofields.php~:486
 #: ../code/application/views/helpfile/pofields.php:486
 #, php-format
@@ -2905,6 +2928,7 @@ msgid "Properties in the %s district"
 msgstr "%sの近くのユースホステル。"
 
 #: ../code/application/views/city_lp.php:48
+#: ../code/application/views/includes/header.php:60
 #: ../code/application/views/helpfile/pofields.php~:493
 #: ../code/application/views/helpfile/pofields.php:493
 #, php-format
@@ -2915,7 +2939,7 @@ msgstr "%s – 近くのホステル %s. 地図 %s, すべてのホステルの�
 
 #: ../code/application/views/city_lp.php:49
 #: ../code/application/views/includes/side_landmarks.php:14
-#: ../code/application/views/includes/side_landmarks.php:62
+#: ../code/application/views/includes/side_landmarks.php:63
 #: ../code/application/views/helpfile/pofields.php~:475
 #: ../code/application/views/helpfile/pofields.php:475
 #, php-format
@@ -2923,6 +2947,7 @@ msgid "Hostels close to %s"
 msgstr "%s　の近くのホステル "
 
 #: ../code/application/views/city_lp.php:52
+#: ../code/application/views/includes/header.php:63
 #: ../code/application/views/helpfile/pofields.php~:494
 #: ../code/application/views/helpfile/pofields.php:494
 #, php-format
@@ -2933,7 +2958,7 @@ msgstr "%s – 近くのホステル %s. 地図 %s, すべてのホステルの�
 
 #: ../code/application/views/city_lp.php:53
 #: ../code/application/views/includes/side_landmarks.php:20
-#: ../code/application/views/includes/side_landmarks.php:58
+#: ../code/application/views/includes/side_landmarks.php:59
 #: ../code/application/views/helpfile/pofields.php~:476
 #: ../code/application/views/helpfile/pofields.php:476
 #, php-format
@@ -2941,6 +2966,7 @@ msgid "Hotels close to %s"
 msgstr "%sの近くのホステル。"
 
 #: ../code/application/views/city_lp.php:56
+#: ../code/application/views/includes/header.php:66
 #: ../code/application/views/helpfile/pofields.php~:495
 #: ../code/application/views/helpfile/pofields.php:495
 #, php-format
@@ -2951,7 +2977,7 @@ msgstr "%s –ちかくのアパート %s. 地図 %s, すべてのアパート�
 
 #: ../code/application/views/city_lp.php:57
 #: ../code/application/views/includes/side_landmarks.php:17
-#: ../code/application/views/includes/side_landmarks.php:54
+#: ../code/application/views/includes/side_landmarks.php:55
 #: ../code/application/views/helpfile/pofields.php~:477
 #: ../code/application/views/helpfile/pofields.php:477
 #, php-format
@@ -2959,6 +2985,7 @@ msgid "Apartments close to %s"
 msgstr "%sの近くのアパート"
 
 #: ../code/application/views/city_lp.php:60
+#: ../code/application/views/includes/header.php:69
 #: ../code/application/views/helpfile/pofields.php~:496
 #: ../code/application/views/helpfile/pofields.php:496
 #, php-format
@@ -2967,7 +2994,7 @@ msgid ""
 msgstr "%s – ちかくの部屋 %s. 地図 %s, すべての部屋の写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:61
-#: ../code/application/views/includes/side_landmarks.php:50
+#: ../code/application/views/includes/side_landmarks.php:51
 #: ../code/application/views/helpfile/pofields.php~:478
 #: ../code/application/views/helpfile/pofields.php:478
 #, php-format
@@ -2975,6 +3002,7 @@ msgid "Rooms close to %s"
 msgstr "%sの近くの部屋"
 
 #: ../code/application/views/city_lp.php:64
+#: ../code/application/views/includes/header.php:72
 #: ../code/application/views/helpfile/pofields.php~:497
 #: ../code/application/views/helpfile/pofields.php:497
 #, php-format
@@ -2985,7 +3013,7 @@ msgstr "%s – ちかくの部屋 %s. 地図 %s, すべての部屋の写真と�
 
 #: ../code/application/views/city_lp.php:65
 #: ../code/application/views/includes/side_landmarks.php:23
-#: ../code/application/views/includes/side_landmarks.php:46
+#: ../code/application/views/includes/side_landmarks.php:47
 #: ../code/application/views/helpfile/pofields.php~:479
 #: ../code/application/views/helpfile/pofields.php:479
 #, php-format
@@ -2993,6 +3021,7 @@ msgid "Camping close to %s"
 msgstr "%sの近くのキャンプ"
 
 #: ../code/application/views/city_lp.php:68
+#: ../code/application/views/includes/header.php:75
 #: ../code/application/views/helpfile/pofields.php~:498
 #: ../code/application/views/helpfile/pofields.php:498
 #, php-format
@@ -3003,8 +3032,8 @@ msgstr "%s – 近くのホステル %s. 地図 %s, すべてのホステルの�
 
 #: ../code/application/views/city_lp.php:69
 #: ../code/application/views/includes/side_landmarks.php:11
-#: ../code/application/views/includes/side_landmarks.php:66
-#: ../code/application/views/includes/side_landmarks.php:75
+#: ../code/application/views/includes/side_landmarks.php:67
+#: ../code/application/views/includes/side_landmarks.php:76
 #: ../code/application/views/helpfile/pofields.php~:480
 #: ../code/application/views/helpfile/pofields.php:480
 #, php-format
@@ -3012,6 +3041,7 @@ msgid "Properties close to %s"
 msgstr "%sの近くのホステル。 "
 
 #: ../code/application/views/city_lp.php:75
+#: ../code/application/views/includes/header.php:81
 #: ../code/application/views/helpfile/pofields.php~:487
 #: ../code/application/views/helpfile/pofields.php:487
 #, php-format
@@ -3020,10 +3050,7 @@ msgid ""
 msgstr "%s – にあるホステル %s. 地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:76
-#: ../code/application/views/includes/side_districts.php:6
-#: ../code/application/views/includes/side_districts.php:25
-#: ../code/application/views/includes/side_districts.php:74
-#: ../code/application/views/includes/side_landmarks.php:62
+#: ../code/application/views/includes/side_landmarks.php:63
 #: ../code/application/views/helpfile/pofields.php~:469
 #: ../code/application/views/helpfile/pofields.php:469
 #: ../code/application/libraries/Hb_engine.php:620
@@ -3032,6 +3059,7 @@ msgid "Hostels in %s"
 msgstr "%sにあるホテル"
 
 #: ../code/application/views/city_lp.php:79
+#: ../code/application/views/includes/header.php:84
 #: ../code/application/views/helpfile/pofields.php~:488
 #: ../code/application/views/helpfile/pofields.php:488
 #, php-format
@@ -3040,9 +3068,6 @@ msgid ""
 msgstr "%s – ホステル %s. 地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:80
-#: ../code/application/views/includes/side_districts.php:12
-#: ../code/application/views/includes/side_districts.php:31
-#: ../code/application/views/includes/side_districts.php:70
 #: ../code/application/views/helpfile/pofields.php~:470
 #: ../code/application/views/helpfile/pofields.php:470
 #: ../code/application/libraries/Hb_engine.php:623
@@ -3051,6 +3076,7 @@ msgid "Hotels in %s"
 msgstr "%sのホテルです"
 
 #: ../code/application/views/city_lp.php:83
+#: ../code/application/views/includes/header.php:87
 #: ../code/application/views/helpfile/pofields.php~:489
 #: ../code/application/views/helpfile/pofields.php:489
 #, php-format
@@ -3060,9 +3086,6 @@ msgid ""
 msgstr "%s – アパート %s. 地図 %s, すべてのアパートの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:84
-#: ../code/application/views/includes/side_districts.php:9
-#: ../code/application/views/includes/side_districts.php:28
-#: ../code/application/views/includes/side_districts.php:66
 #: ../code/application/views/helpfile/pofields.php~:471
 #: ../code/application/views/helpfile/pofields.php:471
 #: ../code/application/libraries/Hb_engine.php:626
@@ -3071,6 +3094,7 @@ msgid "Apartments in %s"
 msgstr "%sのアパート"
 
 #: ../code/application/views/city_lp.php:87
+#: ../code/application/views/includes/header.php:90
 #: ../code/application/views/helpfile/pofields.php~:490
 #: ../code/application/views/helpfile/pofields.php:490
 #, php-format
@@ -3078,7 +3102,6 @@ msgid "%s – Rooms in %s. Maps for %s, Photos and Reviews for each room in %s."
 msgstr "%s – 部屋 %s. 地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:88
-#: ../code/application/views/includes/side_districts.php:62
 #: ../code/application/views/helpfile/pofields.php~:472
 #: ../code/application/views/helpfile/pofields.php:472
 #: ../code/application/libraries/Hb_engine.php:629
@@ -3087,6 +3110,7 @@ msgid "Rooms in %s"
 msgstr "%sの部屋"
 
 #: ../code/application/views/city_lp.php:91
+#: ../code/application/views/includes/header.php:93
 #: ../code/application/views/helpfile/pofields.php~:491
 #: ../code/application/views/helpfile/pofields.php:491
 #, php-format
@@ -3095,9 +3119,6 @@ msgid ""
 msgstr "%s – キャンプ %s. 地図 %s, すべてのホステルの写真とレビュー %s."
 
 #: ../code/application/views/city_lp.php:92
-#: ../code/application/views/includes/side_districts.php:15
-#: ../code/application/views/includes/side_districts.php:34
-#: ../code/application/views/includes/side_districts.php:58
 #: ../code/application/views/helpfile/pofields.php~:473
 #: ../code/application/views/helpfile/pofields.php:473
 #: ../code/application/libraries/Hb_engine.php:632
@@ -3106,6 +3127,7 @@ msgid "Camping in %s"
 msgstr "%s　キャンプ場"
 
 #: ../code/application/views/city_lp.php:95
+#: ../code/application/views/includes/header.php:96
 #: ../code/application/views/helpfile/pofields.php~:492
 #: ../code/application/views/helpfile/pofields.php:492
 #, php-format
@@ -3115,10 +3137,6 @@ msgid ""
 msgstr "%s – ホステル %s. 地図 %s, すべてのホステルの写真とレビュー %s"
 
 #: ../code/application/views/city_lp.php:97
-#: ../code/application/views/includes/side_districts.php:18
-#: ../code/application/views/includes/side_districts.php:37
-#: ../code/application/views/includes/side_districts.php:78
-#: ../code/application/views/includes/side_districts.php:87
 #: ../code/application/views/helpfile/pofields.php~:474
 #: ../code/application/views/helpfile/pofields.php:474
 #: ../code/application/libraries/Hb_engine.php:635
@@ -3198,92 +3216,100 @@ msgstr "ランドマークから検索する（2キロ以内）"
 msgid "Show properties"
 msgstr "施設を表示する"
 
-#: ../code/application/views/city_view.php:117
+#: ../code/application/views/city_view.php:121
+#: ../code/application/views/city_view.php:380
 #: ../code/application/views/helpfile/pofields.php~:783
 #: ../code/application/views/helpfile/pofields.php:783
 #, php-format
 msgid "Filter by districts"
 msgstr "地区別に検索する"
 
-#: ../code/application/views/city_view.php:118
+#: ../code/application/views/city_view.php:128
+#: ../code/application/views/city_view.php:387
 msgid "Filter by Landmarks"
 msgstr "ランドマークから検索する"
 
-#: ../code/application/views/city_view.php:148
-#: ../code/application/views/city_view.php:354
+#: ../code/application/views/city_view.php:152
+#, fuzzy
+msgid "Click here to expand map"
+msgstr "クリックすると拡大します"
+
+#: ../code/application/views/city_view.php:161
+#: ../code/application/views/city_view.php:431
 #: ../code/application/views/helpfile/pofields.php~:444
 #: ../code/application/views/helpfile/pofields.php:444
 #, php-format
 msgid "Property type"
 msgstr "プロパティ"
 
-#: ../code/application/views/city_view.php:152
+#: ../code/application/views/city_view.php:165
 #: ../code/application/views/helpfile/pofields.php~:826
 #: ../code/application/views/helpfile/pofields.php:826
 #, php-format
 msgid "The most popular"
 msgstr "最も人気の"
 
-#: ../code/application/views/city_view.php:153
+#: ../code/application/views/city_view.php:166
 #: ../code/application/views/city_ajax_view.php:226
 msgid "Auberges de jeunesse"
 msgstr "ホステル"
 
-#: ../code/application/views/city_view.php:155
+#: ../code/application/views/city_view.php:168
 #: ../code/application/views/city_ajax_view.php:227
 msgid "Hôtels pas chers"
 msgstr "格安なホテル"
 
-#: ../code/application/views/city_view.php:156
+#: ../code/application/views/city_view.php:169
 #: ../code/application/views/city_ajax_view.php:228
 msgid "Appartements"
 msgstr "アパート"
 
-#: ../code/application/views/city_view.php:157
+#: ../code/application/views/city_view.php:170
 #: ../code/application/views/city_ajax_view.php:229
 msgid "Chambres - B&B - Pensions"
 msgstr "部屋ーB＆B - ペンション"
 
-#: ../code/application/views/city_view.php:158
+#: ../code/application/views/city_view.php:171
 msgid "Camping"
 msgstr "キャンプ"
 
-#: ../code/application/views/city_view.php:179
+#: ../code/application/views/city_view.php:192
 #: ../code/application/views/helpfile/pofields.php~:827
 #: ../code/application/views/helpfile/pofields.php:827
 #, php-format
 msgid "Most popular"
 msgstr "とても人気の"
 
-#: ../code/application/views/city_view.php:212
+#: ../code/application/views/city_view.php:225
 #: ../code/application/views/helpfile/pofields.php~:457
 #: ../code/application/views/helpfile/pofields.php:457
 #, php-format
 msgid "Price Range:"
 msgstr "価格帯："
 
-#: ../code/application/views/city_view.php:220
+#: ../code/application/views/city_view.php:233
 #: ../code/application/views/helpfile/pofields.php~:458
 #: ../code/application/views/helpfile/pofields.php:458
 #, php-format
 msgid "Rating Range:"
 msgstr "レビューの範囲："
 
-#: ../code/application/views/city_view.php:226
+#: ../code/application/views/city_view.php:239
 #: ../code/application/views/helpfile/pofields.php~:449
 #: ../code/application/views/helpfile/pofields.php:449
 #, php-format
 msgid "Reset filters"
 msgstr "格安のユースホステルのリスト"
 
-#: ../code/application/views/city_view.php:271
+#: ../code/application/views/city_view.php:284
 #: ../code/application/views/city_ajax_view.php:222
 #, php-format
 msgid "Liste des logements pas chers à %s"
 msgstr "%sの検索結果"
 
-#: ../code/application/views/city_view.php:278
-#: ../code/application/views/city_view.php:389
+#: ../code/application/views/city_view.php:291
+#: ../code/application/views/city_view.php:413
+#: ../code/application/views/city_view.php:466
 #: ../code/application/views/helpfile/pofields.php~:645
 #: ../code/application/views/helpfile/pofields.php:645
 #: ../code/application/views/restricted/user_favorite_properties.php:43
@@ -3291,7 +3317,7 @@ msgstr "%sの検索結果"
 msgid "Results"
 msgstr "結果"
 
-#: ../code/application/views/city_view.php:290
+#: ../code/application/views/city_view.php:303
 #: ../code/application/views/hw/booking_end_view.php:35
 #: ../code/application/views/hb/booking_end_view.php:28
 #: ../code/application/views/email/new_transaction_hb.php:97
@@ -3300,21 +3326,21 @@ msgstr "結果"
 msgid "Nombre de Nuits: %s"
 msgstr "宿泊日数：%s"
 
-#: ../code/application/views/city_view.php:302
+#: ../code/application/views/city_view.php:315
 #: ../code/application/views/helpfile/pofields.php~:649
 #: ../code/application/views/helpfile/pofields.php:649
 #, php-format
 msgid "Quick Compare (5 properties maximum)"
 msgstr "簡単比較（最高5件まで）"
 
-#: ../code/application/views/city_view.php:305
+#: ../code/application/views/city_view.php:318
 #: ../code/application/views/helpfile/pofields.php~:650
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Remove All"
 msgstr "全て外してください。"
 
-#: ../code/application/views/city_view.php:316
+#: ../code/application/views/city_view.php:329
 #: ../code/application/views/restricted/user_favorite_properties.php:21
 #: ../code/application/views/search_results.php:85
 #: ../code/application/views/search_results.php:120
@@ -3327,56 +3353,56 @@ msgstr "全て外してください。"
 msgid "Classer par:"
 msgstr "分類："
 
-#: ../code/application/views/city_view.php:318
+#: ../code/application/views/city_view.php:331
 #: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
 #, php-format
 msgid "Best price"
 msgstr "最安値"
 
-#: ../code/application/views/city_view.php:319
+#: ../code/application/views/city_view.php:332
 #: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
 msgstr "一番の評価"
 
-#: ../code/application/views/city_view.php:322
+#: ../code/application/views/city_view.php:335
 #: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
 #, php-format
 msgid "Safest"
 msgstr "最も安全"
 
-#: ../code/application/views/city_view.php:323
+#: ../code/application/views/city_view.php:336
 #: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
 #, php-format
 msgid "Best location"
 msgstr "最適のロケーション"
 
-#: ../code/application/views/city_view.php:328
+#: ../code/application/views/city_view.php:341
 #: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
 #, php-format
 msgid "Youth hostels only"
 msgstr "ユースホステルのみ"
 
-#: ../code/application/views/city_view.php:332
+#: ../code/application/views/city_view.php:345
 #: ../code/application/views/helpfile/pofields.php~:555
 #: ../code/application/views/helpfile/pofields.php:555
 #, php-format
 msgid "Only free breakfast"
 msgstr "唯一の無料の朝食"
 
-#: ../code/application/views/city_view.php:343
+#: ../code/application/views/city_view.php:420
 #: ../code/application/views/helpfile/pofields.php~:604
 #: ../code/application/views/helpfile/pofields.php:604
 #, php-format
 msgid "Selected filters:"
 msgstr "選択されたフィルター"
 
-#: ../code/application/views/city_view.php:350
+#: ../code/application/views/city_view.php:427
 #: ../code/application/views/helpfile/pofields.php~:443
 #: ../code/application/views/helpfile/pofields.php~:655
 #: ../code/application/views/helpfile/pofields.php:443
@@ -3385,15 +3411,15 @@ msgstr "選択されたフィルター"
 msgid "Rating"
 msgstr "評価"
 
-#: ../code/application/views/city_view.php:451
+#: ../code/application/views/city_view.php:528
 msgid "Please Wait"
 msgstr "お待ち下さい"
 
-#: ../code/application/views/city_view.php:456
+#: ../code/application/views/city_view.php:533
 msgid "From"
 msgstr "から"
 
-#: ../code/application/views/city_view.php:457
+#: ../code/application/views/city_view.php:534
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr "5件のみ比較できます。リストから施設を外してください。"
 
@@ -3402,7 +3428,7 @@ msgid "Options de Votre Compte"
 msgstr "あなたのアカウントのオプション"
 
 #: ../code/application/views/includes/navuser.php:4
-#: ../code/application/views/includes/header.php:1174
+#: ../code/application/views/includes/header.php:1269
 #: ../code/application/views/auth/login_form.php:90
 msgid "Mon Compte"
 msgstr "マイアカウント"
@@ -3537,8 +3563,8 @@ msgstr "%sはヨーロッパ連合による規制"
 
 #: ../code/application/views/includes/siteinfo.php:7
 #: ../code/application/views/includes/siteinfo.php:16
-#: ../code/application/views/includes/header_book.php:170
-#: ../code/application/views/includes/header.php:1228
+#: ../code/application/views/includes/header_book.php:177
+#: ../code/application/views/includes/header.php:1323
 #: ../code/application/views/hw/booking_view.php:56
 #: ../code/application/views/hb/booking_view.php:46
 #, php-format
@@ -3575,11 +3601,11 @@ msgid ""
 msgstr "%sは：ネット上でお得な価格を受信しますが会員カードの必要はありません。"
 
 #: ../code/application/views/includes/siteinfo.php:20
-#: ../code/application/views/includes/header_book.php:172
-#: ../code/application/views/includes/header.php:1230
+#: ../code/application/views/includes/header_book.php:179
+#: ../code/application/views/includes/header.php:1325
 #: ../code/application/views/includes/top_box.php:37
 #: ../code/application/views/hb/booking_view.php:50
-#: ../code/application/views/hb/booking_view.php:253
+#: ../code/application/views/hb/booking_view.php:265
 #: ../code/application/views/helpfile/pofields.php~:6
 #: ../code/application/views/helpfile/pofields.php:6
 msgid "No Booking fees"
@@ -3607,19 +3633,19 @@ msgid "Navigation"
 msgstr "ナビゲーション"
 
 #: ../code/application/views/includes/footer.php:36
-#: ../code/application/views/includes/header.php:1244
+#: ../code/application/views/includes/header.php:1339
 #: ../code/application/views/includes/top_box.php:53
 msgid "Accueil"
 msgstr "ホームページ"
 
 #: ../code/application/views/includes/footer.php:47
-#: ../code/application/views/includes/header.php:1245
+#: ../code/application/views/includes/header.php:1340
 #: ../code/application/views/includes/top_box.php:54
 msgid "Auberges et logements pas chers"
 msgstr "ホステル"
 
 #: ../code/application/views/includes/footer.php:52
-#: ../code/application/views/includes/header.php:1247
+#: ../code/application/views/includes/header.php:1342
 #: ../code/application/views/includes/top_box.php:57
 msgid "Réservation d'auberges de jeunesse pour les groupes"
 msgstr "ユースホステルをグループ予約"
@@ -3627,19 +3653,19 @@ msgstr "ユースホステルをグループ予約"
 #: ../code/application/views/includes/footer.php:60
 #: ../code/application/views/includes/group-booking.php:10
 #: ../code/application/views/includes/group-booking.php:11
-#: ../code/application/views/includes/header.php:1247
+#: ../code/application/views/includes/header.php:1342
 #: ../code/application/views/includes/top_box.php:57
 msgid "Groupes 10+"
 msgstr "グループ10 以上"
 
 #: ../code/application/views/includes/footer.php:68
-#: ../code/application/views/includes/header.php:1250
+#: ../code/application/views/includes/header.php:1345
 #: ../code/application/views/includes/top_box.php:60
 msgid "Événements"
 msgstr "イベント"
 
 #: ../code/application/views/includes/footer.php:75
-#: ../code/application/views/includes/header.php:1253
+#: ../code/application/views/includes/header.php:1348
 #: ../code/application/views/includes/top_box.php:63
 msgid "Destinations"
 msgstr "ガイド"
@@ -3688,14 +3714,14 @@ msgstr "アカウントを今作成する"
 msgid "Joignez-vous à nous sur Facebook"
 msgstr "Facebookに参加してください。"
 
-#: ../code/application/views/includes/header_book.php:157
-#: ../code/application/views/includes/header.php:1215
+#: ../code/application/views/includes/header_book.php:164
+#: ../code/application/views/includes/header.php:1310
 #: ../code/application/views/includes/top_box.php:23
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
 msgstr "30,000以上の泊まれるホステルを掲載"
 
-#: ../code/application/views/includes/header_book.php:161
-#: ../code/application/views/includes/header.php:1219
+#: ../code/application/views/includes/header_book.php:168
+#: ../code/application/views/includes/header.php:1314
 #: ../code/application/views/includes/top_box.php:28
 #: ../code/application/views/helpfile/pofields.php~:275
 #: ../code/application/views/helpfile/pofields.php:275
@@ -3703,8 +3729,8 @@ msgstr "30,000以上の泊まれるホステルを掲載"
 msgid "Free SMS"
 msgstr "無料のSMS"
 
-#: ../code/application/views/includes/header_book.php:175
-#: ../code/application/views/includes/header.php:1233
+#: ../code/application/views/includes/header_book.php:182
+#: ../code/application/views/includes/header.php:1328
 #: ../code/application/views/includes/top_box.php:39
 #: ../code/application/views/helpfile/pofields.php~:43
 #: ../code/application/views/helpfile/pofields.php~:188
@@ -3732,8 +3758,8 @@ msgstr "Twitterでフォロー"
 msgid "Language Lessons ? CoursParticuliers.com"
 msgstr " 言語のレッスンしますか？　 CoursParticuliers.comをお尋ねください"
 
-#: ../code/application/views/includes/header.php:20
-#: ../code/application/views/includes/header.php:25
+#: ../code/application/views/includes/header.php:110
+#: ../code/application/views/includes/header.php:115
 #: ../code/application/views/search_results.php:55
 #, php-format
 msgid ""
@@ -3746,20 +3772,20 @@ msgstr ""
 "の格安宿泊所。また%sにあるユースホステルの街の地図、写真、パンフレット、イ"
 "ヴェントとガイド"
 
-#: ../code/application/views/includes/header.php:549
+#: ../code/application/views/includes/header.php:644
 msgid "Localisation invalide sur Google Map"
 msgstr "Google Map上に無効なロケーション"
 
-#: ../code/application/views/includes/header.php:1150
+#: ../code/application/views/includes/header.php:1245
 #, php-format
 msgid "Searching for %s"
 msgstr " %sを検索"
 
-#: ../code/application/views/includes/header.php:1152
+#: ../code/application/views/includes/header.php:1247
 msgid "Please wait while we are finding the best deals for you ..."
 msgstr "お得な情報を検索してますので、それまでお待ちください。 "
 
-#: ../code/application/views/includes/header.php:1153
+#: ../code/application/views/includes/header.php:1248
 #: ../code/application/views/helpfile/pofields.php~:629
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
@@ -4089,7 +4115,7 @@ msgstr "ユースホステルのグループ予約"
 msgid "Réservation de groupes"
 msgstr "グループ予約"
 
-#: ../code/application/views/includes/side_landmarks.php:34
+#: ../code/application/views/includes/side_landmarks.php:35
 #: ../code/application/views/helpfile/pofields.php~:446
 #: ../code/application/views/helpfile/pofields.php:446
 #, php-format
@@ -4183,8 +4209,8 @@ msgstr "残りの金額は（デポジットを差し引いた金額）到着時
 #: ../code/application/views/hw/reviews.php:15
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
-#: ../code/application/views/hb/booking_view.php:826
-#: ../code/application/views/hb/booking_view.php:851
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
 #: ../code/application/views/hb/hostel_view.php:468
 #: ../code/application/views/hb/hostel_view.php:798
 #: ../code/application/views/hb/hostel_view.php:870
@@ -4206,8 +4232,8 @@ msgstr "翻訳版を参照してください"
 #: ../code/application/views/hw/reviews.php:15
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
-#: ../code/application/views/hb/booking_view.php:826
-#: ../code/application/views/hb/booking_view.php:851
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
 #: ../code/application/views/hb/hostel_view.php:469
 #: ../code/application/views/hb/hostel_view.php:799
 #: ../code/application/views/hb/hostel_view.php:871
@@ -4463,8 +4489,8 @@ msgstr "現時点での予約は確定ではありません。ご注意くださ
 #: ../code/application/views/hw/booking_view.php:974
 #: ../code/application/views/hw/booking_view.php:976
 #: ../code/application/views/hb/booking_avail_view.php:849
-#: ../code/application/views/hb/booking_view.php:753
-#: ../code/application/views/hb/booking_view.php:755
+#: ../code/application/views/hb/booking_view.php:765
+#: ../code/application/views/hb/booking_view.php:767
 msgid "sécurisé"
 msgstr "安全性"
 
@@ -4584,8 +4610,8 @@ msgstr "他の宿泊所設備の選択"
 #: ../code/application/views/hw/booking_view.php:38
 #: ../code/application/views/hw/booking_view.php:1040
 #: ../code/application/views/hb/booking_view.php:33
-#: ../code/application/views/hb/booking_view.php:826
-#: ../code/application/views/hb/booking_view.php:851
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
 msgid ""
 "Certains extraits du texte de cette page ont été traduits automatiquement. "
 "Cliquer sur les liens suivants changer les version :"
@@ -4608,7 +4634,7 @@ msgstr "今すぐ予約してお部屋を確保"
 #: ../code/application/views/hw/booking_view.php:101
 #: ../code/application/views/hw/booking_view.php:992
 #: ../code/application/views/hb/booking_view.php:84
-#: ../code/application/views/hb/booking_view.php:767
+#: ../code/application/views/hb/booking_view.php:779
 #, php-format
 msgid ""
 "Il y a eu une erreur lors du traitement de votre demande, veuillez vous "
@@ -4622,7 +4648,7 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_view.php:102
 #: ../code/application/views/hw/booking_view.php:993
-#: ../code/application/views/hb/booking_view.php:768
+#: ../code/application/views/hb/booking_view.php:780
 #: ../code/application/views/helpfile/pofields.php~:204
 #: ../code/application/views/helpfile/pofields.php:204
 #, php-format
@@ -4643,7 +4669,7 @@ msgid "Updating..."
 msgstr "更新..."
 
 #: ../code/application/views/hw/booking_view.php:422
-#: ../code/application/views/hb/booking_view.php:278
+#: ../code/application/views/hb/booking_view.php:290
 msgid "Modify this booking"
 msgstr "この予約を変更する"
 
@@ -4670,7 +4696,7 @@ msgid "Validation 3D"
 msgstr "証明書３D"
 
 #: ../code/application/views/hw/booking_view.php:465
-#: ../code/application/views/hb/booking_view.php:295
+#: ../code/application/views/hb/booking_view.php:307
 #: ../code/application/views/helpfile/pofields.php~:432
 #: ../code/application/views/helpfile/pofields.php~:529
 #: ../code/application/views/helpfile/pofields.php:432
@@ -4684,7 +4710,7 @@ msgstr ""
 "ています。"
 
 #: ../code/application/views/hw/booking_view.php:516
-#: ../code/application/views/hb/booking_view.php:391
+#: ../code/application/views/hb/booking_view.php:403
 msgid "You will receive a confirmation email"
 msgstr "直ちに予約の確認のメールが送られます。 "
 
@@ -4694,13 +4720,13 @@ msgid "Both emails must be the same"
 msgstr "両方のメールアドレスは同じでないといけない"
 
 #: ../code/application/views/hw/booking_view.php:540
-#: ../code/application/views/hb/booking_view.php:414
+#: ../code/application/views/hb/booking_view.php:426
 #: ../code/application/views/group_request.php:259
 msgid "UK Example: 442012341234"
 msgstr " 日本　例： 819012341234"
 
 #: ../code/application/views/hw/booking_view.php:676
-#: ../code/application/views/hb/booking_view.php:500
+#: ../code/application/views/hb/booking_view.php:512
 #: ../code/application/views/helpfile/pofields.php~:207
 #: ../code/application/views/helpfile/pofields.php:207
 #, php-format
@@ -4712,7 +4738,7 @@ msgstr ""
 "きます。　"
 
 #: ../code/application/views/hw/booking_view.php:676
-#: ../code/application/views/hb/booking_view.php:500
+#: ../code/application/views/hb/booking_view.php:512
 #: ../code/application/views/helpfile/pofields.php~:208
 #: ../code/application/views/helpfile/pofields.php:208
 #, php-format
@@ -4731,12 +4757,12 @@ msgstr ""
 "証明書は3Dで完了。お支払いを確認するため、以下の情報を入力してください。"
 
 #: ../code/application/views/hw/booking_view.php:699
-#: ../code/application/views/hb/booking_view.php:518
+#: ../code/application/views/hb/booking_view.php:530
 msgid "(sans tiret)"
 msgstr "（ダッシュなし）"
 
 #: ../code/application/views/hw/booking_view.php:712
-#: ../code/application/views/hb/booking_view.php:530
+#: ../code/application/views/hb/booking_view.php:542
 msgid "Type de carte :"
 msgstr "カードの種類"
 
@@ -4753,7 +4779,7 @@ msgstr ""
 "重要な情報：マエストロカードは、グレート·ブリテンである必要があります。"
 
 #: ../code/application/views/hw/booking_view.php:888
-#: ../code/application/views/hb/booking_view.php:674
+#: ../code/application/views/hb/booking_view.php:686
 msgid "Qu'est-ce que c'est ?"
 msgstr "これは何？"
 
@@ -4762,20 +4788,20 @@ msgid "Invalid format"
 msgstr "無効なフォーマット"
 
 #: ../code/application/views/hw/booking_view.php:935
-#: ../code/application/views/hb/booking_view.php:720
+#: ../code/application/views/hb/booking_view.php:732
 msgid "Final Step"
 msgstr "最終段階"
 
 #: ../code/application/views/hw/booking_view.php:974
 #: ../code/application/views/hw/booking_view.php:976
-#: ../code/application/views/hb/booking_view.php:753
-#: ../code/application/views/hb/booking_view.php:755
+#: ../code/application/views/hb/booking_view.php:765
+#: ../code/application/views/hb/booking_view.php:767
 #, php-format
 msgid "Transaction 100%% sécurisée et encryptée"
 msgstr "100%% 安全です。 暗号化されてれていて安全なお支払い。"
 
 #: ../code/application/views/hw/booking_view.php:979
-#: ../code/application/views/hb/booking_view.php:758
+#: ../code/application/views/hb/booking_view.php:770
 #: ../code/application/views/group_request.php:300
 msgid "Please make sure all required fields are filled out correctly"
 msgstr "必要なすべてのフィールドが正しく記入されているか確認ください"
@@ -4945,24 +4971,70 @@ msgstr ""
 "着時に払ってもらって構いません。予約した際に確認のメールが送られます。その中"
 "にプロパティー主の情報が記入されています。（Eメール、住所、電話番号など） "
 
-#: ../code/application/views/hb/booking_view.php:337
+#: ../code/application/views/hb/booking_view.php:243
+#: ../code/application/views/helpfile/pofields.php~:889
+#: ../code/application/views/helpfile/pofields.php:889
+#, php-format
+msgid "The benefits"
+msgstr "利益"
+
+#: ../code/application/views/hb/booking_view.php:245
+#: ../code/application/views/helpfile/pofields.php~:870
+#: ../code/application/views/helpfile/pofields.php:870
+#, php-format
+msgid ""
+"Local customer service you can trust in your language available 24 hours a "
+"day"
+msgstr "日本語対応可能な現地カスタマーサービスは24時間ご利用可能。"
+
+#: ../code/application/views/hb/booking_view.php:246
+#: ../code/application/views/helpfile/pofields.php~:871
+#: ../code/application/views/helpfile/pofields.php:871
+#, php-format
+msgid "Secured payment: your credit card is protected"
+msgstr "安全な支払い方法：あなたのクレジットカードは安全です。"
+
+#: ../code/application/views/hb/booking_view.php:247
+#: ../code/application/views/helpfile/pofields.php~:872
+#: ../code/application/views/helpfile/pofields.php:872
+#, php-format
+msgid ""
+"No spam emails after you have booked and your information will stay private"
+msgstr ""
+"予約後に迷惑メールがくることはありません。あなたの個人情報も保護されます。"
+
+#: ../code/application/views/hb/booking_view.php:248
+#: ../code/application/views/helpfile/pofields.php~:873
+#: ../code/application/views/helpfile/pofields.php:873
+#, php-format
+msgid "You have access to millions of real reviews from travellers like you"
+msgstr "お客様のように実際の旅行者からの何百万件のレビューをご覧いただけます。"
+
+#: ../code/application/views/hb/booking_view.php:249
+#: ../code/application/views/helpfile/pofields.php~:874
+#: ../code/application/views/helpfile/pofields.php:874
+#, php-format
+msgid "And finally, you get the best price!"
+msgstr "ついに最もお得な料金になりました！"
+
+#: ../code/application/views/hb/booking_view.php:349
 #: ../code/application/controllers/cadmin.php:26
 msgid "People"
 msgstr "人"
 
-#: ../code/application/views/hb/booking_view.php:338
+#: ../code/application/views/hb/booking_view.php:350
 #: ../code/application/views/email/admin/new_group_request.php:28
 #: ../code/application/views/group_request.php:148
 msgid "Female:"
 msgstr "女性："
 
-#: ../code/application/views/hb/booking_view.php:345
+#: ../code/application/views/hb/booking_view.php:357
 #: ../code/application/views/email/admin/new_group_request.php:27
 #: ../code/application/views/group_request.php:137
 msgid "Male:"
 msgstr "男性："
 
-#: ../code/application/views/hb/booking_view.php:855
+#: ../code/application/views/hb/booking_view.php:867
 msgid ""
 "Les changements et annulations sont possibles, faciles à faire et se font "
 "directement avec l‘établissement choisi qui en est responsable. Changements "
@@ -4973,7 +5045,7 @@ msgstr ""
 "処理します。部屋の種類と日程変更はその状況により変更可能です。キャンセルは24"
 "時間以内。それ以降は１泊分料金がキャンセレーション料金になります。"
 
-#: ../code/application/views/hb/booking_view.php:859
+#: ../code/application/views/hb/booking_view.php:871
 #, php-format
 msgid ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) afin de "
@@ -8920,7 +8992,7 @@ msgstr "マイアカウント"
 #: ../code/application/views/helpfile/pofields.php:899
 #, php-format
 msgid "Please read carefully"
-msgstr "よくご覧下さい"
+msgstr "よくお読みください"
 
 #: ../code/application/views/helpfile/pofields.php~:867
 #: ../code/application/views/helpfile/pofields.php~:900
@@ -8928,7 +9000,7 @@ msgstr "よくご覧下さい"
 #: ../code/application/views/helpfile/pofields.php:900
 #, php-format
 msgid "I agree"
-msgstr "同意します"
+msgstr "同意する"
 
 #: ../code/application/views/helpfile/pofields.php~:868
 #: ../code/application/views/helpfile/pofields.php~:901
@@ -8936,47 +9008,13 @@ msgstr "同意します"
 #: ../code/application/views/helpfile/pofields.php:901
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr "同意しません、別な施設を選択します"
+msgstr "同意しないので別な施設を選択します。"
 
 #: ../code/application/views/helpfile/pofields.php~:869
 #: ../code/application/views/helpfile/pofields.php:869
 #, php-format
 msgid "Benefits of booking fee ?"
 msgstr "予約手数料を払う利点は？"
-
-#: ../code/application/views/helpfile/pofields.php~:870
-#: ../code/application/views/helpfile/pofields.php:870
-#, php-format
-msgid ""
-"Local customer service you can trust in your language available 24 hours a "
-"day"
-msgstr "日本語対応可能な現地カスタマーサービスは24時間ご利用可能。"
-
-#: ../code/application/views/helpfile/pofields.php~:871
-#: ../code/application/views/helpfile/pofields.php:871
-#, php-format
-msgid "Secured payment: your credit card is protected"
-msgstr "安全な支払い方法：あなたのクレジットカードは安全です。"
-
-#: ../code/application/views/helpfile/pofields.php~:872
-#: ../code/application/views/helpfile/pofields.php:872
-#, php-format
-msgid ""
-"No spam emails after you have booked and your information will stay private"
-msgstr ""
-"予約後に迷惑メールがくることはありません。あなたの個人情報も保護されます。"
-
-#: ../code/application/views/helpfile/pofields.php~:873
-#: ../code/application/views/helpfile/pofields.php:873
-#, php-format
-msgid "You have access to millions of real reviews from travellers like you"
-msgstr "お客様のように実際の旅行者からの何百万件のレビューをご覧いただけます。"
-
-#: ../code/application/views/helpfile/pofields.php~:874
-#: ../code/application/views/helpfile/pofields.php:874
-#, php-format
-msgid "And finally, you get the best price!"
-msgstr "ついに最もお得な料金になりました！"
 
 #: ../code/application/views/helpfile/pofields.php~:875
 #: ../code/application/views/helpfile/pofields.php:875
@@ -9067,12 +9105,6 @@ msgstr "施設からランドマーク、駅や空港への距離別にフィル
 msgid "Click here to view pricing for this property"
 msgstr "この施設の料金確認はこちらをクリック"
 
-#: ../code/application/views/helpfile/pofields.php~:889
-#: ../code/application/views/helpfile/pofields.php:889
-#, php-format
-msgid "The benefits"
-msgstr "利益"
-
 #: ../code/application/views/helpfile/pofields.php~:891
 #: ../code/application/views/helpfile/pofields.php:891
 #, php-format
@@ -9081,45 +9113,50 @@ msgstr "この施設をお気に入りに登録する。"
 
 #: ../code/application/views/helpfile/pofields.php~:892
 #: ../code/application/views/helpfile/pofields.php:892
-#, fuzzy, php-format
+#, php-format
 msgid "Filter by Landmarks, train stations, airports..."
-msgstr "ランドマークから検索する（2キロ以内）"
+msgstr "ランドマーク、駅、空港別にフィルターにかける"
 
 #: ../code/application/views/helpfile/pofields.php~:893
 #: ../code/application/views/helpfile/pofields.php:893
-#, fuzzy, php-format
+#, php-format
 msgid "Expand the map"
-msgstr "拡大した地図"
+msgstr "地図を拡大"
 
 #: ../code/application/views/helpfile/pofields.php~:894
 #: ../code/application/views/helpfile/pofields.php:894
-#, fuzzy, php-format
+#, php-format
 msgid "Select to compare"
-msgstr "カードを選択してください"
+msgstr "比較するために選択する"
 
 #: ../code/application/views/helpfile/pofields.php~:895
 #: ../code/application/views/helpfile/pofields.php:895
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to compare"
-msgstr "比較はこちらをクリック"
+msgstr "比較するにはこちらをクリック"
 
 #: ../code/application/views/helpfile/pofields.php~:896
 #: ../code/application/views/helpfile/pofields.php:896
-#, fuzzy, php-format
+#, php-format
 msgid "Change dates and currency"
-msgstr "日にちを変更"
+msgstr "日付と通貨を変更する"
 
 #: ../code/application/views/helpfile/pofields.php~:897
 #: ../code/application/views/helpfile/pofields.php:897
-#, fuzzy, php-format
+#, php-format
 msgid "Click to expand map"
-msgstr "クリックすると拡大します"
+msgstr "地図を拡大するためにクリック"
 
 #: ../code/application/views/helpfile/pofields.php~:898
 #: ../code/application/views/helpfile/pofields.php:898
 #, php-format
 msgid "Travel-Insurance"
-msgstr ""
+msgstr "旅行保険"
+
+#: ../code/application/views/helpfile/pofields.php:902
+#, fuzzy, php-format
+msgid "Click here to see the benefits"
+msgstr "この施設を選択するにはこちらをクリック"
 
 #: ../code/application/views/review_empty.php:2
 #: ../code/application/views/review_empty-map.php:7
