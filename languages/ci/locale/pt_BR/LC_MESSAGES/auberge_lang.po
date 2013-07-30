@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-30 20:21+0300\n"
-"PO-Revision-Date: 2013-07-15 09:51-0800\n"
-"Last-Translator: Mc web <info@mcwebmanagement.com>\n"
+"PO-Revision-Date: 2013-07-30 20:47+0200\n"
+"Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: F:\\5 - Eclipse Workspace\\AubergeSVN\\auberges\\trunk"
 "\\system\\application\n"
 "X-Poedit-SearchPath-1: F:\\5 - Auberges SVN\\auberges\\trunk\\system"
@@ -2552,13 +2552,13 @@ msgstr "%d dormitórios completos disponíveis."
 #: ../code/application/views/hb/booking_avail_view.php:282
 #: ../code/application/views/helpfile/pofields.php~:734
 #: ../code/application/views/helpfile/pofields.php:734
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "1 fully available dorm and 1 already partially occupied (beds already "
 "occupied: %d)."
 msgstr ""
-"1 dormitório completo disponível e 1 parcialmente ocupado (nº de camas já "
-"ocupadas: %d)."
+"1 dormitório completo disponível e 1 parcialmente ocupado (camas já ocupadas:"
+"%d)"
 
 #: ../code/application/views/property_rooms_avail.php:250
 #: ../code/application/views/hw/booking_avail_view.php:283
@@ -3293,9 +3293,8 @@ msgid "Filter by Landmarks"
 msgstr "Filtrar por Pontos de Referência"
 
 #: ../code/application/views/city_view.php:152
-#, fuzzy
 msgid "Click here to expand map"
-msgstr "Clique para ampliar"
+msgstr "Clique para expandir o mapa"
 
 #: ../code/application/views/city_view.php:161
 #: ../code/application/views/city_view.php:431
@@ -9159,7 +9158,7 @@ msgstr "Minha conta"
 #: ../code/application/views/helpfile/pofields.php:899
 #, php-format
 msgid "Please read carefully"
-msgstr "Por favor leia atenciosamente"
+msgstr "Por favor leia com atenção"
 
 #: ../code/application/views/helpfile/pofields.php~:867
 #: ../code/application/views/helpfile/pofields.php~:900
@@ -9290,43 +9289,43 @@ msgstr "Salvar essa propriedade como favorita"
 #: ../code/application/views/helpfile/pofields.php:892
 #, php-format
 msgid "Filter by Landmarks, train stations, airports..."
-msgstr "Filtrar por Pontos de Referência, Trens, Aeroportos..."
+msgstr "Filtrar por Pontos Turísticos, estações de trem, aeroportos..."
 
 #: ../code/application/views/helpfile/pofields.php~:893
 #: ../code/application/views/helpfile/pofields.php:893
 #, php-format
 msgid "Expand the map"
-msgstr "Expandir mapa"
+msgstr "Expandir o mapa"
 
 #: ../code/application/views/helpfile/pofields.php~:894
 #: ../code/application/views/helpfile/pofields.php:894
-#, fuzzy, php-format
+#, php-format
 msgid "Select to compare"
-msgstr "Selecione o cartão"
+msgstr "Selecione para comparar"
 
 #: ../code/application/views/helpfile/pofields.php~:895
 #: ../code/application/views/helpfile/pofields.php:895
-#, fuzzy, php-format
+#, php-format
 msgid "Click here to compare"
-msgstr "Por favor clique aqui para comparar"
+msgstr "Clique aqui para comparar"
 
 #: ../code/application/views/helpfile/pofields.php~:896
 #: ../code/application/views/helpfile/pofields.php:896
-#, fuzzy, php-format
+#, php-format
 msgid "Change dates and currency"
-msgstr "Mudar as datas"
+msgstr "Mudar as datas e a moeda"
 
 #: ../code/application/views/helpfile/pofields.php~:897
 #: ../code/application/views/helpfile/pofields.php:897
-#, fuzzy, php-format
+#, php-format
 msgid "Click to expand map"
-msgstr "Clique para ampliar"
+msgstr "Clique para expandir o mapa"
 
 #: ../code/application/views/helpfile/pofields.php~:898
 #: ../code/application/views/helpfile/pofields.php:898
 #, php-format
 msgid "Travel-Insurance"
-msgstr ""
+msgstr "Seguro de viagem"
 
 #: ../code/application/views/helpfile/pofields.php:902
 #, fuzzy, php-format
