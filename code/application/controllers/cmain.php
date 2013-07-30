@@ -38,7 +38,7 @@ class CMain extends I18n_site {
             // check for wrong currency parameter validation
             $currency_validated = $this->Db_currency->validate_currency_parameter($currency_validated);
             if (!$currency_validated) { // find wrong currency parameter
-                return true;
+                return true; 
             }
             // $currency_validated = $this->Db_currency->validate_currency($currency_validated);  // old function call
         } elseif ($this->tank_auth->is_logged_in()) {
