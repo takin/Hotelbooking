@@ -686,7 +686,7 @@ class Hb_engine {
             $json_data['api_error_msg'] = true;
             $json_data["property_list"] = array();
         }
-//     debug_dump($data);exit;
+		//debug_dump($data);exit;
         //Date array
         $avail_dates = array();
         $dateStart = new DateTime($data["date_selected"]);

@@ -314,6 +314,19 @@ class Db_hb_city extends CI_Model
     }
     return NULL;
   }
+  
+  function get_all_continents($site_lang)
+  {
+    $this->db->select('continent_id, continent_'.$site_lang.' as continent_name');
+	$this->db->from(self::CONTINENT_TABLE);
+    $query = $this->db->get();
+
+    if($query->num_rows() > 0)
+    {
+      return $query->result();
+    }
+    return NULL;
+  }
 
 
   function get_hb_city_from_hbid($city_hb_id)

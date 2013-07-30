@@ -117,6 +117,13 @@ $this->carabiner->js('jquery.mousewheel.js');
 			$(this).next().hide();
 		});
 
+		$('.bookingFeeDesc_text').mouseover(function() {
+			$('#benefits_popup').show();
+		});
+		$('.bookingFeeDesc_text').mouseleave(function() {
+			$('#benefits_popup').hide();
+		});
+
 	});
 
 	function check_error(){

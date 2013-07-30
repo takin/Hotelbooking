@@ -99,7 +99,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 	if(!isset($bc_city))            $bc_city = NULL;
 	$this->load->view('includes/side_search_box',array('date_selected' => $date_selected, 'current_view' => $current_view,'numnights_selected' => $numnights_selected,'bc_continent' => $bc_continent,'bc_country' => $bc_country,'bc_city' => $bc_city));
 	?>
-
+    
      <?php
         $filterBy_flag = "both";
         if (empty($city_landmarks) && empty($city_districts)) {
@@ -110,39 +110,52 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
         } elseif (empty($city_districts)) {
             $filterBy_flag = "landmarks";
         }
-        $filterby_container_start = '<div id="filter_links_container" class="box_content box_round group side_search">
-                        <ul class="group_filter_links_container">';
-        $filterby_container_end = '</ul></div>';
-
-        $filter_by_districts_link = '<li><a id="city_map_filter_districts" class="city_map_filter" href="#">' . _("Filter by districts") . '</a></li>';
-        $filter_by_landmarks_link = '<li><a id="city_map_filter_landmarks" class="city_map_filter" href="#">' . _("Filter by Landmarks") . '</a></li>';
+       
+        $first_filter_div_container = '<div id="leftside_filter_links_container">';
+        $last_filter_div_container = '</div>';
+        
+        $filter_by_districts_link = '<div class="filter_district_link box_content box_round group side_search">
+            <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_districts city_map_filter" href="#">' 
+                . _("Filter by districts") . '</a></li>
+                    </ul></div>';
+        
+        $filter_by_landmarks_link = '<div class="filter_landmark_link box_content box_round group side_search">
+                    <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_landmarks city_map_filter" href="#">' 
+                . _("Filter by Landmarks") . 
+                '</a></li>
+                    </ul></div>';
         switch ($filterBy_flag) {
             case "both":
-                echo $filterby_container_start;
-                echo $filter_by_districts_link . $filter_by_landmarks_link;
-                 echo $filterby_container_end;
-                break;
+                echo $first_filter_div_container . $filter_by_districts_link . 
+                    $filter_by_landmarks_link . $last_filter_div_container;
 
+                break;
             case "districts":
-                echo $filterby_container_start;
-                echo $filter_by_districts_link;
-                echo $filterby_container_end;
+                echo $first_filter_div_container . $filter_by_districts_link . $last_filter_div_container;
                 break;
 
             case "landmarks":
-                echo $filterby_container_start;
-                echo $filter_by_landmarks_link;
-                echo $filterby_container_end;
+                echo $first_filter_div_container . $filter_by_landmarks_link . $last_filter_div_container;
                 break;
 
             default:
                 break;
-        }
-
-	if(isset($city_info->city_geo_lat)) { ?>
-		<div class="box_content map_button_box box_round" id="city_side_map_container"></div>
+        } ?>
+	<?php if(isset($city_info->city_geo_lat)) { ?>
+            <div id="city_side_map_container">
+                    <div id="show_expanded_map" class="box_content box_round group side_search">
+                        <a href="javascript:void(0);">
+                                <?php echo _("Click here to expand map"); ?>
+                        </a>
+                    </div>  
+                    <div class="box_content map_button_box box_round" id="city_side_map"></div>
+             </div>
 	<?php } ?>
-
+                
 	<div id="search_load">
 		<div class="filter_block box_content box_round" id="filter_choices">
 			<span class="filter_title box_round"><strong><?php echo _('Property type')?></strong></span>
@@ -337,8 +350,72 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 				</ul>
 
 			</nav>
+                                        
+                            <div id="expanded_city_map_container"
+                                 class="city-tools box_round group green_gradient_faded box_shadow_very_light">
+                                <a href="javascript:void(0);" class="remove_from_search_trigger" id="close_expanded_map">
+						<img src="<?php echo site_url(); ?>images/fancy_close.png" alt="remove" style="vertical-align:middle" class="remove_from_search_trigger_icon" />
+					</a>
+                                <div id="expanded_city_map"></div>
+                            </div>    
+                                        <div id="header_pageNavigation_container">
+                                         <?php
+        $filterBy_flag = "both";
+        if (empty($city_landmarks) && empty($city_districts)) {
 
-			 <!-- filer searcr box -->
+            $filterBy_flag = "none";
+        } elseif (empty($city_landmarks)) {
+            $filterBy_flag = "districts";
+        } elseif (empty($city_districts)) {
+            $filterBy_flag = "landmarks";
+        }
+       
+        $first_filter_div_container = '<div id="middleside_filter_links_container">';
+        $last_filter_div_container = '</div>';
+        
+        $filter_by_districts_link = '<div class="filter_district_link box_content box_round group side_search">
+            <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_districts city_map_filter" href="#">' 
+                . _("Filter by districts") . '</a></li>
+                    </ul></div>';
+        
+        $filter_by_landmarks_link = '<div class="filter_landmark_link box_content box_round group side_search">
+                    <ul class="group_filter_links_container">
+            <li class="leftside_filter_links">
+            <a class="city_map_filter_landmarks city_map_filter" href="#">' 
+                . _("Filter by Landmarks") . 
+                '</a></li>
+                    </ul></div>';
+        switch ($filterBy_flag) {
+            case "both":
+                echo $first_filter_div_container . $filter_by_districts_link . 
+                    $filter_by_landmarks_link . $last_filter_div_container;
+
+                break;
+            case "districts":
+                echo $first_filter_div_container . $filter_by_districts_link . $last_filter_div_container;
+                break;
+
+            case "landmarks":
+                echo $first_filter_div_container . $filter_by_landmarks_link . $last_filter_div_container;
+                break;
+
+            default:
+                break;
+        } ?>    
+                    <!-- Next 20 result code start-->
+                    <div id="header_pagination" class="pagination_pro main_pagination_div" style="display:none;">
+                        <div  class="left_pagi pagination_result">
+                            <span class="resultcount"></span>
+                            <?php echo _('of'); ?>
+                            <span class="resulttotal"></span>
+                            <?php echo _('Results'); ?>
+                        </div>
+                        <div class="page_navigation"></div>
+                    </div>
+              </div>
+			 <!-- filer search box -->
 			<div class="panel-padding" id="results_filters" style="display: block;">
 			<div id="filters_text" style="display:none"><?php echo _("Selected filters:")?></div>
 			<ul class="unstyled" id="applied_filters">
@@ -381,14 +458,14 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
 </script>
 
 			<!-- Next 20 result code start-->
-			<div id="navi" class="pagination_pro" style="display:none;">
-				<div id="resu" class="left_pagi">
+			<div class="pagination_pro main_pagination_div" style="display:none;">
+				<div  class="left_pagi pagination_result">
 					<span class="resultcount"></span>
 					<?php echo _('of');?>
 					<span class="resulttotal"></span>
 					<?php echo _('Results');?>
 				</div>
-				<div id="page_navigation" class="page_navigation"></div>
+				<div class="page_navigation"></div>
 			</div>
 
 </div>
@@ -461,16 +538,32 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
 
 <script type="text/javascript">
    $(document).ready(function(){
+ 
+        // on window resize
+        $(window).resize(function() {
+             changeSidebar_width();
+         });
+         // this part is related to fixing the map position
+         $(window).scroll(function () {
+        // check if left map is visible to fix it position
+            if($("#expanded_city_map_container").is(':hidden')){
+                changeSidebar_width();
+            }
+            else{
+                $("#side_search_box").show();
+                $("#leftside_filter_links_container").show();    
+   
+            $("#sidebar").removeClass("fix_sidebar_position");
+            $("#sidebar").addClass("container_16");
+            $("#sidebar").addClass("grid_4");
+            $("#sidebar").css({'position' : ''});
+            $("#sidebar").css({'top' : ''});
+            $("#sidebar").css({'left' : ''});
 
-       // on window resize
-       $(window).resize(function() {
-            changeSidebar_width();
+            $("#main").css({'float' : 'auto'});
+            }
         });
-        // this part is related to fixing the map position
-        $(window).scroll(function () {
-            changeSidebar_width();
-       });
-
+        
        function changeSidebar_width(){
         // fix sidebar to make side map always visible
         var page_height = $(document).height();
@@ -485,7 +578,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
         //we're scrolling our ,position is greater than 0 from the top of the page.
         if( scroll_position < 230 ){
             $("#side_search_box").show();
-            $("#filter_links_container").show();
+            $("#leftside_filter_links_container").show();    
 
             $("#sidebar").removeClass("fix_sidebar_position");
             $("#sidebar").addClass("container_16");
@@ -498,7 +591,7 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
          }
         else if( scroll_position > 230 && scroll_position < fix_height_position ){
             $("#side_search_box").hide();
-            $("#filter_links_container").hide();
+            $("#leftside_filter_links_container").hide();    
 
             $("#sidebar").addClass("fix_sidebar_position");
             $("#sidebar").removeClass("container_16");
@@ -522,7 +615,6 @@ pweb_setCookie("citysearch","<?php echo $this->uri->segment(2);?>",24);
             }
             $("#main").css({'float' : 'auto'});
          }
-       }
-
+       } 
    });
 </script>

@@ -579,7 +579,8 @@ a.modify_search.collapse {
 .city_view_search #side_search_wrap, .hostel_view_side #side_search_wrap{display:none;}
 
 .box_content.side_search, .box_content.main_search
-,#filter_links_container{	
+,.filter_landmark_link ,.filter_district_link
+,.main_pagination_div{	
 	border:1px solid #80B422;
 	background-color: #EAF0DE;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F7EF), to(#EAF0DE));
@@ -1958,7 +1959,7 @@ cursor:pointer;
 * html .filter_content ul li {height: 1%;}
 .filter_content ul li {display: block;}
 
-.filter_content ul li input.checkbox{float:left; margin-right:10px; margin-top:0px;}
+.filter_content ul li input.checkbox{float:left; margin-right:10px; margin-top:0px; margin-left: 4px;}
 
 label.slide_filter{
 	display:block;
@@ -3154,8 +3155,12 @@ width: 275px;}
     top: 0;
 }
 
-#city_side_map_container.map_button_box span{
+#city_side_map.map_button_box span{
     display:none;	
+}
+
+#city_side_map_container{
+    position: relative;
 }
 
 .property_marker_number{
@@ -3222,7 +3227,7 @@ width: 275px;}
 	margin-top: 12px;
 	margin-right: 29px;
 */
-	padding-right; 10px;
+	padding-right: 10px;
 	color: #3087C9;
 	cursor: pointer;
 }
@@ -3256,4 +3261,83 @@ width: 275px;}
 }
 #map_city_landing_page{
     margin: 0;
+}
+
+#benefits_popup h4,
+#benefits_popup p {
+	text-align: left;
+}
+
+.bookingFeeDesc_text {
+	cursor: pointer;
+	color: #3087C9;
+}
+
+.bookingFeeDesc_text img {
+	vertical-align: middle;
+}
+
+#benefits_popup {
+	left: 220px !important;
+	bottom: 120px !important;
+}
+
+#benefits_popup .popup-info-arrow {
+	left: 92% !important;
+}
+
+#show_expanded_map{
+    background-color: #FAFAFA;
+    background-image: linear-gradient(to bottom, #FAFAFA, #FAFAFA);
+    border-left-width: 0;
+    border-radius: 4px 4px 0 0;
+    border-top: 0 none;
+    margin-left: 1px;
+    padding: 8px 10px;
+    position: absolute;
+    text-align: center;
+    top: 1px;
+    width: 91.5%;
+    z-index: 10000;
+}
+#close_expanded_map{
+    margin-left: 793px;
+    margin-top: -15px;
+    position: absolute;
+    z-index: 1;
+}
+#expanded_city_map_container{
+    margin-bottom: 10px;
+}
+#leftside_filter_links_container{
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+}
+.filter_landmark_link ,.filter_district_link{
+    float: left;
+    margin-left: 4px;
+    margin-right: 9px;
+    width: 35%;
+}
+.leftside_filter_links{
+    width: 100% !important;    
+}
+#middleside_filter_links_container{
+    width: 34%;
+}
+#middleside_filter_links_container li{
+    margin-left: 5px;
+}
+#header_pagination{
+    border-width: 2px;
+    margin-left: 2px;
+    width: 62%;
+}
+.main_pagination_div{
+    height: 23px;
+    line-height: 18px;
+}
+#header_pageNavigation_container{
+    width: 101%;
 }
