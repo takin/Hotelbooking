@@ -122,9 +122,11 @@ function compare_property(value,proname,protype) {
 			compare_pro3.splice(compare_pro3.indexOf(value),1);
 			pweb_setCookie("compare",compare_pro3,24);
 		}
-	
-		this.compare_count.html(parseInt(this.total_com_property.val()) - 1);
-		this.total_com_property.val(parseInt(this.total_com_property.val()) - 1);
+                var number_to_compare = parseInt(this.total_com_property.val());
+                if(number_to_compare > 0 ){
+                    this.compare_count.html(number_to_compare - 1);
+                    this.total_com_property.val(number_to_compare - 1);
+                }
 
 		$('#property_' + value).remove();
 	}
@@ -236,8 +238,10 @@ function property_compare_popup() {
 
 			pweb_filter.addFilterMap('compare_property', 'map_canvas_compareProperty', 'en', data.map_data[0].Geo.Latitude,data.map_data[0].Geo.Longitude);
 			
+                        // close city or expanded_map 
+                        pweb_filter.closePreviouslyOpenedMap();
+                        // open compare property map
                         pweb_filter.toggleMap('compare_property');
-                        pweb_filter.toggleMap('city'); 
                         
 			$('#map_lat').val(JSON.stringify(data.map_data));
 
@@ -289,9 +293,12 @@ $(document).ready(function() {
 		'titlePosition'		: 'inside',
 		'transitionIn'		: 'none',
 		'transitionOut'		: 'none',
-             beforeClose: function() {
-                    pweb_filter.toggleMap('city');
+             beforeClose: function() { 
+                    // close compare property map
                     pweb_filter.toggleMap('compare_property');
+                    // open city (default) map
+                    pweb_filter.showPreviouslyOpenedMap();
+                    
                 }
 	});
 });

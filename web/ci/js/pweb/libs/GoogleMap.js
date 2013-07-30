@@ -44,34 +44,42 @@ GoogleMap.prototype.init = function() {
     if (!this.map_div) {
         return;
     }
-
+    
+    var myOptions = {
+        zoom: this.default_zoom,
+        center: new google.maps.LatLng(this.default_lat, this.default_lng),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
     this.map_div.style.display = "block";
     this.map_div.style.width   = "100%";
     this.map_div.style.height  = "400px";
 
     if (this.map_div.id === "filter_map_rightSide") {
-        this.map_div.style.height = "100%";
+        this.map_div.style.height = "100%";       
     }
 
-    if (this.map_div.id === "city_side_map_container") {
+    if (this.map_div.id === "city_side_map") {
         this.map_div.style.height = "280px";
-        this.map_div.style.width  = "auto";
+        this.map_div.style.width = "auto";
+        // specify additional options to map here
+        myOptions["mapTypeControl"] = false;
+        myOptions["streetViewControl"] = false;
+        myOptions["zoomControl"] = true;
+        myOptions["zoomControlOptions"] ={
+                position: google.maps.ControlPosition.LEFT_CENTER,
+                style: google.maps.ZoomControlStyle.LARGE
+            };
     }
 
     if (this.map_div.className === "map_quickview") {
         this.map_div.style.height = "285px";
         this.map_div.style.width  = "auto"; 
     }
-
-    var myOptions = {
-        zoom: this.default_zoom,
-        center: new google.maps.LatLng(this.default_lat, this.default_lng),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
+        
     window.gmap = new google.maps.Map(this.map_div, myOptions);
     this.gbounds = new google.maps.LatLngBounds();
-
+ 
     // get map center before adding markers (map resize)
     var originalMapCenter = window.gmap.getCenter();
 
@@ -89,12 +97,18 @@ GoogleMap.prototype.init = function() {
         {
             window.gmap.setCenter(this.gbounds.getCenter());
             window.gmap.fitBounds(this.gbounds);
-            if (this.map_div.id === "city_side_map_container") {
+            if (this.map_div.id === "city_side_map" || 
+                    this.map_div.id === "expanded_city_map" ) {
                 if (window.gmap.getZoom() > 10)
                 {
                     window.gmap.setZoom(10);
                 }
             }
+            
+            if (this.map_div.id === "expanded_city_map"  ) {
+                    window.gmap.setZoom(11);
+            }
+            
         }
     }
     
@@ -145,7 +159,7 @@ GoogleMap.prototype.init = function() {
     }
     // End  Landmark Shows on map 
     
-    if (this.map_div.id === "city_side_map_container") {
+    if (this.map_div.id === "city_side_map" || this.map_div.id === "expanded_city_map") {
          google.maps.event.trigger(window.gmap, 'resize');
          window.gmap.panTo(originalMapCenter);
     }
@@ -251,7 +265,8 @@ GoogleMap.prototype.drawMarkers = function() //, image, iconshadow)
 GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
 {
     var result = [];
-    if (window.gmap.getDiv().id === "filter_map_rightSide") {
+    if (window.gmap.getDiv().id === "filter_map_rightSide" || 
+        window.gmap.getDiv().id === "map_canvas_compareProperty" ) {
         result = {
             property_list: $('#property_list').children(),
             start_from: 0
@@ -262,8 +277,8 @@ GoogleMap.prototype.getItemsInPage = function() //, image, iconshadow)
         var show_per_page = parseInt($('#show_per_page').val());
         // number of hostels currently shown
         var page_num = 0;
-        if ($('#page_navigation .active_page').length > 0) {
-            page_num = parseInt($('#page_navigation .active_page').attr("longdesc"));
+        if ($('.page_navigation .active_page').length > 0) {
+            page_num = parseInt($('.page_navigation .active_page').attr("longdesc"));
         }
 
         // start hostel number like from 1 to 20
@@ -358,9 +373,9 @@ GoogleMap.prototype.addMarkersToMap = function()
             window.markers[i].gmarker = null;
         }
         else{
+            // check if it is the map on the left or middle big map
+            if ( map_divID === "city_side_map" || map_divID === "expanded_city_map") {
 
-            // check if it is the map on the left
-            if ( map_divID === "city_side_map_container") {
                 var imageIndex = window.markers[i].propertyIndex;
                 image = that.getMarkerIcon(false, imageIndex);
                 image_selected = that.getMarkerIcon(true, imageIndex);
@@ -422,7 +437,7 @@ GoogleMap.prototype.addMarkersToMap = function()
         //On marker click, open info window and set marker content
         google.maps.event.addListener(window.gmarkers[i], 'click', function() {
 
-            if (window.gmap.getDiv().id === "city_side_map_container") {
+            if ( window.gmap.getDiv().id === "city_side_map" ) {
                 that.goToHostelDiv(this);
             }
             else {
@@ -431,7 +446,7 @@ GoogleMap.prototype.addMarkersToMap = function()
 
         });
         
-            if (isCompare_property === false && isQuickView_map === false ) {
+        if (isCompare_property === false && isQuickView_map === false ) {
                 google.maps.event.addListener(window.gmarkers[i], 'mouseover', function() {
 
                     that.changeHostelBackground(this, "mouseover");
@@ -733,8 +748,9 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
             if (window.markers[i].gmarker !== null)
             {
-                if (window.gmap.getDiv().id === "city_side_map_container" ||
-                        window.gmap.getDiv().id === "filter_map_rightSide") {
+                if (window.gmap.getDiv().id === "city_side_map" ||
+                        window.gmap.getDiv().id === "filter_map_rightSide" ||
+                        window.gmap.getDiv().id === "expanded_city_map") {
                     if (window.markers[i].gmarker.getZIndex() === 100000) {
                         window.markers[i].gmarker.setZIndex(0);
                     }
@@ -746,7 +762,8 @@ GoogleMap.prototype.changeMarkerIcon = function(pDiv, pIconType) {
 
                     var image = "http://" + window.location.host + imagePath + '0.png';
                     
-                    if (window.gmap.getDiv().id === "city_side_map_container") {
+                    if (window.gmap.getDiv().id === "city_side_map" ||
+                        window.gmap.getDiv().id === "expanded_city_map") {
                          image = "http://" + window.location.host + imagePath + imageIndex + '.png';
                     }
                    // this map is the map that appears after click on Quick view
@@ -775,8 +792,14 @@ GoogleMap.prototype.changeHostelBackground = function(pMarker, pDivEventToTrigge
 
         if ($.trim($(value).find(".hostel_title").text()) === pMarker.getTitle())
         {
-            $(value).trigger(pDivEventToTrigger);
+//            $(value).trigger(pDivEventToTrigger);
+            if(pDivEventToTrigger === "mouseover"){
+                that.changeMarkerIcon($(value), "selected");
             }
+            else{
+                that.changeMarkerIcon($(value), "unselected");
+            }
+        }
     });
 
 };
