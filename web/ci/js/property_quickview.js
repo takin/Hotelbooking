@@ -368,7 +368,9 @@ QuickView.prototype.setMap = function() {
     var lng = this.data.Geo.Longitude;
 
     pweb_filter.addFilterMap('hostel_quickview', "map_canvas", 'en', lat, lng);
-    pweb_filter.toggleMap('city');
+    // close city or expanded_map 
+    pweb_filter.closePreviouslyOpenedMap();
+    //open hostel quick view map
     pweb_filter.toggleMap('hostel_quickview');
 
 
