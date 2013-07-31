@@ -682,11 +682,6 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
     ?>
 
     <form class="group" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
-        <?php
-        if ($this->session->userdata('switch_api')) {
-            echo form_hidden('api_shortname', 'hb');
-        }
-        ?>
         <table border="0" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
