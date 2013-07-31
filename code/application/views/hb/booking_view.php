@@ -92,7 +92,7 @@ $SPACE = '&nbsp;';
 		<div class="popup-info-wrap">
 			<h2 id="step1-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>1. <?php echo _('Détails de la réservation'); ?></span></h2>
 			<div class="popup-info booking_view">
-				<h4><?php echo _("Notes Importantes");?></h4>
+				<h4><?php echo _("Détails de la réservation");?></h4>
 				<p><?php printf( gettext("You only pay the deposit (10%% of total amount) to confirm and secure your reservation now. The remaining amount (90%%) is payable upon arrival. You will find the hotel's contact information (email, address, telephone number…) in your confirmation email after you have made your reservation."),$this->config->item('site_name'));?></p>
 				<span class="popup-info-arrow"></span>
 			</div>
@@ -239,8 +239,20 @@ $SPACE = '&nbsp;';
               <?php if (isset($booking_fee)): ?>
               <tr class="light">
                                     <td class="first" align="right">
+                                        <div class="popup-info booking_view" id="benefits_popup">
+                                            <h4><?php echo _("The benefits");?></h4>
+                                            <p><?php
+                                                echo _("Local customer service you can trust in your language available 24 hours a day"), '<br />',
+                                                _("Secured payment: your credit card is protected"), '<br />',
+                                                _("No spam emails after you have booked and your information will stay private"), '<br />',
+                                                _("You have access to millions of real reviews from travellers like you"), '<br />',
+                                                _("And finally, you get the best price!");
+                                            ?></p>
+                                            <span class="popup-info-arrow"></span>
+                                        </div>
 
-                                        <span id="bookingFeeDesc"><?php echo _('Frais de Service') ?>:</span></td>
+                                        <span id="bookingFeeDesc" class="bookingFeeDesc_text"><img class="booking_fee_benefits" src="<?php echo secure_site_url() . 'images/V2/icon_help.png'; ?>" /> <?php echo _('Frais de Service') ?>:</span>
+                                    </td>
                                     <td>
                                         <span style="display: inline;">
                                             <?php echo $bookCurSymbol . $SPACE; ?><?php echo isset($booking_fee['CUSTOMER']['AMOUNT'])?number_format( $booking_fee['CUSTOMER']['AMOUNT'], 2, '.', ''):number_format( 0.00, 2, '.', ''); ?>
@@ -286,12 +298,11 @@ $SPACE = '&nbsp;';
 		</div>	
 			
 		<form action="<?php echo secure_site_url(); ?>" method="post" onSubmit="booking_confirm2('<?php echo secure_site_url(); ?>',false,'<?php echo $settleCurrency;?>'); return false;">
-                    <input type="hidden" id="api_shortname" name="api_shortname" value="hb" />
-                    <div class="booking_section">  
+          <div class="booking_section">  
 			<div class="popup-info-wrap">
 				<h2 id="step2-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>2. <?php echo _('Informations personnelles - Sécurisées et Encryptées');?></span></h2>
 				<div class="popup-info booking_view">
-					<h4><?php echo _("Notes Importantes");?></h4>
+					<h4><?php echo _("Informations personnelles - Sécurisées et Encryptées");?></h4>
 					<p><?php echo _('We will never sell your personal information and we use secure transmission and encrypted storage to protect your personal information.')?></p>
 					<span class="popup-info-arrow"></span>
 				</div>
@@ -496,7 +507,7 @@ $SPACE = '&nbsp;';
 			<div class="popup-info-wrap">
 				<h2 id="step2-title" class="booking_section_title box_round green_gradient_faded question_mark"><span>3. <?php echo _('Méthode de Paiement - Sécurisée et Encryptée'); ?></span></h2>
 				<div class="popup-info booking_view">
-					<h4><?php echo _("Notes Importantes");?></h4>
+					<h4><?php echo _("Méthode de Paiement - Sécurisée et Encryptée");?></h4>
 					<p><?php echo _('A friend or a family member can lend you his/her credit card for the reservation.')?> <?php echo _('You can use a different credit card to pay the balance upon arrival at the property.')?></p>
 					<span class="popup-info-arrow"></span>
 				</div>

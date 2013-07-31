@@ -1,9 +1,3 @@
-<?php
-$switch_api = false;
-if ($this->session->userdata('switch_api')) {
-    $switch_api = true;
-}
-?>
 <div class="box_content box_round group side_search" id="side_search_box">
 
     <?php if (($current_view == "city_view") || ($current_view == "hostel_view")) {
@@ -12,11 +6,7 @@ if ($this->session->userdata('switch_api')) {
             <a class="modify_search collapse" >
                 <strong>
                     <?php
-                    if ($switch_api) {
-                        echo _('Enter your dates');
-                    } else {
                         echo _('Modify search');
-                    }
                     ?>
                 </strong>
             </a>

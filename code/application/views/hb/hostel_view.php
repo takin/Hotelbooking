@@ -1,13 +1,6 @@
 <script type="text/javascript" src="<?php echo site_url('js/pweb/includes/mustache.js'); ?>" charset="UTF-8"></script>
 <script type="text/javascript" src="<?php echo site_url('js/save_property.js?v=' . time()); ?>"charset="UTF-8"></script>
 
-<?php
-$switch_api = false;
-if ($this->session->userdata('switch_api')) {
-    $switch_api = true;
-}
-echo form_hidden('switch_api', $switch_api);
-?>
 <div id="sidebar" class="grid_4 hostel_view_side">
     <a id="back_to_results" style="display: none;" title="<?php echo _('Back to search results') ?>"
        class="back_to_results expand"
@@ -586,11 +579,7 @@ if ($api_error == false) {
             <li class="first">
                 <a class="tab_price" href="#hostel_info_home">
                     <?php
-                    if ($switch_api) {
-                        echo _("Information");
-                    } else {
                         echo _("Info & Prix");
-                    }
                     ?>
                 </a>
             </li>

@@ -12,16 +12,17 @@
   <meta name="copyright" content="<?php echo $this->config->item('site_name');?>" />
   <meta name="keywords" content="<?php echo _("reservation auberge de jeunesse,auberge de jeunesse,auberges de jeunesse,voyage jeunesse europe,voyage jeunesse,voyage europe,hébergement voyage europe,réserver auberge,voyage europe logement,logement voyage france,logement voyage europe,trip jeunesse euro,euro youth hostel,révervation hôtel londres,reservation hôtel paris");?>" />
 	
-	<?php // Filter variables
 	
+	<?php // Filter variables
+
 	$description = '';
-		
+
 	if(isset($filters)) {
-			
+
 		$type = $filters['type'];
 		$landmark = $filters['landmark'];
 		$district = $filters['district'];
-		
+
 		if(!empty($district)){
 			$district_name = $district->district_name_ts;
 			if(empty($district_name)){$district_name = $district->district_name;}
@@ -97,8 +98,9 @@
 			}
 		}
 	}
-	
+
 	?>
+	
 	<?php
 
 	switch($current_view)
@@ -122,7 +124,7 @@
 	    ?>
 	    <meta name="description" content="<?php echo $description; ?>"/>
 	    <?php
-	    break;  
+	    break;
 	  case "group_request":
 	    ?>
 	    <meta name="description" content="<?php echo $meta_desc;?>"/>
