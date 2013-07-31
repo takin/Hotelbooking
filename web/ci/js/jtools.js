@@ -205,8 +205,6 @@ function booking_confirm(base_url, refresh, settleCurrency)
     var roomDescriptions = document.getElementsByName('book-roomTypeDescription[]');
     var roomDescriptionsTrans = document.getElementsByName('book-roomTypeDescriptionTranslated[]');
 
-    var api_shortname = document.getElementById('api_shortname').value;
-
     var secure_final = document.getElementById('secure-final').value;
     var secure_cookie = "";
     var secure_pares = "";
@@ -335,7 +333,6 @@ function booking_confirm(base_url, refresh, settleCurrency)
             roomNumber: roomNumberArray.toString(),
             roomTypeDescription: roomDescArray.toString(),
             roomTypeDescriptionTranslated: roomDescTransArray.toString(),
-            api_shortname: api_shortname,
             nbPersons: npArray.toString(),
             propertyName: propertyName,
             propertyNumber: propertyNumber,
@@ -409,9 +406,6 @@ function booking_confirm2(base_url, refresh, settleCurrency)
     var ccexpiry_m = document.getElementById('ccexpiry_m').value;
     var ccexpiry_y = document.getElementById('ccexpiry_y').value;
     var cvv = document.getElementById('cvv').value;
-    
-    var api_shortname = document.getElementById('api_shortname').value;
-
 
     var ccvalidfrom_m = null;
     if (document.getElementById('ccvalidfrom_m') != null)
@@ -489,7 +483,6 @@ function booking_confirm2(base_url, refresh, settleCurrency)
             ccvalidfrom_m: ccvalidfrom_m,
             ccvalidfrom_y: ccvalidfrom_y,
             issueno: issueno,
-            api_shortname: api_shortname,
             roomPreferences: rpArray.toString(),
             nbPersons: npArray.toString(),
             propertyName: propertyName,
@@ -503,12 +496,6 @@ function booking_confirm2(base_url, refresh, settleCurrency)
             refresh: refresh,
             CADDepositAmount: CADDepositAmount
         },
-//		timeout:2000000,
-//		error:function(XMLHttpRequest, textStatus, errorThrown)
-//		{
-//			$("#loading_message").html("Délai de traitement expiré.");
-//			$('#submit-payment').show();
-//		},
 
         success: function(data)
         {

@@ -18,10 +18,6 @@ class MY_Router extends CI_Router {
         //TONOTICE need to be run before parent constructor for default controllers to be set correctly
         $this->api_shortname = get_wp_option($this->wp_dbtag, "aj_api_site_data", $this->api_shortname);
         
-        if(isset($_POST['api_shortname'])) {
-            $this->api_shortname = $_POST['api_shortname'];
-        }
-        
         parent::__construct();
     }
 
