@@ -161,9 +161,9 @@
 			</li>
 			<li style="margin-top:15px;">
         <?php if($current_view != "auth/reset_password_form"){?>
-        <label for="search-currency"><?php echo _("Devise:");?></label>
+        <!-- <label for="search-currency"><?php echo _("Devise:");?></label>
         <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
-        <?php }?>
+        <?php }?> -->
       </li>
 			<li class="search-submit">
         <input onfocus="this.blur()" type="button" name="search-submit" id="search-submit" onclick="goToSearchPage('<?php echo site_url();?>','<?php echo _('Choisir le pays'); ?>','<?php echo _('Pays introuvable'); ?>','<?php echo _('Choisir la ville'); ?>','<?php echo _('Ville introuvable'); ?>','<?php echo _('Date invalide'); ?>','search-country','search-city','datepick','search-night','search-currency','search-custom')" value="<?php echo _('Search Now')?>"/>

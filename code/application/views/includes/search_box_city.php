@@ -74,12 +74,12 @@
         ?>
       </li>
 
-      <li>
+      <!-- <li>
         <?php if($current_view != "auth/reset_password_form"){?>
         <label for="search-currency"><?php echo _("Devise:");?></label>
         <?php $this->Db_currency->select_currency("search-currency","search-currency",$this->config->item('site_currency_selected'),"",$this->site_lang); ?>
         <?php }?>
-      </li>
+      </li> -->
 
 
       <li class="search-submit-city">
