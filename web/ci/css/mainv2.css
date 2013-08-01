@@ -2448,6 +2448,7 @@ text-align: -webkit-center;
 	text-decoration: underline;
 }
 
+#booking_confirm_dialog,
 #save_property_dialog,
 #share-overlay {
 	position: fixed;
@@ -2464,10 +2465,12 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#booking_confirm_dialog,
 #save_property_dialog {
 	background: url('../images/fancybox_overlay.png');
 }
 
+#booking_confirm_dialog .content_container,
 #save_property_dialog .content_container {
 	margin: 0 auto;
 /*	height: 630px;*/
@@ -2491,10 +2494,12 @@ text-align: -webkit-center;
 	margin: 0;
 }
 
+#booking_confirm_dialog .content #content
 #save_property_dialog .content #content {
 	margin: 10px;
 }
 
+#booking_confirm_dialog .close,
 #save_property_dialog .close {
 	float: right;
 	width: 50px;
@@ -2529,6 +2534,21 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#booking_confirm_dialog .content {
+	padding: 10px;
+}
+
+#booking_confirm_dialog .content_block select.select-translate {
+	position: relative;
+	float: right;
+	top: 0;
+}
+
+#booking_confirm_dialog .content label {
+	color: #000;
+}
+
+#booking_confirm_dialog .title,
 #share-overlay .content .title {
 	color: #00359f;
 	font-weight: bold;
@@ -2990,6 +3010,7 @@ width: 275px;}
 	border: none;
 }
 
+#booking_confirm_dialog .title,
 #save_property_dialog .title {
 	padding: 10px;
 	background-color: #00aeec;
