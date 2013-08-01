@@ -117,6 +117,13 @@ $this->carabiner->js('jquery.mousewheel.js');
 			$(this).next().hide();
 		});
 
+		$('.bookingFeeDesc_text').mouseover(function() {
+			$('#benefits_popup').show();
+		});
+		$('.bookingFeeDesc_text').mouseleave(function() {
+			$('#benefits_popup').hide();
+		});
+
 	});
 
 	function check_error(){
@@ -141,7 +148,7 @@ $this->carabiner->js('jquery.mousewheel.js');
 	<div id="top_bar_inner" class="container_16 group">
 		<div class="grid_16">
 			<ul class="user_meta_top group">
-				<!-- <li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li> -->
+				<li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li>
 				<li>
 					<?php echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\">"._("Se connecter")."</a>"); ?>
 				</li>

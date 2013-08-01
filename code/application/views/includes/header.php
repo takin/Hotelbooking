@@ -12,16 +12,17 @@
   <meta name="copyright" content="<?php echo $this->config->item('site_name');?>" />
   <meta name="keywords" content="<?php echo _("reservation auberge de jeunesse,auberge de jeunesse,auberges de jeunesse,voyage jeunesse europe,voyage jeunesse,voyage europe,hébergement voyage europe,réserver auberge,voyage europe logement,logement voyage france,logement voyage europe,trip jeunesse euro,euro youth hostel,révervation hôtel londres,reservation hôtel paris");?>" />
 	
-	<?php // Filter variables
 	
+	<?php // Filter variables
+
 	$description = '';
-		
+
 	if(isset($filters)) {
-			
+
 		$type = $filters['type'];
 		$landmark = $filters['landmark'];
 		$district = $filters['district'];
-		
+
 		if(!empty($district)){
 			$district_name = $district->district_name_ts;
 			if(empty($district_name)){$district_name = $district->district_name;}
@@ -97,8 +98,9 @@
 			}
 		}
 	}
-	
+
 	?>
+	
 	<?php
 
 	switch($current_view)
@@ -122,7 +124,7 @@
 	    ?>
 	    <meta name="description" content="<?php echo $description; ?>"/>
 	    <?php
-	    break;  
+	    break;
 	  case "group_request":
 	    ?>
 	    <meta name="description" content="<?php echo $meta_desc;?>"/>
@@ -176,8 +178,6 @@
 	$this->carabiner->css('smoothness/jquery-ui.css');
     // css for tooltip
     $this->carabiner->css('tooltip-tooltips.css');
-    $this->carabiner->css('jquery.msdropdown.css');
-    $this->carabiner->css('jquery.dropdown.css');
 
   if($this->api_used == HB_API)
 	{?>
@@ -1117,10 +1117,7 @@ function show_featured_landmarks(){
   $this->carabiner->js('jquery.simplemodal.js', 'jquery.toastmessage.js', TRUE);
   // css and js for tooltip
   $this->carabiner->js('jquery.tooltip-sasya.js');
-  $this->carabiner->js('jquery.dd.js');
-  $this->carabiner->js('jquery.dropdown.js');
-  $this->carabiner->js('saf.localization.js');
-  
+
   ?>
 <script src="http://static.mapfluence.com/mapfluence/2.0/mfjs.min.js" type="text/javascript"></script>
 
@@ -1331,8 +1328,8 @@ $(document).ready(function()
                 <li><a id="site_language" data-dropdown="#language-dropdown" class="dropdown-title"><span class=""  lang-flag  style="padding-left:12px">&nbsp;</span></a></li>
                 <?php /*$about = $this->wordpress->get_option('aj_page_about'); if (!empty($about)){?>
 				<li><a class="meta_about" href="<?php echo $about; ?>"><?php echo _("About us");?></a></li>
+				<li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li>
 				<?php } */?>
-				<!-- <li><a class="meta_help" href="<?php echo $this->wordpress->get_option('aj_page_faq'); ?>"><?php echo _("Aide / FAQ / Nous Joindre");?></a></li> -->
 				<li class="account_login">
 					<?php //echo login_check($this->tank_auth->is_logged_in(),"<a class=\"meta_account\" href=\"".site_url($this->Db_links->get_link("user"))."\">"._("Bienvenue!")."</a>","<a class=\"meta_login\" href=\"".site_url($this->Db_links->get_link("connect"))."\" onclick=\"toggleById(); return false;\">"._("Se connecter")."</a>");
 					echo login_check($this->tank_auth->is_logged_in(), $logged_in_link, $log_in_link); // modify to remove js error as right  id "top-login-form" is comment at line no 916.

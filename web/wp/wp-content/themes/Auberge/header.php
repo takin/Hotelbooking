@@ -311,6 +311,9 @@ $apiurl = isset($_SERVER['HTTP_HTTPS'])?str_replace("http:","https:",$apiurl):$a
                 
                  
 				<ul class="user_meta_top group">
+					 <?php /*$about = get_option('aj_page_about'); if (!empty($about)){?><li><a class="meta_about" href="<?php echo $about; ?>"><?php _e('About us','auberge');?></a></li>
+					 <li><a class="meta_help" href="<?php echo get_option('aj_page_faq');?>"><?php _e('Aide / FAQ / Nous Joindre','auberge');?></a></li>
+					 <?php } */?>
                     <li><a id="top_hd_currency" data-dropdown="#search-currency" class="dropdown-title">&nbsp;</a></li>
             
                     <li><a id="site_language" data-dropdown="#language-dropdown" class="dropdown-title"><span class=""  lang-flag  style="padding-left:12px">&nbsp;</span></a></li>

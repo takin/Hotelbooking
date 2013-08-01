@@ -11,7 +11,7 @@
 				$hb_list_image = site_url('images/na_small.jpg');
 				if(isset($hostel["image"]))
 				{
-				  $hb_list_image = $this->Hostelbookers_api->build_list_url($hostel["image"]) . "&ptype={$property_type}";
+				  $hb_list_image = $this->Hostelbookers_api->build_list_url($hostel["image"]);
 				}
 				?>
 				<a href="<?php echo $this->Db_links->build_property_page_link($hostel["type"],$hostel["name"],$hostel["id"],$this->site_lang); ?>">

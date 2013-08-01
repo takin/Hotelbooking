@@ -82,48 +82,48 @@ SavedProperty.prototype.initpaging = function() {
 	var current_link = 0;
 
 	while (number_of_pages > current_link) {
-		navigation_html += '<a class="page_link" id="page_link_'+current_link+'" href="javascript:SavedProperty.go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
+		navigation_html += '<a class="page_link page_link_'+current_link+'"  href="javascript:SavedProperty.go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
 		current_link++;
 	}
 	navigation_html += '<a class="next_link" href="javascript:SavedProperty.next();">></a>';
 
 	if (number_of_pages > 1) {
 		$('.resultcount').html('1-'+show_per_page);
-		$('#resu').css('display', 'block');
-		$('#page_navigation').html(navigation_html);
+		$('.pagination_result').css('display', 'block');
+		$('.page_navigation').html(navigation_html);
 	}
 	else {
 		$('.resultcount').html(number_of_items);
-		$('#page_navigation').html('');
+		$('.page_navigation').html('');
 	}
 
 	$('.resulttotal').html(number_of_items);
 
 	if (number_of_pages > 0) {
-		$('#navi').css('display', 'inline-block');
-		$('#resu').css('display', 'block');
+		$('.main_pagination_div').css('display', 'inline-block');
+		$('.pagination_result').css('display', 'block');
 	}
 	else {
-		$('#navi').css('display', 'none');
-		$('#resu').css('display', 'none');
+		$('.main_pagination_div').css('display', 'none');
+		$('.pagination_result').css('display', 'none');
 	}
 
-	$('#page_navigation .page_link:first').addClass('active_page');
+	$('.page_navigation .page_link:first').addClass('active_page');
 	$('#favorite_properties').children().css('display', 'none');
 	$('#favorite_properties').children().slice(0, show_per_page).css('display', 'block');
 	$('.previous_link').css({"pointer-events":"none","color":"#ccc"});
-	$('#page_link_0').css({"pointer-events":"none","color":"#ccc"});
+	$('.page_link_0').css({"pointer-events":"none","color":"#ccc"});
 };
 
 
 SavedProperty.previous = function() {
-	if ($('.active_page').prev('.page_link').length == true) {
+	if ($('.active_page').prev('.page_link').length === true) {
 		SavedProperty.go_to_page(parseInt($('#current_page').val()) - 1);
 	}
 };
 
 SavedProperty.next = function() {
-	if ($('.active_page').next('.page_link').length == true) {
+	if ($('.active_page').next('.page_link').length === true) {
 		SavedProperty.go_to_page(parseInt($('#current_page').val()) + 1);
 	}
 };
@@ -134,44 +134,49 @@ SavedProperty.go_to_page = function(page_num) {
 	var show_per_page = parseInt($('#show_per_page').val(), 10);
 	var number_of_items = $('#favorite_properties').children().size();
 	var number_of_pages = Math.ceil(number_of_items / show_per_page);
+        
+        $('.main_pagination_div').each(function() {
+        $(this).find('.page_link').css({"pointer-events": "visible ", "color": "#227BBD"});
+        $(this).find('.page_link_' + page_num).css({"pointer-events": "none", "color": "#ccc"});
 
-	$('.page_link').css({"pointer-events":"visible ","color":"#227BBD"});
-	$('#page_link_'+page_num).css({"pointer-events":"none","color":"#ccc"});
+        if (page_num > 0) {
+            $(this).find('.previous_link').css({"pointer-events": "visible ", "color": "#227BBD"});
+        }
+        else {
+            $(this).find('.previous_link').css({"pointer-events": "none", "color": "#ccc"});
+        }
 
-	if (page_num > 0) {
-		$('.previous_link').css({"pointer-events":"visible ","color":"#227BBD"});
-	}
-	else {
-		$('.previous_link').css({"pointer-events":"none","color":"#ccc"});
-	}
+        if (page_num == number_of_pages - 1) {
+            $(this).find('.next_link').css({"pointer-events": "none", "color": "#ccc"});
+            var startfrom = show_per_page * parseFloat(number_of_pages - 1);
+            $(this).find('.resultcount').html(startfrom + '-' + number_of_items);
+        }
+        else {
+            if (page_num == 0) {
+                var startfrom = 1;
+            }
+            else if (page_num == 1) {
+                var startfrom = show_per_page + 1;
+            }
+            else {
+                var startfrom = (show_per_page * parseFloat(page_num)) + 1;
+            }
 
-	if (page_num == number_of_pages - 1) {
-		$('.next_link').css({"pointer-events":"none","color":"#ccc"});
-		var startfrom = show_per_page*parseFloat(number_of_pages-1);
-		$('.resultcount').html(startfrom+'-'+number_of_items);
-	}
-	else {
-		if (page_num == 0) {
-			var startfrom=1;
-		}
-		else if (page_num == 1) {
-			var startfrom = show_per_page+1;
-		}
-		else {
-			var startfrom=(show_per_page*parseFloat(page_num))+1;
-		}
+            var endto = show_per_page * parseFloat(page_num + 1);
+            $(this).find('.resultcount').html(startfrom + '-' + endto);
+            $(this).find('.next_link').css({"pointer-events": "visible ", "color": "#227BBD"});
+        }
 
-		var endto=show_per_page*parseFloat(page_num+1);
-		$('.resultcount').html(startfrom+'-'+endto);
-		$('.next_link').css({"pointer-events":"visible ","color":"#227BBD"});
-	}
+        $(this).find('.page_link[longdesc=' + page_num + ']').addClass('active_page').siblings('.active_page').removeClass('active_page');
 
-	start_from = page_num * show_per_page;
-	end_on = start_from + show_per_page;
+    });
 
-	$('#favorite_properties').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
-	$('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');
-	$('#current_page').val(page_num);
+    var start_from = page_num * show_per_page;
+    var end_on = start_from + show_per_page;
+
+    $('#favorite_properties').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+    $('#current_page').val(page_num).change();
+        
 };
 
 SavedProperty.edit = function(id, triggerElem) {

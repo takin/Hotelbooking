@@ -1265,47 +1265,6 @@ class CMain extends I18n_site {
             $this->api_forced = true;
         }
 
-        if ($this->api_used == HB_API) {
-            $this->load->library('hw_engine');
-            try {
-                $data_engine = $this->hw_engine->property_info($data, $property_number);
-                if (isset($data_engine['property_name']) && isset($data_engine['property_number'])) {
-                    if (url_title($data_engine['property_name']) == $property_name) {
-                        $this->api_used = HW_API;
-                        $this->api_view_dir = "hw/";
-                        $this->hostel_controller = "chostel";
-                        $this->session->set_userdata('switch_api', true);
-                    } else {
-                        $this->session->set_userdata('switch_api', false);
-                    }
-                } else {
-                    $this->session->set_userdata('switch_api', false);
-                }
-            } catch (Exception $e) {
-                $this->session->set_userdata('switch_api', false);
-            }
-        } else {
-            $this->load->library('hb_engine');
-            try {
-                $data_engine = $this->hb_engine->property_info($data, $property_number);
-                if (isset($data_engine['property_name']) && isset($data_engine['property_number'])) {
-                    if (url_title($data_engine['property_name']) == $property_name) {
-                        $this->api_used = HB_API;
-                        $this->api_view_dir = "hb/";
-                        $this->hostel_controller = "chostelbk";
-                        $this->session->set_userdata('switch_api', true);
-                    } else {
-                        $this->session->set_userdata('switch_api', false);
-                    }
-                } else {
-                    $this->session->set_userdata('switch_api', false);
-                }
-            } catch (Exception $e) {
-                $this->session->set_userdata('switch_api', false);
-            }
-        }
-
-
         $this->load->model('i18n/db_translation_cache');
 
         if ($this->api_used == HB_API) {
