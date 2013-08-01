@@ -149,7 +149,7 @@ if ( !empty($city_districts) || !empty($city_landmarks) ) { ?>
             <div id="city_side_map_container">
                     <div id="show_expanded_map" class="box_content box_round group side_search">
                         <a href="javascript:void(0);">
-                                <?php echo _("Click here to expand map"); ?>
+                                <?php echo _("Click to expand map"); ?>
                         </a>
                     </div>  
                     <div class="box_content map_button_box box_round" id="city_side_map"></div>

@@ -681,7 +681,7 @@ if (($sharedRoomCount === 0) && ($privateRoomCount === 0 )) {
 } else {
     ?>
 
-    <form class="group" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
+    <form class="group" id="booking_form" onsubmit="return handleBookingForm();" method="post" action="<?php echo secure_site_url($this->Db_links->get_link("booking")); ?>">
         <?php
         if ($this->session->userdata('switch_api')) {
             echo form_hidden('api_shortname', 'hb');
@@ -1330,4 +1330,73 @@ echo isset($privateRoomsCluetipTable) ? $privateRoomsCluetipTable : '';
         }
     });
 
+    // handle submit booking form
+    var bookingAgreed = false;
+    function handleBookingForm() {
+        try {
+            if (bookingAgreed || !$('#important_information_content').length || !$('#important_information_content').html()) {
+                return true;
+            }
+    
+            var personsFields = $('select[name="book-nbPersons[]"]');
+            var persons = 0;
+    
+            if (typeof(personsFields) != 'undefined' && personsFields.length) {
+                for (var i = 0; i < personsFields.length; i++) {
+                    var elem = $(personsFields[i]);
+    
+                    if (typeof(elem) != 'undefined' && elem.length) {
+                        persons += parseInt(elem.val(), 10);
+                    }
+                }
+            }
+    
+            if (persons < 5) {
+                return true;
+            }
+    
+            $('input[name="agree"]:checked').attr('checked', false);
+    
+            var content = $('#important_information_content').html();
+            var contentObj = $('<div>');
+            contentObj.html(content);
+            contentObj.find('h2').remove();
+    
+            $('#booking_confirm_dialog .content_important_info').html('<div class="content_block">' + contentObj.html() + '</div>');
+    
+            // now show the pop-up
+            $('#booking_confirm_dialog').show();
+        }
+        catch (err) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function closeBookingFormConfirm() {
+        try {
+            $('#booking_confirm_dialog').hide();
+        }
+        catch(err) {
+        }
+    }
+
+    $('input[name="agree"]').change(function() {
+        var obj = $(this);
+
+        var agreed = parseInt(obj.val(), 10);
+
+        if (agreed) {
+            bookingAgreed = true;
+
+            // send the form
+            setTimeout(function() {
+                $('#booking_form').submit();
+            }, 300);
+        }
+        else {
+            setTimeout(closeBookingFormConfirm, 300);
+        }
+    });
 </script> 

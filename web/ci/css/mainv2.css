@@ -2448,6 +2448,7 @@ text-align: -webkit-center;
 	text-decoration: underline;
 }
 
+#booking_confirm_dialog,
 #save_property_dialog,
 #share-overlay {
 	position: fixed;
@@ -2464,10 +2465,12 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#booking_confirm_dialog,
 #save_property_dialog {
 	background: url('../images/fancybox_overlay.png');
 }
 
+#booking_confirm_dialog .content_container,
 #save_property_dialog .content_container {
 	margin: 0 auto;
 /*	height: 630px;*/
@@ -2491,10 +2494,12 @@ text-align: -webkit-center;
 	margin: 0;
 }
 
+#booking_confirm_dialog .content #content
 #save_property_dialog .content #content {
 	margin: 10px;
 }
 
+#booking_confirm_dialog .close,
 #save_property_dialog .close {
 	float: right;
 	width: 50px;
@@ -2529,6 +2534,21 @@ text-align: -webkit-center;
 	display: none;
 }
 
+#booking_confirm_dialog .content {
+	padding: 10px;
+}
+
+#booking_confirm_dialog .content_block select.select-translate {
+	position: relative;
+	float: right;
+	top: 0;
+}
+
+#booking_confirm_dialog .content label {
+	color: #000;
+}
+
+#booking_confirm_dialog .title,
 #share-overlay .content .title {
 	color: #00359f;
 	font-weight: bold;
@@ -2990,6 +3010,7 @@ width: 275px;}
 	border: none;
 }
 
+#booking_confirm_dialog .title,
 #save_property_dialog .title {
 	padding: 10px;
 	background-color: #00aeec;
@@ -3317,14 +3338,14 @@ width: 275px;}
 .filter_landmark_link ,.filter_district_link{
     float: left;
     margin-left: 4px;
-    margin-right: 9px;
-    width: 35%;
+    margin-right: 4px;
+    width: 37%;
 }
 .leftside_filter_links{
     width: 100% !important;    
 }
 #middleside_filter_links_container{
-    width: 34%;
+    width: 48%;
 }
 #middleside_filter_links_container li{
     margin-left: 5px;
@@ -3332,7 +3353,7 @@ width: 275px;}
 #header_pagination{
     border-width: 2px;
     margin-left: 2px;
-    width: 62%;
+    width: 50%;
 }
 .main_pagination_div{
     height: 23px;
@@ -3340,4 +3361,9 @@ width: 275px;}
 }
 #header_pageNavigation_container{
     width: 101%;
+    overflow: hidden;
+}
+#middleside_filter_links_container div{
+    width: 40%;
+    min-height: 29px;
 }
