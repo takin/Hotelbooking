@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: home 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-19 22:33+0300\n"
-"PO-Revision-Date: 2013-06-28 21:11+0200\n"
+"POT-Creation-Date: 2013-07-30 20:21+0300\n"
+"PO-Revision-Date: 2013-07-30 21:25+0200\n"
 "Last-Translator: Iana <hrapulya@gmail.com>\n"
 "Language-Team: English\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "예약"
 
 #: ../code/application/views/property_detail.php:111
 #: ../code/application/views/mustache/property_quick_view.php:48
-#: ../code/application/views/hb/hostel_view.php:835
+#: ../code/application/views/hb/hostel_view.php:867
 #: ../code/application/views/restricted/user_group_quote.php:196
 msgid "What's Included"
 msgstr "포함된 사항"
@@ -49,27 +49,27 @@ msgstr "포함된 사항"
 #: ../code/application/views/mustache/property_quick_view.php:52
 #: ../code/application/views/city_view.php:5
 #: ../code/application/views/hw/property_list.php:1
-#: ../code/application/views/hb/booking_view.php:254
+#: ../code/application/views/hb/booking_view.php:266
 #: ../code/application/views/hb/property_list.php:97
-#: ../code/application/views/hb/hostel_view.php:510
-#: ../code/application/views/hb/hostel_view.php:846
-#: ../code/application/views/hb/hostel_view.php:851
-#: ../code/application/views/hb/hostel_view.php:857
+#: ../code/application/views/hb/hostel_view.php:533
+#: ../code/application/views/hb/hostel_view.php:878
+#: ../code/application/views/hb/hostel_view.php:883
+#: ../code/application/views/hb/hostel_view.php:889
 msgid "Free"
 msgstr "무료"
 
 #: ../code/application/views/property_detail.php:137
 #: ../code/application/views/mobile/hw/hostel_view.php:114
 #: ../code/application/views/mustache/property_quick_view.php:59
-#: ../code/application/views/hw/hostel_view.php:652
-#: ../code/application/views/hb/hostel_view.php:763
+#: ../code/application/views/hw/hostel_view.php:661
+#: ../code/application/views/hb/hostel_view.php:795
 msgid "Commodité"
 msgstr "편의성"
 
 #: ../code/application/views/property_detail.php:169
 #: ../code/application/views/mustache/property_quick_view.php:101
-#: ../code/application/views/compare_property.php:388
-#: ../code/application/views/compare_property.php:391
+#: ../code/application/views/compare_property.php:408
+#: ../code/application/views/compare_property.php:411
 #: ../code/application/views/helpfile/pofields.php~:623
 #: ../code/application/views/helpfile/pofields.php:623
 #, php-format
@@ -78,12 +78,14 @@ msgstr "지도"
 
 #: ../code/application/views/property_detail.php:184
 #: ../code/application/views/mustache/property_quick_view.php:111
-#: ../code/application/views/mustache/property_list.php:89
-#: ../code/application/views/city_view.php:347
-#: ../code/application/views/hw/hostel_view.php:288
-#: ../code/application/views/hw/hostel_view.php:761
-#: ../code/application/views/hb/hostel_view.php:371
-#: ../code/application/views/hb/hostel_view.php:1009
+#: ../code/application/views/mustache/property_list.php:96
+#: ../code/application/views/mustache/property_list.php:98
+#: ../code/application/views/city_view.php:439
+#: ../code/application/views/includes/side_districts.php:47
+#: ../code/application/views/hw/hostel_view.php:296
+#: ../code/application/views/hw/hostel_view.php:771
+#: ../code/application/views/hb/hostel_view.php:394
+#: ../code/application/views/hb/hostel_view.php:1042
 #: ../code/application/views/helpfile/pofields.php~:447
 #: ../code/application/views/helpfile/pofields.php:447
 #, php-format
@@ -92,12 +94,13 @@ msgstr "지역"
 
 #: ../code/application/views/property_detail.php:213
 #: ../code/application/views/mustache/property_quick_view.php:127
-#: ../code/application/views/mustache/property_list.php:94
-#: ../code/application/views/city_view.php:351
-#: ../code/application/views/hw/hostel_view.php:312
-#: ../code/application/views/hw/hostel_view.php:790
-#: ../code/application/views/hb/hostel_view.php:395
-#: ../code/application/views/hb/hostel_view.php:1038
+#: ../code/application/views/mustache/property_list.php:105
+#: ../code/application/views/mustache/property_list.php:107
+#: ../code/application/views/city_view.php:443
+#: ../code/application/views/hw/hostel_view.php:320
+#: ../code/application/views/hw/hostel_view.php:800
+#: ../code/application/views/hb/hostel_view.php:418
+#: ../code/application/views/hb/hostel_view.php:1071
 msgid "Landmarks (within 2km)"
 msgstr "랜드마크(2km 이내)"
 
@@ -288,11 +291,11 @@ msgstr "2분 거리에 있습니다."
 #: ../code/application/views/mustache/property_quick_view.php:146
 #: ../code/application/views/hw/booking_end_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:1123
-#: ../code/application/views/hw/hostel_view.php:719
+#: ../code/application/views/hw/hostel_view.php:728
 #: ../code/application/views/hb/booking_end_view.php:107
 #: ../code/application/views/hb/booking_avail_view.php:1017
-#: ../code/application/views/hb/booking_view.php:820
-#: ../code/application/views/hb/hostel_view.php:950
+#: ../code/application/views/hb/booking_view.php:833
+#: ../code/application/views/hb/hostel_view.php:982
 #: ../code/application/views/email/new_transaction_hb.php:506
 msgid "Informations Importantes"
 msgstr "중요 정보"
@@ -309,21 +312,21 @@ msgstr "최근 후기"
 #: ../code/application/views/property_detail.php:566
 #: ../code/application/views/property_detail.php:669
 #: ../code/application/views/mustache/city_map_property_infow.php:12
-#: ../code/application/views/mustache/property_list.php:23
-#: ../code/application/views/mustache/property_list.php:128
-#: ../code/application/views/includes/header.php:479
-#: ../code/application/views/includes/header.php:534
-#: ../code/application/views/hw/hostel_view.php:498
-#: ../code/application/views/hb/hostel_view.php:56
-#: ../code/application/views/hb/hostel_view.php:603
+#: ../code/application/views/mustache/property_list.php:30
+#: ../code/application/views/mustache/property_list.php:143
+#: ../code/application/views/includes/header.php:729
+#: ../code/application/views/includes/header.php:784
+#: ../code/application/views/hw/hostel_view.php:506
+#: ../code/application/views/hb/hostel_view.php:76
+#: ../code/application/views/hb/hostel_view.php:626
 #: ../code/application/views/city_ajax_view.php:49
 #: ../code/application/views/city_ajax_view.php:104
 msgid "évaluation moyenne"
 msgstr "평균 평점"
 
 #: ../code/application/views/property_detail.php:588
-#: ../code/application/views/hb/hostel_view.php:80
-#: ../code/application/views/compare_property.php:239
+#: ../code/application/views/hb/hostel_view.php:100
+#: ../code/application/views/compare_property.php:259
 #: ../code/application/views/helpfile/pofields.php~:638
 #: ../code/application/views/helpfile/pofields.php:638
 #, php-format
@@ -331,8 +334,8 @@ msgid "Atmosphere"
 msgstr "분위기"
 
 #: ../code/application/views/property_detail.php:591
-#: ../code/application/views/hb/hostel_view.php:83
-#: ../code/application/views/compare_property.php:245
+#: ../code/application/views/hb/hostel_view.php:103
+#: ../code/application/views/compare_property.php:265
 #: ../code/application/views/helpfile/pofields.php~:639
 #: ../code/application/views/helpfile/pofields.php:639
 #, php-format
@@ -340,10 +343,10 @@ msgid "Staff"
 msgstr "직원"
 
 #: ../code/application/views/property_detail.php:594
-#: ../code/application/views/mustache/property_list.php:212
-#: ../code/application/views/mustache/property_list.php:217
-#: ../code/application/views/mustache/property_list.php:222
-#: ../code/application/views/hb/hostel_view.php:86
+#: ../code/application/views/mustache/property_list.php:227
+#: ../code/application/views/mustache/property_list.php:232
+#: ../code/application/views/mustache/property_list.php:237
+#: ../code/application/views/hb/hostel_view.php:106
 #: ../code/application/views/helpfile/pofields.php~:193
 #: ../code/application/views/helpfile/pofields.php~:630
 #: ../code/application/views/helpfile/pofields.php:193
@@ -354,8 +357,8 @@ msgid "Location"
 msgstr "위치"
 
 #: ../code/application/views/property_detail.php:597
-#: ../code/application/views/hb/hostel_view.php:89
-#: ../code/application/views/compare_property.php:257
+#: ../code/application/views/hb/hostel_view.php:109
+#: ../code/application/views/compare_property.php:277
 #: ../code/application/views/helpfile/pofields.php~:641
 #: ../code/application/views/helpfile/pofields.php:641
 #, php-format
@@ -363,10 +366,10 @@ msgid "Cleanliness"
 msgstr "청결"
 
 #: ../code/application/views/property_detail.php:600
-#: ../code/application/views/city_view.php:156
-#: ../code/application/views/city_view.php:343
-#: ../code/application/views/hb/hostel_view.php:92
-#: ../code/application/views/compare_property.php:280
+#: ../code/application/views/city_view.php:186
+#: ../code/application/views/city_view.php:435
+#: ../code/application/views/hb/hostel_view.php:112
+#: ../code/application/views/compare_property.php:300
 #: ../code/application/views/helpfile/pofields.php~:448
 #: ../code/application/views/helpfile/pofields.php~:657
 #: ../code/application/views/helpfile/pofields.php:448
@@ -376,15 +379,15 @@ msgid "Facilities"
 msgstr "시설"
 
 #: ../code/application/views/property_detail.php:603
-#: ../code/application/views/mustache/property_list.php:83
-#: ../code/application/views/mustache/property_list.php:197
-#: ../code/application/views/mustache/property_list.php:202
-#: ../code/application/views/mustache/property_list.php:207
-#: ../code/application/views/mustache/property_list.php:303
+#: ../code/application/views/mustache/property_list.php:90
+#: ../code/application/views/mustache/property_list.php:212
+#: ../code/application/views/mustache/property_list.php:217
+#: ../code/application/views/mustache/property_list.php:222
+#: ../code/application/views/mustache/property_list.php:320
 #: ../code/application/views/hb/property_list.php:113
-#: ../code/application/views/hb/hostel_view.php:95
-#: ../code/application/views/hb/hostel_view.php:523
-#: ../code/application/views/compare_property.php:269
+#: ../code/application/views/hb/hostel_view.php:115
+#: ../code/application/views/hb/hostel_view.php:546
+#: ../code/application/views/compare_property.php:289
 #: ../code/application/views/helpfile/pofields.php~:643
 #: ../code/application/views/helpfile/pofields.php:643
 #, php-format
@@ -392,8 +395,8 @@ msgid "Safety"
 msgstr "보안"
 
 #: ../code/application/views/property_detail.php:606
-#: ../code/application/views/hb/hostel_view.php:98
-#: ../code/application/views/compare_property.php:275
+#: ../code/application/views/hb/hostel_view.php:118
+#: ../code/application/views/compare_property.php:295
 #: ../code/application/views/helpfile/pofields.php~:644
 #: ../code/application/views/helpfile/pofields.php:644
 #, php-format
@@ -401,7 +404,7 @@ msgid "Value"
 msgstr "가치"
 
 #: ../code/application/views/property_detail.php:616
-#: ../code/application/views/hb/hostel_view.php:108
+#: ../code/application/views/hb/hostel_view.php:128
 msgid "N/A"
 msgstr "사용 불가능"
 
@@ -431,45 +434,45 @@ msgid "Le %s"
 msgstr "%s"
 
 #: ../code/application/views/property_detail.php:653
-#: ../code/application/views/hw/hostel_view.php:488
-#: ../code/application/views/hb/hostel_view.php:593
+#: ../code/application/views/hw/hostel_view.php:496
+#: ../code/application/views/hb/hostel_view.php:616
 #: ../code/application/views/helpfile/pofields.php~:418
 #: ../code/application/views/helpfile/pofields.php:418
-#: ../code/application/libraries/Hw_engine.php:742
-#: ../code/application/libraries/Hb_engine.php:873
+#: ../code/application/libraries/Hw_engine.php:737
+#: ../code/application/libraries/Hb_engine.php:963
 #, php-format
 msgid "Good"
 msgstr "좋음"
 
 #: ../code/application/views/property_detail.php:657
-#: ../code/application/views/hw/hostel_view.php:490
-#: ../code/application/views/hb/hostel_view.php:595
+#: ../code/application/views/hw/hostel_view.php:498
+#: ../code/application/views/hb/hostel_view.php:618
 #: ../code/application/views/helpfile/pofields.php~:417
 #: ../code/application/views/helpfile/pofields.php:417
-#: ../code/application/libraries/Hw_engine.php:746
-#: ../code/application/libraries/Hb_engine.php:876
+#: ../code/application/libraries/Hw_engine.php:741
+#: ../code/application/libraries/Hb_engine.php:966
 #, php-format
 msgid "Very good"
 msgstr "매우 좋음"
 
 #: ../code/application/views/property_detail.php:661
-#: ../code/application/views/hw/hostel_view.php:492
-#: ../code/application/views/hb/hostel_view.php:597
+#: ../code/application/views/hw/hostel_view.php:500
+#: ../code/application/views/hb/hostel_view.php:620
 #: ../code/application/views/helpfile/pofields.php~:601
 #: ../code/application/views/helpfile/pofields.php:601
-#: ../code/application/libraries/Hw_engine.php:750
-#: ../code/application/libraries/Hb_engine.php:879
+#: ../code/application/libraries/Hw_engine.php:745
+#: ../code/application/libraries/Hb_engine.php:969
 #, php-format
 msgid "Great"
 msgstr "우수하다"
 
 #: ../code/application/views/property_detail.php:665
-#: ../code/application/views/hw/hostel_view.php:494
-#: ../code/application/views/hb/hostel_view.php:599
+#: ../code/application/views/hw/hostel_view.php:502
+#: ../code/application/views/hb/hostel_view.php:622
 #: ../code/application/views/helpfile/pofields.php~:602
 #: ../code/application/views/helpfile/pofields.php:602
-#: ../code/application/libraries/Hw_engine.php:753
-#: ../code/application/libraries/Hb_engine.php:881
+#: ../code/application/libraries/Hw_engine.php:748
+#: ../code/application/libraries/Hb_engine.php:971
 #, php-format
 msgid "Fantastic"
 msgstr "환상적이다."
@@ -492,13 +495,13 @@ msgstr "날짜 입력"
 #: ../code/application/views/mobile/hw/booking_avail_view.php:87
 #: ../code/application/views/mobile/search_view.php:16
 #: ../code/application/views/mustache/save_property_dialog.php:29
-#: ../code/application/views/includes/side_search_box.php:190
+#: ../code/application/views/includes/side_search_box.php:191
 #: ../code/application/views/includes/search_box.php:116
 #: ../code/application/views/includes/city_search_box.php:139
 #: ../code/application/views/includes/city_lp_search_box.php:139
 #: ../code/application/views/includes/search_box_city.php:66
-#: ../code/application/views/hw/hostel_view.php:593
-#: ../code/application/views/hb/hostel_view.php:699
+#: ../code/application/views/hw/hostel_view.php:601
+#: ../code/application/views/hb/hostel_view.php:730
 #: ../code/application/views/group_request.php:97
 msgid "Arrivée le:"
 msgstr "도착일 :"
@@ -508,13 +511,13 @@ msgstr "도착일 :"
 #: ../code/application/views/mobile/hw/booking_avail_view.php:94
 #: ../code/application/views/mobile/search_view.php:25
 #: ../code/application/views/mustache/save_property_dialog.php:35
-#: ../code/application/views/includes/side_search_box.php:197
+#: ../code/application/views/includes/side_search_box.php:198
 #: ../code/application/views/includes/search_box.php:124
 #: ../code/application/views/includes/city_search_box.php:145
 #: ../code/application/views/includes/city_lp_search_box.php:145
 #: ../code/application/views/includes/search_box_city.php:73
-#: ../code/application/views/hw/hostel_view.php:603
-#: ../code/application/views/hb/hostel_view.php:709
+#: ../code/application/views/hw/hostel_view.php:611
+#: ../code/application/views/hb/hostel_view.php:740
 #: ../code/application/views/email/admin/new_group_request.php:24
 #: ../code/application/views/group_request.php:106
 msgid "Nuits:"
@@ -524,7 +527,7 @@ msgstr "숙박일:"
 #: ../code/application/views/mobile/search_view.php:48
 #: ../code/application/views/includes/side_search_box.php:24
 #: ../code/application/views/includes/side_search_box.php:26
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:158
 #: ../code/application/views/includes/city_lp_search_box.php:155
@@ -544,7 +547,7 @@ msgstr ""
 "30,000 이상의 유스 호스텔, 아파트, 베드 앤 브랙퍼스트(B&B), 게스트 하우스!!!!"
 
 #: ../code/application/views/mobile/city_view.php:43
-#: ../code/application/views/city_view.php:302
+#: ../code/application/views/city_view.php:330
 #: ../code/application/views/search_results.php:86
 #: ../code/application/views/search_results.php:121
 #: ../code/application/views/search_results.php:147
@@ -581,8 +584,8 @@ msgid "Cote"
 msgstr "평점 "
 
 #: ../code/application/views/mobile/city_view.php:84
-#: ../code/application/views/city_lp.php:228
-#: ../code/application/views/city_view.php:358
+#: ../code/application/views/city_lp.php:303
+#: ../code/application/views/city_view.php:450
 #: ../code/application/views/city_ajax_view.php:238
 #: ../code/application/views/city_ajax_view.php:400
 #: ../code/application/views/city_ajax_view.php:491
@@ -607,14 +610,14 @@ msgstr "홈 페이지"
 
 #: ../code/application/views/mobile/includes/footer.php:8
 #: ../code/application/views/includes/footer.php:93
-#: ../code/application/views/includes/header.php:1014
+#: ../code/application/views/includes/header.php:1287
 msgid "About us"
 msgstr "우리에 대해"
 
 #: ../code/application/views/mobile/includes/footer.php:9
 #: ../code/application/views/includes/footer.php:86
-#: ../code/application/views/includes/header_book.php:144
-#: ../code/application/views/includes/header.php:1016
+#: ../code/application/views/includes/header_book.php:151
+#: ../code/application/views/includes/header.php:1289
 msgid "Aide / FAQ / Nous Joindre"
 msgstr "도움 / 자주 묻는 질문 / 연락처"
 
@@ -642,8 +645,8 @@ msgid "Conditions"
 msgstr "이용 약관"
 
 #: ../code/application/views/mobile/includes/footer.php:12
-#: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1004
+#: ../code/application/views/includes/header_book.php:156
+#: ../code/application/views/includes/header.php:1277
 #: ../code/application/views/includes/top_box.php:16
 msgid "Se déconnecter"
 msgstr "로그아웃"
@@ -653,8 +656,8 @@ msgstr "로그아웃"
 #: ../code/application/views/mobile/home_view.php:5
 #: ../code/application/views/mobile/auth/forgot_password_form.php:33
 #: ../code/application/views/mobile/auth/login_form.php:69
-#: ../code/application/views/includes/header_book.php:146
-#: ../code/application/views/includes/header.php:1000
+#: ../code/application/views/includes/header_book.php:153
+#: ../code/application/views/includes/header.php:1273
 #: ../code/application/views/includes/top_box.php:12
 #: ../code/application/views/auth/register_form.php:223
 #: ../code/application/views/auth/forgot_password_form.php:30
@@ -677,7 +680,7 @@ msgstr ""
 "럽 숙박, 호텔 런던, 호텔 예약 파리"
 
 #: ../code/application/views/mobile/includes/header.php:16
-#: ../code/application/views/includes/header.php:30
+#: ../code/application/views/includes/header.php:120
 #: ../code/application/views/search_results.php:47
 #, php-format
 msgid ""
@@ -690,7 +693,7 @@ msgstr ""
 "사진, 팁, 행사, 가이드 호스텔"
 
 #: ../code/application/views/mobile/includes/header.php:20
-#: ../code/application/views/includes/header.php:41
+#: ../code/application/views/includes/header.php:136
 #, php-format
 msgid ""
 "Réservation immédiate et garantie de l’auberge %s à %s. Prix imbattables de "
@@ -700,7 +703,7 @@ msgstr "%s %s의 빠른 예약, 지도, %s을 %s와 함께 빠른 리뷰."
 #: ../code/application/views/mobile/includes/header.php:40
 #: ../code/application/views/mobile/user/user_view.php:4
 #: ../code/application/views/mobile/home_view.php:5
-#: ../code/application/views/includes/header_book.php:146
+#: ../code/application/views/includes/header_book.php:153
 #: ../code/application/views/includes/top_box.php:12
 msgid "Bienvenue!"
 msgstr "내 계정"
@@ -709,8 +712,10 @@ msgstr "내 계정"
 #: ../code/application/views/mobile/hw/booking_end_view.php:27
 #: ../code/application/views/hw/booking_end_view.php:29
 #: ../code/application/views/hw/booking_view.php:122
+#: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hb/booking_end_view.php:20
 #: ../code/application/views/hb/booking_view.php:93
+#: ../code/application/views/hb/booking_view.php:95
 msgid "Détails de la réservation"
 msgstr "예약 세부 사항"
 
@@ -746,7 +751,7 @@ msgstr "호스텔 이름"
 #: ../code/application/views/property_rooms_avail.php:494
 #: ../code/application/views/property_rooms_avail.php:496
 #: ../code/application/views/property_rooms_avail.php:497
-#: ../code/application/views/city_view.php:271
+#: ../code/application/views/city_view.php:301
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hw/booking_avail_view.php:158
 #: ../code/application/views/hw/booking_avail_view.php:195
@@ -871,7 +876,7 @@ msgstr "10 % 보증금이 청구됩니다."
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:195
 #: ../code/application/views/hw/booking_view.php:312
-#: ../code/application/views/hb/booking_view.php:243
+#: ../code/application/views/hb/booking_view.php:254
 msgid "Frais de Service"
 msgstr "서비스 요금"
 
@@ -884,16 +889,16 @@ msgstr "연간 멤버쉽 카드%s-면제:"
 #: ../code/application/views/mobile/hw/booking_confirm.php:244
 #: ../code/application/views/hw/booking_view.php:362
 #: ../code/application/views/hw/booking_view.php:949
-#: ../code/application/views/hb/booking_view.php:259
-#: ../code/application/views/hb/booking_view.php:733
+#: ../code/application/views/hb/booking_view.php:271
+#: ../code/application/views/hb/booking_view.php:746
 msgid "Total à payer maintenant"
 msgstr "총 지불금액"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:274
 #: ../code/application/views/hw/booking_view.php:416
 #: ../code/application/views/hw/booking_view.php:964
-#: ../code/application/views/hb/booking_view.php:273
-#: ../code/application/views/hb/booking_view.php:742
+#: ../code/application/views/hb/booking_view.php:285
+#: ../code/application/views/hb/booking_view.php:755
 msgid "est le montant total à payer à votre arrivée"
 msgstr "은 도착시 지불할 총액입니다."
 
@@ -904,7 +909,7 @@ msgstr "당신의 결제를 위한 통화를 선택해주십시오:"
 
 #: ../code/application/views/mobile/hw/booking_confirm.php:329
 #: ../code/application/views/hw/booking_view.php:1036
-#: ../code/application/views/hb/booking_view.php:845
+#: ../code/application/views/hb/booking_view.php:858
 msgid "Changements - Annulations"
 msgstr "변경 - 취소"
 
@@ -923,17 +928,11 @@ msgstr ""
 #: ../code/application/views/mobile/hw/booking_confirm.php:334
 #: ../code/application/views/mobile/hw/booking_avail_view.php:260
 #: ../code/application/views/hw/booking_avail_view.php:832
-#: ../code/application/views/hw/booking_view.php:124
 #: ../code/application/views/hw/booking_view.php:164
 #: ../code/application/views/hw/booking_view.php:233
-#: ../code/application/views/hw/booking_view.php:464
-#: ../code/application/views/hw/booking_view.php:675
 #: ../code/application/views/hw/booking_view.php:1047
 #: ../code/application/views/hb/booking_avail_view.php:792
-#: ../code/application/views/hb/booking_view.php:95
-#: ../code/application/views/hb/booking_view.php:294
-#: ../code/application/views/hb/booking_view.php:498
-#: ../code/application/views/hb/booking_view.php:857
+#: ../code/application/views/hb/booking_view.php:870
 msgid "Notes Importantes"
 msgstr "중요 사항"
 
@@ -1012,10 +1011,10 @@ msgstr "호스텔 정보"
 #: ../code/application/views/mobile/hw/booking_end_view.php:162
 #: ../code/application/views/hw/booking_end_view.php:196
 #: ../code/application/views/hw/booking_avail_view.php:1100
-#: ../code/application/views/hw/hostel_view.php:745
+#: ../code/application/views/hw/hostel_view.php:754
 #: ../code/application/views/hb/booking_end_view.php:133
 #: ../code/application/views/hb/booking_avail_view.php:994
-#: ../code/application/views/hb/hostel_view.php:978
+#: ../code/application/views/hb/hostel_view.php:1010
 #: ../code/application/views/email/new_transaction_hb.php:593
 #: ../code/application/views/email/new_transaction.php:949
 msgid "Adresse"
@@ -1025,7 +1024,7 @@ msgstr "주소"
 #: ../code/application/views/mobile/user/user_bookings.php:59
 #: ../code/application/views/mobile/user/user_profile.php:41
 #: ../code/application/views/hw/booking_view.php:538
-#: ../code/application/views/hb/booking_view.php:412
+#: ../code/application/views/hb/booking_view.php:424
 #: ../code/application/views/restricted/user_profile.php:73
 #: ../code/application/controllers/user.php:83
 msgid "Téléphone"
@@ -1056,10 +1055,10 @@ msgstr "이메일"
 #: ../code/application/views/mobile/hw/booking_end_view.php:194
 #: ../code/application/views/hw/booking_end_view.php:218
 #: ../code/application/views/hw/booking_avail_view.php:1116
-#: ../code/application/views/hw/hostel_view.php:825
+#: ../code/application/views/hw/hostel_view.php:835
 #: ../code/application/views/hb/booking_end_view.php:159
 #: ../code/application/views/hb/booking_avail_view.php:1010
-#: ../code/application/views/hb/hostel_view.php:1072
+#: ../code/application/views/hb/hostel_view.php:1107
 #: ../code/application/views/email/new_transaction_hb.php:655
 #: ../code/application/views/email/new_transaction.php:1008
 msgid "Directions"
@@ -1252,7 +1251,7 @@ msgid "Search for another hostel"
 msgstr "다른 호스텔 검색하기"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:3
-#: ../code/application/views/mustache/property_list.php:288
+#: ../code/application/views/mustache/property_list.php:305
 #: ../code/application/views/hw/booking_avail_view.php:10
 #: ../code/application/views/hb/booking_avail_error_view.php:1
 #: ../code/application/views/hb/booking_avail_view.php:9
@@ -1262,8 +1261,8 @@ msgstr "예약 가능 "
 #: ../code/application/views/mobile/hw/booking_avail_view.php:12
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/mobile/hw/booking_avail_view.php:33
-#: ../code/application/views/hw/hostel_view.php:63
-#: ../code/application/views/hb/hostel_view.php:144
+#: ../code/application/views/hw/hostel_view.php:68
+#: ../code/application/views/hb/hostel_view.php:164
 msgid "Erreur:"
 msgstr "오류 :"
 
@@ -1274,21 +1273,21 @@ msgstr "죄송합니다. 선택하신 날짜에 룸이 없습니다."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:23
 #: ../code/application/views/hw/booking_avail_view.php:921
-#: ../code/application/controllers/chostelbk.php:196
-#: ../code/application/libraries/Hb_engine.php:1154
+#: ../code/application/controllers/chostelbk.php:191
+#: ../code/application/libraries/Hb_engine.php:1247
 msgid "Serveur inaccessible en ce moment."
 msgstr "서버가 일시적으로 다운되었습니다."
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:47
 #: ../code/application/views/hw/booking_avail_view.php:942
-#: ../code/application/views/hw/hostel_view.php:74
+#: ../code/application/views/hw/hostel_view.php:79
 #: ../code/application/views/hb/booking_avail_error_view.php:19
-#: ../code/application/views/hb/hostel_view.php:155
+#: ../code/application/views/hb/hostel_view.php:175
 msgid "Détails:"
 msgstr "세부 사항 :"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:77
-#: ../code/application/views/city_view.php:274
+#: ../code/application/views/city_view.php:304
 #: ../code/application/views/hw/booking_avail_view.php:19
 #: ../code/application/views/hb/booking_avail_error_view.php:7
 #: ../code/application/views/hb/booking_avail_view.php:18
@@ -1299,20 +1298,20 @@ msgid "Change Dates"
 msgstr "날짜 변경"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:100
-#: ../code/application/views/includes/side_search_box.php:205
+#: ../code/application/views/includes/side_search_box.php:206
 #: ../code/application/views/includes/search_box.php:164
 #: ../code/application/views/includes/city_search_box.php:151
 #: ../code/application/views/includes/city_lp_search_box.php:150
 #: ../code/application/views/includes/currency.php:3
 #: ../code/application/views/includes/search_box_city.php:79
-#: ../code/application/views/hw/hostel_view.php:607
-#: ../code/application/views/hb/hostel_view.php:713
+#: ../code/application/views/hw/hostel_view.php:615
+#: ../code/application/views/hb/hostel_view.php:744
 msgid "Devise:"
 msgstr "화폐:"
 
 #: ../code/application/views/mobile/hw/booking_avail_view.php:117
-#: ../code/application/views/hw/hostel_view.php:237
-#: ../code/application/views/hb/hostel_view.php:300
+#: ../code/application/views/hw/hostel_view.php:242
+#: ../code/application/views/hb/hostel_view.php:320
 msgid "Soumettre"
 msgstr "제출"
 
@@ -1339,7 +1338,9 @@ msgstr "지금 예약하기"
 
 #: ../code/application/views/mobile/hw/booking_view.php:11
 #: ../code/application/views/hw/booking_view.php:462
-#: ../code/application/views/hb/booking_view.php:292
+#: ../code/application/views/hw/booking_view.php:464
+#: ../code/application/views/hb/booking_view.php:304
+#: ../code/application/views/hb/booking_view.php:306
 msgid "Informations personnelles - Sécurisées et Encryptées"
 msgstr "게스트 정보"
 
@@ -1352,16 +1353,16 @@ msgid "Nom:"
 msgstr "성:"
 
 #: ../code/application/views/mobile/hw/booking_view.php:33
-#: ../code/application/views/hw/hostel_view.php:168
-#: ../code/application/views/hb/hostel_view.php:231
+#: ../code/application/views/hw/hostel_view.php:173
+#: ../code/application/views/hb/hostel_view.php:251
 #: ../code/application/controllers/cmain.php:445
 msgid "Nationalité :"
 msgstr "국적 :"
 
 #: ../code/application/views/mobile/hw/booking_view.php:34
-#: ../code/application/views/includes/side_search_box.php:51
-#: ../code/application/views/includes/side_search_box.php:174
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/includes/side_search_box.php:52
+#: ../code/application/views/includes/side_search_box.php:175
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:16
 #: ../code/application/views/includes/search_box.php:26
 #: ../code/application/views/includes/search_box.php:169
@@ -1371,12 +1372,12 @@ msgstr "국적 :"
 #: ../code/application/views/includes/city_lp_search_box.php:115
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:901
-#: ../code/application/views/includes/header.php:904
+#: ../code/application/views/includes/header.php:1174
+#: ../code/application/views/includes/header.php:1177
 #: ../code/application/views/hw/booking_view.php:496
-#: ../code/application/views/hw/hostel_view.php:169
-#: ../code/application/views/hb/booking_view.php:325
-#: ../code/application/views/hb/hostel_view.php:232
+#: ../code/application/views/hw/hostel_view.php:174
+#: ../code/application/views/hb/booking_view.php:337
+#: ../code/application/views/hb/hostel_view.php:252
 #: ../code/application/views/restricted/admin/group_quote.php:59
 #: ../code/application/views/group_request.php:75
 #: ../code/application/views/group_request.php:80
@@ -1404,14 +1405,14 @@ msgstr "여성"
 
 #: ../code/application/views/mobile/hw/booking_view.php:46
 #: ../code/application/views/hw/booking_view.php:566
-#: ../code/application/views/hb/booking_view.php:432
+#: ../code/application/views/hb/booking_view.php:444
 #: ../code/application/controllers/cmain.php:447
 msgid "Heure d'arrivée:"
 msgstr "도착 시간:"
 
 #: ../code/application/views/mobile/hw/booking_view.php:76
 #: ../code/application/views/hw/booking_view.php:514
-#: ../code/application/views/hb/booking_view.php:389
+#: ../code/application/views/hb/booking_view.php:401
 #: ../code/application/views/group_request.php:237
 #: ../code/application/controllers/cmain.php:448
 msgid "Adresse Email"
@@ -1419,7 +1420,7 @@ msgstr "이메일 주소"
 
 #: ../code/application/views/mobile/hw/booking_view.php:81
 #: ../code/application/views/hw/booking_view.php:525
-#: ../code/application/views/hb/booking_view.php:399
+#: ../code/application/views/hb/booking_view.php:411
 #: ../code/application/views/group_request.php:246
 #: ../code/application/controllers/cmain.php:449
 msgid "Confirmation Email"
@@ -1431,7 +1432,7 @@ msgstr "전화번호 (국가 번호를 입력하세요)"
 
 #: ../code/application/views/mobile/hw/booking_view.php:88
 #: ../code/application/views/hw/booking_view.php:540
-#: ../code/application/views/hb/booking_view.php:414
+#: ../code/application/views/hb/booking_view.php:426
 #: ../code/application/views/group_request.php:259
 msgid ""
 "Country code, Area code (without first 0) and mobile number; no spaces, "
@@ -1449,7 +1450,7 @@ msgstr "한국으로 전화 걸때: 82103456789"
 #: ../code/application/views/hw/booking_view.php:59
 #: ../code/application/views/hw/booking_view.php:552
 #: ../code/application/views/hb/booking_view.php:48
-#: ../code/application/views/hb/booking_view.php:423
+#: ../code/application/views/hb/booking_view.php:435
 #: ../code/application/views/helpfile/pofields.php~:17
 #: ../code/application/views/helpfile/pofields.php:17
 msgid "Text/SMS (FREE)"
@@ -1458,7 +1459,7 @@ msgstr "무료 문자/SMS "
 #: ../code/application/views/mobile/hw/booking_view.php:97
 #: ../code/application/views/mobile/user/user_profile.php:52
 #: ../code/application/views/hw/booking_view.php:618
-#: ../code/application/views/hb/booking_view.php:464
+#: ../code/application/views/hb/booking_view.php:476
 #: ../code/application/views/restricted/user_profile.php:85
 #: ../code/application/views/auth/register_form.php:205
 msgid "Abonnement newsletter"
@@ -1466,7 +1467,7 @@ msgstr "뉴스 레터 구독"
 
 #: ../code/application/views/mobile/hw/booking_view.php:99
 #: ../code/application/views/hw/booking_view.php:620
-#: ../code/application/views/hb/booking_view.php:466
+#: ../code/application/views/hb/booking_view.php:478
 msgid "cliquer ici pour notre charte"
 msgstr ""
 "우리의 개인정보 문서를 보기위해서 여기를 클릭하세요. 저희는 귀하의 개인 정보"
@@ -1474,7 +1475,9 @@ msgstr ""
 
 #: ../code/application/views/mobile/hw/booking_view.php:107
 #: ../code/application/views/hw/booking_view.php:673
-#: ../code/application/views/hb/booking_view.php:496
+#: ../code/application/views/hw/booking_view.php:675
+#: ../code/application/views/hb/booking_view.php:509
+#: ../code/application/views/hb/booking_view.php:511
 msgid "Méthode de Paiement - Sécurisée et Encryptée"
 msgstr "지불 방법 - 보안과 암호화"
 
@@ -1486,7 +1489,7 @@ msgstr "카드 종류 : %s "
 
 #: ../code/application/views/mobile/hw/booking_view.php:288
 #: ../code/application/views/hw/booking_view.php:689
-#: ../code/application/views/hb/booking_view.php:507
+#: ../code/application/views/hb/booking_view.php:520
 #: ../code/application/controllers/cmain.php:452
 #, php-format
 msgid "sur la carte %s de crédit :"
@@ -1494,14 +1497,14 @@ msgstr "신용카드 위의 %s"
 
 #: ../code/application/views/mobile/hw/booking_view.php:292
 #: ../code/application/views/hw/booking_view.php:697
-#: ../code/application/views/hb/booking_view.php:515
+#: ../code/application/views/hb/booking_view.php:528
 #: ../code/application/controllers/cmain.php:453
 msgid "Numéro"
 msgstr "넘버"
 
 #: ../code/application/views/mobile/hw/booking_view.php:292
 #: ../code/application/views/hw/booking_view.php:697
-#: ../code/application/views/hb/booking_view.php:515
+#: ../code/application/views/hb/booking_view.php:528
 #: ../code/application/controllers/cmain.php:453
 #, php-format
 msgid "de la carte %s de crédit :"
@@ -1509,7 +1512,7 @@ msgstr "신용카드 번호 %s"
 
 #: ../code/application/views/mobile/hw/booking_view.php:296
 #: ../code/application/views/hw/booking_view.php:842
-#: ../code/application/views/hb/booking_view.php:634
+#: ../code/application/views/hb/booking_view.php:647
 #: ../code/application/controllers/cmain.php:454
 #: ../code/application/controllers/cmain.php:455
 msgid "Date d'expiration :"
@@ -1517,33 +1520,33 @@ msgstr "만료일"
 
 #: ../code/application/views/mobile/hw/booking_view.php:332
 #: ../code/application/views/hw/booking_view.php:887
-#: ../code/application/views/hb/booking_view.php:672
+#: ../code/application/views/hb/booking_view.php:685
 #: ../code/application/controllers/cmain.php:456
 msgid "Code de sécurité :"
 msgstr "코드 "
 
 #: ../code/application/views/mobile/hw/booking_view.php:337
 #: ../code/application/views/hw/booking_view.php:902
-#: ../code/application/views/hb/booking_view.php:690
+#: ../code/application/views/hb/booking_view.php:703
 msgid "Valide depuis :"
 msgstr "유효 시작일 :"
 
 #: ../code/application/views/mobile/hw/booking_view.php:366
 #: ../code/application/views/hw/booking_view.php:898
-#: ../code/application/views/hb/booking_view.php:686
+#: ../code/application/views/hb/booking_view.php:699
 msgid "Numéro d'émission :"
 msgstr "발행 번호 :"
 
 #: ../code/application/views/mobile/hw/booking_view.php:372
 #: ../code/application/views/hw/booking_view.php:940
-#: ../code/application/views/hb/booking_view.php:724
+#: ../code/application/views/hb/booking_view.php:737
 #, php-format
 msgid "J'accepte %s les termes et conditions %s"
 msgstr "저는 %s의 기간과 조건을 수락합니다 %s"
 
 #: ../code/application/views/mobile/hw/booking_view.php:376
 #: ../code/application/views/hw/booking_view.php:966
-#: ../code/application/views/hb/booking_view.php:745
+#: ../code/application/views/hb/booking_view.php:758
 msgid ""
 "* En cliquant sur le bouton de Confirmation ci-dessous, vous acceptez les "
 "modalités et les conditions et autorisez la facturation d'un montant non "
@@ -1578,31 +1581,31 @@ msgstr ""
 #: ../code/application/views/hw/booking_view.php:879
 #: ../code/application/views/hw/booking_view.php:880
 #: ../code/application/views/hw/booking_view.php:891
-#: ../code/application/views/hw/hostel_view.php:135
-#: ../code/application/views/hw/hostel_view.php:147
-#: ../code/application/views/hw/hostel_view.php:162
-#: ../code/application/views/hw/hostel_view.php:174
-#: ../code/application/views/hw/hostel_view.php:218
-#: ../code/application/views/hb/booking_view.php:308
-#: ../code/application/views/hb/booking_view.php:316
-#: ../code/application/views/hb/booking_view.php:332
-#: ../code/application/views/hb/booking_view.php:394
-#: ../code/application/views/hb/booking_view.php:403
-#: ../code/application/views/hb/booking_view.php:417
-#: ../code/application/views/hb/booking_view.php:511
-#: ../code/application/views/hb/booking_view.php:520
-#: ../code/application/views/hb/booking_view.php:521
-#: ../code/application/views/hb/booking_view.php:629
-#: ../code/application/views/hb/booking_view.php:664
-#: ../code/application/views/hb/booking_view.php:665
-#: ../code/application/views/hb/booking_view.php:676
+#: ../code/application/views/hw/hostel_view.php:140
+#: ../code/application/views/hw/hostel_view.php:152
+#: ../code/application/views/hw/hostel_view.php:167
+#: ../code/application/views/hw/hostel_view.php:179
+#: ../code/application/views/hw/hostel_view.php:223
+#: ../code/application/views/hb/booking_view.php:320
+#: ../code/application/views/hb/booking_view.php:328
+#: ../code/application/views/hb/booking_view.php:344
+#: ../code/application/views/hb/booking_view.php:406
+#: ../code/application/views/hb/booking_view.php:415
+#: ../code/application/views/hb/booking_view.php:429
+#: ../code/application/views/hb/booking_view.php:524
+#: ../code/application/views/hb/booking_view.php:533
+#: ../code/application/views/hb/booking_view.php:534
+#: ../code/application/views/hb/booking_view.php:642
 #: ../code/application/views/hb/booking_view.php:677
 #: ../code/application/views/hb/booking_view.php:678
-#: ../code/application/views/hb/hostel_view.php:198
-#: ../code/application/views/hb/hostel_view.php:210
-#: ../code/application/views/hb/hostel_view.php:225
-#: ../code/application/views/hb/hostel_view.php:237
-#: ../code/application/views/hb/hostel_view.php:281
+#: ../code/application/views/hb/booking_view.php:689
+#: ../code/application/views/hb/booking_view.php:690
+#: ../code/application/views/hb/booking_view.php:691
+#: ../code/application/views/hb/hostel_view.php:218
+#: ../code/application/views/hb/hostel_view.php:230
+#: ../code/application/views/hb/hostel_view.php:245
+#: ../code/application/views/hb/hostel_view.php:257
+#: ../code/application/views/hb/hostel_view.php:301
 #: ../code/application/views/group_request.php:79
 #: ../code/application/views/group_request.php:80
 #: ../code/application/views/group_request.php:90
@@ -1626,10 +1629,10 @@ msgstr "필수 정보"
 #: ../code/application/views/mobile/hw/booking_view.php:400
 #: ../code/application/views/hw/booking_view.php:521
 #: ../code/application/views/hw/booking_view.php:530
-#: ../code/application/views/hw/hostel_view.php:161
-#: ../code/application/views/hb/booking_view.php:395
-#: ../code/application/views/hb/booking_view.php:404
-#: ../code/application/views/hb/hostel_view.php:224
+#: ../code/application/views/hw/hostel_view.php:166
+#: ../code/application/views/hb/booking_view.php:407
+#: ../code/application/views/hb/booking_view.php:416
+#: ../code/application/views/hb/hostel_view.php:244
 #: ../code/application/views/group_request.php:242
 #: ../code/application/views/group_request.php:251
 msgid "Insérer un courriel valide"
@@ -1637,20 +1640,20 @@ msgstr "올바른 이메일 주소 제공"
 
 #: ../code/application/views/mobile/hw/booking_view.php:405
 #: ../code/application/views/hw/booking_view.php:544
-#: ../code/application/views/hb/booking_view.php:418
+#: ../code/application/views/hb/booking_view.php:430
 #: ../code/application/views/group_request.php:268
 msgid "Invalid phone number format"
 msgstr "없는 번호 입니다."
 
 #: ../code/application/views/mobile/hw/booking_view.php:444
 #: ../code/application/views/hw/booking_view.php:971
-#: ../code/application/views/hb/booking_view.php:750
+#: ../code/application/views/hb/booking_view.php:763
 msgid "Confirmer"
 msgstr "확인"
 
 #: ../code/application/views/mobile/hw/booking_view.php:450
 #: ../code/application/views/hw/booking_view.php:984
-#: ../code/application/views/hb/booking_view.php:760
+#: ../code/application/views/hb/booking_view.php:773
 #: ../code/application/views/group_request.php:298
 msgid "Traitement de la demande..."
 msgstr "처리 요청 ..."
@@ -1686,10 +1689,10 @@ msgid "About"
 msgstr "부가정보"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:159
-#: ../code/application/views/hw/hostel_view.php:482
-#: ../code/application/views/hw/reviews.php:44
-#: ../code/application/views/hb/hostel_view.php:577
-#: ../code/application/controllers/cmain.php:1780
+#: ../code/application/views/hw/hostel_view.php:490
+#: ../code/application/views/hw/reviews.php:47
+#: ../code/application/views/hb/hostel_view.php:600
+#: ../code/application/controllers/cmain.php:1821
 msgid "Commentaires"
 msgstr "리뷰"
 
@@ -1701,8 +1704,8 @@ msgid "Par %s | Le %s"
 msgstr "%s에 의해 %s"
 
 #: ../code/application/views/mobile/hw/hostel_view.php:219
-#: ../code/application/views/hw/hostel_view.php:480
-#: ../code/application/views/hb/hostel_view.php:575
+#: ../code/application/views/hw/hostel_view.php:488
+#: ../code/application/views/hb/hostel_view.php:598
 msgid "Cartes et Directions"
 msgstr "지도 & 방향"
 
@@ -1748,10 +1751,10 @@ msgstr "감사합니다."
 
 #: ../code/application/views/mobile/property_list.php:13
 #: ../code/application/views/mustache/city_map_property_infow.php:10
-#: ../code/application/views/mustache/property_list.php:21
-#: ../code/application/views/mustache/property_list.php:238
-#: ../code/application/views/includes/header.php:502
-#: ../code/application/views/includes/header.php:548
+#: ../code/application/views/mustache/property_list.php:28
+#: ../code/application/views/mustache/property_list.php:255
+#: ../code/application/views/includes/header.php:752
+#: ../code/application/views/includes/header.php:798
 #: ../code/application/views/hw/property_list.php:80
 #: ../code/application/views/hb/property_list.php:132
 #: ../code/application/views/city_ajax_view.php:72
@@ -1764,7 +1767,7 @@ msgid "Not Rated Yet!"
 msgstr "아직 평가되지 않았습니다."
 
 #: ../code/application/views/mobile/property_list.php:28
-#: ../code/application/views/mustache/property_list.php:128
+#: ../code/application/views/mustache/property_list.php:143
 msgid "As rated by bookers like you"
 msgstr "예약자들에 의해 평가된 점수"
 
@@ -1778,10 +1781,10 @@ msgid "Search by city name:"
 msgstr "도시명으로 검색하기:"
 
 #: ../code/application/views/mobile/search_view.php:43
-#: ../code/application/views/includes/side_search_box.php:51
-#: ../code/application/views/includes/side_search_box.php:173
-#: ../code/application/views/includes/side_search_box.php:179
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/includes/side_search_box.php:52
+#: ../code/application/views/includes/side_search_box.php:174
+#: ../code/application/views/includes/side_search_box.php:180
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:16
 #: ../code/application/views/includes/search_box.php:25
 #: ../code/application/views/includes/search_box.php:32
@@ -1793,8 +1796,8 @@ msgstr "도시명으로 검색하기:"
 #: ../code/application/views/includes/city_lp_search_box.php:121
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/includes/header.php:902
-#: ../code/application/views/includes/header.php:904
+#: ../code/application/views/includes/header.php:1175
+#: ../code/application/views/includes/header.php:1177
 #: ../code/application/views/hw/citylist_view.php:26
 #: ../code/application/views/restricted/admin/group_quote.php:58
 #: ../code/application/views/restricted/admin/group_quote.php:64
@@ -1832,7 +1835,6 @@ msgid "Nuits"
 msgstr "숙박 일수"
 
 #: ../code/application/views/mobile/user/user_bookings.php:45
-#: ../code/application/views/restricted/user_bookings.php:52
 msgid "Arrhes et frais de service"
 msgstr "지불된 디파짓과 예약비용"
 
@@ -1842,7 +1844,7 @@ msgid "Total du à l'arrivée"
 msgstr "도착후 지불하실 금액"
 
 #: ../code/application/views/mobile/user/user_bookings.php:74
-#: ../code/application/views/restricted/user_bookings.php:104
+#: ../code/application/views/restricted/user_bookings.php:109
 msgid "Vous n'avez aucune réservation à ce jour."
 msgstr "당신에 대한 당일 예약이 없습니다."
 
@@ -1853,19 +1855,19 @@ msgstr "업데이트 프로필"
 
 #: ../code/application/views/mobile/user/user_profile.php:12
 #: ../code/application/views/hw/booking_view.php:476
-#: ../code/application/views/hb/booking_view.php:304
+#: ../code/application/views/hb/booking_view.php:316
 #: ../code/application/views/restricted/user_profile.php:36
 #: ../code/application/views/email/admin/new_group_request.php:41
 #: ../code/application/views/group_request.php:219
 #: ../code/application/controllers/user.php:77
 #: ../code/application/controllers/cmain.php:443
-#: ../code/application/controllers/cmain.php:1776
+#: ../code/application/controllers/cmain.php:1817
 msgid "Prénom"
 msgstr "이름"
 
 #: ../code/application/views/mobile/user/user_profile.php:17
 #: ../code/application/views/hw/booking_view.php:484
-#: ../code/application/views/hb/booking_view.php:312
+#: ../code/application/views/hb/booking_view.php:324
 #: ../code/application/views/restricted/user_profile.php:40
 #: ../code/application/views/restricted/user_group_quote.php:74
 #: ../code/application/views/email/admin/new_group_request.php:42
@@ -1873,16 +1875,16 @@ msgstr "이름"
 #: ../code/application/views/auth/register_form.php:123
 #: ../code/application/controllers/user.php:78
 #: ../code/application/controllers/cmain.php:444
-#: ../code/application/controllers/cmain.php:1777
+#: ../code/application/controllers/cmain.php:1818
 msgid "Nom"
 msgstr "이름"
 
 #: ../code/application/views/mobile/user/user_profile.php:22
 #: ../code/application/views/hw/booking_view.php:495
-#: ../code/application/views/hb/booking_view.php:323
+#: ../code/application/views/hb/booking_view.php:335
 #: ../code/application/views/restricted/user_profile.php:45
 #: ../code/application/controllers/user.php:79
-#: ../code/application/controllers/cmain.php:1779
+#: ../code/application/controllers/cmain.php:1820
 msgid "Nationalité"
 msgstr "국적"
 
@@ -1963,8 +1965,8 @@ msgstr ""
 "합니다. 귀하의 이메일 주소를 입력하세요. 비밀 번호를 보내드립니다."
 
 #: ../code/application/views/mobile/auth/register_form.php:83
-#: ../code/application/views/includes/header_book.php:149
-#: ../code/application/views/includes/header.php:1008
+#: ../code/application/views/includes/header_book.php:156
+#: ../code/application/views/includes/header.php:1281
 #: ../code/application/views/includes/top_box.php:16
 #: ../code/application/views/auth/register_form.php:220
 msgid "S'enregistrer"
@@ -2024,11 +2026,11 @@ msgid "page d'accueil"
 msgstr "홈페이지"
 
 #: ../code/application/views/mustache/city_map_property_infow.php:15
-#: ../code/application/views/mustache/property_list.php:26
-#: ../code/application/views/includes/header.php:503
-#: ../code/application/views/includes/header.php:518
-#: ../code/application/views/includes/header.php:549
-#: ../code/application/views/includes/header.php:564
+#: ../code/application/views/mustache/property_list.php:33
+#: ../code/application/views/includes/header.php:753
+#: ../code/application/views/includes/header.php:768
+#: ../code/application/views/includes/header.php:799
+#: ../code/application/views/includes/header.php:814
 #: ../code/application/views/city_ajax_view.php:73
 #: ../code/application/views/city_ajax_view.php:88
 #: ../code/application/views/city_ajax_view.php:119
@@ -2037,23 +2039,33 @@ msgid "Plus d'information"
 msgstr "더 많은 정보"
 
 #: ../code/application/views/mustache/property_quick_view.php:32
-#: ../code/application/views/compare_property.php:263
+#: ../code/application/views/compare_property.php:283
 #: ../code/application/views/helpfile/pofields.php~:642
 #: ../code/application/views/helpfile/pofields.php:642
 #, php-format
 msgid "Services"
 msgstr "서비스"
 
-#: ../code/application/views/mustache/property_list.php:43
+#: ../code/application/views/mustache/property_list.php:5
+#: ../code/application/views/restricted/user_group_quote.php:308
+msgid ""
+"The Average price per person per night is for the requested arrival date and "
+"length of stay, actual day-by-day prices may vary."
+msgstr ""
+"개인당 1박 평균비용은 요청하신 도착 날짜와 체류기간 기준입니다. 실제 일일 가"
+"격은 다를 수 있습니다."
+
+#: ../code/application/views/mustache/property_list.php:50
 #: ../code/application/views/helpfile/pofields.php~:693
 #: ../code/application/views/helpfile/pofields.php:693
 #, php-format
 msgid "Quick View"
 msgstr "빠른 보기"
 
-#: ../code/application/views/mustache/property_list.php:102
-#: ../code/application/views/hw/hostel_view.php:394
-#: ../code/application/views/hb/hostel_view.php:483
+#: ../code/application/views/mustache/property_list.php:117
+#: ../code/application/views/hw/hostel_view.php:402
+#: ../code/application/views/hb/hostel_view.php:506
+#: ../code/application/views/compare_property.php:52
 #: ../code/application/views/helpfile/pofields.php~:816
 #: ../code/application/views/helpfile/pofields.php:816
 #, php-format
@@ -2064,18 +2076,20 @@ msgstr ""
 " 이 호텔을 귀하의 계정에 즐겨 찾기로 저장하여, 원하는 때에 손쉽게 예약을 할 "
 "수 있습니다."
 
-#: ../code/application/views/mustache/property_list.php:104
-#: ../code/application/views/hw/hostel_view.php:396
-#: ../code/application/views/hb/hostel_view.php:485
+#: ../code/application/views/mustache/property_list.php:119
+#: ../code/application/views/hw/hostel_view.php:404
+#: ../code/application/views/hb/hostel_view.php:508
+#: ../code/application/views/compare_property.php:53
 #: ../code/application/views/helpfile/pofields.php~:815
 #: ../code/application/views/helpfile/pofields.php:815
 #, php-format
 msgid "Add to my favorites"
 msgstr "내 즐겨 찾기에 추가"
 
-#: ../code/application/views/mustache/property_list.php:107
-#: ../code/application/views/hw/hostel_view.php:402
-#: ../code/application/views/hb/hostel_view.php:491
+#: ../code/application/views/mustache/property_list.php:122
+#: ../code/application/views/hw/hostel_view.php:410
+#: ../code/application/views/hb/hostel_view.php:514
+#: ../code/application/views/compare_property.php:56
 #: ../code/application/views/helpfile/pofields.php~:839
 #: ../code/application/views/helpfile/pofields.php:839
 #, php-format
@@ -2086,126 +2100,129 @@ msgstr ""
 "이 호텔은 \"내 계정\"란에 저장되었습니다. 이제 귀하가  원하시는 때에,  쉽게  "
 "예약 할 수 있습니다."
 
-#: ../code/application/views/mustache/property_list.php:109
-#: ../code/application/views/hw/hostel_view.php:404
-#: ../code/application/views/hb/hostel_view.php:493
+#: ../code/application/views/mustache/property_list.php:124
+#: ../code/application/views/hw/hostel_view.php:412
+#: ../code/application/views/hb/hostel_view.php:516
+#: ../code/application/views/compare_property.php:57
 #: ../code/application/views/helpfile/pofields.php~:814
 #: ../code/application/views/helpfile/pofields.php:814
 #, php-format
 msgid "Saved to my favorites"
 msgstr "즐겨 찾기에 저장"
 
-#: ../code/application/views/mustache/property_list.php:117
-#: ../code/application/views/city_view.php:288
+#: ../code/application/views/mustache/property_list.php:132
+#: ../code/application/views/city_view.php:316
 #: ../code/application/views/helpfile/pofields.php~:626
 #: ../code/application/views/helpfile/pofields.php:626
 #, php-format
 msgid "Compare"
 msgstr "비교하세요"
 
-#: ../code/application/views/mustache/property_list.php:117
-#: ../code/application/views/city_view.php:259
-#: ../code/application/views/city_view.php:372
+#: ../code/application/views/mustache/property_list.php:132
+#: ../code/application/views/city_view.php:289
+#: ../code/application/views/city_view.php:411
+#: ../code/application/views/city_view.php:464
 #: ../code/application/views/restricted/user_favorite_properties.php:41
 msgid "of"
 msgstr " 의 "
 
-#: ../code/application/views/mustache/property_list.php:169
+#: ../code/application/views/mustache/property_list.php:184
 #: ../code/application/views/helpfile/pofields.php~:773
 #: ../code/application/views/helpfile/pofields.php:773
 #, php-format
 msgid "Remove from this search"
 msgstr "검색 결과 지우기"
 
-#: ../code/application/views/mustache/property_list.php:175
+#: ../code/application/views/mustache/property_list.php:190
 #: ../code/application/views/helpfile/pofields.php~:774
 #: ../code/application/views/helpfile/pofields.php:774
 #, php-format
 msgid "Remove from any searches for next 24 hours"
 msgstr " 24 시간 동안 모든 검색 결과를 지우기"
 
-#: ../code/application/views/mustache/property_list.php:181
+#: ../code/application/views/mustache/property_list.php:196
 #: ../code/application/views/helpfile/pofields.php~:775
 #: ../code/application/views/helpfile/pofields.php:775
 #, php-format
 msgid "Remove from any searches for 1 week"
 msgstr "1 주 동안 모든 검색결과를 지우기"
 
-#: ../code/application/views/mustache/property_list.php:196
+#: ../code/application/views/mustache/property_list.php:211
 #: ../code/application/views/helpfile/pofields.php~:852
 #: ../code/application/views/helpfile/pofields.php:852
 #, php-format
 msgid "Safe"
 msgstr "안전한"
 
-#: ../code/application/views/mustache/property_list.php:201
+#: ../code/application/views/mustache/property_list.php:216
 #: ../code/application/views/helpfile/pofields.php~:853
 #: ../code/application/views/helpfile/pofields.php:853
 #, php-format
 msgid "Very safe"
 msgstr "매우 안전"
 
-#: ../code/application/views/mustache/property_list.php:211
+#: ../code/application/views/mustache/property_list.php:226
 #: ../code/application/views/helpfile/pofields.php~:851
 #: ../code/application/views/helpfile/pofields.php:851
 #, php-format
 msgid "Good location"
 msgstr "좋은 위치"
 
-#: ../code/application/views/mustache/property_list.php:216
+#: ../code/application/views/mustache/property_list.php:231
 #: ../code/application/views/helpfile/pofields.php~:850
 #: ../code/application/views/helpfile/pofields.php:850
 #, php-format
 msgid "Great location"
 msgstr "최적의 위치"
 
-#: ../code/application/views/mustache/property_list.php:230
+#: ../code/application/views/mustache/property_list.php:246
 #: ../code/application/views/helpfile/pofields.php~:860
+#: ../code/application/views/helpfile/pofields.php~:888
 #: ../code/application/views/helpfile/pofields.php:860
 #: ../code/application/views/helpfile/pofields.php:888
 #, php-format
 msgid "Overall evaluation"
 msgstr "전체적인 평가"
 
-#: ../code/application/views/mustache/property_list.php:245
-#: ../code/application/views/mustache/property_list.php:259
+#: ../code/application/views/mustache/property_list.php:262
+#: ../code/application/views/mustache/property_list.php:276
 #: ../code/application/views/helpfile/pofields.php~:287
 #: ../code/application/views/helpfile/pofields.php:287
 #, php-format
 msgid "Deal of the Day"
 msgstr "오늘의 특가"
 
-#: ../code/application/views/mustache/property_list.php:251
+#: ../code/application/views/mustache/property_list.php:268
 #: ../code/application/views/helpfile/pofields.php~:13
 #: ../code/application/views/helpfile/pofields.php:13
 #, php-format
 msgid "Dorms from %s"
 msgstr "도미토리 %s부터 "
 
-#: ../code/application/views/mustache/property_list.php:256
+#: ../code/application/views/mustache/property_list.php:273
 #: ../code/application/views/helpfile/pofields.php~:785
 #: ../code/application/views/helpfile/pofields.php:785
 #, php-format
 msgid "Lowest price per night per person in a dorm"
 msgstr "기숙사 이용 시 1 박 1 인 기준 최저 가격"
 
-#: ../code/application/views/mustache/property_list.php:265
+#: ../code/application/views/mustache/property_list.php:282
 #: ../code/application/views/helpfile/pofields.php~:14
 #: ../code/application/views/helpfile/pofields.php:14
 #, php-format
 msgid "Private rooms from %s"
 msgstr "개인 객실 %s부터 "
 
-#: ../code/application/views/mustache/property_list.php:266
+#: ../code/application/views/mustache/property_list.php:283
 #: ../code/application/views/helpfile/pofields.php~:786
 #: ../code/application/views/helpfile/pofields.php:786
 #, php-format
 msgid "Lowest price per night per person in a private room"
 msgstr "개인 전용 룸 1 박 기준 1인당 최저 가격"
 
-#: ../code/application/views/mustache/property_list.php:273
-#: ../code/application/views/includes/side_search_box.php:51
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/mustache/property_list.php:290
+#: ../code/application/views/includes/side_search_box.php:52
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:16
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
@@ -2213,30 +2230,30 @@ msgstr "개인 전용 룸 1 박 기준 1인당 최저 가격"
 #: ../code/application/views/includes/city_lp_search_box.php:16
 #: ../code/application/views/includes/city_lp_search_box.php:155
 #: ../code/application/views/includes/search_box_city.php:86
-#: ../code/application/views/hw/hostel_view.php:581
-#: ../code/application/views/hw/hostel_view.php:622
-#: ../code/application/views/hb/hostel_view.php:686
-#: ../code/application/views/hb/hostel_view.php:727
+#: ../code/application/views/hw/hostel_view.php:589
+#: ../code/application/views/hw/hostel_view.php:630
+#: ../code/application/views/hb/hostel_view.php:709
+#: ../code/application/views/hb/hostel_view.php:758
 msgid "Date invalide"
 msgstr "날짜가 잘못되었습니다"
 
-#: ../code/application/views/mustache/property_list.php:275
+#: ../code/application/views/mustache/property_list.php:292
 #: ../code/application/views/helpfile/pofields.php~:858
 #: ../code/application/views/helpfile/pofields.php:858
 #, php-format
 msgid "Show prices"
 msgstr "가격 표시"
 
-#: ../code/application/views/mustache/property_list.php:280
+#: ../code/application/views/mustache/property_list.php:297
 #: ../code/application/views/helpfile/pofields.php~:859
 #: ../code/application/views/helpfile/pofields.php:859
 #, php-format
 msgid "Hide prices"
 msgstr "가격 숨기기"
 
-#: ../code/application/views/mustache/property_list.php:308
-#: ../code/application/views/hw/hostel_view.php:628
-#: ../code/application/views/hb/hostel_view.php:737
+#: ../code/application/views/mustache/property_list.php:325
+#: ../code/application/views/hw/hostel_view.php:636
+#: ../code/application/views/hb/hostel_view.php:768
 msgid "Recherche de disponibilités..."
 msgstr "검색 상태 ..."
 
@@ -2410,7 +2427,7 @@ msgstr ""
 
 #: ../code/application/views/property_rooms_avail.php:128
 #: ../code/application/views/property_rooms_avail.php:369
-#: ../code/application/views/city_view.php:331
+#: ../code/application/views/city_view.php:423
 #: ../code/application/views/hw/booking_avail_view.php:300
 #: ../code/application/views/hw/booking_avail_view.php:749
 #: ../code/application/views/hw/booking_avail_view.php:803
@@ -2785,6 +2802,7 @@ msgid "Bedrooms"
 msgstr "베드룸"
 
 #: ../code/application/views/city_lp.php:13
+#: ../code/application/views/includes/header.php:31
 #: ../code/application/views/helpfile/pofields.php~:499
 #: ../code/application/views/helpfile/pofields.php:499
 #, php-format
@@ -2796,6 +2814,9 @@ msgstr ""
 "리뷰."
 
 #: ../code/application/views/city_lp.php:14
+#: ../code/application/views/includes/side_districts.php:6
+#: ../code/application/views/includes/side_districts.php:25
+#: ../code/application/views/includes/side_districts.php:75
 #: ../code/application/views/helpfile/pofields.php~:481
 #: ../code/application/views/helpfile/pofields.php:481
 #, php-format
@@ -2803,6 +2824,7 @@ msgid "Hostels in the %s district"
 msgstr "%s 구역 호스텔"
 
 #: ../code/application/views/city_lp.php:17
+#: ../code/application/views/includes/header.php:34
 #: ../code/application/views/helpfile/pofields.php~:500
 #: ../code/application/views/helpfile/pofields.php:500
 #, php-format
@@ -2813,6 +2835,9 @@ msgstr ""
 "% s - % s지역에 위치한 호텔. %s의 지도, %s에 위치한 호텔에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:18
+#: ../code/application/views/includes/side_districts.php:12
+#: ../code/application/views/includes/side_districts.php:31
+#: ../code/application/views/includes/side_districts.php:71
 #: ../code/application/views/helpfile/pofields.php~:482
 #: ../code/application/views/helpfile/pofields.php:482
 #, php-format
@@ -2820,6 +2845,7 @@ msgid "Hotels in the %s district"
 msgstr "%s 구역 호텔"
 
 #: ../code/application/views/city_lp.php:21
+#: ../code/application/views/includes/header.php:37
 #: ../code/application/views/helpfile/pofields.php~:501
 #: ../code/application/views/helpfile/pofields.php:501
 #, php-format
@@ -2831,6 +2857,9 @@ msgstr ""
 "리뷰."
 
 #: ../code/application/views/city_lp.php:22
+#: ../code/application/views/includes/side_districts.php:9
+#: ../code/application/views/includes/side_districts.php:28
+#: ../code/application/views/includes/side_districts.php:67
 #: ../code/application/views/helpfile/pofields.php~:483
 #: ../code/application/views/helpfile/pofields.php:483
 #, php-format
@@ -2838,6 +2867,7 @@ msgid "Apartments in the %s district"
 msgstr "%s 지역 아파트"
 
 #: ../code/application/views/city_lp.php:25
+#: ../code/application/views/includes/header.php:40
 #: ../code/application/views/helpfile/pofields.php~:502
 #: ../code/application/views/helpfile/pofields.php:502
 #, php-format
@@ -2848,6 +2878,7 @@ msgstr ""
 "% s - % s지역에 위치한 객실. %s의 지도, %s에 위치한 객실에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:26
+#: ../code/application/views/includes/side_districts.php:63
 #: ../code/application/views/helpfile/pofields.php~:484
 #: ../code/application/views/helpfile/pofields.php:484
 #, php-format
@@ -2855,6 +2886,7 @@ msgid "Rooms in the %s district"
 msgstr "%s 지역 방"
 
 #: ../code/application/views/city_lp.php:29
+#: ../code/application/views/includes/header.php:43
 #: ../code/application/views/helpfile/pofields.php~:503
 #: ../code/application/views/helpfile/pofields.php:503
 #, php-format
@@ -2866,6 +2898,9 @@ msgstr ""
 "리뷰."
 
 #: ../code/application/views/city_lp.php:30
+#: ../code/application/views/includes/side_districts.php:15
+#: ../code/application/views/includes/side_districts.php:34
+#: ../code/application/views/includes/side_districts.php:59
 #: ../code/application/views/helpfile/pofields.php~:485
 #: ../code/application/views/helpfile/pofields.php:485
 #, php-format
@@ -2873,6 +2908,7 @@ msgid "Camping in the %s district"
 msgstr "%s 지역 캠핑"
 
 #: ../code/application/views/city_lp.php:33
+#: ../code/application/views/includes/header.php:46
 #: ../code/application/views/helpfile/pofields.php~:504
 #: ../code/application/views/helpfile/pofields.php:504
 #, php-format
@@ -2883,6 +2919,10 @@ msgstr ""
 "% s - % s구역에 위치한 호텔. %s의 지도, %s에 위치한 호텔에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:34
+#: ../code/application/views/includes/side_districts.php:18
+#: ../code/application/views/includes/side_districts.php:37
+#: ../code/application/views/includes/side_districts.php:79
+#: ../code/application/views/includes/side_districts.php:88
 #: ../code/application/views/helpfile/pofields.php~:486
 #: ../code/application/views/helpfile/pofields.php:486
 #, php-format
@@ -2890,6 +2930,7 @@ msgid "Properties in the %s district"
 msgstr "%s 구역에 위치한 호스텔"
 
 #: ../code/application/views/city_lp.php:48
+#: ../code/application/views/includes/header.php:60
 #: ../code/application/views/helpfile/pofields.php~:493
 #: ../code/application/views/helpfile/pofields.php:493
 #, php-format
@@ -2900,6 +2941,8 @@ msgstr ""
 "% s - % s에 가까운 호스텔. %s의 지도, %s에 위치한 호스텔에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:49
+#: ../code/application/views/includes/side_landmarks.php:14
+#: ../code/application/views/includes/side_landmarks.php:63
 #: ../code/application/views/helpfile/pofields.php~:475
 #: ../code/application/views/helpfile/pofields.php:475
 #, php-format
@@ -2907,6 +2950,7 @@ msgid "Hostels close to %s"
 msgstr "%s에서 가까운 호스텔"
 
 #: ../code/application/views/city_lp.php:52
+#: ../code/application/views/includes/header.php:63
 #: ../code/application/views/helpfile/pofields.php~:494
 #: ../code/application/views/helpfile/pofields.php:494
 #, php-format
@@ -2917,6 +2961,8 @@ msgstr ""
 "% s - % s에 가까운 호텔. %s의 지도, %s에 위치한 호텔에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:53
+#: ../code/application/views/includes/side_landmarks.php:20
+#: ../code/application/views/includes/side_landmarks.php:59
 #: ../code/application/views/helpfile/pofields.php~:476
 #: ../code/application/views/helpfile/pofields.php:476
 #, php-format
@@ -2924,6 +2970,7 @@ msgid "Hotels close to %s"
 msgstr "%s에 가까운 호텔"
 
 #: ../code/application/views/city_lp.php:56
+#: ../code/application/views/includes/header.php:66
 #: ../code/application/views/helpfile/pofields.php~:495
 #: ../code/application/views/helpfile/pofields.php:495
 #, php-format
@@ -2934,6 +2981,8 @@ msgstr ""
 "% s - % s에 가까운 아파트. %s의 지도, %s에 위치한 아파트에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:57
+#: ../code/application/views/includes/side_landmarks.php:17
+#: ../code/application/views/includes/side_landmarks.php:55
 #: ../code/application/views/helpfile/pofields.php~:477
 #: ../code/application/views/helpfile/pofields.php:477
 #, php-format
@@ -2941,6 +2990,7 @@ msgid "Apartments close to %s"
 msgstr "%s로 가까운 아파트"
 
 #: ../code/application/views/city_lp.php:60
+#: ../code/application/views/includes/header.php:69
 #: ../code/application/views/helpfile/pofields.php~:496
 #: ../code/application/views/helpfile/pofields.php:496
 #, php-format
@@ -2950,6 +3000,7 @@ msgstr ""
 "% s - % s에 가까운 객실. %s의 지도, %s에 위치한 객실에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:61
+#: ../code/application/views/includes/side_landmarks.php:51
 #: ../code/application/views/helpfile/pofields.php~:478
 #: ../code/application/views/helpfile/pofields.php:478
 #, php-format
@@ -2957,6 +3008,7 @@ msgid "Rooms close to %s"
 msgstr "%s로 가까운 방"
 
 #: ../code/application/views/city_lp.php:64
+#: ../code/application/views/includes/header.php:72
 #: ../code/application/views/helpfile/pofields.php~:497
 #: ../code/application/views/helpfile/pofields.php:497
 #, php-format
@@ -2967,6 +3019,8 @@ msgstr ""
 "% s - % s에 가까운 캠핑장. %s의 지도, %s에 위치한 캠핑장에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:65
+#: ../code/application/views/includes/side_landmarks.php:23
+#: ../code/application/views/includes/side_landmarks.php:47
 #: ../code/application/views/helpfile/pofields.php~:479
 #: ../code/application/views/helpfile/pofields.php:479
 #, php-format
@@ -2974,6 +3028,7 @@ msgid "Camping close to %s"
 msgstr "%s로 가까운 캠핑"
 
 #: ../code/application/views/city_lp.php:68
+#: ../code/application/views/includes/header.php:75
 #: ../code/application/views/helpfile/pofields.php~:498
 #: ../code/application/views/helpfile/pofields.php:498
 #, php-format
@@ -2984,6 +3039,9 @@ msgstr ""
 "% s - % s에 가까운 호스텔. %s의 지도, %s에 위치한 호스텔에 대한 사진 및 리뷰."
 
 #: ../code/application/views/city_lp.php:69
+#: ../code/application/views/includes/side_landmarks.php:11
+#: ../code/application/views/includes/side_landmarks.php:67
+#: ../code/application/views/includes/side_landmarks.php:76
 #: ../code/application/views/helpfile/pofields.php~:480
 #: ../code/application/views/helpfile/pofields.php:480
 #, php-format
@@ -2991,6 +3049,7 @@ msgid "Properties close to %s"
 msgstr "%s에 가까운 호스텔"
 
 #: ../code/application/views/city_lp.php:75
+#: ../code/application/views/includes/header.php:81
 #: ../code/application/views/helpfile/pofields.php~:487
 #: ../code/application/views/helpfile/pofields.php:487
 #, php-format
@@ -3001,13 +3060,16 @@ msgstr ""
 "뷰."
 
 #: ../code/application/views/city_lp.php:76
+#: ../code/application/views/includes/side_landmarks.php:63
 #: ../code/application/views/helpfile/pofields.php~:469
 #: ../code/application/views/helpfile/pofields.php:469
+#: ../code/application/libraries/Hb_engine.php:620
 #, php-format
 msgid "Hostels in %s"
 msgstr "%s에 호스텔"
 
 #: ../code/application/views/city_lp.php:79
+#: ../code/application/views/includes/header.php:84
 #: ../code/application/views/helpfile/pofields.php~:488
 #: ../code/application/views/helpfile/pofields.php:488
 #, php-format
@@ -3019,11 +3081,13 @@ msgstr ""
 #: ../code/application/views/city_lp.php:80
 #: ../code/application/views/helpfile/pofields.php~:470
 #: ../code/application/views/helpfile/pofields.php:470
+#: ../code/application/libraries/Hb_engine.php:623
 #, php-format
 msgid "Hotels in %s"
 msgstr "%s에 호텔"
 
 #: ../code/application/views/city_lp.php:83
+#: ../code/application/views/includes/header.php:87
 #: ../code/application/views/helpfile/pofields.php~:489
 #: ../code/application/views/helpfile/pofields.php:489
 #, php-format
@@ -3037,11 +3101,13 @@ msgstr ""
 #: ../code/application/views/city_lp.php:84
 #: ../code/application/views/helpfile/pofields.php~:471
 #: ../code/application/views/helpfile/pofields.php:471
+#: ../code/application/libraries/Hb_engine.php:626
 #, php-format
 msgid "Apartments in %s"
 msgstr "%s에 아파트"
 
 #: ../code/application/views/city_lp.php:87
+#: ../code/application/views/includes/header.php:90
 #: ../code/application/views/helpfile/pofields.php~:490
 #: ../code/application/views/helpfile/pofields.php:490
 #, php-format
@@ -3052,11 +3118,13 @@ msgstr ""
 #: ../code/application/views/city_lp.php:88
 #: ../code/application/views/helpfile/pofields.php~:472
 #: ../code/application/views/helpfile/pofields.php:472
+#: ../code/application/libraries/Hb_engine.php:629
 #, php-format
 msgid "Rooms in %s"
 msgstr "%s에 객실"
 
 #: ../code/application/views/city_lp.php:91
+#: ../code/application/views/includes/header.php:93
 #: ../code/application/views/helpfile/pofields.php~:491
 #: ../code/application/views/helpfile/pofields.php:491
 #, php-format
@@ -3069,11 +3137,13 @@ msgstr ""
 #: ../code/application/views/city_lp.php:92
 #: ../code/application/views/helpfile/pofields.php~:473
 #: ../code/application/views/helpfile/pofields.php:473
+#: ../code/application/libraries/Hb_engine.php:632
 #, php-format
 msgid "Camping in %s"
 msgstr "%s 에 캠핑"
 
 #: ../code/application/views/city_lp.php:95
+#: ../code/application/views/includes/header.php:96
 #: ../code/application/views/helpfile/pofields.php~:492
 #: ../code/application/views/helpfile/pofields.php:492
 #, php-format
@@ -3086,11 +3156,12 @@ msgstr ""
 #: ../code/application/views/city_lp.php:97
 #: ../code/application/views/helpfile/pofields.php~:474
 #: ../code/application/views/helpfile/pofields.php:474
+#: ../code/application/libraries/Hb_engine.php:635
 #, php-format
 msgid "Properties in %s"
 msgstr "%s에 위치한 호스텔"
 
-#: ../code/application/views/city_lp.php:130
+#: ../code/application/views/city_lp.php:203
 #: ../code/application/views/helpfile/pofields.php~:603
 #: ../code/application/views/helpfile/pofields.php:603
 #, php-format
@@ -3101,12 +3172,12 @@ msgstr ""
 "지도에서 모든 숙소를 보기 위해, 오른쪽 상단의 박스에 원하시는 날짜를 넣어주십"
 "시오."
 
-#: ../code/application/views/city_lp.php:149
+#: ../code/application/views/city_lp.php:222
 #, php-format
 msgid "Auberges à %s. Toutes les auberges à %s - %s "
 msgstr "%s - %s안의 모든 호스텔과 유스호스텔호스 - %s"
 
-#: ../code/application/views/city_lp.php:159
+#: ../code/application/views/city_lp.php:232
 #, php-format
 msgid ""
 "Vous recherchez une auberge de jeunesse, un hôtel pas cher, un appartement, "
@@ -3114,12 +3185,12 @@ msgid ""
 msgstr ""
 "%s에 호스텔, 저렴한 호텔, 아파트, 게스트 하우스, B & B를 찾고 계십니까?"
 
-#: ../code/application/views/city_lp.php:159
+#: ../code/application/views/city_lp.php:232
 #, php-format
 msgid "N'allez pas plus loin, tous les bons plans à %s sont sur %s."
 msgstr "%s의 모든 최고의 가격은 %s안에 있습니다."
 
-#: ../code/application/views/city_lp.php:159
+#: ../code/application/views/city_lp.php:232
 #, php-format
 msgid ""
 "Comme des milliers de jeunes et moins jeunes tous les mois, réservez vous "
@@ -3133,7 +3204,7 @@ msgstr ""
 "가, 기차정류장, 공항, 그리고 모든 %s의 관광명소에 가까운 호스텔을 찾을 수 있"
 "습니다."
 
-#: ../code/application/views/city_lp.php:191
+#: ../code/application/views/city_lp.php:266
 #: ../code/application/views/includes/search_box.php:223
 msgid "To view prices and availability, please enter your dates."
 msgstr "가격 및 예약 가능 여부를 보려면 날짜를 입력해 주십시오."
@@ -3157,99 +3228,107 @@ msgstr "지역으로 필터 하기"
 msgid "Filter by Landmarks (within 2km)"
 msgstr "랜드마크(2km 이내)로 조회"
 
-#: ../code/application/views/city_view.php:71
+#: ../code/application/views/city_view.php:88
 #: ../code/application/views/helpfile/pofields.php~:845
 #: ../code/application/views/helpfile/pofields.php:845
 #, php-format
 msgid "Show properties"
 msgstr "호텔 표시"
 
-#: ../code/application/views/city_view.php:100
+#: ../code/application/views/city_view.php:121
+#: ../code/application/views/city_view.php:380
 #: ../code/application/views/helpfile/pofields.php~:783
 #: ../code/application/views/helpfile/pofields.php:783
 #, php-format
 msgid "Filter by districts"
 msgstr "지역으로 필터 하기"
 
-#: ../code/application/views/city_view.php:101
+#: ../code/application/views/city_view.php:128
+#: ../code/application/views/city_view.php:387
 msgid "Filter by Landmarks"
 msgstr "랜드마크를 기준으로 조회"
 
-#: ../code/application/views/city_view.php:131
-#: ../code/application/views/city_view.php:339
+#: ../code/application/views/city_view.php:152
+#, fuzzy
+msgid "Click here to expand map"
+msgstr "확대시 이곳을 클릭하시오."
+
+#: ../code/application/views/city_view.php:161
+#: ../code/application/views/city_view.php:431
 #: ../code/application/views/helpfile/pofields.php~:444
 #: ../code/application/views/helpfile/pofields.php:444
 #, php-format
 msgid "Property type"
 msgstr "숙박업소 종류"
 
-#: ../code/application/views/city_view.php:135
+#: ../code/application/views/city_view.php:165
 #: ../code/application/views/helpfile/pofields.php~:826
 #: ../code/application/views/helpfile/pofields.php:826
 #, php-format
 msgid "The most popular"
 msgstr "가장 인기있는 호텔"
 
-#: ../code/application/views/city_view.php:136
+#: ../code/application/views/city_view.php:166
 #: ../code/application/views/city_ajax_view.php:226
 msgid "Auberges de jeunesse"
 msgstr "호스텔"
 
-#: ../code/application/views/city_view.php:138
+#: ../code/application/views/city_view.php:168
 #: ../code/application/views/city_ajax_view.php:227
 msgid "Hôtels pas chers"
 msgstr "저렴한 호텔들"
 
-#: ../code/application/views/city_view.php:139
+#: ../code/application/views/city_view.php:169
 #: ../code/application/views/city_ajax_view.php:228
 msgid "Appartements"
 msgstr "아파트"
 
-#: ../code/application/views/city_view.php:140
+#: ../code/application/views/city_view.php:170
 #: ../code/application/views/city_ajax_view.php:229
 msgid "Chambres - B&B - Pensions"
 msgstr "방 - B & B - 게스트 하우스"
 
-#: ../code/application/views/city_view.php:141
+#: ../code/application/views/city_view.php:171
 msgid "Camping"
 msgstr "캠핑"
 
-#: ../code/application/views/city_view.php:162
+#: ../code/application/views/city_view.php:192
 #: ../code/application/views/helpfile/pofields.php~:827
 #: ../code/application/views/helpfile/pofields.php:827
 #, php-format
 msgid "Most popular"
 msgstr "인기있는 호텔"
 
-#: ../code/application/views/city_view.php:195
+#: ../code/application/views/city_view.php:225
 #: ../code/application/views/helpfile/pofields.php~:457
 #: ../code/application/views/helpfile/pofields.php:457
 #, php-format
 msgid "Price Range:"
 msgstr "가격 범위"
 
-#: ../code/application/views/city_view.php:203
+#: ../code/application/views/city_view.php:233
 #: ../code/application/views/helpfile/pofields.php~:458
 #: ../code/application/views/helpfile/pofields.php:458
 #, php-format
 msgid "Rating Range:"
 msgstr "평정 범위:"
 
-#: ../code/application/views/city_view.php:209
+#: ../code/application/views/city_view.php:239
 #: ../code/application/views/helpfile/pofields.php~:449
 #: ../code/application/views/helpfile/pofields.php:449
 #, php-format
 msgid "Reset filters"
 msgstr "다시 검색하기"
 
-#: ../code/application/views/city_view.php:254
+#: ../code/application/views/city_view.php:284
 #: ../code/application/views/city_ajax_view.php:222
 #, php-format
 msgid "Liste des logements pas chers à %s"
 msgstr "결과 검색 - %s"
 
-#: ../code/application/views/city_view.php:261
-#: ../code/application/views/city_view.php:374
+#: ../code/application/views/city_view.php:291
+#: ../code/application/views/city_view.php:413
+#: ../code/application/views/city_view.php:466
 #: ../code/application/views/helpfile/pofields.php~:645
 #: ../code/application/views/helpfile/pofields.php:645
 #: ../code/application/views/restricted/user_favorite_properties.php:43
@@ -3257,7 +3336,7 @@ msgstr "결과 검색 - %s"
 msgid "Results"
 msgstr "결과"
 
-#: ../code/application/views/city_view.php:273
+#: ../code/application/views/city_view.php:303
 #: ../code/application/views/hw/booking_end_view.php:35
 #: ../code/application/views/hb/booking_end_view.php:28
 #: ../code/application/views/email/new_transaction_hb.php:97
@@ -3266,25 +3345,21 @@ msgstr "결과"
 msgid "Nombre de Nuits: %s"
 msgstr "숙박일 수: %s"
 
-#: ../code/application/views/city_view.php:278
-msgid "Close Map"
-msgstr "지도 닫기"
-
-#: ../code/application/views/city_view.php:287
+#: ../code/application/views/city_view.php:315
 #: ../code/application/views/helpfile/pofields.php~:649
 #: ../code/application/views/helpfile/pofields.php:649
 #, php-format
 msgid "Quick Compare (5 properties maximum)"
 msgstr "빠른 비교 (최대 5개 숙소)"
 
-#: ../code/application/views/city_view.php:290
+#: ../code/application/views/city_view.php:318
 #: ../code/application/views/helpfile/pofields.php~:650
 #: ../code/application/views/helpfile/pofields.php:650
 #, php-format
 msgid "Remove All"
 msgstr "모두 지우십시오."
 
-#: ../code/application/views/city_view.php:301
+#: ../code/application/views/city_view.php:329
 #: ../code/application/views/restricted/user_favorite_properties.php:21
 #: ../code/application/views/search_results.php:85
 #: ../code/application/views/search_results.php:120
@@ -3297,56 +3372,56 @@ msgstr "모두 지우십시오."
 msgid "Classer par:"
 msgstr "정렬 방법 :"
 
-#: ../code/application/views/city_view.php:303
+#: ../code/application/views/city_view.php:331
 #: ../code/application/views/helpfile/pofields.php~:846
 #: ../code/application/views/helpfile/pofields.php:846
 #, php-format
 msgid "Best price"
 msgstr "최상의 가격"
 
-#: ../code/application/views/city_view.php:304
+#: ../code/application/views/city_view.php:332
 #: ../code/application/views/helpfile/pofields.php~:849
 #: ../code/application/views/helpfile/pofields.php:849
 #, php-format
 msgid "Best rating"
 msgstr "최고 등급"
 
-#: ../code/application/views/city_view.php:307
+#: ../code/application/views/city_view.php:335
 #: ../code/application/views/helpfile/pofields.php~:848
 #: ../code/application/views/helpfile/pofields.php:848
 #, php-format
 msgid "Safest"
 msgstr "가장 안전한"
 
-#: ../code/application/views/city_view.php:308
+#: ../code/application/views/city_view.php:336
 #: ../code/application/views/helpfile/pofields.php~:847
 #: ../code/application/views/helpfile/pofields.php:847
 #, php-format
 msgid "Best location"
 msgstr "최고의 위치"
 
-#: ../code/application/views/city_view.php:313
+#: ../code/application/views/city_view.php:341
 #: ../code/application/views/helpfile/pofields.php~:854
 #: ../code/application/views/helpfile/pofields.php:854
 #, php-format
 msgid "Youth hostels only"
 msgstr "유스 호스텔만"
 
-#: ../code/application/views/city_view.php:317
+#: ../code/application/views/city_view.php:345
 #: ../code/application/views/helpfile/pofields.php~:555
 #: ../code/application/views/helpfile/pofields.php:555
 #, php-format
 msgid "Only free breakfast"
 msgstr "무료 아침 식사"
 
-#: ../code/application/views/city_view.php:328
+#: ../code/application/views/city_view.php:420
 #: ../code/application/views/helpfile/pofields.php~:604
 #: ../code/application/views/helpfile/pofields.php:604
 #, php-format
 msgid "Selected filters:"
 msgstr "검색어 다시 지정하기"
 
-#: ../code/application/views/city_view.php:335
+#: ../code/application/views/city_view.php:427
 #: ../code/application/views/helpfile/pofields.php~:443
 #: ../code/application/views/helpfile/pofields.php~:655
 #: ../code/application/views/helpfile/pofields.php:443
@@ -3355,15 +3430,15 @@ msgstr "검색어 다시 지정하기"
 msgid "Rating"
 msgstr "등급"
 
-#: ../code/application/views/city_view.php:436
+#: ../code/application/views/city_view.php:528
 msgid "Please Wait"
 msgstr "기다려 주세요"
 
-#: ../code/application/views/city_view.php:441
+#: ../code/application/views/city_view.php:533
 msgid "From"
 msgstr "발신자"
 
-#: ../code/application/views/city_view.php:442
+#: ../code/application/views/city_view.php:534
 msgid "Only 5 properties can be compared. Please remove a property from list."
 msgstr "5개 숙소만 비교할 수 있습니다. 목록에서 숙소를 제거하십시오."
 
@@ -3372,7 +3447,7 @@ msgid "Options de Votre Compte"
 msgstr "계정 옵션"
 
 #: ../code/application/views/includes/navuser.php:4
-#: ../code/application/views/includes/header.php:996
+#: ../code/application/views/includes/header.php:1269
 #: ../code/application/views/auth/login_form.php:90
 msgid "Mon Compte"
 msgstr "내 계정"
@@ -3431,7 +3506,7 @@ msgstr "날짜를 입력하세요"
 
 #: ../code/application/views/includes/side_search_box.php:40
 #: ../code/application/views/includes/side_search_box.php:42
-#: ../code/application/views/includes/side_search_box.php:44
+#: ../code/application/views/includes/side_search_box.php:45
 #: ../code/application/views/includes/search_box.php:5
 #: ../code/application/views/includes/search_box.php:7
 #: ../code/application/views/includes/search_box.php:9
@@ -3446,8 +3521,8 @@ msgstr "날짜를 입력하세요"
 msgid "Chargement..."
 msgstr "로드 중입니다 ..."
 
-#: ../code/application/views/includes/side_search_box.php:51
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/includes/side_search_box.php:52
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:16
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
@@ -3458,8 +3533,8 @@ msgstr "로드 중입니다 ..."
 msgid "Pays introuvable"
 msgstr "국가를 찾을 수 없음"
 
-#: ../code/application/views/includes/side_search_box.php:51
-#: ../code/application/views/includes/side_search_box.php:210
+#: ../code/application/views/includes/side_search_box.php:52
+#: ../code/application/views/includes/side_search_box.php:211
 #: ../code/application/views/includes/search_box.php:16
 #: ../code/application/views/includes/search_box.php:169
 #: ../code/application/views/includes/city_search_box.php:16
@@ -3470,27 +3545,27 @@ msgstr "국가를 찾을 수 없음"
 msgid "Ville introuvable"
 msgstr "도시를 찾을 수 없음"
 
-#: ../code/application/views/includes/side_search_box.php:154
+#: ../code/application/views/includes/side_search_box.php:155
 #: ../code/application/views/includes/search_box.php:140
 #: ../code/application/views/includes/city_search_box.php:130
 msgid "Search by city or hostel name:"
 msgstr "호스텔 이름이나 도시명으로 검색하기:"
 
-#: ../code/application/views/includes/side_search_box.php:172
+#: ../code/application/views/includes/side_search_box.php:173
 #: ../code/application/views/includes/search_box.php:24
 #: ../code/application/views/includes/city_lp_search_box.php:113
 #: ../code/application/views/group_request.php:73
 msgid "Spécifier le pays"
 msgstr "국가 지정하기"
 
-#: ../code/application/views/includes/side_search_box.php:177
+#: ../code/application/views/includes/side_search_box.php:178
 #: ../code/application/views/includes/search_box.php:30
 #: ../code/application/views/includes/city_lp_search_box.php:119
 #: ../code/application/views/group_request.php:84
 msgid "Spécifier la ville"
 msgstr "도시 지정하기"
 
-#: ../code/application/views/includes/side_search_box.php:183
+#: ../code/application/views/includes/side_search_box.php:184
 #: ../code/application/views/includes/search_box.php:154
 #: ../code/application/views/includes/search_box.php:158
 #: ../code/application/views/includes/city_lp_search_box.php:131
@@ -3507,8 +3582,8 @@ msgstr "%s는 UNICEF를 후원합니다."
 
 #: ../code/application/views/includes/siteinfo.php:7
 #: ../code/application/views/includes/siteinfo.php:16
-#: ../code/application/views/includes/header_book.php:170
-#: ../code/application/views/includes/header.php:1050
+#: ../code/application/views/includes/header_book.php:177
+#: ../code/application/views/includes/header.php:1323
 #: ../code/application/views/hw/booking_view.php:56
 #: ../code/application/views/hb/booking_view.php:46
 #, php-format
@@ -3545,11 +3620,11 @@ msgid ""
 msgstr " %s : 회원 카드 없이 인터넷에서 가장 좋은 가격을 받을 수 있습니다."
 
 #: ../code/application/views/includes/siteinfo.php:20
-#: ../code/application/views/includes/header_book.php:172
-#: ../code/application/views/includes/header.php:1052
+#: ../code/application/views/includes/header_book.php:179
+#: ../code/application/views/includes/header.php:1325
 #: ../code/application/views/includes/top_box.php:37
 #: ../code/application/views/hb/booking_view.php:50
-#: ../code/application/views/hb/booking_view.php:253
+#: ../code/application/views/hb/booking_view.php:265
 #: ../code/application/views/helpfile/pofields.php~:6
 #: ../code/application/views/helpfile/pofields.php:6
 msgid "No Booking fees"
@@ -3577,19 +3652,19 @@ msgid "Navigation"
 msgstr "항해"
 
 #: ../code/application/views/includes/footer.php:36
-#: ../code/application/views/includes/header.php:1066
+#: ../code/application/views/includes/header.php:1339
 #: ../code/application/views/includes/top_box.php:53
 msgid "Accueil"
 msgstr "홈페이지"
 
 #: ../code/application/views/includes/footer.php:47
-#: ../code/application/views/includes/header.php:1067
+#: ../code/application/views/includes/header.php:1340
 #: ../code/application/views/includes/top_box.php:54
 msgid "Auberges et logements pas chers"
 msgstr "호스텔"
 
 #: ../code/application/views/includes/footer.php:52
-#: ../code/application/views/includes/header.php:1069
+#: ../code/application/views/includes/header.php:1342
 #: ../code/application/views/includes/top_box.php:57
 msgid "Réservation d'auberges de jeunesse pour les groupes"
 msgstr "단체 예약 호스텔"
@@ -3597,26 +3672,26 @@ msgstr "단체 예약 호스텔"
 #: ../code/application/views/includes/footer.php:60
 #: ../code/application/views/includes/group-booking.php:10
 #: ../code/application/views/includes/group-booking.php:11
-#: ../code/application/views/includes/header.php:1069
+#: ../code/application/views/includes/header.php:1342
 #: ../code/application/views/includes/top_box.php:57
 msgid "Groupes 10+"
 msgstr "10명 이상 그룹"
 
 #: ../code/application/views/includes/footer.php:68
-#: ../code/application/views/includes/header.php:1072
+#: ../code/application/views/includes/header.php:1345
 #: ../code/application/views/includes/top_box.php:60
 msgid "Événements"
 msgstr "이벤트"
 
 #: ../code/application/views/includes/footer.php:75
-#: ../code/application/views/includes/header.php:1075
+#: ../code/application/views/includes/header.php:1348
 #: ../code/application/views/includes/top_box.php:63
 msgid "Destinations"
 msgstr "여행지"
 
 #: ../code/application/views/includes/footer.php:84
-#: ../code/application/views/hw/hostel_view.php:472
-#: ../code/application/views/hb/hostel_view.php:567
+#: ../code/application/views/hw/hostel_view.php:480
+#: ../code/application/views/hb/hostel_view.php:590
 #: ../code/application/views/helpfile/pofields.php~:829
 #: ../code/application/views/helpfile/pofields.php:829
 #, php-format
@@ -3657,14 +3732,14 @@ msgstr "지금 계정 만들기"
 msgid "Joignez-vous à nous sur Facebook"
 msgstr "저희 페이스북 페이지에 가입하세요."
 
-#: ../code/application/views/includes/header_book.php:157
-#: ../code/application/views/includes/header.php:1037
+#: ../code/application/views/includes/header_book.php:164
+#: ../code/application/views/includes/header.php:1310
 #: ../code/application/views/includes/top_box.php:23
 msgid "Plus de 30,000 Auberges de Jeunesse disponible en ligne"
 msgstr "30,000곳 이상의 호스텔을 온라인으로 이용가능"
 
-#: ../code/application/views/includes/header_book.php:161
-#: ../code/application/views/includes/header.php:1041
+#: ../code/application/views/includes/header_book.php:168
+#: ../code/application/views/includes/header.php:1314
 #: ../code/application/views/includes/top_box.php:28
 #: ../code/application/views/helpfile/pofields.php~:275
 #: ../code/application/views/helpfile/pofields.php:275
@@ -3672,8 +3747,8 @@ msgstr "30,000곳 이상의 호스텔을 온라인으로 이용가능"
 msgid "Free SMS"
 msgstr "무료 SMS"
 
-#: ../code/application/views/includes/header_book.php:175
-#: ../code/application/views/includes/header.php:1055
+#: ../code/application/views/includes/header_book.php:182
+#: ../code/application/views/includes/header.php:1328
 #: ../code/application/views/includes/top_box.php:39
 #: ../code/application/views/helpfile/pofields.php~:43
 #: ../code/application/views/helpfile/pofields.php~:188
@@ -3701,8 +3776,8 @@ msgstr "트위터에서 우리와 함께해요."
 msgid "Language Lessons ? CoursParticuliers.com"
 msgstr "언어 수업? CoursParticuliers.com"
 
-#: ../code/application/views/includes/header.php:20
-#: ../code/application/views/includes/header.php:25
+#: ../code/application/views/includes/header.php:110
+#: ../code/application/views/includes/header.php:115
 #: ../code/application/views/search_results.php:55
 #, php-format
 msgid ""
@@ -3714,20 +3789,20 @@ msgstr ""
 "%s - %s안에 위치한 30,000의 모든 저렴한 호스텔과 유스호스텔. %s의 지도, %s의 "
 "사진, 팁, 행사, 가이드 호스텔"
 
-#: ../code/application/views/includes/header.php:395
+#: ../code/application/views/includes/header.php:644
 msgid "Localisation invalide sur Google Map"
 msgstr "Google 지도를 위한 잘못된 위치"
 
-#: ../code/application/views/includes/header.php:972
+#: ../code/application/views/includes/header.php:1245
 #, php-format
 msgid "Searching for %s"
 msgstr "% s에 대해 검색"
 
-#: ../code/application/views/includes/header.php:974
+#: ../code/application/views/includes/header.php:1247
 msgid "Please wait while we are finding the best deals for you ..."
 msgstr "검색중입니다. 잠시만 기다려주십시오. "
 
-#: ../code/application/views/includes/header.php:975
+#: ../code/application/views/includes/header.php:1248
 #: ../code/application/views/helpfile/pofields.php~:629
 #: ../code/application/views/helpfile/pofields.php:629
 #, php-format
@@ -3790,8 +3865,8 @@ msgstr "다른 메시지를 보내세요"
 
 #: ../code/application/views/includes/template-share-email-popup.php:38
 #: ../code/application/views/includes/template-share-email-popup.php:94
-#: ../code/application/views/hw/hostel_view.php:358
-#: ../code/application/views/hb/hostel_view.php:441
+#: ../code/application/views/hw/hostel_view.php:366
+#: ../code/application/views/hb/hostel_view.php:464
 #: ../code/application/views/helpfile/pofields.php~:173
 #: ../code/application/views/helpfile/pofields.php~:674
 #: ../code/application/views/helpfile/pofields.php~:683
@@ -3814,7 +3889,7 @@ msgstr "이메일이 유효하지 않습니다."
 #: ../code/application/views/helpfile/pofields.php~:769
 #: ../code/application/views/helpfile/pofields.php:661
 #: ../code/application/views/helpfile/pofields.php:769
-#: ../code/application/controllers/cmain.php:1470
+#: ../code/application/controllers/cmain.php:1500
 #, php-format
 msgid "Fill in the email"
 msgstr "이메일에 기입하세요"
@@ -3824,7 +3899,7 @@ msgstr "이메일에 기입하세요"
 #: ../code/application/views/helpfile/pofields.php~:770
 #: ../code/application/views/helpfile/pofields.php:663
 #: ../code/application/views/helpfile/pofields.php:770
-#: ../code/application/controllers/cmain.php:1477
+#: ../code/application/controllers/cmain.php:1507
 #, php-format
 msgid "Fill in the subject"
 msgstr "제목을 쓰세요"
@@ -3834,7 +3909,7 @@ msgstr "제목을 쓰세요"
 #: ../code/application/views/helpfile/pofields.php~:771
 #: ../code/application/views/helpfile/pofields.php:664
 #: ../code/application/views/helpfile/pofields.php:771
-#: ../code/application/controllers/cmain.php:1480
+#: ../code/application/controllers/cmain.php:1510
 #, php-format
 msgid "Fill in the message"
 msgstr "메시지를 쓰세요"
@@ -4055,6 +4130,13 @@ msgstr "그룹을 위한 유스호스텔 예약"
 msgid "Réservation de groupes"
 msgstr "단체 예약"
 
+#: ../code/application/views/includes/side_landmarks.php:35
+#: ../code/application/views/helpfile/pofields.php~:446
+#: ../code/application/views/helpfile/pofields.php:446
+#, php-format
+msgid "Landmarks"
+msgstr "랜드마크"
+
 #: ../code/application/views/hw/booking_end_view.php:8
 #: ../code/application/views/hb/booking_end_view.php:11
 msgid "Print Now"
@@ -4102,6 +4184,7 @@ msgid "Date"
 msgstr "날짜"
 
 #: ../code/application/views/hw/booking_end_view.php:165
+#: ../code/application/views/restricted/user_bookings.php:52
 msgid "Amount already paid"
 msgstr "이미 지불한 금액:"
 
@@ -4134,46 +4217,46 @@ msgstr "보증금 공제 후 나머지 잔여액은 도착시 결제 예정입�
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1040
-#: ../code/application/views/hw/hostel_view.php:362
-#: ../code/application/views/hw/hostel_view.php:655
-#: ../code/application/views/hw/hostel_view.php:722
-#: ../code/application/views/hw/hostel_view.php:828
-#: ../code/application/views/hw/reviews.php:12
+#: ../code/application/views/hw/hostel_view.php:370
+#: ../code/application/views/hw/hostel_view.php:664
+#: ../code/application/views/hw/hostel_view.php:731
+#: ../code/application/views/hw/hostel_view.php:838
+#: ../code/application/views/hw/reviews.php:15
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
-#: ../code/application/views/hb/booking_view.php:825
-#: ../code/application/views/hb/booking_view.php:850
-#: ../code/application/views/hb/hostel_view.php:445
-#: ../code/application/views/hb/hostel_view.php:766
-#: ../code/application/views/hb/hostel_view.php:838
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
+#: ../code/application/views/hb/hostel_view.php:468
+#: ../code/application/views/hb/hostel_view.php:798
 #: ../code/application/views/hb/hostel_view.php:870
-#: ../code/application/views/hb/hostel_view.php:932
-#: ../code/application/views/hb/hostel_view.php:953
-#: ../code/application/views/hb/hostel_view.php:1075
-#: ../code/application/views/hb/reviews.php:5
+#: ../code/application/views/hb/hostel_view.php:902
+#: ../code/application/views/hb/hostel_view.php:964
+#: ../code/application/views/hb/hostel_view.php:985
+#: ../code/application/views/hb/hostel_view.php:1110
+#: ../code/application/views/hb/reviews.php:7
 msgid "Voir la version traduite"
 msgstr "번역된 버전보기"
 
 #: ../code/application/views/hw/reviews-map.php:5
 #: ../code/application/views/hw/booking_view.php:39
 #: ../code/application/views/hw/booking_view.php:1040
-#: ../code/application/views/hw/hostel_view.php:363
-#: ../code/application/views/hw/hostel_view.php:656
-#: ../code/application/views/hw/hostel_view.php:723
-#: ../code/application/views/hw/hostel_view.php:829
-#: ../code/application/views/hw/reviews.php:12
+#: ../code/application/views/hw/hostel_view.php:371
+#: ../code/application/views/hw/hostel_view.php:665
+#: ../code/application/views/hw/hostel_view.php:732
+#: ../code/application/views/hw/hostel_view.php:839
+#: ../code/application/views/hw/reviews.php:15
 #: ../code/application/views/hb/reviews-map.php:5
 #: ../code/application/views/hb/booking_view.php:34
-#: ../code/application/views/hb/booking_view.php:825
-#: ../code/application/views/hb/booking_view.php:850
-#: ../code/application/views/hb/hostel_view.php:446
-#: ../code/application/views/hb/hostel_view.php:767
-#: ../code/application/views/hb/hostel_view.php:839
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
+#: ../code/application/views/hb/hostel_view.php:469
+#: ../code/application/views/hb/hostel_view.php:799
 #: ../code/application/views/hb/hostel_view.php:871
-#: ../code/application/views/hb/hostel_view.php:933
-#: ../code/application/views/hb/hostel_view.php:954
-#: ../code/application/views/hb/hostel_view.php:1076
-#: ../code/application/views/hb/reviews.php:6
+#: ../code/application/views/hb/hostel_view.php:903
+#: ../code/application/views/hb/hostel_view.php:965
+#: ../code/application/views/hb/hostel_view.php:986
+#: ../code/application/views/hb/hostel_view.php:1111
+#: ../code/application/views/hb/reviews.php:8
 msgid "Voir l'original"
 msgstr "원본 보기"
 
@@ -4408,11 +4491,11 @@ msgid "Please click here to preview your confirmation email"
 msgstr "확인 이메일 미리 보기를 하려면 여기를 클릭하십시오."
 
 #: ../code/application/views/hw/booking_avail_view.php:889
-#: ../code/application/views/hw/hostel_view.php:740
+#: ../code/application/views/hw/hostel_view.php:749
 #: ../code/application/views/hb/booking_avail_view.php:847
-#: ../code/application/views/hb/hostel_view.php:972
+#: ../code/application/views/hb/hostel_view.php:1004
 #: ../code/application/views/restricted/user_group_quote.php:152
-#: ../code/application/views/email/share_page-html.php:62
+#: ../code/application/views/email/share_page-html.php:68
 #: ../code/application/views/email/share_page-txt.php:27
 msgid "PLEASE NOTE THIS IS NOT A CONFIRMED BOOKING"
 msgstr "예약이 확정된 것은 아님을 알려드립니다."
@@ -4421,8 +4504,8 @@ msgstr "예약이 확정된 것은 아님을 알려드립니다."
 #: ../code/application/views/hw/booking_view.php:974
 #: ../code/application/views/hw/booking_view.php:976
 #: ../code/application/views/hb/booking_avail_view.php:849
-#: ../code/application/views/hb/booking_view.php:752
-#: ../code/application/views/hb/booking_view.php:754
+#: ../code/application/views/hb/booking_view.php:765
+#: ../code/application/views/hb/booking_view.php:767
 msgid "sécurisé"
 msgstr "안전한"
 
@@ -4543,8 +4626,8 @@ msgstr "여러 다른 호텔 선택에 따라"
 #: ../code/application/views/hw/booking_view.php:38
 #: ../code/application/views/hw/booking_view.php:1040
 #: ../code/application/views/hb/booking_view.php:33
-#: ../code/application/views/hb/booking_view.php:825
-#: ../code/application/views/hb/booking_view.php:850
+#: ../code/application/views/hb/booking_view.php:838
+#: ../code/application/views/hb/booking_view.php:863
 msgid ""
 "Certains extraits du texte de cette page ont été traduits automatiquement. "
 "Cliquer sur les liens suivants changer les version :"
@@ -4568,7 +4651,7 @@ msgstr "지금 바로 방을 예약"
 #: ../code/application/views/hw/booking_view.php:101
 #: ../code/application/views/hw/booking_view.php:992
 #: ../code/application/views/hb/booking_view.php:84
-#: ../code/application/views/hb/booking_view.php:766
+#: ../code/application/views/hb/booking_view.php:779
 #, php-format
 msgid ""
 "Il y a eu une erreur lors du traitement de votre demande, veuillez vous "
@@ -4582,7 +4665,7 @@ msgstr ""
 
 #: ../code/application/views/hw/booking_view.php:102
 #: ../code/application/views/hw/booking_view.php:993
-#: ../code/application/views/hb/booking_view.php:767
+#: ../code/application/views/hb/booking_view.php:780
 #: ../code/application/views/helpfile/pofields.php~:204
 #: ../code/application/views/helpfile/pofields.php:204
 #, php-format
@@ -4603,7 +4686,7 @@ msgid "Updating..."
 msgstr "업데이트 중..."
 
 #: ../code/application/views/hw/booking_view.php:422
-#: ../code/application/views/hb/booking_view.php:278
+#: ../code/application/views/hb/booking_view.php:290
 msgid "Modify this booking"
 msgstr "예약 변경"
 
@@ -4629,7 +4712,7 @@ msgid "Validation 3D"
 msgstr "3D검증"
 
 #: ../code/application/views/hw/booking_view.php:465
-#: ../code/application/views/hb/booking_view.php:295
+#: ../code/application/views/hb/booking_view.php:307
 #: ../code/application/views/helpfile/pofields.php~:432
 #: ../code/application/views/helpfile/pofields.php~:529
 #: ../code/application/views/helpfile/pofields.php:432
@@ -4643,7 +4726,7 @@ msgstr ""
 "안 전송 및 암호화된 스토리지를 사용합니다."
 
 #: ../code/application/views/hw/booking_view.php:516
-#: ../code/application/views/hb/booking_view.php:391
+#: ../code/application/views/hb/booking_view.php:403
 msgid "You will receive a confirmation email"
 msgstr "실시간 예약 확인 이메일이 전송됩니다 "
 
@@ -4653,13 +4736,13 @@ msgid "Both emails must be the same"
 msgstr "두개의 이메일 주소가 동일해야합니다."
 
 #: ../code/application/views/hw/booking_view.php:540
-#: ../code/application/views/hb/booking_view.php:414
+#: ../code/application/views/hb/booking_view.php:426
 #: ../code/application/views/group_request.php:259
 msgid "UK Example: 442012341234"
 msgstr "한국으로 전화 걸때: 82103456789"
 
 #: ../code/application/views/hw/booking_view.php:676
-#: ../code/application/views/hb/booking_view.php:499
+#: ../code/application/views/hb/booking_view.php:512
 #: ../code/application/views/helpfile/pofields.php~:207
 #: ../code/application/views/helpfile/pofields.php:207
 #, php-format
@@ -4669,7 +4752,7 @@ msgid ""
 msgstr "예약시 친구나 가족의 신용카드를 이용 예약하실 수 있습니다."
 
 #: ../code/application/views/hw/booking_view.php:676
-#: ../code/application/views/hb/booking_view.php:499
+#: ../code/application/views/hb/booking_view.php:512
 #: ../code/application/views/helpfile/pofields.php~:208
 #: ../code/application/views/helpfile/pofields.php:208
 #, php-format
@@ -4687,12 +4770,12 @@ msgstr ""
 "를 입력하십시오."
 
 #: ../code/application/views/hw/booking_view.php:699
-#: ../code/application/views/hb/booking_view.php:517
+#: ../code/application/views/hb/booking_view.php:530
 msgid "(sans tiret)"
 msgstr "(대시 없음)"
 
 #: ../code/application/views/hw/booking_view.php:712
-#: ../code/application/views/hb/booking_view.php:529
+#: ../code/application/views/hb/booking_view.php:542
 msgid "Type de carte :"
 msgstr "카드 타입:"
 
@@ -4708,7 +4791,7 @@ msgid "Important information: Maestro cards must be from Great-Britain."
 msgstr "중요 정보 : Maestro cards는  U.K 에서 발급된 것만 가능합니다."
 
 #: ../code/application/views/hw/booking_view.php:888
-#: ../code/application/views/hb/booking_view.php:673
+#: ../code/application/views/hb/booking_view.php:686
 msgid "Qu'est-ce que c'est ?"
 msgstr "이것은 무엇입니까?"
 
@@ -4717,20 +4800,20 @@ msgid "Invalid format"
 msgstr "잘못된 형식입니다."
 
 #: ../code/application/views/hw/booking_view.php:935
-#: ../code/application/views/hb/booking_view.php:719
+#: ../code/application/views/hb/booking_view.php:732
 msgid "Final Step"
 msgstr "마지막 스텝"
 
 #: ../code/application/views/hw/booking_view.php:974
 #: ../code/application/views/hw/booking_view.php:976
-#: ../code/application/views/hb/booking_view.php:752
-#: ../code/application/views/hb/booking_view.php:754
+#: ../code/application/views/hb/booking_view.php:765
+#: ../code/application/views/hb/booking_view.php:767
 #, php-format
 msgid "Transaction 100%% sécurisée et encryptée"
 msgstr "계약은 안전하며 보안이 됩니다. 100%% 안전"
 
 #: ../code/application/views/hw/booking_view.php:979
-#: ../code/application/views/hb/booking_view.php:757
+#: ../code/application/views/hb/booking_view.php:770
 #: ../code/application/views/group_request.php:300
 msgid "Please make sure all required fields are filled out correctly"
 msgstr " 모든 필수 입력란이  올바르게 기입되어 있는지 확인하십시오."
@@ -4740,10 +4823,10 @@ msgstr " 모든 필수 입력란이  올바르게 기입되어 있는지 확인�
 msgid "close"
 msgstr "닫기"
 
-#: ../code/application/views/hw/hostel_view.php:14
-#: ../code/application/views/hw/hostel_view.php:16
-#: ../code/application/views/hb/hostel_view.php:13
-#: ../code/application/views/hb/hostel_view.php:15
+#: ../code/application/views/hw/hostel_view.php:13
+#: ../code/application/views/hw/hostel_view.php:15
+#: ../code/application/views/hb/hostel_view.php:12
+#: ../code/application/views/hb/hostel_view.php:14
 #: ../code/application/views/helpfile/pofields.php~:213
 #: ../code/application/views/helpfile/pofields.php~:259
 #: ../code/application/views/helpfile/pofields.php:213
@@ -4752,92 +4835,102 @@ msgstr "닫기"
 msgid "Back to search results"
 msgstr "검색결과로 돌아가기"
 
-#: ../code/application/views/hw/hostel_view.php:34
-#: ../code/application/views/hb/hostel_view.php:33
+#: ../code/application/views/hw/hostel_view.php:39
+#: ../code/application/views/hb/hostel_view.php:38
 msgid "Voir la carte"
 msgstr "지도보기"
 
-#: ../code/application/views/hw/hostel_view.php:60
-#: ../code/application/views/hb/hostel_view.php:141
+#: ../code/application/views/hw/hostel_view.php:65
+#: ../code/application/views/hb/hostel_view.php:161
 msgid "Erreur de requête"
 msgstr "응용 프로그램 오류"
 
-#: ../code/application/views/hw/hostel_view.php:112
-#: ../code/application/views/hb/hostel_view.php:175
-#: ../code/application/controllers/cmain.php:1843
+#: ../code/application/views/hw/hostel_view.php:117
+#: ../code/application/views/hb/hostel_view.php:195
+#: ../code/application/controllers/cmain.php:1884
 msgid "Votre commentaire a été envoyé à notre équipe pour approbation. Merci!"
 msgstr "귀하의 댓글이 승인을 받기 위해 전송되었습니다. 감사합니다!"
 
-#: ../code/application/views/hw/hostel_view.php:119
-#: ../code/application/views/hb/hostel_view.php:181
+#: ../code/application/views/hw/hostel_view.php:124
+#: ../code/application/views/hb/hostel_view.php:201
 #, php-format
 msgid "Laissez vos impressions sur %s"
 msgstr "%s에 리뷰를 남겨주세요."
 
-#: ../code/application/views/hw/hostel_view.php:129
-#: ../code/application/views/hb/hostel_view.php:192
+#: ../code/application/views/hw/hostel_view.php:134
+#: ../code/application/views/hb/hostel_view.php:212
 msgid "Votre Prénom:"
 msgstr "귀하의 이름 :"
 
-#: ../code/application/views/hw/hostel_view.php:141
-#: ../code/application/views/hb/hostel_view.php:204
+#: ../code/application/views/hw/hostel_view.php:146
+#: ../code/application/views/hb/hostel_view.php:224
 msgid "Votre Nom (ne sera pas publié):"
 msgstr "귀하의 성(공개되지 않음)"
 
-#: ../code/application/views/hw/hostel_view.php:154
-#: ../code/application/views/hb/hostel_view.php:217
+#: ../code/application/views/hw/hostel_view.php:159
+#: ../code/application/views/hb/hostel_view.php:237
 msgid "Votre Email (ne sera pas publié):"
 msgstr "귀하의 이메일(공개되지 않음)"
 
-#: ../code/application/views/hw/hostel_view.php:180
-#: ../code/application/views/hb/hostel_view.php:243
+#: ../code/application/views/hw/hostel_view.php:185
+#: ../code/application/views/hb/hostel_view.php:263
 msgid "Veuillez évaluer votre expérience:"
 msgstr "경험을 평가해주세요."
 
-#: ../code/application/views/hw/hostel_view.php:211
-#: ../code/application/views/hb/hostel_view.php:274
+#: ../code/application/views/hw/hostel_view.php:216
+#: ../code/application/views/hb/hostel_view.php:294
 #, php-format
 msgid "Vos commentaires sur %s :"
 msgstr "%s에 관한 당신의 리뷰"
 
-#: ../code/application/views/hw/hostel_view.php:225
-#: ../code/application/views/hb/hostel_view.php:288
+#: ../code/application/views/hw/hostel_view.php:230
+#: ../code/application/views/hb/hostel_view.php:308
 msgid "La date de votre dernier séjour à cet endroit :"
 msgstr "이 곳에서 마지막 숙박 날짜 :"
 
-#: ../code/application/views/hw/hostel_view.php:356
-#: ../code/application/views/hb/hostel_view.php:439
+#: ../code/application/views/hw/hostel_view.php:364
+#: ../code/application/views/hb/hostel_view.php:462
 #: ../code/application/views/helpfile/pofields.php~:262
 #: ../code/application/views/helpfile/pofields.php:262
 #, php-format
 msgid "Read more…"
 msgstr "더 보기…"
 
-#: ../code/application/views/hw/hostel_view.php:474
-#: ../code/application/views/hb/hostel_view.php:569
+#: ../code/application/views/hw/hostel_view.php:482
+#: ../code/application/views/hb/hostel_view.php:592
 msgid "Info & Prix"
 msgstr "정보 및 가격"
 
-#: ../code/application/views/hw/hostel_view.php:620
-#: ../code/application/views/hb/hostel_view.php:725
+#: ../code/application/views/hw/hostel_view.php:628
+#: ../code/application/views/hb/hostel_view.php:756
 msgid "Rechercher"
 msgstr "검색"
 
-#: ../code/application/views/hw/hostel_view.php:638
-#: ../code/application/views/hb/hostel_view.php:752
+#: ../code/application/views/hw/hostel_view.php:646
+#: ../code/application/views/hb/hostel_view.php:783
 #: ../code/application/views/helpfile/pofields.php~:694
 #: ../code/application/views/helpfile/pofields.php:694
 #, php-format
 msgid "Want to receive or send a PDF copy of this quote?"
 msgstr "이 견적의 PDF 사본을 받거나 보내고 싶으세요?"
 
-#: ../code/application/views/hw/hostel_view.php:753
-#: ../code/application/views/hb/hostel_view.php:1001
+#: ../code/application/views/hw/hostel_view.php:755
+#: ../code/application/views/hw/reviews.php:6
+#: ../code/application/views/hb/hostel_view.php:1011
+#: ../code/application/views/hb/reviews.php:2
+#: ../code/application/views/helpfile/pofields.php~:890
+#: ../code/application/views/helpfile/pofields.php:890
+#, php-format
+msgid "Click here to see info and prices"
+msgstr "정보 및 가격을 보려면 여기를 클릭하십시오"
+
+#: ../code/application/views/hw/hostel_view.php:763
+#: ../code/application/views/hb/hostel_view.php:1034
 msgid "Cartes"
 msgstr "지도"
 
-#: ../code/application/views/hw/hostel_view.php:817
-#: ../code/application/views/hb/hostel_view.php:1065
+#: ../code/application/views/hw/hostel_view.php:827
+#: ../code/application/views/hb/hostel_view.php:1100
 msgid "Street View"
 msgstr "스트리트 뷰"
 
@@ -4862,7 +4955,7 @@ msgid "Amount already paid:"
 msgstr "이미 지불한 금액:"
 
 #: ../code/application/views/hb/booking_end_view.php:180
-#: ../code/application/views/hb/hostel_view.php:929
+#: ../code/application/views/hb/hostel_view.php:961
 #: ../code/application/views/email/new_transaction_hb.php:693
 msgid "Cancellation Policy"
 msgstr "취소 약관"
@@ -4891,24 +4984,71 @@ msgstr ""
 "드리는 확인 메일에서 숙소 정보(이메일, 주소, 전화번호 등..)을 확인 하실 수 있"
 "습니다. "
 
-#: ../code/application/views/hb/booking_view.php:337
+#: ../code/application/views/hb/booking_view.php:243
+#: ../code/application/views/helpfile/pofields.php~:889
+#: ../code/application/views/helpfile/pofields.php:889
+#, php-format
+msgid "The benefits"
+msgstr "혜택"
+
+#: ../code/application/views/hb/booking_view.php:245
+#: ../code/application/views/helpfile/pofields.php~:870
+#: ../code/application/views/helpfile/pofields.php:870
+#, php-format
+msgid ""
+"Local customer service you can trust in your language available 24 hours a "
+"day"
+msgstr ""
+"하루 24시간 각국의 언어로 제공되는  지역 고객 서비스를 신뢰하실 수 있습니다."
+
+#: ../code/application/views/hb/booking_view.php:246
+#: ../code/application/views/helpfile/pofields.php~:871
+#: ../code/application/views/helpfile/pofields.php:871
+#, php-format
+msgid "Secured payment: your credit card is protected"
+msgstr "보안 결제 : 당신의 신용 카드는 안전합니다."
+
+#: ../code/application/views/hb/booking_view.php:247
+#: ../code/application/views/helpfile/pofields.php~:872
+#: ../code/application/views/helpfile/pofields.php:872
+#, php-format
+msgid ""
+"No spam emails after you have booked and your information will stay private"
+msgstr "예약 후 스팸메일은 없으며  귀하의 정보는 공개되지 않을 것입니다."
+
+#: ../code/application/views/hb/booking_view.php:248
+#: ../code/application/views/helpfile/pofields.php~:873
+#: ../code/application/views/helpfile/pofields.php:873
+#, php-format
+msgid "You have access to millions of real reviews from travellers like you"
+msgstr ""
+"당신과 같은 여행자가 쓴, 수백만개의  실제 이용 후기에 액세스 할 수 있습니다"
+
+#: ../code/application/views/hb/booking_view.php:249
+#: ../code/application/views/helpfile/pofields.php~:874
+#: ../code/application/views/helpfile/pofields.php:874
+#, php-format
+msgid "And finally, you get the best price!"
+msgstr "마침내, 당신은 최적의 가격을 만납습니다 !"
+
+#: ../code/application/views/hb/booking_view.php:349
 #: ../code/application/controllers/cadmin.php:26
 msgid "People"
 msgstr "인원수: "
 
-#: ../code/application/views/hb/booking_view.php:338
+#: ../code/application/views/hb/booking_view.php:350
 #: ../code/application/views/email/admin/new_group_request.php:28
 #: ../code/application/views/group_request.php:148
 msgid "Female:"
 msgstr "여성"
 
-#: ../code/application/views/hb/booking_view.php:345
+#: ../code/application/views/hb/booking_view.php:357
 #: ../code/application/views/email/admin/new_group_request.php:27
 #: ../code/application/views/group_request.php:137
 msgid "Male:"
 msgstr "남성"
 
-#: ../code/application/views/hb/booking_view.php:854
+#: ../code/application/views/hb/booking_view.php:867
 msgid ""
 "Les changements et annulations sont possibles, faciles à faire et se font "
 "directement avec l‘établissement choisi qui en est responsable. Changements "
@@ -4919,7 +5059,7 @@ msgstr ""
 "째 숙박일이 청구되지 않도록 최소 24시간 이전에 예약 취소 및 변경 정책에 따라 "
 "사전에 취소를 해야합니다."
 
-#: ../code/application/views/hb/booking_view.php:858
+#: ../code/application/views/hb/booking_view.php:871
 #, php-format
 msgid ""
 "Sur %s, vous payez seulement les arrhes (10%% du montant total) afin de "
@@ -4932,16 +5072,16 @@ msgstr ""
 msgid "80% +"
 msgstr "80% +"
 
-#: ../code/application/views/hb/hostel_view.php:867
+#: ../code/application/views/hb/hostel_view.php:899
 msgid "Purchasable Extras"
 msgstr "구입 가능한 부가 기능"
 
-#: ../code/application/views/hb/hostel_view.php:904
-#: ../code/application/views/hb/hostel_view.php:906
+#: ../code/application/views/hb/hostel_view.php:936
+#: ../code/application/views/hb/hostel_view.php:938
 msgid "Check-In/Out Details"
 msgstr "체크 인/아웃시 자세한 사항"
 
-#: ../code/application/views/hb/hostel_view.php:906
+#: ../code/application/views/hb/hostel_view.php:938
 #: ../code/application/views/helpfile/pofields.php~:830
 #: ../code/application/views/helpfile/pofields.php:830
 #, php-format
@@ -4957,15 +5097,15 @@ msgstr ""
 "습니다.호텔 대부분이 이러한 서비스를 제공하며 하루 24시간 운영됩니다. 서비스"
 "를 이용하기 위해서 호텔에서 제공되는 서비스의 목록을 확인하십시오."
 
-#: ../code/application/views/hb/hostel_view.php:913
+#: ../code/application/views/hb/hostel_view.php:945
 msgid "Check-in:"
 msgstr "체크 인"
 
-#: ../code/application/views/hb/hostel_view.php:917
+#: ../code/application/views/hb/hostel_view.php:949
 msgid "Check-out:"
 msgstr "체크 아웃"
 
-#: ../code/application/views/compare_property.php:42
+#: ../code/application/views/compare_property.php:45
 #: ../code/application/views/helpfile/pofields.php~:460
 #: ../code/application/views/helpfile/pofields.php~:632
 #: ../code/application/views/helpfile/pofields.php:460
@@ -4974,64 +5114,64 @@ msgstr "체크 아웃"
 msgid "See Map"
 msgstr "지도를 참조하세요"
 
-#: ../code/application/views/compare_property.php:48
-#: ../code/application/views/compare_property.php:53
-#: ../code/application/views/compare_property.php:62
 #: ../code/application/views/compare_property.php:63
-#: ../code/application/views/compare_property.php:67
 #: ../code/application/views/compare_property.php:68
+#: ../code/application/views/compare_property.php:77
+#: ../code/application/views/compare_property.php:78
+#: ../code/application/views/compare_property.php:82
+#: ../code/application/views/compare_property.php:83
 #: ../code/application/views/helpfile/pofields.php~:631
 #: ../code/application/views/helpfile/pofields.php:631
 #, php-format
 msgid "Not available"
 msgstr "사용할 수 없습니다."
 
-#: ../code/application/views/compare_property.php:186
+#: ../code/application/views/compare_property.php:201
 #: ../code/application/views/helpfile/pofields.php~:633
 #: ../code/application/views/helpfile/pofields.php:633
 #, php-format
 msgid "Print"
 msgstr "인쇄"
 
-#: ../code/application/views/compare_property.php:189
+#: ../code/application/views/compare_property.php:204
 #: ../code/application/views/helpfile/pofields.php~:634
 #: ../code/application/views/helpfile/pofields.php:634
 #, php-format
 msgid "Quick Compare"
 msgstr "빠른 비교"
 
-#: ../code/application/views/compare_property.php:222
-#: ../code/application/views/compare_property.php:342
+#: ../code/application/views/compare_property.php:242
+#: ../code/application/views/compare_property.php:362
 #: ../code/application/views/helpfile/pofields.php~:635
 #: ../code/application/views/helpfile/pofields.php:635
 #, php-format
 msgid "Dorms From"
 msgstr "기숙사에서"
 
-#: ../code/application/views/compare_property.php:226
-#: ../code/application/views/compare_property.php:347
+#: ../code/application/views/compare_property.php:246
+#: ../code/application/views/compare_property.php:367
 #: ../code/application/views/helpfile/pofields.php~:636
 #: ../code/application/views/helpfile/pofields.php:636
 #, php-format
 msgid "Privates From"
 msgstr "개인실에서"
 
-#: ../code/application/views/compare_property.php:232
-#: ../code/application/views/compare_property.php:352
+#: ../code/application/views/compare_property.php:252
+#: ../code/application/views/compare_property.php:372
 #: ../code/application/views/helpfile/pofields.php~:637
 #: ../code/application/views/helpfile/pofields.php:637
 #, php-format
 msgid "Rating Overall"
 msgstr "전체 등급"
 
-#: ../code/application/views/compare_property.php:251
+#: ../code/application/views/compare_property.php:271
 #: ../code/application/views/helpfile/pofields.php~:640
 #: ../code/application/views/helpfile/pofields.php:640
 #, php-format
 msgid "Site"
 msgstr "위치"
 
-#: ../code/application/views/compare_property.php:280
+#: ../code/application/views/compare_property.php:300
 #: ../code/application/views/helpfile/pofields.php~:658
 #: ../code/application/views/helpfile/pofields.php:658
 #, php-format
@@ -5317,7 +5457,7 @@ msgstr ""
 
 #: ../code/application/views/helpfile/pofields.php~:53
 #: ../code/application/views/helpfile/pofields.php:53
-#: ../code/application/views/email/share_page-html.php:59
+#: ../code/application/views/email/share_page-html.php:65
 #: ../code/application/views/email/share_page-txt.php:23
 msgid "Thank you"
 msgstr "감사합니다."
@@ -6108,9 +6248,9 @@ msgstr "모바일 서비스"
 
 #: ../code/application/views/helpfile/pofields.php~:190
 #: ../code/application/views/helpfile/pofields.php:190
-#: ../code/application/libraries/Hw_engine.php:766
-#: ../code/application/libraries/Hw_engine.php:1337
-#: ../code/application/libraries/Hb_engine.php:769
+#: ../code/application/libraries/Hw_engine.php:761
+#: ../code/application/libraries/Hw_engine.php:1353
+#: ../code/application/libraries/Hb_engine.php:844
 #, php-format
 msgid "This property requires a minimum stay of %d night"
 msgid_plural "This property requires a minimum stay of %d nights"
@@ -6159,30 +6299,30 @@ msgstr "웹사이트로 예약하실 경우 연간 회원카드는 필요치 않
 
 #: ../code/application/views/helpfile/pofields.php~:198
 #: ../code/application/views/helpfile/pofields.php:198
-#: ../code/application/libraries/Hw_engine.php:1336
+#: ../code/application/libraries/Hw_engine.php:1352
 #, php-format
 msgid "Property availability error"
 msgstr "오류가 발생했습니다."
 
 #: ../code/application/views/helpfile/pofields.php~:199
 #: ../code/application/views/helpfile/pofields.php:199
-#: ../code/application/libraries/Hb_engine.php:456
-#: ../code/application/libraries/Hb_engine.php:920
+#: ../code/application/libraries/Hb_engine.php:486
+#: ../code/application/libraries/Hb_engine.php:1010
 #, php-format
 msgid "Data unavailable. Please try again."
 msgstr "데이타가 불가능합니다. 다시 시도해 주세요. "
 
 #: ../code/application/views/helpfile/pofields.php~:200
 #: ../code/application/views/helpfile/pofields.php:200
-#: ../code/application/controllers/chostelbk.php:212
-#: ../code/application/libraries/Hb_engine.php:1160
+#: ../code/application/controllers/chostelbk.php:207
+#: ../code/application/libraries/Hb_engine.php:1253
 #, php-format
 msgid "No rooms available for the selected nights."
 msgstr "선택하신 날짜에 룸이 없습니다."
 
 #: ../code/application/views/helpfile/pofields.php~:201
 #: ../code/application/views/helpfile/pofields.php:201
-#: ../code/application/controllers/chostelbk.php:366
+#: ../code/application/controllers/chostelbk.php:361
 #, php-format
 msgid "No rooms available for this property."
 msgstr "선택하신 곳에 룸이 없습니다."
@@ -7455,12 +7595,6 @@ msgstr "가겨 범위"
 msgid "All property types"
 msgstr "모든 호스텔 종류"
 
-#: ../code/application/views/helpfile/pofields.php~:446
-#: ../code/application/views/helpfile/pofields.php:446
-#, php-format
-msgid "Landmarks"
-msgstr "랜드마크"
-
 #: ../code/application/views/helpfile/pofields.php~:450
 #: ../code/application/views/helpfile/pofields.php:450
 #, php-format
@@ -8287,35 +8421,35 @@ msgstr "더 적게 보기"
 
 #: ../code/application/views/helpfile/pofields.php~:660
 #: ../code/application/views/helpfile/pofields.php:660
-#: ../code/application/controllers/cmain.php:1466
+#: ../code/application/controllers/cmain.php:1496
 #, php-format
 msgid "Not enough parameters"
 msgstr "설정 범위가 충분치 않습니다"
 
 #: ../code/application/views/helpfile/pofields.php~:662
 #: ../code/application/views/helpfile/pofields.php:662
-#: ../code/application/controllers/cmain.php:1473
+#: ../code/application/controllers/cmain.php:1503
 #, php-format
 msgid "Invalid email recipient"
 msgstr "유효하지 않은 이메일 수신자입니다 "
 
 #: ../code/application/views/helpfile/pofields.php~:665
 #: ../code/application/views/helpfile/pofields.php:665
-#: ../code/application/controllers/cmain.php:1483
+#: ../code/application/controllers/cmain.php:1513
 #, php-format
 msgid "Fill in the \"From\" name"
 msgstr "\"발신자\"란에 이름을 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php~:666
 #: ../code/application/views/helpfile/pofields.php:666
-#: ../code/application/controllers/cmain.php:1486
+#: ../code/application/controllers/cmain.php:1516
 #, php-format
 msgid "Fill in the \"From\" email"
 msgstr "\"발신자\"란에 이메일을 쓰세요"
 
 #: ../code/application/views/helpfile/pofields.php~:667
 #: ../code/application/views/helpfile/pofields.php:667
-#: ../code/application/controllers/cmain.php:1489
+#: ../code/application/controllers/cmain.php:1519
 #, php-format
 msgid "Invalid \"From\" email"
 msgstr "\"발신자\"란의 이메일이 유효하지 않습니다"
@@ -8376,7 +8510,7 @@ msgstr "%s  님으로부터 메시지가 왔습니다 :"
 
 #: ../code/application/views/helpfile/pofields.php~:696
 #: ../code/application/views/helpfile/pofields.php:696
-#: ../code/application/views/email/share_page-html.php:39
+#: ../code/application/views/email/share_page-html.php:45
 #: ../code/application/views/email/share_page-txt.php:5
 #, php-format
 msgid "Here is the link to see the prices, description, maps and much more:"
@@ -8748,7 +8882,7 @@ msgstr "객실 유형 숨기기"
 
 #: ../code/application/views/helpfile/pofields.php~:838
 #: ../code/application/views/helpfile/pofields.php:838
-#: ../code/application/controllers/cmain.php:2465
+#: ../code/application/controllers/cmain.php:2517
 #, php-format
 msgid ""
 "We are sorry but the maximum number of favorite properties you can save to "
@@ -8811,6 +8945,7 @@ msgstr "%d 베드 여성 기숙사 공용 욕실"
 msgid "Hostels only"
 msgstr "호스텔만"
 
+#: ../code/application/views/helpfile/pofields.php~:862
 #: ../code/application/views/helpfile/pofields.php:862
 #, php-format
 msgid ""
@@ -8820,6 +8955,7 @@ msgstr ""
 "도착일 %d일 전까지는  무료로 쉽게 예약을 취소할 수 있습니다.  이미 납부하신 "
 "보증금은 환불되지 않습니다."
 
+#: ../code/application/views/helpfile/pofields.php~:863
 #: ../code/application/views/helpfile/pofields.php:863
 #, php-format
 msgid ""
@@ -8829,88 +8965,75 @@ msgstr ""
 "도착일 1일 전까지는  무료로 쉽게 예약을 취소할 수 있습니다.  이미 납부하신 보"
 "증금은 환불되지 않습니다."
 
+#: ../code/application/views/helpfile/pofields.php~:864
 #: ../code/application/views/helpfile/pofields.php:864
 #: ../code/application/views/restricted/user_favorite_properties.php:35
 #, php-format
 msgid "No properties were saved."
 msgstr "어떠한 호텔도 저장되지 않았습니다."
 
+#: ../code/application/views/helpfile/pofields.php~:865
 #: ../code/application/views/helpfile/pofields.php:865
 #: ../code/application/views/restricted/user_view.php:6
 #, php-format
 msgid "Mon Compte - Réservation Auberges De Jeunesse"
 msgstr "내 계정"
 
+#: ../code/application/views/helpfile/pofields.php~:866
+#: ../code/application/views/helpfile/pofields.php~:899
 #: ../code/application/views/helpfile/pofields.php:866
+#: ../code/application/views/helpfile/pofields.php:899
 #, php-format
 msgid "Please read carefully"
 msgstr "주의 깊게 읽어주십시오"
 
+#: ../code/application/views/helpfile/pofields.php~:867
+#: ../code/application/views/helpfile/pofields.php~:900
 #: ../code/application/views/helpfile/pofields.php:867
+#: ../code/application/views/helpfile/pofields.php:900
 #, php-format
 msgid "I agree"
-msgstr "동의합니다"
+msgstr "동의"
 
+#: ../code/application/views/helpfile/pofields.php~:868
+#: ../code/application/views/helpfile/pofields.php~:901
 #: ../code/application/views/helpfile/pofields.php:868
+#: ../code/application/views/helpfile/pofields.php:901
 #, php-format
 msgid "I do not agree and I will select another property"
-msgstr "동의하지 않고 또 다른 호텔을 선택할 것입니다."
+msgstr "나는 동의하지 않으며 다른 숙소를 선택할 것입니다."
 
+#: ../code/application/views/helpfile/pofields.php~:869
 #: ../code/application/views/helpfile/pofields.php:869
 #, php-format
 msgid "Benefits of booking fee ?"
 msgstr "예약 수수료의 잇점 ?"
 
-#: ../code/application/views/helpfile/pofields.php:870
-#, php-format
-msgid ""
-"Local customer service you can trust in your language available 24 hours a "
-"day"
-msgstr ""
-"하루 24시간 각국의 언어로 제공되는  지역 고객 서비스를 신뢰하실 수 있습니다."
-
-#: ../code/application/views/helpfile/pofields.php:871
-#, php-format
-msgid "Secured payment: your credit card is protected"
-msgstr "보안 결제 : 당신의 신용 카드는 안전합니다."
-
-#: ../code/application/views/helpfile/pofields.php:872
-#, php-format
-msgid ""
-"No spam emails after you have booked and your information will stay private"
-msgstr "예약 후 스팸메일은 없으며  귀하의 정보는 공개되지 않을 것입니다."
-
-#: ../code/application/views/helpfile/pofields.php:873
-#, php-format
-msgid "You have access to millions of real reviews from travellers like you"
-msgstr ""
-"당신과 같은 여행자가 쓴, 수백만개의  실제 이용 후기에 액세스 할 수 있습니다"
-
-#: ../code/application/views/helpfile/pofields.php:874
-#, php-format
-msgid "And finally, you get the best price!"
-msgstr "마침내, 당신은 최적의 가격을 만납습니다 !"
-
+#: ../code/application/views/helpfile/pofields.php~:875
 #: ../code/application/views/helpfile/pofields.php:875
 #, php-format
 msgid "Best price guarantee"
 msgstr "최저 가격 보장"
 
+#: ../code/application/views/helpfile/pofields.php~:876
 #: ../code/application/views/helpfile/pofields.php:876
 #, php-format
 msgid "Free breakfast only"
 msgstr "아침 식사만 무료"
 
+#: ../code/application/views/helpfile/pofields.php~:877
 #: ../code/application/views/helpfile/pofields.php:877
 #, php-format
 msgid "Click here to book"
 msgstr "예약을 위해  여기를 클릭하십시오"
 
+#: ../code/application/views/helpfile/pofields.php~:878
 #: ../code/application/views/helpfile/pofields.php:878
 #, php-format
 msgid "1 million reviews"
 msgstr "1 백만개의 리뷰"
 
+#: ../code/application/views/helpfile/pofields.php~:879
 #: ../code/application/views/helpfile/pofields.php:879
 #, php-format
 msgid ""
@@ -8918,22 +9041,26 @@ msgid ""
 "properties"
 msgstr "지도상에서 최대 5개 호텔의 가격, 서비스 및 위치를 비교할 수 있습니다"
 
+#: ../code/application/views/helpfile/pofields.php~:880
 #: ../code/application/views/helpfile/pofields.php:880
 #, php-format
 msgid "Please click here to compare"
 msgstr "비교하기 위해 여기를 클릭하십시오"
 
+#: ../code/application/views/helpfile/pofields.php~:881
 #: ../code/application/views/helpfile/pofields.php:881
 #, php-format
 msgid "Click here to select this property"
 msgstr "이 호텔을 선택하려면 여기를 클릭하십시오"
 
+#: ../code/application/views/helpfile/pofields.php~:882
 #: ../code/application/views/helpfile/pofields.php:882
 #, php-format
 msgid ""
 "Lowest price for a bed in a dorm at this property for the selected dates"
 msgstr "선택한 날짜에,  본 숙박 시설의 기숙사 침대 최저가"
 
+#: ../code/application/views/helpfile/pofields.php~:883
 #: ../code/application/views/helpfile/pofields.php:883
 #, php-format
 msgid ""
@@ -8941,6 +9068,7 @@ msgid ""
 "dates"
 msgstr "선택한 날짜에, 본 숙박 시설 개인실의 인당 최저 가격"
 
+#: ../code/application/views/helpfile/pofields.php~:884
 #: ../code/application/views/helpfile/pofields.php:884
 #, php-format
 msgid ""
@@ -8950,11 +9078,13 @@ msgstr ""
 "객실 각 유형의 가격과  객실에 사용 가능한 침대의 최대 수를 보려면 여기를 클릭"
 "하십시오"
 
+#: ../code/application/views/helpfile/pofields.php~:885
 #: ../code/application/views/helpfile/pofields.php:885
 #, php-format
 msgid "You can filter the results based on their specific districts"
 msgstr "당신은  특정한 지역에 따라 결과를 필터링 할 수 있습니다"
 
+#: ../code/application/views/helpfile/pofields.php~:886
 #: ../code/application/views/helpfile/pofields.php:886
 #, php-format
 msgid ""
@@ -8964,25 +9094,64 @@ msgstr ""
 "특정 랜드 마크, 기차역과 공항에서  얼마나 가까운 지를 기준으로 필터링 할 수 "
 "있습니다"
 
+#: ../code/application/views/helpfile/pofields.php~:887
 #: ../code/application/views/helpfile/pofields.php:887
 #, php-format
 msgid "Click here to view pricing for this property"
 msgstr "이 호텔의 가격을 보려면 여기를 클릭하십시오"
 
-#: ../code/application/views/helpfile/pofields.php:889
-#, php-format
-msgid "The benefits"
-msgstr ""
-
-#: ../code/application/views/helpfile/pofields.php:890
-#, php-format
-msgid "Click here to see info and prices"
-msgstr "전체적인 평가"
-
+#: ../code/application/views/helpfile/pofields.php~:891
 #: ../code/application/views/helpfile/pofields.php:891
 #, php-format
 msgid "Save this property as favorite"
 msgstr "즐겨 찾기로 이 호텔을 저장"
+
+#: ../code/application/views/helpfile/pofields.php~:892
+#: ../code/application/views/helpfile/pofields.php:892
+#, php-format
+msgid "Filter by Landmarks, train stations, airports..."
+msgstr "랜드 마크, 기차역, 공항으로 필터링하기 ..."
+
+#: ../code/application/views/helpfile/pofields.php~:893
+#: ../code/application/views/helpfile/pofields.php:893
+#, php-format
+msgid "Expand the map"
+msgstr "지도를 확대하기"
+
+#: ../code/application/views/helpfile/pofields.php~:894
+#: ../code/application/views/helpfile/pofields.php:894
+#, php-format
+msgid "Select to compare"
+msgstr "비교하기 선택"
+
+#: ../code/application/views/helpfile/pofields.php~:895
+#: ../code/application/views/helpfile/pofields.php:895
+#, php-format
+msgid "Click here to compare"
+msgstr "비교하기 위해 여기를 클릭하십시오"
+
+#: ../code/application/views/helpfile/pofields.php~:896
+#: ../code/application/views/helpfile/pofields.php:896
+#, php-format
+msgid "Change dates and currency"
+msgstr "날짜 및 통화 변경하기"
+
+#: ../code/application/views/helpfile/pofields.php~:897
+#: ../code/application/views/helpfile/pofields.php:897
+#, php-format
+msgid "Click to expand map"
+msgstr "지도를 클릭하여 확장하기"
+
+#: ../code/application/views/helpfile/pofields.php~:898
+#: ../code/application/views/helpfile/pofields.php:898
+#, php-format
+msgid "Travel-Insurance"
+msgstr "여행 보험"
+
+#: ../code/application/views/helpfile/pofields.php:902
+#, fuzzy, php-format
+msgid "Click here to see the benefits"
+msgstr "이 호텔을 선택하려면 여기를 클릭하십시오"
 
 #: ../code/application/views/review_empty.php:2
 #: ../code/application/views/review_empty-map.php:7
@@ -9152,14 +9321,6 @@ msgstr ""
 "월드와이드 단체 센터는 영국, 런던에 있으므로 예약금은 영국 파운드로 계산됩니"
 "다."
 
-#: ../code/application/views/restricted/user_group_quote.php:308
-msgid ""
-"The Average price per person per night is for the requested arrival date and "
-"length of stay, actual day-by-day prices may vary."
-msgstr ""
-"개인당 1박 평균비용은 요청하신 도착 날짜와 체류기간 기준입니다. 실제 일일 가"
-"격은 다를 수 있습니다."
-
 #: ../code/application/views/restricted/user_group_quote.php:310
 msgid ""
 "We act as agent only in respect of all bookings we take or make on your "
@@ -9233,7 +9394,7 @@ msgstr "도시"
 msgid "Retour à tous les pays d'"
 msgstr "모든 국가 옵션으로 돌아가기 "
 
-#: ../code/application/views/email/share_page-html.php:35
+#: ../code/application/views/email/share_page-html.php:41
 #: ../code/application/views/email/share_page-txt.php:1
 #, php-format
 msgid "%s has sent you a message:"
@@ -9828,31 +9989,31 @@ msgid "Donnez nous des nouvelles de votre séjour!"
 msgstr "귀하의 의견을 보내주시기 바랍니다."
 
 #: ../code/application/controllers/chostel.php:347
-#: ../code/application/controllers/chostelbk.php:386
+#: ../code/application/controllers/chostelbk.php:381
 #: ../code/application/controllers/cmain.php:382
 msgid "Données de réservations incomplètes."
 msgstr "예약 정보 불완전"
 
 #: ../code/application/controllers/chostel.php:356
-#: ../code/application/controllers/chostelbk.php:299
-#: ../code/application/controllers/chostelbk.php:353
-#: ../code/application/libraries/Hw_engine.php:1733
+#: ../code/application/controllers/chostelbk.php:294
+#: ../code/application/controllers/chostelbk.php:348
+#: ../code/application/libraries/Hw_engine.php:1749
 msgid "Serveur inaccessible. Veuillez réessayer plus tard."
 msgstr "서버에 접속할 수 없습니다. 나중에 다시 시도하십시오."
 
 #: ../code/application/controllers/chostel.php:757
-#: ../code/application/libraries/Hw_engine.php:2066
+#: ../code/application/libraries/Hw_engine.php:2082
 msgid "Erreur lors de la réservation"
 msgstr "예약 진행 중 오류"
 
 #: ../code/application/controllers/chostel.php:767
-#: ../code/application/controllers/chostelbk.php:559
-#: ../code/application/libraries/Hw_engine.php:2076
+#: ../code/application/controllers/chostelbk.php:555
+#: ../code/application/libraries/Hw_engine.php:2092
 msgid "Serveur inaccessible pour le moment. Veuillez réessayer de nouveau."
 msgstr "서버가 지금은 액세스할 수 없습니다. 다시 시도해주십시오."
 
 #: ../code/application/controllers/chostel.php:869
-#: ../code/application/controllers/chostelbk.php:676
+#: ../code/application/controllers/chostelbk.php:672
 #: ../code/application/controllers/cmain.php:507
 #, php-format
 msgid "Votre réservation sur %s!"
@@ -9886,87 +10047,93 @@ msgstr "전화 번호 :"
 msgid "Terms and conditions agreement"
 msgstr "약관 및 정책에 대한 동의"
 
-#: ../code/application/controllers/cmain.php:1778
+#: ../code/application/controllers/cmain.php:1819
 #: ../code/application/language/multi/tank_auth_lang.php:51
 msgid "Courriel"
 msgstr "이메일"
 
-#: ../code/application/controllers/cmain.php:1781
+#: ../code/application/controllers/cmain.php:1822
 msgid "Évaluation"
 msgstr "평가"
 
-#: ../code/application/controllers/cmain.php:1782
+#: ../code/application/controllers/cmain.php:1823
 msgid "Mois"
 msgstr "월"
 
-#: ../code/application/controllers/cmain.php:1783
+#: ../code/application/controllers/cmain.php:1824
 msgid "Année"
 msgstr "년"
 
-#: ../code/application/controllers/cmain.php:1822
+#: ../code/application/controllers/cmain.php:1863
 #, php-format
 msgid "Demande de modération pour la propriété %s"
 msgstr "요청하신 호스텔 %s 검색중"
 
-#: ../code/application/controllers/cmain.php:1904
+#: ../code/application/controllers/cmain.php:1945
 msgid "Accept terms and conditions agreement to proceed"
 msgstr "이용 약관에  동의하십시오."
 
-#: ../code/application/controllers/cmain.php:2439
+#: ../code/application/controllers/cmain.php:2491
 msgid "Please log in"
 msgstr "로그인을 해주세요"
 
-#: ../code/application/controllers/cmain.php:2476
+#: ../code/application/controllers/cmain.php:2528
 msgid "Invalid property"
 msgstr "유효하지 않은 호텔"
 
-#: ../code/application/controllers/cmain.php:2514
+#: ../code/application/controllers/cmain.php:2566
 msgid "Property not found"
 msgstr "호텔을 찾을 수 없습니다"
 
-#: ../code/application/controllers/cmain.php:2523
+#: ../code/application/controllers/cmain.php:2575
 msgid "Property is favorite already"
 msgstr "이미 마음에 드는 호텔입니다."
 
-#: ../code/application/controllers/cmain.php:2532
+#: ../code/application/controllers/cmain.php:2584
 msgid "Invalid number of nights"
 msgstr "유효하지 않은 숙박일 숫자"
 
-#: ../code/application/controllers/cmain.php:2549
+#: ../code/application/controllers/cmain.php:2601
 msgid "Invalid date"
 msgstr "유효하지 않은 날짜"
 
-#: ../code/application/controllers/cmain.php:2556
+#: ../code/application/controllers/cmain.php:2608
 #, php-format
 msgid "Notes are exceeding maximum of %d characters"
 msgstr "메모 내용이 최대 %d개의 문자를 초과했습니다."
 
 #: ../code/application/libraries/Hw_engine.php:139
 #: ../code/application/libraries/Hw_engine.php:167
-#: ../code/application/libraries/Hw_engine.php:589
+#: ../code/application/libraries/Hw_engine.php:581
 #: ../code/application/libraries/Hb_engine.php:168
 #: ../code/application/libraries/Hb_engine.php:194
-#: ../code/application/libraries/Hb_engine.php:592
 #, php-format
 msgid "Hostels in %s - %s"
 msgstr "%s - %s에 위치한 호스텔"
 
 #: ../code/application/libraries/Hw_engine.php:217
-#: ../code/application/libraries/Hb_engine.php:257
+#: ../code/application/libraries/Hb_engine.php:258
 msgid ""
 "Date et nombre de nuits invalide.  Valeurs ignorées lors de la recherche."
 msgstr ""
 "날짜 및 숙박 일수가 잘못 입력되었습니다. 값을 검색하는 동안 무시됩니다."
 
-#: ../code/application/libraries/Hw_engine.php:1104
-#: ../code/application/libraries/Hb_engine.php:1114
+#: ../code/application/libraries/Hw_engine.php:1120
+#: ../code/application/libraries/Hb_engine.php:1207
 #, php-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../code/application/libraries/Hw_engine.php:2025
+#: ../code/application/libraries/Hw_engine.php:2041
 msgid "Card not supported please choose another card"
 msgstr "다른 카드를  사용하십시오."
+
+#: ../code/application/libraries/Hb_engine.php:646
+#: ../code/application/libraries/Hb_engine.php:648
+#: ../code/application/libraries/Hb_engine.php:650
+#, fuzzy, php-format
+msgid "Properties in %s - %s"
+msgstr "%s에 위치한 호스텔"
 
 #: ../code/application/models/hostel_api_model.php:954
 msgid "Serveur indisponible en ce moment."
@@ -10153,6 +10320,9 @@ msgstr "연결 유지"
 #: ../code/application/language/multi/tank_auth_lang.php:52
 msgid "Code de confirmation"
 msgstr "확인 코드"
+
+#~ msgid "Close Map"
+#~ msgstr "지도 닫기"
 
 #~ msgid "Deposit to be paid now (%d)"
 #~ msgstr "지금 지불해야하는 보증금(%d)"
