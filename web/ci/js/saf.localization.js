@@ -16,7 +16,7 @@ function saf_changeCurrency(cur_code){
 	site_path = document.location.pathname;
 
 	setCookie('currency_selected', cur_code, 5);
-	if ( /\/info\/|^\/[^\/]*$/.test(site_path)){
+	if ( /\/info\/|^\/[^\/]+$/.test(site_path)){
 		
 	}else{
         document.location.href = site_path + "?currency="+cur_code;
